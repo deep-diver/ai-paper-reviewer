@@ -1,0 +1,5 @@
+{{ $id := delimit (slice "gallery" (partial "functions/uid.html" .)) "-" }}
+
+<div id="{{ $id }}" class="gallery">
+  {{ .Inner }}
+</div>
