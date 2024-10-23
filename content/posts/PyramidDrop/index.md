@@ -105,6 +105,7 @@ The related work section focuses on existing research in token reduction, specif
 
 {{< gallery >}}
   <img src="paper_imgs/2.png" class="grid-w33" />
+  <img src="paper_imgs/3.png" class="grid-w33" />
 {{< /gallery >}}
 
 ## 3. METHOD
