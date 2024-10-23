@@ -3,7 +3,7 @@
 # https://nunocoracao.github.io/blowfish/docs/getting-started/
 
 theme = "blowfish"
-baseURL = "https://deep-diver.github.io/blow-fish-test/"
+baseURL = "https://deep-diver.github.io/ai-paper-reviewer/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
