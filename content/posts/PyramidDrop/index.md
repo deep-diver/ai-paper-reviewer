@@ -12,11 +12,11 @@ draft: false
 ## Lorem ipsum dolor sit amet
 
 {{< gallery >}}
-  <img src="paper_imgs/1.jpg" class="grid-w33" />
-  <img src="paper_imgs/2.jpg" class="grid-w33" />
-  <img src="paper_imgs/3.jpg" class="grid-w33" />
-  <img src="paper_imgs/4.jpg" class="grid-w33" />
-  <img src="paper_imgs/5.jpg" class="grid-w33" />
-  <img src="paper_imgs/6.jpg" class="grid-w33" />
-  <img src="paper_imgs/7.jpg" class="grid-w33" />
+  <img src="paper_imgs/1.png" class="grid-w33" />
+  <img src="paper_imgs/2.png" class="grid-w33" />
+  <img src="paper_imgs/3.png" class="grid-w33" />
+  <img src="paper_imgs/4.png" class="grid-w33" />
+  <img src="paper_imgs/5.png" class="grid-w33" />
+  <img src="paper_imgs/6.png" class="grid-w33" />
+  <img src="paper_imgs/7.png" class="grid-w33" />
 {{< /gallery >}}
