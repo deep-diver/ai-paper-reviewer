@@ -21,21 +21,15 @@
   weight = 20
 
 [[main]]
-  identifier = "web"
-  pre = "link"
-  url = "https://nunocoracao.github.io/blowfish/"
-  weight = 40
-
-[[main]]
   identifier = "github"
   pre = "github"
-  url = "https://github.com/nunocoracao/blowfish"
+  url = "https://github.com/deep-diver/paper-reviewer/"
   weight = 50
 
 [[main]]
   identifier = "twitter"
   pre = "twitter"
-  url = "https://twitter.com/burufugu"
+  url = "https://twitter.com/algo_diver/"
   weight = 60
 
 
