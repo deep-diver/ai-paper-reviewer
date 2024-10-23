@@ -16,9 +16,9 @@ Large vision-language models (LVLMs) are computationally expensive because image
 
 This simple yet effective approach significantly accelerates both training and inference. Experiments demonstrate up to a 40% reduction in training time and a 55% reduction in inference FLOPs for LLaVA-NeXT, achieving comparable or even better performance than original models. PyramidDrop can also be used as a plug-and-play inference acceleration technique, outperforming other methods. The results suggest that not all visual tokens are equally important in all layers of the model, providing valuable insights for future LVLMs.
 
-{{< icon "circle-info" >}} [**Read the full paper at arXiv**](https://huggingface.co/papers/2410.17247)
-
 {{< /lead >}}
+
+{{< icon "circle-info" >}} [**Read the full paper at arXiv**](https://huggingface.co/papers/2410.17247)
 
 ### How to read guide
 
@@ -131,14 +131,23 @@ Overall, PyramidDrop offers a strategy for efficiently reducing the computationa
   <img src="paper_imgs/4.png" class="grid-w33" />
 {{< /gallery >}}
 
-## TEST
+## 4. EXPERIMENT
+
+This experiment section focuses on evaluating the PyramidDrop method's efficiency and effectiveness in both training and inference phases.  Two large vision-language models (LVLMs), LLaVA-1.5-Vicuna-7B and LLaVA-Next-Vicuna-7B, are used as the base models.  The high-resolution capability of LLaVA-Next allows experiments exploring the effects of varied image tokens. A total of 14 benchmarks, including TextVQA, DocVQA, MMBench, and MME, are employed to comprehensively assess the model's performance.  Efficiency evaluation includes training time (GPU hours) and inference FLOPs, aiming to quantify the computational savings brought by PyramidDrop. Implementation details specify that the LLM's 32 layers are split into 4 stages with a drop ratio of 0.5, where 50% of the image tokens are dropped at the end of each stage. The ranking of tokens is based on the attention value between image tokens and the last token of the instruction, ensuring the model maintains essential information while discarding redundancies. Results demonstrate that PyramidDrop can reduce training time up to 40% for LLaVA-Next and shows promise as a plug-and-play inference acceleration strategy.
+
+![](paper_imgs/figure_7_0.png "The image presents a comparative analysis of the performance of the original LLaVA-1.5 model versus the same model trained with PyramidDrop. The performance metric used is the TextVQA score, which is plotted against varying ratios of retained image tokens at different layers (Layer 2, Layer 8, Layer 16, and Layer 24). Each subplot represents a different layer, illustrating how the TextVQA score changes as a higher proportion of image tokens are preserved.  The x-axis in each subplot represents the ratio of retained image tokens (from 0 to 1), while the y-axis represents the corresponding TextVQA score.  In all layers, the model trained with PyramidDrop shows consistently higher or comparable performance to the original model, suggesting that the PyramidDrop method effectively reduces redundancy without sacrificing performance.")
+
+### **Key Points**
+- 40% reduction in training time for LLaVA-Next with PyramidDrop
+- 14 benchmarks used for comprehensive evaluation
+- LLaVA-1.5 and LLaVA-Next models used
+- Efficiency measured in GPU hours and FLOPs
+- Implementation details clearly describe the layer splitting and token dropping strategy
 
 {{< gallery >}}
-  <img src="paper_imgs/1.png" class="grid-w33" />
-  <img src="paper_imgs/2.png" class="grid-w33" />
-  <img src="paper_imgs/3.png" class="grid-w33" />
-  <img src="paper_imgs/4.png" class="grid-w33" />
-  <img src="paper_imgs/5.png" class="grid-w33" />
   <img src="paper_imgs/6.png" class="grid-w33" />
   <img src="paper_imgs/7.png" class="grid-w33" />
+  <img src="paper_imgs/8.png" class="grid-w33" />
+  <img src="paper_imgs/9.png" class="grid-w33" />
+  <img src="paper_imgs/10.png" class="grid-w33" />
 {{< /gallery >}}
