@@ -24,30 +24,42 @@ This simple yet effective approach significantly accelerates both training and i
 Start by grasping the overall problem: LVLMs are slow due to the high number of image tokens. Understand the context of existing token reduction methods and why they are insufficient. This sets the stage for the proposed solution.
 {{< /alert >}}
 
+<br>
+
 {{< alert "check" >}}
 **Study of Visual Token Redundancy(3.1)** <br>
 This is crucial. The paper's core insight is revealed here – that image token redundancy increases across layers of the LVLM. Understanding the empirical evidence (Figure 1) is essential to appreciating the rationale behind PyramidDrop.
 {{< /alert >}}  
+
+<br>
 
 {{< alert "check" >}}
 **PyramidDrop Method(3.2)** <br>
 After understanding the problem and the key insight, dive into the proposed solution. Focus on how PyramidDrop works: the staged approach, token dropping based on attention weights, and the overall design (Figure 2).
 {{< /alert >}}
 
+<br>
+
 {{< alert "check" >}}
 **Efficiency Analysis(3.3)** <br>
 This section justifies the claimed efficiency gains. While potentially more technical, understanding the computational complexity argument adds weight to the method's practicality. Don't get bogged down in complex equations; focus on the general conclusions.
 {{< /alert >}}
+
+<br>
 
 {{< alert "check" >}}
 **Experiments & Results(4)** <br>
 This section presents the results. It's crucial to understand the trade-offs and the performance of PyramidDrop compared to the baseline. Focus on the key results (Tables 1, 2, 5, Figures 3, 4).
 {{< /alert >}}
 
+<br>
+
 {{< alert "check" >}}
 **Ablation Study & Further Analysis(4.2 & 4.3)** <br>
 This strengthens the claims. Analyze how different choices in hyperparameters (e.g., the dropping ratio) affect the results. This section provides further justification and context. Visualizations in Figure 5 can provide additional intuition.
 {{< /alert >}}
+
+<br>
 
 {{< alert "check" >}}
 **Conclusion(5)** <br>
