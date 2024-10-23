@@ -22,7 +22,9 @@ This simple yet effective approach significantly accelerates both training and i
 
   {{< timeline >}}
 
-  {{< timelineItem icon="check" header="Introduction & Related Work" subheader="[Section 1 & 2](#Test)">}}
+  {{< timelineItem icon="check" header="Introduction & Related Work">}}
+  [Section 1 & 2](#Test)
+  
   Start by grasping the overall problem: LVLMs are slow due to the high number of image tokens. Understand the context of existing token reduction methods and why they are insufficient. This sets the stage for the proposed solution.
   {{< /timelineItem >}}
 
