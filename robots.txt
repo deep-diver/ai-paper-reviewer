@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+Sitemap: https://deep-diver.github.io/blow-fish-test/sitemap.xml
