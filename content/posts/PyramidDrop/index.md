@@ -19,6 +19,11 @@ This simple yet effective approach significantly accelerates both training and i
 
 ### How to read guide
 
+<details>
+<summary>
+Let's learn how to read this paper efficiently
+</summary>
+
 {{< alert "check" >}}
 **Introduction & Related Work(1 & 2)** <br>
 Start by grasping the overall problem: LVLMs are slow due to the high number of image tokens. Understand the context of existing token reduction methods and why they are insufficient. This sets the stage for the proposed solution.
@@ -66,7 +71,25 @@ This strengthens the claims. Analyze how different choices in hyperparameters (e
 Recap the main findings and the significance of the work.
 {{< /alert >}}
 
-## Test
+</details>
+
+## INTRODUCTION
+
+Large Vision-Language Models (LVLMs) have shown remarkable progress in various applications, but their computational costs are a significant challenge.  Images, as information-rich inputs, are often represented using hundreds or even thousands of tokens in current LVLMs. This leads to quadratically increasing computational costs with higher image resolutions, impacting both training and inference efficiency. Previous methods tried reducing image tokens either before or within early LVLM layers, but this resulted in information loss and diminished performance. The introduction highlights the need for new approaches to address the efficiency challenges posed by the high dimensionality of image data in LVLMs, setting the stage for the proposed PyramidDrop method.
+
+{{< icon "wand-magic-sparkles" >}} Key Points
+- The computational cost of LVLMs grows quadratically with image resolution.
+- Current methods for reducing image tokens often lead to information loss and reduced performance.
+- Images, despite being rich in information, exhibit substantial spatial redundancy.
+- The need for efficient training and inference of LVLMs is highlighted as a critical problem in the field of deep learning research.
+- The introduction sets the stage for the proposed PyramidDrop method which aims to address the aforementioned challenges of efficiency and information loss associated with large vision-language models.
+
+{{< gallery >}}
+  <img src="paper_imgs/1.png" class="grid-w33" />
+  <img src="paper_imgs/2.png" class="grid-w33" />
+{{< /gallery >}}
+
+## TEST
 
 {{< gallery >}}
   <img src="paper_imgs/1.png" class="grid-w33" />
