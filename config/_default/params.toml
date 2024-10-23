@@ -54,13 +54,13 @@ mainSections = ["posts"]
   showPagination = true
   invertPagination = false
   showReadingTime = true
-  showTableOfContents = true
+  showTableOfContents = false
   showTaxonomies = true
   showAuthorsBadges = false 
   showWordCount = true
   showSummary = true
   showComments = true
-  sharingLinks = [ "linkedin", "twitter", "whatsapp", "pinterest", "reddit", "facebook", "email"]
+  sharingLinks = ["linkedin", "twitter", "email"]
 
 [list]
   showHero = true
