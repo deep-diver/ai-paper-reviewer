@@ -25,7 +25,7 @@ Let's learn how to read this paper efficiently
 </summary>
 
 {{< alert "check" >}}
-**Introduction & Related Work(1 & 2)** <br>
+**Introduction & Related Work([1](#1-introduction) & 2)** <br>
 Start by grasping the overall problem: LVLMs are slow due to the high number of image tokens. Understand the context of existing token reduction methods and why they are insufficient. This sets the stage for the proposed solution.
 {{< /alert >}}
 
