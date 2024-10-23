@@ -11,7 +11,7 @@ draft: false
 
 ## Lorem ipsum dolor sit amet
 
-{{$ gallery >}}
+{{< gallery >}}
   <img src="paper_imgs/1.jpg" class="grid-w33" />
   <img src="paper_imgs/2.jpg" class="grid-w33" />
   <img src="paper_imgs/3.jpg" class="grid-w33" />
