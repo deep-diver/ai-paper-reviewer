@@ -73,11 +73,11 @@ Recap the main findings and the significance of the work.
 
 </details>
 
-## INTRODUCTION
+## 1. INTRODUCTION
 
 Large Vision-Language Models (LVLMs) have shown remarkable progress in various applications, but their computational costs are a significant challenge.  Images, as information-rich inputs, are often represented using hundreds or even thousands of tokens in current LVLMs. This leads to quadratically increasing computational costs with higher image resolutions, impacting both training and inference efficiency. Previous methods tried reducing image tokens either before or within early LVLM layers, but this resulted in information loss and diminished performance. The introduction highlights the need for new approaches to address the efficiency challenges posed by the high dimensionality of image data in LVLMs, setting the stage for the proposed PyramidDrop method.
 
-{{< icon "wand-magic-sparkles" >}} Key Points
+{{< icon "wand-magic-sparkles" >}} **Key Points**
 - The computational cost of LVLMs grows quadratically with image resolution.
 - Current methods for reducing image tokens often lead to information loss and reduced performance.
 - Images, despite being rich in information, exhibit substantial spatial redundancy.
