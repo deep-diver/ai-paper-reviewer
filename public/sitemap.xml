@@ -3,90 +3,90 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/blow-fish-test/categories/blog/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/categories/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/categories/blog/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/tags/ipsum/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/categories/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/tags/lorem/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/tags/ipsum/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/tags/post/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/tags/lorem/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/categories/post/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/tags/post/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/categories/post/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/posts/post-lite-one/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/post-lite-one/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/posts/post-lite-three/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/post-lite-three/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/posts/post-lite-two/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/post-lite-two/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/tags/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/tags/</loc>
     <lastmod>2022-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/posts/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/</loc>
     <lastmod>2022-06-13T20:55:37+01:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/posts/post-lite-four/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/post-lite-four/</loc>
     <lastmod>2021-09-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/authors/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/authors/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/blow-fish-test/series/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/series/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
