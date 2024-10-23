@@ -72,6 +72,7 @@ mainSections = ["posts"]
   groupByYear = true
   cardView = true
   cardViewScreenWidth = false
+  showTaxonomies = true
 
 [sitemap]
   excludedKinds = []
