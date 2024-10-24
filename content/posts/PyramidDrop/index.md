@@ -8,19 +8,206 @@ date: 2024-10-22
 draft: false
 ---
 
-## TL;DR
+### TL;DR
 
 {{< lead >}}
-Large vision-language models (LVLMs) are computationally intensive due to the high number of image tokens. Traditional methods either lose key information or reduce tokens too early, affecting performance. PyramidDrop introduces a smarter approach: it progressively drops redundant image tokens in deeper layers, leveraging the observation that visual redundancy increases as models process deeper features.
 
-PyramidDrop accelerates training by up to 40% and reduces inference FLOPs by 55%, achieving similar or better performance compared to original models like LLaVA-NeXT. This method can also be applied as a plug-and-play acceleration technique, showing superior results over existing solutions. PyramidDrop highlights that not all visual tokens are equally critical throughout a model's depth, offering valuable insights for future LVLM designs.
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+
 {{< /lead >}}
 
-{{< icon "circle-info" >}} [**Read the full paper on arXiv**](https://huggingface.co/papers/2410.17247)
+{{< button href="#button" target="_self" >}}
+{{< icon "link" >}} &nbsp; read the paper on arXiv
+{{< /button >}}
+
+#### Why does this paper matter?
+
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+
+#### Key Takeaways
+
+{{< alert "star" >}}
+{{< typeit speed=10 lifeLike=true >}} blah blah blah blah blah blah blah blah blah {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} blah blah blah blah blah blah blah blah blah {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} blah blah blah blah blah blah blah blah blah {{< /typeit >}}
+{{< /alert >}}
+
+#### Visual Insights
+
+![Results](paper_imgs/figure_2_0.png "Figure 1. Observatioins about visual redundancy acoross layers. Left: TextVQA performance of LLaVA-1.5 with varying ratio of retained image tokens at different layer. The preserved image tokens are those that receive the highest attention from the text tokens. Right: Visualization of attention map in shallow and deep layers.")
+
+![Results](paper_imgs/table.png "Table 1. LVLM w and w/o our method on 6 benchmarks. Benchmark names are abbreviated due to space limits. MMB: MMBenchmark (Liu et al., 2023); MMBCN : MMBench-Chinese (Liu et al.,2023); SEEDI: SEED-Bench (Image) (Li et al., 2023b). We denote PyramidDrop as PDrop.")
+
+<details>
+<summary>More visual insights
+</summary>
+
+![Results](paper_imgs/figure_3_0.png "Figure 2. Overview of PyramidDrop. We divide the forward pass of the LLM into multiple stages, and drop part of the image tokens at the end of each stage with a pre-defined ratio. The dropping is based on a lightweight attention calculation with a negligible time overhead, and according to this criterion, the LLM accurately selects important image tokens related to instruction. Due to the efficient redundancy reduction strategy, the average sequence length decreases rapidly.")
+![Results](paper_imgs/figure_7_0.png "Figure 3. We compare the performance of the original LLaVA-1.5 and LLaVA-1.5 trained using PDrop, where we preserve different ratios of image tokens at layer 2, 8, 16, and 24, respectively. The horizontal axis represents the proportion of retained image tokens according to attention score.")
+</details>
+
+### Section Summary
+
+#### Introduction
+
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+
+{{< alert "reference" >}}
+Ref. [blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+
+<details>
+<summary>
+More references to follow-up
+</summary>
+
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+</details>
+
+#### Related Work
+
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+
+{{< alert "reference" >}}
+Ref. [blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+
+<details>
+<summary>
+More references to follow-up
+</summary>
+
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+</details>
+
+#### Method
+
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+
+{{< alert "reference" >}}
+Ref. [blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+
+<details>
+<summary>
+More references to follow-up
+</summary>
+
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+</details>
+
+#### Experiments
+
+blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
+
+{{< alert "reference" >}}
+Ref. [blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+
+<details>
+<summary>
+More references to follow-up
+</summary>
+
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+{{< alert "reference" >}}
+[blah blah blah blah blah blah blah blah blah](#)
+{{< /alert >}}
+</details>
+
+### Paper Image
+
+{{< gallery >}}
+  <img src="paper_imgs/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+  <img src="paper_imgs/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+{{< /gallery >}}
 
 ---
 
-### Reading Guide
+<!-- ### Reading Guide
 
 <details>
 <summary>
@@ -151,4 +338,4 @@ The experiments demonstrate PyramidDrop's efficiency and its minimal impact on p
   <img src="paper_imgs/8.png" class="grid-w33" />
   <img src="paper_imgs/9.png" class="grid-w33" />
 {{< /gallery >}}
-
+ -->
