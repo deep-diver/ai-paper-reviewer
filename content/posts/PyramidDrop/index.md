@@ -38,9 +38,13 @@ blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah 
 {{< typeit speed=10 startDelay=2000 lifeLike=true >}} blah blah blah blah blah blah blah blah blah {{< /typeit >}}
 {{< /alert >}}
 
+------
+
 #### Visual Insights
 
 ![Results](paper_imgs/figure_2_0.png "Figure 1. Observatioins about visual redundancy acoross layers. Left: TextVQA performance of LLaVA-1.5 with varying ratio of retained image tokens at different layer. The preserved image tokens are those that receive the highest attention from the text tokens. Right: Visualization of attention map in shallow and deep layers.")
+
+<br><table id='1' style='font-size:14px'><tr><td>Model</td><td>Train & Infer</td><td>GPU hours</td><td>#patches</td><td>Infer Flops(T)</td><td>MME</td><td>MMB</td><td>MMB CN</td><td>SEEDI</td><td>MM Star</td><td>POPE</td><td>Avg</td></tr><tr><td rowspan="4">LLaVA -NeXT-7B</td><td>vanilla</td><td>366</td><td>5</td><td>20.8</td><td>1534.1</td><td>68.7</td><td>60.5</td><td>71.1</td><td>41.1</td><td>86.1</td><td>67.4</td></tr><tr><td>PDrop</td><td>218</td><td>5</td><td>9.46</td><td>1540.8</td><td>67.8</td><td>60.6</td><td>69.9</td><td>41.7</td><td>86.5</td><td>67.3</td></tr><tr><td>vanilla</td><td>483</td><td>9</td><td>40.6</td><td>1544.7</td><td>67.4</td><td>60.0</td><td>69.5</td><td>40.0</td><td>86.3</td><td>66.7</td></tr><tr><td>PDrop</td><td>269</td><td>9</td><td>18.1</td><td>1542.0</td><td>68.1</td><td>61.0</td><td>70.3</td><td>40.9</td><td>86.6</td><td>67.3</td></tr><tr><td rowspan="2">LLaVA -1.5-7B</td><td>vanilla</td><td>104</td><td>1</td><td>3.82</td><td>1510.7</td><td>64.3</td><td>58.3</td><td>66.1</td><td>33.2</td><td>85.9</td><td>63.9</td></tr><tr><td>PDrop</td><td>79</td><td>1</td><td>1.78</td><td>1467.3</td><td>66.1</td><td>58.5</td><td>65.5</td><td>34.0</td><td>86.0</td><td>63.9</td></tr></table>
 
 ![Results](paper_imgs/table.png "Table 1. LVLM w and w/o our method on 6 benchmarks. Benchmark names are abbreviated due to space limits. MMB: MMBenchmark (Liu et al., 2023); MMBCN : MMBench-Chinese (Liu et al.,2023); SEEDI: SEED-Bench (Image) (Li et al., 2023b). We denote PyramidDrop as PDrop.")
 

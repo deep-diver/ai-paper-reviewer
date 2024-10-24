@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Post on AI Paper Reviews by AI</title>
-    <link>http://localhost:1313/ai-paper-reviewer/categories/post/</link>
+    <link>http://localhost:51469/ai-paper-reviewer/categories/post/</link>
     <description>Recent content in Post on AI Paper Reviews by AI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
-    <lastBuildDate>Tue, 22 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/categories/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:51469/ai-paper-reviewer/categories/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PyramidDrop: Accelerating Large Vision-Language Models via Visual Redundancy Reduction</title>
-      <link>http://localhost:1313/ai-paper-reviewer/posts/pyramiddrop/</link>
+      <link>http://localhost:51469/ai-paper-reviewer/posts/pyramiddrop/</link>
       <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/posts/pyramiddrop/</guid>
+      <guid>http://localhost:51469/ai-paper-reviewer/posts/pyramiddrop/</guid>
       <description>PyramidDrop selectively reduces redundant visual tokens in deeper layers of large vision-language models, accelerating training and inference while maintaining performance.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/pyramiddrop/cover.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:51469/ai-paper-reviewer/posts/pyramiddrop/cover.png" />
     </item>
     
   </channel>
