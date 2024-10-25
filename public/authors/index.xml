@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors on AI Paper Reviews by AI</title>
-    <link>http://localhost:51469/ai-paper-reviewer/authors/</link>
+    <link>http://localhost:1313/ai-paper-reviewer/authors/</link>
     <description>Recent content in Authors on AI Paper Reviews by AI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
-    <atom:link href="http://localhost:51469/ai-paper-reviewer/authors/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/ai-paper-reviewer/authors/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
