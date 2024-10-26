@@ -64,7 +64,6 @@ CAMEL-Bench is a new, comprehensive benchmark for evaluating large multimodal mo
 {{< /table-caption >}}
 
 
-------
 
 
 
@@ -91,8 +90,6 @@ CAMEL-Bench is a new, comprehensive benchmark for evaluating large multimodal mo
 
 
 
-
-------
 
 <details>
 <summary>More on tables
@@ -159,3 +156,30 @@ CAMEL-Bench is a new, comprehensive benchmark for evaluating large multimodal mo
 
 ------
 
+
+
+### Full paper
+
+{{< gallery >}}
+
+  <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+{{< /gallery >}}

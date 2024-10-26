@@ -58,15 +58,12 @@ This paper is important because it introduces a novel asynchronous off-policy ap
 {{< /table-caption >}}
 
 
-------
 
 
 
 
 
 
-
-------
 
 <details>
 <summary>More on tables
@@ -146,3 +143,46 @@ This paper is important because it introduces a novel asynchronous off-policy ap
 
 ------
 
+
+
+### Full paper
+
+{{< gallery >}}
+
+  <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+{{< /gallery >}}
