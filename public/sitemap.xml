@@ -21,7 +21,85 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18976/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/ai-paper-reviewer/categories/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18505/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18647/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18860/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18798/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18978/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18533/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18977/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18775/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18785/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18451/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18538/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18958/</loc>
     <lastmod>2024-10-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -33,7 +111,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18072/</loc>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18572/</loc>
     <lastmod>2024-10-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -45,19 +123,61 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18693/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18362/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18745/</loc>
+    <lastmod>2024-10-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/tags/2024-10-23/</loc>
+    <lastmod>2024-10-23T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.17779/</loc>
+    <lastmod>2024-10-23T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18252/</loc>
+    <lastmod>2024-10-23T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18234/</loc>
+    <lastmod>2024-10-23T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.17897/</loc>
+    <lastmod>2024-10-23T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.18194/</loc>
+    <lastmod>2024-10-23T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/ai-paper-reviewer/tags/2024-10-22/</loc>
-    <lastmod>2024-10-22T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/ai-paper-reviewer/tags/ai/</loc>
-    <lastmod>2024-10-22T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/ai-paper-reviewer/categories/blog/</loc>
     <lastmod>2024-10-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -69,26 +189,32 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/ai-paper-reviewer/tags/machine-learning/</loc>
-    <lastmod>2024-10-22T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/ai-paper-reviewer/tags/2024-10-21/</loc>
+    <lastmod>2024-10-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/ai-paper-reviewer/categories/post/</loc>
-    <lastmod>2024-10-22T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.16251/</loc>
+    <lastmod>2024-10-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/ai-paper-reviewer/posts/pyramiddrop/</loc>
-    <lastmod>2024-10-22T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.15580/</loc>
+    <lastmod>2024-10-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/ai-paper-reviewer/tags/vision-language-models/</loc>
-    <lastmod>2024-10-22T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.16429/</loc>
+    <lastmod>2024-10-21T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/posts/2410.15999/</loc>
+    <lastmod>2024-10-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

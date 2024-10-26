@@ -11,7 +11,7 @@
   <title>Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss &middot; AI Paper Reviews by AI</title>
   <meta name="title" content="Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss &middot; AI Paper Reviews by AI" />
   
-  <meta name="description" content="This paper presents Inf-CL, a novel method that dramatically reduces memory usage in contrastive learning, enabling training with significantly larger batch sizes (millions of samples) than previously....." />
+  <meta name="description" content="Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes....." />
   <meta name="keywords" content="2024-10-22, " />
   
   
@@ -69,7 +69,7 @@
   <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/posts/2410.17243/">
   <meta property="og:site_name" content="AI Paper Reviews by AI">
   <meta property="og:title" content="Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss">
-  <meta property="og:description" content="This paper presents Inf-CL, a novel method that dramatically reduces memory usage in contrastive learning, enabling training with significantly larger batch sizes (millions of samples) than previously…..">
+  <meta property="og:description" content="Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes…..">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -82,7 +82,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/posts/2410.17243/cover.png">
   <meta name="twitter:title" content="Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss">
-  <meta name="twitter:description" content="This paper presents Inf-CL, a novel method that dramatically reduces memory usage in contrastive learning, enabling training with significantly larger batch sizes (millions of samples) than previously…..">
+  <meta name="twitter:description" content="Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes…..">
 
   
   <script type="application/ld+json">
@@ -93,7 +93,7 @@
     "name": "Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss",
     "headline": "Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss",
     
-    "abstract": "This paper presents Inf-CL, a novel method that dramatically reduces memory usage in contrastive learning, enabling training with significantly larger batch sizes (millions of samples) than previously\u0026hellip;..",
+    "abstract": "Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes\u0026hellip;..",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/posts\/2410.17243\/",
     "author" : {
@@ -109,7 +109,7 @@
     "keywords": ["2024-10-22"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "2190"
+    "wordCount": "796"
   }]
   </script>
 
@@ -626,7 +626,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-22T00:00:00&#43;00:00">22 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2190 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">11 mins</span>
+  <time datetime="2024-10-22T00:00:00&#43;00:00">22 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>796 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
   
 
   
@@ -881,7 +881,7 @@
     
 </h3>
 <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  This paper presents Inf-CL, a novel method that dramatically reduces memory usage in contrastive learning, enabling training with significantly larger batch sizes (millions of samples) than previously possible.  This is achieved through a tile-based approach to loss calculation combined with a multi-level tiling strategy for distributed GPU training.  Inf-CL achieves this significant memory reduction with minimal impact on training speed, opening up new possibilities for training larger and more accurate models.
+  Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes, dramatically reducing memory costs and achieving a two-order of magnitude improvement over the state-of-the-art while maintaining accuracy and comparable training speed.
 </div>
 
 <a
@@ -919,7 +919,7 @@
     </span>        
     
 </h4>
-<p>This paper introduces Inf-CL, a novel method to overcome the GPU memory limitations in contrastive learning, allowing for near-infinite batch size scaling.  This is achieved by a tile-based computation strategy that avoids the full materialization of the similarity matrix and employs multi-level tiling for distributed training systems. Inf-CL demonstrates significant memory reduction and maintains comparable speed to previous methods, enabling contrastive training of large models with unprecedented batch sizes.</p>
+<p>This paper introduces Inf-CL, a novel method for training contrastive loss models with near-infinite batch sizes.  It addresses the memory bottleneck inherent in contrastive learning by using a tile-based computation strategy that avoids the full materialization of the similarity matrix. This approach, combined with a multi-level tiling strategy, allows for scaling batch sizes to unprecedented levels without sacrificing accuracy, making it a significant advancement for large-scale contrastive learning.</p>
 
 
 <h4 class="relative group">Key Takeaways 
@@ -966,7 +966,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-dfdde7432f4c415edf358eb905174c57", {
-        strings: [" Inf-CL enables near-infinite batch size scaling for contrastive loss by using a tile-based computation strategy. "],
+        strings: [" Inf-CL achieves near-infinite batch size scaling for contrastive loss by using a tile-based computation strategy that avoids materializing the full similarity matrix. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  0 ,
@@ -1013,7 +1013,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-b1f0e78e8e625365c68c0a092bc862fa", {
-        strings: [" Inf-CL employs a multi-level tiling strategy to optimize communication and computation across distributed training systems. "],
+        strings: [" A multi-level tiling strategy further optimizes Inf-CL for distributed training, balancing memory and computational efficiency. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  1000 ,
@@ -1060,7 +1060,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-1f7005184da8ba1d7c9f871aa4f407cf", {
-        strings: [" Inf-CL achieves significant memory reduction and maintains comparable speed to state-of-the-art methods, enabling contrastive training of large models with unprecedented batch sizes. "],
+        strings: [" Inf-CL demonstrates significant memory reduction (two orders of magnitude) while maintaining comparable training speed and accuracy to existing methods. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  2000 ,
@@ -1105,196 +1105,6 @@
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128. * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Require: Number of GPUs n, in-memory visual features Ir E Rbsxc and textual features Ti E Rbsxc for each GPU.</th>
-          <th>Require: Number of GPUs n, in-memory visual features Ir E Rbsxc and textual features Ti E Rbsxc for each GPU.</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1:</td>
-          <td>for counter = 1 to n do</td>
-      </tr>
-      <tr>
-          <td>2:</td>
-          <td>Update LSE:</td>
-      </tr>
-      <tr>
-          <td>3:</td>
-          <td>Each GPU computes the local LSE vector via Algorithm 2 with in-memory features.</td>
-      </tr>
-      <tr>
-          <td>4:</td>
-          <td>Each GPU updates the LSE vector via Equation 4.</td>
-      </tr>
-      <tr>
-          <td>5:</td>
-          <td>Asynchronously Communication:</td>
-      </tr>
-      <tr>
-          <td>6:</td>
-          <td>Each GPU sends the in-memory textual feature to the next GPU in the ring.</td>
-      </tr>
-      <tr>
-          <td>7:</td>
-          <td>Each GPU receives the textual feature from the previous GPU in the ring.</td>
-      </tr>
-      <tr>
-          <td>8:</td>
-          <td>end for</td>
-      </tr>
-      <tr>
-          <td>9:</td>
-          <td>Return the final LSE vector li for each GPU .</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
-<hr>
-<details>
-<summary>More on figures
-</summary>
-<p>
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu1084490550530865033.png 330w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu6036436307281995798.png 660w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu6229399332252365267.png 1024w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu11358605732926689674.png 2x"
-        src="/ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu6036436307281995798.png"
-        alt=""
-      />
-      <figcaption>🔼 Figure 2: (a) Vanilla implementation of contrastive loss gathers features to all devices to calculate all similarity simultaneously, where the similarity with squared complexity are repeatedly stored in all devices, causing huge memory costs for loss calculation when batch size increases. (b) Our Inf-CL significant decreases the memory cost by serial and distributed tile-wise computation.</figcaption>
-    </figure>
-</p>
-<p>
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu16153983754419928104.png 330w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu10164882669488392622.png 660w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu7269228017017978880.png 1024w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu4080773562518863380.png 2x"
-        src="/ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu10164882669488392622.png"
-        alt=""
-      />
-      <figcaption>🔼 Figure 1: GPU memory usage comparison between Inf-CL and previous methods (CLIP, Open-CLIP). The dashed line marks the common GPU memory limit. Memory costs exceeding the bottleneck of 80G A800 are estimated by curve fitting. Left: With 8×A800, CLIP and OpenCLIP&rsquo;s memory consumption increases quadratically, while Inf-CL achieves linear growth, reducing memory costs by 78× at a batch size of 256k. Right: At a batch size of 1024k, even with 128 GPUs, previous methods exceed memory limits, whereas Inf-CL reduces memory demand by 281×.</figcaption>
-    </figure>
-</p>
-<p>
-    <figure>
-      <img
-        class="my-0 rounded-md"
-        loading="lazy"
-        srcset="
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu13651664587272488253.png 330w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu17607616463093652465.png 660w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu10503309417979163930.png 1024w,
-        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu13926773247879656159.png 2x"
-        src="/ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu17607616463093652465.png"
-        alt=""
-      />
-      <figcaption>🔼 Figure 3: Multi-level tiling strategy. Top: for cross-GPU tiling, each GPU is assigned with multiple rows. The computation and the column-wise communication are performed asynchronously to reduce the cost. Bottom: for in-GPU tiling, the calculations in each GPU are further divided into tiles and the row-wise calculation is distributed to multiple CUDA cores. The accumulative operations of each row are merged into one kernel for reducing I/O times between SRAM and HBM.</figcaption>
-    </figure>
-</p>
-</details>
-<hr>
-<hr>
-<details>
-<summary>More on tables
-</summary>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128. * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Require: Visual features: I E Rbsxc and textual features: T E Rbsxc, the row-wise and column- wise size of a tile: tr and tc.</th>
-          <th>Require: Visual features: I E Rbsxc and textual features: T E Rbsxc, the row-wise and column- wise size of a tile: tr and tc.</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1:</td>
-          <td>Divide I into Ir where i = 1,2, . . . , nr.</td>
-      </tr>
-      <tr>
-          <td>2:</td>
-          <td>Divide T into Tj where j = 1, 2, · · . , nc.</td>
-      </tr>
-      <tr>
-          <td>3:</td>
-          <td>parallel for each Ir do</td>
-      </tr>
-      <tr>
-          <td>4:</td>
-          <td>Load Ii from HBM to on-chip SRAM.</td>
-      </tr>
-      <tr>
-          <td>5:</td>
-          <td>Initialize in = 0 E Rtr.</td>
-      </tr>
-      <tr>
-          <td>6:</td>
-          <td>for j = 1 to nr do</td>
-      </tr>
-      <tr>
-          <td>7:</td>
-          <td>Load Tj from HBM to on-chip SRAM.</td>
-      </tr>
-      <tr>
-          <td>8:</td>
-          <td>On chip, compute Xi⌀ = Ii · Th E Rtrxtc.</td>
-      </tr>
-      <tr>
-          <td>9:</td>
-          <td>On chip, calculate tile LSE li⌀j based on Equation 5:</td>
-      </tr>
-      <tr>
-          <td>10:</td>
-          <td>li⌀s = mi⌀j + LSE(Xi,j - mi,j), where mi⌀i rowmax( Xi,j).</td>
-      </tr>
-      <tr>
-          <td>11:</td>
-          <td>On chip, update LSE li based on Equation 4:</td>
-      </tr>
-      <tr>
-          <td>12:</td>
-          <td>li ← 12 + log(1 + exp(livi - lr)).</td>
-      </tr>
-      <tr>
-          <td>13:</td>
-          <td>end for</td>
-      </tr>
-      <tr>
-          <td>14:</td>
-          <td>Write li to HBM.</td>
-      </tr>
-      <tr>
-          <td>15:</td>
-          <td>end parallel for</td>
-      </tr>
-      <tr>
-          <td>16:</td>
-          <td>Return l.</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes</caption>
       <table>
   <thead>
       <tr>
@@ -1392,410 +1202,74 @@
 
     </table>
 </figure>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Budget</th>
-          <th>Maximum Batch Size (Loss Memory Cost)</th>
-          <th>Maximum Batch Size (Loss Memory Cost)</th>
-          <th>Maximum Batch Size (Loss Memory Cost)</th>
-          <th>Improvement (Ours / Sota)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Budget</td>
-          <td>CLIP</td>
-          <td>OpenCLIP</td>
-          <td>Inf-CL</td>
-          <td>Improvement (Ours / Sota)</td>
-      </tr>
-      <tr>
-          <td>ViT-B/16</td>
-          <td>ViT-B/16</td>
-          <td>ViT-B/16</td>
-          <td>ViT-B/16</td>
-          <td>ViT-B/16</td>
-      </tr>
-      <tr>
-          <td>8xA800 32x A800</td>
-          <td>68k (74.39 GB)</td>
-          <td>172k (59.95 GB)</td>
-          <td>800k (3.01 GB)</td>
-          <td>4.65 (800k/172k)</td>
-      </tr>
-      <tr>
-          <td>8xA800 32x A800</td>
-          <td>68k (74.39 GB)</td>
-          <td>360k (66.29 GB)</td>
-          <td>3456k (3.27 GB)</td>
-          <td>9.60 (3456k/360k)</td>
-      </tr>
-      <tr>
-          <td>ViT-L/14</td>
-          <td>ViT-L/14</td>
-          <td>ViT-L/14</td>
-          <td>ViT-L/14</td>
-          <td>ViT-L/14</td>
-      </tr>
-      <tr>
-          <td>8xA800 32xA800</td>
-          <td>64k (66.11 GB)</td>
-          <td>152k (47.23 GB)</td>
-          <td>448k (2.52 GB)</td>
-          <td>2.94 (448k/152k)</td>
-      </tr>
-      <tr>
-          <td>8xA800 32xA800</td>
-          <td>64k (66.11 GB)</td>
-          <td>352k (64.13 GB)</td>
-          <td>2048k (2.89 GB)</td>
-          <td>5.82 (2048k/256k)</td>
-      </tr>
-      <tr>
-          <td>ViT-L/14 w/ data offload</td>
-          <td>ViT-L/14 w/ data offload</td>
-          <td>ViT-L/14 w/ data offload</td>
-          <td>ViT-L/14 w/ data offload</td>
-          <td>ViT-L/14 w/ data offload</td>
-      </tr>
-      <tr>
-          <td>8xA800 32xA800</td>
-          <td>64k (66.11 GB)</td>
-          <td>184k (69.10 GB)</td>
-          <td>4096k (26.12 GB)</td>
-          <td>22.26 (4096k/184k)</td>
-      </tr>
-      <tr>
-          <td>8xA800 32xA800</td>
-          <td>64k (66.11 GB)</td>
-          <td>368k (64.13 GB)</td>
-          <td>12288k (19.59 GB)</td>
-          <td>33.39 (12288k/368k)</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: Performance Verification. The training strategies is consistent with Table 2. We choose ViT-B/16 as the model architecture and adopt LiT strategy like Table 4. We evaluate zero-shot top-1 classification accuracy on several data sets, e.g., ImageNet-Validation Deng et al. (2009), ImageNet-v2 (Recht et al., 2019), ObjectNet (Barbu et al., 2019) and ImageNet-OOD (Hendrycks et al., 2021). We also evaluate zero-shot image-text top-1 retrieval accuracy on MSCOCO (Chen et al., 2015).</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Method (Batch Size)</th>
-          <th>ImageNet</th>
-          <th>ImageNet</th>
-          <th>ImageNet</th>
-          <th>ImageNet</th>
-          <th>MSCOCO R@1</th>
-          <th>MSCOCO R@1</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Method (Batch Size)</td>
-          <td>Validation</td>
-          <td>v2</td>
-          <td>ObjectNet</td>
-          <td>OOD</td>
-          <td>I→T</td>
-          <td>T→I</td>
-      </tr>
-      <tr>
-          <td>Vanilla (64K)</td>
-          <td>74.74</td>
-          <td>65.30</td>
-          <td>46.31</td>
-          <td>66.13</td>
-          <td>25.71</td>
-          <td>44.31</td>
-      </tr>
-      <tr>
-          <td>OpenCLIP (64K)</td>
-          <td>74.86</td>
-          <td>65.22</td>
-          <td>46.29</td>
-          <td>66.75</td>
-          <td>25.98</td>
-          <td>44.02</td>
-      </tr>
-      <tr>
-          <td>Inf-CL (64K)</td>
-          <td>74.93</td>
-          <td>65.27</td>
-          <td>46.13</td>
-          <td>66.77</td>
-          <td>26.01</td>
-          <td>43.95</td>
-      </tr>
-      <tr>
-          <td>Inf-CL (256K)</td>
-          <td>75.12</td>
-          <td>65.12</td>
-          <td>46.44</td>
-          <td>67.15</td>
-          <td>25.90</td>
-          <td>44.61</td>
-      </tr>
-      <tr>
-          <td>Inf-CL (1024K)</td>
-          <td>73.58</td>
-          <td>63.87</td>
-          <td>44.55</td>
-          <td>64.60</td>
-          <td>24.53</td>
-          <td>41.58</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128. * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Cross-GPU In-GPU</th>
-          <th>Data</th>
-          <th>Loss</th>
-          <th>Loss</th>
-          <th>Backbone</th>
-          <th>Peak</th>
-          <th>ImageNet</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Cross-GPU In-GPU</td>
-          <td>Memory</td>
-          <td>Complexity</td>
-          <td>Memory</td>
-          <td>Memory</td>
-          <td>Memory</td>
-          <td>ImageNet</td>
-      </tr>
-      <tr>
-          <td>(Vanilla)</td>
-          <td>1.96</td>
-          <td>O(b2)</td>
-          <td>66.21</td>
-          <td>8.26</td>
-          <td>69.24</td>
-          <td>74.82</td>
-      </tr>
-      <tr>
-          <td>(OpenCLIP)</td>
-          <td>1.96</td>
-          <td>O(b2 /n)</td>
-          <td>16.96</td>
-          <td>8.26</td>
-          <td>20.79</td>
-          <td>74.86</td>
-      </tr>
-      <tr>
-          <td>V</td>
-          <td>1.96</td>
-          <td>⌀(b2 /n2)</td>
-          <td>4.81</td>
-          <td>8.26</td>
-          <td>12.30</td>
-          <td>74.78</td>
-      </tr>
-      <tr>
-          <td>V</td>
-          <td>1.96</td>
-          <td>O(b/n2)</td>
-          <td>0.81</td>
-          <td>8.26</td>
-          <td>12.30</td>
-          <td>74.93</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128. * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Require: Number of GPUs n, saved intermediate variables from the forward</th>
-          <th>Require: Number of GPUs n, saved intermediate variables from the forward</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td></td>
-          <td>pass: in-memory visual features Ir E Rbsxc and textual features T2 E Rbsxc for each GPU, global LSE vectors li E Rbs.</td>
-      </tr>
-      <tr>
-          <td>1:</td>
-          <td>Initialize vector: dIi = 0 E Rbsxc. dTcache = 0 E Rbsxc on each GPUi. ,</td>
-      </tr>
-      <tr>
-          <td>2:</td>
-          <td>for j = 1 to n do</td>
-      </tr>
-      <tr>
-          <td>3:</td>
-          <td>Asynchronously Text Feature Communication:</td>
-      </tr>
-      <tr>
-          <td>4:</td>
-          <td>Each GPU sends in-memory textual feature to the next GPU and receive the textual feature from the previous GPU in the ring.</td>
-      </tr>
-      <tr>
-          <td>5:</td>
-          <td>Backward Calculation:</td>
-      </tr>
-      <tr>
-          <td>6:</td>
-          <td>Index of current text feature tile for each GPU: k = (i+j - 1) mod n</td>
-      </tr>
-      <tr>
-          <td>7:</td>
-          <td>Call Algorithm 4 with (Ir, , Tk li) , obtaining gradients dItemp and dTtemp. ,</td>
-      </tr>
-      <tr>
-          <td>8:</td>
-          <td>Update gradients dIi += dItemp.</td>
-      </tr>
-      <tr>
-          <td>9:</td>
-          <td>Update gradients dTcache += dTk</td>
-      </tr>
-      <tr>
-          <td>10:</td>
-          <td>Asynchronously Gradient Communication:</td>
-      </tr>
-      <tr>
-          <td>11:</td>
-          <td>Each GPU sends in-memory dTcache to the next GPU in the ring.</td>
-      </tr>
-      <tr>
-          <td>12:</td>
-          <td>Each GPU receive the gradient feature from the previous GPU and write to dTcache.</td>
-      </tr>
-      <tr>
-          <td>13:</td>
-          <td>end for</td>
-      </tr>
-      <tr>
-          <td>14:</td>
-          <td>dTi = dTcache in each GPU.</td>
-      </tr>
-      <tr>
-          <td>15:</td>
-          <td>Return the gradients dIi dTi for each GPU. ,</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
+<hr>
+<details>
+<summary>More on figures
+</summary>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu1084490550530865033.png 330w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu6036436307281995798.png 660w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu6229399332252365267.png 1024w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu11358605732926689674.png 2x"
+        src="/ai-paper-reviewer/posts/2410.17243/figures/figures_2_1_hu6036436307281995798.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: (a) Vanilla implementation of contrastive loss gathers features to all devices to calculate all similarity simultaneously, where the similarity with squared complexity are repeatedly stored in all devices, causing huge memory costs for loss calculation when batch size increases. (b) Our Inf-CL significant decreases the memory cost by serial and distributed tile-wise computation.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu16153983754419928104.png 330w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu10164882669488392622.png 660w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu7269228017017978880.png 1024w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu4080773562518863380.png 2x"
+        src="/ai-paper-reviewer/posts/2410.17243/figures/figures_4_0_hu10164882669488392622.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: GPU memory usage comparison between Inf-CL and previous methods (CLIP, Open-CLIP). The dashed line marks the common GPU memory limit. Memory costs exceeding the bottleneck of 80G A800 are estimated by curve fitting. Left: With 8×A800, CLIP and OpenCLIP&rsquo;s memory consumption increases quadratically, while Inf-CL achieves linear growth, reducing memory costs by 78× at a batch size of 256k. Right: At a batch size of 1024k, even with 128 GPUs, previous methods exceed memory limits, whereas Inf-CL reduces memory demand by 281×.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu13651664587272488253.png 330w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu17607616463093652465.png 660w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu10503309417979163930.png 1024w,
+        /ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu13926773247879656159.png 2x"
+        src="/ai-paper-reviewer/posts/2410.17243/figures/figures_5_0_hu17607616463093652465.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Multi-level tiling strategy. Top: for cross-GPU tiling, each GPU is assigned with multiple rows. The computation and the column-wise communication are performed asynchronously to reduce the cost. Bottom: for in-GPU tiling, the calculations in each GPU are further divided into tiles and the row-wise calculation is distributed to multiple CUDA cores. The accumulative operations of each row are merged into one kernel for reducing I/O times between SRAM and HBM.</figcaption>
+    </figure>
+</p>
+</details>
+<hr>
+<hr>
+<details>
+<summary>More on tables
+</summary>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128.  * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Require: Saved intermediate variables from the forward pass: visual textual</th>
-          <th>Require: Saved intermediate variables from the forward pass: visual textual</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td></td>
-          <td>features I E Rbxc, features T E Rbxc. the local LSE vector l E Rb. , The row-wise and column-wise size of a tile: tr and tc,</td>
-      </tr>
-      <tr>
-          <td>1:</td>
-          <td>Divide I into Ir i = 1, 2, , Nr.</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>, where . . ·</td>
-      </tr>
-      <tr>
-          <td>2:</td>
-          <td>Divide T into Tj , where j = 1 2, . . · , nc.</td>
-      </tr>
-      <tr>
-          <td>3:</td>
-          <td>Divide l into lr, where i = 1, 2, . · · , Nr.</td>
-      </tr>
-      <tr>
-          <td>4:</td>
-          <td>Initialize gradients vectors: dI E Rtrxc and dT E Rtcxc.</td>
-      </tr>
-      <tr>
-          <td>5:</td>
-          <td>for each In do</td>
-      </tr>
-      <tr>
-          <td>6:</td>
-          <td>Load Ii and li from HBM to on-chip SRAM.</td>
-      </tr>
-      <tr>
-          <td>7:</td>
-          <td>Initialize dIi = 0 E Rtrxc.</td>
-      </tr>
-      <tr>
-          <td>8:</td>
-          <td>for j = 1 to [b//tc] do</td>
-      </tr>
-      <tr>
-          <td>9:</td>
-          <td>Load To from HBM to on-chip SRAM.</td>
-      </tr>
-      <tr>
-          <td>10: 11:</td>
-          <td>On chip, compute Xi,j = Ii · T⌀ E Rtrxtc. On chip, compute dXi⌀j = exp(Xi,j - lr) E Rtrxtc.</td>
-      </tr>
-      <tr>
-          <td>12:</td>
-          <td>Update gradients dIi += dXi⌀j · T⌀.</td>
-      </tr>
-      <tr>
-          <td>13:</td>
-          <td>Load dT) from HBM to on-chip SRAM.</td>
-      </tr>
-      <tr>
-          <td></td>
-          <td>dT⌀ += Ii · dXi,j.</td>
-      </tr>
-      <tr>
-          <td>14: 15:</td>
-          <td>Write updated dT⌀ back to HBM.</td>
-      </tr>
-      <tr>
-          <td>16:</td>
-          <td>end for</td>
-      </tr>
-      <tr>
-          <td>17:</td>
-          <td>Write updated dI⌀ back to HBM.</td>
-      </tr>
-      <tr>
-          <td>18:</td>
-          <td>end for</td>
-      </tr>
-      <tr>
-          <td>19:</td>
-          <td>return dI(i.e. ai ), dT(i.e. 이정 ).</td>
-      </tr>
-  </tbody>
-</table>
-
+      
+    </table>
+</figure>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes.</caption>
+      
     </table>
 </figure>
 </details>
@@ -1895,6 +1369,65 @@
   <footer class="pt-8 max-w-prose print:hidden">
 
     
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/ai-paper-reviewer/posts/2410.16251/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Can Knowledge Editing Really Correct Hallucinations?</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-21T00:00:00&#43;00:00">21 October 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/posts/2410.18194/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
   
 
 

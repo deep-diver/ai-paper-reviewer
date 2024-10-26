@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2024-10-21 on AI Paper Reviews by AI</title>
+    <link>http://localhost:1313/ai-paper-reviewer/tags/2024-10-21/</link>
+    <description>Recent content in 2024-10-21 on AI Paper Reviews by AI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 AI Paper Reviews by AI</copyright>
+    <lastBuildDate>Mon, 21 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/2024-10-21/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Can Knowledge Editing Really Correct Hallucinations?</title>
+      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.16251/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.16251/</guid>
+      <description>Large Language Models (LLMs) often hallucinate; knowledge editing aims to fix this without retraining.  This paper introduces HalluEditBench, a new benchmark dataset that rigorously tests editing meth&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.16251/cover.png" />
+    </item>
+    
+    <item>
+      <title>Language Models are Symbolic Learners in Arithmetic</title>
+      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.15580/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.15580/</guid>
+      <description>Large language models (LLMs) surprisingly don&amp;rsquo;t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.15580/cover.png" />
+    </item>
+    
+    <item>
+      <title>Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4</title>
+      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.16429/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.16429/</guid>
+      <description>Pantograph is a new Lean 4 tool improving the machine-learning assisted theorem proving process by offering an advanced interface that supports efficient proof search, high-level reasoning, and data e&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.16429/cover.png" />
+    </item>
+    
+    <item>
+      <title>Steering Knowledge Selection Behaviours in LLMs via SAE-Based Representation Engineering</title>
+      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.15999/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.15999/</guid>
+      <description>SPARE, a novel training-free method, leverages sparse autoencoders to control LLMs&amp;rsquo; knowledge selection behavior during inference, efficiently resolving knowledge conflicts between parametric and cont&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.15999/cover.png" />
+    </item>
+    
+  </channel>
+</rss>

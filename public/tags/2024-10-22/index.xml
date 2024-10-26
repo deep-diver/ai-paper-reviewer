@@ -14,7 +14,7 @@
       <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.17243/</guid>
-      <description>This paper presents Inf-CL, a novel method that dramatically reduces memory usage in contrastive learning, enabling training with significantly larger batch sizes (millions of samples) than previously&amp;hellip;..</description>
+      <description>Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes&amp;hellip;..</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.17243/cover.png" />
     </item>
     

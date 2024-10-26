@@ -1,0 +1,12 @@
+| Sample Text (Beginning) | ZIP-FIT Alignment Score |
+| --- | --- |
+|  | 0.122 |
+| library(qcc) (ypos:themol,1242532.562333666525252.6234, 2092252J07960124022556233268663525252 .. | 0.121 |
+| gap >List(SymmetricGroup(4), p - >Permuted([1 .. 4], p)); n perms(4); [ [1,2, 3, 4 ], [4, 2, 3, 1],[2,4,3, 1 ], [3, 2, 4, 1 .. | 0.191 |
+| # Solutions n ## Question 1 \\n >'1'. Using a 'for' loop print the types of the variables in each of the >following iterables: In >'1 , ... | 0.145 |
+| # Some small pregroups n # The lists of small pregroups were gener- ated by I n # Chris Jefferson icaj21 @st-andrews.ac.uk� and n ... | 0.195 |
+| adjacency _mat = [ false true true true true true true true true false true true true true false false false true false true false true false ... | 0.182 |
+| section{Lookup table used for accessing child voxels using a parent's child descriptor}  label{app:lookup-table} \Istset{language=C,cap ... | 0.199 |
+| * statistics test_nist.c n * n * Copyright (C) 1996, 1997, 1998, 1999, 2000, 2007 Jim Davies, Brian Gough  n * n * This pro · · | 0.180 |
+| Problem Description Write a python function to find the first missing positive number. n def first_Missing_Positive(arr,n): \ n ptr = 0 . .. | 0.239 |
+| import numpy as np n mandelTable = [10001000000000000000001100110,10010000] ... | 0.189 |
