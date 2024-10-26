@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>🔖 2024-10-17 on AI Paper Reviews by AI</title>
+    <link>http://localhost:1313/ai-paper-reviewer/tags/-2024-10-17/</link>
+    <description>Recent content in 🔖 2024-10-17 on AI Paper Reviews by AI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 AI Paper Reviews by AI</copyright>
+    <lastBuildDate>Thu, 17 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-2024-10-17/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARKit LabelMaker: A New Scale for Indoor 3D Scene Understanding</title>
+      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.13924/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.13924/</guid>
+      <description>ARKit LabelMaker creates a massive, real-world 3D dataset with dense semantic labels using an automated pipeline, showing that large-scale real-world data significantly improves 3D scene understanding&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.13924/cover.png" />
+    </item>
+    
+    <item>
+      <title>MedINST: Meta Dataset of Biomedical Instructions</title>
+      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.13458/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.13458/</guid>
+      <description>This paper introduces MedINST, a large and comprehensive meta-dataset of biomedical instructions designed to improve the training of large language models (LLMs) for biomedical applications.  The data&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.13458/cover.png" />
+    </item>
+    
+    <item>
+      <title>Steering Your Generalists: Improving Robotic Foundation Models via Value Guidance</title>
+      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.13816/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.13816/</guid>
+      <description>Value-Guided Policy Steering (V-GPS) improves pre-trained generalist robotic policies by re-ranking actions based on a value function learned from offline RL, leading to consistent performance gains a&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/posts/2410.13816/cover.png" />
+    </item>
+    
+  </channel>
+</rss>

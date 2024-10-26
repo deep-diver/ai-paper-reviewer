@@ -2,7 +2,7 @@
 title: "Can Knowledge Editing Really Correct Hallucinations?"
 summary: "Large Language Models (LLMs) often hallucinate; knowledge editing aims to fix this without retraining.  This paper introduces HalluEditBench, a new benchmark dataset that rigorously tests editing meth....."
 categories: ["AI Generated"]
-tags: ["2024-10-21"]
+tags: ["🔖 2024-10-21", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-21
 draft: false
@@ -41,7 +41,13 @@ This paper is important because it introduces HalluEditBench, a new benchmark da
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_2_0.png "🔼 Framework of HalluEditBench. For real-world hallucinations, we holistically assess the performance of knowledge editing on Efficacy, Generalization, Portability, Locality, and Robustness.")
+
+
+
+
 
 {{< table-caption caption="🔽 Table 1: Performance measured by Accuracy (%) of Llama2-7B before editing (“Pre-edit”) and after applying typical knowledge editing methods (“Post-edit”) on common existing evaluation datasets." >}}
 | Method | WikiDatarecent | ZsRE | WikiBio |
@@ -53,6 +59,7 @@ This paper is important because it introduces HalluEditBench, a new benchmark da
 | Post-edit (FT-M) | 100.00 | 99.98 | 100.00 |
 | Post-edit (LoRA) | 100.00 | 100.00 | 100.00 |
 {{< /table-caption >}}
+
 
 ------
 

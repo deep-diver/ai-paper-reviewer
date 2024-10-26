@@ -12,7 +12,7 @@
   <meta name="title" content="CCI3.0-HQ: a large-scale Chinese dataset of high quality designed for pre-training large language models &middot; AI Paper Reviews by AI" />
   
   <meta name="description" content="The paper introduces CCI3.0-HQ, a large-scale, high-quality Chinese dataset for pre-training LLMs.  Using a novel two-stage filtering pipeline, CCI3.0-HQ significantly outperforms existing Chinese dat....." />
-  <meta name="keywords" content="2024-10-24, " />
+  <meta name="keywords" content="🔖 2024-10-24, 🤗 2024-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/posts/2410.18505/" />
@@ -75,7 +75,8 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-10-24T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-24T00:00:00+00:00">
-    <meta property="article:tag" content="2024-10-24">
+    <meta property="article:tag" content="🔖 2024-10-24">
+    <meta property="article:tag" content="🤗 2024-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/posts/2410.18505/cover.png">
 
   
@@ -106,10 +107,10 @@
     
     "dateModified": "2024-10-24T00:00:00\u002b00:00",
     
-    "keywords": ["2024-10-24"],
+    "keywords": ["🔖 2024-10-24","🤗 2024-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "202"
+    "wordCount": "496"
   }]
   </script>
 
@@ -626,7 +627,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>202 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>496 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
   
 
   
@@ -660,10 +661,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/2024-10-24/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-24/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-10-24
+    🔖 2024-10-24
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🤗 2024-10-25
   </span>
 </span>
   </span>
@@ -1190,19 +1199,419 @@
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Comparison of Dataset Impacts on Model Performance in Mixed and Chinese Dataset Experiments</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Mixed Dataset Experiment Results</th>
+          <th>Mixed Dataset Experiment Results</th>
+          <th>Mixed Dataset Experiment Results</th>
+          <th>Mixed Dataset Experiment Results</th>
+          <th>Mixed Dataset Experiment Results</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Metrics</td>
+          <td>SkyPile</td>
+          <td>Wanjuan-v1</td>
+          <td>CCI3.0</td>
+          <td>CCI3.0-HQ</td>
+      </tr>
+      <tr>
+          <td>ARC-C</td>
+          <td>0.270</td>
+          <td>0.277</td>
+          <td>0.265</td>
+          <td>0.269</td>
+      </tr>
+      <tr>
+          <td>ARC-E</td>
+          <td>0.521</td>
+          <td>0.517</td>
+          <td>0.539</td>
+          <td>0.542</td>
+      </tr>
+      <tr>
+          <td>HellaSwag</td>
+          <td>0.355</td>
+          <td>0.347</td>
+          <td>0.36</td>
+          <td>0.357</td>
+      </tr>
+      <tr>
+          <td>Winograd</td>
+          <td>0.507</td>
+          <td>0.502</td>
+          <td>0.498</td>
+          <td>0.523</td>
+      </tr>
+      <tr>
+          <td>MMLU</td>
+          <td>0.286</td>
+          <td>0.287</td>
+          <td>0.289</td>
+          <td>0.292</td>
+      </tr>
+      <tr>
+          <td>OpenbookQA</td>
+          <td>0.334</td>
+          <td>0.312</td>
+          <td>0.326</td>
+          <td>0.318</td>
+      </tr>
+      <tr>
+          <td>PIQA</td>
+          <td>0.651</td>
+          <td>0.651</td>
+          <td>0.652</td>
+          <td>0.648</td>
+      </tr>
+      <tr>
+          <td>SIQA</td>
+          <td>0.38</td>
+          <td>0.387</td>
+          <td>0.375</td>
+          <td>0.394</td>
+      </tr>
+      <tr>
+          <td>CEval</td>
+          <td>0.279</td>
+          <td>0.275</td>
+          <td>0.278</td>
+          <td>0.296</td>
+      </tr>
+      <tr>
+          <td>CMMLU</td>
+          <td>0.294</td>
+          <td>0.286</td>
+          <td>0.292</td>
+          <td>0.309</td>
+      </tr>
+      <tr>
+          <td>AverageEnglish</td>
+          <td>0.413</td>
+          <td>0.410</td>
+          <td>0.413</td>
+          <td>0.418</td>
+      </tr>
+      <tr>
+          <td>AverageChinese</td>
+          <td>0.287</td>
+          <td>0.280</td>
+          <td>0.285</td>
+          <td>0.303</td>
+      </tr>
+      <tr>
+          <td>Average</td>
+          <td>0.388</td>
+          <td>0.384</td>
+          <td>0.388</td>
+          <td>0.395</td>
+      </tr>
+      <tr>
+          <td>Chinese Dataset Experiment Results</td>
+          <td>Chinese Dataset Experiment Results</td>
+          <td>Chinese Dataset Experiment Results</td>
+          <td>Chinese Dataset Experiment Results</td>
+          <td>Chinese Dataset Experiment Results</td>
+      </tr>
+      <tr>
+          <td>Metrics</td>
+          <td>SkyPile</td>
+          <td>Wanjuan-v1</td>
+          <td>CCI3.0</td>
+          <td>CCI3.0-HQ</td>
+      </tr>
+      <tr>
+          <td>ARC-C</td>
+          <td>0.192</td>
+          <td>0.217</td>
+          <td>0.202</td>
+          <td>0.235</td>
+      </tr>
+      <tr>
+          <td>ARC-E</td>
+          <td>0.313</td>
+          <td>0.282</td>
+          <td>0.323</td>
+          <td>0.388</td>
+      </tr>
+      <tr>
+          <td>HellaSwag</td>
+          <td>0.279</td>
+          <td>0.269</td>
+          <td>0.283</td>
+          <td>0.295</td>
+      </tr>
+      <tr>
+          <td>Winograd</td>
+          <td>0.490</td>
+          <td>0.487</td>
+          <td>0.485</td>
+          <td>0.481</td>
+      </tr>
+      <tr>
+          <td>MMLU</td>
+          <td>0.244</td>
+          <td>0.254</td>
+          <td>0.245</td>
+          <td>0.259</td>
+      </tr>
+      <tr>
+          <td>OpenbookQA</td>
+          <td>0.254</td>
+          <td>0.232</td>
+          <td>0.232</td>
+          <td>0.242</td>
+      </tr>
+      <tr>
+          <td>PIQA</td>
+          <td>0.528</td>
+          <td>0.539</td>
+          <td>0.53</td>
+          <td>0.556</td>
+      </tr>
+      <tr>
+          <td>SIQA</td>
+          <td>0.387</td>
+          <td>0.377</td>
+          <td>0.372</td>
+          <td>0.382</td>
+      </tr>
+      <tr>
+          <td>CEval</td>
+          <td>0.305</td>
+          <td>0.279</td>
+          <td>0.294</td>
+          <td>0.331</td>
+      </tr>
+      <tr>
+          <td>CMMLU</td>
+          <td>0.304</td>
+          <td>0.298</td>
+          <td>0.296</td>
+          <td>0.328</td>
+      </tr>
+      <tr>
+          <td>AverageEnglish</td>
+          <td>0.336</td>
+          <td>0.332</td>
+          <td>0.334</td>
+          <td>0.355</td>
+      </tr>
+      <tr>
+          <td>AverageChinese</td>
+          <td>0.304</td>
+          <td>0.289</td>
+          <td>0.295</td>
+          <td>0.329</td>
+      </tr>
+      <tr>
+          <td>Average</td>
+          <td>0.330</td>
+          <td>0.324</td>
+          <td>0.326</td>
+          <td>0.350</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: Comparison of Two Quality Annotation Methods</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Metrics</th>
+          <th>DCLM</th>
+          <th>FineWeb-edu</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ARC-C</td>
+          <td>0.211</td>
+          <td>0.235</td>
+      </tr>
+      <tr>
+          <td>ARC-E</td>
+          <td>0.378</td>
+          <td>0.388</td>
+      </tr>
+      <tr>
+          <td>HellaSwag</td>
+          <td>0.310</td>
+          <td>0.295</td>
+      </tr>
+      <tr>
+          <td>Winograd</td>
+          <td>0.485</td>
+          <td>0.481</td>
+      </tr>
+      <tr>
+          <td>MMLU</td>
+          <td>0.259</td>
+          <td>0.259</td>
+      </tr>
+      <tr>
+          <td>OpenbookQA</td>
+          <td>0.262</td>
+          <td>0.242</td>
+      </tr>
+      <tr>
+          <td>PIQA</td>
+          <td>0.571</td>
+          <td>0.556</td>
+      </tr>
+      <tr>
+          <td>SIQA</td>
+          <td>0.389</td>
+          <td>0.382</td>
+      </tr>
+      <tr>
+          <td>CEval</td>
+          <td>0.298</td>
+          <td>0.331</td>
+      </tr>
+      <tr>
+          <td>CMMLU</td>
+          <td>0.311</td>
+          <td>0.328</td>
+      </tr>
+      <tr>
+          <td>AverageEnglish</td>
+          <td>0.358</td>
+          <td>0.355</td>
+      </tr>
+      <tr>
+          <td>AverageChinese</td>
+          <td>0.305</td>
+          <td>0.329</td>
+      </tr>
+      <tr>
+          <td>Average</td>
+          <td>0.348</td>
+          <td>0.350</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 4: Evaluation of Different Quality Classifiers</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Classifier</th>
+          <th>Precision</th>
+          <th>Recall</th>
+          <th>F1-score</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>classifierFineWeb-edu</td>
+          <td>classifierFineWeb-edu</td>
+          <td>classifierFineWeb-edu</td>
+          <td>classifierFineWeb-edu</td>
+      </tr>
+      <tr>
+          <td>Positive</td>
+          <td>0.91</td>
+          <td>0.02</td>
+          <td>0.03</td>
+      </tr>
+      <tr>
+          <td>Negative</td>
+          <td>0.82</td>
+          <td>1.00</td>
+          <td>0.90</td>
+      </tr>
+      <tr>
+          <td>Macro F1</td>
+          <td>0.87</td>
+          <td>0.51</td>
+          <td>0.47</td>
+      </tr>
+      <tr>
+          <td>classifierChineseWebText</td>
+          <td>classifierChineseWebText</td>
+          <td>classifierChineseWebText</td>
+          <td>classifierChineseWebText</td>
+      </tr>
+      <tr>
+          <td>Positive</td>
+          <td>0.18</td>
+          <td>0.58</td>
+          <td>0.27</td>
+      </tr>
+      <tr>
+          <td>Negative</td>
+          <td>0.80</td>
+          <td>0.38</td>
+          <td>0.52</td>
+      </tr>
+      <tr>
+          <td>Macro F1</td>
+          <td>0.49</td>
+          <td>0.48</td>
+          <td>0.39</td>
+      </tr>
+      <tr>
+          <td>classifierIndustryCorpus2</td>
+          <td>classifierIndustryCorpus2</td>
+          <td>classifierIndustryCorpus2</td>
+          <td>classifierIndustryCorpus2</td>
+      </tr>
+      <tr>
+          <td>Positive</td>
+          <td>0.32</td>
+          <td>0.86</td>
+          <td>0.47</td>
+      </tr>
+      <tr>
+          <td>Negative</td>
+          <td>0.95</td>
+          <td>0.59</td>
+          <td>0.73</td>
+      </tr>
+      <tr>
+          <td>Macro F1</td>
+          <td>0.64</td>
+          <td>0.73</td>
+          <td>0.60</td>
+      </tr>
+      <tr>
+          <td>classifiercc13.0-HQ</td>
+          <td>classifiercc13.0-HQ</td>
+          <td>classifiercc13.0-HQ</td>
+          <td>classifiercc13.0-HQ</td>
+      </tr>
+      <tr>
+          <td>Positive</td>
+          <td>0.86</td>
+          <td>0.38</td>
+          <td>0.53</td>
+      </tr>
+      <tr>
+          <td>Negative</td>
+          <td>0.88</td>
+          <td>0.99</td>
+          <td>0.93</td>
+      </tr>
+      <tr>
+          <td>Macro F1</td>
+          <td>0.87</td>
+          <td>0.68</td>
+          <td>0.73</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 </details>

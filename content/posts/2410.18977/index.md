@@ -2,7 +2,7 @@
 title: "MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms"
 summary: "MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free....."
 categories: ["AI Generated"]
-tags: ["2024-10-24"]
+tags: ["🔖 2024-10-24", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-24
 draft: false
@@ -41,7 +41,13 @@ This paper introduces MotionCLR, an attention-based diffusion model for human mo
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_1_0.png "🔼 Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.")
+
+
+
+
 
 {{< table-caption caption="🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice." >}}
 | Methods | R-Precision↑ | R-Precision↑ | R-Precision↑ | FID↓ | MM-Dist↓ | Multi-Modality↑ |
@@ -58,6 +64,7 @@ This paper introduces MotionCLR, an attention-based diffusion model for human mo
 | MotionCLR | 0.542±0.001 | 0.733±0.002 | 0.827±0.003 | 0.099±0.003 | 2.981±0.011 | 2.145±0.043 |
 | MotionCLR* | 0.544±0.001 | 0.732±0.001 | 0.831 士0.002 | 0.269±0.001 | 2.806±0.014 | 1.985±0.044 |
 {{< /table-caption >}}
+
 
 ------
 
@@ -193,21 +200,68 @@ This paper introduces MotionCLR, an attention-based diffusion model for human mo
 
 
 {{< table-caption caption="🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice." >}}
+| Ablation | R-Precision↑ | R-Precision↑ | R-Precision↑ | FID↓ |
+| --- | --- | --- | --- | --- |
+| Ablation | Top 1 | Top 2 | Top 3 | FID↓ |
+| (1) | 0.512 | 0.705 | 0.792 | 0.544 |
+| (2) | 0.509 | 0.703 | 0.788 | 0.550 |
+| MotionCLR | 0.544 | 0.732 | 0.831 | 0.269 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice." >}}
+| Rishabh Dabral, Muhammad Hamza Mughal, Vladislav Golyanik, and Christian Theobalt. Mofusion: A framework for denoising-diffusion-based motion synthesis. In CVPR, pages 9760-9770, 2023. |
+| --- |
+| Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, and Furu Wei. Knowledge neurons in pretrained transformers. In ACL, pages 8493-8502, 2022. |
+| Wenxun Dai, Ling-Hao Chen, Jingbo Wang, Jinpeng Liu, Bo Dai, and Yansong Tang. Motionlcm: Real-time controllable motion generation via latent consistency model. ECCV, 2024. |
+| Christian Diller and Angela Dai. Cg-hoi: Contact-guided 3d human-object interaction generation. In CVPR, pages 19888-19901, 2024. |
+| Markos Diomataris, Nikos Athanasiou, Omid Taheri, Xi Wang, Otmar Hilliges, and Michael J Black. Wandr: Intention-guided human motion generation. In CVPR, pages 927-936, 2024. |
+| Ke Fan, Junshu Tang, Weijian Cao, Ran Yi, Moran Li, Jingyu Gong, Jiangning Zhang, Yabiao Wang, Chengjie Wang, and Lizhuang Ma. Freemotion: A unified framework for number-free text-to-motion synthesis. ECCV, 2024. |
+| Bin Feng, Tenglong Ao, Zequn Liu, Wei Ju, Libin Liu, and Ming Zhang. Robust dancer: Long-term 3d dance synthesis using unpaired data. arXiv preprint arXiv:2303.16856, 2023. |
+| Mor Geva, Roei Schuster, Jonathan Berant, and Omer Levy. Transformer feed-forward layers are key-value memories. In EMNLP, pages 5484-5495, 2021. |
+| Anindita Ghosh, Rishabh Dabral, Vladislav Golyanik, Christian Theobalt, and Philipp Slusallek. Remos: Reactive 3d motion synthesis for two-person interactions. ECCV, 2023. |
+| Purvi Goel, Kuan-Chieh Wang, C Karen Liu, and Kayvon Fatahalian. Iterative motion editing with natural language. In ACM SIGGRAPH, pages 1-9, 2024. |
+| Kehong Gong, Dongze Lian, Heng Chang, Chuan Guo, Zihang Jiang, Xinxin Zuo, Michael Bi Mi, and Xinchao Wang. Tm2d: Bimodality driven 3d dance generation via music-text integration. In ICCV, pages 9942-9952, 2023. |
+| Chuan Guo, Shihao Zou, Xinxin Zuo, Sen Wang, Wei Ji, Xingyu Li, and Li Cheng. Generating diverse and natural 3d human motions from text. In CVPR, pages 5152-5161, 2022a. |
+| Chuan Guo, Xinxin Zuo, Sen Wang, and Li Cheng. Tm2t: Stochastic and tokenized modeling for the reciprocal generation of 3d human motions and texts. In ECCV, pages 580-597, 2022b. |
+| Chuan Guo, Yuxuan Mu, Muhammad Gohar Javed, Sen Wang, and Li Cheng. Momask: Generative masked modeling of 3d human motions. In CVPR, pages 1900-1910, 2024a. |
+| Chuan Guo, Yuxuan Mu, Xinxin Zuo, Peng Dai, Youliang Yan, Juwei Lu, and Li Cheng. Generative human motion stylization in latent space. ICLR, 2024b. |
+| Xinying Guo, Mingyuan Zhang, Haozhe Xie, Chenyang Gu, and Ziwei Liu. Crowdmogen: Zero-shot text-driven collective motion generation. arXiv preprint arXiv:2407.06188, 2024c. |
+| Bo Han, Hao Peng, Minjing Dong, Yi Ren, Yixuan Shen, and Chang Xu. Amd: Autoregressive motion diffusion. In AAAI, pages 2022-2030, 2024. |
+| Ligong Han, Song Wen, Qi Chen, Zhixing Zhang, Kunpeng Song, Mengwei Ren, Ruijiang Gao, Yuxiao Chen, Di Liu 0003, Qilong Zhangli, et al. Improving tuning-free real image editing with proximal guidance. WACV, 2023. |
+| Yaru Hao, Li Dong, Furu Wei, and Ke Xu. Self-attention attribution: Interpreting information interactions inside transformer. In AAAI, volume 35, pages 12963-12971, 2021. |
+| Felix G Harvey, Mike Yurick, Derek Nowrouzezahrai, and Christopher Pal. Robust motion in- betweening. ACM TOG, 39(4):60-1, 2020. |
+| Amir Hertz, Ron Mokady, Jay Tenenbaum, Kfir Aberman, Yael Pritch, and Daniel Cohen-Or. Prompt- to-prompt image editing with cross attention control. ICLR, 2023. |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice." >}}
+| w | I | 1.5 | 2 | 2.5 | 3 | 3.5 |
+| --- | --- | --- | --- | --- | --- | --- |
+| FID | 0.801 | 0.408 | 0.318 | 0.217 | 0.317 | 0.396 |
+| TMR-sim. | 51.987 | 52.351 | 53.512 | 53.956 | 54.300 | 54.529 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice." >}}
+|  | FID ↓ | TMR-sim.→ |
+| --- | --- | --- |
+| direct (pseudo GT) | 0.315 | 0.543 |
+| unreplaced | 0.325 | 0.567 |
+| unreplaced (unpaired T-M) | 0.925 | 0.490 |
+| ours replaced | 0.330 | 0.535 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice." >}}
+| begin | end | FID↓ | TMR-sim.↑ |
+| --- | --- | --- | --- |
+| 8 | 11 | 0.339 | 0.472 |
+| 5 | 14 | 0.325 | 0.498 |
+| 1 | 18 | 0.330 | 0.535 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice." >}}
+|  | FID ↓ | Div. ↑ |
+| --- | --- | --- |
+| Diff. manipulation | 0.718 | 1.502 |
+| MotionCLR manipulation | 0.427 | 2.567 |
 {{< /table-caption >}}
 
 

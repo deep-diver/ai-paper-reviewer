@@ -12,7 +12,7 @@
   <meta name="title" content="Language Models are Symbolic Learners in Arithmetic &middot; AI Paper Reviews by AI" />
   
   <meta name="description" content="Large language models (LLMs) surprisingly don&#39;t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg....." />
-  <meta name="keywords" content="2024-10-21, " />
+  <meta name="keywords" content="🔖 2024-10-21, 🤗 2024-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/posts/2410.15580/" />
@@ -75,7 +75,8 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-10-21T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-21T00:00:00+00:00">
-    <meta property="article:tag" content="2024-10-21">
+    <meta property="article:tag" content="🔖 2024-10-21">
+    <meta property="article:tag" content="🤗 2024-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/posts/2410.15580/cover.png">
 
   
@@ -106,10 +107,10 @@
     
     "dateModified": "2024-10-21T00:00:00\u002b00:00",
     
-    "keywords": ["2024-10-21"],
+    "keywords": ["🔖 2024-10-21","🤗 2024-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "318"
+    "wordCount": "934"
   }]
   </script>
 
@@ -626,7 +627,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-21T00:00:00&#43;00:00">21 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>318 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  <time datetime="2024-10-21T00:00:00&#43;00:00">21 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>934 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
   
 
   
@@ -660,10 +661,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/2024-10-21/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-21/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-10-21
+    🔖 2024-10-21
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🤗 2024-10-25
   </span>
 </span>
   </span>
@@ -1166,37 +1175,504 @@
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Diagnostic sets with four calculation methods.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Standard Multiplication</th>
+          <th>Pstd = {A1 xB1B2, A2xB1B2, B1 xA1A2,B2 x A1A2}</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Repetitive Addition</td>
+          <td>Pra = {�B1B2 A1A2, ��� B1B2}</td>
+      </tr>
+      <tr>
+          <td>Lattice Method</td>
+          <td>Plattice = {A10x B10,A10x B2,A2 x B10, A2 x B2}</td>
+      </tr>
+      <tr>
+          <td>Egyptian Multiplication</td>
+          <td>Pegyptian = {2k xA1A2</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: Label space statistics with different rule perturbations. H(L) represents the entropy of the label space, and |L| is the size of the label space. {C}i=1 represents all positions in output digits.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>C1</th>
+          <th>C2</th>
+          <th>C3</th>
+          <th>C4</th>
+          <th>C5</th>
+          <th>{Ci}i=1</th>
+          <th>{Ci}i=1</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Task</td>
+          <td>Format</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>ILI</td>
+          <td>H(L)</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a + b</td>
+          <td>A1A2 + B1B2 = C1C2C3</td>
+          <td>0.9710</td>
+          <td>3.3215</td>
+          <td>3.3219</td>
+          <td></td>
+          <td></td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a + b + 1</td>
+          <td>A1A2 + B1B2 = C1C2C3</td>
+          <td>0.9649</td>
+          <td>3.3215</td>
+          <td>3.3219</td>
+          <td></td>
+          <td></td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a +6+ 15</td>
+          <td>A1A2 + B1B2 = C1C2C3</td>
+          <td>0.9280</td>
+          <td>3.3214</td>
+          <td>3.3219</td>
+          <td></td>
+          <td></td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a +b + 115</td>
+          <td>A1A2 + B1B2 = C1C2C3</td>
+          <td>0.9280</td>
+          <td>3.3214</td>
+          <td>3.3219</td>
+          <td>-</td>
+          <td></td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a+ b) mod 100</td>
+          <td>A1A2 + B1B2 = C1C2</td>
+          <td>3.3214</td>
+          <td>3.3219</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>100</td>
+          <td>6.6432</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a+ b) mod 50</td>
+          <td>A1A2 + B1B2 = C1C2</td>
+          <td>2.3217</td>
+          <td>3.3219</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>50</td>
+          <td>5.6436</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a+b) mod 10</td>
+          <td>A1A2 + B1B2 = C1</td>
+          <td>3.3219</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>10</td>
+          <td>3.3219</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a xb</td>
+          <td>A1A2 x B1B2 = C1C2C3C4</td>
+          <td>2.8979</td>
+          <td>3.3215</td>
+          <td>3.3160</td>
+          <td>3.0340</td>
+          <td>-</td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a xbx 2</td>
+          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
+          <td>0.6873</td>
+          <td>3.2173</td>
+          <td>3.3215</td>
+          <td>3.2964</td>
+          <td>2.2227</td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a xbx 4</td>
+          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
+          <td>1.6030</td>
+          <td>3.3020</td>
+          <td>3.3204</td>
+          <td>3.2234</td>
+          <td>2.2227</td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a xbx 8</td>
+          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
+          <td>2.5811</td>
+          <td>3.3202</td>
+          <td>3.3151</td>
+          <td>3.2235</td>
+          <td>2.2227</td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a x b) mod 100</td>
+          <td>A1A2 x B1B2 = C1C2</td>
+          <td>3.3160</td>
+          <td>3.0340</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>100</td>
+          <td>6.2912</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a x b) mod 50</td>
+          <td>A1A2 x B1B2 = C1C2</td>
+          <td>2.3210</td>
+          <td>3.0340</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>50</td>
+          <td>5.3494</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a x b) mod 10</td>
+          <td>A1A2 x B1B2 = C1</td>
+          <td>3.0340</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>10</td>
+          <td>3.0340</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 4: Test Accuracy difference Δ on perturbed addition and multiplication.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Gemma-2-2B</th>
+          <th>Llama-3.1-8B</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>f(a,b) = a + 6</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a + 6 + 1</td>
+          <td>-0.1%</td>
+          <td>-0.1%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a + 6 + 15</td>
+          <td>-0.9%</td>
+          <td>+0.1%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a + b + 115</td>
+          <td>-1.4%</td>
+          <td>+0.7%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a + b) mod 100</td>
+          <td>+10.1%</td>
+          <td>+3.7%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a + b) mod 50</td>
+          <td>+13.1%</td>
+          <td>+6.7%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a+b) mod 10</td>
+          <td>+26.1%</td>
+          <td>+13.7%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a x 6</td>
+          <td>-</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a X 6 X 2</td>
+          <td>-1.1%</td>
+          <td>-2.7%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a x 6 x 4</td>
+          <td>-1.7%</td>
+          <td>+0.7%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a X b x 8</td>
+          <td>+0.2%</td>
+          <td>-3.7%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a x b) mod 100</td>
+          <td>+7.1%</td>
+          <td>+3.8%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a X b) mod 50</td>
+          <td>+12.1%</td>
+          <td>+5.3%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = (a x b) mod 10</td>
+          <td>+18.9%</td>
+          <td>+10.7%</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 5: Label space statistics with different format perturbations. H(L) represents the entropy of the space, and |L| is the size of the space. {Cj}=1 represents all possible output digits.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>C1</th>
+          <th>C2</th>
+          <th>C3</th>
+          <th>C4</th>
+          <th>C5</th>
+          <th>{Cj}『=1</th>
+          <th>{Cj}『=1</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Task</td>
+          <td>Format</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>H(L)</td>
+          <td>ILI</td>
+          <td>H(L)</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a+b</td>
+          <td>A1A2 + B1B2 = C1C2C3</td>
+          <td>0.9710</td>
+          <td>3.3215</td>
+          <td>3.3219</td>
+          <td></td>
+          <td></td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a+b</td>
+          <td>What is A1A2 add B1B2? Answer: C1C2C3</td>
+          <td>0.9649</td>
+          <td>3.3215</td>
+          <td>3.3219</td>
+          <td></td>
+          <td></td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a+b</td>
+          <td>fafrif A1A2 hfk B1B2? Ffhjar: C1C2C3</td>
+          <td>3.3214</td>
+          <td>3.3219</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a +6</td>
+          <td>3.123 34 A1A2 461 B1B2? 952414: C1C2C3</td>
+          <td>0.9280</td>
+          <td>3.3214</td>
+          <td>3.3219</td>
+          <td>-</td>
+          <td></td>
+          <td>179</td>
+          <td>7.2130</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a x b</td>
+          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
+          <td>2.5811</td>
+          <td>3.3202</td>
+          <td>3.3151</td>
+          <td>3.2235</td>
+          <td>2.2227</td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a xb</td>
+          <td>Whatis A1A2 multiply B1B2? Answer: C1C2C3C4</td>
+          <td>2.8979</td>
+          <td>3.3215</td>
+          <td>3.3160</td>
+          <td>3.0340</td>
+          <td></td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = ax b</td>
+          <td>fafrif A1A2 hfk B1B2? Ffhjar: C1C2C3C4</td>
+          <td>0.6873</td>
+          <td>3.2173</td>
+          <td>3.3215</td>
+          <td>3.2964</td>
+          <td>2.2227</td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a X b</td>
+          <td>3.123 34 A1A2 461 B1B2? 952414: C1C2C3C4</td>
+          <td>1.6030</td>
+          <td>3.3020</td>
+          <td>3.3204</td>
+          <td>3.2234</td>
+          <td>2.2227</td>
+          <td>2621</td>
+          <td>11.1172</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 6: Test Accuracy difference Δ on perturbed addition and multiplication.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Format</th>
+          <th>Gemma-2-2B</th>
+          <th>Llama-3.1-8B</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>f(a,b) =a+b</td>
+          <td>Natural Language</td>
+          <td>-</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a+b</td>
+          <td>Random String</td>
+          <td>+0.1%</td>
+          <td>-0.2%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) =a+b</td>
+          <td>Disturbed Digits</td>
+          <td>-3.9%</td>
+          <td>-2.1%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a x b</td>
+          <td>Natural Language</td>
+          <td>-</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a x b</td>
+          <td>Random String</td>
+          <td>+0.3%</td>
+          <td>-0.5%</td>
+      </tr>
+      <tr>
+          <td>f(a,b) = a X b</td>
+          <td>Disturbed Digits</td>
+          <td>-1.9%</td>
+          <td>-3.1%</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Inductive and deductive accuracy difference Δ.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>B1 B2</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>A1</td>
+          <td>A1B1 A1B2</td>
+      </tr>
+      <tr>
+          <td>A2</td>
+          <td>A2B1 A2B2</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 </details>

@@ -12,7 +12,7 @@
   <meta name="title" content="MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms &middot; AI Paper Reviews by AI" />
   
   <meta name="description" content="MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free....." />
-  <meta name="keywords" content="2024-10-24, " />
+  <meta name="keywords" content="🔖 2024-10-24, 🤗 2024-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/posts/2410.18977/" />
@@ -75,7 +75,8 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-10-24T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-24T00:00:00+00:00">
-    <meta property="article:tag" content="2024-10-24">
+    <meta property="article:tag" content="🔖 2024-10-24">
+    <meta property="article:tag" content="🤗 2024-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/posts/2410.18977/cover.png">
 
   
@@ -106,10 +107,10 @@
     
     "dateModified": "2024-10-24T00:00:00\u002b00:00",
     
-    "keywords": ["2024-10-24"],
+    "keywords": ["🔖 2024-10-24","🤗 2024-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "4125"
+    "wordCount": "4730"
   }]
   </script>
 
@@ -626,7 +627,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>4125 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">20 mins</span>
+  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>4730 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">23 mins</span>
   
 
   
@@ -660,10 +661,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/2024-10-24/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-24/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-10-24
+    🔖 2024-10-24
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🤗 2024-10-25
   </span>
 </span>
   </span>
@@ -2083,37 +2092,262 @@
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Ablation</th>
+          <th>R-Precision↑</th>
+          <th>R-Precision↑</th>
+          <th>R-Precision↑</th>
+          <th>FID↓</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Ablation</td>
+          <td>Top 1</td>
+          <td>Top 2</td>
+          <td>Top 3</td>
+          <td>FID↓</td>
+      </tr>
+      <tr>
+          <td>(1)</td>
+          <td>0.512</td>
+          <td>0.705</td>
+          <td>0.792</td>
+          <td>0.544</td>
+      </tr>
+      <tr>
+          <td>(2)</td>
+          <td>0.509</td>
+          <td>0.703</td>
+          <td>0.788</td>
+          <td>0.550</td>
+      </tr>
+      <tr>
+          <td>MotionCLR</td>
+          <td>0.544</td>
+          <td>0.732</td>
+          <td>0.831</td>
+          <td>0.269</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Rishabh Dabral, Muhammad Hamza Mughal, Vladislav Golyanik, and Christian Theobalt. Mofusion: A framework for denoising-diffusion-based motion synthesis. In CVPR, pages 9760-9770, 2023.</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, and Furu Wei. Knowledge neurons in pretrained transformers. In ACL, pages 8493-8502, 2022.</td>
+      </tr>
+      <tr>
+          <td>Wenxun Dai, Ling-Hao Chen, Jingbo Wang, Jinpeng Liu, Bo Dai, and Yansong Tang. Motionlcm: Real-time controllable motion generation via latent consistency model. ECCV, 2024.</td>
+      </tr>
+      <tr>
+          <td>Christian Diller and Angela Dai. Cg-hoi: Contact-guided 3d human-object interaction generation. In CVPR, pages 19888-19901, 2024.</td>
+      </tr>
+      <tr>
+          <td>Markos Diomataris, Nikos Athanasiou, Omid Taheri, Xi Wang, Otmar Hilliges, and Michael J Black. Wandr: Intention-guided human motion generation. In CVPR, pages 927-936, 2024.</td>
+      </tr>
+      <tr>
+          <td>Ke Fan, Junshu Tang, Weijian Cao, Ran Yi, Moran Li, Jingyu Gong, Jiangning Zhang, Yabiao Wang, Chengjie Wang, and Lizhuang Ma. Freemotion: A unified framework for number-free text-to-motion synthesis. ECCV, 2024.</td>
+      </tr>
+      <tr>
+          <td>Bin Feng, Tenglong Ao, Zequn Liu, Wei Ju, Libin Liu, and Ming Zhang. Robust dancer: Long-term 3d dance synthesis using unpaired data. arXiv preprint arXiv:2303.16856, 2023.</td>
+      </tr>
+      <tr>
+          <td>Mor Geva, Roei Schuster, Jonathan Berant, and Omer Levy. Transformer feed-forward layers are key-value memories. In EMNLP, pages 5484-5495, 2021.</td>
+      </tr>
+      <tr>
+          <td>Anindita Ghosh, Rishabh Dabral, Vladislav Golyanik, Christian Theobalt, and Philipp Slusallek. Remos: Reactive 3d motion synthesis for two-person interactions. ECCV, 2023.</td>
+      </tr>
+      <tr>
+          <td>Purvi Goel, Kuan-Chieh Wang, C Karen Liu, and Kayvon Fatahalian. Iterative motion editing with natural language. In ACM SIGGRAPH, pages 1-9, 2024.</td>
+      </tr>
+      <tr>
+          <td>Kehong Gong, Dongze Lian, Heng Chang, Chuan Guo, Zihang Jiang, Xinxin Zuo, Michael Bi Mi, and Xinchao Wang. Tm2d: Bimodality driven 3d dance generation via music-text integration. In ICCV, pages 9942-9952, 2023.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Shihao Zou, Xinxin Zuo, Sen Wang, Wei Ji, Xingyu Li, and Li Cheng. Generating diverse and natural 3d human motions from text. In CVPR, pages 5152-5161, 2022a.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Xinxin Zuo, Sen Wang, and Li Cheng. Tm2t: Stochastic and tokenized modeling for the reciprocal generation of 3d human motions and texts. In ECCV, pages 580-597, 2022b.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Yuxuan Mu, Muhammad Gohar Javed, Sen Wang, and Li Cheng. Momask: Generative masked modeling of 3d human motions. In CVPR, pages 1900-1910, 2024a.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Yuxuan Mu, Xinxin Zuo, Peng Dai, Youliang Yan, Juwei Lu, and Li Cheng. Generative human motion stylization in latent space. ICLR, 2024b.</td>
+      </tr>
+      <tr>
+          <td>Xinying Guo, Mingyuan Zhang, Haozhe Xie, Chenyang Gu, and Ziwei Liu. Crowdmogen: Zero-shot text-driven collective motion generation. arXiv preprint arXiv:2407.06188, 2024c.</td>
+      </tr>
+      <tr>
+          <td>Bo Han, Hao Peng, Minjing Dong, Yi Ren, Yixuan Shen, and Chang Xu. Amd: Autoregressive motion diffusion. In AAAI, pages 2022-2030, 2024.</td>
+      </tr>
+      <tr>
+          <td>Ligong Han, Song Wen, Qi Chen, Zhixing Zhang, Kunpeng Song, Mengwei Ren, Ruijiang Gao, Yuxiao Chen, Di Liu 0003, Qilong Zhangli, et al. Improving tuning-free real image editing with proximal guidance. WACV, 2023.</td>
+      </tr>
+      <tr>
+          <td>Yaru Hao, Li Dong, Furu Wei, and Ke Xu. Self-attention attribution: Interpreting information interactions inside transformer. In AAAI, volume 35, pages 12963-12971, 2021.</td>
+      </tr>
+      <tr>
+          <td>Felix G Harvey, Mike Yurick, Derek Nowrouzezahrai, and Christopher Pal. Robust motion in- betweening. ACM TOG, 39(4):60-1, 2020.</td>
+      </tr>
+      <tr>
+          <td>Amir Hertz, Ron Mokady, Jay Tenenbaum, Kfir Aberman, Yael Pritch, and Daniel Cohen-Or. Prompt- to-prompt image editing with cross attention control. ICLR, 2023.</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>w</th>
+          <th>I</th>
+          <th>1.5</th>
+          <th>2</th>
+          <th>2.5</th>
+          <th>3</th>
+          <th>3.5</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FID</td>
+          <td>0.801</td>
+          <td>0.408</td>
+          <td>0.318</td>
+          <td>0.217</td>
+          <td>0.317</td>
+          <td>0.396</td>
+      </tr>
+      <tr>
+          <td>TMR-sim.</td>
+          <td>51.987</td>
+          <td>52.351</td>
+          <td>53.512</td>
+          <td>53.956</td>
+          <td>54.300</td>
+          <td>54.529</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>FID ↓</th>
+          <th>TMR-sim.→</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>direct (pseudo GT)</td>
+          <td>0.315</td>
+          <td>0.543</td>
+      </tr>
+      <tr>
+          <td>unreplaced</td>
+          <td>0.325</td>
+          <td>0.567</td>
+      </tr>
+      <tr>
+          <td>unreplaced (unpaired T-M)</td>
+          <td>0.925</td>
+          <td>0.490</td>
+      </tr>
+      <tr>
+          <td>ours replaced</td>
+          <td>0.330</td>
+          <td>0.535</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>begin</th>
+          <th>end</th>
+          <th>FID↓</th>
+          <th>TMR-sim.↑</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>8</td>
+          <td>11</td>
+          <td>0.339</td>
+          <td>0.472</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>14</td>
+          <td>0.325</td>
+          <td>0.498</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>18</td>
+          <td>0.330</td>
+          <td>0.535</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>FID ↓</th>
+          <th>Div. ↑</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Diff. manipulation</td>
+          <td>0.718</td>
+          <td>1.502</td>
+      </tr>
+      <tr>
+          <td>MotionCLR manipulation</td>
+          <td>0.427</td>
+          <td>2.567</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 </details>

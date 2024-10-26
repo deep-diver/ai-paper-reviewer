@@ -2,7 +2,7 @@
 title: "Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4"
 summary: "Pantograph is a new Lean 4 tool improving the machine-learning assisted theorem proving process by offering an advanced interface that supports efficient proof search, high-level reasoning, and data e....."
 categories: ["AI Generated"]
-tags: ["2024-10-21"]
+tags: ["🔖 2024-10-21", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-21
 draft: false
@@ -41,7 +41,13 @@ Pantograph is a novel API and REPL for Lean 4 that provides a versatile interfac
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_5_0.png "🔼 Fig. 1: A proof tree for Expression (1)")
+
+
+
+
 
 {{< table-caption caption="🔽 Table 1: LLM parameters for DSP Experiment" >}}
 | Parameter | Value |
@@ -50,6 +56,7 @@ Pantograph is a novel API and REPL for Lean 4 that provides a versatile interfac
 | Top P | 0.95 |
 | Temperature | 0.8 |
 {{< /table-caption >}}
+
 
 ------
 

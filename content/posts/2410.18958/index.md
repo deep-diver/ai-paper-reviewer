@@ -2,7 +2,7 @@
 title: "Stable Consistency Tuning: Understanding and Improving Consistency Models"
 summary: "Stable Consistency Tuning (SCT) improves consistency model training by reducing variance and discretization errors, leading to faster convergence and state-of-the-art image generation quality on CIFAR....."
 categories: ["AI Generated"]
-tags: ["2024-10-24"]
+tags: ["🔖 2024-10-24", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-24
 draft: false
@@ -41,7 +41,13 @@ This paper presents Stable Consistency Tuning (SCT), a novel method that improve
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_2_0.png "🔼 Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.")
+
+
+
+
 
 {{< table-caption caption="🔽 Table 2: Comparing the quality of samples on CIFAR-10." >}}
 | Fu-Yun Wang | Zhengyang Geng | Hongsheng Li |
@@ -50,6 +56,7 @@ This paper presents Stable Consistency Tuning (SCT), a novel method that improve
 | Hong Kong SAR | Pittsburgh, USA | Hong Kong SAR |
 | fywang@link . cuhk · edu . hk | zhengyanggeng@gmail · com | hsli@ee · cuhk · edu. hk |
 {{< /table-caption >}}
+
 
 ------
 

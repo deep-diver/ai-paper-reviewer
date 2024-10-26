@@ -12,7 +12,7 @@
   <meta name="title" content="Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits &middot; AI Paper Reviews by AI" />
   
   <meta name="description" content="This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft specula....." />
-  <meta name="keywords" content="2024-10-23, " />
+  <meta name="keywords" content="🔖 2024-10-23, 🤗 2024-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/posts/2410.18234/" />
@@ -75,7 +75,8 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-10-23T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-23T00:00:00+00:00">
-    <meta property="article:tag" content="2024-10-23">
+    <meta property="article:tag" content="🔖 2024-10-23">
+    <meta property="article:tag" content="🤗 2024-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/posts/2410.18234/cover.png">
 
   
@@ -106,10 +107,10 @@
     
     "dateModified": "2024-10-23T00:00:00\u002b00:00",
     
-    "keywords": ["2024-10-23"],
+    "keywords": ["🔖 2024-10-23","🤗 2024-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "394"
+    "wordCount": "887"
   }]
   </script>
 
@@ -626,7 +627,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>394 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>887 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
   
 
   
@@ -660,10 +661,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/2024-10-23/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-23/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-10-23
+    🔖 2024-10-23
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🤗 2024-10-25
   </span>
 </span>
   </span>
@@ -1191,43 +1200,459 @@
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Effect of LP Truncation and Alphabet Truncation</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th></th>
+          <th>Block Efficiency</th>
+          <th>Token Rate (% improvement to SD)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Alphabet Truncation ( 2⌀ )</td>
+          <td>10</td>
+          <td>1.98 士 0.03</td>
+          <td>-0.57 士 3.38%</td>
+      </tr>
+      <tr>
+          <td>Alphabet Truncation ( 2⌀ )</td>
+          <td>20</td>
+          <td>2.00 士 0.04</td>
+          <td>1.00 土 3.08%</td>
+      </tr>
+      <tr>
+          <td>Alphabet Truncation ( 2⌀ )</td>
+          <td>40</td>
+          <td>2.05 士 0.04</td>
+          <td>6.63 土 3.18%</td>
+      </tr>
+      <tr>
+          <td>Alphabet Truncation ( 2⌀ )</td>
+          <td>50</td>
+          <td>2.03 士 0.05</td>
+          <td>3.22 土 3.39%</td>
+      </tr>
+      <tr>
+          <td>LP-Truncation Threshold (s)</td>
+          <td>5</td>
+          <td>2.05 士 0.04</td>
+          <td>6.63 士 3.18%</td>
+      </tr>
+      <tr>
+          <td>LP-Truncation Threshold (s)</td>
+          <td>10</td>
+          <td>2.04 土 0.05</td>
+          <td>1.52 土 3.47%</td>
+      </tr>
+      <tr>
+          <td>LP-Truncation Threshold (s)</td>
+          <td>15</td>
+          <td>2.04 士 0.04</td>
+          <td>1.74 土 2.36%</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Scheme</th>
+          <th>XSum</th>
+          <th>XSum</th>
+          <th>XSum</th>
+          <th>Dolly</th>
+          <th>Dolly</th>
+          <th>Dolly</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td>K=2</td>
+          <td>K=4</td>
+          <td>K=8</td>
+          <td>K=2</td>
+          <td>K=4</td>
+          <td>K=8</td>
+      </tr>
+      <tr>
+          <td>Optimal</td>
+          <td>0.5009</td>
+          <td>0.5226</td>
+          <td>0.5419</td>
+          <td>0.6384</td>
+          <td>0.6731</td>
+          <td>0.6962</td>
+      </tr>
+      <tr>
+          <td>IS</td>
+          <td>0.4933</td>
+          <td>0.5145</td>
+          <td>0.5333</td>
+          <td>0.6348</td>
+          <td>0.6691</td>
+          <td>0.6919</td>
+      </tr>
+      <tr>
+          <td>SpecTr</td>
+          <td>0.4889</td>
+          <td>0.5083</td>
+          <td>0.5263</td>
+          <td>0.6246</td>
+          <td>0.6560</td>
+          <td>0.6800</td>
+      </tr>
+      <tr>
+          <td>SpecInfer</td>
+          <td>0.4875</td>
+          <td>0.5058</td>
+          <td>0.5227</td>
+          <td>0.6202</td>
+          <td>0.6489</td>
+          <td>0.6722</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 4: Block Efficiency achieved in the Dolly Task with top-k sampling</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Sampling</th>
+          <th>Scheme</th>
+          <th>K = 2 drafts</th>
+          <th>K = 2 drafts</th>
+          <th>K = 3 drafts</th>
+          <th>K = 3 drafts</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Sampling</td>
+          <td>Scheme</td>
+          <td>Block Efficiency</td>
+          <td>Loss</td>
+          <td>Block Efficiency</td>
+          <td>Loss</td>
+      </tr>
+      <tr>
+          <td>top-k (k = 10)</td>
+          <td>IS</td>
+          <td>2.48 土 0.01</td>
+          <td></td>
+          <td>2.59 士 0.02</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>top-k (k = 10)</td>
+          <td>SpecTr</td>
+          <td>2.43 土 0.01</td>
+          <td>98%</td>
+          <td>2.55 士 0.01</td>
+          <td>98%</td>
+      </tr>
+      <tr>
+          <td>top-k (k = 10)</td>
+          <td>SpecInfer</td>
+          <td>2.38 士 0.02</td>
+          <td>96%</td>
+          <td>2.49 士 0.02</td>
+          <td>96%</td>
+      </tr>
+      <tr>
+          <td>top-k (k = 5)</td>
+          <td>IS</td>
+          <td>2.52 士 0.02</td>
+          <td></td>
+          <td>2.63 士 0.03</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>top-k (k = 5)</td>
+          <td>SpecTr</td>
+          <td>2.48 土 0.02</td>
+          <td>98%</td>
+          <td>2.56 士 0.03</td>
+          <td>97%</td>
+      </tr>
+      <tr>
+          <td>top-k (k = 5)</td>
+          <td>SpecInfer</td>
+          <td>2.47 士 0.01</td>
+          <td>98%</td>
+          <td>2.55 士 0.04</td>
+          <td>97%</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Draft Temp.</th>
+          <th>1.2</th>
+          <th>1.4</th>
+          <th>1.6</th>
+          <th>2.0</th>
+          <th>2.4</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+      </tr>
+      <tr>
+          <td>IS</td>
+          <td>0.186 士 0.004</td>
+          <td>0.188 土 0.002</td>
+          <td>0.191 土 0.003</td>
+          <td>0.186 土 0.004</td>
+          <td>0.187 士 0.003</td>
+      </tr>
+      <tr>
+          <td>Signle-draft SD</td>
+          <td>0.190 士 0.006</td>
+          <td>0.185 士 0.005</td>
+          <td>0.190 士 0.004</td>
+          <td>0.186 士 0.003</td>
+          <td>0.186 士 0.004</td>
+      </tr>
+      <tr>
+          <td>SpecInfer</td>
+          <td>0.184 土 0.004</td>
+          <td>0.190 土 0.002</td>
+          <td>0.187 土 0.001</td>
+          <td>0.186 士 0.003</td>
+          <td>0.186 士 0.004</td>
+      </tr>
+      <tr>
+          <td>SpecTr</td>
+          <td>0.188 土 0.002</td>
+          <td>0.182 土 0.006</td>
+          <td>0.188 士 0.001</td>
+          <td>0.185 土 0.006</td>
+          <td>0.188 土 0.001</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Draft Temp.</th>
+          <th>1.2</th>
+          <th>1.4</th>
+          <th>1.6</th>
+          <th>2.0</th>
+          <th>2.4</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+          <td>Decoder</td>
+      </tr>
+      <tr>
+          <td>IS</td>
+          <td>0.037 士 0.002</td>
+          <td>0.038 土 0.004</td>
+          <td>0.034 土 0.002</td>
+          <td>0.039 士 0.003</td>
+          <td>0.039 土 0.002</td>
+      </tr>
+      <tr>
+          <td>Signle-draft SD</td>
+          <td>0.036 土 0.000</td>
+          <td>0.037 土 0.003</td>
+          <td>0.038 土 0.004</td>
+          <td>0.037 士 0.003</td>
+          <td>0.038 土 0.002</td>
+      </tr>
+      <tr>
+          <td>SpecInfer</td>
+          <td>0.035 土 0.003</td>
+          <td>0.039 土 0.004</td>
+          <td>0.035 士 0.003</td>
+          <td>0.034 士 0.009</td>
+          <td>0.036 土 0.003</td>
+      </tr>
+      <tr>
+          <td>SpecTr</td>
+          <td>0.039 土 0.001</td>
+          <td>0.037 土 0.001</td>
+          <td>0.039 土 0.001</td>
+          <td>0.036 士 0.002</td>
+          <td>0.035 士 0.001</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 7: ROUGE-L scores on the XSum task across various decoders and sampling temperatures.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Draft 1</td>
+          <td>1.2</td>
+          <td>1.2</td>
+          <td>1.2</td>
+          <td>1.2</td>
+          <td>1.2</td>
+      </tr>
+      <tr>
+          <td>Draft 2</td>
+          <td>1.2</td>
+          <td>1.6</td>
+          <td>2.0</td>
+          <td>2.4</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Decoder</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>IS</td>
+          <td>0.187 士 0.004</td>
+          <td>0.189 土 0.007</td>
+          <td>0.189 士 0.001</td>
+          <td>0.191 士 0.002</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td>SpecInfer</td>
+          <td>0.184 士 0.004</td>
+          <td>0.190 土 0.003</td>
+          <td>0.185 土 0.006</td>
+          <td>0.189 土 0.006</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Single-draft SD</td>
+          <td>-</td>
+          <td></td>
+          <td></td>
+          <td>-</td>
+          <td>0.190 土 0.006</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 8: BLEU scores on the WMT dataset across various decoders and sampling temperatures.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+          <th>Temperature</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Draft 1</td>
+          <td>1.2</td>
+          <td>1.2</td>
+          <td>1.2</td>
+          <td>1.2</td>
+          <td>1.2</td>
+      </tr>
+      <tr>
+          <td>Draft 2</td>
+          <td>1.2</td>
+          <td>1.6</td>
+          <td>2.0</td>
+          <td>2.4</td>
+          <td>N/A</td>
+      </tr>
+      <tr>
+          <td>Decoder</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>IS</td>
+          <td>0.036 土 0.003</td>
+          <td>0.035 土 0.002</td>
+          <td>0.036 土 0.002</td>
+          <td>0.035 士 0.002</td>
+          <td>-</td>
+      </tr>
+      <tr>
+          <td>SpecInfer</td>
+          <td>0.035 士 0.003</td>
+          <td>0.038 土 0.005</td>
+          <td>0.041 土 0.002</td>
+          <td>0.040 土 0.002</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Single-draft SD</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>0.036 士 0.000</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 </details>
@@ -1336,7 +1761,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/ai-paper-reviewer/posts/2410.17897/">
+            <a class="flex group mr-3" href="/ai-paper-reviewer/posts/2410.18013/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1348,7 +1773,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Value Residual Learning For Alleviating Attention Concentration In Transformers</span
+                  >Scalable Ranked Preference Optimization for Text-to-Image Generation</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1361,11 +1786,11 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/posts/2410.18252/">
+            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/posts/2410.17637/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Asynchronous RLHF: Faster and More Efficient Off-Policy RL for Language Models</span
+                  >MIA-DPO: Multi-Image Augmented Direct Preference Optimization For Large Vision-Language Models</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

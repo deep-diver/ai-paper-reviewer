@@ -2,7 +2,7 @@
 title: "ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment"
 summary: "ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs.  It outperforms existing methods by achieving faster convergence and ....."
 categories: ["AI Generated"]
-tags: ["2024-10-23"]
+tags: ["🔖 2024-10-23", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-23
 draft: false
@@ -41,7 +41,13 @@ This paper introduces ZIP-FIT, a novel data selection method for fine-tuning lar
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_2_0.png "🔼 Figure 1: ZIP-FIT selects task-specific data for efficient finetuning. (0) Obtain both the source and target datasets. (1) Calculate ZIP-FIT Alignment of each source example with the target dataset using gzip compression. (2) Rank all source examples based on these alignment scores. (3) Select the top-K most aligned examples for fine-tuning. (4) Fine-tune a large language model using the selected top-K examples to improve performance on the target task.")
+
+
+
+
 
 {{< table-caption caption="🔽 Table 1: Beginning characters of the top 20 samples selected by ZIP-FIT when the target task is code generation." >}}
 | Sample Text (Beginning) | Alignment Score |
@@ -57,6 +63,7 @@ This paper introduces ZIP-FIT, a novel data selection method for fine-tuning lar
 | Initializes and adds a node to the graph. NOTE: At least the type must be supplied for the Node to exist in the graph. Args: graph: The graph... | 0.4853 |
 | def bgra2rgb(img): cv2.cvtColor(img, cv2.COLOR _BGRA2BGR) has an issue removing the alpha channel, this gets rid of wrong trans... | 0.4853 |
 {{< /table-caption >}}
+
 
 ------
 

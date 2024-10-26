@@ -2,7 +2,7 @@
 title: "Taipan: Efficient and Expressive State Space Language Models with Selective Attention"
 summary: "Taipan is a new hybrid language model that combines the efficiency of state-space models with the power of selective attention.  It significantly outperforms existing models on long-context tasks, han....."
 categories: ["AI Generated"]
-tags: ["2024-10-24"]
+tags: ["🔖 2024-10-24", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-24
 draft: false
@@ -41,7 +41,13 @@ Taipan is a novel hybrid architecture for efficient long-context language modeli
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_4_0.png "🔼 Figure 2: An overview of the Taipan architecture.")
+
+
+
+
 
 {{< table-caption caption="🔽 Table 1: Zero shot results of Taipan against baseline models." >}}
 | Params & Data | Model | Wino. | PIQA | Hella. | ARCE | ARC� | OB. | Truth. | RACE | BoolQ | Avg. |
@@ -59,6 +65,7 @@ Taipan is a novel hybrid architecture for efficient long-context language modeli
 | 1.3B 100B | Jamba | 54.7 | 73.8 | 55.8 | 69.7 | 37.6 | 41.8 | 40.4 | 32.8 | 59.2 | 51.8 |
 | 1.3B 100B | Taipan | 57.0 | 74.9 | 57.9 | 71.2 | 39.3 | 40.4 | 43.0 | 34.4 | 61.5 | 53.3 |
 {{< /table-caption >}}
+
 
 ------
 

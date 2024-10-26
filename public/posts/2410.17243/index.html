@@ -12,7 +12,7 @@
   <meta name="title" content="Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss &middot; AI Paper Reviews by AI" />
   
   <meta name="description" content="Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes....." />
-  <meta name="keywords" content="2024-10-22, " />
+  <meta name="keywords" content="🔖 2024-10-22, 🤗 2024-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/posts/2410.17243/" />
@@ -75,7 +75,8 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-10-22T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-22T00:00:00+00:00">
-    <meta property="article:tag" content="2024-10-22">
+    <meta property="article:tag" content="🔖 2024-10-22">
+    <meta property="article:tag" content="🤗 2024-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/posts/2410.17243/cover.png">
 
   
@@ -106,10 +107,10 @@
     
     "dateModified": "2024-10-22T00:00:00\u002b00:00",
     
-    "keywords": ["2024-10-22"],
+    "keywords": ["🔖 2024-10-22","🤗 2024-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "796"
+    "wordCount": "1152"
   }]
   </script>
 
@@ -626,7 +627,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-22T00:00:00&#43;00:00">22 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>796 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+  <time datetime="2024-10-22T00:00:00&#43;00:00">22 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1152 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
   
 
   
@@ -660,10 +661,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/2024-10-22/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-22/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-10-22
+    🔖 2024-10-22
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🤗 2024-10-25
   </span>
 </span>
   </span>
@@ -1263,13 +1272,186 @@
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128.  * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Budget</th>
+          <th>Maximum Batch Size (Loss Memory Cost)</th>
+          <th>Maximum Batch Size (Loss Memory Cost)</th>
+          <th>Maximum Batch Size (Loss Memory Cost)</th>
+          <th>Improvement (Ours / Sota)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Budget</td>
+          <td>CLIP</td>
+          <td>OpenCLIP</td>
+          <td>Inf-CL</td>
+          <td>Improvement (Ours / Sota)</td>
+      </tr>
+      <tr>
+          <td>ViT-B/16</td>
+          <td>ViT-B/16</td>
+          <td>ViT-B/16</td>
+          <td>ViT-B/16</td>
+          <td>ViT-B/16</td>
+      </tr>
+      <tr>
+          <td>8xA800 32x A800</td>
+          <td>68k (74.39 GB)</td>
+          <td>172k (59.95 GB)</td>
+          <td>800k (3.01 GB)</td>
+          <td>4.65 (800k/172k)</td>
+      </tr>
+      <tr>
+          <td>8xA800 32x A800</td>
+          <td>68k (74.39 GB)</td>
+          <td>360k (66.29 GB)</td>
+          <td>3456k (3.27 GB)</td>
+          <td>9.60 (3456k/360k)</td>
+      </tr>
+      <tr>
+          <td>ViT-L/14</td>
+          <td>ViT-L/14</td>
+          <td>ViT-L/14</td>
+          <td>ViT-L/14</td>
+          <td>ViT-L/14</td>
+      </tr>
+      <tr>
+          <td>8xA800 32xA800</td>
+          <td>64k (66.11 GB)</td>
+          <td>152k (47.23 GB)</td>
+          <td>448k (2.52 GB)</td>
+          <td>2.94 (448k/152k)</td>
+      </tr>
+      <tr>
+          <td>8xA800 32xA800</td>
+          <td>64k (66.11 GB)</td>
+          <td>352k (64.13 GB)</td>
+          <td>2048k (2.89 GB)</td>
+          <td>5.82 (2048k/256k)</td>
+      </tr>
+      <tr>
+          <td>ViT-L/14 w/ data offload</td>
+          <td>ViT-L/14 w/ data offload</td>
+          <td>ViT-L/14 w/ data offload</td>
+          <td>ViT-L/14 w/ data offload</td>
+          <td>ViT-L/14 w/ data offload</td>
+      </tr>
+      <tr>
+          <td>8xA800 32xA800</td>
+          <td>64k (66.11 GB)</td>
+          <td>184k (69.10 GB)</td>
+          <td>4096k (26.12 GB)</td>
+          <td>22.26 (4096k/184k)</td>
+      </tr>
+      <tr>
+          <td>8xA800 32xA800</td>
+          <td>64k (66.11 GB)</td>
+          <td>368k (64.13 GB)</td>
+          <td>12288k (19.59 GB)</td>
+          <td>33.39 (12288k/368k)</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Training Memory Cost Across Different Hardware and Batch Sizes.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Require: Saved intermediate variables from the forward pass: visual textual</th>
+          <th>Require: Saved intermediate variables from the forward pass: visual textual</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td>features I E Rbxc, features T E Rbxc. the local LSE vector l E Rb. , The row-wise and column-wise size of a tile: tr and tc,</td>
+      </tr>
+      <tr>
+          <td>1:</td>
+          <td>Divide I into Ir i = 1, 2, , Nr.</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>, where . . ·</td>
+      </tr>
+      <tr>
+          <td>2:</td>
+          <td>Divide T into Tj , where j = 1 2, . . · , nc.</td>
+      </tr>
+      <tr>
+          <td>3:</td>
+          <td>Divide l into lr, where i = 1, 2, . · · , Nr.</td>
+      </tr>
+      <tr>
+          <td>4:</td>
+          <td>Initialize gradients vectors: dI E Rtrxc and dT E Rtcxc.</td>
+      </tr>
+      <tr>
+          <td>5:</td>
+          <td>for each In do</td>
+      </tr>
+      <tr>
+          <td>6:</td>
+          <td>Load Ii and li from HBM to on-chip SRAM.</td>
+      </tr>
+      <tr>
+          <td>7:</td>
+          <td>Initialize dIi = 0 E Rtrxc.</td>
+      </tr>
+      <tr>
+          <td>8:</td>
+          <td>for j = 1 to [b//tc] do</td>
+      </tr>
+      <tr>
+          <td>9:</td>
+          <td>Load To from HBM to on-chip SRAM.</td>
+      </tr>
+      <tr>
+          <td>10: 11:</td>
+          <td>On chip, compute Xi,j = Ii · T⌀ E Rtrxtc. On chip, compute dXi⌀j = exp(Xi,j - lr) E Rtrxtc.</td>
+      </tr>
+      <tr>
+          <td>12:</td>
+          <td>Update gradients dIi += dXi⌀j · T⌀.</td>
+      </tr>
+      <tr>
+          <td>13:</td>
+          <td>Load dT) from HBM to on-chip SRAM.</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td>dT⌀ += Ii · dXi,j.</td>
+      </tr>
+      <tr>
+          <td>14: 15:</td>
+          <td>Write updated dT⌀ back to HBM.</td>
+      </tr>
+      <tr>
+          <td>16:</td>
+          <td>end for</td>
+      </tr>
+      <tr>
+          <td>17:</td>
+          <td>Write updated dI⌀ back to HBM.</td>
+      </tr>
+      <tr>
+          <td>18:</td>
+          <td>end for</td>
+      </tr>
+      <tr>
+          <td>19:</td>
+          <td>return dI(i.e. ai ), dT(i.e. 이정 ).</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 </details>
@@ -1378,7 +1560,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/ai-paper-reviewer/posts/2410.16251/">
+            <a class="flex group mr-3" href="/ai-paper-reviewer/posts/2410.17434/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1390,11 +1572,11 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Can Knowledge Editing Really Correct Hallucinations?</span
+                  >LongVU: Spatiotemporal Adaptive Compression for Long Video-Language Understanding</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-10-21T00:00:00&#43;00:00">21 October 2024</time>
+                    <time datetime="2024-10-22T00:00:00&#43;00:00">22 October 2024</time>
                   
                 </span>
               </span>

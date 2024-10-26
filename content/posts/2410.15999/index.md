@@ -2,7 +2,7 @@
 title: "Steering Knowledge Selection Behaviours in LLMs via SAE-Based Representation Engineering"
 summary: "SPARE, a novel training-free method, leverages sparse autoencoders to control LLMs' knowledge selection behavior during inference, efficiently resolving knowledge conflicts between parametric and cont....."
 categories: ["AI Generated"]
-tags: ["2024-10-21"]
+tags: ["🔖 2024-10-21", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-21
 draft: false
@@ -41,7 +41,13 @@ This paper introduces SPARE, a novel representation engineering method that uses
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_1_0.png "🔼 In the event of a knowledge conflict, the model can rely on the context or on the parametric knowledge. The figure presents the predictions of Llama2-7B steered by SPARE.")
+
+
+
+
 
 {{< table-caption caption="🔽 Overall performance of steering the utilisation of parametric and contextual knowledge, measured by EMM and EMC. 'Without Controlling' indicates the baseline that we do not use any controlling methods to steer the generation. #ICL is not an inference-time controlling strategy, which controls the behaviours by changing demonstrations. CAD needs additional forwarding for contrastive decoding." >}}
 | Metric | Method | NQSwap (Longpre et al., 2021) | NQSwap (Longpre et al., 2021) | NQSwap (Longpre et al., 2021) | Macnoise (Hong et al., 2024) | Macnoise (Hong et al., 2024) | Macnoise (Hong et al., 2024) |
@@ -68,6 +74,7 @@ This paper introduces SPARE, a novel representation engineering method that uses
 | EMC | #ICL (Brown, 2020) | 73.35 ±3.82 | 63.33 ±3.50 | 70.19 ±2.51 | 51.75±5.60 | 47.51±1.86 | 47.24±3.81 |
 | EMC | SPARE (Ours) | 77.69 ±1.24 | 69.32±1.26 | 73.78±0.74 | 92.24±0.49 | 87.30±1.96 | 87.96±1.85 |
 {{< /table-caption >}}
+
 
 ------
 

@@ -2,7 +2,7 @@
 title: "Unbounded: A Generative Infinite Game of Character Life Simulation"
 summary: "UNBOUNDED is a novel generative infinite game using AI to simulate character life in real-time. It overcomes limitations of traditional games by employing a specialized LLM for dynamic game mechanics ....."
 categories: ["AI Generated"]
-tags: ["2024-10-24"]
+tags: ["🔖 2024-10-24", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-24
 draft: false
@@ -41,7 +41,13 @@ This paper introduces UNBOUNDED, a generative infinite game using LLMs and diffu
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_1_0.png "🔼 Figure 1: An example of UNBOUNDED. We follow the life of Archibus, the user's custom wizard character. The user can interact with the generative game using natural language, and Archibus' hunger, energy and fun meters update accordingly. A spontaneous and unconstrained story unfolds while the user playing, and the character can explore new environments with a myriad of possible actions and unexpected interactions. The game runs in interactive speeds, refreshing every second.")
+
+
+
+
 
 {{< table-caption caption="🔽 Comparison of UNBOUNDED and other methods for maintaining environment consistency and character consistency. UNBOUNDED achieves the best performance in maintaining consistency, while maintaining comparable semantic alignment with the text prompt. Best scores are in bold." >}}
 | Methods | Environment Consistency | Environment Consistency | Environment Consistency | Character Consistency | Character Consistency | Character Consistency | Semantic Alignment |
@@ -52,6 +58,7 @@ This paper introduces UNBOUNDED, a generative infinite game using LLMs and diffu
 | StoryDiffusion Zhou etal., 2024b | 0.528 | 0.257 | 0.733 | 0.629 | 0.464 | 0.545 | 0.242 |
 | Ours | 0.563 | 0.322 | 0.675 | 0.676 | 0.470 | 0.488 | 0.242 |
 {{< /table-caption >}}
+
 
 ------
 
@@ -89,12 +96,42 @@ This paper introduces UNBOUNDED, a generative infinite game using LLMs and diffu
 
 
 {{< table-caption caption="🔽 Table 1: Comparison of UNBOUNDED and other methods for maintaining environment consistency and character consistency. UNBOUNDED achieves the best performance in maintaining consistency, while maintaining comparable semantic alignment with the text prompt. Best scores are in bold." >}}
+| Character Environment | Story Diffusion IP-Adapter IP-Adapter- Instruct Ours |
+| --- | --- |
+|  | [V] witch raised her hands and the twisted trunks unwound, their branches stretching towards the sky, making the glowing leaves sparkle in the twilight. |
+| Environment Consistency Character Consistency Semantic Alignment | X X x x x x |
+|  | [V] wizard kneels by the pond, casting a spell. The water's surface ripples, reflecting a myriad of colors from the luminescent flowers surrounding the clearing. |
+| Environment Consistency Character Consistency Semantic Alignment |  |
+|  | V V X x X |
+|  | Amidst the strange rock formations, [V] panda finds a hidden grove filled with glowing, otherworldly flora. |
+| Environment Consistency Character Consistency Semantic Alignment | X V X V X V |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Comparison of UNBOUNDED and other methods for maintaining environment consistency and character consistency. UNBOUNDED achieves the best performance in maintaining consistency, while maintaining comparable semantic alignment with the text prompt. Best scores are in bold." >}}
+| No. | Drop | IP-Adapter | Scale | CLIP-IE ↑ | DINOE ↑ | DreamSimE ↓ | CLIP-I⌀ ↑ | DINO� ↑ | DreamSim⌀ ↓ | CLIP-T↑ |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1. | X | X | 1.0 | 0.123 | 0.111 | 0.885 | 0.073 | 0.024 | 0.973 | 0.034 |
+| 2. |  | X | 1.0 | 0.414 | 0.331 | 0.647 | 0.337 | 0.147 | 0.832 | 0.149 |
+| 3. | V | V | 1.0 | 0.563 | 0.322 | 0.675 | 0.676 | 0.470 | 0.488 | 0.242 |
+| 4. | X | X | 0.5 | 0.470 | 0.381 | 0.595 | 0.366 | 0.139 | 0.832 | 0.168 |
+| 5. |  | X | 0.5 | 0.577 | 0.332 | 0.640 | 0.627 | 0.374 | 0.575 | 0.252 |
+| 6. |  | V | 0.5 | 0.549 | 0.263 | 0.726 | 0.705 | 0.514 | 0.450 | 0.246 |
+|  |  | Character | Environment | Environment | + Regional No Condition IP-Adapter +Block Drop IP-Adapter | + Regional No Condition IP-Adapter +Block Drop IP-Adapter | + Regional No Condition IP-Adapter +Block Drop IP-Adapter | + Regional No Condition IP-Adapter +Block Drop IP-Adapter | + Regional No Condition IP-Adapter +Block Drop IP-Adapter | + Regional No Condition IP-Adapter +Block Drop IP-Adapter |
+|  | lanterns, vibrating with unseen robot. | lanterns, vibrating with unseen robot. | Environment | Environment | lanterns, vibrating with unseen robot. | lanterns, vibrating with unseen robot. | lanterns, vibrating with unseen robot. | lanterns, vibrating with unseen robot. |  |  |
+| [V] dog playfully chased its tail under the sway of hanging cobblestone paths slightly |  |  | Environment | Environment |  |  |  |  |  |  |
+|  |  |  | Environment | Environment |  |  |  |  |  |  |
+| [V] dog cautiously ascends the creaky wooden steps, each one groaning louder as it climbs the narrow, winding staircase of the haunted castle. |  |  | Environment | Environment |  |  |  |  |  |  |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 3: Comparison of UNBOUNDED and different LLMs on serving as game engines for open-ended interactions and integrated game mechanics. We use GPT-4 to provide pairwise scores between our model and other LLMs." >}}
+| Model | Overall | Overall | State Update | State Update | Environment Relevance | Environment Relevance | Story Coherence | Story Coherence | Instruction Following | Instruction Following |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  | Base | Ours | Base | Ours | Base | Ours | Base | Ours | Base | Ours |
+| Gemma-2B Team et al 2024 | 6.22 | 7.44 | 5.60 | 7.47 | 6.12 | 7.94 | 6.34 | 7.57 | 6.43 | 7.67 |
+| Gemma-7B Team et al. 2024 | 6.80 | 7.39 | 6.29 | 7.43 | 7.07 | 7.91 | 6.90 | 7.48 | 6.89 | 7.53 |
+| Llama3.2-3B Meta, 2024, | 7.21 | 7.50 | 6.86 | 7.38 | 7.63 | 7.93 | 7.36 | 7.56 | 7.31 | 7.67 |
+| Ours-1k | 7.65 | 7.82 | 7.50 | 7.74 | 8.10 | 8.19 | 7.78 | 7.93 | 7.82 | 7.97 |
+| GPT-4o OpenAI, 2023 | 7.76 | 7.68 | 7.69 | 7.66 | 8.20 | 8.10 | 7.95 | 7.82 | 7.85 | 7.82 |
 {{< /table-caption >}}
 
 

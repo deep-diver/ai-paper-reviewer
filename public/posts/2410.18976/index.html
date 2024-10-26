@@ -12,7 +12,7 @@
   <meta name="title" content="CAMEL-Bench: A Comprehensive Arabic LMM Benchmark &middot; AI Paper Reviews by AI" />
   
   <meta name="description" content="CAMEL-Bench is a new open-source benchmark for evaluating large multimodal models in Arabic.  It addresses the lack of Arabic-centric LMM benchmarks by offering a diverse set of tasks across eight dom....." />
-  <meta name="keywords" content="2024-10-24, " />
+  <meta name="keywords" content="🔖 2024-10-24, 🤗 2024-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/posts/2410.18976/" />
@@ -75,7 +75,8 @@
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2024-10-24T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-24T00:00:00+00:00">
-    <meta property="article:tag" content="2024-10-24">
+    <meta property="article:tag" content="🔖 2024-10-24">
+    <meta property="article:tag" content="🤗 2024-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/posts/2410.18976/cover.png">
 
   
@@ -106,10 +107,10 @@
     
     "dateModified": "2024-10-24T00:00:00\u002b00:00",
     
-    "keywords": ["2024-10-24"],
+    "keywords": ["🔖 2024-10-24","🤗 2024-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "747"
+    "wordCount": "1183"
   }]
   </script>
 
@@ -626,7 +627,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>747 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
+  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1183 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
   
 
   
@@ -660,10 +661,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/2024-10-24/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-24/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    2024-10-24
+    🔖 2024-10-24
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🤗 2024-10-25
   </span>
 </span>
   </span>
@@ -1271,13 +1280,352 @@
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2. Different data sources used for 38 sub-domains corresponding to eight domains, with around 29k questions in total. The different data sources include: MME [15], MMBench [30], MMT-Bench-MI [56], SEED [23], MMMU [58], MMMU-Pro [60], CountBench [39], POPE [26], MathVista [33], Exams-V (Arabic portion) [13], ScienceQA-IMG [32], GQA [20], VizWiz [10], VQAv2 [17], BLINK [16], MuirBench [50], COCO [27], Imagenet [14], Mocheg [55], Snli-Ve [54], Pinterest [42], RealWorldQA [53], PATS-01 [3], KHATT [34], PATD [40], Historical Arabic Handwritten Text Recognition Dataset [37], ISI-PPT-Dataset [52], EvArEST [18], MTVQA [49], ChartQA [35], IconQA [31], BEC-Arabic [47], Claude-3.5 [5], arab-celeb-dataset [36], arabic-food-101 [6], Countries and landmarks [41, 51, 57], Pexel [41], AgroGPT [7], GeoChat [22]. These data sources are carefully translated and verified to ensure quality and relevance.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Domains</th>
+          <th>Sub-Domains</th>
+          <th>Source</th>
+          <th>Number of Questions</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Visual Understanding/ Reasoning</td>
+          <td>MME, MMBench, MMT-Bench-MI, SEED, MMMU</td>
+          <td>3,971</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Object Hallucination Evaluation</td>
+          <td>CountBench, MMT-Bench-MI, POPE</td>
+          <td>997</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Math and Logic Reasoning</td>
+          <td>MathVista</td>
+          <td>531</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Scientific Reasoning</td>
+          <td>ScienceQA-IMG, Exams-V</td>
+          <td>1,624</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Visual Question Answering</td>
+          <td>GQA, VizWiz, VQAv2</td>
+          <td>3,840</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>InforGrahpics VQA</td>
+          <td>AI-Generated (GPT-4o), Pinterest</td>
+          <td>120</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Complex Visual Perception</td>
+          <td>BLINK</td>
+          <td>1,422</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Real-world Spatial Understanding</td>
+          <td>RealWorldQA</td>
+          <td>624</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Multi-image Understanding</td>
+          <td>MMT-Bench-MI, MuirBench</td>
+          <td>1,062</td>
+      </tr>
+      <tr>
+          <td>Multimodal Understanding and Reasoning</td>
+          <td>Object-level Perception</td>
+          <td>COCO, ImageNet, Mocheg, Snli-Ve</td>
+          <td>60</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>Scanned Documents (OCR)</td>
+          <td>ArabicDatasetOCR</td>
+          <td>480</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>Scanned Documents (VQA)</td>
+          <td>MTVQA</td>
+          <td>703</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>Scene Text (OCR)</td>
+          <td>EvArEST</td>
+          <td>1,217</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>Books (OCR)</td>
+          <td>Historical Arabic Handwritten Text Recognition Dataset</td>
+          <td>40</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>PowerPoint Slides (OCR)</td>
+          <td>ISI-PPT-Dataset</td>
+          <td>2,354</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>PowerPoint Slides (VQA)</td>
+          <td>ISI-PPT-Dataset</td>
+          <td>711</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>Handwriting (OCR)</td>
+          <td>KHATT Line</td>
+          <td>1,400</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>Newsletters (OCR)</td>
+          <td>PATD</td>
+          <td>506</td>
+      </tr>
+      <tr>
+          <td>OCR and Document Understanding</td>
+          <td>Lines (OCR)</td>
+          <td>PATS-01</td>
+          <td>520</td>
+      </tr>
+      <tr>
+          <td>Chart and Diagram Understanding</td>
+          <td>Charts</td>
+          <td>ChartQA</td>
+          <td>745</td>
+      </tr>
+      <tr>
+          <td>Chart and Diagram Understanding</td>
+          <td>Diagrams Understanding</td>
+          <td>MMMU (diagrams), ICON-QA, AI-Generated, Pinterest, BCE-Arabic</td>
+          <td>1,994</td>
+      </tr>
+      <tr>
+          <td>Chart and Diagram Understanding</td>
+          <td>Tables</td>
+          <td>BCE-Arabic, Excel</td>
+          <td>81</td>
+      </tr>
+      <tr>
+          <td>Video Understanding</td>
+          <td>Countries/ Landmarks</td>
+          <td>Pexel</td>
+          <td>87</td>
+      </tr>
+      <tr>
+          <td>Video Understanding</td>
+          <td>Cultural-Specific Occasions</td>
+          <td>Pexel</td>
+          <td>24</td>
+      </tr>
+      <tr>
+          <td>Video Understanding</td>
+          <td>General Video Scenes</td>
+          <td>Video-MME</td>
+          <td>654</td>
+      </tr>
+      <tr>
+          <td>Cultural Specific Understanding</td>
+          <td>Celebrities</td>
+          <td>arab-celeb-dataset</td>
+          <td>444</td>
+      </tr>
+      <tr>
+          <td>Cultural Specific Understanding</td>
+          <td>Food</td>
+          <td>arabic-food-101, Pexel</td>
+          <td>347</td>
+      </tr>
+      <tr>
+          <td>Cultural Specific Understanding</td>
+          <td>Countries/ Landmarks</td>
+          <td>Pexel</td>
+          <td>494</td>
+      </tr>
+      <tr>
+          <td>Medical Imaging Understanding</td>
+          <td>Basic Medical Science</td>
+          <td>MMMU, MMMU Pro</td>
+          <td>89</td>
+      </tr>
+      <tr>
+          <td>Medical Imaging Understanding</td>
+          <td>Clinical Medicine</td>
+          <td>MMMU, MMMU Pro</td>
+          <td>83</td>
+      </tr>
+      <tr>
+          <td>Medical Imaging Understanding</td>
+          <td>Public Health</td>
+          <td>MMMU, MMMU Pro</td>
+          <td>87</td>
+      </tr>
+      <tr>
+          <td>Medical Imaging Understanding</td>
+          <td>Pharmacy</td>
+          <td>MMMU, MMMU Pro</td>
+          <td>82</td>
+      </tr>
+      <tr>
+          <td>Medical Imaging Understanding</td>
+          <td>Diagnosis</td>
+          <td>MMMU, MMMU Pro</td>
+          <td>87</td>
+      </tr>
+      <tr>
+          <td>Medical Imaging Understanding</td>
+          <td>MMT-MI-Bench</td>
+          <td>78</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Medical Imaging Understanding</td>
+          <td>Medical Understanding</td>
+          <td>769</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Agricultural Image Understanding</td>
+          <td>Agriculture Image Understanding Remote Sensing Understanding</td>
+          <td>AgroGPT GeoChat</td>
+          <td>709</td>
+      </tr>
+      <tr>
+          <td>Remote Sensing Understanding Total</td>
+          <td>Remote Sensing Understanding Total</td>
+          <td>Remote Sensing Understanding Total</td>
+          <td>29,036</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
       <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3. Performance comparison of different closed-and open-source LMMs on CAMEL-Bench. We present per-domain results of seven LMMs: GPT-40 [38], GPT-40-mini [38], Gemini-1.5-Pro [2], Gemini-1.5-Flash [2], Pangea-7B [59], Qwen2-VL [9], InternVL2-8B [11], and LLaVaNeXt-7B [29]. GPT-40 excels in most domains, while GPT-40-mini offers an impressive balance of performance and model size. All models struggle with remote sensing, medical imaging, OCR &amp; document understanding, and general multimodal understanding and reasoning domains. Open-source models like InternVL2-8B and LLaVaNeXt-7B show a decline in performance across domains, with their best results in video understanding.</caption>
-      
+      <table>
+  <thead>
+      <tr>
+          <th>Method</th>
+          <th>MM Understanding &amp; Reasoning</th>
+          <th>OCR &amp; Document Understanding</th>
+          <th>Charts &amp; Diagram Understanding</th>
+          <th>Video Understanding</th>
+          <th>Cultural Specific Understanding</th>
+          <th>Medical Imaging</th>
+          <th>Agro Specific</th>
+          <th>Remote Sensing Understanding</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GPT-4o</td>
+          <td>57.90</td>
+          <td>59.11</td>
+          <td>73.57</td>
+          <td>74.27</td>
+          <td>80.86</td>
+          <td>49.90</td>
+          <td>80.75</td>
+          <td>22.85</td>
+      </tr>
+      <tr>
+          <td>GPT-4o-mini</td>
+          <td>48.82</td>
+          <td>42.89</td>
+          <td>64.98</td>
+          <td>68.11</td>
+          <td>65.92</td>
+          <td>47.37</td>
+          <td>79.58</td>
+          <td>16.93</td>
+      </tr>
+      <tr>
+          <td>Gemini-1.5-Pro</td>
+          <td>46.67</td>
+          <td>36.59</td>
+          <td>47.06</td>
+          <td>42.94</td>
+          <td>56.24</td>
+          <td>33.77</td>
+          <td>72.12</td>
+          <td>17.07</td>
+      </tr>
+      <tr>
+          <td>Gemini-1.5-Flash</td>
+          <td>45.58</td>
+          <td>33.59</td>
+          <td>48.25</td>
+          <td>53.31</td>
+          <td>46.54</td>
+          <td>42.86</td>
+          <td>76.06</td>
+          <td>14.95</td>
+      </tr>
+      <tr>
+          <td>Pangea-7B</td>
+          <td>40.09</td>
+          <td>26.47</td>
+          <td>38.87</td>
+          <td>49.01</td>
+          <td>20.34</td>
+          <td>31.99</td>
+          <td>74.51</td>
+          <td>6.67</td>
+      </tr>
+      <tr>
+          <td>Qwen2-VL-2B</td>
+          <td>40.59</td>
+          <td>25.68</td>
+          <td>27.83</td>
+          <td>38.90</td>
+          <td>34.27</td>
+          <td>29.12</td>
+          <td>52.02</td>
+          <td>12.56</td>
+      </tr>
+      <tr>
+          <td>Intern VL2-8B</td>
+          <td>30.41</td>
+          <td>15.91</td>
+          <td>30.27</td>
+          <td>51.42</td>
+          <td>20.88</td>
+          <td>29.48</td>
+          <td>44.47</td>
+          <td>5.36</td>
+      </tr>
+      <tr>
+          <td>LLaVa-NeXt-7B</td>
+          <td>26.33</td>
+          <td>19.12</td>
+          <td>27.56</td>
+          <td>44.90</td>
+          <td>28.30</td>
+          <td>22.54</td>
+          <td>42.00</td>
+          <td>8.33</td>
+      </tr>
+  </tbody>
+</table>
+
     </table>
 </figure>
 </details>

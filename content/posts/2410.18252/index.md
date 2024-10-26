@@ -2,7 +2,7 @@
 title: "Asynchronous RLHF: Faster and More Efficient Off-Policy RL for Language Models"
 summary: "This paper proposes asynchronous off-policy RLHF, separating LLM generation and training to enable concurrent processing.  It demonstrates that Online DPO is robust to off-policy data, allowing for ef....."
 categories: ["AI Generated"]
-tags: ["2024-10-23"]
+tags: ["🔖 2024-10-23", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-23
 draft: false
@@ -41,7 +41,13 @@ This paper is important because it introduces a novel asynchronous off-policy ap
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_7_0.png "🔼 Figure 6: Asynchronous RLHF can be training-bound (left) or generation-bound (right). In practice, generation and training speeds differ so a challenge of asynchronous learning is how best to balance usage and leverage idle compute time to further improve training.")
+
+
+
+
 
 {{< table-caption caption="🔽 Table 1: The win-rate and perplexity of models after supervised finetuning, before RLHF training" >}}
 | Model | Win Rate | KL (Perplexity) |
@@ -50,6 +56,7 @@ This paper is important because it introduces a novel asynchronous off-policy ap
 | SFT 1B | 26.82% | 1.071 |
 | SFT 2.8B | 35.16% | 1.068 |
 {{< /table-caption >}}
+
 
 ------
 
@@ -67,18 +74,71 @@ This paper is important because it introduces a novel asynchronous off-policy ap
 
 
 {{< table-caption caption="🔽 Table 1: The win-rate and perplexity of models after supervised finetuning, before RLHF training" >}}
+| Hyperparameter | Value |
+| --- | --- |
+| Learning Rate | 3 x 10-6 |
+| Learning Rate Schedule | Linear |
+| Generation Temperature | 0.7 |
+| Batch Size (effective) | 512 |
+| Max Token Length | 1,024 |
+| Max Prompt Token Length | 512 |
+| Response Length | 128 |
+| Number of PPO Epochs | 1 |
+| Total Episodes | 131,072 |
+| KL penalty coefficient | 0.05 |
+| Penalty Reward Value for Completions Without an EOS Token | -1.0 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 1: The win-rate and perplexity of models after supervised finetuning, before RLHF training" >}}
+| Hyperparameter | Value |
+| --- | --- |
+| Model | Meta-Llama-3.1-8B |
+| Max Sequence Length | 4,096 |
+| Batch Size (effective) | 128 |
+| Learning Rate | 5.0 x 10-6 |
+| Learning Rate Schedule | Linear |
+| Learning Rate Warmup Ratio | 0.03 |
+| Learning Rate Weight Decay | 0.0 |
+| Number of Epochs | 2 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 1: The win-rate and perplexity of models after supervised finetuning, before RLHF training" >}}
+| Hyperparameter | Value |
+| --- | --- |
+| Model | The Trained No Robot SFT Checkpoint |
+| Learning Rate | 3 x 10-6 |
+| Learning Rate Schedule | Linear |
+| Batch Size (effective) | 256 |
+| Max Sequence Length | 1,024 |
+| Number of Epochs | 1 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 6: The trained models' GPT4-0 win rate against the human-written responses on the test split of the No Robots dataset (Rajani et al., 2023)" >}}
+| Hyperparameter | Value |
+| --- | --- |
+| Model | The Trained No Robot SFT Checkpoint |
+| Reward Model | The Trained RM Checkpoint |
+| Learning Rate | 8 x 10-7 |
+| Learning Rate Schedule | Linear |
+| Generation Temperature | 0.7 |
+| Batch Size (effective) | 256 |
+| Max Token Length | 1,024 |
+| Max Prompt Token Length | 512 |
+| Number of Epochs | 1 |
+| Total Episodes | 100,000 |
+| Beta (DPO coefficient) | 0.03 |
+| Response Length | 1,024 |
+| Penalty Reward Value for Completions |  |
+| Without an EOS Token | -10.0 |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Table 6: The trained models’ GPT-4 win rate against the human-written responses on the test split of the No Robots dataset (Rajani et al., 2023)" >}}
+| Model | Win Rate | Average Response Sequence Length |
+| --- | --- | --- |
+| SFT | 31.80% | 198.40 |
+| Async Online DPO | 57.20% | 290.55 |
+| Sync Online DPO | 57.20% | 286.21 |
+| Human | N/A | 179.726 |
 {{< /table-caption >}}
 
 

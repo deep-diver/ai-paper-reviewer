@@ -2,7 +2,7 @@
 title: "Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss"
 summary: "Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes....."
 categories: ["AI Generated"]
-tags: ["2024-10-22"]
+tags: ["🔖 2024-10-22", "🤗 2024-10-25"]
 showSummary: true
 date: 2024-10-22
 draft: false
@@ -41,7 +41,13 @@ This paper introduces Inf-CL, a novel method for training contrastive loss model
 ------
 #### Visual Insights
 
+
+
 ![](figures/figures_2_0.png "🔼 Figure 2: (a) Vanilla implementation of contrastive loss gathers features to all devices to calculate all similarity simultaneously, where the similarity with squared complexity are repeatedly stored in all devices, causing huge memory costs for loss calculation when batch size increases. (b) Our Inf-CL significant decreases the memory cost by serial and distributed tile-wise computation.")
+
+
+
+
 
 {{< table-caption caption="🔽 Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128. * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer." >}}
 | Model | Loss (Peak) Memory Cost (GB) | Loss (Peak) Memory Cost (GB) | Loss (Peak) Memory Cost (GB) | Loss (Peak) Memory Cost (GB) | Loss (Peak) Memory Cost (GB) |
@@ -57,6 +63,7 @@ This paper introduces Inf-CL, a novel method for training contrastive loss model
 | OpenCLIP | 0.71 (42.46) | 2.45 (43.06) | 8.98 (44.26) | 34.35 (46.71) | X |
 | Inf-CL | 0.05 (42.48) | 0.09 (43.08) | 0.18 (44.30) | 0.35 (46.71) | 1.44 (61.20) |
 {{< /table-caption >}}
+
 
 ------
 
@@ -92,9 +99,43 @@ This paper introduces Inf-CL, a novel method for training contrastive loss model
 
 
 {{< table-caption caption="🔽 Training Memory Cost Across Different Hardware and Batch Sizes. Experiments utilize Data Parallelism with Automatic Mixed Precision for efficient distributed training. The baselines include the Vanilla loss (CLIP) and Local loss (OpenCLIP). To minimize memory consumption, Gradient Cache is adopted, with an accumulation batch size of 128.  * indicates the use of the data offload strategy, which reduces memory usage by transferring only a small data batch from CPU to GPU during each accumulation step. X denotes cases where the baseline exceeds the hardware memory limit for a given batch size, making training infeasible. Memory cost is evaluated using the ViT-L/14 architecture and the AdamW optimizer." >}}
+| Budget | Maximum Batch Size (Loss Memory Cost) | Maximum Batch Size (Loss Memory Cost) | Maximum Batch Size (Loss Memory Cost) | Improvement (Ours / Sota) |
+| --- | --- | --- | --- | --- |
+| Budget | CLIP | OpenCLIP | Inf-CL | Improvement (Ours / Sota) |
+| ViT-B/16 | ViT-B/16 | ViT-B/16 | ViT-B/16 | ViT-B/16 |
+| 8xA800 32x A800 | 68k (74.39 GB) | 172k (59.95 GB) | 800k (3.01 GB) | 4.65 (800k/172k) |
+| 8xA800 32x A800 | 68k (74.39 GB) | 360k (66.29 GB) | 3456k (3.27 GB) | 9.60 (3456k/360k) |
+| ViT-L/14 | ViT-L/14 | ViT-L/14 | ViT-L/14 | ViT-L/14 |
+| 8xA800 32xA800 | 64k (66.11 GB) | 152k (47.23 GB) | 448k (2.52 GB) | 2.94 (448k/152k) |
+| 8xA800 32xA800 | 64k (66.11 GB) | 352k (64.13 GB) | 2048k (2.89 GB) | 5.82 (2048k/256k) |
+| ViT-L/14 w/ data offload | ViT-L/14 w/ data offload | ViT-L/14 w/ data offload | ViT-L/14 w/ data offload | ViT-L/14 w/ data offload |
+| 8xA800 32xA800 | 64k (66.11 GB) | 184k (69.10 GB) | 4096k (26.12 GB) | 22.26 (4096k/184k) |
+| 8xA800 32xA800 | 64k (66.11 GB) | 368k (64.13 GB) | 12288k (19.59 GB) | 33.39 (12288k/368k) |
 {{< /table-caption >}}
 
 {{< table-caption caption="🔽 Training Memory Cost Across Different Hardware and Batch Sizes." >}}
+| Require: Saved intermediate variables from the forward pass: visual textual | Require: Saved intermediate variables from the forward pass: visual textual |
+| --- | --- |
+|  | features I E Rbxc, features T E Rbxc. the local LSE vector l E Rb. , The row-wise and column-wise size of a tile: tr and tc, |
+| 1: | Divide I into Ir i = 1, 2, , Nr. |
+|  | , where . . · |
+| 2: | Divide T into Tj , where j = 1 2, . . · , nc. |
+| 3: | Divide l into lr, where i = 1, 2, . · · , Nr. |
+| 4: | Initialize gradients vectors: dI E Rtrxc and dT E Rtcxc. |
+| 5: | for each In do |
+| 6: | Load Ii and li from HBM to on-chip SRAM. |
+| 7: | Initialize dIi = 0 E Rtrxc. |
+| 8: | for j = 1 to [b//tc] do |
+| 9: | Load To from HBM to on-chip SRAM. |
+| 10: 11: | On chip, compute Xi,j = Ii · T⌀ E Rtrxtc. On chip, compute dXi⌀j = exp(Xi,j - lr) E Rtrxtc. |
+| 12: | Update gradients dIi += dXi⌀j · T⌀. |
+| 13: | Load dT) from HBM to on-chip SRAM. |
+|  | dT⌀ += Ii · dXi,j. |
+| 14: 15: | Write updated dT⌀ back to HBM. |
+| 16: | end for |
+| 17: | Write updated dI⌀ back to HBM. |
+| 18: | end for |
+| 19: | return dI(i.e. ai ), dT(i.e. 이정 ). |
 {{< /table-caption >}}
 
 
