@@ -7,14 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
-    <atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-24-10-20/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-24-10-20/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>M-RewardBench: Evaluating Reward Models in Multilingual Settings</title>
-      <link>http://localhost:1313/ai-paper-reviewer/posts/2410.15522/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15522/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/posts/2410.15522/</guid>
-      <description>The paper introduces M-REWARDBENCH, a multilingual reward model benchmark showing that current models underperform significantly on non-English languages compared to English, highlighting the impact o&amp;hellip;..</description>
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15522/</guid>
+      <description>M-REWARDBENCH: First multilingual benchmark reveals huge gaps in reward model performance for non-English LLMs.</description>
       
     </item>
     
