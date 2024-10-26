@@ -1,1 +1,302 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>🤗 2024-10-25 on AI Paper Reviews by AI</title><link>https://deep-diver.github.io/ai-paper-reviewer/tags/-2024-10-25/</link><description>Recent content in 🤗 2024-10-25 on AI Paper Reviews by AI</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>© 2024 AI Paper Reviews by AI</copyright><lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://deep-diver.github.io/ai-paper-reviewer/tags/-2024-10-25/index.xml" rel="self" type="application/rss+xml"/><item><title>CAMEL-Bench: A Comprehensive Arabic LMM Benchmark</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18976/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18976/</guid><description>CAMEL-Bench is a new open-source benchmark for evaluating large multimodal models in Arabic. It addresses the lack of Arabic-centric LMM benchmarks by offering a diverse set of tasks across eight dom&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18976/cover.png"/></item><item><title>CCI3.0-HQ: a large-scale Chinese dataset of high quality designed for pre-training large language models</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18505/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18505/</guid><description>The paper introduces CCI3.0-HQ, a large-scale, high-quality Chinese dataset for pre-training LLMs. Using a novel two-stage filtering pipeline, CCI3.0-HQ significantly outperforms existing Chinese dat&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18505/cover.png"/></item><item><title>Data Scaling Laws in Imitation Learning for Robotic Manipulation</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18647/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18647/</guid><description>This paper explores data scaling laws in imitation learning for robotic manipulation. It finds that diverse data from many environments and object types is key to good generalization, following appro&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18647/cover.png"/></item><item><title>DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18860/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18860/</guid><description>To mitigate Large Language Model (LLM) hallucinations, DeCoRe contrasts outputs from a base LLM and one with masked retrieval heads (identified as crucial for factual recall), dynamically adjusting co&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18860/cover.png"/></item><item><title>Distill Visual Chart Reasoning Ability from LLMs to MLLMs</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18798/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18798/</guid><description>Researchers created a new method called Code-as-Intermediary Translation (CIT) to improve multimodal large language models (MLLMs) understanding of charts. CIT uses code to translate visual charts int&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18798/cover.png"/></item><item><title>Framer: Interactive Frame Interpolation</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18978/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18978/</guid><description>Framer is a novel interactive frame interpolation method that lets users customize transitions between two images by manipulating keypoints. It uses a pre-trained video diffusion model and provides bo&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18978/cover.png"/></item><item><title>LOGO -- Long cOntext aliGnment via efficient preference Optimization</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18533/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18533/</guid><description>LOGO is a novel training strategy that improves the alignment of long-context models with human preferences by using preference optimization and overcoming GPU memory limitations through a reference-f&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18533/cover.png"/></item><item><title>MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18977/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18977/</guid><description>MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18977/cover.png"/></item><item><title>Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18775/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18775/</guid><description>Current image watermarking struggles against advanced image editing. This paper introduces W-Bench, a benchmark to evaluate watermarking methods against various editing techniques, and VINE, a new met&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18775/cover.png"/></item><item><title>Should We Really Edit Language Models? On the Evaluation of Edited Language Models</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18785/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18785/</guid><description>This paper comprehensively evaluates various language model editing methods, finding that they generally cause performance degradation and safety issues, especially when scaling to many edits. Curren&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18785/cover.png"/></item><item><title>Skywork-Reward: Bag of Tricks for Reward Modeling in LLMs</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18451/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18451/</guid><description>This paper presents Skywork-Reward, a novel reward model for LLMs. It emphasizes data quality over quantity, creating a smaller, meticulously curated dataset using advanced filtering and selection te&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18451/cover.png"/></item><item><title>SMITE: Segment Me In TimE</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18538/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18538/</guid><description>SMITE is a novel video segmentation method using a pre-trained text-to-image diffusion model with a tracking module and low-frequency regularization. It achieves temporally consistent segmentations w&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18538/cover.png"/></item><item><title>Stable Consistency Tuning: Understanding and Improving Consistency Models</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18958/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18958/</guid><description>Stable Consistency Tuning (SCT) improves consistency model training by reducing variance and discretization errors, leading to faster convergence and state-of-the-art image generation quality on CIFAR&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18958/cover.png"/></item><item><title>Taipan: Efficient and Expressive State Space Language Models with Selective Attention</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18572/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18572/</guid><description>Taipan is a new hybrid language model that combines the efficiency of state-space models with the power of selective attention. It significantly outperforms existing models on long-context tasks, han&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18572/cover.png"/></item><item><title>The Nature of Mathematical Modeling and Probabilistic Optimization Engineering in Generative AI</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18441/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18441/</guid><description>This paper presents enhanced mathematical formulations and probabilistic optimization methods for key Transformer model components in generative AI. It offers novel approaches to subword encoding, hy&amp;hellip;..</description></item><item><title>Unbounded: A Generative Infinite Game of Character Life Simulation</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18975/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18975/</guid><description>UNBOUNDED is a novel generative infinite game using AI to simulate character life in real-time. It overcomes limitations of traditional games by employing a specialized LLM for dynamic game mechanics &amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18975/cover.png"/></item><item><title>Unleashing Reasoning Capability of LLMs via Scalable Question Synthesis from Scratch</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18693/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18693/</guid><description>ScaleQuest is a novel data synthesis method that uses small open-source LLMs to create a large, high-quality mathematical reasoning dataset. This dataset significantly improves the performance of mai&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18693/cover.png"/></item><item><title>WAFFLE: Multi-Modal Model for Automated Front-End Development</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18362/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18362/</guid><description>WAFFLE is a new fine-tuning approach for multi-modal language models that significantly improves automated front-end web development by enhancing their understanding of HTML structure and aligning the&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18362/cover.png"/></item><item><title>Why Does the Effective Context Length of LLMs Fall Short?</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18745/</link><pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18745/</guid><description>Large language models (LLMs) don&amp;rsquo;t use their full context window due to a skewed distribution of positional information during training. The authors introduce STRING, a training-free method that shif&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18745/cover.png"/></item><item><title>ADEM-VL: Adaptive and Embedded Fusion for Efficient Vision-Language Tuning</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17779/</link><pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17779/</guid><description>ADEM-VL is a novel vision-language tuning framework that achieves high efficiency by using a parameter-free cross-attention mechanism, multiscale visual features, and adaptive fusion. It outperforms &amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17779/cover.png"/></item><item><title>Asynchronous RLHF: Faster and More Efficient Off-Policy RL for Language Models</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18252/</link><pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18252/</guid><description>This paper proposes asynchronous off-policy RLHF, separating LLM generation and training to enable concurrent processing. It demonstrates that Online DPO is robust to off-policy data, allowing for ef&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18252/cover.png"/></item><item><title>Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18234/</link><pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18234/</guid><description>This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft specula&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18234/cover.png"/></item><item><title>Value Residual Learning For Alleviating Attention Concentration In Transformers</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17897/</link><pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17897/</guid><description>To address attention concentration in deep Transformers, this paper proposes ResFormer, which uses residual connections from the first layer&amp;rsquo;s values, and SVFormer, which shares value embeddings acros&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17897/cover.png"/></item><item><title>ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18194/</link><pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18194/</guid><description>ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs. It outperforms existing methods by achieving faster convergence and &amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.18194/cover.png"/></item><item><title>Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17243/</link><pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17243/</guid><description>Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training. It allows for near-infinite batch sizes&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.17243/cover.png"/></item><item><title>Can Knowledge Editing Really Correct Hallucinations?</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.16251/</link><pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.16251/</guid><description>Large Language Models (LLMs) often hallucinate; knowledge editing aims to fix this without retraining. This paper introduces HalluEditBench, a new benchmark dataset that rigorously tests editing meth&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.16251/cover.png"/></item><item><title>Language Models are Symbolic Learners in Arithmetic</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.15580/</link><pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.15580/</guid><description>Large language models (LLMs) surprisingly don&amp;rsquo;t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.15580/cover.png"/></item><item><title>Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.16429/</link><pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.16429/</guid><description>Pantograph is a new Lean 4 tool improving the machine-learning assisted theorem proving process by offering an advanced interface that supports efficient proof search, high-level reasoning, and data e&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.16429/cover.png"/></item><item><title>Steering Knowledge Selection Behaviours in LLMs via SAE-Based Representation Engineering</title><link>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.15999/</link><pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate><guid>https://deep-diver.github.io/ai-paper-reviewer/posts/2410.15999/</guid><description>SPARE, a novel training-free method, leverages sparse autoencoders to control LLMs&amp;rsquo; knowledge selection behavior during inference, efficiently resolving knowledge conflicts between parametric and cont&amp;hellip;..</description><media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://deep-diver.github.io/ai-paper-reviewer/posts/2410.15999/cover.png"/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>🤗 2024-10-25 on AI Paper Reviews by AI</title>
+    <link>http://localhost:1313/ai-paper-reviewer/tags/-2024-10-25/</link>
+    <description>Recent content in 🤗 2024-10-25 on AI Paper Reviews by AI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© 2024 AI Paper Reviews by AI</copyright>
+    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-2024-10-25/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CAMEL-Bench: A Comprehensive Arabic LMM Benchmark</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18976/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18976/</guid>
+      <description>CAMEL-Bench is a new open-source benchmark for evaluating large multimodal models in Arabic.  It addresses the lack of Arabic-centric LMM benchmarks by offering a diverse set of tasks across eight dom&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18976/cover.png" />
+    </item>
+    
+    <item>
+      <title>CCI3.0-HQ: a large-scale Chinese dataset of high quality designed for pre-training large language models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18505/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18505/</guid>
+      <description>The paper introduces CCI3.0-HQ, a large-scale, high-quality Chinese dataset for pre-training LLMs.  Using a novel two-stage filtering pipeline, CCI3.0-HQ significantly outperforms existing Chinese dat&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18505/cover.png" />
+    </item>
+    
+    <item>
+      <title>Data Scaling Laws in Imitation Learning for Robotic Manipulation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18647/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18647/</guid>
+      <description>This paper explores data scaling laws in imitation learning for robotic manipulation.  It finds that diverse data from many environments and object types is key to good generalization, following appro&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18647/cover.png" />
+    </item>
+    
+    <item>
+      <title>DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/</guid>
+      <description>To mitigate Large Language Model (LLM) hallucinations, DeCoRe contrasts outputs from a base LLM and one with masked retrieval heads (identified as crucial for factual recall), dynamically adjusting co&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/cover.png" />
+    </item>
+    
+    <item>
+      <title>Distill Visual Chart Reasoning Ability from LLMs to MLLMs</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18798/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18798/</guid>
+      <description>Researchers created a new method called Code-as-Intermediary Translation (CIT) to improve multimodal large language models (MLLMs) understanding of charts. CIT uses code to translate visual charts int&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18798/cover.png" />
+    </item>
+    
+    <item>
+      <title>Framer: Interactive Frame Interpolation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18978/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18978/</guid>
+      <description>Framer is a novel interactive frame interpolation method that lets users customize transitions between two images by manipulating keypoints. It uses a pre-trained video diffusion model and provides bo&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18978/cover.png" />
+    </item>
+    
+    <item>
+      <title>LOGO -- Long cOntext aliGnment via efficient preference Optimization</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18533/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18533/</guid>
+      <description>LOGO is a novel training strategy that improves the alignment of long-context models with human preferences by using preference optimization and overcoming GPU memory limitations through a reference-f&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18533/cover.png" />
+    </item>
+    
+    <item>
+      <title>MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/</guid>
+      <description>MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/cover.png" />
+    </item>
+    
+    <item>
+      <title>Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18775/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18775/</guid>
+      <description>Current image watermarking struggles against advanced image editing. This paper introduces W-Bench, a benchmark to evaluate watermarking methods against various editing techniques, and VINE, a new met&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18775/cover.png" />
+    </item>
+    
+    <item>
+      <title>Should We Really Edit Language Models? On the Evaluation of Edited Language Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/</guid>
+      <description>This paper comprehensively evaluates various language model editing methods, finding that they generally cause performance degradation and safety issues, especially when scaling to many edits.  Curren&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/cover.png" />
+    </item>
+    
+    <item>
+      <title>Skywork-Reward: Bag of Tricks for Reward Modeling in LLMs</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18451/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18451/</guid>
+      <description>This paper presents Skywork-Reward, a novel reward model for LLMs.  It emphasizes data quality over quantity, creating a smaller, meticulously curated dataset using advanced filtering and selection te&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18451/cover.png" />
+    </item>
+    
+    <item>
+      <title>SMITE: Segment Me In TimE</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18538/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18538/</guid>
+      <description>SMITE is a novel video segmentation method using a pre-trained text-to-image diffusion model with a tracking module and low-frequency regularization.  It achieves temporally consistent segmentations w&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18538/cover.png" />
+    </item>
+    
+    <item>
+      <title>Stable Consistency Tuning: Understanding and Improving Consistency Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18958/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18958/</guid>
+      <description>Stable Consistency Tuning (SCT) improves consistency model training by reducing variance and discretization errors, leading to faster convergence and state-of-the-art image generation quality on CIFAR&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18958/cover.png" />
+    </item>
+    
+    <item>
+      <title>Taipan: Efficient and Expressive State Space Language Models with Selective Attention</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18572/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18572/</guid>
+      <description>Taipan is a new hybrid language model that combines the efficiency of state-space models with the power of selective attention.  It significantly outperforms existing models on long-context tasks, han&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18572/cover.png" />
+    </item>
+    
+    <item>
+      <title>The Nature of Mathematical Modeling and Probabilistic Optimization Engineering in Generative AI</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18441/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18441/</guid>
+      <description>This paper presents enhanced mathematical formulations and probabilistic optimization methods for key Transformer model components in generative AI.  It offers novel approaches to subword encoding, hy&amp;hellip;..</description>
+      
+    </item>
+    
+    <item>
+      <title>Unbounded: A Generative Infinite Game of Character Life Simulation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18975/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18975/</guid>
+      <description>UNBOUNDED is a novel generative infinite game using AI to simulate character life in real-time. It overcomes limitations of traditional games by employing a specialized LLM for dynamic game mechanics &amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18975/cover.png" />
+    </item>
+    
+    <item>
+      <title>Unleashing Reasoning Capability of LLMs via Scalable Question Synthesis from Scratch</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18693/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18693/</guid>
+      <description>ScaleQuest is a novel data synthesis method that uses small open-source LLMs to create a large, high-quality mathematical reasoning dataset.  This dataset significantly improves the performance of mai&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18693/cover.png" />
+    </item>
+    
+    <item>
+      <title>WAFFLE: Multi-Modal Model for Automated Front-End Development</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18362/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18362/</guid>
+      <description>WAFFLE is a new fine-tuning approach for multi-modal language models that significantly improves automated front-end web development by enhancing their understanding of HTML structure and aligning the&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18362/cover.png" />
+    </item>
+    
+    <item>
+      <title>Why Does the Effective Context Length of LLMs Fall Short?</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18745/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18745/</guid>
+      <description>Large language models (LLMs) don&amp;rsquo;t use their full context window due to a skewed distribution of positional information during training.  The authors introduce STRING, a training-free method that shif&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18745/cover.png" />
+    </item>
+    
+    <item>
+      <title>ADEM-VL: Adaptive and Embedded Fusion for Efficient Vision-Language Tuning</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/</guid>
+      <description>ADEM-VL is a novel vision-language tuning framework that achieves high efficiency by using a parameter-free cross-attention mechanism, multiscale visual features, and adaptive fusion.  It outperforms &amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/cover.png" />
+    </item>
+    
+    <item>
+      <title>Asynchronous RLHF: Faster and More Efficient Off-Policy RL for Language Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18252/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18252/</guid>
+      <description>This paper proposes asynchronous off-policy RLHF, separating LLM generation and training to enable concurrent processing.  It demonstrates that Online DPO is robust to off-policy data, allowing for ef&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18252/cover.png" />
+    </item>
+    
+    <item>
+      <title>Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/</guid>
+      <description>This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft specula&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/cover.png" />
+    </item>
+    
+    <item>
+      <title>Value Residual Learning For Alleviating Attention Concentration In Transformers</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/</guid>
+      <description>To address attention concentration in deep Transformers, this paper proposes ResFormer, which uses residual connections from the first layer&amp;rsquo;s values, and SVFormer, which shares value embeddings acros&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/cover.png" />
+    </item>
+    
+    <item>
+      <title>ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/</guid>
+      <description>ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs.  It outperforms existing methods by achieving faster convergence and &amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/cover.png" />
+    </item>
+    
+    <item>
+      <title>Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17243/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17243/</guid>
+      <description>Inf-CL breaks the memory barrier in contrastive learning by using a tile-based computation strategy and a multi-level tiling strategy for distributed training.  It allows for near-infinite batch sizes&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17243/cover.png" />
+    </item>
+    
+    <item>
+      <title>Can Knowledge Editing Really Correct Hallucinations?</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/</guid>
+      <description>Large Language Models (LLMs) often hallucinate; knowledge editing aims to fix this without retraining.  This paper introduces HalluEditBench, a new benchmark dataset that rigorously tests editing meth&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/cover.png" />
+    </item>
+    
+    <item>
+      <title>Language Models are Symbolic Learners in Arithmetic</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/</guid>
+      <description>Large language models (LLMs) surprisingly don&amp;rsquo;t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/cover.png" />
+    </item>
+    
+    <item>
+      <title>Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/</guid>
+      <description>Pantograph is a new Lean 4 tool improving the machine-learning assisted theorem proving process by offering an advanced interface that supports efficient proof search, high-level reasoning, and data e&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/cover.png" />
+    </item>
+    
+    <item>
+      <title>Steering Knowledge Selection Behaviours in LLMs via SAE-Based Representation Engineering</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/</guid>
+      <description>SPARE, a novel training-free method, leverages sparse autoencoders to control LLMs&amp;rsquo; knowledge selection behavior during inference, efficiently resolving knowledge conflicts between parametric and cont&amp;hellip;..</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/cover.png" />
+    </item>
+    
+  </channel>
+</rss>

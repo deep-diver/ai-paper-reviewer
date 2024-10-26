@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
+  data-auto-appearance="true"><head><script src="/ai-paper-reviewer/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=ai-paper-reviewer/livereload" data-no-instant defer></script>
+  <meta charset="utf-8" />
+  
+  <meta http-equiv="content-language" content="en" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <title>MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms &middot; AI Paper Reviews by AI</title>
+  <meta name="title" content="MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms &middot; AI Paper Reviews by AI" />
+  
+  <meta name="description" content="MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free....." />
+  <meta name="keywords" content="🔖 2024-10-24, 🤗 2024-10-25, " />
+  
+  
+  <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <link type="text/css" rel="stylesheet" href="/ai-paper-reviewer/css/main.bundle.min.57264e712788193f636d568231c1d003ad9a9823bde3cd5ebc2fd834697086a06a235b5ec8abf9f76e466f52defc30721299d0c530e123c895cf7afb22908e1e.css"
+    integrity="sha512-VyZOcSeIGT9jbVaCMcHQA62amCO9481evC/YNGlwhqBqI1teyKv5925Gb1Le/DByEpnQxTDhI8iVz3r7IpCOHg==" />
+  
+  
+  <script type="text/javascript" src="/ai-paper-reviewer/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script defer type="text/javascript" id="script-bundle" src="/ai-paper-reviewer/js/main.bundle.min.efbf3b6b987689fffaf2d7b73173d2690c0279a04d444b0537a77d7f4ff6e6d493445400cb0cf56bc0f0f123e19f15394e63cae34e67f069bd013dd5c73df56e.js"
+    integrity="sha512-7787a5h2if/68te3MXPSaQwCeaBNREsFN6d9f0/25tSTRFQAywz1a8Dw8SPhnxU5TmPK405n8Gm9AT3Vxz31bg==" data-copy="" data-copied=""></script>
+  
+  
+  
+  <script src="/ai-paper-reviewer/lib/zoom/zoom.min.37d2094687372da3f7343a221a470f6b8806f7891aa46a5a03966af7f0ebd38b9fe536cb154e6ad28f006d184b294525a7c4054b6bbb4be62d8b453b42db99bd.js" integrity="sha512-N9IJRoc3LaP3NDoiGkcPa4gG94kapGpaA5Zq9/Dr04uf5TbLFU5q0o8AbRhLKUUlp8QFS2u7S&#43;Yti0U7QtuZvQ=="></script>
+  
+  
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/ai-paper-reviewer/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/ai-paper-reviewer/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/ai-paper-reviewer/favicon-16x16.png" />
+  <link rel="manifest" href="/ai-paper-reviewer/site.webmanifest" />
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/">
+  <meta property="og:site_name" content="AI Paper Reviews by AI">
+  <meta property="og:title" content="MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms">
+  <meta property="og:description" content="MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free…..">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="paper-reviews">
+    <meta property="article:published_time" content="2024-10-24T00:00:00+00:00">
+    <meta property="article:modified_time" content="2024-10-24T00:00:00+00:00">
+    <meta property="article:tag" content="🔖 2024-10-24">
+    <meta property="article:tag" content="🤗 2024-10-25">
+    <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/cover.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/cover.png">
+  <meta name="twitter:title" content="MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms">
+  <meta name="twitter:description" content="MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free…..">
+
+  
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms",
+    "headline": "MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms",
+    
+    "abstract": "MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free\u0026hellip;..",
+    "inLanguage": "en",
+    "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/paper-reviews\/2410.18977\/",
+    "author" : {
+      "@type": "Person",
+      "name": "AI Paper Reviews by AI"
+    },
+    "copyrightYear": "2024",
+    "dateCreated": "2024-10-24T00:00:00\u002b00:00",
+    "datePublished": "2024-10-24T00:00:00\u002b00:00",
+    
+    "dateModified": "2024-10-24T00:00:00\u002b00:00",
+    
+    "keywords": ["🔖 2024-10-24","🤗 2024-10-25"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "4733"
+  }]
+  </script>
+
+
+  
+  
+  <meta name="author" content="AI Paper Reviews by AI" />
+  
+  
+  
+  <link href="https://github.com/deep-diver/paper-reviewer/" rel="me" />
+  
+  
+  <link href="https://twitter.com/algo_diver/" rel="me" />
+  
+  
+  
+  
+
+<script src="/ai-paper-reviewer/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script defer src="/ai-paper-reviewer/lib/typeit/typeit.umd.1b3200cb448f5cd1f548f2781452643d3511a43584b377b82c03a58055da4fdb7bc8f6c6c2ce846480c7677ff25bfd0d75f15823c09443ab18e0fd2cad792587.js" integrity="sha512-GzIAy0SPXNH1SPJ4FFJkPTURpDWEs3e4LAOlgFXaT9t7yPbGws6EZIDHZ3/yW/0NdfFYI8CUQ6sY4P0srXklhw=="></script>
+
+
+
+
+    
+    <script defer src="/ai-paper-reviewer/lib/packery/packery.pkgd.min.js" integrity=""></script>
+
+    
+    
+    <script type="text/javascript" src="/ai-paper-reviewer/js/shortcodes/gallery.min.9b4cb28f931ed922c26fb9b2510c2debb370f6a63305050c2af81740b2919883715e24efbbdf3a081496718ec751df3a72729d4d0bc71d6071297563a97ce1ee.js" integrity="sha512-m0yyj5Me2SLCb7myUQwt67Nw9qYzBQUMKvgXQLKRmINxXiTvu986CBSWcY7HUd86cnKdTQvHHWBxKXVjqXzh7g=="></script>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  <meta name="theme-color"/>
+  
+  
+</head>
+<body
+  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+  <div id="the-top" class="absolute flex self-center">
+    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+      href="#main-content"><span
+        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
+  </div>
+  
+  
+  <div class="min-h-[148px]"></div>
+<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
+  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
+  <div class="relative max-w-[64rem] ml-auto mr-auto">
+    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
+    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
+    
+    <div class="flex flex-1 items-center justify-between">
+        <nav class="flex space-x-3">
+
+            
+            <a href="/ai-paper-reviewer/" class="text-base font-medium text-gray-500 hover:text-gray-900">AI Paper Reviews by AI</a>
+            
+
+        </nav>
+        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+
+            
+            
+            
+  <a href="/ai-paper-reviewer/paper-reviews/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Paper Reviews
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="/ai-paper-reviewer/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        Tags
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://github.com/deep-diver/paper-reviewer/"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+  <a href="https://twitter.com/algo_diver/"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <span >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+    </span>
+    
+    <p class="text-base font-medium" title="">
+        
+    </p>
+</a>
+
+
+
+            
+            
+
+            
+
+
+            
+            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+
+            
+            
+            <div
+                class="ltr:mr-14 rtl:ml-14 flex items-center">
+                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
+                    <div class="flex items-center justify-center dark:hidden">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                    </div>
+                    <div class="items-center justify-center hidden dark:flex">
+                        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                    </div>
+                </button>
+            </div>
+            
+
+        </nav>
+        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
+
+            <span></span>
+
+            
+
+
+            
+            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+                title="">
+                
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+            </button>
+            
+
+            
+            
+            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
+                <div class="flex items-center justify-center dark:hidden">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
+
+  </span>
+
+
+                </div>
+                <div class="items-center justify-center hidden dark:flex">
+                    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
+
+  </span>
+
+
+                </div>
+            </button>
+            
+
+        </div>
+    </div>
+    <div class="-my-2 -mr-2 md:hidden">
+
+        <label id="menu-button" class="block">
+            
+            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+            </div>
+            <div id="menu-wrapper" style="padding-top:5px;"
+                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
+                <ul
+                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+
+                    <li id="menu-close-button">
+                        <span
+                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+</span>
+                    </li>
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/ai-paper-reviewer/paper-reviews/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Paper Reviews
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="/ai-paper-reviewer/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            Tags
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://github.com/deep-diver/paper-reviewer/"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
+    <a href="https://twitter.com/algo_diver/"  target="_blank"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <div >
+            
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+
+        </div>
+        
+        <p class="text-bg font-bg" title="">
+            
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                </ul>
+                
+                
+
+            </div>
+        </label>
+    </div>
+</div>
+
+
+
+
+
+  </div>
+</div>
+<script>
+  window.addEventListener('scroll', function (e) {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    var background_blur = document.getElementById('menu-blur');
+    background_blur.style.opacity = (scroll / 300);
+  });
+</script>
+
+  
+  <div class="relative flex flex-col grow">
+    <main id="main-content" class="grow">
+      
+
+
+<article>
+  
+  
+  
+  
+  
+  
+
+
+<div id="hero" class="h-[150px] md:h-[200px]"></div>
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/ai-paper-reviewer/paper-reviews/2410.18977/cover_hu2181903669059322962.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+<script>
+    window.addEventListener('scroll', function (e) {
+        var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+        var background_blur = document.getElementById('background-blur');
+        background_blur.style.opacity = (scroll / 300)
+    });
+</script>
+
+  
+  
+
+  <header id="single_header" class="mt-5 max-w-prose">
+    
+    <ol class="text-sm text-neutral-500 dark:text-neutral-400 print:hidden">
+  
+  
+    
+  
+    
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/ai-paper-reviewer/"
+      >AI Paper Reviews by AI</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline ">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/ai-paper-reviewer/paper-reviews/"
+      >Posts</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+  
+  <li class="inline hidden">
+    <a
+      class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
+      href="/ai-paper-reviewer/paper-reviews/2410.18977/"
+      >MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms</a
+    ><span class="px-1 text-primary-500">/</span>
+  </li>
+
+</ol>
+
+
+    
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms
+    </h1>
+    <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+      
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>4733 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">23 mins</span>
+  
+
+  
+  
+</div>
+
+
+
+
+
+<div class="flex flex-row flex-wrap items-center">
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/categories/ai-generated/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AI Generated
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-24/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🔖 2024-10-24
+  </span>
+</span>
+  </span>
+  
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+    <span class="flex" style="cursor: pointer;">
+  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    🤗 2024-10-25
+  </span>
+</span>
+  </span>
+  
+  
+  
+  
+</div>
+
+
+
+
+    </div>
+
+    
+    
+    
+    
+    
+
+    
+
+    
+      
+      
+        
+        
+<div class="flex author">
+  
+    
+    
+      
+    
+    
+      
+        
+      
+      <img class="!mt-0 !mb-0 h-24 w-24 rounded-full ltr:mr-4 rtl:ml-4" width="96" height="96"
+      alt="AI Paper Reviews by AI" src="/ai-paper-reviewer/img/avatar_hu14127527184135390686.png" />
+    
+  
+  <div class="place-self-center">
+    
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Author
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      AI Paper Reviews by AI
+    </div>
+    
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-400">I am AI, and I review papers in the field of AI</div>
+    
+    <div class="text-2xl sm:text-lg">
+  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://github.com/deep-diver/paper-reviewer/"
+          target="_blank"
+          aria-label="Github"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+      
+        <a
+          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
+          href="https://twitter.com/algo_diver/"
+          target="_blank"
+          aria-label="Twitter"
+          rel="me noopener noreferrer"
+          ><span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+
+  </span>
+
+</span></a
+        >
+      
+    
+  </div>
+
+</div>
+  </div>
+</div>
+
+      
+
+      
+
+      
+      <div class="mb-5"></div>
+      
+
+    
+
+  </header>
+  
+  <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+    
+     <div
+      class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+      <div class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky lg:top-[140px]">
+
+         <details open id="TOCView"
+  class="toc-right mt-0 overflow-y-scroll overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr">TL;DR</a>
+          <ul>
+            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#key-takeaways">Key Takeaways</a></li>
+            <li><a href="#visual-insights">Visual Insights</a></li>
+          </ul>
+        </li>
+        <li><a href="#full-paper">Full paper</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    Table of Contents
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tldr">TL;DR</a>
+          <ul>
+            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#key-takeaways">Key Takeaways</a></li>
+            <li><a href="#visual-insights">Visual Insights</a></li>
+          </ul>
+        </li>
+        <li><a href="#full-paper">Full paper</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+<script>
+
+  var margin = 200;
+  var marginError = 50;
+
+  (function () {
+    var $window = $(window);
+    var $toc = $('#TOCView');
+    var tocHeight = $toc.height();
+
+    function onResize() {
+      var windowAndMarginHeight = $window.height() - margin;
+      if(tocHeight >= windowAndMarginHeight) {
+        $toc.css("overflow-y", "scroll")
+        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+      } else {
+        $toc.css("overflow-y", "hidden")
+        $toc.css("max-height", "9999999px")
+      }
+    }
+
+    $window.on('resize', onResize);
+    $(document).ready(onResize);
+  })();
+
+
+
+</script>
+   </div>
+      </div>
+      
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+        
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+
+<h3 class="relative group">TL;DR 
+    <div id="tldr" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#tldr" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
+  MotionCLR is a novel attention-based diffusion model for human motion generation and editing. It leverages self- and cross-attention mechanisms for fine-grained control, enabling various training-free editing operations like (de)emphasizing, replacement, and sequence shifting. The model&rsquo;s explainability via attention maps allows for action counting and addresses generation failures.
+</div>
+
+<a
+  class="!rounded-md bg-primary-600 px-4 py-2 !text-neutral !no-underline hover:!bg-primary-500 dark:bg-primary-800 dark:hover:!bg-primary-700"
+  href="https://arxiv.org/abs/2410.18977"
+  target="_self"
+  
+  role="button"
+>
+  
+
+
+  <span class="relative inline-block align-text-bottom icon">
+    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.05025 1.53553C8.03344 0.552348 9.36692 0 10.7574 0C13.6528 0 16 2.34721 16 5.24264C16 6.63308 15.4477 7.96656 14.4645 8.94975L12.4142 11L11 9.58579L13.0503 7.53553C13.6584 6.92742 14 6.10264 14 5.24264C14 3.45178 12.5482 2 10.7574 2C9.89736 2 9.07258 2.34163 8.46447 2.94975L6.41421 5L5 3.58579L7.05025 1.53553Z" fill="#000000"/>
+<path d="M7.53553 13.0503L9.58579 11L11 12.4142L8.94975 14.4645C7.96656 15.4477 6.63308 16 5.24264 16C2.34721 16 0 13.6528 0 10.7574C0 9.36693 0.552347 8.03344 1.53553 7.05025L3.58579 5L5 6.41421L2.94975 8.46447C2.34163 9.07258 2 9.89736 2 10.7574C2 12.5482 3.45178 14 5.24264 14C6.10264 14 6.92742 13.6584 7.53553 13.0503Z" fill="#000000"/>
+<path d="M5.70711 11.7071L11.7071 5.70711L10.2929 4.29289L4.29289 10.2929L5.70711 11.7071Z" fill="#000000"/>
+</svg>
+  </span>
+
+ &nbsp; read the paper on arXiv
+
+</a>
+
+
+
+<h4 class="relative group">Why does this paper matter? 
+    <div id="why-does-this-paper-matter" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#why-does-this-paper-matter" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>This paper introduces MotionCLR, an attention-based diffusion model for human motion generation and editing.  It provides a clear understanding of how self- and cross-attention mechanisms work within the model to achieve fine-grained control over motion generation and editing, enabling various interactive editing operations without retraining.</p>
+
+
+<h4 class="relative group">Key Takeaways 
+    <div id="key-takeaways" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#key-takeaways" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z" fill="#1C274C"/>
+</svg>
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><div id="typeit-b8a40061fb497c823801e7475cc71744"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-b8a40061fb497c823801e7475cc71744", {
+        strings: [" MotionCLR achieves comparable generation performance with state-of-the-art methods while providing clear modeling of the text-aligned motion generation process. "],
+        speed:  10 ,
+        lifeLike:  true ,
+        startDelay:  0 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+</span>
+</div>
+
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z" fill="#1C274C"/>
+</svg>
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><div id="typeit-4f93344ccc247d37bd572b43e5bbf43e"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-4f93344ccc247d37bd572b43e5bbf43e", {
+        strings: [" MotionCLR clarifies the roles of self- and cross-attention mechanisms in a motion diffusion model, enabling interactive motion editing via attention map manipulation. "],
+        speed:  10 ,
+        lifeLike:  true ,
+        startDelay:  1000 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+</span>
+</div>
+
+
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md bg-primary-100 dark:bg-primary-900"
+  >
+
+  <span
+    
+      class="text-primary-400 ltr:pr-3 rtl:pl-3 flex items-center"
+    >
+
+    
+
+  <span class="relative block icon">
+    <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z" fill="#1C274C"/>
+</svg>
+  </span>
+
+
+  </span>
+
+  <span
+    
+      class="dark:text-neutral-300"
+    ><div id="typeit-7a59d658396ef23fa5ced9bf364f7dd1"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      new TypeIt("#typeit-7a59d658396ef23fa5ced9bf364f7dd1", {
+        strings: [" MotionCLR demonstrates good explainability through attention maps, enabling tasks like action counting and grounded motion generation to address failure cases. "],
+        speed:  10 ,
+        lifeLike:  true ,
+        startDelay:  2000 ,
+        breakLines:  true ,
+        waitUntilVisible:  true ,
+        loop:  false 
+      }).go();
+    });
+</script>
+</span>
+</div>
+
+<hr>
+
+
+<h4 class="relative group">Visual Insights 
+    <div id="visual-insights" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#visual-insights" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_0_hu14091880536567292847.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_0_hu5145148184499369719.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_0_hu3296344860758573327.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_0_hu9557539378477644642.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_0_hu5145148184499369719.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
+      <table>
+  <thead>
+      <tr>
+          <th>Methods</th>
+          <th>R-Precision↑</th>
+          <th>R-Precision↑</th>
+          <th>R-Precision↑</th>
+          <th>FID↓</th>
+          <th>MM-Dist↓</th>
+          <th>Multi-Modality↑</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Methods</td>
+          <td>Top 1</td>
+          <td>Top 2</td>
+          <td>Top 3</td>
+          <td>FID↓</td>
+          <td>MM-Dist↓</td>
+          <td>Multi-Modality↑</td>
+      </tr>
+      <tr>
+          <td>TM2T [2022b]</td>
+          <td>0.424±0.003</td>
+          <td>0.618±0.003</td>
+          <td>0.729±0.002</td>
+          <td>1.501 ±0.017</td>
+          <td>3.467±0.011</td>
+          <td>2.424±0.093</td>
+      </tr>
+      <tr>
+          <td>T2M [2022a]</td>
+          <td>0.455±0.003</td>
+          <td>0.636±0.003</td>
+          <td>0.736±0.002</td>
+          <td>1.087±0.021</td>
+          <td>3.347±0.008</td>
+          <td>2.219±0.074</td>
+      </tr>
+      <tr>
+          <td>MDM [2022b]</td>
+          <td>-</td>
+          <td>-</td>
+          <td>0.611 ±0.007</td>
+          <td>0.544±0.044</td>
+          <td>5.566±0.027</td>
+          <td>2.799±0.072</td>
+      </tr>
+      <tr>
+          <td>MLD [2023b]</td>
+          <td>0.481 ±0.003</td>
+          <td>0.673±0.003</td>
+          <td>0.772±0.002</td>
+          <td>0.473±0.013</td>
+          <td>3.196±0.010</td>
+          <td>2.413±0.079</td>
+      </tr>
+      <tr>
+          <td>MotionDiffuse [2024b]</td>
+          <td>0.491 ±0.001</td>
+          <td>0.681 ±0.001</td>
+          <td>0.782±0.001</td>
+          <td>0.630±0.001</td>
+          <td>3.113±0.001</td>
+          <td>1.553±0.042</td>
+      </tr>
+      <tr>
+          <td>T2M-GPT [2023a]</td>
+          <td>0.492±0.003</td>
+          <td>0.679±0.002</td>
+          <td>0.775±0.002</td>
+          <td>0.141 士0.005</td>
+          <td>3.121 ±0.009</td>
+          <td>1.831 ±0.048</td>
+      </tr>
+      <tr>
+          <td>ReMoDiffuse [2023b]</td>
+          <td>0.510±0.005</td>
+          <td>0.698±0.006</td>
+          <td>0.795±0.004</td>
+          <td>0.103±0.004</td>
+          <td>2.974±0.016</td>
+          <td>1.795±0.043</td>
+      </tr>
+      <tr>
+          <td>MoMask [2024a]</td>
+          <td>0.521 ±0.002</td>
+          <td>0.713±0.002</td>
+          <td>0.807±0.002</td>
+          <td>0.045 ±0.002</td>
+          <td>2.958±0.008</td>
+          <td>1.241 ±0.040</td>
+      </tr>
+      <tr>
+          <td>MotionCLR</td>
+          <td>0.542±0.001</td>
+          <td>0.733±0.002</td>
+          <td>0.827±0.003</td>
+          <td>0.099±0.003</td>
+          <td>2.981±0.011</td>
+          <td>2.145±0.043</td>
+      </tr>
+      <tr>
+          <td>MotionCLR*</td>
+          <td>0.544±0.001</td>
+          <td>0.732±0.001</td>
+          <td>0.831 士0.002</td>
+          <td>0.269±0.001</td>
+          <td>2.806±0.014</td>
+          <td>1.985±0.044</td>
+      </tr>
+  </tbody>
+</table>
+
+    </table>
+</figure>
+<details>
+<summary>More on figures
+</summary>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_1_hu10149308242031923301.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_1_hu2293414865946576503.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_1_hu14491901063637615715.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_1_hu11828869313181166752.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_1_hu2293414865946576503.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_2_hu1744558876639096146.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_2_hu1317445117115101900.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_2_hu796783838009442525.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_2_hu63375235923907863.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_2_hu1317445117115101900.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_3_hu670090708186410138.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_3_hu15733599785993943347.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_3_hu39619844396850092.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_3_hu12736583036949501325.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_3_hu15733599785993943347.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 10: Diverse generated motions driven by the same example. Prompt: &lsquo;a person steps sideways to the left and then sideways to the right.&rsquo;. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_4_hu12479876521144111757.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_4_hu4034164960582842883.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_4_hu10192269789211978246.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_4_hu710783160529838303.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_4_hu4034164960582842883.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_5_hu17644775530034957155.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_5_hu17366351567247856390.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_5_hu8670450859133244911.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_5_hu8458947621942015659.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_5_hu17366351567247856390.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_6_hu14569803448900403296.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_6_hu1095985254807299484.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_6_hu1791849981347417523.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_6_hu13712862692071269773.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_6_hu1095985254807299484.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_7_hu8969051007400316883.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_7_hu3396478336661898589.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_7_hu14723468369235207341.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_7_hu1587795993115258201.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_7_hu3396478336661898589.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_8_hu17972177321048422962.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_8_hu10228851059950579946.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_8_hu15202558038012753159.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_8_hu6147384275032008541.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_1_8_hu10228851059950579946.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_4_0_hu15514149178681859052.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_4_0_hu291357494920954678.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_4_0_hu8719990203528750107.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_4_0_hu18442670384317306135.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_4_0_hu291357494920954678.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: System overview of MotionCLR architecture. (a) The basic CLR block includes four layers. (b) The sampling (a.k.a. Samp.) block includes two CLR blocks and one down/up-sampling operation. (c) MotionCLR is a U-Net-like architecture, composed of several Sampling blocks.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_5_0_hu7723673421314818701.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_5_0_hu16089864393786732286.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_5_0_hu10839372100630210458.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_5_0_hu13455090274370286903.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_5_0_hu16089864393786732286.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Empirical study of attention mechanisms. We use &lsquo;a person jumps.&rsquo; as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height). The character jumps on ~15-40f, ~60-80f, and ~125-145f, respectively. (c) The cross-attention between timesteps and words. The &lsquo;jump&rsquo; word is highly activated aligning with the &lsquo;jump&rsquo; action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_7_0_hu5121666883161814704.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_7_0_hu7913894377960541274.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_7_0_hu14073655310496680619.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_7_0_hu15363178193107306984.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_7_0_hu7913894377960541274.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 5: Motion (de-)emphasizing. Different weights of &lsquo;jump&rsquo; (↑ or ↓) in &lsquo;a man jumps.&rsquo;</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_0_hu17530826996448690931.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_0_hu5607418106474077854.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_0_hu15469554591653626104.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_0_hu7756312325261279172.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_0_hu5607418106474077854.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Empirical study of attention mechanisms. We use &lsquo;a person jumps.&rsquo; as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height). The character jumps on ~15-40f, ~60-80f, and ~125-145f, respectively. (c) The cross-attention between timesteps and words. The &lsquo;jump&rsquo; word is highly activated aligning with the &lsquo;jump&rsquo; action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_1_hu4305984582995115211.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_1_hu16120630256806561290.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_1_hu12148213879255826749.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_1_hu5252766124779592022.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_1_hu16120630256806561290.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_2_hu13352147083430553405.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_2_hu10642667422516156931.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_2_hu14718420647224900167.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_2_hu2046318978769559870.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_2_hu10642667422516156931.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Empirical study of attention mechanisms. We use &lsquo;a person jumps.&rsquo; as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height, in Fig. 3b). As can be seen in Fig. 3, the character jumps at ~ 15-40f, ~ 60-80f, and ~ 125-145f, respectively. (c) The cross-attention between timesteps and words. The &lsquo;jump&rsquo; word is highly activated aligning with the &lsquo;jump&rsquo; action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_3_hu7642802016635975753.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_3_hu5017707358636630203.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_3_hu1856619439763313708.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_3_hu4889480096591574446.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_8_3_hu5017707358636630203.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_0_hu13969912723862863740.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_0_hu10066116901779059843.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_0_hu3598965360943198540.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_0_hu12884134926441934700.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_0_hu10066116901779059843.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 10: Diverse generated motions driven by the same example. Prompt: &lsquo;a person steps sideways to the left and then sideways to the right.&rsquo;. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_1_hu1262498465927565761.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_1_hu8177837879555963088.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_1_hu5557808011889541107.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_1_hu3479797184333537398.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_9_1_hu8177837879555963088.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 10: Diverse generated motions driven by the same example. Prompt: &lsquo;a person steps sideways to the left and then sideways to the right.&rsquo;. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_0_hu451834014262659401.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_0_hu2174121056557828971.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_0_hu5441104436819085625.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_0_hu180110857030108210.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_0_hu2174121056557828971.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 10: Diverse generated motions driven by the same example. Prompt: &lsquo;a person steps sideways to the left and then sideways to the right.&rsquo;. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_1_hu3899310522264503112.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_1_hu16518025065720670087.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_1_hu451905654689361540.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_1_hu1044600900298931981.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_1_hu16518025065720670087.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_2_hu1930904659804702397.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_2_hu16445684889975904896.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_2_hu5831704321457899498.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_2_hu4873736183151623395.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_2_hu16445684889975904896.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_3_hu13414216021450686471.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_3_hu17779417924992610327.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_3_hu2572557381847738236.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_3_hu16934186190569518091.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_3_hu17779417924992610327.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_4_hu1635199888673749621.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_4_hu1102464799141794129.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_4_hu16612551631860800690.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_4_hu3473708750951377847.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_4_hu1102464799141794129.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_5_hu13340969862496648654.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_5_hu828320576612193957.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_5_hu9855585499625279758.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_5_hu11207134835405035834.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_10_5_hu828320576612193957.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 10: Diverse generated motions driven by the same example. Prompt: &lsquo;a person steps sideways to the left and then sideways to the right.&rsquo;. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_0_hu1511745027192715926.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_0_hu14330285879970356659.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_0_hu16476029081744030858.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_0_hu16703282525244133788.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_0_hu14330285879970356659.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_1_hu8046454003688993094.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_1_hu13426875925883658436.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_1_hu496521920256106383.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_1_hu2390445173798637110.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_1_hu13426875925883658436.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_2_hu2167878396223914718.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_2_hu18135106258249134283.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_2_hu15358231551972943868.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_2_hu10573439478490245089.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_2_hu18135106258249134283.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_3_hu15371905306758507705.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_3_hu11850211239284771541.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_3_hu11794906486332201896.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_3_hu8382931533821257104.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_3_hu11850211239284771541.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_4_hu11522158867909447734.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_4_hu16248759928010682120.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_4_hu10840026784861738169.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_4_hu10688959017873473123.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_4_hu16248759928010682120.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_5_hu17304933267542616182.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_5_hu13479101274861363564.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_5_hu7637342027852913025.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_5_hu10879271193478957315.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_5_hu13479101274861363564.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_6_hu12252517892423172006.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_6_hu7917553745455748286.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_6_hu10831322901790537851.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_6_hu13320315291476440276.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_6_hu7917553745455748286.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_7_hu12535923622703396000.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_7_hu5007264043578989850.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_7_hu578948475997751918.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_7_hu4468924638420384461.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_7_hu5007264043578989850.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_8_hu8746270425171052561.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_8_hu6845273715064498866.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_8_hu86336433691383135.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_8_hu12251985083774706178.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_8_hu6845273715064498866.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_9_hu11291041975250590300.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_9_hu14428820348526356257.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_9_hu17328323312700429681.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_9_hu9901555806141487891.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_9_hu14428820348526356257.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_10_hu4023433600765554071.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_10_hu8684305838941948977.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_10_hu480666884801854239.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_10_hu18156694463834502648.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_10_hu8684305838941948977.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_11_hu14975988627366562685.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_11_hu15523183076817936862.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_11_hu14102538756770941667.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_11_hu16372958502439301038.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_24_11_hu15523183076817936862.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_0_hu3020463394716849471.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_0_hu8392642103887956079.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_0_hu10274257345769046183.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_0_hu10070831083877721414.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_0_hu8392642103887956079.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_1_hu10541991703540130953.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_1_hu13722644745194022840.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_1_hu10656347879031482731.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_1_hu14016512369821703555.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_25_1_hu13722644745194022840.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_0_hu842822126795307346.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_0_hu5718767067412885301.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_0_hu1497838040268972970.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_0_hu15758469830853975173.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_0_hu5718767067412885301.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 10: Diverse generated motions driven by the same example. Prompt: “a person steps sideways to the left and then sideways to the right.” (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_1_hu15180837145667078845.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_1_hu7425763043061087744.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_1_hu8233933957543270610.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_1_hu11753848539738110429.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_26_1_hu7425763043061087744.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 10: Diverse generated motions driven by the same example. Prompt: “a person steps sideways to the left and then sideways to the right.”. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_27_0_hu13393457156245179002.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_27_0_hu10967462734699960023.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_27_0_hu15051184921213034633.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_27_0_hu3587526750871823648.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_27_0_hu10967462734699960023.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 13: Comparison between w/ vs. w/o grounded motion generation settings. The root height and motion visualization of the textual prompt “a person jumps four times”.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_28_0_hu16189890408655552254.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_28_0_hu7625923520108072625.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_28_0_hu12596438134939981491.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_28_0_hu6527167777101715574.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_28_0_hu7625923520108072625.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_29_0_hu4733321629755605951.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_29_0_hu8816867789508361774.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_29_0_hu15480772042122245189.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_29_0_hu11283765917089857479.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_29_0_hu8816867789508361774.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_0_hu17490780793940800659.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_0_hu16418392085650373554.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_0_hu14765187990761185187.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_0_hu11303138434058386341.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_0_hu16418392085650373554.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_1_hu7304116111032119043.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_1_hu9469708217356002031.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_1_hu18256200514101204514.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_1_hu5100149236110944857.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_30_1_hu9469708217356002031.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_31_0_hu17481150918742813645.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_31_0_hu8707015694279262095.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_31_0_hu339739524068423324.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_31_0_hu6530546279817964465.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_31_0_hu8707015694279262095.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_33_0_hu6924012338564037927.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_33_0_hu328957624779777592.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_33_0_hu7332495321298680118.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_33_0_hu10669342512994210621.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_33_0_hu328957624779777592.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Empirical study of attention mechanisms. We use &lsquo;a person jumps.&rsquo; as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height). The character jumps on ~15-40f, ~60-80f, and ~125-145f, respectively. (c) The cross-attention between timesteps and words. The &lsquo;jump&rsquo; word is highly activated aligning with the &lsquo;jump&rsquo; action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_0_hu747437757052991328.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_0_hu2176246948092979452.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_0_hu11582543404582915642.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_0_hu16267645957092862874.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_0_hu2176246948092979452.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_1_hu665098623755420777.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_1_hu9642382782661674232.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_1_hu4219428708752474288.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_1_hu2221340898975299930.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_37_1_hu9642382782661674232.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_38_0_hu15257103120675614323.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_38_0_hu12093217893738749042.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_38_0_hu17935051799464570846.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_38_0_hu13851826440187288176.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_38_0_hu12093217893738749042.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_0_hu17748618637122119407.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_0_hu15228505597967685576.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_0_hu5501223708665179074.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_0_hu13609159738753254503.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_0_hu15228505597967685576.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_1_hu3679919504248703118.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_1_hu2761744106814184014.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_1_hu13232774162108803449.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_1_hu17636059862186622625.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_39_1_hu2761744106814184014.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_40_0_hu12493397444090506349.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_40_0_hu624020212296466280.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_40_0_hu17750997150166620951.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_40_0_hu15243562376959624628.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_40_0_hu624020212296466280.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_41_0_hu8859904798721801727.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_41_0_hu16528502818459411827.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_41_0_hu6108860642296008740.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_41_0_hu851911644230522543.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18977/figures/figures_41_0_hu16528502818459411827.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 1: MotionCLR (/&lsquo;moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of &lsquo;jump&rsquo;. (b) In-place replacing the action of &lsquo;walks&rsquo; with &lsquo;jumps&rsquo; and &lsquo;dances&rsquo;. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.</figcaption>
+    </figure>
+</p>
+</details>
+<hr>
+<details>
+<summary>More on tables
+</summary>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
+      <table>
+  <thead>
+      <tr>
+          <th>Ablation</th>
+          <th>R-Precision↑</th>
+          <th>R-Precision↑</th>
+          <th>R-Precision↑</th>
+          <th>FID↓</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Ablation</td>
+          <td>Top 1</td>
+          <td>Top 2</td>
+          <td>Top 3</td>
+          <td>FID↓</td>
+      </tr>
+      <tr>
+          <td>(1)</td>
+          <td>0.512</td>
+          <td>0.705</td>
+          <td>0.792</td>
+          <td>0.544</td>
+      </tr>
+      <tr>
+          <td>(2)</td>
+          <td>0.509</td>
+          <td>0.703</td>
+          <td>0.788</td>
+          <td>0.550</td>
+      </tr>
+      <tr>
+          <td>MotionCLR</td>
+          <td>0.544</td>
+          <td>0.732</td>
+          <td>0.831</td>
+          <td>0.269</td>
+      </tr>
+  </tbody>
+</table>
+
+    </table>
+</figure>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
+      <table>
+  <thead>
+      <tr>
+          <th>Rishabh Dabral, Muhammad Hamza Mughal, Vladislav Golyanik, and Christian Theobalt. Mofusion: A framework for denoising-diffusion-based motion synthesis. In CVPR, pages 9760-9770, 2023.</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, and Furu Wei. Knowledge neurons in pretrained transformers. In ACL, pages 8493-8502, 2022.</td>
+      </tr>
+      <tr>
+          <td>Wenxun Dai, Ling-Hao Chen, Jingbo Wang, Jinpeng Liu, Bo Dai, and Yansong Tang. Motionlcm: Real-time controllable motion generation via latent consistency model. ECCV, 2024.</td>
+      </tr>
+      <tr>
+          <td>Christian Diller and Angela Dai. Cg-hoi: Contact-guided 3d human-object interaction generation. In CVPR, pages 19888-19901, 2024.</td>
+      </tr>
+      <tr>
+          <td>Markos Diomataris, Nikos Athanasiou, Omid Taheri, Xi Wang, Otmar Hilliges, and Michael J Black. Wandr: Intention-guided human motion generation. In CVPR, pages 927-936, 2024.</td>
+      </tr>
+      <tr>
+          <td>Ke Fan, Junshu Tang, Weijian Cao, Ran Yi, Moran Li, Jingyu Gong, Jiangning Zhang, Yabiao Wang, Chengjie Wang, and Lizhuang Ma. Freemotion: A unified framework for number-free text-to-motion synthesis. ECCV, 2024.</td>
+      </tr>
+      <tr>
+          <td>Bin Feng, Tenglong Ao, Zequn Liu, Wei Ju, Libin Liu, and Ming Zhang. Robust dancer: Long-term 3d dance synthesis using unpaired data. arXiv preprint arXiv:2303.16856, 2023.</td>
+      </tr>
+      <tr>
+          <td>Mor Geva, Roei Schuster, Jonathan Berant, and Omer Levy. Transformer feed-forward layers are key-value memories. In EMNLP, pages 5484-5495, 2021.</td>
+      </tr>
+      <tr>
+          <td>Anindita Ghosh, Rishabh Dabral, Vladislav Golyanik, Christian Theobalt, and Philipp Slusallek. Remos: Reactive 3d motion synthesis for two-person interactions. ECCV, 2023.</td>
+      </tr>
+      <tr>
+          <td>Purvi Goel, Kuan-Chieh Wang, C Karen Liu, and Kayvon Fatahalian. Iterative motion editing with natural language. In ACM SIGGRAPH, pages 1-9, 2024.</td>
+      </tr>
+      <tr>
+          <td>Kehong Gong, Dongze Lian, Heng Chang, Chuan Guo, Zihang Jiang, Xinxin Zuo, Michael Bi Mi, and Xinchao Wang. Tm2d: Bimodality driven 3d dance generation via music-text integration. In ICCV, pages 9942-9952, 2023.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Shihao Zou, Xinxin Zuo, Sen Wang, Wei Ji, Xingyu Li, and Li Cheng. Generating diverse and natural 3d human motions from text. In CVPR, pages 5152-5161, 2022a.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Xinxin Zuo, Sen Wang, and Li Cheng. Tm2t: Stochastic and tokenized modeling for the reciprocal generation of 3d human motions and texts. In ECCV, pages 580-597, 2022b.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Yuxuan Mu, Muhammad Gohar Javed, Sen Wang, and Li Cheng. Momask: Generative masked modeling of 3d human motions. In CVPR, pages 1900-1910, 2024a.</td>
+      </tr>
+      <tr>
+          <td>Chuan Guo, Yuxuan Mu, Xinxin Zuo, Peng Dai, Youliang Yan, Juwei Lu, and Li Cheng. Generative human motion stylization in latent space. ICLR, 2024b.</td>
+      </tr>
+      <tr>
+          <td>Xinying Guo, Mingyuan Zhang, Haozhe Xie, Chenyang Gu, and Ziwei Liu. Crowdmogen: Zero-shot text-driven collective motion generation. arXiv preprint arXiv:2407.06188, 2024c.</td>
+      </tr>
+      <tr>
+          <td>Bo Han, Hao Peng, Minjing Dong, Yi Ren, Yixuan Shen, and Chang Xu. Amd: Autoregressive motion diffusion. In AAAI, pages 2022-2030, 2024.</td>
+      </tr>
+      <tr>
+          <td>Ligong Han, Song Wen, Qi Chen, Zhixing Zhang, Kunpeng Song, Mengwei Ren, Ruijiang Gao, Yuxiao Chen, Di Liu 0003, Qilong Zhangli, et al. Improving tuning-free real image editing with proximal guidance. WACV, 2023.</td>
+      </tr>
+      <tr>
+          <td>Yaru Hao, Li Dong, Furu Wei, and Ke Xu. Self-attention attribution: Interpreting information interactions inside transformer. In AAAI, volume 35, pages 12963-12971, 2021.</td>
+      </tr>
+      <tr>
+          <td>Felix G Harvey, Mike Yurick, Derek Nowrouzezahrai, and Christopher Pal. Robust motion in- betweening. ACM TOG, 39(4):60-1, 2020.</td>
+      </tr>
+      <tr>
+          <td>Amir Hertz, Ron Mokady, Jay Tenenbaum, Kfir Aberman, Yael Pritch, and Daniel Cohen-Or. Prompt- to-prompt image editing with cross attention control. ICLR, 2023.</td>
+      </tr>
+  </tbody>
+</table>
+
+    </table>
+</figure>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
+      <table>
+  <thead>
+      <tr>
+          <th>w</th>
+          <th>I</th>
+          <th>1.5</th>
+          <th>2</th>
+          <th>2.5</th>
+          <th>3</th>
+          <th>3.5</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FID</td>
+          <td>0.801</td>
+          <td>0.408</td>
+          <td>0.318</td>
+          <td>0.217</td>
+          <td>0.317</td>
+          <td>0.396</td>
+      </tr>
+      <tr>
+          <td>TMR-sim.</td>
+          <td>51.987</td>
+          <td>52.351</td>
+          <td>53.512</td>
+          <td>53.956</td>
+          <td>54.300</td>
+          <td>54.529</td>
+      </tr>
+  </tbody>
+</table>
+
+    </table>
+</figure>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>FID ↓</th>
+          <th>TMR-sim.→</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>direct (pseudo GT)</td>
+          <td>0.315</td>
+          <td>0.543</td>
+      </tr>
+      <tr>
+          <td>unreplaced</td>
+          <td>0.325</td>
+          <td>0.567</td>
+      </tr>
+      <tr>
+          <td>unreplaced (unpaired T-M)</td>
+          <td>0.925</td>
+          <td>0.490</td>
+      </tr>
+      <tr>
+          <td>ours replaced</td>
+          <td>0.330</td>
+          <td>0.535</td>
+      </tr>
+  </tbody>
+</table>
+
+    </table>
+</figure>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
+      <table>
+  <thead>
+      <tr>
+          <th>begin</th>
+          <th>end</th>
+          <th>FID↓</th>
+          <th>TMR-sim.↑</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>8</td>
+          <td>11</td>
+          <td>0.339</td>
+          <td>0.472</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>14</td>
+          <td>0.325</td>
+          <td>0.498</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>18</td>
+          <td>0.330</td>
+          <td>0.535</td>
+      </tr>
+  </tbody>
+</table>
+
+    </table>
+</figure>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparison with different methods on the HumanML3D dataset. The &#39;*&#39; notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.</caption>
+      <table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>FID ↓</th>
+          <th>Div. ↑</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Diff. manipulation</td>
+          <td>0.718</td>
+          <td>1.502</td>
+      </tr>
+      <tr>
+          <td>MotionCLR manipulation</td>
+          <td>0.427</td>
+          <td>2.567</td>
+      </tr>
+  </tbody>
+</table>
+
+    </table>
+</figure>
+</details>
+<hr>
+
+
+<h3 class="relative group">Full paper 
+    <div id="full-paper" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#full-paper" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+
+
+<div id="gallery-2dbcf94ce6eb840ef26f5c9349edbba5" class="gallery">
+  
+
+  <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/35.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/36.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/37.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/38.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/39.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/40.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+  <img src="paper_images/41.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+
+
+</div>
+
+          
+          
+          
+        </div>
+        
+        
+
+        
+        
+  
+  <section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/&amp;title=MotionCLR:%20Motion%20Generation%20and%20Training-free%20Editing%20via%20Understanding%20Attention%20Mechanisms"
+      title="Share on LinkedIn"
+      aria-label="Share on LinkedIn"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="https://twitter.com/intent/tweet/?url=http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/&amp;text=MotionCLR:%20Motion%20Generation%20and%20Training-free%20Editing%20via%20Understanding%20Attention%20Mechanisms"
+      title="Tweet on Twitter"
+      aria-label="Tweet on Twitter"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </span>
+
+
+    </a>
+      
+    
+      
+      <a
+      target="_blank"
+      class="m-1 rounded bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+      href="mailto:?body=http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/&amp;subject=MotionCLR:%20Motion%20Generation%20and%20Training-free%20Editing%20via%20Understanding%20Attention%20Mechanisms"
+      title="Send via email"
+      aria-label="Send via email"
+      >
+      
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
+
+  </span>
+
+
+    </a>
+      
+    
+  </section>
+
+
+          
+      </div>
+     
+      
+      
+        
+        
+          
+          
+        
+      <script>
+        var oid = "views_paper-reviews\/2410.18977\/index.md"
+        var oid_likes = "likes_paper-reviews\/2410.18977\/index.md"
+      </script>
+      
+      
+      <script type="text/javascript" src="/ai-paper-reviewer/js/page.min.0860cf4e04fa2d72cc33ddba263083464d48f67de06114529043cb4623319efed4f484fd7f1730df5abea0e2da6f3538855634081d02f2d6e920b956f063e823.js" integrity="sha512-CGDPTgT6LXLMM926JjCDRk1I9n3gYRRSkEPLRiMxnv7U9IT9fxcw31q&#43;oOLabzU4hVY0CB0C8tbpILlW8GPoIw=="></script>
+      
+  
+    </section>
+  <footer class="pt-8 max-w-prose print:hidden">
+
+    
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/ai-paper-reviewer/paper-reviews/2410.18775/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/paper-reviews/2410.18533/">
+              <span class="flex flex-col">
+                <span
+                  class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >LOGO -- Long cOntext aliGnment via efficient preference Optimization</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+    
+    
+    <div class="pt-3">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+      <div class="pt-3">
+        <script src="https://utteranc.es/client.js"
+  repo="pmnxis/pmnxis.github.io"
+  issue-term="pathname"
+  label="Comment"
+  theme="dark-blue"
+  crossorigin="anonymous"
+  async>
+</script>
+
+      </div>
+    </div>
+    
+    
+  </footer>
+</article>
+
+      <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="Scroll to top" title="Scroll to top">
+    &uarr;
+  </a>
+</div>
+    </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+      <ul class="flex flex-col list-none sm:flex-row">
+        
+        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/ai-paper-reviewer/tags/"
+            title="">
+            
+            Tags
+          </a>
+        </li>
+        
+      </ul>
+    </nav>
+    
+  
+  <div class="flex items-center justify-between">
+
+    
+    
+    <p class="text-sm text-neutral-500 dark:text-neutral-400">
+      &copy;
+      2024
+      AI Paper Reviews by AI
+    </p>
+    
+
+    
+    
+    <p class="text-xs text-neutral-500 dark:text-neutral-400">
+      
+      
+      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
+    </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script>
+  
+  
+  <script type="text/javascript" src="/ai-paper-reviewer/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
+  data-url="http://localhost:1313/ai-paper-reviewer/"
+  style="z-index:500"
+>
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
+  >
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="Search"
+          tabindex="0"
+        />
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="Close (Esc)"
+      >
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+  </div>
+</body>
+
+</html>
