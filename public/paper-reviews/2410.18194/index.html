@@ -11,8 +11,8 @@
   <title>ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment &middot; AI Paper Reviews by AI</title>
   <meta name="title" content="ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment &middot; AI Paper Reviews by AI" />
   
-  <meta name="description" content="ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs.  It outperforms existing methods by achieving faster convergence and ....." />
-  <meta name="keywords" content="🔖 2024-10-23, 🤗 2024-10-25, " />
+  <meta name="description" content="ZIP-FIT uses gzip compression to efficiently select task-relevant training data, significantly boosting language model performance and reducing training time." />
+  <meta name="keywords" content="🔖 24-10-23, 🤗 24-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/" />
@@ -69,21 +69,21 @@
   <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/">
   <meta property="og:site_name" content="AI Paper Reviews by AI">
   <meta property="og:title" content="ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment">
-  <meta property="og:description" content="ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs.  It outperforms existing methods by achieving faster convergence and …..">
+  <meta property="og:description" content="ZIP-FIT uses gzip compression to efficiently select task-relevant training data, significantly boosting language model performance and reducing training time.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="paper-reviews">
     <meta property="article:published_time" content="2024-10-23T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-23T00:00:00+00:00">
-    <meta property="article:tag" content="🔖 2024-10-23">
-    <meta property="article:tag" content="🤗 2024-10-25">
+    <meta property="article:tag" content="🔖 24-10-23">
+    <meta property="article:tag" content="🤗 24-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/cover.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/cover.png">
   <meta name="twitter:title" content="ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment">
-  <meta name="twitter:description" content="ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs.  It outperforms existing methods by achieving faster convergence and …..">
+  <meta name="twitter:description" content="ZIP-FIT uses gzip compression to efficiently select task-relevant training data, significantly boosting language model performance and reducing training time.">
 
   
   <script type="application/ld+json">
@@ -94,7 +94,7 @@
     "name": "ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment",
     "headline": "ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment",
     
-    "abstract": "ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs.  It outperforms existing methods by achieving faster convergence and \u0026hellip;..",
+    "abstract": "ZIP-FIT uses gzip compression to efficiently select task-relevant training data, significantly boosting language model performance and reducing training time.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/paper-reviews\/2410.18194\/",
     "author" : {
@@ -107,10 +107,10 @@
     
     "dateModified": "2024-10-23T00:00:00\u002b00:00",
     
-    "keywords": ["🔖 2024-10-23","🤗 2024-10-25"],
+    "keywords": ["🔖 24-10-23","🤗 24-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "442"
+    "wordCount": "2588"
   }]
   </script>
 
@@ -634,7 +634,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>442 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>2588 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">13 mins</span>
   
 
   
@@ -668,18 +668,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-23/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-23/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🔖 2024-10-23
+    🔖 24-10-23
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-25/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🤗 2024-10-25
+    🤗 24-10-25
   </span>
 </span>
   </span>
@@ -810,11 +810,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -835,11 +836,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -899,7 +901,7 @@
     
 </h3>
 <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  ZIP-FIT is a novel data selection method that uses gzip compression to efficiently select task-relevant data for fine-tuning LLMs.  It outperforms existing methods by achieving faster convergence and lower cross-entropy loss, demonstrating the importance of data quality and task alignment for efficient LLM training.
+  The research introduces ZIP-FIT, a new way to select the best training data for language models. Instead of using complex methods, ZIP-FIT uses a simple compression algorithm (gzip) to measure how well potential training data matches the specific task.  The results show that using data selected by ZIP-FIT leads to faster training and better performance on two tasks: turning natural language mathematical statements into formal code (Autoformalization) and generating computer code from natural language descriptions. ZIP-FIT is also faster than other existing data selection techniques.  The study demonstrates that focusing on a smaller, well-aligned dataset is much more effective than using a larger, less relevant one.  This is important because it shows the benefits of careful data selection and highlights the usefulness of compression as a way to gauge data quality for machine learning tasks.
 </div>
 
 <a
@@ -927,17 +929,17 @@
 
 
 
-<h4 class="relative group">Why does this paper matter? 
-    <div id="why-does-this-paper-matter" class="anchor"></div>
+<h4 class="relative group">Why does it matter? 
+    <div id="why-does-it-matter" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#why-does-this-paper-matter" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#why-does-it-matter" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>This paper introduces ZIP-FIT, a novel data selection method for fine-tuning large language models (LLMs). ZIP-FIT leverages gzip compression to measure the alignment between potential training data and the target task distribution, enabling more efficient selection of task-relevant data.  Experiments on Autoformalization and code generation demonstrate that ZIP-FIT significantly outperforms existing methods, achieving faster convergence and lower cross-entropy loss, even with smaller datasets. The findings highlight the importance of data quality and task alignment for efficient LLM fine-tuning.</p>
+<p>To provide a concise and informative summary of the research paper on ZIP-FIT, a novel data selection method for optimizing language model performance.</p>
 
 
 <h4 class="relative group">Key Takeaways 
@@ -984,7 +986,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-3ec7acc9399bae4ade502835377a0f38", {
-        strings: [" ZIP-FIT uses gzip compression to efficiently select high-quality data for LLM fine-tuning, outperforming existing methods. "],
+        strings: [" ZIP-FIT, a novel embedding-free data selection method based on gzip compression, significantly outperforms existing baselines in Autoformalization and code generation tasks. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  0 ,
@@ -1031,7 +1033,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-226619d95aedefd8e04f741c4d9d3864", {
-        strings: [" Higher data-target alignment leads to faster convergence and lower cross-entropy loss during model training. "],
+        strings: [" Higher data alignment, as measured by ZIP-FIT, strongly correlates with lower cross-entropy loss and faster model convergence. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  1000 ,
@@ -1078,7 +1080,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-7f7dcf24e00890bfed549788e447fe36", {
-        strings: [" ZIP-FIT's embedding-free approach makes it computationally efficient and scalable for various tasks. "],
+        strings: [" ZIP-FIT offers a computationally efficient alternative to existing embedding-based methods, making it particularly suitable for resource-constrained environments. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  2000 ,
@@ -1120,62 +1122,338 @@
       <figcaption>🔼 Figure 1: ZIP-FIT selects task-specific data for efficient finetuning. (0) Obtain both the source and target datasets. (1) Calculate ZIP-FIT Alignment of each source example with the target dataset using gzip compression. (2) Rank all source examples based on these alignment scores. (3) Select the top-K most aligned examples for fine-tuning. (4) Fine-tune a large language model using the selected top-K examples to improve performance on the target task.</figcaption>
     </figure>
 </p>
+<blockquote>
+<p>This figure illustrates the ZIP-FIT algorithm&rsquo;s process for selecting task-specific data by ranking source data examples based on their compression-based alignment with the target dataset and then using the top-k aligned examples to fine-tune a large language model.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_2_0_hu6926368471242861342.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_2_0_hu15967173353597802945.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_2_0_hu14947035183795788610.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_2_0_hu1315197551970263505.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_2_0_hu15967173353597802945.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Code Generation: ZIP-FIT accelerates cross-entropy loss reduction, even in code-specialized models like CodeGemma-2B. The plots show cross-entropy test loss versus the number of training tokens for Gemma2-2B (top row) and CodeGemma-2B (bottom row) across different token selection sizes. ZIP-FIT (blue) consistently reduces loss faster than DSIR (green) and D4 (red), achieving up to 85.11% speed improvement at lower token counts. These results demonstrate ZIP-FIT&rsquo;s efficiency in data selection for fine-tuning models on code-geneation tasks.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the cross-entropy test loss versus the number of training tokens for two code generation models, showing that ZIP-FIT consistently achieves lower loss faster than competing methods.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Beginning characters of the top 20 samples selected by ZIP-FIT when the target task is code generation.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Sample Text (Beginning)</th>
-          <th>Alignment Score</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Across all his bands and projects, Townsend has released twenty @-@ three studio albums and three live albums.</td>
-          <td>0.5000</td>
-      </tr>
-      <tr>
-          <td>Require Import CodeDeps. Require Import Ident. Local Open Scope Z_scope. Definition _addr := 1%positive. Definition -g := 2%positive.</td>
-          <td>0.4928</td>
-      </tr>
-      <tr>
-          <td>This Photostock Vector Night Sky Background With Full Moon Clouds And Stars Vector Ilgraphicration has 1560 x 1560 pixel resolution&hellip;</td>
-          <td>0.4926</td>
-      </tr>
-      <tr>
-          <td>module Structure.Logic where ·</td>
-          <td>0.4926</td>
-      </tr>
-      <tr>
-          <td>{ dg-do compile } PR fortran/51993 Code contributed by Sebastien Bardeau  module mymod type :: mytyp&hellip;</td>
-          <td>0.4891</td>
-      </tr>
-      <tr>
-          <td>For over ten years, the St. Louis Mercy home has formed a special connection with a local community theatre: The Muny. This summer the&hellip;</td>
-          <td>0.4889</td>
-      </tr>
-      <tr>
-          <td>Read(&ldquo;SchreierSims.gi&rdquo;); LoadPackage(&ldquo;AtlasRep&rdquo;&quot;); MicroSeconds := function() local t; t := IO_gettimeofday(); return t.tv _sec * 1000000 + t.t</td>
-          <td>0.4889</td>
-      </tr>
-      <tr>
-          <td>Get the keyId used by this peer (this peer&rsquo;s identifier). This is stored in the key store.</td>
-          <td>0.4857</td>
-      </tr>
-      <tr>
-          <td>Initializes and adds a node to the graph. NOTE: At least the type must be supplied for the Node to exist in the graph. Args: graph: The graph&hellip;</td>
-          <td>0.4853</td>
-      </tr>
-      <tr>
-          <td>def bgra2rgb(img): cv2.cvtColor(img, cv2.COLOR _BGRA2BGR) has an issue removing the alpha channel, this gets rid of wrong trans&hellip;</td>
-          <td>0.4853</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Beginning characters of the top 20 samples selected by ZIP-FIT when the target task is code generation.</caption>
+      <table id='6' style='font-size:18px'><tr><td>Sample Text (Beginning)</td><td>Alignment Score</td></tr><tr><td>Across all his bands and projects, Townsend has released twenty @-@ three studio albums and three live albums.</td><td>0.5000</td></tr><tr><td>Require Import CodeDeps. Require Import Ident. Local Open Scope Z_scope. Definition _addr := 1%positive. Definition -g := 2%positive.</td><td>0.4928</td></tr><tr><td>This Photostock Vector Night Sky Background With Full Moon Clouds And Stars Vector Ilgraphicration has 1560 x 1560 pixel resolution...</td><td>0.4926</td></tr><tr><td>module Structure.Logic where ·</td><td>0.4926</td></tr><tr><td>{ dg-do compile } PR fortran/51993 Code contributed by Sebastien Bardeau <bardeau at iram dot fr> module mymod type :: mytyp...</td><td>0.4891</td></tr><tr><td>For over ten years, the St. Louis Mercy home has formed a special connection with a local community theatre: The Muny. This summer the...</td><td>0.4889</td></tr><tr><td>Read("SchreierSims.gi"); LoadPackage("AtlasRep""); MicroSeconds := function() local t; t := IO_gettimeofday(); return t.tv _sec * 1000000 + t.t</td><td>0.4889</td></tr><tr><td>Get the keyId used by this peer (this peer's identifier). This is stored in the key store.</td><td>0.4857</td></tr><tr><td>Initializes and adds a node to the graph. NOTE: At least the type must be supplied for the Node to exist in the graph. Args: graph: The graph...</td><td>0.4853</td></tr><tr><td>def bgra2rgb(img): cv2.cvtColor(img, cv2.COLOR _BGRA2BGR) has an issue removing the alpha channel, this gets rid of wrong trans...</td><td>0.4853</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 1 displays the beginning characters of the top 20 code samples selected by the ZIP-FIT algorithm for code generation, along with their corresponding ZIP-FIT alignment scores.</p>
+</blockquote>
+
+
+<h3 class="relative group">More visual insights 
+    <div id="more-visual-insights" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#more-visual-insights" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<details>
+<summary>More on charts
+</summary>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_0_hu138934936002933391.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_0_hu12895770163567543918.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_0_hu7678055370997363950.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_0_hu10787373756528079310.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_0_hu12895770163567543918.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Higher ZIP-FIT alignment correlates with lower cross-entropy loss. The relationship between ZIP-FIT alignment and cross-entropy (CE) loss for (a) GPT-2 trained on 22k tokens (R2 = 0.90, p = 0.001) and (b) Mistral7B trained on 22k tokens (R2 = 0.75, p = 0.025). Each point represents a dataset, with its position reflecting the dataset&rsquo;s ZIP-FIT alignment score against the ProofNet test set and the resulting CE loss. The dashed red line indicates the linear regression fit, while the dashed grey line shows the pretrained CE loss. Higher alignment scores correspond to lower CE losses, demonstrating that training on better aligned data yields better performance.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart shows a strong negative correlation between higher ZIP-FIT alignment scores and lower cross-entropy loss for GPT-2 and Mistral7B language models, indicating that training on better-aligned data leads to improved performance.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_1_hu5403646549605917963.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_1_hu10856336728804129441.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_1_hu8080768473873959175.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_1_hu13530684185711846453.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_3_1_hu10856336728804129441.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Higher ZIP-FIT alignment correlates with lower cross-entropy loss. The relationship between ZIP-FIT alignment and cross-entropy (CE) loss for (a) GPT-2 trained on 22k tokens (R2 = 0.90, p = 0.001) and (b) Mistral7B trained on 22k tokens (R2 = 0.75, p = 0.025). Each point represents a dataset, with its position reflecting the dataset&rsquo;s ZIP-FIT alignment score against the ProofNet test set and the resulting CE loss. The dashed red line indicates the linear regression fit, while the dashed grey line shows the pretrained CE loss. Higher alignment scores correspond to lower CE losses, demonstrating that training on better aligned data yields better performance.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>Higher ZIP-FIT alignment scores correlate with lower cross-entropy loss, indicating that training on better-aligned data leads to improved model performance.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_5_0_hu11595863037545949571.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_5_0_hu14702442467859769292.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_5_0_hu18007650665709466709.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_5_0_hu18330625362216338129.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_5_0_hu14702442467859769292.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 4: Highly aligned data lowers cross-entropy loss more efficiently. The x-axis shows the number of training tokens, and the y-axis represents the cross-entropy (CE) test loss. Different curves correspond to datasets filtered by different alignment scores, indicating their relevance to the target domain. The most aligned data reduce Test CE loss significantly faster than less aligned data. The left panel depicts results using GPT-2, and the right panel uses Mistral7B, demonstrating that using highly aligned data not only accelerates training but also achieves better model performance, validating the effectiveness of ZIP-FIT for data selection in fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart shows that highly aligned data leads to faster convergence and lower cross-entropy loss during model training for both GPT-2 and Mistral7B language models.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_6_0_hu4558843562272173847.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_6_0_hu6696519453072400626.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_6_0_hu5973018152725911173.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_6_0_hu7065255221104140245.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_6_0_hu6696519453072400626.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 5: AutoFormalization: ZIP-FIT consistently achieves lower test loss more quickly than D4 and DSIR, demonstrating its efficiency in data selection. The plots show cross-entropy test loss versus the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across different token selection sizes. ZIP-FIT (blue line) consistently outperforms both DSIR (green line) and D4 (red line) across all model and token size configurations, highlighting its ability to process data more efficiently. The percentage labels in each plot indicate the relative speedup of ZIP-FIT over DSIR in reaching the lowest cross-entropy loss, reinforcing the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart shows that ZIP-FIT consistently achieves lower cross-entropy test loss faster than DSIR and D4 across various models and token selection sizes for the AutoFormalization task, demonstrating its efficiency in data selection.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_8_0_hu2287825995896272750.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_8_0_hu11852751252166742261.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_8_0_hu11020777094992050485.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_8_0_hu12897353792222100891.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_8_0_hu11852751252166742261.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 6: Selective data filtering with ZIP-FIT allows us to achieve better cross-entropy test loss faster than training on all the data, resulting in improved performance and efficiency. The x-axis represents the number of training tokens, while the y-axis shows the cross-entropy test loss. The curves represent models fine-tuned (FT) on datasets filtered by varying alignment thresholds (&gt;0.1, &gt;0.2, &gt;0.3). The dashed line indicates the baseline performance of the pretrained Mistral7B model. Training on data filtered with higher alignment thresholds leads to superior performance, demonstrating the effectiveness of removing misaligned data in fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the relationship between the number of training tokens and cross-entropy test loss for different data alignment thresholds, demonstrating that using more aligned data leads to faster convergence and lower test loss.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_0_hu1858312120865503018.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_0_hu536933906653007660.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_0_hu15029872124667045962.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_0_hu11214249046764445141.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_0_hu536933906653007660.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the cross-entropy test loss for three different models across various token selection sizes, demonstrating that ZIP-FIT consistently achieves lower test loss at a faster rate compared to D4 and DSIR.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_1_hu2138182654512180863.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_1_hu7800764551832710996.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_1_hu13856143671378251810.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_1_hu1579770200214351859.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_1_hu7800764551832710996.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the performance of ZIP-FIT, DSIR, and D4 in reducing cross-entropy loss during the fine-tuning of three different language models for the Autoformalization task, demonstrating ZIP-FIT&rsquo;s superior efficiency and speed.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_2_hu2533501411964773790.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_2_hu13206566512360933924.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_2_hu2889921854949662805.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_2_hu17461994613348384784.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_2_hu13206566512360933924.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the cross-entropy test loss of three different language models fine-tuned using data selected by ZIP-FIT, DSIR, and D4 across varying numbers of training tokens, demonstrating ZIP-FIT&rsquo;s superior efficiency and faster convergence.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_3_hu13053073374535691351.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_3_hu7201726123223629802.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_3_hu3128584024590178178.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_3_hu16668988481772813434.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_3_hu7201726123223629802.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the cross-entropy test loss of three different language models using different data selection methods (ZIP-FIT, DSIR, and D4) across varying numbers of training tokens, demonstrating ZIP-FIT&rsquo;s superior performance and efficiency.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_4_hu5762546321380822823.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_4_hu10213770525065313570.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_4_hu4289010355470459670.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_4_hu6417085342874480550.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_4_hu10213770525065313570.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Code Generation: ZIP-FIT accelerates cross-entropy loss reduction, even in code-specialized models like CodeGemma-2B. The plots show cross-entropy test loss versus the number of training tokens for Gemma2-2B (top row) and CodeGemma-2B (bottom row) across different token selection sizes. ZIP-FIT (blue) consistently reduces loss faster than DSIR (green) and D4 (red), achieving up to 85.11% speed improvement at lower token counts. These results demonstrate ZIP-FIT&rsquo;s efficiency in data selection for fine-tuning models on code-geneation tasks.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the cross-entropy test loss versus the number of training tokens for different models and token selection sizes, showing that ZIP-FIT consistently reduces loss faster than other methods.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_5_hu5872500902843671414.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_5_hu1286980300958782484.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_5_hu4668498245101788978.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_5_hu959761954526594511.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_5_hu1286980300958782484.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the cross-entropy test loss of three different language models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) trained on data selected by ZIP-FIT, DSIR, and D4 across various token selection sizes, demonstrating ZIP-FIT&rsquo;s superior performance and efficiency.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_6_hu10253736192492070269.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_6_hu7533623721910219502.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_6_hu16525439250355952732.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_6_hu13671638951286629095.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_6_hu7533623721910219502.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the performance of ZIP-FIT, DSIR, and D4 in reducing cross-entropy loss during the fine-tuning of three different language models for the Autoformalization task, showing ZIP-FIT&rsquo;s superior efficiency and faster convergence.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_7_hu16682117662055013068.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_7_hu5643600982568127410.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_7_hu146576770091179025.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_7_hu11560152797169095063.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_7_hu5643600982568127410.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the performance of ZIP-FIT, DSIR, and D4 in terms of cross-entropy test loss and training speed for different model sizes and datasets in the Autoformalization task, demonstrating ZIP-FIT&rsquo;s superiority.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_8_hu17363570435308340351.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_8_hu17262049643358487633.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_8_hu16805057080657746005.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_8_hu6627516922121043040.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_17_8_hu17262049643358487633.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method&rsquo;s scalability and adaptability for domain-specific fine-tuning.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the cross-entropy test loss of three different language models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) trained using data selected by ZIP-FIT, DSIR, and D4 across various token selection sizes, demonstrating ZIP-FIT&rsquo;s superior efficiency and faster convergence in achieving lower test loss.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_18_0_hu14864009245986154884.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_18_0_hu10212554401485934232.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_18_0_hu17903803411195761641.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_18_0_hu18231110735819302736.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18194/charts/charts_18_0_hu10212554401485934232.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 8: ZIP-FIP demonstrates lower cross-entropy and lower run time during data selection than competing DSIR and D4 methods. ZIP-FIT is cheaper, faster, and better performing. The run times do no include fine-tuning time, since it&rsquo;s a constant offset across all models. D4&rsquo;s data selection (not shown) takes 5hs because it uses an embedding model (opt-125m Zhang et al. (2022)), the same one as the original paper Tirumala et al. (2023).</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the cross-entropy test loss and data selection time of ZIP-FIT against DSIR for different models and token sizes, showing that ZIP-FIT achieves lower cross-entropy and faster data selection.</p>
+</blockquote>
+</details>
 
 
 <h3 class="relative group">Full paper 
@@ -1192,45 +1470,25 @@
 
 <div id="gallery-eaf88061273e6b1bf182c424e418a9f3" class="gallery">
   
-
-  <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
+<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 
 </div>
 
@@ -1337,7 +1595,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/ai-paper-reviewer/paper-reviews/2410.17243/">
+            <a class="flex group mr-3" href="/ai-paper-reviewer/paper-reviews/2410.17131/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1349,7 +1607,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss</span
+                  >Aligning Large Language Models via Self-Steering Optimization</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

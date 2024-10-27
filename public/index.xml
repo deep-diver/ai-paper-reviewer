@@ -7,14 +7,224 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
-    <lastBuildDate>Wed, 23 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CAMEL-Bench: A Comprehensive Arabic LMM Benchmark</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18976/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18976/</guid>
+      <description>CAMEL-Bench: a new Arabic LMM benchmark with 29K+ questions across 8 diverse domains, revealing significant room for improvement even in top models.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18976/cover.png" />
+    </item>
+    
+    <item>
+      <title>CCI3.0-HQ: a large-scale Chinese dataset of high quality designed for pre-training large language models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18505/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18505/</guid>
+      <description>CCI3.0-HQ: A new, high-quality 500GB Chinese dataset boosts large language model performance by leveraging a novel two-stage filtering pipeline, exceeding existing datasets in benchmark evaluations.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18505/cover.png" />
+    </item>
+    
+    <item>
+      <title>Data Scaling Laws in Imitation Learning for Robotic Manipulation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18647/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18647/</guid>
+      <description>Robotic manipulation policies achieve near-human success rates in unseen environments using a novel data-scaling approach, enabling efficient data collection and zero-shot generalization.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18647/cover.png" />
+    </item>
+    
+    <item>
+      <title>DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/</guid>
+      <description>DeCoRe: A novel LLM decoding strategy dynamically contrasts base and masked LLM outputs using conditional entropy, significantly reducing hallucinations and boosting contextual accuracy.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/cover.png" />
+    </item>
+    
+    <item>
+      <title>Distill Visual Chart Reasoning Ability from LLMs to MLLMs</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18798/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18798/</guid>
+      <description>Boosting visual chart reasoning in MLLMs via Code-as-Intermediary Translation (CIT):  efficiently generating high-quality training data by leveraging LLMs.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18798/cover.png" />
+    </item>
+    
+    <item>
+      <title>Framer: Interactive Frame Interpolation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18978/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18978/</guid>
+      <description>Framer: an interactive frame interpolation method lets users customize video transitions via keypoint manipulation, producing smoother, more creative results.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18978/cover.png" />
+    </item>
+    
+    <item>
+      <title>LOGO -- Long cOntext aliGnment via efficient preference Optimization</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18533/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18533/</guid>
+      <description>LOGO: a novel training strategy enhances long-context models&amp;rsquo; generation by efficiently optimizing preferences, achieving performance comparable to GPT-4 with limited data.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18533/cover.png" />
+    </item>
+    
+    <item>
+      <title>MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/</guid>
+      <description>MotionCLR: Training-free motion editing via attention mechanism manipulation.  Versatile editing, good generation, and explainability.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18977/cover.png" />
+    </item>
+    
+    <item>
+      <title>Robust Watermarking Using Generative Priors Against Image Editing: From Benchmarking to Advances</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18775/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18775/</guid>
+      <description>VINE, a novel watermarking method, significantly improves robustness against image editing by leveraging blurring distortions and a pretrained diffusion model for imperceptible embedding.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18775/cover.png" />
+    </item>
+    
+    <item>
+      <title>Should We Really Edit Language Models? On the Evaluation of Edited Language Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/</guid>
+      <description>Current LLM editing methods are great for small updates, but scaling them negatively impacts performance and safety.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/cover.png" />
+    </item>
+    
+    <item>
+      <title>Skywork-Reward: Bag of Tricks for Reward Modeling in LLMs</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18451/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18451/</guid>
+      <description>Skywork-Reward achieves state-of-the-art reward modeling for LLMs using novel data-centric techniques, producing a top-performing model with only 80K preference pairs.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18451/cover.png" />
+    </item>
+    
+    <item>
+      <title>SMITE: Segment Me In TimE</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18538/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18538/</guid>
+      <description>SMITE: a novel video segmentation technique that uses few reference images to generate accurate, temporally consistent segmentations with varying granularities, outperforming existing methods.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18538/cover.png" />
+    </item>
+    
+    <item>
+      <title>Stable Consistency Tuning: Understanding and Improving Consistency Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18958/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18958/</guid>
+      <description>Stable Consistency Tuning (SCT) boosts image generation speed and quality in consistency models, reaching new state-of-the-art performance.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18958/cover.png" />
+    </item>
+    
+    <item>
+      <title>Taipan: Efficient and Expressive State Space Language Models with Selective Attention</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18572/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18572/</guid>
+      <description>Taipan: A novel hybrid language model efficiently handles long sequences via selective attention and SSMs, achieving superior performance across various tasks.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18572/cover.png" />
+    </item>
+    
+    <item>
+      <title>The Nature of Mathematical Modeling and Probabilistic Optimization Engineering in Generative AI</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18441/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18441/</guid>
+      <description>This paper enhances Transformer models by optimizing sub-word encoding, hyperparameters, and attention, improving generative AI&amp;rsquo;s efficiency and quality.</description>
+      
+    </item>
+    
+    <item>
+      <title>Unbounded: A Generative Infinite Game of Character Life Simulation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18975/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18975/</guid>
+      <description>UNBOUNDED: A generative AI creates an infinite video game where players interact with a virtual character via natural language, generating open-ended storylines and visuals in real-time.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18975/cover.png" />
+    </item>
+    
+    <item>
+      <title>Unleashing Reasoning Capability of LLMs via Scalable Question Synthesis from Scratch</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18693/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18693/</guid>
+      <description>ScaleQuest revolutionizes LLM reasoning by efficiently generating a massive, high-quality math dataset from scratch using open-source models, significantly enhancing their performance.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18693/cover.png" />
+    </item>
+    
+    <item>
+      <title>WAFFLE: Multi-Modal Model for Automated Front-End Development</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18362/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18362/</guid>
+      <description>WAFFLE: A new fine-tuning strategy boosts AI&amp;rsquo;s ability to turn UI designs into HTML code, achieving significant accuracy improvements.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18362/cover.png" />
+    </item>
+    
+    <item>
+      <title>Why Does the Effective Context Length of LLMs Fall Short?</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18745/</link>
+      <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18745/</guid>
+      <description>Boosting LLMs&amp;rsquo; long-context abilities: STRING shifts trained positions to enhance distant information gathering, significantly outperforming existing methods.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18745/cover.png" />
+    </item>
+    
+    <item>
+      <title>ADEM-VL: Adaptive and Embedded Fusion for Efficient Vision-Language Tuning</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/</guid>
+      <description>ADEM-VL boosts vision-language model efficiency by using a parameter-free cross-attention mechanism, achieving superior accuracy with reduced computational cost.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/cover.png" />
+    </item>
+    
+    <item>
+      <title>Asynchronous RLHF: Faster and More Efficient Off-Policy RL for Language Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18252/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18252/</guid>
+      <description>Async RLHF trains LLMs 40% faster than sync methods by separating generation and training, enabling concurrent learning and sample production.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18252/cover.png" />
+    </item>
+    
     <item>
       <title>DynamicCity: Large-Scale LiDAR Generation from Dynamic Scenes</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18084/</link>
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18084/</guid>
-      <description>DynamicCity: A novel 4D LiDAR generation framework producing large-scale, high-quality LiDAR scenes capturing dynamic environments&amp;rsquo; temporal evolution.</description>
+      <description>DynamicCity generates high-quality, large-scale 4D LiDAR scenes from dynamic environments, significantly outperforming existing methods.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18084/cover.png" />
     </item>
     
@@ -24,7 +234,7 @@
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17883/</guid>
-      <description>LiMAC: Lightweight neural app control achieving high accuracy and speed via a hybrid action transformer and fine-tuned vision-language model for efficient Android app control.</description>
+      <description>LiMAC: A novel lightweight app control architecture boosts smartphone control accuracy by up to 42% and speed by 30x, using a hybrid transformer-VLM approach.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17883/cover.png" />
     </item>
     
@@ -34,8 +244,18 @@
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17637/</guid>
-      <description>MIA-DPO boosts Large Vision-Language Model accuracy on multi-image tasks by cleverly using attention mechanisms to improve training data, achieving significant performance gains.</description>
+      <description>MIA-DPO boosts multi-image understanding in large vision-language models by cleverly augmenting data and using attention-aware selection, significantly improving performance.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17637/cover.png" />
+    </item>
+    
+    <item>
+      <title>Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/</guid>
+      <description>Boosting LLM inference speed, this paper introduces multi-draft speculative sampling, optimizing token selection via importance and speculative sampling for improved efficiency.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/cover.png" />
     </item>
     
     <item>
@@ -44,7 +264,7 @@
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18013/</guid>
-      <description>Scalable ranked preference optimization, using synthetic data, improves text-to-image generation significantly, surpassing human-labeled datasets in efficiency.</description>
+      <description>Scalable synthetic data and ranking optimization drastically improve text-to-image models, surpassing human-labeled datasets in efficiency and performance.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18013/cover.png" />
     </item>
     
@@ -54,7 +274,7 @@
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17891/</guid>
-      <description>By cleverly adapting existing large language models, researchers create powerful text diffusion models, surpassing previous diffusion models in performance and opening new avenues for text generation.</description>
+      <description>Autoregressive models are adapted to build scalable text diffusion models, achieving competitive performance on language modeling benchmarks.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17891/cover.png" />
     </item>
     
@@ -64,8 +284,18 @@
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18071/</guid>
-      <description>TP-Eval revolutionizes multimodal LLM evaluation by customizing prompts for each model, uncovering hidden capabilities and mitigating evaluation bias.</description>
+      <description>TP-Eval unveils a novel prompt customization framework for more accurate and reliable multimodal LLM evaluation by mitigating prompt sensitivity and bias.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18071/cover.png" />
+    </item>
+    
+    <item>
+      <title>Value Residual Learning For Alleviating Attention Concentration In Transformers</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/</guid>
+      <description>ResFormer &amp;amp; SVFormer: Novel transformers tackling attention concentration &amp;amp; reducing KV cache for efficient training &amp;amp; inference.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/cover.png" />
     </item>
     
     <item>
@@ -74,8 +304,58 @@
       <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18072/</guid>
-      <description>WorldSimBench: A dual evaluation framework assessing video generation models as world simulators, judging both visual quality and action consistency.</description>
+      <description>WorldSimBench: A dual evaluation framework reveals the visual and action capabilities of video generation models, advancing embodied AI.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18072/cover.png" />
+    </item>
+    
+    <item>
+      <title>ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/</guid>
+      <description>ZIP-FIT uses gzip compression to efficiently select task-relevant training data, significantly boosting language model performance and reducing training time.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18194/cover.png" />
+    </item>
+    
+    <item>
+      <title>Aligning Large Language Models via Self-Steering Optimization</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17131/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17131/</guid>
+      <description>New Self-Steering Optimization (SSO) algorithm autonomously generates accurate preference signals for aligning LLMs, eliminating manual annotation and boosting performance.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17131/cover.png" />
+    </item>
+    
+    <item>
+      <title>Breaking the Memory Barrier: Near Infinite Batch Size Scaling for Contrastive Loss</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17243/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17243/</guid>
+      <description>Inf-CL breaks the memory barrier in contrastive learning, enabling near-infinite batch size scaling without sacrificing accuracy, thus achieving unprecedented performance improvements.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17243/cover.png" />
+    </item>
+    
+    <item>
+      <title>Frontiers in Intelligent Colonoscopy</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17241/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17241/</guid>
+      <description>This study advances intelligent colonoscopy by creating ColonINST, a large multimodal dataset; ColonGPT, a multimodal language model; and a benchmark, pushing the boundaries of AI in colorectal cancer&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17241/cover.png" />
+    </item>
+    
+    <item>
+      <title>JMMMU: A Japanese Massive Multi-discipline Multimodal Understanding Benchmark for Culture-aware Evaluation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17250/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17250/</guid>
+      <description>JMMMU, a new benchmark, rigorously evaluates large multimodal models&amp;rsquo; understanding of Japanese language and culture, revealing critical performance gaps and guiding future development.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17250/cover.png" />
     </item>
     
     <item>
@@ -84,7 +364,7 @@
       <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17434/</guid>
-      <description>LongVU efficiently processes hour-long videos by adaptively compressing spatiotemporal redundancy, achieving state-of-the-art video understanding performance.</description>
+      <description>LongVU efficiently processes hour-long videos for improved video-language understanding by adaptively compressing video tokens while preserving visual details.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17434/cover.png" />
     </item>
     
@@ -94,8 +374,258 @@
       <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17242/</guid>
-      <description>LVSM: A new, data-driven view synthesis model outperforms current methods by minimizing 3D assumptions, achieving superior quality and scalability.</description>
+      <description>LVSM: A novel, transformer-based model for novel view synthesis that surpasses prior methods by minimizing 3D inductive bias and achieving state-of-the-art quality.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17242/cover.png" />
+    </item>
+    
+    <item>
+      <title>Math Neurosurgery: Isolating Language Models&#39; Math Reasoning Abilities Using Only Forward Passes</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16930/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16930/</guid>
+      <description>Math Neurosurgery precisely isolates math reasoning in LLMs using only forward passes, boosting performance without harming other skills.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16930/cover.png" />
+    </item>
+    
+    <item>
+      <title>MiniPLM: Knowledge Distillation for Pre-Training Language Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17215/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17215/</guid>
+      <description>MINIPLM: Efficiently pre-train smaller, high-performing language models via offline knowledge distillation, boosting performance across diverse tasks and model architectures.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17215/cover.png" />
+    </item>
+    
+    <item>
+      <title>PyramidDrop: Accelerating Your Large Vision-Language Models via Pyramid Visual Redundancy Reduction</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17247/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17247/</guid>
+      <description>PyramidDrop boosts Large Vision-Language Model efficiency by 40% in training and 55% in inference, dropping redundant visual tokens in deeper layers while maintaining performance.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17247/cover.png" />
+    </item>
+    
+    <item>
+      <title>SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17249/</link>
+      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17249/</guid>
+      <description>SpectroMotion: groundbreaking 3D reconstruction that accurately renders dynamic specular scenes, outperforming existing methods with its novel combination of 3D Gaussian Splatting, physically-based re&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17249/cover.png" />
+    </item>
+    
+    <item>
+      <title>3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/</guid>
+      <description>3DGS-Enhancer boosts 3D Gaussian splatting&amp;rsquo;s novel view synthesis by integrating view-consistent 2D diffusion priors, dramatically improving quality in sparse-view scenarios.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/cover.png" />
+    </item>
+    
+    <item>
+      <title>Agent-to-Sim: Learning Interactive Behavior Models from Casual Longitudinal Videos</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16259/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16259/</guid>
+      <description>Agent-to-Sim (ATS) learns realistic 3D agent behaviors from long-term casual videos, bridging the gap between real-world observations and interactive simulations.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16259/cover.png" />
+    </item>
+    
+    <item>
+      <title>Alchemy: Amplifying Theorem-Proving Capability through Symbolic Mutation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15748/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15748/</guid>
+      <description>Alchemy boosts AI theorem-proving by generating millions of new mathematical theorems via symbolic mutation, significantly improving model accuracy.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15748/cover.png" />
+    </item>
+    
+    <item>
+      <title>AutoTrain: No-code training for state-of-the-art models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15735/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15735/</guid>
+      <description>AutoTrain: No-code AI model training for everyone!  Easily fine-tune cutting-edge models on your data without coding.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15735/cover.png" />
+    </item>
+    
+    <item>
+      <title>Can Knowledge Editing Really Correct Hallucinations?</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/</guid>
+      <description>HalluEditBench: A new benchmark reveals knowledge editing&amp;rsquo;s limitations in truly fixing LLM hallucinations, offering valuable insights for future improvements.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/cover.png" />
+    </item>
+    
+    <item>
+      <title>CompassJudger-1: All-in-one Judge Model Helps Model Evaluation and Evolution</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16256/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16256/</guid>
+      <description>Introducing CompassJudger-1:  The first open-source, all-in-one judge LLM for efficient and reproducible evaluation of large language models.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16256/cover.png" />
+    </item>
+    
+    <item>
+      <title>FrugalNeRF: Fast Convergence for Few-shot Novel View Synthesis without Learned Priors</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16271/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16271/</guid>
+      <description>FrugalNeRF: Blazing-fast, high-quality 3D scene reconstruction from minimal views, without needing prior training data!</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16271/cover.png" />
+    </item>
+    
+    <item>
+      <title>Improve Vision Language Model Chain-of-thought Reasoning</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16198/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16198/</guid>
+      <description>Boosting vision-language model reasoning: This paper proposes a novel two-fold approach using GPT-4-distilled rationales and reinforcement learning to significantly improve chain-of-thought reasoning &amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16198/cover.png" />
+    </item>
+    
+    <item>
+      <title>Language Models are Symbolic Learners in Arithmetic</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/</guid>
+      <description>LLMs don&amp;rsquo;t calculate arithmetic like humans; they&amp;rsquo;re symbolic pattern-matchers, learning by identifying subgroups and their complexity.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/cover.png" />
+    </item>
+    
+    <item>
+      <title>LLM-based Optimization of Compound AI Systems: A Survey</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/</guid>
+      <description>LLMs are revolutionizing compound AI optimization by efficiently generating complex parameters without gradient computation, enabling end-to-end system tuning.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/cover.png" />
+    </item>
+    
+    <item>
+      <title>Mitigating Object Hallucination via Concentric Causal Attention</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15926/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15926/</guid>
+      <description>Concentric Causal Attention (CCA) tackles LVLMs&amp;rsquo; object hallucination by cleverly reducing the distance between visual and instruction tokens, improving multimodal alignment and surpassing existing me&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15926/cover.png" />
+    </item>
+    
+    <item>
+      <title>Pangea: A Fully Open Multilingual Multimodal LLM for 39 Languages</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16153/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16153/</guid>
+      <description>PANGEA: A fully open multilingual, multimodal LLM for 39 languages, outperforming existing models in diverse cultural contexts.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16153/cover.png" />
+    </item>
+    
+    <item>
+      <title>Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/</guid>
+      <description>Pantograph: A new Lean 4 interface boosts machine-assisted theorem proving via efficient search and high-level reasoning, opening avenues for advanced ML models.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/cover.png" />
+    </item>
+    
+    <item>
+      <title>Pre-training Distillation for Large Language Models: A Design Space Exploration</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16215/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16215/</guid>
+      <description>Boosting large language model performance: This study explores pre-training distillation, systematically evaluating its design space and achieving significant improvements.</description>
+      
+    </item>
+    
+    <item>
+      <title>RM-Bench: Benchmarking Reward Models of Language Models with Subtlety and Style</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16184/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16184/</guid>
+      <description>RM-BENCH, a new benchmark, effectively evaluates reward models&amp;rsquo; sensitivity to subtle content and style biases, strongly correlating with policy model performance and revealing significant room for im&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16184/cover.png" />
+    </item>
+    
+    <item>
+      <title>SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16268/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16268/</guid>
+      <description>SAM2Long significantly improves video object segmentation by using a training-free memory tree, overcoming limitations of SAM 2 in handling long videos with occlusions and reappearing objects.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16268/cover.png" />
+    </item>
+    
+    <item>
+      <title>Selecting Influential Samples for Long Context Alignment via Homologous Models&#39; Guidance and Contextual Awareness Measurement</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15633/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15633/</guid>
+      <description>GATEAU, a novel framework, leverages homologous models and contextual awareness to identify influential samples for enhanced long-context LLM alignment, boosting performance.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15633/cover.png" />
+    </item>
+    
+    <item>
+      <title>Steering Knowledge Selection Behaviours in LLMs via SAE-Based Representation Engineering</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/</guid>
+      <description>SPARE, a novel training-free method, uses sparse autoencoders to precisely control LLMs&amp;rsquo; knowledge selection, significantly improving accuracy in resolving knowledge conflicts.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/cover.png" />
+    </item>
+    
+    <item>
+      <title>xGen-MM-Vid (BLIP-3-Video): You Only Need 32 Tokens to Represent a Video Even in VLMs</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/</link>
+      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/</guid>
+      <description>xGen-MM-Vid (BLIP-3-Video) efficiently represents videos using only 32 tokens, achieving state-of-the-art video question answering accuracy with a smaller model size.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/cover.png" />
+    </item>
+    
+    <item>
+      <title>Hallucination Detox: Sensitive Neuron Dropout (SeND) for Large Language Model Training</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15460/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15460/</guid>
+      <description>New training method, SeND, reduces LLM hallucinations by up to 40% by deterministically dropping unreliable neurons, improving model reliability.</description>
+      
+    </item>
+    
+    <item>
+      <title>Ichigo: Mixed-Modal Early-Fusion Realtime Voice Assistant</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/</guid>
+      <description>Ichigo: A real-time voice assistant achieving state-of-the-art performance by seamlessly integrating speech and text using a novel tokenized early fusion approach.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/cover.png" />
     </item>
     
     <item>
@@ -104,8 +634,108 @@
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15522/</guid>
-      <description>M-REWARDBENCH: First multilingual benchmark reveals huge gaps in reward model performance for non-English LLMs.</description>
+      <description>M-REWARDBENCH, a new multilingual benchmark, reveals significant performance gaps in reward models across languages, highlighting the need for improved cross-lingual alignment in LLMs.</description>
       
+    </item>
+    
+    <item>
+      <title>Baichuan Alignment Technical Report</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14940/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14940/</guid>
+      <description>Baichuan Alignment dramatically improves LLMs&amp;rsquo; performance by optimizing training, enhancing data quality, and aligning models with human preferences, leading to significant gains in instruction follo&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14940/cover.png" />
+    </item>
+    
+    <item>
+      <title>DM-Codec: Distilling Multimodal Representations for Speech Tokenization</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15017/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15017/</guid>
+      <description>DM-Codec revolutionizes speech tokenization by distilling multimodal (acoustic, semantic, contextual) representations, achieving state-of-the-art accuracy and improved speech quality.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15017/cover.png" />
+    </item>
+    
+    <item>
+      <title>How Many Van Goghs Does It Take to Van Gogh? Finding the Imitation Threshold</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15002/</link>
+      <pubDate>Sat, 19 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15002/</guid>
+      <description>How many training images are needed for a text-to-image model to reliably imitate a specific concept? This paper introduces a novel method to estimate this &amp;lsquo;imitation threshold&amp;rsquo;, revealing its surpris&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15002/cover.png" />
+    </item>
+    
+    <item>
+      <title>Are AI Detectors Good Enough? A Survey on Quality of Datasets With Machine-Generated Texts</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14677/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14677/</guid>
+      <description>AI text detectors struggle in real-world scenarios despite high benchmark scores; this study reveals dataset quality issues and proposes evaluation methods for better AI detection.</description>
+      
+    </item>
+    
+    <item>
+      <title>BiGR: Harnessing Binary Latent Codes for Image Generation and Improved Visual Representation Capabilities</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14672/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14672/</guid>
+      <description>BiGR: Unifying image generation and discrimination using compact binary codes for superior quality and representation.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14672/cover.png" />
+    </item>
+    
+    <item>
+      <title>EvoPress: Towards Optimal Dynamic Model Compression via Evolutionary Search</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14649/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14649/</guid>
+      <description>EvoPress: A novel evolutionary algorithm optimizes dynamic LLM compression, surpassing existing methods in accuracy and efficiency.</description>
+      
+    </item>
+    
+    <item>
+      <title>How Do Training Methods Influence the Utilization of Vision Models?</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14470/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14470/</guid>
+      <description>Training methods dramatically impact vision model utilization: some boost early layers, others prioritize deeper ones, revealing crucial insights into neural network functionality.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14470/cover.png" />
+    </item>
+    
+    <item>
+      <title>Montessori-Instruct: Generate Influential Training Data Tailored for Student Learning</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14208/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14208/</guid>
+      <description>MONTESSORI-INSTRUCT: A novel data synthesis framework tailors synthetic data generation to student learning preferences, significantly improving student model performance.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14208/cover.png" />
+    </item>
+    
+    <item>
+      <title>NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14669/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14669/</guid>
+      <description>NaturalBench: A new benchmark exposes VLMs&amp;rsquo; weaknesses on natural adversarial samples, revealing significant biases and highlighting the need for improved visio-linguistic skills.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14669/cover.png" />
+    </item>
+    
+    <item>
+      <title>Teaching Models to Balance Resisting and Accepting Persuasion</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14596/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14596/</guid>
+      <description>LLMs can now better resist manipulation while also learning from helpful advice, thanks to a new training method that balances resisting misinformation with accepting helpful persuasion!</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14596/cover.png" />
     </item>
     
     <item>
@@ -114,8 +744,98 @@
       <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13924/</guid>
-      <description>ARKit LabelMaker creates the largest real-world 3D dataset with dense semantic annotations, boosting 3D scene understanding by pre-training models.</description>
+      <description>ARKit LabelMaker creates a massive, real-world 3D dataset with dense semantic annotations, pushing the boundaries of indoor scene understanding and improving 3D semantic segmentation performance.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13924/cover.png" />
+    </item>
+    
+    <item>
+      <title>CBT-Bench: Evaluating Large Language Models on Assisting Cognitive Behavior Therapy</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13218/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13218/</guid>
+      <description>CBT-BENCH: A new benchmark evaluates LLMs&amp;rsquo; ability to assist Cognitive Behavioral Therapy, revealing strengths in knowledge recall but weaknesses in complex therapeutic interactions.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13218/cover.png" />
+    </item>
+    
+    <item>
+      <title>Cross-Lingual Auto Evaluation for Assessing Multilingual LLMs</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13394/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13394/</guid>
+      <description>CIA Suite: A novel cross-lingual evaluation framework for multilingual LLMs using English reference answers, achieving human-level accuracy.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13394/cover.png" />
+    </item>
+    
+    <item>
+      <title>DAWN: Dynamic Frame Avatar with Non-autoregressive Diffusion Framework for Talking Head Video Generation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13726/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13726/</guid>
+      <description>DAWN generates high-quality, dynamic talking head videos at unprecedented speeds using a non-autoregressive diffusion model, overcoming limitations of previous autoregressive methods.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13726/cover.png" />
+    </item>
+    
+    <item>
+      <title>Diffusion Curriculum: Synthetic-to-Real Generative Curriculum Learning via Image-Guided Diffusion</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13674/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13674/</guid>
+      <description>Boosting AI model accuracy with synthetic-to-real image generation via image-guided diffusion, addressing challenges of scarce or low-quality data.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13674/cover.png" />
+    </item>
+    
+    <item>
+      <title>DPLM-2: A Multimodal Diffusion Protein Language Model</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13782/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13782/</guid>
+      <description>DPLM-2: a new multimodal model generating compatible protein sequences and 3D structures, revolutionizing protein design!</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13782/cover.png" />
+    </item>
+    
+    <item>
+      <title>FiTv2: Scalable and Improved Flexible Vision Transformer for Diffusion Model</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13925/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13925/</guid>
+      <description>FiTv2, an upgraded diffusion model, generates images of any resolution and aspect ratio, exceeding prior models in speed and quality.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13925/cover.png" />
+    </item>
+    
+    <item>
+      <title>In-context learning and Occam&#39;s razor</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14086/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14086/</guid>
+      <description>In-context learning implicitly embodies Occam&amp;rsquo;s Razor by minimizing both training error and model complexity through a data compression equivalent to its prediction objective.</description>
+      
+    </item>
+    
+    <item>
+      <title>Looking Inward: Language Models Can Learn About Themselves by Introspection</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13787/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13787/</guid>
+      <description>LLMs can learn about themselves through introspection; self-prediction surpasses cross-prediction, suggesting internal knowledge beyond training data.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13787/cover.png" />
+    </item>
+    
+    <item>
+      <title>MagicTailor: Component-Controllable Personalization in Text-to-Image Diffusion Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13370/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13370/</guid>
+      <description>MagicTailor: Precisely personalize images by controlling individual visual components in text-to-image models, overcoming semantic pollution and imbalance for superior results.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13370/cover.png" />
     </item>
     
     <item>
@@ -124,8 +844,128 @@
       <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13458/</guid>
-      <description>MedINST: a new 7M+ sample biomedical instruction meta-dataset boosting LLM cross-task generalization on 133 NLP tasks!</description>
+      <description>MedINST, a new meta-dataset with 133 biomedical NLP tasks and 7M samples, boosts LLM performance and cross-task generalization in medical analysis.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13458/cover.png" />
+    </item>
+    
+    <item>
+      <title>PUMA: Empowering Unified MLLM with Multi-granular Visual Generation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13861/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13861/</guid>
+      <description>PUMA: A unified MLLM mastering diverse visual tasks by cleverly handling multi-granular image features, striking a balance between diversity and controllability.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13861/cover.png" />
+    </item>
+    
+    <item>
+      <title>Router-Tuning: A Simple and Effective Approach for Enabling Dynamic-Depth in Transformers</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13184/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13184/</guid>
+      <description>Router-Tuning boosts Transformer efficiency by 21% with minimal accuracy loss, dynamically skipping less important layers via a novel, fast fine-tuning method.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13184/cover.png" />
+    </item>
+    
+    <item>
+      <title>SeerAttention: Learning Intrinsic Sparse Attention in Your LLMs</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13276/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13276/</guid>
+      <description>SeerAttention learns attention sparsity, boosting LLMs&amp;rsquo; efficiency and scalability by up to 5.67x with minimal accuracy loss.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13276/cover.png" />
+    </item>
+    
+    <item>
+      <title>SemiEvol: Semi-supervised Fine-tuning for LLM Adaptation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14745/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14745/</guid>
+      <description>SEMIEVOL: A new framework efficiently adapts LLMs to diverse tasks by smartly combining limited labeled and abundant unlabeled data, achieving significant performance gains.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14745/cover.png" />
+    </item>
+    
+    <item>
+      <title>Steering Your Generalists: Improving Robotic Foundation Models via Value Guidance</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13816/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13816/</guid>
+      <description>Boosting robotic performance, V-GPS re-ranks robotic actions using offline RL value functions, improving precision &amp;amp; robustness without policy fine-tuning.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13816/cover.png" />
+    </item>
+    
+    <item>
+      <title>UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14059/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14059/</guid>
+      <description>UCFE benchmark evaluates LLMs&amp;rsquo; financial expertise via user-centric tasks, revealing performance gaps and highlighting the need for dynamic, human-aligned AI.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14059/cover.png" />
+    </item>
+    
+    <item>
+      <title>Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13232/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13232/</guid>
+      <description>Boosting LLM-based web agents: World-Model-Augmented agents simulate action outcomes, improving decision-making and efficiency.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13232/cover.png" />
+    </item>
+    
+    <item>
+      <title>Context is Key(NMF): Modelling Topical Information Dynamics in Chinese Diaspora Media</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.12791/</link>
+      <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.12791/</guid>
+      <description>KeyNMF, a novel topic modeling approach using transformer-based embeddings, reveals significant information dynamics in Chinese diaspora media, uncovering trends linked to major political events.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.12791/cover.png" />
+    </item>
+    
+    <item>
+      <title>Meta-Chunking: Learning Efficient Text Segmentation via Logical Perception</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.12788/</link>
+      <pubDate>Wed, 16 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.12788/</guid>
+      <description>Meta-Chunking boosts RAG efficiency by intelligently segmenting text into logically coherent chunks, improving question-answering accuracy.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.12788/cover.png" />
+    </item>
+    
+    <item>
+      <title>Mini-Omni2: Towards Open-source GPT-4o with Vision, Speech and Duplex Capabilities</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11190/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11190/</guid>
+      <description>Mini-Omni2: Open-source GPT-40-like model with vision, speech, and duplex capabilities, enabling real-time multi-modal interactions.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11190/cover.png" />
+    </item>
+    
+    <item>
+      <title>SHAKTI: A 2.5 Billion Parameter Small Language Model Optimized for Edge AI and Low-Resource Environments</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11331/</link>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11331/</guid>
+      <description>Shakti: A 2.5B parameter language model, optimized for efficiency and low-resource environments, enabling high-performance NLP on edge devices.</description>
+      
+    </item>
+    
+    <item>
+      <title>HART: Efficient Visual Generation with Hybrid Autoregressive Transformer</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.10812/</link>
+      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.10812/</guid>
+      <description>HART: A groundbreaking autoregressive model generates high-quality 1024x1024 images at unprecedented speed, surpassing existing diffusion models in efficiency.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.10812/cover.png" />
     </item>
     
   </channel>

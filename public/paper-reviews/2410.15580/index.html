@@ -11,8 +11,8 @@
   <title>Language Models are Symbolic Learners in Arithmetic &middot; AI Paper Reviews by AI</title>
   <meta name="title" content="Language Models are Symbolic Learners in Arithmetic &middot; AI Paper Reviews by AI" />
   
-  <meta name="description" content="Large language models (LLMs) surprisingly don&#39;t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg....." />
-  <meta name="keywords" content="🔖 2024-10-21, 🤗 2024-10-25, " />
+  <meta name="description" content="LLMs don&#39;t calculate arithmetic like humans; they&#39;re symbolic pattern-matchers, learning by identifying subgroups and their complexity." />
+  <meta name="keywords" content="🔖 24-10-21, 🤗 24-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/" />
@@ -69,21 +69,21 @@
   <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/">
   <meta property="og:site_name" content="AI Paper Reviews by AI">
   <meta property="og:title" content="Language Models are Symbolic Learners in Arithmetic">
-  <meta property="og:description" content="Large language models (LLMs) surprisingly don’t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg…..">
+  <meta property="og:description" content="LLMs don’t calculate arithmetic like humans; they’re symbolic pattern-matchers, learning by identifying subgroups and their complexity.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="paper-reviews">
     <meta property="article:published_time" content="2024-10-21T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-21T00:00:00+00:00">
-    <meta property="article:tag" content="🔖 2024-10-21">
-    <meta property="article:tag" content="🤗 2024-10-25">
+    <meta property="article:tag" content="🔖 24-10-21">
+    <meta property="article:tag" content="🤗 24-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/cover.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15580/cover.png">
   <meta name="twitter:title" content="Language Models are Symbolic Learners in Arithmetic">
-  <meta name="twitter:description" content="Large language models (LLMs) surprisingly don’t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg…..">
+  <meta name="twitter:description" content="LLMs don’t calculate arithmetic like humans; they’re symbolic pattern-matchers, learning by identifying subgroups and their complexity.">
 
   
   <script type="application/ld+json">
@@ -94,7 +94,7 @@
     "name": "Language Models are Symbolic Learners in Arithmetic",
     "headline": "Language Models are Symbolic Learners in Arithmetic",
     
-    "abstract": "Large language models (LLMs) surprisingly don\u0026rsquo;t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subg\u0026hellip;..",
+    "abstract": "LLMs don\u0026rsquo;t calculate arithmetic like humans; they\u0026rsquo;re symbolic pattern-matchers, learning by identifying subgroups and their complexity.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/paper-reviews\/2410.15580\/",
     "author" : {
@@ -107,10 +107,10 @@
     
     "dateModified": "2024-10-21T00:00:00\u002b00:00",
     
-    "keywords": ["🔖 2024-10-21","🤗 2024-10-25"],
+    "keywords": ["🔖 24-10-21","🤗 24-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "937"
+    "wordCount": "1030"
   }]
   </script>
 
@@ -634,7 +634,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-21T00:00:00&#43;00:00">21 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>937 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  <time datetime="2024-10-21T00:00:00&#43;00:00">21 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1030 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
   
 
   
@@ -668,18 +668,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-21/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-21/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🔖 2024-10-21
+    🔖 24-10-21
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-25/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🤗 2024-10-25
+    🤗 24-10-25
   </span>
 </span>
   </span>
@@ -810,11 +810,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -835,11 +836,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -899,7 +901,7 @@
     
 </h3>
 <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  Large language models (LLMs) surprisingly don&rsquo;t utilize partial products for arithmetic, instead operating as symbolic learners. They solve arithmetic problems by decomposing them into manageable subgroups, selecting easier patterns first.  The difficulty of these sub-tasks is linked to their complexity and label space entropy.
+  This paper explores how large language models (LLMs) learn arithmetic.  Contrary to the belief that LLMs perform calculations like humans, the researchers found that LLMs learn arithmetic symbolically. They don&rsquo;t use partial products in the way humans do; instead, they identify patterns within subgroups of data.  The difficulty of an arithmetic task depends on the complexity and selection of these subgroups, which are characterized by label space entropy and subgroup quality.  Interestingly, LLM accuracy follows a U-shaped curve across different positions within a numerical sequence – they perform well on the beginning and end digits but struggle with middle digits. This is because easier patterns are learned first, leaving the more complex patterns in the middle to be learned later.  Overall, the study shows LLMs are symbolic learners, emphasizing the importance of understanding them through subgroup-level quantification.
 </div>
 
 <a
@@ -927,17 +929,17 @@
 
 
 
-<h4 class="relative group">Why does this paper matter? 
-    <div id="why-does-this-paper-matter" class="anchor"></div>
+<h4 class="relative group">Why does it matter? 
+    <div id="why-does-it-matter" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#why-does-this-paper-matter" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#why-does-it-matter" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>This paper investigates how large language models (LLMs) learn arithmetic.  The authors find that LLMs don&rsquo;t use partial products, but instead learn arithmetically in a purely symbolic way by breaking tasks into subgroups, suggesting that LLMs are symbol-level learners. This challenges previous assumptions about how LLMs perform arithmetic and offers insights into their learning dynamics.</p>
+<p>This research paper investigates how large language models (LLMs) learn arithmetic.  It challenges the common assumption that LLMs perform calculations like humans, showing instead that they learn arithmetic symbolically by identifying patterns in subgroups of data.</p>
 
 
 <h4 class="relative group">Key Takeaways 
@@ -984,7 +986,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-fe758c00fa94fab8477b7d9ef7cacc2e", {
-        strings: [" LLMs do not leverage partial products in arithmetic calculations. "],
+        strings: [" LLMs learn arithmetic symbolically, not through numerical computation. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  0 ,
@@ -1031,7 +1033,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-fcd0492635e2be353b671445f186fab0", {
-        strings: [" LLMs learn arithmetic symbolically by selecting subgroups based on complexity, following an easy-to-hard paradigm. "],
+        strings: [" LLM performance in arithmetic is strongly linked to subgroup complexity and selection, not just training data size. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  1000 ,
@@ -1078,7 +1080,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-26d46dadd9f60c2701c3d4db9bffdef8", {
-        strings: [" The difficulty of arithmetic tasks is influenced by the label space entropy and subgroup quality. "],
+        strings: [" LLMs exhibit a U-shaped learning curve in arithmetic, mastering easy patterns first and last, and struggling with more complex middle patterns. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  2000 ,
@@ -1117,573 +1119,219 @@
         src="/ai-paper-reviewer/paper-reviews/2410.15580/figures/figures_2_0_hu5065503439974157792.png"
         alt=""
       />
-      <figcaption>🔼 Fundamental structure of the paper. We begin by investigating partial products and proceed to a detailed examination at the subgroup level to understand the mechanism in a symbolic manner.</figcaption>
+      <figcaption>🔼 Figure 1: Fundamental structure of the paper. We begin by investigating partial products and proceed to a detailed examination at the subgroup level to understand the mechanism in a symbolic manner.</figcaption>
     </figure>
 </p>
+<blockquote>
+<p>The figure illustrates the two-pronged approach of the paper: investigating partial product usage in LLMs and analyzing arithmetic learning through subgroup-level complexity and selection.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_5_0_hu10824814941164818382.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_5_0_hu2999580440905961583.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_5_0_hu3114608765731711734.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_5_0_hu13892339583583275587.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_5_0_hu2999580440905961583.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Partial products identification accuracy before and after fine-tuning on tasks. Scores are reported on average of Gemma-2-2B and Llama-3.1-8B.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the accuracy of identifying partial products in different multiplication methods before and after fine-tuning for two large language models.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Inductive and deductive accuracy difference Δ.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>Gemma-2-2B</th>
-          <th>Gemma-2-2B</th>
-          <th>Gemma-2-2B</th>
-          <th>Gemma-2-2B</th>
-          <th>Llama-3.1-8B</th>
-          <th>Llama-3.1-8B</th>
-          <th>Llama-3.1-8B</th>
-          <th>Llama-3.1-8B</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td></td>
-          <td>Standard</td>
-          <td>Lattice</td>
-          <td>Repetitive</td>
-          <td>Egyptian</td>
-          <td>Standard</td>
-          <td>Lattice</td>
-          <td>Repetitive</td>
-          <td>Egyptian</td>
-      </tr>
-      <tr>
-          <td>Task → Partial P.</td>
-          <td>+4.1%</td>
-          <td>+6.8%</td>
-          <td>-29.0%</td>
-          <td>+3.6%</td>
-          <td>+40.6%</td>
-          <td>+40.8%</td>
-          <td>-59.0%</td>
-          <td>+29.6%</td>
-      </tr>
-      <tr>
-          <td>Partial P. → Task</td>
-          <td>-6.1%</td>
-          <td>-10.7%</td>
-          <td>-20.3%</td>
-          <td>-9.6%</td>
-          <td>-3.7%</td>
-          <td>-0.2%</td>
-          <td>-0.9%</td>
-          <td>-2.7%</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Inductive and deductive accuracy difference Δ.</caption>
+      <table id='0' style='font-size:18px'><tr><td></td><td colspan="4">Gemma-2-2B</td><td colspan="4">Llama-3.1-8B</td></tr><tr><td></td><td>Standard</td><td>Lattice</td><td>Repetitive</td><td>Egyptian</td><td>Standard</td><td>Lattice</td><td>Repetitive</td><td>Egyptian</td></tr><tr><td>Task → Partial P.</td><td>+4.1%</td><td>+6.8%</td><td>-29.0%</td><td>+3.6%</td><td>+40.6%</td><td>+40.8%</td><td>-59.0%</td><td>+29.6%</td></tr><tr><td>Partial P. → Task</td><td>-6.1%</td><td>-10.7%</td><td>-20.3%</td><td>-9.6%</td><td>-3.7%</td><td>-0.2%</td><td>-0.9%</td><td>-2.7%</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>This table presents the changes in accuracy on multiplication tasks before and after fine-tuning LLMs on diagnostic sets for four different multiplication calculation methods.</p>
+</blockquote>
+
+
+<h3 class="relative group">More visual insights 
+    <div id="more-visual-insights" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#more-visual-insights" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<details>
+<summary>More on charts
+</summary>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_0_hu2931704058930218595.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_0_hu8191164533965232517.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_0_hu5103366587169432063.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_0_hu17599208177030679324.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_0_hu8191164533965232517.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the U-shaped pattern of position-level accuracy in 3, 4, and 5-digit multiplication tasks across various training set sizes for Gemma-2-2B and Llama-3.1-8B models.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_1_hu15150727675504780195.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_1_hu10681836382750210482.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_1_hu8162917716075484935.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_1_hu8494415378943322558.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_1_hu10681836382750210482.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the position-level accuracy of LLMs in multiplication tasks, revealing a U-shaped pattern across different training set sizes.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_2_hu4336751725627156145.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_2_hu3537363018774168784.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_2_hu7579004625544614717.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_2_hu1075078088815821334.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_2_hu3537363018774168784.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the position-level accuracy of LLMs in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_3_hu11735677912216144543.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_3_hu15823564813316245195.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_3_hu10410229602406945396.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_3_hu14594159089748513616.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_3_hu15823564813316245195.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the position-level accuracy of LLMs in multiplication tasks across varying training set sizes, revealing a U-shaped pattern.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_4_hu12657086602129117843.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_4_hu13807327361428348179.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_4_hu1759017474434242098.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_4_hu17438558492517474457.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_4_hu13807327361428348179.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the position-level accuracy of LLMs in 3, 4, and 5 digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_5_hu4913002138691367247.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_5_hu9466983071458954315.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_5_hu12262731259681497836.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_5_hu12378423358820998489.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.15580/charts/charts_8_5_hu9466983071458954315.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the position-level accuracy of LLMs (Gemma-2-2B and Llama-3.1-8B) in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.</p>
+</blockquote>
+</details>
 <details>
 <summary>More on tables
 </summary>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Diagnostic sets with four calculation methods.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Standard Multiplication</th>
-          <th>Pstd = {A1 xB1B2, A2xB1B2, B1 xA1A2,B2 x A1A2}</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Repetitive Addition</td>
-          <td>Pra = {�B1B2 A1A2, ��� B1B2}</td>
-      </tr>
-      <tr>
-          <td>Lattice Method</td>
-          <td>Plattice = {A10x B10,A10x B2,A2 x B10, A2 x B2}</td>
-      </tr>
-      <tr>
-          <td>Egyptian Multiplication</td>
-          <td>Pegyptian = {2k xA1A2</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Diagnostic sets with four calculation methods.</caption>
+      <br><table id='5' style='font-size:16px'><tr><td>Standard Multiplication</td><td>Pstd = {A1 xB1B2, A2xB1B2, B1 xA1A2,B2 x A1A2}</td></tr><tr><td>Repetitive Addition</td><td>Pra = {�B1B2 A1A2, ��� B1B2}</td></tr><tr><td>Lattice Method</td><td>Plattice = {A10x B10,A10x B2,A2 x B10, A2 x B2}</td></tr><tr><td>Egyptian Multiplication</td><td>Pegyptian = {2k xA1A2|ke0,1,&hellip;, [log2(B1B2)]}</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>The table presents diagnostic sets for four multiplication calculation methods (standard multiplication, repetitive addition, lattice method, and Egyptian multiplication) used to investigate whether LLMs leverage partial products during arithmetic learning.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: Label space statistics with different rule perturbations. H(L) represents the entropy of the label space, and |L| is the size of the label space. {C}i=1 represents all positions in output digits.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-          <th>C1</th>
-          <th>C2</th>
-          <th>C3</th>
-          <th>C4</th>
-          <th>C5</th>
-          <th>{Ci}i=1</th>
-          <th>{Ci}i=1</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Task</td>
-          <td>Format</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>ILI</td>
-          <td>H(L)</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a + b</td>
-          <td>A1A2 + B1B2 = C1C2C3</td>
-          <td>0.9710</td>
-          <td>3.3215</td>
-          <td>3.3219</td>
-          <td></td>
-          <td></td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a + b + 1</td>
-          <td>A1A2 + B1B2 = C1C2C3</td>
-          <td>0.9649</td>
-          <td>3.3215</td>
-          <td>3.3219</td>
-          <td></td>
-          <td></td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a +6+ 15</td>
-          <td>A1A2 + B1B2 = C1C2C3</td>
-          <td>0.9280</td>
-          <td>3.3214</td>
-          <td>3.3219</td>
-          <td></td>
-          <td></td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a +b + 115</td>
-          <td>A1A2 + B1B2 = C1C2C3</td>
-          <td>0.9280</td>
-          <td>3.3214</td>
-          <td>3.3219</td>
-          <td>-</td>
-          <td></td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a+ b) mod 100</td>
-          <td>A1A2 + B1B2 = C1C2</td>
-          <td>3.3214</td>
-          <td>3.3219</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>100</td>
-          <td>6.6432</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a+ b) mod 50</td>
-          <td>A1A2 + B1B2 = C1C2</td>
-          <td>2.3217</td>
-          <td>3.3219</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>50</td>
-          <td>5.6436</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a+b) mod 10</td>
-          <td>A1A2 + B1B2 = C1</td>
-          <td>3.3219</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>10</td>
-          <td>3.3219</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a xb</td>
-          <td>A1A2 x B1B2 = C1C2C3C4</td>
-          <td>2.8979</td>
-          <td>3.3215</td>
-          <td>3.3160</td>
-          <td>3.0340</td>
-          <td>-</td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a xbx 2</td>
-          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
-          <td>0.6873</td>
-          <td>3.2173</td>
-          <td>3.3215</td>
-          <td>3.2964</td>
-          <td>2.2227</td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a xbx 4</td>
-          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
-          <td>1.6030</td>
-          <td>3.3020</td>
-          <td>3.3204</td>
-          <td>3.2234</td>
-          <td>2.2227</td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a xbx 8</td>
-          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
-          <td>2.5811</td>
-          <td>3.3202</td>
-          <td>3.3151</td>
-          <td>3.2235</td>
-          <td>2.2227</td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a x b) mod 100</td>
-          <td>A1A2 x B1B2 = C1C2</td>
-          <td>3.3160</td>
-          <td>3.0340</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>100</td>
-          <td>6.2912</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a x b) mod 50</td>
-          <td>A1A2 x B1B2 = C1C2</td>
-          <td>2.3210</td>
-          <td>3.0340</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>50</td>
-          <td>5.3494</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a x b) mod 10</td>
-          <td>A1A2 x B1B2 = C1</td>
-          <td>3.0340</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>10</td>
-          <td>3.0340</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: Label space statistics with different rule perturbations. H(L) represents the entropy of the label space, and |L| is the size of the label space. {C}i=1 represents all positions in output digits.</caption>
+      <table id='0' style='font-size:14px'><tr><td></td><td></td><td>C1</td><td>C2</td><td>C3</td><td>C4</td><td>C5</td><td colspan="2">{Ci}i=1</td></tr><tr><td>Task</td><td>Format</td><td>H(L)</td><td>H(L)</td><td>H(L)</td><td>H(L)</td><td>H(L)</td><td>ILI</td><td>H(L)</td></tr><tr><td>f(a,b) = a + b</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9710</td><td>3.3215</td><td>3.3219</td><td></td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = a + b + 1</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9649</td><td>3.3215</td><td>3.3219</td><td></td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = a +6+ 15</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9280</td><td>3.3214</td><td>3.3219</td><td></td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = a +b + 115</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9280</td><td>3.3214</td><td>3.3219</td><td>-</td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = (a+ b) mod 100</td><td>A1A2 + B1B2 = C1C2</td><td>3.3214</td><td>3.3219</td><td>-</td><td>-</td><td>-</td><td>100</td><td>6.6432</td></tr><tr><td>f(a,b) = (a+ b) mod 50</td><td>A1A2 + B1B2 = C1C2</td><td>2.3217</td><td>3.3219</td><td>-</td><td>-</td><td>-</td><td>50</td><td>5.6436</td></tr><tr><td>f(a,b) = (a+b) mod 10</td><td>A1A2 + B1B2 = C1</td><td>3.3219</td><td>-</td><td>-</td><td>-</td><td>-</td><td>10</td><td>3.3219</td></tr><tr><td>f(a,b) = a xb</td><td>A1A2 x B1B2 = C1C2C3C4</td><td>2.8979</td><td>3.3215</td><td>3.3160</td><td>3.0340</td><td>-</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = a xbx 2</td><td>A1A2 x B1B2 = C1C2C3C4C5</td><td>0.6873</td><td>3.2173</td><td>3.3215</td><td>3.2964</td><td>2.2227</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = a xbx 4</td><td>A1A2 x B1B2 = C1C2C3C4C5</td><td>1.6030</td><td>3.3020</td><td>3.3204</td><td>3.2234</td><td>2.2227</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = a xbx 8</td><td>A1A2 x B1B2 = C1C2C3C4C5</td><td>2.5811</td><td>3.3202</td><td>3.3151</td><td>3.2235</td><td>2.2227</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = (a x b) mod 100</td><td>A1A2 x B1B2 = C1C2</td><td>3.3160</td><td>3.0340</td><td>-</td><td>-</td><td>-</td><td>100</td><td>6.2912</td></tr><tr><td>f(a,b) = (a x b) mod 50</td><td>A1A2 x B1B2 = C1C2</td><td>2.3210</td><td>3.0340</td><td>-</td><td>-</td><td>-</td><td>50</td><td>5.3494</td></tr><tr><td>f(a,b) = (a x b) mod 10</td><td>A1A2 x B1B2 = C1</td><td>3.0340</td><td>-</td><td>-</td><td>-</td><td>-</td><td>10</td><td>3.0340</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 3 shows the label space entropy and cardinality for various addition and multiplication tasks with different rule perturbations.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 4: Test Accuracy difference Δ on perturbed addition and multiplication.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>Gemma-2-2B</th>
-          <th>Llama-3.1-8B</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>f(a,b) = a + 6</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a + 6 + 1</td>
-          <td>-0.1%</td>
-          <td>-0.1%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a + 6 + 15</td>
-          <td>-0.9%</td>
-          <td>+0.1%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a + b + 115</td>
-          <td>-1.4%</td>
-          <td>+0.7%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a + b) mod 100</td>
-          <td>+10.1%</td>
-          <td>+3.7%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a + b) mod 50</td>
-          <td>+13.1%</td>
-          <td>+6.7%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a+b) mod 10</td>
-          <td>+26.1%</td>
-          <td>+13.7%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a x 6</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a X 6 X 2</td>
-          <td>-1.1%</td>
-          <td>-2.7%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a x 6 x 4</td>
-          <td>-1.7%</td>
-          <td>+0.7%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a X b x 8</td>
-          <td>+0.2%</td>
-          <td>-3.7%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a x b) mod 100</td>
-          <td>+7.1%</td>
-          <td>+3.8%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a X b) mod 50</td>
-          <td>+12.1%</td>
-          <td>+5.3%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = (a x b) mod 10</td>
-          <td>+18.9%</td>
-          <td>+10.7%</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 4: Test Accuracy difference Δ on perturbed addition and multiplication.</caption>
+      <table id='7' style='font-size:14px'><tr><td></td><td>Gemma-2-2B</td><td>Llama-3.1-8B</td></tr><tr><td>f(a,b) = a + 6</td><td></td><td></td></tr><tr><td>f(a,b) = a + 6 + 1</td><td>-0.1%</td><td>-0.1%</td></tr><tr><td>f(a,b) = a + 6 + 15</td><td>-0.9%</td><td>+0.1%</td></tr><tr><td>f(a,b) = a + b + 115</td><td>-1.4%</td><td>+0.7%</td></tr><tr><td>f(a,b) = (a + b) mod 100</td><td>+10.1%</td><td>+3.7%</td></tr><tr><td>f(a,b) = (a + b) mod 50</td><td>+13.1%</td><td>+6.7%</td></tr><tr><td>f(a,b) = (a+b) mod 10</td><td>+26.1%</td><td>+13.7%</td></tr><tr><td>f(a,b) = a x 6</td><td>-</td><td></td></tr><tr><td>f(a,b) = a X 6 X 2</td><td>-1.1%</td><td>-2.7%</td></tr><tr><td>f(a,b) = a x 6 x 4</td><td>-1.7%</td><td>+0.7%</td></tr><tr><td>f(a,b) = a X b x 8</td><td>+0.2%</td><td>-3.7%</td></tr><tr><td>f(a,b) = (a x b) mod 100</td><td>+7.1%</td><td>+3.8%</td></tr><tr><td>f(a,b) = (a X b) mod 50</td><td>+12.1%</td><td>+5.3%</td></tr><tr><td>f(a,b) = (a x b) mod 10</td><td>+18.9%</td><td>+10.7%</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>The table shows the accuracy difference (Δ) in percentage for addition and multiplication tasks on Gemma-2-2B and Llama-3.1-8B models with various rule perturbations.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 5: Label space statistics with different format perturbations. H(L) represents the entropy of the space, and |L| is the size of the space. {Cj}=1 represents all possible output digits.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-          <th>C1</th>
-          <th>C2</th>
-          <th>C3</th>
-          <th>C4</th>
-          <th>C5</th>
-          <th>{Cj}『=1</th>
-          <th>{Cj}『=1</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Task</td>
-          <td>Format</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>H(L)</td>
-          <td>ILI</td>
-          <td>H(L)</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a+b</td>
-          <td>A1A2 + B1B2 = C1C2C3</td>
-          <td>0.9710</td>
-          <td>3.3215</td>
-          <td>3.3219</td>
-          <td></td>
-          <td></td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a+b</td>
-          <td>What is A1A2 add B1B2? Answer: C1C2C3</td>
-          <td>0.9649</td>
-          <td>3.3215</td>
-          <td>3.3219</td>
-          <td></td>
-          <td></td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a+b</td>
-          <td>fafrif A1A2 hfk B1B2? Ffhjar: C1C2C3</td>
-          <td>3.3214</td>
-          <td>3.3219</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a +6</td>
-          <td>3.123 34 A1A2 461 B1B2? 952414: C1C2C3</td>
-          <td>0.9280</td>
-          <td>3.3214</td>
-          <td>3.3219</td>
-          <td>-</td>
-          <td></td>
-          <td>179</td>
-          <td>7.2130</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a x b</td>
-          <td>A1A2 x B1B2 = C1C2C3C4C5</td>
-          <td>2.5811</td>
-          <td>3.3202</td>
-          <td>3.3151</td>
-          <td>3.2235</td>
-          <td>2.2227</td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a xb</td>
-          <td>Whatis A1A2 multiply B1B2? Answer: C1C2C3C4</td>
-          <td>2.8979</td>
-          <td>3.3215</td>
-          <td>3.3160</td>
-          <td>3.0340</td>
-          <td></td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = ax b</td>
-          <td>fafrif A1A2 hfk B1B2? Ffhjar: C1C2C3C4</td>
-          <td>0.6873</td>
-          <td>3.2173</td>
-          <td>3.3215</td>
-          <td>3.2964</td>
-          <td>2.2227</td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a X b</td>
-          <td>3.123 34 A1A2 461 B1B2? 952414: C1C2C3C4</td>
-          <td>1.6030</td>
-          <td>3.3020</td>
-          <td>3.3204</td>
-          <td>3.2234</td>
-          <td>2.2227</td>
-          <td>2621</td>
-          <td>11.1172</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 6: Test Accuracy difference Δ on perturbed addition and multiplication.</caption>
+      <table id='2' style='font-size:14px'><tr><td></td><td>Format</td><td>Gemma-2-2B</td><td>Llama-3.1-8B</td></tr><tr><td>f(a,b) =a+b</td><td>Natural Language</td><td>-</td><td>-</td></tr><tr><td>f(a,b) = a+b</td><td>Random String</td><td>+0.1%</td><td>-0.2%</td></tr><tr><td>f(a,b) =a+b</td><td>Disturbed Digits</td><td>-3.9%</td><td>-2.1%</td></tr><tr><td>f(a,b) = a x b</td><td>Natural Language</td><td>-</td><td>-</td></tr><tr><td>f(a,b) = a x b</td><td>Random String</td><td>+0.3%</td><td>-0.5%</td></tr><tr><td>f(a,b) = a X b</td><td>Disturbed Digits</td><td>-1.9%</td><td>-3.1%</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>This table presents the accuracy difference (Δ) in percentage points for addition and multiplication tasks, comparing the performance of Gemma-2-2B and Llama-3.1-8B models under three different input format perturbations (Natural Language, Random String, and Disturbed Digits).</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 6: Test Accuracy difference Δ on perturbed addition and multiplication.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>Format</th>
-          <th>Gemma-2-2B</th>
-          <th>Llama-3.1-8B</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>f(a,b) =a+b</td>
-          <td>Natural Language</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a+b</td>
-          <td>Random String</td>
-          <td>+0.1%</td>
-          <td>-0.2%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) =a+b</td>
-          <td>Disturbed Digits</td>
-          <td>-3.9%</td>
-          <td>-2.1%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a x b</td>
-          <td>Natural Language</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a x b</td>
-          <td>Random String</td>
-          <td>+0.3%</td>
-          <td>-0.5%</td>
-      </tr>
-      <tr>
-          <td>f(a,b) = a X b</td>
-          <td>Disturbed Digits</td>
-          <td>-1.9%</td>
-          <td>-3.1%</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Inductive and deductive accuracy difference Δ.</caption>
+      <table id='16' style='font-size:22px'><tr><td></td><td>B1 B2</td></tr><tr><td>A1</td><td>A1B1 A1B2</td></tr><tr><td>A2</td><td>A2B1 A2B2</td></tr></table>
     </table>
 </figure>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Inductive and deductive accuracy difference Δ.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>B1 B2</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>A1</td>
-          <td>A1B1 A1B2</td>
-      </tr>
-      <tr>
-          <td>A2</td>
-          <td>A2B1 A2B2</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
+<blockquote>
+<p>The table presents the inductive and deductive accuracy differences (Δ) for four multiplication calculation methods (Standard, Lattice, Repetitive, Egyptian) across two LLMs (Gemma-2-2B and Llama-3.1-8B), showing the impact of fine-tuning on partial products.</p>
+</blockquote>
 </details>
-<hr>
 
 
 <h3 class="relative group">Full paper 
@@ -1698,35 +1346,21 @@
 </h3>
 
 
-<div id="gallery-ae963a0352bead3c0512a7363b0db077" class="gallery">
+<div id="gallery-099607b2efe30e52400c6c036891aa9f" class="gallery">
   
-
-  <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
+<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 
 </div>
 
@@ -1833,7 +1467,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/ai-paper-reviewer/paper-reviews/2410.16429/">
+            <a class="flex group mr-3" href="/ai-paper-reviewer/paper-reviews/2410.16392/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1845,7 +1479,7 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4</span
+                  >LLM-based Optimization of Compound AI Systems: A Survey</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
@@ -1858,11 +1492,11 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/paper-reviews/2410.16251/">
+            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/paper-reviews/2410.16198/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Can Knowledge Editing Really Correct Hallucinations?</span
+                  >Improve Vision Language Model Chain-of-thought Reasoning</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   

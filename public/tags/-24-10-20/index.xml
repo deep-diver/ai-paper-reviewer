@@ -9,12 +9,32 @@
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
     <lastBuildDate>Sun, 20 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-24-10-20/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Hallucination Detox: Sensitive Neuron Dropout (SeND) for Large Language Model Training</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15460/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15460/</guid>
+      <description>New training method, SeND, reduces LLM hallucinations by up to 40% by deterministically dropping unreliable neurons, improving model reliability.</description>
+      
+    </item>
+    
+    <item>
+      <title>Ichigo: Mixed-Modal Early-Fusion Realtime Voice Assistant</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/</guid>
+      <description>Ichigo: A real-time voice assistant achieving state-of-the-art performance by seamlessly integrating speech and text using a novel tokenized early fusion approach.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/cover.png" />
+    </item>
+    
+    <item>
       <title>M-RewardBench: Evaluating Reward Models in Multilingual Settings</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15522/</link>
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15522/</guid>
-      <description>M-REWARDBENCH: First multilingual benchmark reveals huge gaps in reward model performance for non-English LLMs.</description>
+      <description>M-REWARDBENCH, a new multilingual benchmark, reveals significant performance gaps in reward models across languages, highlighting the need for improved cross-lingual alignment in LLMs.</description>
       
     </item>
     

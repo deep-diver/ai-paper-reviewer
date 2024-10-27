@@ -11,8 +11,8 @@
   <title>Should We Really Edit Language Models? On the Evaluation of Edited Language Models &middot; AI Paper Reviews by AI</title>
   <meta name="title" content="Should We Really Edit Language Models? On the Evaluation of Edited Language Models &middot; AI Paper Reviews by AI" />
   
-  <meta name="description" content="This paper comprehensively evaluates various language model editing methods, finding that they generally cause performance degradation and safety issues, especially when scaling to many edits.  Curren....." />
-  <meta name="keywords" content="🔖 2024-10-24, 🤗 2024-10-25, " />
+  <meta name="description" content="Current LLM editing methods are great for small updates, but scaling them negatively impacts performance and safety." />
+  <meta name="keywords" content="🔖 24-10-24, 🤗 24-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/" />
@@ -69,21 +69,21 @@
   <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/">
   <meta property="og:site_name" content="AI Paper Reviews by AI">
   <meta property="og:title" content="Should We Really Edit Language Models? On the Evaluation of Edited Language Models">
-  <meta property="og:description" content="This paper comprehensively evaluates various language model editing methods, finding that they generally cause performance degradation and safety issues, especially when scaling to many edits.  Curren…..">
+  <meta property="og:description" content="Current LLM editing methods are great for small updates, but scaling them negatively impacts performance and safety.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="paper-reviews">
     <meta property="article:published_time" content="2024-10-24T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-24T00:00:00+00:00">
-    <meta property="article:tag" content="🔖 2024-10-24">
-    <meta property="article:tag" content="🤗 2024-10-25">
+    <meta property="article:tag" content="🔖 24-10-24">
+    <meta property="article:tag" content="🤗 24-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/cover.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18785/cover.png">
   <meta name="twitter:title" content="Should We Really Edit Language Models? On the Evaluation of Edited Language Models">
-  <meta name="twitter:description" content="This paper comprehensively evaluates various language model editing methods, finding that they generally cause performance degradation and safety issues, especially when scaling to many edits.  Curren…..">
+  <meta name="twitter:description" content="Current LLM editing methods are great for small updates, but scaling them negatively impacts performance and safety.">
 
   
   <script type="application/ld+json">
@@ -94,7 +94,7 @@
     "name": "Should We Really Edit Language Models? On the Evaluation of Edited Language Models",
     "headline": "Should We Really Edit Language Models? On the Evaluation of Edited Language Models",
     
-    "abstract": "This paper comprehensively evaluates various language model editing methods, finding that they generally cause performance degradation and safety issues, especially when scaling to many edits.  Curren\u0026hellip;..",
+    "abstract": "Current LLM editing methods are great for small updates, but scaling them negatively impacts performance and safety.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/paper-reviews\/2410.18785\/",
     "author" : {
@@ -107,10 +107,10 @@
     
     "dateModified": "2024-10-24T00:00:00\u002b00:00",
     
-    "keywords": ["🔖 2024-10-24","🤗 2024-10-25"],
+    "keywords": ["🔖 24-10-24","🤗 24-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1780"
+    "wordCount": "1313"
   }]
   </script>
 
@@ -634,7 +634,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1780 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">9 mins</span>
+  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1313 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
   
 
   
@@ -668,18 +668,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-24/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-24/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🔖 2024-10-24
+    🔖 24-10-24
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-25/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🤗 2024-10-25
+    🤗 24-10-25
   </span>
 </span>
   </span>
@@ -810,11 +810,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -835,11 +836,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -899,7 +901,7 @@
     
 </h3>
 <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  This paper comprehensively evaluates various language model editing methods, finding that they generally cause performance degradation and safety issues, especially when scaling to many edits.  Current methods are only suitable for small-scale updates, motivating further research on more robust and reliable editing techniques.
+  This paper examines the effectiveness and safety of model editing techniques for Large Language Models (LLMs).  Researchers used various editing methods on different LLMs, assessing their performance across multiple benchmarks. They found that while model editing is useful for small updates, it causes performance deterioration and safety issues as the number of edits increases. Instruction-tuned models proved more robust, while larger models showed better resistance. The study highlights that existing methods are unsuitable for large-scale knowledge updates and stresses the need for improved, safer editing techniques.
 </div>
 
 <a
@@ -927,17 +929,17 @@
 
 
 
-<h4 class="relative group">Why does this paper matter? 
-    <div id="why-does-this-paper-matter" class="anchor"></div>
+<h4 class="relative group">Why does it matter? 
+    <div id="why-does-it-matter" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#why-does-this-paper-matter" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#why-does-it-matter" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>This paper is important because it provides a comprehensive evaluation of existing language model editing methods, revealing their limitations and potential negative impacts.  This is crucial for guiding future research towards more practical and reliable methods, especially regarding safety and scalability.</p>
+<p>This research paper investigates the impact of model editing techniques on the general capabilities and safety of Large Language Models (LLMs).  The authors perform a comprehensive evaluation of various editing methods and find that current methods, while effective for small-scale knowledge updates, significantly impair LLM performance and safety when applied at larger scales.  This challenges the prevailing assumption that model editing is a safe and efficient method for updating LLMs.</p>
 
 
 <h4 class="relative group">Key Takeaways 
@@ -984,7 +986,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-eff76cf296a3cc87067fd293ff11c89a", {
-        strings: [" Existing language model editing methods cause inevitable performance deterioration on general benchmarks, even with a small number of edits. "],
+        strings: [" Model editing degrades LLM performance on general benchmarks, especially with many edits. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  0 ,
@@ -1031,7 +1033,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-137ceb89330089cc74bc2966d6af9450", {
-        strings: [" Instruction-tuned models are more robust to editing and larger models are more resistant to edits than smaller models. "],
+        strings: [" Instruction-tuned LLMs are more robust to editing than base models. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  1000 ,
@@ -1078,7 +1080,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-78924d146dc7b13eb7f78996100d632a", {
-        strings: [" The safety of edited language models is significantly weakened, even for those safety-aligned models, with even a small number of edits. "],
+        strings: [" Edited models, even safety-aligned ones, exhibit significantly reduced safety. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  2000 ,
@@ -1117,1563 +1119,219 @@
         src="/ai-paper-reviewer/paper-reviews/2410.18785/figures/figures_2_0_hu9463191325119159870.png"
         alt=""
       />
-      <figcaption>🔼 Illustration about the model editing and its pitfalls in retaining edited knowledge. Left panel: model editing methods can efficiently update knowledge within language models; Right panel: when scaling editing to thousands, the model can&rsquo;t retain edited knowledge, see [16] for details.</figcaption>
+      <figcaption>🔼 Figure 1: Illustration about the model editing and its pitfalls in retaining edited knowledge. Left panel: model editing methods can efficiently update knowledge within language models; Right panel: when scaling editing to thousands, the model can&rsquo;t retain edited knowledge, see [16] for details.</figcaption>
     </figure>
 </p>
+<blockquote>
+<p>The figure illustrates the effectiveness of model editing methods in updating knowledge within language models and their limitations when scaling to a large number of edits.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_5_0_hu15416847567383762535.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_5_0_hu3277855012030570549.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_5_0_hu14210581030874914169.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_5_0_hu10956229731125266368.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_5_0_hu3277855012030570549.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model&rsquo;s abilities across all tasks. While KN drastically drops even less than ten edits.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the performance trends of six different model editing methods on Llama2-7B base model across five different benchmark tasks, showing that PMET and MEND are more robust to editing than others.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Evaluation results of GPT2-XL. experiments are conducted on a sever with 8 RTX 4090 GPUs.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Method w/o Edit</th>
-          <th># Edits</th>
-          <th>GPT2-XL</th>
-          <th>GPT2-XL</th>
-          <th>GPT2-XL</th>
-          <th>GPT2-XL</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Method w/o Edit</td>
-          <td># Edits</td>
-          <td>MMLU</td>
-          <td>GSM8K</td>
-          <td>BBH</td>
-          <td>CSQA</td>
-      </tr>
-      <tr>
-          <td>Method w/o Edit</td>
-          <td>0</td>
-          <td>0.2098</td>
-          <td>0.0144</td>
-          <td>0.0382</td>
-          <td>0.1941</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>10</td>
-          <td>0.2104</td>
-          <td>0.0159</td>
-          <td>0.0377</td>
-          <td>0.1941</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>20</td>
-          <td>0.1081</td>
-          <td>0.0144</td>
-          <td>0.0117</td>
-          <td>0.2048</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>50</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>100</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>500</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>1000</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>10</td>
-          <td>0.2096</td>
-          <td>0.0144</td>
-          <td>0.0377</td>
-          <td>0.1949</td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>30</td>
-          <td>0.2094</td>
-          <td>0.0152</td>
-          <td>0.0388</td>
-          <td>0.1941</td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>100</td>
-          <td>0.2098</td>
-          <td>0.0144</td>
-          <td>0.0380</td>
-          <td>0.1957</td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>500</td>
-          <td>0.2100</td>
-          <td>0.0144</td>
-          <td>0.0382</td>
-          <td>0.1941</td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>1000</td>
-          <td>0.2099</td>
-          <td>0.0144</td>
-          <td>0.0381</td>
-          <td>0.1933</td>
-      </tr>
-      <tr>
-          <td>KN</td>
-          <td>500</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>KN</td>
-          <td>1000</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>500</td>
-          <td>0.2112</td>
-          <td>0.0159</td>
-          <td>0.0363</td>
-          <td>0.1957</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>1000</td>
-          <td>0.2097</td>
-          <td>0.0152</td>
-          <td>0.0193</td>
-          <td>0.199</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Evaluation results of GPT2-XL. experiments are conducted on a sever with 8 RTX 4090 GPUs.</caption>
+      <table id='4' style='font-size:14px'><tr><td rowspan="3">Method w/o Edit</td><td rowspan="2"># Edits</td><td colspan="4">GPT2-XL</td></tr><tr><td>MMLU</td><td>GSM8K</td><td>BBH</td><td>CSQA</td></tr><tr><td>0</td><td>0.2098</td><td>0.0144</td><td>0.0382</td><td>0.1941</td></tr><tr><td rowspan="6">PMET</td><td>10</td><td>0.2104</td><td>0.0159</td><td>0.0377</td><td>0.1941</td></tr><tr><td>20</td><td>0.1081</td><td>0.0144</td><td>0.0117</td><td>0.2048</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>500</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1000</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="5">MEND</td><td>10</td><td>0.2096</td><td>0.0144</td><td>0.0377</td><td>0.1949</td></tr><tr><td>30</td><td>0.2094</td><td>0.0152</td><td>0.0388</td><td>0.1941</td></tr><tr><td>100</td><td>0.2098</td><td>0.0144</td><td>0.0380</td><td>0.1957</td></tr><tr><td>500</td><td>0.2100</td><td>0.0144</td><td>0.0382</td><td>0.1941</td></tr><tr><td>1000</td><td>0.2099</td><td>0.0144</td><td>0.0381</td><td>0.1933</td></tr><tr><td rowspan="2">KN</td><td>500</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1000</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="2">MEMIT</td><td>500</td><td>0.2112</td><td>0.0159</td><td>0.0363</td><td>0.1957</td></tr><tr><td>1000</td><td>0.2097</td><td>0.0152</td><td>0.0193</td><td>0.199</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 1 presents the evaluation results of GPT2-XL model with different editing methods and various numbers of edits on MMLU, GSM8K, BBH, and CSQA benchmarks.</p>
+</blockquote>
+
+
+<h3 class="relative group">More visual insights 
+    <div id="more-visual-insights" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#more-visual-insights" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<details>
+<summary>More on charts
+</summary>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_0_hu8331738337665686231.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_0_hu17987372229441497782.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_0_hu16836620720009979785.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_0_hu14399245234797372650.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_0_hu17987372229441497782.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model&rsquo;s abilities across all tasks. While KN drastically drops even less than ten edits.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across multiple benchmarks, showing that PMET and MEND effectively preserve model abilities, while KN shows a drastic drop in performance with fewer than ten edits.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_1_hu3239147796157812931.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_1_hu1035258867242727249.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_1_hu10879277231029806074.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_1_hu16454696222315947192.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_6_1_hu1035258867242727249.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model&rsquo;s abilities across all tasks. While KN drastically drops even less than ten edits.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the performance trends of six different model editing methods on Llama2-7B across multiple benchmarks, showing that PMET and MEND maintain model abilities better than other methods, while KN shows significant performance decline.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_7_0_hu1144771854193179707.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_7_0_hu11485744310891129907.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_7_0_hu17949562590777947327.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_7_0_hu10993638505142956592.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_7_0_hu11485744310891129907.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays performance trends of six different model editing methods on the Llama2-7B base model across multiple benchmarks, showing that PMET and MEND effectively preserve model abilities while KN&rsquo;s performance drastically declines.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_8_0_hu1037367993432567768.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_8_0_hu1583672121954557341.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_8_0_hu16233053466770505173.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_8_0_hu5199836388942376778.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_8_0_hu1583672121954557341.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model&rsquo;s abilities across all tasks. While KN drastically drops even less than ten edits.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across various benchmarks, showing that PMET and MEND effectively preserve model abilities while KN shows a drastic performance drop.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_0_hu5153631170285574924.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_0_hu14483469779610733674.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_0_hu11218246074992931688.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_0_hu4895392309367621683.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_0_hu14483469779610733674.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model&rsquo;s abilities across all tasks. While KN drastically drops even less than ten edits.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the performance trends of six different model editing methods on Llama2-7B across five benchmark tasks, revealing that PMET and MEND effectively preserve model abilities, while KN shows a sharp decline with fewer than ten edits.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_1_hu9049807527977521630.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_1_hu1406127748480215579.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_1_hu10787884261171127557.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_1_hu15781168314127477164.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18785/charts/charts_21_1_hu1406127748480215579.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model&rsquo;s abilities across all tasks. While KN drastically drops even less than ten edits.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across various benchmark tasks, revealing that PMET and MEND preserve model abilities while KN shows significant degradation with fewer than ten edits.</p>
+</blockquote>
+</details>
 <details>
 <summary>More on tables
 </summary>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Method w/o Edit</th>
-          <th># Edits</th>
-          <th>Llama2-7B-Chat</th>
-          <th>Llama2-7B-Chat</th>
-          <th>Llama2-7B-Chat</th>
-          <th>Llama2-7B-Chat</th>
-          <th>Mistral-7B-Instruct</th>
-          <th>Mistral-7B-Instruct</th>
-          <th>Mistral-7B-Instruct</th>
-          <th>Mistral-7B-Instruct</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Method w/o Edit</td>
-          <td># Edits</td>
-          <td>MMLU</td>
-          <td>GSM8K</td>
-          <td>BBH</td>
-          <td>CSQA</td>
-          <td>MMLU</td>
-          <td>GSM8K</td>
-          <td>BBH</td>
-          <td>CSQA</td>
-      </tr>
-      <tr>
-          <td>Method w/o Edit</td>
-          <td>0</td>
-          <td>0.4516</td>
-          <td>0.2032</td>
-          <td>0.3997</td>
-          <td>0.6134</td>
-          <td>0.5350</td>
-          <td>0.3450</td>
-          <td>0.4668</td>
-          <td>0.6601</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>1</td>
-          <td>0.4576</td>
-          <td>0.1531</td>
-          <td>0.3985</td>
-          <td>0.5938</td>
-          <td>0.5364</td>
-          <td>0.3442</td>
-          <td>0.4667</td>
-          <td>0.6699</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>5</td>
-          <td>0.4587</td>
-          <td>0.1425</td>
-          <td>0.3976</td>
-          <td>0.5839</td>
-          <td>0.5354</td>
-          <td>0.3442</td>
-          <td>0.4648</td>
-          <td>0.6618</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>10</td>
-          <td>0.4578</td>
-          <td>0.1471</td>
-          <td>0.3974</td>
-          <td>0.5864</td>
-          <td>0.5333</td>
-          <td>0.3366</td>
-          <td>0.4684</td>
-          <td>0.6634</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>20</td>
-          <td>0.4416</td>
-          <td>0.1471</td>
-          <td>0.3828</td>
-          <td>0.5602</td>
-          <td>0.5310</td>
-          <td>0.3397</td>
-          <td>0.4693</td>
-          <td>0.6519</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>50</td>
-          <td>0.2700</td>
-          <td>0.0409</td>
-          <td>0.2838</td>
-          <td>0.2048</td>
-          <td>0.4115</td>
-          <td>0.2517</td>
-          <td>0.3888</td>
-          <td>0.4636</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>100</td>
-          <td>0.0007</td>
-          <td>0.0152</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0.1884</td>
-          <td>0.0190</td>
-          <td>0.1884</td>
-          <td>0.0026</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>1</td>
-          <td>0.4715</td>
-          <td>0.2085</td>
-          <td>0.4106</td>
-          <td>0.6143</td>
-          <td>0.5356</td>
-          <td>0.3450</td>
-          <td>0.4664</td>
-          <td>0.6683</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>5</td>
-          <td>0.4717</td>
-          <td>0.1895</td>
-          <td>0.4114</td>
-          <td>0.6233</td>
-          <td>0.5345</td>
-          <td>0.3419</td>
-          <td>0.4656</td>
-          <td>0.6675</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.4704</td>
-          <td>0.2047</td>
-          <td>0.4132</td>
-          <td>0.6151</td>
-          <td>0.5357</td>
-          <td>0.3434</td>
-          <td>0.4674</td>
-          <td>0.6716</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>20</td>
-          <td>0.4698</td>
-          <td>0.1956</td>
-          <td>0.4087</td>
-          <td>0.6405</td>
-          <td>0.5358</td>
-          <td>0.3465</td>
-          <td>0.4670</td>
-          <td>0.6667</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.4682</td>
-          <td>0.2039</td>
-          <td>0.4017</td>
-          <td>0.6405</td>
-          <td>0.5328</td>
-          <td>0.3487</td>
-          <td>0.4643</td>
-          <td>0.6536</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.4485</td>
-          <td>0.1850</td>
-          <td>0.3959</td>
-          <td>0.6044</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>1</td>
-          <td>0.4583</td>
-          <td>0.1471</td>
-          <td>0.3988</td>
-          <td>0.5930</td>
-          <td>0.5357</td>
-          <td>0.3465</td>
-          <td>0.6658</td>
-          <td>0.4663</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>5</td>
-          <td>0.4586</td>
-          <td>0.1448</td>
-          <td>0.4001</td>
-          <td>0.5897</td>
-          <td>0.5356</td>
-          <td>0.3457</td>
-          <td>0.6691</td>
-          <td>0.4669</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>10</td>
-          <td>0.4593</td>
-          <td>0.1471</td>
-          <td>0.4017</td>
-          <td>0.5930</td>
-          <td>0.5348</td>
-          <td>0.3450</td>
-          <td>0.6691</td>
-          <td>0.4662</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>20</td>
-          <td>0.4588</td>
-          <td>0.1456</td>
-          <td>0.4010</td>
-          <td>0.5872</td>
-          <td>0.5360</td>
-          <td>0.3397</td>
-          <td>0.6618</td>
-          <td>0.4570</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>50</td>
-          <td>0.4584</td>
-          <td>0.1448</td>
-          <td>0.4019</td>
-          <td>0.5905</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>100</td>
-          <td>0.4590</td>
-          <td>0.1448</td>
-          <td>0.3960</td>
-          <td>0.5930</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>10</td>
-          <td>0.4731</td>
-          <td>0.2100</td>
-          <td>0.4097</td>
-          <td>0.6216</td>
-          <td>-</td>
-          <td></td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>20</td>
-          <td>0.4729</td>
-          <td>0.2024</td>
-          <td>0.4057</td>
-          <td>0.6102</td>
-          <td>一</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>50</td>
-          <td>0.4728</td>
-          <td>0.2024</td>
-          <td>0.4101</td>
-          <td>0.6183</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>100</td>
-          <td>0.4731</td>
-          <td>0.2009</td>
-          <td>0.4093</td>
-          <td>0.6183</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>200</td>
-          <td>0.4738</td>
-          <td>0.2100</td>
-          <td>0.4030</td>
-          <td>0.6249</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>500</td>
-          <td>0.4732</td>
-          <td>0.2168</td>
-          <td>0.4089</td>
-          <td>0.6192</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>1000</td>
-          <td>0.4728</td>
-          <td>0.2138</td>
-          <td>0.4118</td>
-          <td>0.6224</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>10</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>20</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>MEND KN</td>
-          <td>50</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
+      <table id='0' style='font-size:14px'><tr><td>Model</td><td>Method</td><td># Edits</td><td>MMLU↑</td><td>GSM8K↑</td><td>BBH↑</td><td>CSQA↑</td></tr><tr><td rowspan="7">Pythia-160M</td><td>w/o Edit</td><td>0</td><td>0.2435</td><td>0.0174</td><td>0.0742</td><td>0.1884</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2460</td><td>0.0212</td><td>0.0785</td><td>0.2056</td></tr><tr><td>50</td><td>0.2447</td><td>0.0227</td><td>0.0755</td><td>0.1982</td></tr><tr><td>100</td><td>0.2468</td><td>0.0235</td><td>0.0743</td><td>0.1990</td></tr><tr><td rowspan="7">Pythia-410M</td><td>w/o Edit</td><td>0</td><td>0.2614</td><td>0.0144</td><td>0.2497</td><td>0.2064</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2628</td><td>0.0182</td><td>0.2476</td><td>0.2015</td></tr><tr><td>50</td><td>0.2629</td><td>0.0144</td><td>0.2482</td><td>0.2080</td></tr><tr><td>100</td><td>0.2627</td><td>0.0190</td><td>0.2490</td><td>0.2048</td></tr><tr><td rowspan="7">Pythia-1B</td><td>w/o Edit</td><td>0</td><td>0.2552</td><td>0.0273</td><td>0.2535</td><td>0.1892</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0.2547</td><td>0.0083</td><td>0.0052</td><td>0.2039</td></tr><tr><td>50</td><td>0.0017</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2562</td><td>0.0265</td><td>0.2545</td><td>0.1908</td></tr><tr><td>50</td><td>0.2539</td><td>0.0265</td><td>0.2544</td><td>0.2015</td></tr><tr><td>100</td><td>0.2547</td><td>0.0258</td><td>0.2532</td><td>0.2064</td></tr><tr><td rowspan="7">Pythia-2.8B</td><td>w/o Edit</td><td>0</td><td>0.2800</td><td>0.0364</td><td>0.2870</td><td>0.2146</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0.2272</td><td>0.0008</td><td>0.0004</td><td>0.1990</td></tr><tr><td>50</td><td>0.0001</td><td>0.0191</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2547</td><td>0.0303</td><td>0.2774</td><td>0.2154</td></tr><tr><td>50</td><td>0.2554</td><td>0.0349</td><td>0.2758</td><td>0.2269</td></tr><tr><td>100</td><td>0.2559</td><td>0.0318</td><td>0.2749</td><td>0.2179</td></tr><tr><td rowspan="14">Pythia-6.9B Pythia-12B</td><td>w/o Edit</td><td>0</td><td>0.2565</td><td>0.0318</td><td>0.2762</td><td>0.2260</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0.0189</td><td>0</td><td>0</td><td>0</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2547</td><td>0.0303</td><td>0.2774</td><td>0.2154</td></tr><tr><td>50</td><td>0.2554</td><td>0.0349</td><td>0.2758</td><td>0.2269</td></tr><tr><td>100</td><td>0.2559</td><td>0.0318</td><td>0.2749</td><td>0.2179</td></tr><tr><td rowspan="4">w/o Edit ROME</td><td>0</td><td>0.2621</td><td>0.0485</td><td>0.2868</td><td>0.2375</td></tr><tr><td>10</td><td>0.0263</td><td>0.0380</td><td>0</td><td>0</td></tr><tr><td></td><td>0</td><td>0.0380</td><td>0</td><td>0</td></tr><tr><td>50 100</td><td>0</td><td>0.0380</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2615</td><td>0.0462</td><td>0.2878</td><td>0.2408</td></tr><tr><td>50</td><td>0.2633</td><td>0.0531</td><td>0.2916</td><td>0.2514</td></tr><tr><td>100</td><td>0.2587</td><td>0.0523</td><td>0.2925</td><td>0.2465</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>This table presents the results of evaluating the impact of different model editing methods and numbers of edits on the general abilities of base language models across various benchmarks.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Model</th>
-          <th>Method</th>
-          <th># Edits</th>
-          <th>MMLU↑</th>
-          <th>GSM8K↑</th>
-          <th>BBH↑</th>
-          <th>CSQA↑</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Pythia-160M</td>
-          <td>w/o Edit</td>
-          <td>0</td>
-          <td>0.2435</td>
-          <td>0.0174</td>
-          <td>0.0742</td>
-          <td>0.1884</td>
-      </tr>
-      <tr>
-          <td>Pythia-160M</td>
-          <td>ROME</td>
-          <td>10</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-160M</td>
-          <td>ROME</td>
-          <td>50</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-160M</td>
-          <td>ROME</td>
-          <td>100</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-160M</td>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.2460</td>
-          <td>0.0212</td>
-          <td>0.0785</td>
-          <td>0.2056</td>
-      </tr>
-      <tr>
-          <td>Pythia-160M</td>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.2447</td>
-          <td>0.0227</td>
-          <td>0.0755</td>
-          <td>0.1982</td>
-      </tr>
-      <tr>
-          <td>Pythia-160M</td>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.2468</td>
-          <td>0.0235</td>
-          <td>0.0743</td>
-          <td>0.1990</td>
-      </tr>
-      <tr>
-          <td>Pythia-410M</td>
-          <td>w/o Edit</td>
-          <td>0</td>
-          <td>0.2614</td>
-          <td>0.0144</td>
-          <td>0.2497</td>
-          <td>0.2064</td>
-      </tr>
-      <tr>
-          <td>Pythia-410M</td>
-          <td>ROME</td>
-          <td>10</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-410M</td>
-          <td>ROME</td>
-          <td>50</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-410M</td>
-          <td>ROME</td>
-          <td>100</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-410M</td>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.2628</td>
-          <td>0.0182</td>
-          <td>0.2476</td>
-          <td>0.2015</td>
-      </tr>
-      <tr>
-          <td>Pythia-410M</td>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.2629</td>
-          <td>0.0144</td>
-          <td>0.2482</td>
-          <td>0.2080</td>
-      </tr>
-      <tr>
-          <td>Pythia-410M</td>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.2627</td>
-          <td>0.0190</td>
-          <td>0.2490</td>
-          <td>0.2048</td>
-      </tr>
-      <tr>
-          <td>Pythia-1B</td>
-          <td>w/o Edit</td>
-          <td>0</td>
-          <td>0.2552</td>
-          <td>0.0273</td>
-          <td>0.2535</td>
-          <td>0.1892</td>
-      </tr>
-      <tr>
-          <td>Pythia-1B</td>
-          <td>ROME</td>
-          <td>10</td>
-          <td>0.2547</td>
-          <td>0.0083</td>
-          <td>0.0052</td>
-          <td>0.2039</td>
-      </tr>
-      <tr>
-          <td>Pythia-1B</td>
-          <td>ROME</td>
-          <td>50</td>
-          <td>0.0017</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-1B</td>
-          <td>ROME</td>
-          <td>100</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-1B</td>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.2562</td>
-          <td>0.0265</td>
-          <td>0.2545</td>
-          <td>0.1908</td>
-      </tr>
-      <tr>
-          <td>Pythia-1B</td>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.2539</td>
-          <td>0.0265</td>
-          <td>0.2544</td>
-          <td>0.2015</td>
-      </tr>
-      <tr>
-          <td>Pythia-1B</td>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.2547</td>
-          <td>0.0258</td>
-          <td>0.2532</td>
-          <td>0.2064</td>
-      </tr>
-      <tr>
-          <td>Pythia-2.8B</td>
-          <td>w/o Edit</td>
-          <td>0</td>
-          <td>0.2800</td>
-          <td>0.0364</td>
-          <td>0.2870</td>
-          <td>0.2146</td>
-      </tr>
-      <tr>
-          <td>Pythia-2.8B</td>
-          <td>ROME</td>
-          <td>10</td>
-          <td>0.2272</td>
-          <td>0.0008</td>
-          <td>0.0004</td>
-          <td>0.1990</td>
-      </tr>
-      <tr>
-          <td>Pythia-2.8B</td>
-          <td>ROME</td>
-          <td>50</td>
-          <td>0.0001</td>
-          <td>0.0191</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-2.8B</td>
-          <td>ROME</td>
-          <td>100</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-2.8B</td>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.2547</td>
-          <td>0.0303</td>
-          <td>0.2774</td>
-          <td>0.2154</td>
-      </tr>
-      <tr>
-          <td>Pythia-2.8B</td>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.2554</td>
-          <td>0.0349</td>
-          <td>0.2758</td>
-          <td>0.2269</td>
-      </tr>
-      <tr>
-          <td>Pythia-2.8B</td>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.2559</td>
-          <td>0.0318</td>
-          <td>0.2749</td>
-          <td>0.2179</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>w/o Edit</td>
-          <td>0</td>
-          <td>0.2565</td>
-          <td>0.0318</td>
-          <td>0.2762</td>
-          <td>0.2260</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>ROME</td>
-          <td>10</td>
-          <td>0.0189</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>ROME</td>
-          <td>50</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>ROME</td>
-          <td>100</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.2547</td>
-          <td>0.0303</td>
-          <td>0.2774</td>
-          <td>0.2154</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.2554</td>
-          <td>0.0349</td>
-          <td>0.2758</td>
-          <td>0.2269</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.2559</td>
-          <td>0.0318</td>
-          <td>0.2749</td>
-          <td>0.2179</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>w/o Edit ROME</td>
-          <td>0</td>
-          <td>0.2621</td>
-          <td>0.0485</td>
-          <td>0.2868</td>
-          <td>0.2375</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>w/o Edit ROME</td>
-          <td>10</td>
-          <td>0.0263</td>
-          <td>0.0380</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>w/o Edit ROME</td>
-          <td>0</td>
-          <td>0.0380</td>
-          <td>0</td>
-          <td>0</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>w/o Edit ROME</td>
-          <td>50 100</td>
-          <td>0</td>
-          <td>0.0380</td>
-          <td>0</td>
-          <td>0</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.2615</td>
-          <td>0.0462</td>
-          <td>0.2878</td>
-          <td>0.2408</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.2633</td>
-          <td>0.0531</td>
-          <td>0.2916</td>
-          <td>0.2514</td>
-      </tr>
-      <tr>
-          <td>Pythia-6.9B Pythia-12B</td>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.2587</td>
-          <td>0.0523</td>
-          <td>0.2925</td>
-          <td>0.2465</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
+      <table id='0' style='font-size:14px'><tr><td rowspan="2">Method</td><td rowspan="2"># Edits</td><td colspan="2">Llama2-7B</td><td colspan="2">Llama2-7B-chat</td><td colspan="2">Mixtral-7B</td><td colspan="2">Mixtral-7B-Instruct</td></tr><tr><td>TruthfulQA</td><td>Toxigen</td><td>TruthfulQA</td><td>Toxigen</td><td>TruthfulQA</td><td>Toxigen</td><td>TruthfulQA</td><td>Toxigen</td></tr><tr><td rowspan="2">w/o Edits</td><td>0</td><td>0.2521</td><td>0.4284</td><td>0.3023</td><td>0.5177</td><td>0.2815</td><td>0.4247</td><td>0.3917</td><td>0.4896</td></tr><tr><td>1</td><td>0.2521</td><td>0.4296</td><td>0.2921</td><td>0.5196</td><td>0.2815</td><td>0.4247</td><td>0.3941</td><td>0.4810</td></tr><tr><td rowspan="5">ROME</td><td>5</td><td>0.2497</td><td>0.4272</td><td>0.2997</td><td>0.5072</td><td>0.2815</td><td>0.4247</td><td>0.3929</td><td>0.4896</td></tr><tr><td>10</td><td>0.2485</td><td>0.4296</td><td>0.2962</td><td>0.5080</td><td>0.2742</td><td>0.4235</td><td>0.3892</td><td>0.4737</td></tr><tr><td>20</td><td>0.2411</td><td>0.4284</td><td>0.2913</td><td>0.4871</td><td>0.2742</td><td>0.4247</td><td>0.3868</td><td>0.4737</td></tr><tr><td>50</td><td>0.2411</td><td>0.4101</td><td>0.2497</td><td>0.4957</td><td>0.2350</td><td>0.4247</td><td>0.2644</td><td>0.4504</td></tr><tr><td>100</td><td>0.2729</td><td>0.4982</td><td>0.2974</td><td>0.5141</td><td>0.2509</td><td>0.5667</td><td>0.2827</td><td>0.5251</td></tr><tr><td rowspan="6">MEMIT</td><td>1</td><td>0.2509</td><td>0.4284</td><td>0.2999</td><td>0.5116</td><td>0.2815</td><td>0.4272</td><td>0.3905</td><td>0.4859</td></tr><tr><td>5</td><td>0.2497</td><td>0.4272</td><td>0.2950</td><td>0.5116</td><td>0.2803</td><td>0.4272</td><td>0.3929</td><td>0.4908</td></tr><tr><td>10</td><td>0.2497</td><td>0.4284</td><td>0.2925</td><td>0.5153</td><td>0.2815</td><td>0.4259</td><td>0.3929</td><td>0.4847</td></tr><tr><td>20</td><td>0.2460</td><td>0.4308</td><td>0.2999</td><td>0.5018</td><td>0.2791</td><td>0.4259</td><td>0.3917</td><td>0.4908</td></tr><tr><td>50</td><td>0.2399</td><td>0.4308</td><td>0.2815</td><td>0.5153</td><td>0.2668</td><td>0.4308</td><td>0.3807</td><td>0.4774</td></tr><tr><td>100</td><td>0.1922</td><td>0.4321</td><td>0.2472</td><td>0.4896</td><td>0.2375</td><td>0.4627</td><td>0.2350</td><td>0.5838</td></tr><tr><td rowspan="8">PMET</td><td>1</td><td>0.2521</td><td>0.4296</td><td>0.2974</td><td>0.5163</td><td>0.2815</td><td>0.4247</td><td>0.3917</td><td>0.4823</td></tr><tr><td>5</td><td>0.2497</td><td>0.4272</td><td>0.2988</td><td>0.5175</td><td>0.2815</td><td>0.4247</td><td>0.3917</td><td>0.4835</td></tr><tr><td>10</td><td>0.2485</td><td>0.4296</td><td>0.2964</td><td>0.5190</td><td>0.2840</td><td>0.4235</td><td>0.3929</td><td>0.4847</td></tr><tr><td>20</td><td>0.2411</td><td>0.4284</td><td>0.2974</td><td>0.5141</td><td>0.2740</td><td>0.4247</td><td>0.3905</td><td>0.4908</td></tr><tr><td>50</td><td>0.2411</td><td>0.4100</td><td>0.2962</td><td>0.5129</td><td>0.2350</td><td>0.4247</td><td>0.2375</td><td>0.4333</td></tr><tr><td>100</td><td>0.2729</td><td>0.4982</td><td>0.2962</td><td>0.5165</td><td>0.2509</td><td>0.5667</td><td>0.2350</td><td>0.4333</td></tr><tr><td>500</td><td>0.2350</td><td>0.4259</td><td>0.2362</td><td>0.5667</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>1000</td><td>0.2362</td><td>0.4308</td><td>0.2350</td><td>0.5667</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td rowspan="6">MEND</td><td>10</td><td>0.2472</td><td>0.4308</td><td>0.2974</td><td>0.5141</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr><td>20</td><td>0.2546</td><td>0.4296</td><td>0.2999</td><td>0.5104</td><td></td><td></td><td>-</td><td></td></tr><tr><td>50</td><td>0.2521</td><td>0.4296</td><td>0.2938</td><td>0.5153</td><td>-</td><td>、</td><td>-</td><td></td></tr><tr><td>100</td><td>0.2521</td><td>0.4296</td><td>0.3035</td><td>0.5153</td><td>、</td><td>-</td><td>-</td><td></td></tr><tr><td>500</td><td>0.2521</td><td>0.4308</td><td>0.3035</td><td>0.5080</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr><td>1000</td><td>0.2485</td><td>0.4308</td><td>0.2950</td><td>0.5055</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td rowspan="5">KN</td><td>10</td><td>0.2350</td><td>0.4333</td><td>0.2277</td><td>0.4333</td><td>0.2889</td><td>0.4308</td><td></td><td></td></tr><tr><td>50</td><td>0.2399</td><td>0.5667</td><td>0.2399</td><td>0.4590</td><td>0.2558</td><td>0.5667</td><td>-</td><td></td></tr><tr><td>100</td><td>0.2350</td><td>0.5667</td><td>0.2399</td><td>0.4590</td><td>0.2583</td><td>0.5667</td><td>-</td><td>-</td></tr><tr><td>500</td><td>0.2362</td><td>0.4333</td><td>0.2392</td><td>0.4590</td><td>0.2583</td><td>0.5667</td><td>-</td><td>-</td></tr><tr><td>1000</td><td>0.2313</td><td>0.4333</td><td>0.2399</td><td>0.4590</td><td>0.2583</td><td>0.5667</td><td>-</td><td></td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 2 presents the results of evaluating the impact of various model editing methods and different numbers of edits on the general abilities of base language models across multiple benchmarks.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Method</th>
-          <th># Edits</th>
-          <th>Llama2-7B</th>
-          <th>Llama2-7B</th>
-          <th>Llama2-7B-chat</th>
-          <th>Llama2-7B-chat</th>
-          <th>Mixtral-7B</th>
-          <th>Mixtral-7B</th>
-          <th>Mixtral-7B-Instruct</th>
-          <th>Mixtral-7B-Instruct</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Method</td>
-          <td># Edits</td>
-          <td>TruthfulQA</td>
-          <td>Toxigen</td>
-          <td>TruthfulQA</td>
-          <td>Toxigen</td>
-          <td>TruthfulQA</td>
-          <td>Toxigen</td>
-          <td>TruthfulQA</td>
-          <td>Toxigen</td>
-      </tr>
-      <tr>
-          <td>w/o Edits</td>
-          <td>0</td>
-          <td>0.2521</td>
-          <td>0.4284</td>
-          <td>0.3023</td>
-          <td>0.5177</td>
-          <td>0.2815</td>
-          <td>0.4247</td>
-          <td>0.3917</td>
-          <td>0.4896</td>
-      </tr>
-      <tr>
-          <td>w/o Edits</td>
-          <td>1</td>
-          <td>0.2521</td>
-          <td>0.4296</td>
-          <td>0.2921</td>
-          <td>0.5196</td>
-          <td>0.2815</td>
-          <td>0.4247</td>
-          <td>0.3941</td>
-          <td>0.4810</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>5</td>
-          <td>0.2497</td>
-          <td>0.4272</td>
-          <td>0.2997</td>
-          <td>0.5072</td>
-          <td>0.2815</td>
-          <td>0.4247</td>
-          <td>0.3929</td>
-          <td>0.4896</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>10</td>
-          <td>0.2485</td>
-          <td>0.4296</td>
-          <td>0.2962</td>
-          <td>0.5080</td>
-          <td>0.2742</td>
-          <td>0.4235</td>
-          <td>0.3892</td>
-          <td>0.4737</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>20</td>
-          <td>0.2411</td>
-          <td>0.4284</td>
-          <td>0.2913</td>
-          <td>0.4871</td>
-          <td>0.2742</td>
-          <td>0.4247</td>
-          <td>0.3868</td>
-          <td>0.4737</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>50</td>
-          <td>0.2411</td>
-          <td>0.4101</td>
-          <td>0.2497</td>
-          <td>0.4957</td>
-          <td>0.2350</td>
-          <td>0.4247</td>
-          <td>0.2644</td>
-          <td>0.4504</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>100</td>
-          <td>0.2729</td>
-          <td>0.4982</td>
-          <td>0.2974</td>
-          <td>0.5141</td>
-          <td>0.2509</td>
-          <td>0.5667</td>
-          <td>0.2827</td>
-          <td>0.5251</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>1</td>
-          <td>0.2509</td>
-          <td>0.4284</td>
-          <td>0.2999</td>
-          <td>0.5116</td>
-          <td>0.2815</td>
-          <td>0.4272</td>
-          <td>0.3905</td>
-          <td>0.4859</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>5</td>
-          <td>0.2497</td>
-          <td>0.4272</td>
-          <td>0.2950</td>
-          <td>0.5116</td>
-          <td>0.2803</td>
-          <td>0.4272</td>
-          <td>0.3929</td>
-          <td>0.4908</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>10</td>
-          <td>0.2497</td>
-          <td>0.4284</td>
-          <td>0.2925</td>
-          <td>0.5153</td>
-          <td>0.2815</td>
-          <td>0.4259</td>
-          <td>0.3929</td>
-          <td>0.4847</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>20</td>
-          <td>0.2460</td>
-          <td>0.4308</td>
-          <td>0.2999</td>
-          <td>0.5018</td>
-          <td>0.2791</td>
-          <td>0.4259</td>
-          <td>0.3917</td>
-          <td>0.4908</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>50</td>
-          <td>0.2399</td>
-          <td>0.4308</td>
-          <td>0.2815</td>
-          <td>0.5153</td>
-          <td>0.2668</td>
-          <td>0.4308</td>
-          <td>0.3807</td>
-          <td>0.4774</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>100</td>
-          <td>0.1922</td>
-          <td>0.4321</td>
-          <td>0.2472</td>
-          <td>0.4896</td>
-          <td>0.2375</td>
-          <td>0.4627</td>
-          <td>0.2350</td>
-          <td>0.5838</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>1</td>
-          <td>0.2521</td>
-          <td>0.4296</td>
-          <td>0.2974</td>
-          <td>0.5163</td>
-          <td>0.2815</td>
-          <td>0.4247</td>
-          <td>0.3917</td>
-          <td>0.4823</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>5</td>
-          <td>0.2497</td>
-          <td>0.4272</td>
-          <td>0.2988</td>
-          <td>0.5175</td>
-          <td>0.2815</td>
-          <td>0.4247</td>
-          <td>0.3917</td>
-          <td>0.4835</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>10</td>
-          <td>0.2485</td>
-          <td>0.4296</td>
-          <td>0.2964</td>
-          <td>0.5190</td>
-          <td>0.2840</td>
-          <td>0.4235</td>
-          <td>0.3929</td>
-          <td>0.4847</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>20</td>
-          <td>0.2411</td>
-          <td>0.4284</td>
-          <td>0.2974</td>
-          <td>0.5141</td>
-          <td>0.2740</td>
-          <td>0.4247</td>
-          <td>0.3905</td>
-          <td>0.4908</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>50</td>
-          <td>0.2411</td>
-          <td>0.4100</td>
-          <td>0.2962</td>
-          <td>0.5129</td>
-          <td>0.2350</td>
-          <td>0.4247</td>
-          <td>0.2375</td>
-          <td>0.4333</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>100</td>
-          <td>0.2729</td>
-          <td>0.4982</td>
-          <td>0.2962</td>
-          <td>0.5165</td>
-          <td>0.2509</td>
-          <td>0.5667</td>
-          <td>0.2350</td>
-          <td>0.4333</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>500</td>
-          <td>0.2350</td>
-          <td>0.4259</td>
-          <td>0.2362</td>
-          <td>0.5667</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>PMET</td>
-          <td>1000</td>
-          <td>0.2362</td>
-          <td>0.4308</td>
-          <td>0.2350</td>
-          <td>0.5667</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>10</td>
-          <td>0.2472</td>
-          <td>0.4308</td>
-          <td>0.2974</td>
-          <td>0.5141</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>20</td>
-          <td>0.2546</td>
-          <td>0.4296</td>
-          <td>0.2999</td>
-          <td>0.5104</td>
-          <td></td>
-          <td>-</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>50</td>
-          <td>0.2521</td>
-          <td>0.4296</td>
-          <td>0.2938</td>
-          <td>0.5153</td>
-          <td>-</td>
-          <td>、</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>100</td>
-          <td>0.2521</td>
-          <td>0.4296</td>
-          <td>0.3035</td>
-          <td>0.5153</td>
-          <td>、</td>
-          <td>-</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>500</td>
-          <td>0.2521</td>
-          <td>0.4308</td>
-          <td>0.3035</td>
-          <td>0.5080</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>1000</td>
-          <td>0.2485</td>
-          <td>0.4308</td>
-          <td>0.2950</td>
-          <td>0.5055</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>KN</td>
-          <td>10</td>
-          <td>0.2350</td>
-          <td>0.4333</td>
-          <td>0.2277</td>
-          <td>0.4333</td>
-          <td>0.2889</td>
-          <td>0.4308</td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>KN</td>
-          <td>50</td>
-          <td>0.2399</td>
-          <td>0.5667</td>
-          <td>0.2399</td>
-          <td>0.4590</td>
-          <td>0.2558</td>
-          <td>0.5667</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>KN</td>
-          <td>100</td>
-          <td>0.2350</td>
-          <td>0.5667</td>
-          <td>0.2399</td>
-          <td>0.4590</td>
-          <td>0.2583</td>
-          <td>0.5667</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>KN</td>
-          <td>500</td>
-          <td>0.2362</td>
-          <td>0.4333</td>
-          <td>0.2392</td>
-          <td>0.4590</td>
-          <td>0.2583</td>
-          <td>0.5667</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>KN</td>
-          <td>1000</td>
-          <td>0.2313</td>
-          <td>0.4333</td>
-          <td>0.2399</td>
-          <td>0.4590</td>
-          <td>0.2583</td>
-          <td>0.5667</td>
-          <td>-</td>
-          <td></td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
+      <table id='3' style='font-size:14px'><tr><td>DATASET</td><td>TASK TYPE</td><td># FEW-SHOT</td><td># TEST</td><td>METRIC</td><td>EVALUATION METHOD</td></tr><tr><td>MMLU 27</td><td>World Knowledge</td><td>5</td><td>14,079</td><td>Accuracy</td><td>Generation-Based</td></tr><tr><td>BBH 28</td><td>World Knowledge</td><td>3</td><td>6,511</td><td>Accuracy</td><td>Generation-Based</td></tr><tr><td>GSM8K 39</td><td>Arithmetic</td><td>8</td><td>1,319</td><td>Exact match</td><td>Generation-Based</td></tr><tr><td>CSQA* 40</td><td>Commonsense</td><td>7</td><td>1,221</td><td>Accuracy</td><td>Generation-Based</td></tr><tr><td>TriviaQA 41</td><td>Reading Comprehension</td><td>0</td><td>17,900</td><td>Exact match</td><td>Generation-Based</td></tr><tr><td>TruthfulQA 42</td><td>Truthful</td><td>0</td><td>817</td><td>Accuracy</td><td>Sequence-Based</td></tr><tr><td>ToxiGen 43</td><td>Hate Speech</td><td>0</td><td>940</td><td>Accuracy</td><td>Sequence-Based</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 2 presents the performance of various language models (base models) after applying different editing methods with varying numbers of edits, evaluated across four benchmarks.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>DATASET</th>
-          <th>TASK TYPE</th>
-          <th># FEW-SHOT</th>
-          <th># TEST</th>
-          <th>METRIC</th>
-          <th>EVALUATION METHOD</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>MMLU 27</td>
-          <td>World Knowledge</td>
-          <td>5</td>
-          <td>14,079</td>
-          <td>Accuracy</td>
-          <td>Generation-Based</td>
-      </tr>
-      <tr>
-          <td>BBH 28</td>
-          <td>World Knowledge</td>
-          <td>3</td>
-          <td>6,511</td>
-          <td>Accuracy</td>
-          <td>Generation-Based</td>
-      </tr>
-      <tr>
-          <td>GSM8K 39</td>
-          <td>Arithmetic</td>
-          <td>8</td>
-          <td>1,319</td>
-          <td>Exact match</td>
-          <td>Generation-Based</td>
-      </tr>
-      <tr>
-          <td>CSQA* 40</td>
-          <td>Commonsense</td>
-          <td>7</td>
-          <td>1,221</td>
-          <td>Accuracy</td>
-          <td>Generation-Based</td>
-      </tr>
-      <tr>
-          <td>TriviaQA 41</td>
-          <td>Reading Comprehension</td>
-          <td>0</td>
-          <td>17,900</td>
-          <td>Exact match</td>
-          <td>Generation-Based</td>
-      </tr>
-      <tr>
-          <td>TruthfulQA 42</td>
-          <td>Truthful</td>
-          <td>0</td>
-          <td>817</td>
-          <td>Accuracy</td>
-          <td>Sequence-Based</td>
-      </tr>
-      <tr>
-          <td>ToxiGen 43</td>
-          <td>Hate Speech</td>
-          <td>0</td>
-          <td>940</td>
-          <td>Accuracy</td>
-          <td>Sequence-Based</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 7: Comparison of time costs for different benchmarks with and without vLLM using the Llama2-7B model. The unit is minutes. The table demonstrates that using vLLM significantly reduces the time costs across all benchmarks.</caption>
+      <table id='7' style='font-size:16px'><tr><td rowspan="2">Method</td><td colspan="3">With vLLM</td><td colspan="3">Without vLLM</td></tr><tr><td>MMLU</td><td>GSM8K</td><td>CSQA</td><td>MMLU</td><td>GSM8K</td><td>CSQA</td></tr><tr><td>Llama2-7B</td><td>103</td><td>5</td><td>26</td><td>840</td><td>7</td><td>42</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 7 compares the time costs of running benchmarks with and without the vLLM inference framework to show that using vLLM significantly reduces the time costs.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Method</th>
-          <th>With vLLM</th>
-          <th>With vLLM</th>
-          <th>With vLLM</th>
-          <th>Without vLLM</th>
-          <th>Without vLLM</th>
-          <th>Without vLLM</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Method</td>
-          <td>MMLU</td>
-          <td>GSM8K</td>
-          <td>CSQA</td>
-          <td>MMLU</td>
-          <td>GSM8K</td>
-          <td>CSQA</td>
-      </tr>
-      <tr>
-          <td>Llama2-7B</td>
-          <td>103</td>
-          <td>5</td>
-          <td>26</td>
-          <td>840</td>
-          <td>7</td>
-          <td>42</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
+      <table id='2' style='font-size:16px'><tr><td rowspan="2">Method</td><td colspan="3">Llama2-7B</td><td colspan="3">GPT2-XL</td></tr><tr><td>10</td><td>50</td><td>100</td><td>10</td><td>50</td><td>100</td></tr><tr><td>ROME</td><td>2m1s</td><td>9m53s</td><td>16m31s</td><td>59s</td><td>4m4s</td><td>8mlls</td></tr><tr><td>MEMIT</td><td>4m30s</td><td>20m29s</td><td>40m14s</td><td>2m10s</td><td>8m24s</td><td>17m23s</td></tr><tr><td>GRACE</td><td>10s</td><td>1m3s</td><td>2mls</td><td>5s</td><td>31s</td><td>1m2s</td></tr><tr><td>MEND</td><td>24s</td><td>1m34s</td><td>2m17s</td><td>11s</td><td>52s</td><td>1m24s</td></tr><tr><td>SERAC</td><td>20s</td><td>1m7s</td><td>1m24s</td><td>14s</td><td>1m12s</td><td>2m15s</td></tr></table>
     </table>
 </figure>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Results on evaluating the impact of different editing methods and numbers of edits on edited language models (base model). All editing is conducted on COUNTERFACT dataset with a fixed seed for a fair comparison. For all 4 tasks in this table, the higher score indicates a better performance. MEND and GRACE are not available for Mistral-7B.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Method</th>
-          <th>Llama2-7B</th>
-          <th>Llama2-7B</th>
-          <th>Llama2-7B</th>
-          <th>GPT2-XL</th>
-          <th>GPT2-XL</th>
-          <th>GPT2-XL</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Method</td>
-          <td>10</td>
-          <td>50</td>
-          <td>100</td>
-          <td>10</td>
-          <td>50</td>
-          <td>100</td>
-      </tr>
-      <tr>
-          <td>ROME</td>
-          <td>2m1s</td>
-          <td>9m53s</td>
-          <td>16m31s</td>
-          <td>59s</td>
-          <td>4m4s</td>
-          <td>8mlls</td>
-      </tr>
-      <tr>
-          <td>MEMIT</td>
-          <td>4m30s</td>
-          <td>20m29s</td>
-          <td>40m14s</td>
-          <td>2m10s</td>
-          <td>8m24s</td>
-          <td>17m23s</td>
-      </tr>
-      <tr>
-          <td>GRACE</td>
-          <td>10s</td>
-          <td>1m3s</td>
-          <td>2mls</td>
-          <td>5s</td>
-          <td>31s</td>
-          <td>1m2s</td>
-      </tr>
-      <tr>
-          <td>MEND</td>
-          <td>24s</td>
-          <td>1m34s</td>
-          <td>2m17s</td>
-          <td>11s</td>
-          <td>52s</td>
-          <td>1m24s</td>
-      </tr>
-      <tr>
-          <td>SERAC</td>
-          <td>20s</td>
-          <td>1m7s</td>
-          <td>1m24s</td>
-          <td>14s</td>
-          <td>1m12s</td>
-          <td>2m15s</td>
-      </tr>
-  </tbody>
-</table>
-
-    </table>
-</figure>
+<blockquote>
+<p>Table 2 presents a quantitative evaluation of different model editing methods&rsquo; impact on the general abilities of base language models (Llama2-7B and Mistral-7B) across various numbers of edits.</p>
+</blockquote>
 </details>
-<hr>
 
 
 <h3 class="relative group">Full paper 
@@ -2688,81 +1346,44 @@
 </h3>
 
 
-<div id="gallery-d640b303c0999ddb7803f28b67572a68" class="gallery">
+<div id="gallery-5a7cb41422afb44aa55bf77a37c70eed" class="gallery">
   
-
-  <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/35.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/36.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
+<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/35.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/36.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 
 </div>
 

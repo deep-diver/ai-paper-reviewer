@@ -11,8 +11,8 @@
   <title>Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits &middot; AI Paper Reviews by AI</title>
   <meta name="title" content="Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits &middot; AI Paper Reviews by AI" />
   
-  <meta name="description" content="This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft specula....." />
-  <meta name="keywords" content="🔖 2024-10-23, 🤗 2024-10-25, " />
+  <meta name="description" content="Boosting LLM inference speed, this paper introduces multi-draft speculative sampling, optimizing token selection via importance and speculative sampling for improved efficiency." />
+  <meta name="keywords" content="🔖 24-10-23, 🤗 24-10-25, " />
   
   
   <link rel="canonical" href="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/" />
@@ -69,21 +69,21 @@
   <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/">
   <meta property="og:site_name" content="AI Paper Reviews by AI">
   <meta property="og:title" content="Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits">
-  <meta property="og:description" content="This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft specula…..">
+  <meta property="og:description" content="Boosting LLM inference speed, this paper introduces multi-draft speculative sampling, optimizing token selection via importance and speculative sampling for improved efficiency.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="paper-reviews">
     <meta property="article:published_time" content="2024-10-23T00:00:00+00:00">
     <meta property="article:modified_time" content="2024-10-23T00:00:00+00:00">
-    <meta property="article:tag" content="🔖 2024-10-23">
-    <meta property="article:tag" content="🤗 2024-10-25">
+    <meta property="article:tag" content="🔖 24-10-23">
+    <meta property="article:tag" content="🤗 24-10-25">
     <meta property="og:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/cover.png">
 
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18234/cover.png">
   <meta name="twitter:title" content="Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits">
-  <meta name="twitter:description" content="This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft specula…..">
+  <meta name="twitter:description" content="Boosting LLM inference speed, this paper introduces multi-draft speculative sampling, optimizing token selection via importance and speculative sampling for improved efficiency.">
 
   
   <script type="application/ld+json">
@@ -94,7 +94,7 @@
     "name": "Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits",
     "headline": "Multi-Draft Speculative Sampling: Canonical Architectures and Theoretical Limits",
     
-    "abstract": "This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft specula\u0026hellip;..",
+    "abstract": "Boosting LLM inference speed, this paper introduces multi-draft speculative sampling, optimizing token selection via importance and speculative sampling for improved efficiency.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/paper-reviews\/2410.18234\/",
     "author" : {
@@ -107,10 +107,10 @@
     
     "dateModified": "2024-10-23T00:00:00\u002b00:00",
     
-    "keywords": ["🔖 2024-10-23","🤗 2024-10-25"],
+    "keywords": ["🔖 24-10-23","🤗 24-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "890"
+    "wordCount": "1442"
   }]
   </script>
 
@@ -634,7 +634,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>890 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
+  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1442 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
   
 
   
@@ -668,18 +668,18 @@
   
   
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-23/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-23/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🔖 2024-10-23
+    🔖 24-10-23
   </span>
 </span>
   </span>
   
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-2024-10-25/&#34;,'_self');">
+  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/ai-paper-reviewer/tags/-24-10-25/&#34;,'_self');">
     <span class="flex" style="cursor: pointer;">
   <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    🤗 2024-10-25
+    🤗 24-10-25
   </span>
 </span>
   </span>
@@ -810,11 +810,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -835,11 +836,12 @@
       <ul>
         <li><a href="#tldr">TL;DR</a>
           <ul>
-            <li><a href="#why-does-this-paper-matter">Why does this paper matter?</a></li>
+            <li><a href="#why-does-it-matter">Why does it matter?</a></li>
             <li><a href="#key-takeaways">Key Takeaways</a></li>
             <li><a href="#visual-insights">Visual Insights</a></li>
           </ul>
         </li>
+        <li><a href="#more-visual-insights">More visual insights</a></li>
         <li><a href="#full-paper">Full paper</a></li>
       </ul>
     </li>
@@ -899,7 +901,7 @@
     
 </h3>
 <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  This paper proposes a novel multi-draft speculative sampling method for faster LLM decoding. It introduces a two-step optimal token selection architecture (importance sampling and single-draft speculative sampling), offering theoretical analysis and demonstrating significant improvements in block efficiency and token rates, particularly when draft sequences have non-identical distributions. This method improves decoding speed and efficiency for LLMs.
+  This paper tackles the slow speed of Large Language Model (LLM) inference. Current LLMs generate text one word at a time, which is inefficient.  The authors propose &lsquo;multi-draft speculative sampling&rsquo; as a solution.  This involves using several smaller models (drafts) to generate multiple word options simultaneously. A larger, more accurate model then selects the best option from these drafts. The paper shows that the best word selection method can be broken down into two simpler steps.  First, use a technique similar to &lsquo;importance sampling&rsquo; to choose a word from the drafts. Then, use existing &lsquo;speculative sampling&rsquo; to refine the choice and ensure it aligns with the larger model&rsquo;s distribution.  Through theoretical analysis and experiments using the OPT model, they demonstrate consistent improvements in speed and efficiency compared to existing approaches. They also provide new insights into the theoretical limits of this technique.  The improvements are shown across various tasks with a consistent improvement across three tasks, XSum, Dolly, and WMT. Overall, the work offers a novel, efficient method for LLM inference, providing both theoretical and practical advancements.
 </div>
 
 <a
@@ -927,17 +929,17 @@
 
 
 
-<h4 class="relative group">Why does this paper matter? 
-    <div id="why-does-this-paper-matter" class="anchor"></div>
+<h4 class="relative group">Why does it matter? 
+    <div id="why-does-it-matter" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
         <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
-            style="text-decoration-line: none !important;" href="#why-does-this-paper-matter" aria-label="Anchor">#</a>
+            style="text-decoration-line: none !important;" href="#why-does-it-matter" aria-label="Anchor">#</a>
     </span>        
     
 </h4>
-<p>This paper introduces multi-draft speculative sampling, improving large language model (LLM) decoding efficiency.  It provides a canonical two-step architecture for optimal token selection and theoretical analysis demonstrating improvements over existing methods.</p>
+<p>This research paper introduces a novel approach to accelerate large language model inference called multi-draft speculative sampling.  It optimizes token selection by decomposing the process into importance sampling and speculative sampling, resulting in significant improvements in efficiency.</p>
 
 
 <h4 class="relative group">Key Takeaways 
@@ -984,7 +986,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-9f98fcf06ad76e5ec76280bcd328e433", {
-        strings: [" Multi-draft speculative sampling improves LLM decoding efficiency by using multiple draft models to generate candidate tokens. "],
+        strings: [" Multi-draft speculative sampling significantly improves the efficiency of large language model inference. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  0 ,
@@ -1031,7 +1033,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-e60422c3552f2b9edd0c8b1c4241eb1f", {
-        strings: [" An optimal token selection scheme can be decomposed into a two-step process: importance sampling followed by single-draft speculative sampling. "],
+        strings: [" The optimal token selection scheme can be decomposed into two steps: importance sampling and single-draft speculative sampling. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  1000 ,
@@ -1078,7 +1080,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-606f18cc2a342d82c9393f6ca94c5933", {
-        strings: [" Theoretical analysis provides insights into optimal acceptance probabilities and a new token selection scheme based on weighted importance sampling. "],
+        strings: [" A new token-level selection scheme based on weighted importance sampling consistently improves block efficiency and token rates. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  2000 ,
@@ -1117,53 +1119,52 @@
         src="/ai-paper-reviewer/paper-reviews/2410.18234/figures/figures_4_0_hu4524064343439487290.png"
         alt=""
       />
-      <figcaption>🔼 Optimal Approach for Multi-Draft Speculative Sampling</figcaption>
+      <figcaption>🔼 Figure 1: Optimal Approach for Multi-Draft Speculative Sampling</figcaption>
     </figure>
 </p>
+<blockquote>
+<p>The figure illustrates the optimal two-step approach for multi-draft speculative sampling, which involves importance weighted sampling followed by speculative sampling.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_6_0_hu7644054932338866069.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_6_0_hu12660872801367802443.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_6_0_hu13701354641008205917.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_6_0_hu643360908062860076.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_6_0_hu12660872801367802443.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart numerically evaluates the acceptance probability for the optimal scheme and two baseline schemes (SpecTr and SpecInfer) by varying the target distribution parameter q2.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Block efficiency achieved in the Dolly task for different number of draft models.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Scheme</th>
-          <th>K = 2</th>
-          <th>K = 3</th>
-          <th>K = 4</th>
-          <th>K = 5</th>
-          <th>K = 6</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>IS</td>
-          <td>2.13 土 0.05</td>
-          <td>2.22 士 0.05</td>
-          <td>2.26 土 0.05</td>
-          <td>2.27 士 0.05</td>
-          <td>2.28 士 0.06</td>
-      </tr>
-      <tr>
-          <td>SpecInfer</td>
-          <td>1.76 士 0.04</td>
-          <td>1.86 士 0.05</td>
-          <td>1.95 土 0.05</td>
-          <td>2.00 士 0.04</td>
-          <td>2.04 士 0.05</td>
-      </tr>
-      <tr>
-          <td>SpecTr</td>
-          <td>1.77 土 0.04</td>
-          <td>1.89 土 0.05</td>
-          <td>1.96 土 0.05</td>
-          <td>2.03 士 0.06</td>
-          <td>2.08 土 0.04</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
+      <table id='2' style='font-size:16px'><tr><td>Ashish Khisti * 12</td><td>M.Reza Ebrahimi ・1</td><td>Hassan Dbouk1</td></tr><tr><td>Arash Behboodi1</td><td>Roland Memisevic 1</td><td>Christos Louizos t 1</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>This table compares the average acceptance probability across different tasks (XSum, Dolly, WMT) for varying numbers of draft models (K=2, 4, 8) using different methods (Optimal, IS, SpecTr, SpecInfer).</p>
+</blockquote>
+
+
+<h3 class="relative group">More visual insights 
+    <div id="more-visual-insights" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#more-visual-insights" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
 <details>
 <summary>More on figures
 </summary>
@@ -1180,9 +1181,12 @@
         src="/ai-paper-reviewer/paper-reviews/2410.18234/figures/figures_24_0_hu3371034442784239545.png"
         alt=""
       />
-      <figcaption>🔼 Optimal Approach for Multi-Draft Speculative Sampling</figcaption>
+      <figcaption>🔼 Figure 1: Optimal Approach for Multi-Draft Speculative Sampling</figcaption>
     </figure>
 </p>
+<blockquote>
+<p>The figure illustrates the optimal two-step scheme for multi-draft speculative sampling, showing importance weighted sampling followed by speculative sampling.</p>
+</blockquote>
 <p>
     <figure>
       <img
@@ -1199,471 +1203,166 @@
       <figcaption>🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.</figcaption>
     </figure>
 </p>
+<blockquote>
+<p>The figure shows a numerical evaluation of the acceptance probability for the optimal scheme and two baseline schemes, SpecTr and SpecInfer, for different values of q2.</p>
+</blockquote>
 </details>
-<hr>
+<details>
+<summary>More on charts
+</summary>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_9_0_hu18253534663310666957.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_9_0_hu5226430274932392429.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_9_0_hu9879525529193148826.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_9_0_hu8812881548898884202.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_9_0_hu5226430274932392429.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 3: Performance comparison of different multi-draft schemes, while we vary the temperature of the two draft models.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the block efficiency and token rate improvement over single-draft speculative decoding for different multi-draft schemes (IS, SpecTr, SpecInfer) across three datasets (Dolly, XSum, WMT) while varying the temperature of the draft models.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_10_0_hu5945432245294836285.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_10_0_hu2950825875045070274.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_10_0_hu7711151598799905223.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_10_0_hu17450617405097306372.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_10_0_hu2950825875045070274.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 4: Performance comparison of different multi-draft schemes. The temperature of the first draft model is set to 1.2, while we vary the temperature of the other draft.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart compares the performance of different multi-draft schemes across three datasets (Dolly, XSum, WMT) while varying the temperature of one draft model while keeping the other constant.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_0_hu17507117451164797412.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_0_hu4673551427319247710.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_0_hu12384180154304643490.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_0_hu13131428348043039717.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_0_hu4673551427319247710.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart numerically evaluates the acceptance probability for the optimal scheme and compares it with two baseline schemes, SpecTr and SpecInfer, by varying the parameter q2.</p>
+</blockquote>
+<p>
+    <figure>
+      <img
+        class="my-0 rounded-md"
+        loading="lazy"
+        srcset="
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_1_hu6026782496469850674.png 330w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_1_hu9227391282736415266.png 660w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_1_hu4038343188380603281.png 1024w,
+        /ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_1_hu2364604613438164526.png 2x"
+        src="/ai-paper-reviewer/paper-reviews/2410.18234/charts/charts_34_1_hu9227391282736415266.png"
+        alt=""
+      />
+      <figcaption>🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.</figcaption>
+    </figure>
+</p>
+<blockquote>
+<p>The chart numerically evaluates the acceptance probability for the optimal scheme and two baseline schemes (SpecTr and SpecInfer) by varying the target distribution parameter q2.</p>
+</blockquote>
+</details>
 <details>
 <summary>More on tables
 </summary>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Effect of LP Truncation and Alphabet Truncation</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th></th>
-          <th>Block Efficiency</th>
-          <th>Token Rate (% improvement to SD)</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Alphabet Truncation ( 2⌀ )</td>
-          <td>10</td>
-          <td>1.98 士 0.03</td>
-          <td>-0.57 士 3.38%</td>
-      </tr>
-      <tr>
-          <td>Alphabet Truncation ( 2⌀ )</td>
-          <td>20</td>
-          <td>2.00 士 0.04</td>
-          <td>1.00 土 3.08%</td>
-      </tr>
-      <tr>
-          <td>Alphabet Truncation ( 2⌀ )</td>
-          <td>40</td>
-          <td>2.05 士 0.04</td>
-          <td>6.63 土 3.18%</td>
-      </tr>
-      <tr>
-          <td>Alphabet Truncation ( 2⌀ )</td>
-          <td>50</td>
-          <td>2.03 士 0.05</td>
-          <td>3.22 土 3.39%</td>
-      </tr>
-      <tr>
-          <td>LP-Truncation Threshold (s)</td>
-          <td>5</td>
-          <td>2.05 士 0.04</td>
-          <td>6.63 士 3.18%</td>
-      </tr>
-      <tr>
-          <td>LP-Truncation Threshold (s)</td>
-          <td>10</td>
-          <td>2.04 土 0.05</td>
-          <td>1.52 土 3.47%</td>
-      </tr>
-      <tr>
-          <td>LP-Truncation Threshold (s)</td>
-          <td>15</td>
-          <td>2.04 士 0.04</td>
-          <td>1.74 土 2.36%</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Block efficiency achieved in the Dolly task for different number of draft models.</caption>
+      <br><table id='4' style='font-size:16px'><tr><td>Scheme</td><td>K = 2</td><td>K = 3</td><td>K = 4</td><td>K = 5</td><td>K = 6</td></tr><tr><td>IS</td><td>2.13 土 0.05</td><td>2.22 士 0.05</td><td>2.26 土 0.05</td><td>2.27 士 0.05</td><td>2.28 士 0.06</td></tr><tr><td>SpecInfer</td><td>1.76 士 0.04</td><td>1.86 士 0.05</td><td>1.95 土 0.05</td><td>2.00 士 0.04</td><td>2.04 士 0.05</td></tr><tr><td>SpecTr</td><td>1.77 土 0.04</td><td>1.89 土 0.05</td><td>1.96 土 0.05</td><td>2.03 士 0.06</td><td>2.08 土 0.04</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 1 shows the block efficiency achieved by three different multi-draft speculative sampling methods using 2 to 6 draft models on the Dolly task.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Scheme</th>
-          <th>XSum</th>
-          <th>XSum</th>
-          <th>XSum</th>
-          <th>Dolly</th>
-          <th>Dolly</th>
-          <th>Dolly</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td></td>
-          <td>K=2</td>
-          <td>K=4</td>
-          <td>K=8</td>
-          <td>K=2</td>
-          <td>K=4</td>
-          <td>K=8</td>
-      </tr>
-      <tr>
-          <td>Optimal</td>
-          <td>0.5009</td>
-          <td>0.5226</td>
-          <td>0.5419</td>
-          <td>0.6384</td>
-          <td>0.6731</td>
-          <td>0.6962</td>
-      </tr>
-      <tr>
-          <td>IS</td>
-          <td>0.4933</td>
-          <td>0.5145</td>
-          <td>0.5333</td>
-          <td>0.6348</td>
-          <td>0.6691</td>
-          <td>0.6919</td>
-      </tr>
-      <tr>
-          <td>SpecTr</td>
-          <td>0.4889</td>
-          <td>0.5083</td>
-          <td>0.5263</td>
-          <td>0.6246</td>
-          <td>0.6560</td>
-          <td>0.6800</td>
-      </tr>
-      <tr>
-          <td>SpecInfer</td>
-          <td>0.4875</td>
-          <td>0.5058</td>
-          <td>0.5227</td>
-          <td>0.6202</td>
-          <td>0.6489</td>
-          <td>0.6722</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 2: Effect of LP Truncation and Alphabet Truncation</caption>
+      <br><table id='4' style='font-size:18px'><tr><td></td><td></td><td>Block Efficiency</td><td>Token Rate (% improvement to SD)</td></tr><tr><td rowspan="4">Alphabet Truncation ( 2⌀ )</td><td>10</td><td>1.98 士 0.03</td><td>-0.57 士 3.38%</td></tr><tr><td>20</td><td>2.00 士 0.04</td><td>1.00 土 3.08%</td></tr><tr><td>40</td><td>2.05 士 0.04</td><td>6.63 土 3.18%</td></tr><tr><td>50</td><td>2.03 士 0.05</td><td>3.22 土 3.39%</td></tr><tr><td rowspan="3">LP-Truncation Threshold (s)</td><td>5</td><td>2.05 士 0.04</td><td>6.63 士 3.18%</td></tr><tr><td>10</td><td>2.04 土 0.05</td><td>1.52 土 3.47%</td></tr><tr><td>15</td><td>2.04 士 0.04</td><td>1.74 土 2.36%</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 2 shows the effect of LP truncation and alphabet truncation on the block efficiency and token rate improvement over the single-draft baseline.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 4: Block Efficiency achieved in the Dolly Task with top-k sampling</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Sampling</th>
-          <th>Scheme</th>
-          <th>K = 2 drafts</th>
-          <th>K = 2 drafts</th>
-          <th>K = 3 drafts</th>
-          <th>K = 3 drafts</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Sampling</td>
-          <td>Scheme</td>
-          <td>Block Efficiency</td>
-          <td>Loss</td>
-          <td>Block Efficiency</td>
-          <td>Loss</td>
-      </tr>
-      <tr>
-          <td>top-k (k = 10)</td>
-          <td>IS</td>
-          <td>2.48 土 0.01</td>
-          <td></td>
-          <td>2.59 士 0.02</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>top-k (k = 10)</td>
-          <td>SpecTr</td>
-          <td>2.43 土 0.01</td>
-          <td>98%</td>
-          <td>2.55 士 0.01</td>
-          <td>98%</td>
-      </tr>
-      <tr>
-          <td>top-k (k = 10)</td>
-          <td>SpecInfer</td>
-          <td>2.38 士 0.02</td>
-          <td>96%</td>
-          <td>2.49 士 0.02</td>
-          <td>96%</td>
-      </tr>
-      <tr>
-          <td>top-k (k = 5)</td>
-          <td>IS</td>
-          <td>2.52 士 0.02</td>
-          <td></td>
-          <td>2.63 士 0.03</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>top-k (k = 5)</td>
-          <td>SpecTr</td>
-          <td>2.48 土 0.02</td>
-          <td>98%</td>
-          <td>2.56 士 0.03</td>
-          <td>97%</td>
-      </tr>
-      <tr>
-          <td>top-k (k = 5)</td>
-          <td>SpecInfer</td>
-          <td>2.47 士 0.01</td>
-          <td>98%</td>
-          <td>2.55 士 0.04</td>
-          <td>97%</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
+      <br><table id='8' style='font-size:16px'><tr><td>Scheme</td><td colspan="3">XSum</td><td colspan="3">Dolly</td></tr><tr><td></td><td>K=2</td><td>K=4</td><td>K=8</td><td>K=2</td><td>K=4</td><td>K=8</td></tr><tr><td>Optimal</td><td>0.5009</td><td>0.5226</td><td>0.5419</td><td>0.6384</td><td>0.6731</td><td>0.6962</td></tr><tr><td>IS</td><td>0.4933</td><td>0.5145</td><td>0.5333</td><td>0.6348</td><td>0.6691</td><td>0.6919</td></tr><tr><td>SpecTr</td><td>0.4889</td><td>0.5083</td><td>0.5263</td><td>0.6246</td><td>0.6560</td><td>0.6800</td></tr><tr><td>SpecInfer</td><td>0.4875</td><td>0.5058</td><td>0.5227</td><td>0.6202</td><td>0.6489</td><td>0.6722</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 3 compares the token-level acceptance probability across different methods for K=2, 4, and 8 drafts on three different tasks.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Draft Temp.</th>
-          <th>1.2</th>
-          <th>1.4</th>
-          <th>1.6</th>
-          <th>2.0</th>
-          <th>2.4</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-      </tr>
-      <tr>
-          <td>IS</td>
-          <td>0.186 士 0.004</td>
-          <td>0.188 土 0.002</td>
-          <td>0.191 土 0.003</td>
-          <td>0.186 土 0.004</td>
-          <td>0.187 士 0.003</td>
-      </tr>
-      <tr>
-          <td>Signle-draft SD</td>
-          <td>0.190 士 0.006</td>
-          <td>0.185 士 0.005</td>
-          <td>0.190 士 0.004</td>
-          <td>0.186 士 0.003</td>
-          <td>0.186 士 0.004</td>
-      </tr>
-      <tr>
-          <td>SpecInfer</td>
-          <td>0.184 土 0.004</td>
-          <td>0.190 土 0.002</td>
-          <td>0.187 土 0.001</td>
-          <td>0.186 士 0.003</td>
-          <td>0.186 士 0.004</td>
-      </tr>
-      <tr>
-          <td>SpecTr</td>
-          <td>0.188 土 0.002</td>
-          <td>0.182 土 0.006</td>
-          <td>0.188 士 0.001</td>
-          <td>0.185 土 0.006</td>
-          <td>0.188 土 0.001</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 4: Block Efficiency achieved in the Dolly Task with top-k sampling</caption>
+      <br><table id='12' style='font-size:18px'><tr><td rowspan="2">Sampling</td><td rowspan="2">Scheme</td><td colspan="2">K = 2 drafts</td><td colspan="2">K = 3 drafts</td></tr><tr><td>Block Efficiency</td><td>Loss</td><td>Block Efficiency</td><td>Loss</td></tr><tr><td rowspan="3">top-k (k = 10)</td><td>IS</td><td>2.48 土 0.01</td><td></td><td>2.59 士 0.02</td><td></td></tr><tr><td>SpecTr</td><td>2.43 土 0.01</td><td>98%</td><td>2.55 士 0.01</td><td>98%</td></tr><tr><td>SpecInfer</td><td>2.38 士 0.02</td><td>96%</td><td>2.49 士 0.02</td><td>96%</td></tr><tr><td rowspan="3">top-k (k = 5)</td><td>IS</td><td>2.52 士 0.02</td><td></td><td>2.63 士 0.03</td><td></td></tr><tr><td>SpecTr</td><td>2.48 土 0.02</td><td>98%</td><td>2.56 士 0.03</td><td>97%</td></tr><tr><td>SpecInfer</td><td>2.47 士 0.01</td><td>98%</td><td>2.55 士 0.04</td><td>97%</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 4 compares the block efficiencies for different methods using K=2 and K=3 drafts, applying top-k sampling with k=10 and k=5, and using temperature of 1.0 for both models.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th>Draft Temp.</th>
-          <th>1.2</th>
-          <th>1.4</th>
-          <th>1.6</th>
-          <th>2.0</th>
-          <th>2.4</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-          <td>Decoder</td>
-      </tr>
-      <tr>
-          <td>IS</td>
-          <td>0.037 士 0.002</td>
-          <td>0.038 土 0.004</td>
-          <td>0.034 土 0.002</td>
-          <td>0.039 士 0.003</td>
-          <td>0.039 土 0.002</td>
-      </tr>
-      <tr>
-          <td>Signle-draft SD</td>
-          <td>0.036 土 0.000</td>
-          <td>0.037 土 0.003</td>
-          <td>0.038 土 0.004</td>
-          <td>0.037 士 0.003</td>
-          <td>0.038 土 0.002</td>
-      </tr>
-      <tr>
-          <td>SpecInfer</td>
-          <td>0.035 土 0.003</td>
-          <td>0.039 土 0.004</td>
-          <td>0.035 士 0.003</td>
-          <td>0.034 士 0.009</td>
-          <td>0.036 土 0.003</td>
-      </tr>
-      <tr>
-          <td>SpecTr</td>
-          <td>0.039 土 0.001</td>
-          <td>0.037 土 0.001</td>
-          <td>0.039 土 0.001</td>
-          <td>0.036 士 0.002</td>
-          <td>0.035 士 0.001</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 5: ROUGE-L scores on the XSum task across various decoders and sampling temperatures.</caption>
+      <br><table id='3' style='font-size:16px'><tr><td>Draft Temp.</td><td>1.2</td><td>1.4</td><td>1.6</td><td>2.0</td><td>2.4</td></tr><tr><td colspan="6">Decoder</td></tr><tr><td>IS</td><td>0.186 士 0.004</td><td>0.188 土 0.002</td><td>0.191 土 0.003</td><td>0.186 土 0.004</td><td>0.187 士 0.003</td></tr><tr><td>Signle-draft SD</td><td>0.190 士 0.006</td><td>0.185 士 0.005</td><td>0.190 士 0.004</td><td>0.186 士 0.003</td><td>0.186 士 0.004</td></tr><tr><td>SpecInfer</td><td>0.184 土 0.004</td><td>0.190 土 0.002</td><td>0.187 土 0.001</td><td>0.186 士 0.003</td><td>0.186 士 0.004</td></tr><tr><td>SpecTr</td><td>0.188 土 0.002</td><td>0.182 土 0.006</td><td>0.188 士 0.001</td><td>0.185 土 0.006</td><td>0.188 土 0.001</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 5 presents ROUGE-L scores on the XSum task for different decoders (IS, single-draft, SpecInfer, SpecTr) and draft model temperatures.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 7: ROUGE-L scores on the XSum task across various decoders and sampling temperatures.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Draft 1</td>
-          <td>1.2</td>
-          <td>1.2</td>
-          <td>1.2</td>
-          <td>1.2</td>
-          <td>1.2</td>
-      </tr>
-      <tr>
-          <td>Draft 2</td>
-          <td>1.2</td>
-          <td>1.6</td>
-          <td>2.0</td>
-          <td>2.4</td>
-          <td>N/A</td>
-      </tr>
-      <tr>
-          <td>Decoder</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>IS</td>
-          <td>0.187 士 0.004</td>
-          <td>0.189 土 0.007</td>
-          <td>0.189 士 0.001</td>
-          <td>0.191 士 0.002</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>SpecInfer</td>
-          <td>0.184 士 0.004</td>
-          <td>0.190 土 0.003</td>
-          <td>0.185 土 0.006</td>
-          <td>0.189 土 0.006</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Single-draft SD</td>
-          <td>-</td>
-          <td></td>
-          <td></td>
-          <td>-</td>
-          <td>0.190 土 0.006</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 6: BLEU scores on the WMT dataset across various decoders and sampling temperatures.</caption>
+      <br><table id='5' style='font-size:18px'><tr><td>Draft Temp.</td><td>1.2</td><td>1.4</td><td>1.6</td><td>2.0</td><td>2.4</td></tr><tr><td colspan="6">Decoder</td></tr><tr><td>IS</td><td>0.037 士 0.002</td><td>0.038 土 0.004</td><td>0.034 土 0.002</td><td>0.039 士 0.003</td><td>0.039 土 0.002</td></tr><tr><td>Signle-draft SD</td><td>0.036 土 0.000</td><td>0.037 土 0.003</td><td>0.038 土 0.004</td><td>0.037 士 0.003</td><td>0.038 土 0.002</td></tr><tr><td>SpecInfer</td><td>0.035 土 0.003</td><td>0.039 土 0.004</td><td>0.035 士 0.003</td><td>0.034 士 0.009</td><td>0.036 土 0.003</td></tr><tr><td>SpecTr</td><td>0.039 土 0.001</td><td>0.037 土 0.001</td><td>0.039 土 0.001</td><td>0.036 士 0.002</td><td>0.035 士 0.001</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 6 presents BLEU scores on the WMT dataset for different decoding methods (IS, single-draft speculative decoding, SpecInfer, and SpecTr) across various draft and target model temperatures.</p>
+</blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: top; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 8: BLEU scores on the WMT dataset across various decoders and sampling temperatures.</caption>
-      <table>
-  <thead>
-      <tr>
-          <th></th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-          <th>Temperature</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Draft 1</td>
-          <td>1.2</td>
-          <td>1.2</td>
-          <td>1.2</td>
-          <td>1.2</td>
-          <td>1.2</td>
-      </tr>
-      <tr>
-          <td>Draft 2</td>
-          <td>1.2</td>
-          <td>1.6</td>
-          <td>2.0</td>
-          <td>2.4</td>
-          <td>N/A</td>
-      </tr>
-      <tr>
-          <td>Decoder</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>IS</td>
-          <td>0.036 土 0.003</td>
-          <td>0.035 土 0.002</td>
-          <td>0.036 土 0.002</td>
-          <td>0.035 士 0.002</td>
-          <td>-</td>
-      </tr>
-      <tr>
-          <td>SpecInfer</td>
-          <td>0.035 士 0.003</td>
-          <td>0.038 土 0.005</td>
-          <td>0.041 土 0.002</td>
-          <td>0.040 土 0.002</td>
-          <td></td>
-      </tr>
-      <tr>
-          <td>Single-draft SD</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-          <td>0.036 士 0.000</td>
-      </tr>
-  </tbody>
-</table>
-
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 7: ROUGE-L scores on the XSum task across various decoders and sampling temperatures.</caption>
+      <table id='8' style='font-size:16px'><tr><td></td><td colspan="5">Temperature</td></tr><tr><td>Draft 1</td><td colspan="5">1.2</td></tr><tr><td>Draft 2</td><td>1.2</td><td>1.6</td><td>2.0</td><td>2.4</td><td>N/A</td></tr><tr><td>Decoder</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>IS</td><td>0.187 士 0.004</td><td>0.189 土 0.007</td><td>0.189 士 0.001</td><td>0.191 士 0.002</td><td>-</td></tr><tr><td>SpecInfer</td><td>0.184 士 0.004</td><td>0.190 土 0.003</td><td>0.185 土 0.006</td><td>0.189 土 0.006</td><td></td></tr><tr><td>Single-draft SD</td><td>-</td><td></td><td></td><td>-</td><td>0.190 土 0.006</td></tr></table>
     </table>
 </figure>
+<blockquote>
+<p>Table 7 compares the ROUGE-L scores for different multi-draft schemes across various decoders and sampling temperatures on the XSum task.</p>
+</blockquote>
+<figure style="max-width: 100%; text-align: center;">
+    <table style="width: 100%;">
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 8: BLEU scores on the WMT dataset across various decoders and sampling temperatures.</caption>
+      <table id='10' style='font-size:14px'><tr><td></td><td colspan="5">Temperature</td></tr><tr><td>Draft 1</td><td colspan="5">1.2</td></tr><tr><td>Draft 2</td><td>1.2</td><td>1.6</td><td>2.0</td><td>2.4</td><td>N/A</td></tr><tr><td>Decoder</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>IS</td><td>0.036 土 0.003</td><td>0.035 土 0.002</td><td>0.036 土 0.002</td><td>0.035 士 0.002</td><td>-</td></tr><tr><td>SpecInfer</td><td>0.035 士 0.003</td><td>0.038 土 0.005</td><td>0.041 土 0.002</td><td>0.040 土 0.002</td><td></td></tr><tr><td>Single-draft SD</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0.036 士 0.000</td></tr></table>
+    </table>
+</figure>
+<blockquote>
+<p>Table 8 shows the BLEU scores on the WMT dataset for different multi-draft schemes while varying the temperature of the two draft models.</p>
+</blockquote>
 </details>
-<hr>
 
 
 <h3 class="relative group">Full paper 
@@ -1678,85 +1377,46 @@
 </h3>
 
 
-<div id="gallery-3e550608f728727a94cca10bed69f8a3" class="gallery">
+<div id="gallery-5e9d45997d4664d3effb15e6a49bce4f" class="gallery">
   
-
-  <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/35.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/36.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/37.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
-  <img src="paper_images/38.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-
+<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/35.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/36.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/37.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="paper_images/38.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 
 </div>
 

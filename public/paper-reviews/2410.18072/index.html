@@ -11,7 +11,7 @@
   <title>WorldSimBench: Towards Video Generation Models as World Simulators &middot; AI Paper Reviews by AI</title>
   <meta name="title" content="WorldSimBench: Towards Video Generation Models as World Simulators &middot; AI Paper Reviews by AI" />
   
-  <meta name="description" content="WorldSimBench: A dual evaluation framework assessing video generation models as world simulators, judging both visual quality and action consistency." />
+  <meta name="description" content="WorldSimBench: A dual evaluation framework reveals the visual and action capabilities of video generation models, advancing embodied AI." />
   <meta name="keywords" content="🔖 24-10-23, 🤗 24-10-24, " />
   
   
@@ -69,7 +69,7 @@
   <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18072/">
   <meta property="og:site_name" content="AI Paper Reviews by AI">
   <meta property="og:title" content="WorldSimBench: Towards Video Generation Models as World Simulators">
-  <meta property="og:description" content="WorldSimBench: A dual evaluation framework assessing video generation models as world simulators, judging both visual quality and action consistency.">
+  <meta property="og:description" content="WorldSimBench: A dual evaluation framework reveals the visual and action capabilities of video generation models, advancing embodied AI.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="paper-reviews">
@@ -83,7 +83,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18072/cover.png">
   <meta name="twitter:title" content="WorldSimBench: Towards Video Generation Models as World Simulators">
-  <meta name="twitter:description" content="WorldSimBench: A dual evaluation framework assessing video generation models as world simulators, judging both visual quality and action consistency.">
+  <meta name="twitter:description" content="WorldSimBench: A dual evaluation framework reveals the visual and action capabilities of video generation models, advancing embodied AI.">
 
   
   <script type="application/ld+json">
@@ -94,7 +94,7 @@
     "name": "WorldSimBench: Towards Video Generation Models as World Simulators",
     "headline": "WorldSimBench: Towards Video Generation Models as World Simulators",
     
-    "abstract": "WorldSimBench: A dual evaluation framework assessing video generation models as world simulators, judging both visual quality and action consistency.",
+    "abstract": "WorldSimBench: A dual evaluation framework reveals the visual and action capabilities of video generation models, advancing embodied AI.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/paper-reviews\/2410.18072\/",
     "author" : {
@@ -110,7 +110,7 @@
     "keywords": ["🔖 24-10-23","🤗 24-10-24"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1506"
+    "wordCount": "1445"
   }]
   </script>
 
@@ -634,7 +634,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1506 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">8 mins</span>
+  <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>1445 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">7 mins</span>
   
 
   
@@ -901,17 +901,7 @@
     
 </h3>
 <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  <p>This paper introduces WorldSimBench, a novel benchmark designed to thoroughly evaluate the capabilities of video generation models that function as &ldquo;world simulators.&rdquo; These models generate videos that accurately reflect the physical rules and dynamics of real-world scenarios.  WorldSimBench employs a two-pronged approach:</p>
-<ol>
-<li>
-<p><strong>Explicit Perceptual Evaluation:</strong> This part assesses the visual realism of the generated videos by using human feedback and a specially trained model to evaluate aspects like visual quality and consistency with given instructions.  A new dataset, HF-Embodied Dataset, was created for this purpose.</p>
-</li>
-<li>
-<p><strong>Implicit Manipulative Evaluation:</strong> Here, the generated videos are treated as action plans. The model&rsquo;s ability is evaluated by measuring how well the generated videos translate into actual actions within simulated dynamic environments representing three key scenarios: Open-Ended Embodied Environment, Autonomous Driving, and Robot Manipulation.</p>
-</li>
-</ol>
-<p>The researchers categorized predictive models hierarchically and found that WorldSimBench provides valuable insights to drive further innovation in this field, pushing the boundaries of embodied AI.</p>
-
+  This paper introduces WorldSimBench, a new benchmark for evaluating video generation models, specifically those aiming to be &lsquo;World Simulators&rsquo;—models capable of generating realistic and actionable videos.  It addresses the limitations of existing benchmarks by proposing a dual evaluation approach.  First, explicit perceptual evaluation uses human feedback on visual quality to assess the realism and fidelity of generated videos. Second, implicit manipulative evaluation assesses how well the generated videos translate into correct control signals in embodied tasks. The research categorizes predictive models based on their level of embodiment, highlighting the progression from text-only to actionable video generation.  Three representative embodied scenarios—open-ended environment, autonomous driving, and robot manipulation—are used for evaluation.  The authors create a new dataset, HF-Embodied, with fine-grained human feedback to support the perceptual evaluation. Results provide insights into the capabilities and limitations of current World Simulators, offering key directions for future research.
 </div>
 
 <a
@@ -949,7 +939,7 @@
     </span>        
     
 </h4>
-<p>WorldSimBench is a new benchmark for evaluating video generation models as world simulators. It uses a dual evaluation framework (Explicit Perceptual and Implicit Manipulative) to assess visual fidelity and action consistency across three embodied scenarios.</p>
+<p>WorldSimBench is a novel dual-evaluation framework for assessing the capabilities of predictive video generation models (World Simulators) from both visual and action-level perspectives.  It introduces a hierarchical classification of predictive models and offers key insights into their strengths and limitations.</p>
 
 
 <h4 class="relative group">Key Takeaways 
@@ -996,7 +986,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-8c6013ffa846425e47b53b85a8fe5e41", {
-        strings: [" WorldSimBench introduces a hierarchical categorization of predictive models based on their embodiment level. "],
+        strings: [" WorldSimBench provides a dual evaluation (perceptual and manipulative) of video generation models, addressing limitations of existing benchmarks. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  0 ,
@@ -1043,7 +1033,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-b12faab34d8c1f061c53c75cc5445dfd", {
-        strings: [" It proposes a dual evaluation framework: Explicit Perceptual Evaluation (visual quality) and Implicit Manipulative Evaluation (action consistency). "],
+        strings: [" A hierarchical classification of predictive models based on embodiment level is introduced, clarifying the landscape of predictive modeling. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  1000 ,
@@ -1090,7 +1080,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-100e55844268b4d816bfed33d18c35b8", {
-        strings: [" The benchmark uses three representative embodied scenarios and the HF-Embodied dataset to evaluate model capabilities. "],
+        strings: [" The HF-Embodied Dataset, a video assessment dataset with fine-grained human feedback, is presented, enabling more accurate evaluation. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  2000 ,
@@ -1133,7 +1123,7 @@
     </figure>
 </p>
 <blockquote>
-<p>Figure 1 provides a hierarchical overview of predictive models&rsquo; capabilities, introducing WorldSimBench, a dual evaluation framework for World Simulators focusing on video generation and action transformation across three embodied scenarios.</p>
+<p>Figure 1 illustrates the hierarchical capabilities of predictive models, showing the progression from text prediction to actionable video generation and introducing WorldSimBench, a dual evaluation framework.</p>
 </blockquote>
 <p>
     <figure>
@@ -1152,7 +1142,7 @@
     </figure>
 </p>
 <blockquote>
-<p>The radar chart visualizes the performance of eight video generation models across three embodied scenarios, showing their strengths and weaknesses on different evaluation dimensions.</p>
+<p>The radar chart visualizes the performance of multiple video generation models across different evaluation dimensions within three embodied scenarios.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1161,7 +1151,7 @@
     </table>
 </figure>
 <blockquote>
-<p>Table 1 compares existing Predictive Model benchmarks across several criteria, including input/output modality, model type, evaluation stage, and interaction type with the environment.</p>
+<p>Table 1 compares existing predictive model benchmarks based on input/output modalities, methods, stages, interactive environments, and evaluation strategies.</p>
 </blockquote>
 
 
@@ -1195,7 +1185,7 @@
     </figure>
 </p>
 <blockquote>
-<p>The figure illustrates the process of Explicit Perceptual Evaluation, including instruction prompt generation and HF-Embodied dataset generation with fine-grained human feedback annotation.</p>
+<p>This figure illustrates the process of generating the HF-Embodied dataset for explicit perceptual evaluation, which involves instruction prompt generation, data generation model training, and fine-grained human feedback annotation.</p>
 </blockquote>
 <p>
     <figure>
@@ -1214,7 +1204,7 @@
     </figure>
 </p>
 <blockquote>
-<p>The figure illustrates the Implicit Manipulative Evaluation process, decomposing embodied tasks into sub-tasks, using video generation models and video-to-action mapping for evaluation.</p>
+<p>The figure illustrates the process of Implicit Manipulative Evaluation, decomposing embodied tasks into sub-tasks, using video generation models and video-to-action mapping to evaluate task performance.</p>
 </blockquote>
 <p>
     <figure>
@@ -1233,7 +1223,7 @@
     </figure>
 </p>
 <blockquote>
-<p>The figure shows a sequence of images from a Minecraft simulation illustrating the rollout process of an embodied task in the Implicit Manipulative Evaluation.</p>
+<p>Figure 7 shows a sequence of images from a Minecraft environment illustrating the execution of a task in the Implicit Manipulative Evaluation.</p>
 </blockquote>
 <p>
     <figure>
@@ -1252,7 +1242,7 @@
     </figure>
 </p>
 <blockquote>
-<p>The figure shows a sequence of frames from the autonomous driving simulation, illustrating the model&rsquo;s predictions and the corresponding actions taken by the agent.</p>
+<p>The figure shows a sequence of frames from an autonomous driving simulation, illustrating the execution process in the Implicit Manipulative Evaluation.</p>
 </blockquote>
 <p>
     <figure>
@@ -1271,7 +1261,7 @@
     </figure>
 </p>
 <blockquote>
-<p>The figure shows a sequence of images illustrating the execution of a robot manipulation task in a simulated environment, guided by textual instructions.</p>
+<p>The figure shows a sequence of images illustrating the steps involved in a robot manipulation task within the Implicit Manipulative Evaluation process.</p>
 </blockquote>
 </details>
 <details>
@@ -1284,7 +1274,7 @@
     </table>
 </figure>
 <blockquote>
-<p>The table compares the overall performance of the Human Preference Evaluator and GPT-40 across three embodied scenarios, showing the evaluator&rsquo;s superior performance in aligning with human preferences.</p>
+<p>The table compares the overall performance of the Human Preference Evaluator and GPT-40 across three embodied scenarios (Open-Ended Embodied Environment, Autonomous Driving, and Robot Manipulation) using different evaluation metrics.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1293,7 +1283,7 @@
     </table>
 </figure>
 <blockquote>
-<p>Table 4 presents the analysis of the HF-Embodied Dataset, showing the number of instructions, videos, dimensions, actions, positive samples (scores &gt;3), and negative samples for three embodied scenarios: Open-Ended Embodied Environment, Autonomous Driving, and Robot Manipulation.</p>
+<p>Table 4 presents the analysis of the HF-Embodied Dataset, showing the number of instructions, videos, dimensions, actions, positive samples, and negative samples for each of the three embodied scenarios.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1302,25 +1292,25 @@
     </table>
 </figure>
 <blockquote>
-<p>This table shows the number of frames used for training short and long videos for each of the eight video generation models.</p>
+<p>The table presents the number of training frames used for short and long videos across eight different video generation models.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 3: The overall performance comparison between Human Preference Evaluator and GPT-40. HPE indicates Human Preference Evaluator. HPE@Lavie means that HPE is trained on videos except those generated by Lavie. The validation is conducted on videos generated by Laive under zero-shot setting.</caption>
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparisons between existing Predictive Model benchmarks. Interactive Environment refers to the interaction with the simulation environment during the prediction phase. Task-Level Interaction denotes that each task interacts once, whereas Action-Level Interaction represents the frequency of interactions that occur through the generation of actions for control purposes.</caption>
       <table id='0' style='font-size:14px'><tr><td>OE@ Acc(↑)</td><td>BC</td><td>FC</td><td>IA</td><td>SA</td><td>VC</td><td>TJ</td><td>EI</td><td>Overall</td></tr><tr><td rowspan="2">GPT-4o HPE</td><td>60.5</td><td>70.4</td><td>70.9</td><td>67.3</td><td>79.6</td><td>83.7</td><td>85.9</td><td>72.8</td></tr><tr><td>81.2</td><td>87.5</td><td>87.5</td><td>96.4</td><td>94.5</td><td>93.8</td><td>88.8</td><td>89.4</td></tr><tr><td rowspan="2">GPT-4o@OpenSora HPE@OpenSora</td><td>60</td><td>80</td><td>80</td><td>50</td><td>0.0</td><td>100</td><td>88.8</td><td>66.5</td></tr><tr><td>70</td><td>90</td><td>60</td><td>100</td><td>100</td><td>22.2</td><td>80</td><td>71.6</td></tr><tr><td rowspan="2">GPT-4o@Lavie HPE@Lavie</td><td>50</td><td>66.7</td><td>75</td><td>88.8</td><td>87.5</td><td>100</td><td>87.5</td><td>78.5</td></tr><tr><td>80</td><td>80</td><td>80</td><td>100</td><td>100</td><td>75</td><td>100</td><td>87.9</td></tr><tr><td>AD @ PLCC(↑)</td><td>AE</td><td>IA</td><td>PV</td><td>TJ</td><td></td><td>KE</td><td>SF</td><td>Overall</td></tr><tr><td rowspan="2">GPT-4o HPE</td><td>0.37</td><td>0.22</td><td>0.23</td><td></td><td>0.28</td><td>0.37</td><td>0.18</td><td>0.28</td></tr><tr><td>0.71</td><td>0.57</td><td>0.50</td><td>0.58</td><td></td><td>0.65</td><td>0.58</td><td>0.60</td></tr><tr><td rowspan="2">GPT-4o@OpenSora HPE@OpenSora</td><td>0.22</td><td>-0.39</td><td>0.32</td><td></td><td>0.15</td><td>-0.03</td><td>-0.12</td><td>0.03</td></tr><tr><td>0.37</td><td>0.55</td><td>0.34</td><td></td><td>0.06</td><td>0.28</td><td>0.41</td><td>0.34</td></tr><tr><td rowspan="2">GPT-4o@Lavie HPE@Lavie</td><td>0.17</td><td>0.13</td><td>-0.34</td><td></td><td>0.06</td><td>-0.09</td><td>-0.15</td><td>-0.04</td></tr><tr><td>0.28</td><td>1.0</td><td>0.49</td><td>0.37</td><td></td><td>0.12</td><td>0.69</td><td>0.49</td></tr><tr><td>RM@PLCC(↑)</td><td>AE</td><td>BC</td><td>FC</td><td>IA</td><td>PV</td><td>TJ</td><td>EI</td><td>Overall</td></tr><tr><td rowspan="2">GPT-4o HPE</td><td>0.07</td><td>0.18</td><td>0.20</td><td>0.32</td><td>-0.14</td><td>-0.01</td><td>-0.14</td><td>0.07</td></tr><tr><td>0.52</td><td>0.43</td><td>0.43</td><td>0.43</td><td>0.20</td><td>0.56</td><td>0.44</td><td>0.43</td></tr><tr><td rowspan="2">GPT-4o@OpenSora HPE@ OpenSora</td><td>-0.45</td><td>-0.03</td><td>0.08</td><td>0.0</td><td>0.04</td><td>-0.23</td><td>0.14</td><td>-0.06</td></tr><tr><td>0.25</td><td>0.35</td><td>0.05</td><td>0.42</td><td>0.89</td><td>0.89</td><td>0.44</td><td>0.47</td></tr><tr><td rowspan="2">GPT-4o@Lavie HPE@Lavie</td><td>0.11</td><td>-0.07</td><td>0.42</td><td>0.42</td><td>0.21</td><td>0.31</td><td>-0.21</td><td>0.17</td></tr><tr><td>0.33</td><td>0.04</td><td>0.69</td><td>0.40</td><td>0.89</td><td>0.67</td><td>0.06</td><td>0.44</td></tr></table>
     </table>
 </figure>
 <blockquote>
-<p>The table compares the overall performance of a Human Preference Evaluator and GPT-40 across various metrics and scenarios for evaluating video generation models.</p>
+<p>This table compares various existing predictive model benchmarks across different dimensions, including input/output modalities, methods, evaluation strategies, and interaction types.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
-      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 7: Evaluation results in OE. The abbreviations are listed in Tab. 2.</caption>
+      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparisons between existing Predictive Model benchmarks. Interactive Environment refers to the interaction with the simulation environment during the prediction phase. Task-Level Interaction denotes that each task interacts once, whereas Action-Level Interaction represents the frequency of interactions that occur through the generation of actions for control purposes.</caption>
       <table id='3' style='font-size:16px'><tr><td>Model</td><td>BC</td><td>FC</td><td>IA</td><td>SA</td><td>VC</td><td>TJ</td><td>EI</td><td>Overall</td></tr><tr><td>Open-Sora-Plan</td><td>1.4</td><td>1.9</td><td>1.7</td><td>1.7</td><td>2.0</td><td>1.5</td><td>1.6</td><td>1.69</td></tr><tr><td>Lavie</td><td>1.3</td><td>2.0</td><td>1.7</td><td>1.7</td><td>2.0</td><td>2.0</td><td>1.8</td><td>1.79</td></tr><tr><td>ModelScope</td><td>1.9</td><td>2.0</td><td>2.0</td><td>1.7</td><td>2.0</td><td>2.0</td><td>1.75</td><td>1.91</td></tr><tr><td>OpenSora</td><td>1.6</td><td>1.9</td><td>1.6</td><td>1.8</td><td>2.0</td><td>2.0</td><td>1.6</td><td>1.79</td></tr><tr><td>AnimateDiff</td><td>1.3</td><td>1.3</td><td>1.2</td><td>1.7</td><td>1.4</td><td>1.38</td><td>1.55</td><td>1.40</td></tr><tr><td>DynamicCrafter</td><td>1.9</td><td>2.0</td><td>1.5</td><td>2.0</td><td>2.0</td><td>2.0</td><td>1.45</td><td>1.84</td></tr><tr><td>EasyAnimate</td><td>1.4</td><td>1.8</td><td>1.5</td><td>2.0</td><td>2.0</td><td>1.22</td><td>1.45</td><td>1.62</td></tr></table>
     </table>
 </figure>
 <blockquote>
-<p>The table presents the evaluation results of seven video generation models across seven dimensions in the Open-Ended Embodied Environment scenario.</p>
+<p>This table compares existing predictive model benchmarks based on input modality, output modality, method, stage, interactive environment, and evaluation strategy.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1329,7 +1319,7 @@
     </table>
 </figure>
 <blockquote>
-<p>The table presents a comparison of eight video generation models&rsquo; performance across six evaluation dimensions in an autonomous driving scenario.</p>
+<p>The table presents a comparison of the performance of several video generation models across various evaluation dimensions (Aesthetics, Instruction Alignment, Perspectivity, Trajectory, Key Element, Safety) in the context of Autonomous Driving.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1338,16 +1328,7 @@
     </table>
 </figure>
 <blockquote>
-<p>The table presents a hierarchical breakdown of evaluation dimensions for three embodied scenarios (Open-Ended Embodied Environment, Autonomous Driving, and Robot Manipulation), categorized into visual quality, condition consistency, and embodiment.</p>
-</blockquote>
-<figure style="max-width: 100%; text-align: center;">
-    <table style="width: 100%;">
-      <caption style="caption-side: bottom; text-align: left; white-space: normal; display: block; max-width: 100%; color: var(--tw-prose-captions); margin-bottom: 10px;">🔽 Table 1: Comparisons between existing Predictive Model benchmarks. Interactive Environment refers to the interaction with the simulation environment during the prediction phase. Task-Level Interaction denotes that each task interacts once, whereas Action-Level Interaction represents the frequency of interactions that occur through the generation of actions for control purposes.</caption>
-      <table id='5' style='font-size:16px'><tr><td>Behavior</td><td>Action</td></tr><tr><td>forward</td><td>W key</td></tr><tr><td>back</td><td>S key</td></tr><tr><td>left</td><td>A key</td></tr><tr><td>right</td><td>D key</td></tr><tr><td>jump</td><td>space key</td></tr><tr><td>inventory</td><td>E key</td></tr><tr><td>sneak</td><td>shift key</td></tr><tr><td>sprint</td><td>ctrl key</td></tr><tr><td>attack</td><td>left mouse button</td></tr></table>
-    </table>
-</figure>
-<blockquote>
-<p>This table compares various existing predictive model benchmarks across several key features, including input and output modalities, interaction types, evaluation strategies, and the stage of predictive model capability.</p>
+<p>This table categorizes the evaluation dimensions for three embodied scenarios (Open-Ended Embodied Environment, Autonomous Driving, and Robot Manipulation) into three aspects: Visual Quality, Condition Consistency, and Embodiment, each with specific sub-dimensions.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1356,7 +1337,7 @@
     </table>
 </figure>
 <blockquote>
-<p>This table compares existing predictive model benchmarks across various dimensions, including input/output modalities, methods, evaluation strategies, and interaction types.</p>
+<p>This table compares various existing predictive model benchmarks, highlighting their input/output modalities, methodologies, and interaction levels with the environment.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1365,7 +1346,7 @@
     </table>
 </figure>
 <blockquote>
-<p>The table presents the evaluation results of three video generation models across eight metrics in the Autonomous Driving task within the Implicit Manipulative Evaluation.</p>
+<p>This table presents the evaluation results of three video generation models across eight metrics in the Autonomous Driving scenario of the Implicit Manipulative Evaluation.</p>
 </blockquote>
 <figure style="max-width: 100%; text-align: center;">
     <table style="width: 100%;">
@@ -1374,7 +1355,7 @@
     </table>
 </figure>
 <blockquote>
-<p>This table compares existing predictive model benchmarks across various aspects such as input/output modalities, evaluation strategies, and interaction types.</p>
+<p>Table 1 compares existing predictive model benchmarks across various criteria, including input/output modalities, model type, interaction type, and evaluation strategy.</p>
 </blockquote>
 </details>
 
@@ -1391,7 +1372,7 @@
 </h3>
 
 
-<div id="gallery-828b9c9e1ea1bfbda6bfd0846db1d66e" class="gallery">
+<div id="gallery-8085d011976379fa60a6b08ba80afee9" class="gallery">
   
 <img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 <img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
@@ -1525,7 +1506,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/ai-paper-reviewer/paper-reviews/2410.17434/">
+            <a class="flex group mr-3" href="/ai-paper-reviewer/paper-reviews/2410.18194/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1537,11 +1518,11 @@
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >LongVU: Spatiotemporal Adaptive Compression for Long Video-Language Understanding</span
+                  >ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2024-10-22T00:00:00&#43;00:00">22 October 2024</time>
+                    <time datetime="2024-10-23T00:00:00&#43;00:00">23 October 2024</time>
                   
                 </span>
               </span>
@@ -1550,11 +1531,11 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/paper-reviews/2410.18071/">
+            <a class="flex text-right group ml-3" href="/ai-paper-reviewer/paper-reviews/2410.17897/">
               <span class="flex flex-col">
                 <span
                   class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >TP-Eval: Tap Multimodal LLMs' Potential in Evaluation by Customizing Prompts</span
+                  >Value Residual Learning For Alleviating Attention Concentration In Transformers</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
