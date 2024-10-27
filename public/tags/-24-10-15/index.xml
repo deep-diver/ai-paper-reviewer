@@ -14,7 +14,7 @@
       <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11190/</guid>
-      <description>Mini-Omni2: Open-source GPT-40-like model with vision, speech, and duplex capabilities, enabling real-time multi-modal interactions.</description>
+      <description>Mini-Omni2: An open-source, multi-modal AI model closely replicating GPT-40&amp;rsquo;s vision, speech, and text capabilities, offering valuable insights for future research.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11190/cover.png" />
     </item>
     
@@ -24,7 +24,7 @@
       <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.11331/</guid>
-      <description>Shakti: A 2.5B parameter language model, optimized for efficiency and low-resource environments, enabling high-performance NLP on edge devices.</description>
+      <description>Shakti: a 2.5B parameter LLM optimized for edge AI, boasts high performance and efficiency on resource-constrained devices via novel VGQA, SwiGLU, and RoPE.</description>
       
     </item>
     

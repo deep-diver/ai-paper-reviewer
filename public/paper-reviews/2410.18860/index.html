@@ -11,7 +11,7 @@
   <title>DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations &middot; AI Paper Reviews by AI</title>
   <meta name="title" content="DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations &middot; AI Paper Reviews by AI" />
   
-  <meta name="description" content="DeCoRe: A novel LLM decoding strategy dynamically contrasts base and masked LLM outputs using conditional entropy, significantly reducing hallucinations and boosting contextual accuracy." />
+  <meta name="description" content="DeCoRe, a training-free decoding strategy, significantly reduces LLM hallucinations by contrasting outputs from masked and unmasked retrieval heads, improving contextual faithfulness." />
   <meta name="keywords" content="🔖 24-10-24, 🤗 24-10-25, " />
   
   
@@ -26,8 +26,8 @@
   
   
   
-  <link type="text/css" rel="stylesheet" href="/ai-paper-reviewer/css/main.bundle.min.57264e712788193f636d568231c1d003ad9a9823bde3cd5ebc2fd834697086a06a235b5ec8abf9f76e466f52defc30721299d0c530e123c895cf7afb22908e1e.css"
-    integrity="sha512-VyZOcSeIGT9jbVaCMcHQA62amCO9481evC/YNGlwhqBqI1teyKv5925Gb1Le/DByEpnQxTDhI8iVz3r7IpCOHg==" />
+  <link type="text/css" rel="stylesheet" href="/ai-paper-reviewer/css/main.bundle.min.21ff8f0df5867bbb2b198bbd692b898d00f4ffc274f7b8941eec8e37b3268ad89b7ff31abb7d2e3602e34a520281100de7359ae6891bf2ec1d26c4621808b383.css"
+    integrity="sha512-If&#43;PDfWGe7srGYu9aSuJjQD0/8J097iUHuyON7Mmitibf/Mau30uNgLjSlICgRAN5zWa5okb8uwdJsRiGAizgw==" />
   
   
   <script type="text/javascript" src="/ai-paper-reviewer/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
@@ -69,7 +69,7 @@
   <meta property="og:url" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/">
   <meta property="og:site_name" content="AI Paper Reviews by AI">
   <meta property="og:title" content="DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations">
-  <meta property="og:description" content="DeCoRe: A novel LLM decoding strategy dynamically contrasts base and masked LLM outputs using conditional entropy, significantly reducing hallucinations and boosting contextual accuracy.">
+  <meta property="og:description" content="DeCoRe, a training-free decoding strategy, significantly reduces LLM hallucinations by contrasting outputs from masked and unmasked retrieval heads, improving contextual faithfulness.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="paper-reviews">
@@ -83,18 +83,18 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18860/cover.png">
   <meta name="twitter:title" content="DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations">
-  <meta name="twitter:description" content="DeCoRe: A novel LLM decoding strategy dynamically contrasts base and masked LLM outputs using conditional entropy, significantly reducing hallucinations and boosting contextual accuracy.">
+  <meta name="twitter:description" content="DeCoRe, a training-free decoding strategy, significantly reduces LLM hallucinations by contrasting outputs from masked and unmasked retrieval heads, improving contextual faithfulness.">
 
   
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
     "@type": "Article",
-    "articleSection": "Posts",
+    "articleSection": "About",
     "name": "DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations",
     "headline": "DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations",
     
-    "abstract": "DeCoRe: A novel LLM decoding strategy dynamically contrasts base and masked LLM outputs using conditional entropy, significantly reducing hallucinations and boosting contextual accuracy.",
+    "abstract": "DeCoRe, a training-free decoding strategy, significantly reduces LLM hallucinations by contrasting outputs from masked and unmasked retrieval heads, improving contextual faithfulness.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/ai-paper-reviewer\/paper-reviews\/2410.18860\/",
     "author" : {
@@ -110,7 +110,7 @@
     "keywords": ["🔖 24-10-24","🤗 24-10-25"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "5227"
+    "wordCount": "5216"
   }]
   </script>
 
@@ -201,6 +201,17 @@
         <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
 
             
+            
+            
+  <a href="/ai-paper-reviewer/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-base font-medium" title="">
+        About
+    </p>
+</a>
+
+
+
             
             
   <a href="/ai-paper-reviewer/paper-reviews/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
@@ -402,6 +413,21 @@
 
                     
   <li class="mt-1">
+    <a href="/ai-paper-reviewer/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+        
+        <p class="text-bg font-bg" title="">
+            About
+        </p>
+    </a>
+</li>
+
+
+
+
+                    
+
+                    
+  <li class="mt-1">
     <a href="/ai-paper-reviewer/paper-reviews/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="">
@@ -571,7 +597,7 @@
     <a
       class="hover:underline decoration-neutral-300 dark:underline-neutral-600"
       href="/ai-paper-reviewer/paper-reviews/"
-      >Posts</a
+      >About</a
     ><span class="px-1 text-primary-500">/</span>
   </li>
 
@@ -634,7 +660,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5227 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">25 mins</span>
+  <time datetime="2024-10-24T00:00:00&#43;00:00">24 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>5216 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">25 mins</span>
   
 
   
@@ -901,7 +927,7 @@
     
 </h3>
 <div class="lead text-neutral-500 dark:text-neutral-400 !mb-9 text-xl">
-  Large Language Models (LLMs) often produce inaccurate or misleading information—a phenomenon known as hallucination. This paper introduces DeCoRe (Decoding by Contrasting Retrieval Heads), a new method to reduce these hallucinations. DeCoRe works by identifying and masking specific &ldquo;retrieval heads&rdquo; within the LLM, which are responsible for retrieving contextual information. By comparing the output of the masked LLM with that of the original LLM and using conditional entropy as a guide, DeCoRe amplifies correct answers and suppresses incorrect ones. Experiments show that DeCoRe substantially improves accuracy on multiple tasks requiring high contextual accuracy, including summarization, instruction following, and question answering.  The results demonstrate that DeCoRe is an effective technique for improving the trustworthiness and reliability of LLMs without requiring additional training.
+  Large language models (LLMs) often produce inaccurate or fabricated information, a problem known as hallucination. This paper introduces DeCoRe, a method to reduce these hallucinations. DeCoRe identifies and masks specific attention heads within the LLM (called &lsquo;retrieval heads&rsquo;) that are responsible for retrieving information from the provided context.  By comparing the output of the original LLM with the output of the LLM where these retrieval heads are masked, DeCoRe dynamically adjusts the final output, reducing hallucinations.  Experiments show DeCoRe significantly improves performance on tasks requiring high contextual fidelity like summarization, instruction following, and open-book question answering. The method is training-free, making it easily adaptable to various LLMs.
 </div>
 
 <a
@@ -939,7 +965,7 @@
     </span>        
     
 </h4>
-<p>This research paper introduces DeCoRe, a novel decoding strategy for Large Language Models (LLMs) that significantly reduces hallucinations by contrasting the outputs of a base LLM and a masked version of the LLM. The core idea is to leverage the dynamic conditional entropy of the model&rsquo;s next token distribution, enhancing contextual faithfulness and factual accuracy.</p>
+<p>This paper is crucial for researchers working on mitigating hallucinations in large language models (LLMs).  It introduces a novel, training-free method that significantly improves LLM accuracy in tasks requiring contextual faithfulness.  The research opens new avenues for exploring the role of attention mechanisms in LLMs and offers a practical solution to a critical problem in the field.</p>
 
 
 <h4 class="relative group">Key Takeaways 
@@ -986,7 +1012,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-32037d608a6db39219f404d3e72312b7", {
-        strings: [" DeCoRe, a novel training-free decoding strategy, significantly improves LLM performance on tasks demanding high contextual fidelity. "],
+        strings: [" DeCoRe, a novel training-free decoding strategy, significantly reduces LLM hallucinations. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  0 ,
@@ -1033,7 +1059,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-8b6a4edc3d933adb0fff72c2893b5c5a", {
-        strings: [" Masking retrieval heads in LLMs induces hallucinations; DeCoRe leverages this by contrasting outputs to amplify accurate predictions. "],
+        strings: [" Masking retrieval heads in LLMs induces hallucinations; contrasting these outputs with the base LLM improves accuracy. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  1000 ,
@@ -1080,7 +1106,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
       new TypeIt("#typeit-5cdd51a487a111e10391ebf2c7252735", {
-        strings: [" DeCoRe's dynamic entropy control mechanism enhances accuracy in tasks requiring contextual faithfulness, factual recall, and multi-hop reasoning. "],
+        strings: [" DeCoRe substantially improves performance on summarization, instruction following, and open-book question answering tasks. "],
         speed:  10 ,
         lifeLike:  true ,
         startDelay:  2000 ,

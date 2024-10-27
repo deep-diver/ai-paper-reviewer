@@ -14,7 +14,7 @@
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15460/</guid>
-      <description>New training method, SeND, reduces LLM hallucinations by up to 40% by deterministically dropping unreliable neurons, improving model reliability.</description>
+      <description>New training method, Sensitive Neuron Dropout (SeND), reduces Large Language Model (LLM) hallucinations by up to 40%, improving factual accuracy and reliability.</description>
       
     </item>
     
@@ -24,7 +24,7 @@
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/</guid>
-      <description>Ichigo: A real-time voice assistant achieving state-of-the-art performance by seamlessly integrating speech and text using a novel tokenized early fusion approach.</description>
+      <description>Ichigo, a novel mixed-modal voice assistant, achieves real-time speech understanding and generation by using a tokenized early-fusion approach, significantly outperforming existing methods.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15316/cover.png" />
     </item>
     
@@ -34,7 +34,7 @@
       <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15522/</guid>
-      <description>M-REWARDBENCH, a new multilingual benchmark, reveals significant performance gaps in reward models across languages, highlighting the need for improved cross-lingual alignment in LLMs.</description>
+      <description>M-REWARDBENCH: A new multilingual benchmark reveals significant performance gaps in reward models across languages, highlighting the need for improved cross-lingual alignment in LLMs.</description>
       
     </item>
     

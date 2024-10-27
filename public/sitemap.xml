@@ -699,6 +699,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>http://localhost:1313/ai-paper-reviewer/about/</loc>
+    <lastmod>2022-06-13T20:55:37+01:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>http://localhost:1313/ai-paper-reviewer/paper-reviews/</loc>
     <lastmod>2022-06-13T20:55:37+01:00</lastmod>
     <changefreq>daily</changefreq>

@@ -14,7 +14,7 @@
       <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.10812/</guid>
-      <description>HART: A groundbreaking autoregressive model generates high-quality 1024x1024 images at unprecedented speed, surpassing existing diffusion models in efficiency.</description>
+      <description>HART, a novel hybrid autoregressive transformer, generates high-quality 1024x1024 images efficiently, rivaling diffusion models while being significantly faster.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.10812/cover.png" />
     </item>
     
