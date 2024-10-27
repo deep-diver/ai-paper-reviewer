@@ -1,6 +1,6 @@
 ---
 title: "DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations"
-summary: "DeCoRe: A novel LLM decoding strategy dynamically contrasts base and masked LLM outputs using conditional entropy, significantly reducing hallucinations and boosting contextual accuracy."
+summary: "DeCoRe: A novel, training-free decoding method significantly reduces LLM hallucinations by contrasting outputs from masked and unmasked retrieval heads, boosting accuracy on various tasks."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Large Language Models (LLMs) often produce inaccurate or misleading information—a phenomenon known as hallucination. This paper introduces DeCoRe (Decoding by Contrasting Retrieval Heads), a new method to reduce these hallucinations. DeCoRe works by identifying and masking specific "retrieval heads" within the LLM, which are responsible for retrieving contextual information. By comparing the output of the masked LLM with that of the original LLM and using conditional entropy as a guide, DeCoRe amplifies correct answers and suppresses incorrect ones. Experiments show that DeCoRe substantially improves accuracy on multiple tasks requiring high contextual accuracy, including summarization, instruction following, and question answering.  The results demonstrate that DeCoRe is an effective technique for improving the trustworthiness and reliability of LLMs without requiring additional training.
+Large language models (LLMs) sometimes produce inaccurate or fabricated information, known as hallucinations. This paper introduces DeCoRe, a new technique to reduce these hallucinations. DeCoRe works by identifying and temporarily disabling specific parts of the LLM (called 'retrieval heads') that are responsible for retrieving information from context.  It then compares the output of the modified LLM to the original LLM's output, using a method called 'contrastive decoding.' This highlights the differences and helps the model generate more accurate and truthful responses. Experiments show that DeCoRe significantly improves accuracy on tasks like summarization and question answering, demonstrating its effectiveness in mitigating hallucinations and improving LLM reliability.
 
 {{< /lead >}}
 
@@ -23,19 +23,19 @@ Large Language Models (LLMs) often produce inaccurate or misleading information�
 {{< /button >}}
 
 #### Why does it matter?
-This research paper introduces DeCoRe, a novel decoding strategy for Large Language Models (LLMs) that significantly reduces hallucinations by contrasting the outputs of a base LLM and a masked version of the LLM. The core idea is to leverage the dynamic conditional entropy of the model's next token distribution, enhancing contextual faithfulness and factual accuracy.
+The research paper introduces DeCoRe, a novel decoding strategy to reduce hallucinations in large language models (LLMs).  DeCoRe masks retrieval heads in LLMs and contrasts their output with a base LLM, improving contextual faithfulness and factual accuracy.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} DeCoRe, a novel training-free decoding strategy, significantly improves LLM performance on tasks demanding high contextual fidelity. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} DeCoRe, a training-free decoding method, significantly reduces LLM hallucinations. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Masking retrieval heads in LLMs induces hallucinations; DeCoRe leverages this by contrasting outputs to amplify accurate predictions. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Masking retrieval heads in LLMs induces hallucinations, which DeCoRe mitigates by contrasting outputs. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} DeCoRe's dynamic entropy control mechanism enhances accuracy in tasks requiring contextual faithfulness, factual recall, and multi-hop reasoning. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} DeCoRe improves accuracy on summarization, instruction-following, and question-answering tasks. {{< /typeit >}}
 {{< /alert >}}
 
 ------

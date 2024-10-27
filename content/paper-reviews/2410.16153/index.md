@@ -1,6 +1,6 @@
 ---
 title: "Pangea: A Fully Open Multilingual Multimodal LLM for 39 Languages"
-summary: "PANGEA: A fully open multilingual, multimodal LLM for 39 languages, outperforming existing models in diverse cultural contexts."
+summary: "PANGEA: A fully open multilingual, multimodal LLM outperforms existing models across diverse languages and cultural contexts."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper introduces PANGEA, a groundbreaking multilingual and multimodal large language model (LLM). Unlike previous models primarily focused on English and Western contexts, PANGEA excels in handling 39 diverse languages and their associated cultural nuances.  Its training utilized PANGEAINS, a massive 6-million-instruction dataset, ensuring high-quality English instructions and careful machine translations.  Performance was rigorously evaluated on PANGEABENCH, a comprehensive evaluation suite covering 14 datasets across 47 languages.  PANGEA's results demonstrated significantly better performance than current open-source models in multilingual settings, especially when considering cross-cultural contexts. The researchers highlight the significance of balanced English data representation and the number of multimodal training samples, impacting performance.  Crucially, the entire project—data, code, and model—is open-sourced to promote equity and accessibility in multilingual AI development.
+This paper introduces PANGEA, a groundbreaking multilingual and multimodal large language model (LLM) trained on a massive dataset encompassing 39 languages and diverse cultural contexts.  Unlike previous models primarily focused on English and Western data, PANGEA leverages a 6-million instruction dataset (PANGEAINS) to achieve significantly better performance across a wide range of languages and tasks, proving superior capabilities in multilingual settings.  Its creators also introduced PANGEABENCH, a comprehensive evaluation suite covering 14 datasets and 47 languages to benchmark these models’ capabilities, showing PANGEA to be significantly better than comparable open-source models.  Finally, to promote wider adoption and further research, the researchers fully open-sourced all their data, code, and trained model checkpoints.  This work pushes forward the boundaries of LLM development towards a more inclusive and globally representative model.
 
 {{< /lead >}}
 
@@ -23,19 +23,19 @@ This paper introduces PANGEA, a groundbreaking multilingual and multimodal large
 {{< /button >}}
 
 #### Why does it matter?
-PANGEA is a fully open multilingual, multimodal large language model (LLM) trained on a massive dataset spanning 39 languages, significantly outperforming existing open-source models in multilingual settings and diverse cultural contexts. The paper introduces PANGEA, a 7B parameter multilingual, multimodal LLM trained on PANGEAINS, a 6M instruction dataset, and evaluated on PANGEABENCH, a holistic evaluation suite.
+Summarizing the research paper on PANGEA, a multilingual, multimodal large language model.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} PANGEA, a multilingual, multimodal LLM, significantly outperforms existing open-source models. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} PANGEA, a multilingual, multimodal LLM trained on a diverse 6M instruction dataset, significantly outperforms existing open-source models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PANGEAINS, a diverse 6M instruction dataset, is crucial for training robust multilingual, multimodal LLMs. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PANGEABENCH, a holistic evaluation suite, rigorously assesses models' capabilities in multilingual and diverse cultural settings. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} PANGEABENCH, a holistic evaluation suite, offers a rigorous assessment of multilingual, multimodal LLM capabilities. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The study's open-sourced data, code, and checkpoints facilitate the development of inclusive and robust multilingual LLMs. {{< /typeit >}}
 {{< /alert >}}
 
 ------

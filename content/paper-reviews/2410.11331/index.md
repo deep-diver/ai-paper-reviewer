@@ -1,6 +1,6 @@
 ---
 title: "SHAKTI: A 2.5 Billion Parameter Small Language Model Optimized for Edge AI and Low-Resource Environments"
-summary: "Shakti: A 2.5B parameter language model, optimized for efficiency and low-resource environments, enabling high-performance NLP on edge devices."
+summary: "Shakti: a resource-efficient 2.5B parameter language model excels in edge AI, enabling high-performance NLP on low-resource devices."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-15", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Shakti is a new 2.5 billion parameter language model designed for use on devices with limited resources such as smartphones and IoT systems.  It's optimized for speed and efficiency, making it suitable for real-time applications where larger language models are impractical.  Key features include Variable Grouped Query Attention (VGQA) which reduces memory usage and speeds up processing, and SwiGLU activations to improve training.  Shakti also supports multiple languages and can be fine-tuned for specific tasks. Benchmark tests show it performs competitively against much larger models in various tests while maintaining low latency.  The researchers suggest several future directions, including multimodal integration and expanding its capabilities to address code generation and other tasks.  This model addresses the critical need for efficient AI solutions for edge computing and low-resource settings.
+This paper introduces Shakti, a small language model (SLM) with 2.5 billion parameters, designed for resource-limited environments like smartphones and IoT devices.  Unlike large language models (LLMs) that demand significant computational resources, Shakti prioritizes efficiency and precision without sacrificing performance. Key innovations include Variable Grouped Query Attention (VGQA), which optimizes memory usage, and SwiGLU activation functions, which improve training stability.  Benchmarks show Shakti competes favorably against much larger models while excelling in multilingual and domain-specific tasks. The model's adaptability to handle long text sequences via Rotary Positional Embeddings (RoPE) further enhances its usability. Its success is particularly impactful for industries needing low-latency, domain-specific insights on edge devices, such as healthcare, finance, and customer service.
 
 {{< /lead >}}
 
@@ -27,15 +27,15 @@ Summarizing the research paper on Shakti, a 2.5 billion parameter small language
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Shakti achieves competitive performance against larger models while maintaining low latency and on-device efficiency. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Shakti, a 2.5 billion parameter language model, achieves competitive performance with larger models while being optimized for resource-constrained environments. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Shakti's novel VGQA, pre-normalization, and SwiGLU activations significantly improve training and inference efficiency. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Shakti incorporates innovative techniques like Variable Grouped Query Attention (VGQA) and SwiGLU activations, improving training efficiency and reducing memory footprint. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Shakti excels in multilingual support and domain-specific tasks, addressing the needs of resource-constrained environments. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Shakti demonstrates strong performance on various benchmarks, including multilingual and domain-specific tasks, showcasing its versatility and adaptability for real-world applications. {{< /typeit >}}
 {{< /alert >}}
 
 ------

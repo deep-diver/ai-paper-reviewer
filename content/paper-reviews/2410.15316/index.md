@@ -1,6 +1,6 @@
 ---
 title: "Ichigo: Mixed-Modal Early-Fusion Realtime Voice Assistant"
-summary: "Ichigo: A real-time voice assistant achieving state-of-the-art performance by seamlessly integrating speech and text using a novel tokenized early fusion approach."
+summary: "Ichigo: a real-time voice assistant fusing speech & text via a unified transformer, achieving state-of-the-art performance with 111ms latency!"
 categories: ["AI Generated"]
 tags: ["🔖 24-10-20", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Ichigo is a new mixed-modal voice assistant designed to handle both audio and text input simultaneously.  Unlike traditional systems that process these inputs separately (causing delays), Ichigo uses a clever 'tokenized early fusion' method. This means both audio and text are converted into similar digital tokens, which are then processed together by the model.  This leads to faster response times. The researchers trained Ichigo using a combination of pre-training on large speech recognition datasets and fine-tuning on a specially created dataset of instructions in both audio and text.  Results show Ichigo outperforms existing open-source models and is comparable to more complex systems.  Its impressive speed (111 milliseconds to generate the first part of a response) makes it particularly suitable for real-time applications.
+Ichigo is a new real-time voice assistant that tackles the challenge of integrating audio and text in speech-based tasks.  Unlike traditional systems that process speech and text separately (ASR->NLU->NLG->TTS), Ichigo uses a 'tokenized early fusion' approach. This means it converts both speech and text into discrete tokens that are processed together by a single transformer-based model. This method enables joint reasoning and generation across modalities, reducing the delay inherent in traditional cascaded models. The model was pre-trained on a massive multilingual speech recognition dataset and further fine-tuned on a new instruction-following dataset.  Experiments show Ichigo achieves state-of-the-art performance on benchmark tasks, significantly outperforming other open-source models and even matching or exceeding the results of more complex cascaded systems.  Importantly, Ichigo has a very low latency (111ms to first token generation), making it suitable for real-time applications.
 
 {{< /lead >}}
 
@@ -23,19 +23,19 @@ Ichigo is a new mixed-modal voice assistant designed to handle both audio and te
 {{< /button >}}
 
 #### Why does it matter?
-Ichigo is a novel mixed-modal voice assistant that uses a unique tokenized early-fusion approach to process speech and text seamlessly, resulting in state-of-the-art performance with significantly lower latency than existing systems.
+Ichigo is a novel mixed-modal voice assistant that processes interleaved speech and text using a unified transformer architecture, achieving state-of-the-art performance with low latency.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Ichigo achieves state-of-the-art performance on speech question answering benchmarks. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Ichigo uses a tokenized early-fusion approach, processing both speech and text modalities within a unified transformer architecture. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Ichigo's latency is significantly lower than existing models (111ms to first token generation). {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} It achieves state-of-the-art performance on speech question answering benchmarks, outperforming existing open-source models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Ichigo's training methodology is efficient and accessible, using pre-trained LLMs and a curated instruction dataset. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} It boasts a remarkably low latency of only 111ms to first token generation. {{< /typeit >}}
 {{< /alert >}}
 
 ------

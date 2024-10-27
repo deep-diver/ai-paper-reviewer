@@ -1,6 +1,6 @@
 ---
 title: "WAFFLE: Multi-Modal Model for Automated Front-End Development"
-summary: "WAFFLE: A new fine-tuning strategy boosts AI's ability to turn UI designs into HTML code, achieving significant accuracy improvements."
+summary: "WAFFLE, a novel fine-tuning strategy, significantly improves UI design-to-HTML code generation by using structure-aware attention and contrastive learning, outperforming current methods."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper tackles the challenge of automatically generating HTML code from UI designs using Large Language Models (LLMs).  Current LLMs struggle with the hierarchical nature of HTML and the visual-to-text translation. WAFFLE, a new fine-tuning approach, is introduced to address these limitations. It utilizes a 'structure-aware attention mechanism' to help the LLM better understand HTML structure and a 'contrastive fine-tuning' approach to improve the alignment between visual UI representations and the textual HTML code.  Experiments on a new benchmark, WebSight-Test, and Design2Code show that WAFFLE significantly improves HTML code generation accuracy.  The improvements are substantial across various evaluation metrics demonstrating the effectiveness of the proposed strategy.
+This paper introduces WAFFLE, a new method to improve the automatic conversion of website designs (UI) into HTML code.  The core challenge is that website code has a complex structure and style that's hard for AI to grasp from a visual image. WAFFLE addresses this by using two main techniques:  First, it uses a 'structure-aware attention mechanism' to help the AI understand how different parts of the HTML code relate to each other.  Second, it uses 'contrastive learning' to teach the AI to better connect what it sees in a website's image with the correct code.  The results show that WAFFLE significantly outperforms existing AI models in accurately creating HTML code from UI images, demonstrating substantial progress in automated front-end web development.  This is important because building websites is complex, even for experienced developers, and this research could greatly assist both beginners and experts.
 
 {{< /lead >}}
 
@@ -23,19 +23,19 @@ This paper tackles the challenge of automatically generating HTML code from UI d
 {{< /button >}}
 
 #### Why does it matter?
-The paper introduces WAFFLE, a novel fine-tuning strategy that significantly improves the accuracy of Multi-Modal Large Language Models (MLLMs) in generating HTML code from UI designs.  This addresses the challenges of representing HTML's hierarchical structure and bridging the visual-textual gap in UI-to-code generation.
+Summarizing the key aspects of the research paper on WAFFLE: Multi-Modal Model for Automated Front-End Development.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} WAFFLE uses a structure-aware attention mechanism to improve LLMs' understanding of HTML's hierarchical structure. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} WAFFLE introduces a structure-aware attention mechanism to enhance LLMs' understanding of HTML's hierarchical structure. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} WAFFLE employs contrastive fine-tuning to align LLMs' understanding of UI images and HTML code. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Contrastive learning in WAFFLE improves the alignment of LLMs' understanding of UI images and HTML code. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} WAFFLE outperforms existing methods on HTML match, CW-SSIM, CLIP, and LLEM metrics, demonstrating its effectiveness. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} WAFFLE achieves state-of-the-art results on UI-to-HTML code generation benchmarks, outperforming existing methods. {{< /typeit >}}
 {{< /alert >}}
 
 ------

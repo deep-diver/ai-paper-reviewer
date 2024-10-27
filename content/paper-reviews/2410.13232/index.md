@@ -1,6 +1,6 @@
 ---
 title: "Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation"
-summary: "Boosting LLM-based web agents: World-Model-Augmented agents simulate action outcomes, improving decision-making and efficiency."
+summary: "Boosting web agents' efficiency, new World-Model-Augmented agents simulate action outcomes, improving policy selection and outperforming tree-search methods."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Current LLM-based web agents struggle with long-horizon tasks due to a lack of 'world models' – an understanding of how actions affect the environment. This paper introduces World-Model-Augmented (WMA) web agents.  WMA agents use a world model to predict the outcome of actions before taking them.  To address challenges in training LLMs as world models (e.g., repetitive webpage elements, long HTML inputs), the researchers propose a transition-focused observation abstraction:  the model learns to predict concise natural language descriptions highlighting key state changes. Experiments using WebArena and Mind2Web benchmarks demonstrate that WMA agents significantly outperform existing methods in terms of task success rate, cost, and time efficiency.  The improved performance is achieved without additional policy model training, showcasing the power of the world model approach.
+Current Large Language Model (LLM)-based web agents struggle with long-horizon tasks due to a lack of 'world models' – an understanding of how actions affect the environment. This paper introduces World-Model-Augmented (WMA) web agents.  WMA agents use a world model (an LLM trained to predict the effects of actions) to simulate possible outcomes before making a decision. To overcome challenges in training LLMs as world models (like repetitive elements in webpages), they use a transition-focused observation abstraction – the LLM only predicts the important changes between observations. Experiments on WebArena and Mind2Web show that WMA agents improve policy selection and are significantly more cost and time-efficient than recent tree-search-based agents.  This demonstrates the potential of incorporating world models to improve LLM-based agent performance in complex environments.
 
 {{< /lead >}}
 
@@ -23,19 +23,19 @@ Current LLM-based web agents struggle with long-horizon tasks due to a lack of '
 {{< /button >}}
 
 #### Why does it matter?
-The paper introduces World-Model-Augmented (WMA) web agents, which significantly improve LLM-based web agents' performance by simulating action outcomes using a novel transition-focused observation abstraction, leading to superior cost and time efficiency.
+The paper proposes World-Model-Augmented (WMA) web agents that use world models to simulate action outcomes, improving decision-making in web navigation.  Experiments show WMA agents are more efficient than tree-search-based approaches.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} World-Model-Augmented (WMA) web agents improve LLM-based web agent performance by simulating action outcomes. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} World-Model-Augmented (WMA) web agents improve decision-making by simulating action outcomes. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A novel transition-focused observation abstraction enhances world model training by focusing on important state differences. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A novel transition-focused observation abstraction improves LLM-based world model training. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} WMA agents demonstrate superior cost and time efficiency compared to tree-search-based agents. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} WMA agents show superior cost and time efficiency compared to tree-search-based agents. {{< /typeit >}}
 {{< /alert >}}
 
 ------

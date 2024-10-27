@@ -1,6 +1,6 @@
 ---
 title: "Should We Really Edit Language Models? On the Evaluation of Edited Language Models"
-summary: "Current LLM editing methods are great for small updates, but scaling them negatively impacts performance and safety."
+summary: "Model editing boosts LLMs, but scaling edits hurts performance and safety!"
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper examines the effectiveness and safety of model editing techniques for Large Language Models (LLMs).  Researchers used various editing methods on different LLMs, assessing their performance across multiple benchmarks. They found that while model editing is useful for small updates, it causes performance deterioration and safety issues as the number of edits increases. Instruction-tuned models proved more robust, while larger models showed better resistance. The study highlights that existing methods are unsuitable for large-scale knowledge updates and stresses the need for improved, safer editing techniques.
+This paper evaluates the effectiveness and limitations of current Large Language Model (LLM) editing methods.  The researchers tested multiple editing techniques across various LLMs and datasets.  They found that while LLM editing can successfully update specific knowledge, scaling the number of edits leads to significant performance drops across various benchmarks.  Instruction-tuned models performed better after editing than their base counterparts, showing more resistance to performance decline.  Larger models also showed greater resistance to edit-related issues.  Critically, even safety-focused models exhibited reduced safety after editing. The study concludes that current LLM editing methods are only appropriate for very small-scale knowledge updates, indicating a critical need for improved methods that can perform large-scale editing without compromising performance or safety.
 
 {{< /lead >}}
 
@@ -23,19 +23,19 @@ This paper examines the effectiveness and safety of model editing techniques for
 {{< /button >}}
 
 #### Why does it matter?
-This research paper investigates the impact of model editing techniques on the general capabilities and safety of Large Language Models (LLMs).  The authors perform a comprehensive evaluation of various editing methods and find that current methods, while effective for small-scale knowledge updates, significantly impair LLM performance and safety when applied at larger scales.  This challenges the prevailing assumption that model editing is a safe and efficient method for updating LLMs.
+This research paper investigates the impact of model editing techniques on the general capabilities of large language models (LLMs). The authors perform a comprehensive evaluation across various editing methods, LLM sizes, and datasets, revealing limitations in existing methods, especially when scaling edits beyond a certain threshold.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Model editing degrades LLM performance on general benchmarks, especially with many edits. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Existing model editing methods cause inevitable performance degradation on general benchmarks as the number of edits increases. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Instruction-tuned LLMs are more robust to editing than base models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Instruction-tuned LLMs are more robust to editing than base models, exhibiting less performance drop. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Edited models, even safety-aligned ones, exhibit significantly reduced safety. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Current editing methods are only suitable for small-scale knowledge updates, highlighting the need for more practical and reliable editing methods. {{< /typeit >}}
 {{< /alert >}}
 
 ------
