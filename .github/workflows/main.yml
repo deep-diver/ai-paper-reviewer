@@ -44,6 +44,7 @@ jobs:
       - name: Move Articles to Repository A
         run: |
           mv paper-reviewer/articles/* ./content/paper-reviews/ # Assuming articles are generated in the 'public' directory of repository B and need to be moved to the root of repository A
+          rm -rf paper-reviewer
 
       - name: Commit and Push Changes
         run: |
