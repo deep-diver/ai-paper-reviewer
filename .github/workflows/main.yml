@@ -33,7 +33,7 @@ jobs:
           python-version: '3.11'
 
       - name: Setup dependencies and run the script
-      - run: |
+        run: |
           cd paper-reviewer
           pip install -r requirements.txt
           apt install poppler-utils
