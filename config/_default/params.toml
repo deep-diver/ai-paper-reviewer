@@ -76,7 +76,7 @@ mainSections = ["paper-reviews"]
   showTaxonomies = true
 
 [buymeacoffee]
-  identifier = chansung
+  identifier = "chansung"
   globalWidget = true
 
 [sitemap]
