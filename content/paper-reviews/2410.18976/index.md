@@ -1,6 +1,6 @@
 ---
 title: "CAMEL-Bench: A Comprehensive Arabic LMM Benchmark"
-summary: "CAMEL-Bench: a new Arabic LMM benchmark enabling comprehensive evaluation of large multimodal models across eight diverse domains, revealing significant room for improvement even in state-of-the-art m..."
+summary: "CAMEL-Bench: a new open-source benchmark rigorously evaluates Arabic LMMs across 8 diverse domains and 38 sub-domains, revealing significant room for improvement even in top models."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Researchers have developed CAMEL-Bench, the first large-scale benchmark for evaluating large multimodal models (LLMs) that understand and reason using Arabic.  Most existing benchmarks focus on English, limiting their applicability to other languages. CAMEL-Bench includes eight diverse domains (like image understanding, video understanding, and medical image analysis) and 38 sub-domains, covering various tasks with around 29,000 questions.  The questions were carefully checked by native Arabic speakers for quality. They tested both open-source and closed-source LLMs and found that even advanced models struggled, particularly with tasks involving Arabic script nuances and remote sensing.  The benchmark reveals a crucial need for further research and development in this area, as it showcases the limitations of current LLMs when it comes to handling the nuances of the Arabic language.
+Researchers have developed CAMEL-Bench, a first-of-its-kind extensive benchmark for evaluating large multimodal models (LMMs) that understand and reason using Arabic.  Most existing LMM benchmarks primarily focus on English, neglecting the significant Arabic-speaking population. CAMEL-Bench includes eight diverse domains (like image understanding, video analysis, and medical imaging) with 38 sub-domains and over 29,000 questions.  The questions were carefully checked by native Arabic speakers.  Testing several LMMs (both open-source and closed-source) revealed a need for improvement, even among advanced models like GPT-4.  CAMEL-Bench is open-source, allowing researchers worldwide to contribute to and further develop Arabic LMMs.
 
 {{< /lead >}}
 
@@ -21,26 +21,25 @@ Researchers have developed CAMEL-Bench, the first large-scale benchmark for eval
 {{< button href="https://arxiv.org/abs/2410.18976" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-<br>
-<br>
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18976" target="_self" >}}
-{{< icon "hf-logo" >}} &nbsp; discuss on Hugging Face
+{{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in natural language processing and computer vision because it introduces CAMEL-Bench, the first comprehensive Arabic LMM benchmark.  This addresses a critical gap in existing benchmarks, which are largely English-centric, opening avenues for research on multilingual and culturally diverse models. The findings highlight the challenges in Arabic multimodal understanding and underscore the need for improved models, guiding future research directions.
+This paper is crucial for researchers working on large multimodal models (LMMs), particularly those focusing on Arabic language processing.  It introduces a much-needed comprehensive benchmark, CAMEL-Bench, addressing the scarcity of Arabic-centric LMM evaluation resources.  The benchmark's open-source nature and diverse tasks will significantly advance research and development in cross-lingual and cross-cultural LMMs.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} CAMEL-Bench, a new benchmark for evaluating large multimodal models (LMMs) in Arabic, was developed. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} CAMEL-Bench, a new comprehensive Arabic LMM benchmark with 29,036 questions across 8 diverse domains, is introduced. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The benchmark includes eight diverse domains and 38 sub-domains with over 29,000 questions. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Evaluation reveals substantial performance gaps in current Arabic LMMs, highlighting areas for improvement. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Evaluations reveal a significant need for improvement in Arabic LMMs, even for the best existing models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The benchmark and evaluation scripts are publicly available, fostering further research and development in Arabic language LMMs. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -50,7 +49,7 @@ This paper is crucial for researchers in natural language processing and compute
 
 ![](figures/figures_1_0.png)
 
-> 🔼 Figure 1 is a visual representation of the CAMEL-Bench benchmark, illustrating its eight diverse domains and 38 sub-domains, along with the number of questions in each.
+> 🔼 The figure is a visual representation of the CAMEL-Bench benchmark, showing its eight diverse domains and 38 sub-domains, highlighting the wide range of tasks and visual data types included.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1. The proposed CAMEL-Bench covers eight diverse and challenging domains: multimodal understanding and reasoning, OCR and documents, charts and diagrams, videos, cultural-specific content, medical images, agricultural images, and remote sensing understanding in Arabic. CAMEL-Bench covers 38 sub-domains with over 29K questions carefully curated by native Arabic speakers to rigorously evaluate essential skills desired in Arabic LMMs.
@@ -65,7 +64,7 @@ This paper is crucial for researchers in natural language processing and compute
 {{< table-caption >}}
 <br><table id='4' style='font-size:14px'><tr><td>Domain/Characteristics</td><td>Exams-V*</td><td>CVQA*</td><td>Henna</td><td>KHATT</td><td>CAMEL-Bench (ours)</td></tr><tr><td>Multimodal Und. & Reasoning</td><td>V</td><td>X</td><td></td><td>X</td><td></td></tr><tr><td>OCR & Docs Und.</td><td>X</td><td>X</td><td>X</td><td>V</td><td></td></tr><tr><td>Charts & Diagrams Und.</td><td>V</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>Video Und.</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>Medical Image Und.</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>Agricultural Image Und.</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>Remote-Sensing Und.</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td></tr><tr><td>Cultural-Specific Und.</td><td>X</td><td></td><td>V</td><td>X</td><td></td></tr><tr><td>Open Source Question Numbers</td><td>823</td><td>V 200</td><td>X 1.1K</td><td>V 5K</td><td>29K</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares the CAMEL-Bench with other existing Arabic LMM benchmarks, highlighting its comprehensiveness and the number of questions.
+> 🔼 Table 1 compares CAMEL-Bench with other existing Arabic LMM benchmarks, highlighting its comprehensiveness and scale.
 > <details>
 > <summary>read the caption</summary>
 > Table 1. Comparison of our CAMEL-Bench with existing Arabic LMM benchmarks: Exams-V [13], CVQA [46], Henna[4], and KHATT [34]. Here * denotes that only Arabic part of benchmark is counted.
@@ -82,7 +81,7 @@ This paper is crucial for researchers in natural language processing and compute
 
 ![](figures/figures_2_0.png)
 
-> 🔼 Figure 1 is a diagram showing the eight diverse domains and 38 sub-domains of the CAMEL-Bench, a comprehensive Arabic LMM benchmark.
+> 🔼 Figure 1 is a diagram showing the eight diverse domains and 38 sub-domains covered by the CAMEL-Bench Arabic LMM benchmark, highlighting its comprehensiveness and the variety of tasks it evaluates.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1. The proposed CAMEL-Bench covers eight diverse and challenging domains: multimodal understanding and reasoning, OCR and documents, charts and diagrams, videos, cultural-specific content, medical images, agricultural images, and remote sensing understanding in Arabic. CAMEL-Bench covers 38 sub-domains with over 29K questions carefully curated by native Arabic speakers to rigorously evaluate essential skills desired in Arabic LMMs.
@@ -92,7 +91,7 @@ This paper is crucial for researchers in natural language processing and compute
 
 ![](figures/figures_4_0.png)
 
-> 🔼 This figure illustrates the two-path pipeline for filtering and verifying data in the CAMEL-Bench, including manual verification for original Arabic data and automated verification with the Qwen7B model for translated Arabic data.
+> 🔼 This figure illustrates the two-path data filtering and verification pipeline used in CAMEL-Bench for both original and translated Arabic data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3. The CAMEL-Bench Filtering and Verification Pipeline consists of two paths: Original Arabic and translated Arabic. For original Arabic (top row), a 20% random sample undergoes manual verification; if errors are below 40%, the data passes; otherwise, the entire sub-category is reviewed. For Translated Arabic (bottom row), We employ Qwen7B model [8] to assess semantic similarity between the original and translated question-answer pairs on fuzzy-basis evaluation. Pairs passing the evaluation proceed, while those that fail undergo manual review. Based on this, data may require Manual Handling for manual re-translation, Refine & Verify for refinement through the model, or Non-Translated Review where the data is re-sent for translation due to the absence of an Arabic version.
@@ -102,7 +101,7 @@ This paper is crucial for researchers in natural language processing and compute
 
 ![](figures/figures_5_0.png)
 
-> 🔼 Figure 4 presents qualitative examples illustrating challenges faced by different closed-weight models across various tasks within the CAMEL-Bench benchmark.
+> 🔼 Figure 4 presents qualitative examples illustrating the struggles of different closed-weight models on various tasks within the CAMEL-Bench benchmark, highlighting correct and incorrect responses.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4. Qualitative example highlighting different scenarios where different closed-weight models struggle on CAMEL-Bench. The correct response is shown in green, and the incorrect one in the red box.
@@ -112,7 +111,7 @@ This paper is crucial for researchers in natural language processing and compute
 
 ![](figures/figures_5_1.png)
 
-> 🔼 Figure 5 shows examples of open-source LLMs failing to correctly answer questions about cultural identity, medical images, and agricultural images in Arabic.
+> 🔼 Figure 5 shows examples of open-source LLMs failing on various tasks within the CAMEL-Bench benchmark, highlighting challenges in cultural understanding, medical image interpretation, and agricultural image understanding.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5. Qualitative example highlighting different scenarios where different open-weight models struggle on CAMEL-Bench. The correct response is shown in green, and the incorrect one in the red box.
@@ -139,7 +138,7 @@ This paper is crucial for researchers in natural language processing and compute
 > </details>
 
 
-> Table 2 details the different data sources and the number of questions used for each of the 38 sub-domains across eight domains in the CAMEL-Bench benchmark.
+> Table 2 details the different data sources and number of questions used for each of the 38 sub-domains within the eight domains of the CAMEL-Bench benchmark.
 
 
 {{< table-caption >}}
@@ -151,7 +150,7 @@ This paper is crucial for researchers in natural language processing and compute
 > </details>
 
 
-> Table 3 compares the performance of seven different large multimodal models (LLMs) across eight diverse domains in the CAMEL-Bench benchmark, highlighting strengths and weaknesses of both closed-source and open-source models.
+> Table 3 presents a comparison of the performance of seven different large multimodal models (LLMs) across eight diverse domains in the CAMEL-Bench benchmark, highlighting the strengths and weaknesses of both closed-source and open-source models.
 
 
 </details>

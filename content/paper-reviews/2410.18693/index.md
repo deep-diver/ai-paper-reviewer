@@ -1,6 +1,6 @@
 ---
 title: "Unleashing Reasoning Capability of LLMs via Scalable Question Synthesis from Scratch"
-summary: "ScaleQuest synthesizes a million high-quality mathematical reasoning problems using efficient open-source methods, substantially boosting LLM reasoning performance."
+summary: "ScaleQuest: a novel data synthesis method unleashes LLMs' reasoning power by generating a massive, high-quality mathematical reasoning dataset from scratch using efficient, open-source models."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Researchers created ScaleQuest, a new method to easily make large amounts of high-quality data for training large language models (LLMs).  Instead of relying on expensive, closed-source models like GPT-4, ScaleQuest cleverly uses smaller, open-source models to create math problems and solutions. They made a massive dataset (one million examples!) and tested it on several LLMs.  The results were amazing: the LLMs performed much better on math problems after training with this new dataset.  In fact, it even outperformed LLMs trained with data from proprietary models!  This is important because it means more researchers can now train better LLMs at a lower cost. The process is also scalable, meaning it can easily create even larger datasets in the future.
+The research introduces ScaleQuest, a new method for creating large amounts of high-quality training data for Large Language Models (LLMs), specifically focused on improving their mathematical reasoning abilities. Unlike previous approaches that relied on expensive, pre-trained models or complex augmentation techniques, ScaleQuest leverages smaller, open-source LLMs to generate questions and answers from scratch.  This is significant because high-quality training data is crucial for improving LLMs, but such data is often scarce and expensive to obtain.  Using ScaleQuest, the researchers created a mathematical reasoning dataset containing 1 million question-answer pairs.  They then fine-tuned several open-source LLMs on this new data and observed substantial performance improvements, in some cases even surpassing the performance of commercially available, closed-source LLMs.  The method also proved efficient and inexpensive, representing a major advance in the open-source LLM community.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Researchers created ScaleQuest, a new method to easily make large amounts of hig
 {{< button href="https://arxiv.org/abs/2410.18693" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18693" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in natural language processing and machine learning, particularly those working on large language models (LLMs) and question answering. It addresses the critical need for high-quality, open-source datasets for training LLMs to improve their reasoning capabilities. The method proposed is cost-effective and scalable, making it accessible to a wider range of researchers. Its success in surpassing even proprietary models on mathematical reasoning benchmarks highlights the importance of the approach and opens exciting new directions in data augmentation and LLM training.
+This paper is highly relevant to researchers working on improving the reasoning capabilities of large language models (LLMs).  The introduction of a novel, scalable, and cost-effective data synthesis method, ScaleQuest, addresses a critical bottleneck in LLM research—the lack of high-quality, open-source training data. Its demonstration of significant performance gains across several LLMs, including surpassing some closed-source models, makes it a significant advancement.  Moreover, ScaleQuest's focus on cost-effectiveness opens up avenues for researchers with limited resources to participate in this high-impact research area. This research highlights the impact of high-quality data on LLM performance and the importance of scalable data synthesis methods.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} ScaleQuest, a novel data synthesis method, uses smaller open-source models to generate high-quality mathematical reasoning questions without the need for seed data. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} ScaleQuest, a novel data synthesis method, uses smaller, open-source models to create a large-scale mathematical reasoning dataset without expensive seed data. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The resulting one million problem-solution pairs dataset significantly improves the performance of various LLMs on multiple benchmarks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The generated dataset significantly improves the performance of several LLMs, even outperforming some closed-source models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The approach is cost-effective and scalable, outperforming even some proprietary models and opening avenues for more accessible LLM training. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} ScaleQuest is computationally efficient and cost-effective, making it accessible to a broader range of researchers. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](figures/figures_3_0.png)
 
-> 🔼 This figure shows the overview of the ScaleQuest method, which includes three main stages: training question generators, question generation, and final data construction.
+> 🔼 This figure illustrates the overall process of ScaleQuest, including question generation, data construction, and filtering.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Overview of our ScaleQuest method.
@@ -61,7 +61,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_1_0.png)
 
-> 🔼 The chart displays the performance of various language models on the MATH benchmark, comparing the impact of different data synthesis methods, particularly highlighting the improvement achieved using the ScaleQuest method.
+> 🔼 The chart displays the performance of various language models on the MATH benchmark, comparing the impact of different data synthesis methods including the proposed ScaleQuest method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.
@@ -74,7 +74,7 @@ This paper is crucial for researchers in natural language processing and machine
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td>Model</td><td>Synthesis Model</td><td>GSM8K</td><td>MATH</td><td>College Math</td><td>Olympiad Bench</td><td>Average</td></tr><tr><td colspan="7">Teacher Models in Data Synthesis</td></tr><tr><td>GPT-4-0314</td><td>-</td><td>94.7</td><td>52.6</td><td>24.4</td><td>-</td><td>-</td></tr><tr><td>GPT-4-Turbo-24-04-09</td><td>-</td><td>94.5</td><td>73.4</td><td>-</td><td>-</td><td>-</td></tr><tr><td>GPT-4o-2024-08-06</td><td>-</td><td>92.9</td><td>81.1</td><td>50.2</td><td>43.3</td><td>66.9</td></tr><tr><td>DeepSeekMath-7B-RL</td><td>-</td><td>88.2</td><td>52.4</td><td>41.4</td><td>19.0</td><td>49.3</td></tr><tr><td>Qwen2-Math-7B-Instruct</td><td>-</td><td>89.5</td><td>73.1</td><td>50.5</td><td>37.8</td><td>62.7</td></tr><tr><td colspan="7">General Base Model</td></tr><tr><td>Mistral-7B- WizardMath</td><td>GPT-4</td><td>81.9</td><td>33.3</td><td>21.5</td><td>8.6</td><td>36.3</td></tr><tr><td>Mistral-7B-MetaMath</td><td>GPT-3.5</td><td>77.7</td><td>28.2</td><td>19.1</td><td>5.8</td><td>32.7</td></tr><tr><td>Mistral-7B-MMIQC</td><td>GPT-4</td><td>75.7</td><td>36.3</td><td>24.8</td><td>10.8</td><td>36.9</td></tr><tr><td>Mistral-7B-MathScale</td><td>GPT-3.5</td><td>74.8</td><td>35.2</td><td>21.8</td><td>-</td><td>-</td></tr><tr><td>Mistral-7B-KPMath</td><td>GPT-4</td><td>82.1</td><td>46.8</td><td>-</td><td>-</td><td>-</td></tr><tr><td>Mistral-7B-DART-Math</td><td>DSMath-7B-RL</td><td>81.1</td><td>45.5</td><td>29.4</td><td>14.7</td><td>42.7</td></tr><tr><td>Mistral-7B-NuminaMath</td><td>GPT-4o</td><td>82.1</td><td>49.4</td><td>33.8</td><td>19.4</td><td>46.2</td></tr><tr><td>Mistral-7B-ScaleQuest</td><td>Qwen2-Math-7B-Ins</td><td>88.5</td><td>62.9</td><td>43.5</td><td>26.8</td><td>55.4</td></tr><tr><td>Llama3-8B-MetaMath</td><td>GPT-3.5</td><td>77.3</td><td>32.5</td><td>20.6</td><td>5.5</td><td>34.0</td></tr><tr><td>Llama3-8B-MMIQC</td><td>GPT-4</td><td>77.6</td><td>39.5</td><td>29.5</td><td>9.6</td><td>39.1</td></tr><tr><td>Llama3-8B-DART-Math</td><td>, DSMath-7B-RL</td><td>81.1</td><td>46.6</td><td>28.8</td><td>14.5</td><td>42.8</td></tr><tr><td>Llama3-8B-NuminaMath</td><td>GPT-4o</td><td>77.2</td><td>50.7</td><td>33.2</td><td>17.8</td><td>44.7</td></tr><tr><td>Llama3-8B-ScaleQuest</td><td>Qwen2-Math-7B-Ins</td><td>87.9</td><td>64.4</td><td>42.8</td><td>25.3</td><td>55.1</td></tr><tr><td colspan="7">Math-Specialized Base Model</td></tr><tr><td>DeepSeekMath-7B-Instruct</td><td>-</td><td>82.7</td><td>46.9</td><td>37.1</td><td>14.2</td><td>45.2</td></tr><tr><td>DeepSeekMath-7B-MMIQC</td><td>GPT-4</td><td>79.0</td><td>45.3</td><td>35.3</td><td>13.0</td><td>43.2</td></tr><tr><td>DeepSeekMath-7B-KPMath-Plus</td><td>GPT-4</td><td>83.9</td><td>48.8</td><td>-</td><td>-</td><td>-</td></tr><tr><td>DeepSeekMath-7B-DART-Math</td><td>DSMath-7B-RL</td><td>86.8</td><td>53.6</td><td>40.7</td><td>21.7</td><td>50.7</td></tr><tr><td>DeepSeekMath-7B-Nurnina-Math</td><td>GPT-4o</td><td>75.4</td><td>55.2</td><td>36.9</td><td>19.9</td><td>46.9</td></tr><tr><td>DeepSeekMath-7B-ScaleQuest</td><td>Qwen2-Math-7B-Ins</td><td>89.5</td><td>66.6</td><td>47.7</td><td>29.9</td><td>58.4</td></tr><tr><td>Qwen2-Math-7B-MetaMath</td><td>GPT-3.5</td><td>83.9</td><td>49.5</td><td>39.9</td><td>17.9</td><td>47.8</td></tr><tr><td>Qwen2-Math-7B-DART-Math</td><td>DSMath-7B-RL</td><td>88.6</td><td>58.8</td><td>45.4</td><td>23.1</td><td>54.0</td></tr><tr><td>Qwen2-Math-7B-Numina-Math</td><td>GPT-4o</td><td>84.6</td><td>65.6</td><td>45.5</td><td>33.6</td><td>57.3</td></tr><tr><td>Qwen2-Math-7B-ScaleQuest</td><td>Qwen2-Math-7B-Ins</td><td>89.7</td><td>73.4</td><td>50.0</td><td>38.5</td><td>62.9</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the main results of four mathematical reasoning benchmarks, comparing different models' performance with various data synthesis methods.
+> 🔼 Table 1 presents the main results of four mathematical reasoning benchmarks, comparing various models' performance using different data synthesis methods and highlighting the best scores for each model.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Main results on four mathematical reasoning benchmarks. Bold means the best score within the respective base model. The baselines use different synthesis models, such as GPT-4, GPT-4-Turbo, GPT-40, DeepSeekMath, and Qwen2-Math. If multiple models are used, only the latest released one is marked. More details concerning these datasets are shown in Figure 5.
@@ -91,7 +91,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](figures/figures_15_0.png)
 
-> 🔼 The figure illustrates the overall process of the ScaleQuest method, starting from training question generators to constructing the final dataset.
+> 🔼 This figure shows the overview of the ScaleQuest method, illustrating the question generation process from scratch, question generation, and final data construction.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Overview of our ScaleQuest method.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](figures/figures_18_0.png)
 
-> 🔼 The figure shows the performance comparison of various LLMs on MATH benchmark and Llama3-8B fine-tuned on different publicly available datasets.
+> 🔼 The figure shows the performance of different language models on the MATH benchmark, comparing the results obtained using different data synthesis methods, including ScaleQuest, and highlighting the improvements achieved by ScaleQuest.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.
@@ -111,7 +111,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure shows the performance comparison of different LLMs on MATH benchmark with and without using ScaleQuest dataset and also the comparison of Llama3-8B fine-tuned on different publicly available datasets.
+> 🔼 The figure shows the performance comparison of different LLMs on MATH benchmark and the improvement achieved by fine-tuning Llama3-8B using different publicly available datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.
@@ -130,7 +130,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_1_1.png "🔼 Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.")
 
-> 🔼 The chart displays the performance of various models on the MATH benchmark, comparing the performance gains achieved using different data synthesis methods, notably highlighting the performance boost from the ScaleQuest method.
+> 🔼 The chart displays the performance of various models on the MATH benchmark, comparing the performance boost achieved using the ScaleQuest method against other publicly available datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.
@@ -139,7 +139,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_1_2.png "🔼 Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.")
 
-> 🔼 The chart displays the performance of various models on the MATH benchmark and Llama3-8B fine-tuned on different datasets, highlighting the impact of ScaleQuest.
+> 🔼 The chart displays the performance of various LLMs on the MATH benchmark and Llama3-8B fine-tuned on different datasets, highlighting the performance boost achieved using the ScaleQuest method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.
@@ -148,7 +148,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_3_0.png "🔼 Figure 3: The difficulty distribution of two real-world datasets and two synthetic datasets. The difficulty score is calculated based solely on the problem part.")
 
-> 🔼 The chart displays the distribution of difficulty scores for two real-world datasets (GSM8K and MATH) and two synthetic datasets generated using a question fine-tuning method.
+> 🔼 The chart displays the distribution of difficulty scores for two real-world mathematical datasets (GSM8K and MATH) and two synthetic datasets generated using a question fine-tuning method, highlighting the differences in question difficulty.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: The difficulty distribution of two real-world datasets and two synthetic datasets. The difficulty score is calculated based solely on the problem part.
@@ -157,7 +157,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_4_0.png "🔼 Figure 4: The solvability and difficulty of the raw questions generated by the QFT model and the optimized ones.")
 
-> 🔼 The chart displays the solvability and difficulty ratios of questions before and after optimization using two different optimization models.
+> 🔼 The chart displays the solvability and difficulty ratios of questions generated by a question fine-tuning (QFT) model before and after optimization, categorized by optimization model and difficulty level.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: The solvability and difficulty of the raw questions generated by the QFT model and the optimized ones.
@@ -166,7 +166,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_8_0.png "🔼 Figure 5: A comparison of the synthetic dataset generated by the raw instruct model, the model after QFT, the model after QPO, and the final dataset after applying reward filtering. The evaluation covers question solvability, difficulty, and instruction tuning effectiveness on Llama3-8B.")
 
-> 🔼 The chart compares the solvability, difficulty, and accuracy of a synthetic dataset generated using different stages of a question generation method, showing improvements at each stage.
+> 🔼 The chart compares the solvability, difficulty, and instruction tuning accuracy of a synthetic dataset generated through different stages of a question synthesis process.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: A comparison of the synthetic dataset generated by the raw instruct model, the model after QFT, the model after QPO, and the final dataset after applying reward filtering. The evaluation covers question solvability, difficulty, and instruction tuning effectiveness on Llama3-8B.
@@ -175,7 +175,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_15_0.png "🔼 Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.")
 
-> 🔼 The chart displays a comparison of various LLMs' performance on the MATH benchmark, showcasing the improvement achieved using the ScaleQuest dataset.
+> 🔼 The chart displays the performance of various language models on the MATH benchmark, comparing the impact of different data synthesis methods, including the proposed ScaleQuest method, with the fine-tuning of the Llama3-8B model on different datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.
@@ -184,7 +184,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 ![](charts/charts_15_1.png "🔼 Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.")
 
-> 🔼 The chart displays the performance of various models on the MATH benchmark, comparing the impact of different data synthesis methods, including ScaleQuest, on model accuracy.
+> 🔼 The chart displays the performance of various language models on the MATH benchmark, comparing the results obtained using different datasets, highlighting the improved performance achieved using the ScaleQuest method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Results of different models on MATH, where -ScaleQuest denotes ours. Right: Results of Llama3-8B fine-tuned on publicly available datasets constructed by different methods.
@@ -209,7 +209,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing the performance of various models using different data synthesis methods.
+> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing different models' performance using various data synthesis methods and highlighting the best scores for each model.
 
 
 {{< table-caption >}}
@@ -221,7 +221,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing the performance of different models using various data synthesis methods.
+> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing the performance of various models, including those using different data synthesis methods.
 
 
 {{< table-caption >}}
@@ -233,7 +233,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing different models' performance using various data synthesis methods and highlighting the best performance achieved within each base model.
+> Table 1 presents the main results of four mathematical reasoning benchmarks comparing different models' performance, highlighting the best-performing model within each base model category.
 
 
 {{< table-caption >}}
@@ -245,7 +245,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-> Table 1 presents the main results of four mathematical reasoning benchmarks comparing different models and data synthesis methods, showing ScaleQuest's significant outperformance.
+> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing the performance of different models using various data synthesis methods.
 
 
 {{< table-caption >}}
@@ -257,7 +257,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing the performance of different models using various data synthesis methods.
+> Table 1 presents the main results of four mathematical reasoning benchmarks, comparing the performance of different models trained using various data synthesis methods, including ScaleQuest.
 
 
 {{< table-caption >}}
@@ -269,7 +269,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-> Table 1 presents the main results of four mathematical reasoning benchmarks comparing different models' performance with various data synthesis methods.
+> Table 1 presents the performance of various models on four mathematical reasoning benchmarks, comparing different data synthesis methods and highlighting the impact of ScaleQuest.
 
 
 {{< table-caption >}}

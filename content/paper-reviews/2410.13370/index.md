@@ -1,6 +1,6 @@
 ---
 title: "MagicTailor: Component-Controllable Personalization in Text-to-Image Diffusion Models"
-summary: "MagicTailor empowers text-to-image models with component-level control, enabling precise customization of generated images by modifying specific visual elements."
+summary: "MagicTailor empowers text-to-image models with component-level control over personalized concepts, enabling fine-grained customization and high-quality image generation."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research tackles the problem of limited control in current text-to-image (T2I) models.  Existing methods can replicate concepts from reference images, but lack fine-grained control over individual components within those concepts. This paper introduces a new task called "component-controllable personalization," aiming to modify specific components (like hair, eyes, or a building's roof) while maintaining the overall concept.  They propose a new framework, MagicTailor, which uses two key techniques: 1) Dynamic Masked Degradation (DM-Deg) to reduce unwanted visual elements ('semantic pollution'), and 2) Dual-Stream Balancing (DS-Bal) to ensure balanced learning of different components ('semantic imbalance').  MagicTailor significantly outperforms existing methods in experiments, showing superior text alignment, image fidelity, and generation quality.  It also demonstrates potential for integration with other generative tools, suggesting broader applicability in various creative fields.
+This research introduces a novel approach called 'component-controllable personalization' for improving text-to-image generation.  Current methods can generate images based on text prompts, but struggle to precisely control individual components within a concept (e.g., changing only the hair color in a person's image).  This paper introduces MagicTailor, a new framework that solves this problem. MagicTailor uses two key techniques: Dynamic Masked Degradation (DM-Deg), which removes unwanted elements from training images, and Dual-Stream Balancing (DS-Bal), which ensures even learning of all components within a concept.  Experiments show MagicTailor generates higher-quality images with better control over individual components than existing methods. The results indicate that MagicTailor also works well with other image-generation tools, paving the way for more creative image generation applications.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research tackles the problem of limited control in current text-to-image (T
 {{< button href="https://arxiv.org/abs/2410.13370" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13370" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is highly important for researchers working on text-to-image generation and personalization.  It introduces a novel and challenging task of component-controllable personalization, pushing the boundaries of current T2I models. The proposed MagicTailor framework offers a significant advancement in precise control over image generation, opening exciting avenues for creative applications and further research into fine-grained image manipulation and customization.
+This paper is highly important for researchers working on text-to-image diffusion models and personalization.  It introduces a novel task of component-controllable personalization, addressing a significant limitation of existing methods. The proposed MagicTailor framework offers a powerful solution to this challenging problem, opening new avenues for research and practical applications in image generation and manipulation.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Component-controllable personalization is introduced as a new task, enabling more fine-grained control over visual elements in generated images. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} MagicTailor enables component-controllable personalization in text-to-image diffusion models, allowing users to precisely modify specific components within concepts. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The MagicTailor framework effectively addresses semantic pollution and imbalance issues in component-level personalization, leading to improved image quality and fidelity. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The framework tackles the challenges of semantic pollution and imbalance through Dynamic Masked Degradation (DM-Deg) and Dual-Stream Balancing (DS-Bal). {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} MagicTailor shows state-of-the-art performance and potential for integration with other generative tools, opening new avenues for advanced image manipulation and creative applications. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} MagicTailor shows state-of-the-art performance and demonstrates significant potential for diverse applications, including collaboration with other generative tools. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_1_0.png)
 
-> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing example images generated by the proposed MagicTailor framework.
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -61,7 +61,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](charts/charts_8_0.png)
 
-> 🔼 The chart displays the ablation study of loss weights (λpres and λattn) on two metrics: CLIP-T (text alignment) and DreamSim (identity fidelity), comparing MagicTailor's performance with the second-best method.
+> 🔼 The chart shows the ablation study of loss weights (Apres and Aattn) on CLIP-T and DreamSim metrics, highlighting MagicTailor's robustness to different loss weight settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Ablation of loss weights. We report CLIP-T for text alignment, and DreamSim for identity fidelity as it is most similar to human judgments (Fu et al., 2023). For reference, we also present the results of the second-best method in Table 1, highlighting our robustness on loss weights.
@@ -74,7 +74,7 @@ This paper is highly important for researchers working on text-to-image generati
 {{< table-caption >}}
 <table id='2' style='font-size:16px'><tr><td rowspan="2">Methods</td><td colspan="4">Automatic Metrics</td><td colspan="3">User Study</td></tr><tr><td>CLIP-T↑</td><td>CLIP-I ↑</td><td>DINO ↑</td><td>DreamSim ↓</td><td>Text Align. ↑</td><td>Id. Fidelity ↑</td><td>Gen. Quality ↑</td></tr><tr><td>Textual Inversion (Gal et al., 2022)</td><td>0.236</td><td>0.742</td><td>0.620</td><td>0.558</td><td>5.8%</td><td>2.5%</td><td>5.2%</td></tr><tr><td>DreamBooth (Ruiz et al., 2023)</td><td>0.266</td><td>0.841</td><td>0.798</td><td>0.323</td><td>15.3%</td><td>14.7%</td><td>12.5%</td></tr><tr><td>Custom Diffusion (Kumari et al., 2023)</td><td>0.251</td><td>0.797</td><td>0.750</td><td>0.407</td><td>7.1%</td><td>7.7%</td><td>9.8%</td></tr><tr><td>Break-A-Scene (Avrahami et al., 2023)</td><td>0.259</td><td>0.840</td><td>0.780</td><td>0.338</td><td>10.8%</td><td>12.1%</td><td>22.8%</td></tr><tr><td>CLiC (Safaee et al., 2024)</td><td>0.263</td><td>0.764</td><td>0.663</td><td>0.499</td><td>4.5%</td><td>5.1%</td><td>6.2%</td></tr><tr><td>MagicTailor (Ours)</td><td>0.270</td><td>0.854</td><td>0.813</td><td>0.279</td><td>56.5%</td><td>57.9%</td><td>43.4%</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 quantitatively compares MagicTailor's performance against state-of-the-art methods in personalization using automatic metrics and a user study.
+> 🔼 Table 1 presents a quantitative comparison of MagicTailor against state-of-the-art methods for personalization, using both automatic metrics and a user study to evaluate text alignment, identity fidelity, and generation quality.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Quantitative comparisons. We compare our MagicTailor with SOTA methods of personalization based on automatic metrics and user study. The best results are marked in bold.
@@ -91,7 +91,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_3_0.png)
 
-> 🔼 Figure 2 illustrates the two main challenges in component-controllable personalization: semantic pollution and semantic imbalance, showcasing how the proposed DM-Deg and DS-Bal methods address these issues.
+> 🔼 Figure 2 illustrates the two main challenges in component-controllable personalization: semantic pollution, where unwanted visual elements corrupt the concept; and semantic imbalance, where disproportionate learning of the concept and component occurs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Major challenges in component-controllable personalization. (a) Semantic pollution: (i) Undesired visual elements may inadvertently disturb the personalized concept. (ii) A simple mask-out strategy is ineffective and causes unintended compositions, whereas (iii) our DM-Deg effectively suppresses unwanted visual semantics, preventing such pollution. (b) Semantic imbalance: (i) Simultaneously learning the concept and component can lead to imbalance, resulting in concept or component distortion (here we present a case for the former). (ii) Our DS-Bal ensures balanced learning, enhancing personalization performance.
@@ -101,7 +101,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_3_1.png)
 
-> 🔼 Figure 1 illustrates personalization and component-controllable personalization tasks, and provides example images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates personalization in text-to-image diffusion models, showing how to modify specific components of visual concepts using reference images and the effectiveness of MagicTailor in achieving this.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -111,7 +111,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the MagicTailor pipeline, which uses reference images to fine-tune a text-to-image diffusion model, incorporating DM-Deg and DS-Bal to address semantic pollution and imbalance.
+> 🔼 The figure illustrates the pipeline of MagicTailor, a framework that enables component-controllable personalization for text-to-image diffusion models by using dynamic masked degradation and dual-stream balancing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Pipeline overview of MagicTailor. Using reference images as the inputs, MagicTailor fine-tunes a T2I diffusion model to learn both the target concept and component, enabling the generation of images that seamlessly integrate the component into the concept. Two key techniques, Dynamic Masked Degradation (DM-Deg, see Section 3.2) and Dual-Stream Balancing (DS-Bal, see Section 3.3), address the challenges of semantic pollution and semantic imbalance, respectively. For clarity, only one image per concept/component is presented and the warm-up stage is not depicted.
@@ -121,7 +121,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_5_0.png)
 
-> 🔼 This figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, along with example images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models, highlighting the differences between standard personalization and the novel component-controllable personalization proposed in the paper, and shows example outputs of the proposed method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -131,7 +131,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_6_0.png)
 
-> 🔼 Figure 1 illustrates personalization and component-controllable personalization in text-to-image diffusion models, showing how MagicTailor modifies a visual concept's specific component.
+> 🔼 Figure 1 illustrates personalization and component-controllable personalization using text-to-image diffusion models, and shows example images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -141,7 +141,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_6_1.png)
 
-> 🔼 Figure 5 visualizes how the Dual-Stream Balancing (DS-Bal) method effectively balances the learning of visual semantics for both concept and component, resolving the semantic imbalance issue.
+> 🔼 Figure 5 visualizes how the dual-stream balancing (DS-Bal) technique in MagicTailor effectively addresses semantic imbalance in component-controllable personalization, contrasting it with the unbalanced learning of a vanilla approach.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Visualization of the learning process. (a) The vanilla learning paradigm lapses into overemphasizing the easier one. (b) DS-Bal effectively balances the learning of the concept and component.
@@ -151,7 +151,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_7_0.png)
 
-> 🔼 Figure 6 shows a qualitative comparison of images generated by MagicTailor and other state-of-the-art methods across various domains, highlighting MagicTailor's superior performance in text alignment, identity preservation, and overall image quality.
+> 🔼 Figure 6 shows a qualitative comparison of images generated by MagicTailor and other state-of-the-art methods across various domains, highlighting MagicTailor's superior performance in text alignment, identity fidelity, and image quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Qualitative comparisons. We present images generated by MagicTailor and the compared methods for various domains. MagicTailor generally achieves promising text alignment, strong identity fidelity, and high generation quality. More results are provided in Appendix D.
@@ -161,7 +161,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_9_0.png)
 
-> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models, showcasing how MagicTailor modifies a specific component of a visual concept during the process.
+> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models, showing how to modify specific visual components using reference images, and provides example images generated by MagicTailor.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -171,7 +171,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_9_1.png)
 
-> 🔼 The figure illustrates the task of personalization, component-controllable personalization, and example images generated by the proposed MagicTailor framework.
+> 🔼 The figure illustrates the concepts of personalization and component-controllable personalization in text-to-image diffusion models, and showcases example images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -181,17 +181,17 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_9_2.png)
 
-> 🔼 Figure 6 shows a qualitative comparison of images generated by MagicTailor and other state-of-the-art methods across various domains, highlighting MagicTailor's superior text alignment, identity preservation, and image quality.
+> 🔼 Figure 1 illustrates personalization and component-controllable personalization, showing how text-to-image diffusion models can learn and modify visual concepts with example images generated by MagicTailor.
 > <details>
 > <summary>read the caption</summary>
-> Figure 6: Qualitative comparisons. We present images generated by MagicTailor and the compared methods for various domains. MagicTailor generally achieves promising text alignment, strong identity fidelity, and high generation quality. More results are provided in Appendix D.
+> Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
 > </details>
 
 
 
 ![](figures/figures_10_0.png)
 
-> 🔼 The figure illustrates the pipeline of MagicTailor, a framework that adapts T2I diffusion models for component-controllable personalization, highlighting its key techniques: Dynamic Masked Degradation (DM-Deg) and Dual-Stream Balancing (DS-Bal).
+> 🔼 This figure illustrates the MagicTailor pipeline, which fine-tunes a text-to-image diffusion model to learn concepts and components from reference images, addressing semantic pollution and imbalance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Pipeline overview of MagicTailor. Using reference images as the inputs, MagicTailor fine-tunes a T2I diffusion model to learn both the target concept and component, enabling the generation of images that seamlessly integrate the component into the concept. Two key techniques, Dynamic Masked Degradation (DM-Deg, see Section 3.2) and Dual-Stream Balancing (DS-Bal, see Section 3.3), address the challenges of semantic pollution and semantic imbalance, respectively. For clarity, only one image per concept/component is presented and the warm-up stage is not depicted.
@@ -199,9 +199,19 @@ This paper is highly important for researchers working on text-to-image generati
 
 
 
+![](figures/figures_10_1.png)
+
+> 🔼 The figure illustrates the concept of personalization, component-controllable personalization, and example images generated by the proposed MagicTailor framework.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
+> </details>
+
+
+
 ![](figures/figures_10_2.png)
 
-> 🔼 The figure shows how MagicTailor can be integrated with other generative tools like ControlNet, CSGO, and InstantMesh to enhance their capabilities by adding component-controllable personalization.
+> 🔼 The figure shows how MagicTailor can be used to enhance other generative tools by adding the ability to control a concept's component.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Enhancing other generative tools. MagicTailor can conveniently collaborate with a variety of generative tools that focus on other tasks, equipping them with an additional ability to control the concept's component in their pipelines.
@@ -211,7 +221,17 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_10_3.png)
 
-> 🔼 Figure 1 illustrates the concept of personalization and component-controllable personalization, showing how text-to-image diffusion models can learn and reproduce visual concepts, modify specific components, and generate example images using the proposed MagicTailor framework.
+> 🔼 This figure illustrates the pipeline of MagicTailor, a novel framework that enables component-controllable personalization for text-to-image diffusion models, highlighting its key techniques: Dynamic Masked Degradation and Dual-Stream Balancing.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Pipeline overview of MagicTailor. Using reference images as the inputs, MagicTailor fine-tunes a T2I diffusion model to learn both the target concept and component, enabling the generation of images that seamlessly integrate the component into the concept. Two key techniques, Dynamic Masked Degradation (DM-Deg, see Section 3.2) and Dual-Stream Balancing (DS-Bal, see Section 3.3), address the challenges of semantic pollution and semantic imbalance, respectively. For clarity, only one image per concept/component is presented and the warm-up stage is not depicted.
+> </details>
+
+
+
+![](figures/figures_10_5.png)
+
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showcasing examples generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -221,7 +241,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_10_6.png)
 
-> 🔼 Figure 1 illustrates the personalization and component-controllable personalization tasks, and shows example images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by MagicTailor, highlighting its effectiveness in adapting T2I diffusion models for component-controllable personalization.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -229,9 +249,19 @@ This paper is highly important for researchers working on text-to-image generati
 
 
 
+![](figures/figures_10_7.png)
+
+> 🔼 Figure 4 shows the comparison of using fixed and dynamic intensity in the DM-Deg, illustrating how dynamic intensity mitigates noise memorization during training.
+> <details>
+> <summary>read the caption</summary>
+> Figure 4: Motivation of dynamic intensity. (a) Fixed intensity (ad = 0.5 here) could cause noisy generated images. (b) Our dynamic intensity helps to mitigate noise memorization.
+> </details>
+
+
+
 ![](figures/figures_17_0.png)
 
-> 🔼 Figure 1 illustrates personalization and component-controllable personalization, and provides example images generated by MagicTailor, highlighting the target concept and component.
+> 🔼 This figure illustrates the concept of personalization and component-controllable personalization, showing how text-to-image diffusion models can modify specific components of a visual concept and provides example images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -241,27 +271,27 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_17_1.png)
 
-> 🔼 Figure 8 demonstrates MagicTailor's ability to generate concepts and components separately and to control multiple components simultaneously.
+> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models, showing how to modify specific components of a visual concept and examples of images generated by MagicTailor.
 > <details>
 > <summary>read the caption</summary>
-> Figure 8: (a) Decoupled generation. MagicTailor can also separately generate the target concept and component, enriching prospective combinations. (b) Controlling multiple components. MagicTailor shows the potential to handle more than one component, highlighting its effectiveness.
+> Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
 > </details>
 
 
 
 ![](figures/figures_17_2.png)
 
-> 🔼 The figure illustrates the benefit of using dynamic intensity in the DM-Deg process to mitigate noise memorization during image generation.
+> 🔼 The figure illustrates the two main challenges in component-controllable personalization: semantic pollution and semantic imbalance, showing how the proposed methods, DM-Deg and DS-Bal, address these issues.
 > <details>
 > <summary>read the caption</summary>
-> Figure 4: Motivation of dynamic intensity. (a) Fixed intensity (ad = 0.5 here) could cause noisy generated images. (b) Our dynamic intensity helps to mitigate noise memorization.
+> Figure 2: Major challenges in component-controllable personalization. (a) Semantic pollution: (i) Undesired visual elements may inadvertently disturb the personalized concept. (ii) A simple mask-out strategy is ineffective and causes unintended compositions, whereas (iii) our DM-Deg effectively suppresses unwanted visual semantics, preventing such pollution. (b) Semantic imbalance: (i) Simultaneously learning the concept and component can lead to imbalance, resulting in concept or component distortion (here we present a case for the former). (ii) Our DS-Bal ensures balanced learning, enhancing personalization performance.
 > </details>
 
 
 
 ![](figures/figures_17_3.png)
 
-> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing how MagicTailor modifies a specific component of a visual concept during personalization.
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -271,7 +301,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_17_4.png)
 
-> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by MagicTailor to showcase its effectiveness in adapting text-to-image diffusion models for component-controllable personalization.
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showcasing examples of image generation using the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -281,7 +311,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_17_5.png)
 
-> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models and introduces a new task, component-controllable personalization, showing examples of images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates personalization and component-controllable personalization in text-to-image diffusion models, showing how MagicTailor modifies a specific visual concept component using reference images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -291,7 +321,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_18_0.png)
 
-> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by the MagicTailor model, highlighting its effectiveness in component-controllable personalization.
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated using the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -301,7 +331,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_18_1.png)
 
-> 🔼 The figure illustrates the tasks of personalization and component-controllable personalization in text-to-image diffusion models and shows example images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by MagicTailor to showcase its effectiveness in adapting T2I diffusion models for component-controllable personalization.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -311,7 +341,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_18_2.png)
 
-> 🔼 The figure illustrates the concepts of personalization and component-controllable personalization in text-to-image diffusion models, and shows example images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates the tasks of personalization and component-controllable personalization, and shows example images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -321,7 +351,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_18_3.png)
 
-> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by MagicTailor, highlighting its effectiveness in adapting T2I diffusion models for component-controllable personalization.
+> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by MagicTailor, highlighting the effectiveness of the proposed framework for adapting T2I diffusion models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -331,7 +361,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_18_4.png)
 
-> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by MagicTailor to demonstrate its effectiveness in adapting T2I diffusion models for component-controllable personalization.
+> 🔼 The figure illustrates personalization, component-controllable personalization, and example images generated by MagicTailor, highlighting the differences between standard personalization and the proposed component-controllable approach.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -341,7 +371,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_18_5.png)
 
-> 🔼 The figure illustrates the concept of personalization in text-to-image diffusion models, showing how to modify a specific component of a visual concept using reference images, and provides example images generated by the proposed MagicTailor framework.
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated by MagicTailor.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -351,7 +381,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_0.png)
 
-> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing example images generated by the proposed MagicTailor framework.
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -361,7 +391,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_1.png)
 
-> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and example images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates personalization and component-controllable personalization tasks, showing how text-to-image diffusion models can learn and modify specific visual concepts using reference images, and provides example images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -371,7 +401,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_2.png)
 
-> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated by the proposed MagicTailor framework.
+> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing how MagicTailor modifies a specific component of a visual concept.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -381,7 +411,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_3.png)
 
-> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models, showing how to modify specific components of a visual concept using reference images and the results generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates personalization and component-controllable personalization in text-to-image diffusion models, showing examples of generated images using the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -391,17 +421,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_4.png)
 
-> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated by the proposed MagicTailor framework.
-> <details>
-> <summary>read the caption</summary>
-> Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
-> </details>
-
-
-
-![](figures/figures_19_5.png)
-
-> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models, showing how to modify specific components of a visual concept during personalization using the proposed MagicTailor framework.
+> 🔼 The figure illustrates personalization, component-controllable personalization, and example images generated by the proposed MagicTailor framework for text-to-image diffusion models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -411,7 +431,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_6.png)
 
-> 🔼 Figure 1 illustrates personalization and component-controllable personalization in text-to-image diffusion models, and shows example images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates the personalization and component-controllable personalization tasks, and shows example images generated by the proposed MagicTailor.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -421,17 +441,17 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_7.png)
 
-> 🔼 The figure illustrates the MagicTailor pipeline, which fine-tunes a text-to-image diffusion model to learn and integrate a target concept and its component using Dynamic Masked Degradation and Dual-Stream Balancing to address semantic pollution and imbalance.
+> 🔼 Figure 1 illustrates the concept of personalization in text-to-image diffusion models, showcasing component-controllable personalization as a new task and example images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: Pipeline overview of MagicTailor. Using reference images as the inputs, MagicTailor fine-tunes a T2I diffusion model to learn both the target concept and component, enabling the generation of images that seamlessly integrate the component into the concept. Two key techniques, Dynamic Masked Degradation (DM-Deg, see Section 3.2) and Dual-Stream Balancing (DS-Bal, see Section 3.3), address the challenges of semantic pollution and semantic imbalance, respectively. For clarity, only one image per concept/component is presented and the warm-up stage is not depicted.
+> Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
 > </details>
 
 
 
 ![](figures/figures_19_8.png)
 
-> 🔼 Figure 1 illustrates personalization and component-controllable personalization in text-to-image diffusion models, including examples of images generated by MagicTailor.
+> 🔼 Figure 1 illustrates the personalization and component-controllable personalization tasks, and shows example images generated by the proposed MagicTailor framework.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -441,7 +461,7 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_19_9.png)
 
-> 🔼 The figure illustrates the concept of personalization and component-controllable personalization in text-to-image diffusion models, showing examples of images generated by the proposed MagicTailor framework.
+> 🔼 Figure 1 illustrates personalization, component-controllable personalization, and examples of images generated by MagicTailor, highlighting its effectiveness in component-controllable personalization.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Illustration of personalization, demonstrating how text-to-image (T2I) diffusion models can learn and reproduce a visual concept from given reference images. (b) Illustration of component-controllable personalization, depicting a newly formulated task that aims to modify a specific component of a visual concept during personalization. (c) Example images generated by MagicTailor, showcasing the effectiveness of the proposed MagicTailor, a novel framework that adapts T2I diffusion models for component-controllable personalization. For clarity, the red and blue circles are used to highlight the target concept and component, respectively.
@@ -451,10 +471,10 @@ This paper is highly important for researchers working on text-to-image generati
 
 ![](figures/figures_20_0.png)
 
-> 🔼 Figure 14 presents a qualitative comparison of image generation results from MagicTailor and other state-of-the-art methods across various domains, showcasing MagicTailor's superior performance in terms of text alignment, identity preservation, and overall image quality.
+> 🔼 Figure 6 shows a qualitative comparison of images generated by MagicTailor and other state-of-the-art methods across different domains, highlighting MagicTailor's superior performance in terms of text alignment, identity preservation, and image quality.
 > <details>
 > <summary>read the caption</summary>
-> Figure 14: More qualitative comparisons. We present images generated by our MagicTailor and SOTA methods of personalization for various domains including characters, animation, buildings, objects, and animals. MagicTailor generally achieves promising text alignment, strong identity fidelity, and high generation quality.
+> Figure 6: Qualitative comparisons. We present images generated by MagicTailor and the compared methods for various domains. MagicTailor generally achieves promising text alignment, strong identity fidelity, and high generation quality. More results are provided in Appendix D.
 > </details>
 
 
@@ -478,7 +498,7 @@ This paper is highly important for researchers working on text-to-image generati
 > </details>
 
 
-> Table 1 quantitatively compares MagicTailor against state-of-the-art methods for personalization using both automatic metrics and a user study.
+> Table 1 quantitatively compares MagicTailor's performance against state-of-the-art methods in personalization using automatic metrics and a user study.
 
 
 {{< table-caption >}}
@@ -490,7 +510,7 @@ This paper is highly important for researchers working on text-to-image generati
 > </details>
 
 
-> Table 1 quantitatively compares MagicTailor's performance against other state-of-the-art personalization methods using automatic metrics and a user study.
+> Table 1 quantitatively compares MagicTailor's performance against state-of-the-art methods in personalization using automatic metrics and a user study.
 
 
 {{< table-caption >}}
@@ -502,7 +522,7 @@ This paper is highly important for researchers working on text-to-image generati
 > </details>
 
 
-> Table 2 shows the ablation study of the two key techniques, Dynamic Masked Degradation (DM-Deg) and Dual-Stream Balancing (DS-Bal), demonstrating their effectiveness in improving the performance of the MagicTailor model.
+> Table 2 shows the impact of the Dynamic Masked Degradation (DM-Deg) and Dual-Stream Balancing (DS-Bal) techniques on the performance of the MagicTailor model.
 
 
 </details>

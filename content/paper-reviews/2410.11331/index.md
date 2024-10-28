@@ -1,6 +1,6 @@
 ---
 title: "SHAKTI: A 2.5 Billion Parameter Small Language Model Optimized for Edge AI and Low-Resource Environments"
-summary: "Shakti: a 2.5B parameter LLM optimized for edge AI, boasts high performance and efficiency on resource-constrained devices via novel VGQA, SwiGLU, and RoPE."
+summary: "Shakti, a 2.5B parameter language model, achieves high performance on edge devices using innovative techniques like VGQA and SwiGLU, outperforming larger models in several benchmarks."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-15", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Researchers introduced Shakti, a small language model (SLM) with 2.5 billion parameters, designed for resource-limited devices.  Unlike large language models (LLMs) that demand significant computational power, Shakti excels in efficiency and precision, making it ideal for edge AI applications in smartphones, wearables, and IoT systems.  Key to Shakti's performance are innovative techniques: Variable Grouped Query Attention (VGQA) reduces memory usage; SwiGLU activations improve training; and Rotary Positional Embeddings (RoPE) efficiently handle longer sequences.  Benchmarks show Shakti performs competitively against larger models while maintaining low latency and on-device efficiency, demonstrating its potential as a leading solution for edge AI applications in resource-constrained environments. It also supports multiple languages, including Hindi, Kannada, and Telugu, making it particularly suitable for multilingual contexts.
+Researchers introduce Shakti, a small (2.5 billion parameter) language model designed for resource-limited devices.  Unlike large language models, Shakti prioritizes efficiency and speed without compromising performance. It achieves this through several key innovations: Variable Grouped Query Attention (VGQA) reduces memory usage; SwiGLU activation functions improve training; and Rotary Positional Embeddings (RoPE) handle long text sequences efficiently.  Shakti's multilingual capabilities and adaptability to various domains (healthcare, finance) make it especially useful for real-world applications where large models are impractical. Benchmarking results show Shakti's competitive performance against significantly larger models, especially in specific task categories.  The paper highlights Shakti's value for edge AI, where low latency and resource efficiency are paramount.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Researchers introduced Shakti, a small language model (SLM) with 2.5 billion par
 {{< button href="https://arxiv.org/abs/2410.11331" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.11331" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in NLP and edge AI.  It introduces Shakti, a novel small language model optimized for low-resource devices, directly addressing a major limitation of current LLMs.  The innovative techniques employed (VGQA, SwiGLU, RoPE) offer significant improvements in efficiency and performance, opening new avenues for on-device AI development and research into efficient model architectures.
+This paper is crucial for researchers in low-resource AI and NLP.  It introduces a novel, efficient language model, Shakti, addressing the limitations of large models in edge AI.  The innovative techniques used in Shakti—like VGQA and SwiGLU—offer significant improvements in memory efficiency and training stability, opening new research avenues for optimizing smaller models and expanding edge AI applications.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Shakti, a 2.5 billion parameter language model, achieves competitive performance with larger models while being optimized for resource-constrained environments. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Shakti, a 2.5 billion parameter language model, offers high performance in resource-constrained environments. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The model uses innovative techniques like Variable Grouped Query Attention (VGQA), SwiGLU activations, and Rotary Positional Embeddings (RoPE) to improve efficiency and reduce memory footprint. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Shakti's innovative VGQA and SwiGLU techniques significantly improve memory efficiency and training stability. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Shakti demonstrates strong performance across various NLP benchmarks, especially excelling in multilingual and domain-specific tasks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Benchmark evaluations show Shakti outperforming larger models on several tasks, demonstrating its effectiveness in low-resource settings. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -54,7 +54,7 @@ This paper is crucial for researchers in NLP and edge AI.  It introduces Shakti,
 {{< table-caption >}}
 <table id='2' style='font-size:18px'><tr><td>Syed Abdul Gaffar Shakhadri</td><td>Dr. Kruthika KR</td></tr><tr><td>Lead AI Developer</td><td>AI Researcher</td></tr><tr><td>SandLogic Technologies Pvt Ltd.</td><td>SandLogic Technologies Pvt Ltd</td></tr><tr><td>syed. abdul @sandlogic · com</td><td>kruthika. kr@sandlogic · com</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the specifications of the Shakti-LLM, including model parameters, dimensions, and hyperparameters.
+> 🔼 This table provides the specifications of the Shakti-LLM model, including its parameters, dimensions, and training details.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Specifications of Shakti-LLM
@@ -81,7 +81,7 @@ This paper is crucial for researchers in NLP and edge AI.  It introduces Shakti,
 > </details>
 
 
-> Table 1 provides a detailed specification of the Shakti-LLM model, outlining its key architectural features and resource requirements.
+> Table 1 presents the specifications of the Shakti-LLM model, including its parameters, dimensions, and hardware requirements.
 
 
 {{< table-caption >}}
@@ -105,7 +105,7 @@ This paper is crucial for researchers in NLP and edge AI.  It introduces Shakti,
 > </details>
 
 
-> Table 3 compares the performance of different quantized language models across various hardware platforms, showing inference speeds in tokens per second for GPU, CPU, and Mac systems.
+> Table 3 presents a performance comparison of different quantized language models across various hardware platforms, showing inference speeds in tokens per second for GPU, CPU and Mac systems.
 
 
 {{< table-caption >}}
@@ -117,7 +117,7 @@ This paper is crucial for researchers in NLP and edge AI.  It introduces Shakti,
 > </details>
 
 
-> Table 3 presents a performance comparison of different quantized language models across various hardware platforms, showing model names, quantization types, sizes, and inference speeds.
+> Table 3 presents a performance comparison of various quantized language models across different hardware platforms, showing inference speed in tokens per second for GPU, CPU, and Mac.
 
 
 {{< table-caption >}}
@@ -129,7 +129,7 @@ This paper is crucial for researchers in NLP and edge AI.  It introduces Shakti,
 > </details>
 
 
-> Table 3 compares the performance of different quantized language models across various hardware platforms, showing their inference speeds in tokens per second.
+> Table 3 presents a comparison of the performance of different quantized language models across various hardware platforms, showing inference speeds in tokens per second for GPU, CPU, and Mac systems.
 
 
 </details>

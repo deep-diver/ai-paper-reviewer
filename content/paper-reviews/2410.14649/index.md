@@ -1,6 +1,6 @@
 ---
 title: "EvoPress: Towards Optimal Dynamic Model Compression via Evolutionary Search"
-summary: "EvoPress uses evolutionary search to optimize dynamic LLM compression, proving optimality and surpassing existing methods in accuracy and efficiency."
+summary: "EvoPress: A new evolutionary search method achieves optimal dynamic LLM compression, surpassing current techniques in accuracy and efficiency across various compression methods."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-18", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Large Language Models (LLMs) are computationally expensive.  This paper tackles the problem of compressing LLMs efficiently without significant accuracy loss. Existing methods often rely on simplifying assumptions, like assuming that the overall model error is simply the sum of individual layer errors.  This paper demonstrates that this assumption is incorrect.  They propose EvoPress, a new method based on evolutionary search. EvoPress cleverly searches for the best way to compress different parts of the LLM differently, finding an optimal compression strategy.  Unlike earlier methods, EvoPress is proven to converge to the best solution and is computationally efficient.  Experiments show that EvoPress consistently outperforms other leading methods in terms of both the accuracy of the compressed model and the speed at which it finds a good solution across three different compression approaches: layer dropping, unstructured sparsity, and quantization. The code for EvoPress is publicly available.
+Large language models (LLMs) are computationally expensive. This paper introduces EvoPress, a new method to compress LLMs more efficiently.  Existing compression methods often rely on assumptions about how much each part of the model contributes to overall accuracy. EvoPress uses an evolutionary search technique to find the best compression settings without these assumptions, finding that simply minimizing the error in each part of the model doesn't guarantee the best overall performance.  EvoPress significantly improved accuracy across various compression techniques, including pruning, sparsity, and quantization, on several popular LLMs. This shows that a more sophisticated approach to finding optimal compression settings yields substantial gains in efficiency and accuracy.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Large Language Models (LLMs) are computationally expensive.  This paper tackles 
 {{< button href="https://arxiv.org/abs/2410.14649" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.14649" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is highly important because it challenges existing assumptions in LLM compression, introduces a novel, provably optimal method (EvoPress), and achieves state-of-the-art results across various compression techniques.  It opens avenues for more efficient and effective LLM deployment and further research into dynamic, non-uniform compression strategies.
+This paper is highly important for researchers working on LLM compression.  It introduces a novel, provably optimal method for dynamic model compression that outperforms existing techniques. This opens up new avenues for research on more efficient and accurate LLM deployment, and its agnostic nature makes it widely applicable across various model architectures and compression methods.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} EvoPress, a novel evolutionary search method, provides provably optimal dynamic LLM compression. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} EvoPress, a novel evolutionary search algorithm, provides provably optimal dynamic LLM compression. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} EvoPress outperforms existing methods on various LLM compression techniques, achieving state-of-the-art results. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} EvoPress outperforms existing methods in accuracy and efficiency across various compression types (pruning, sparsity, and quantization). {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Error monotonicity, a common assumption in LLM compression, is shown to be false, highlighting the need for EvoPress's novel approach. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} EvoPress challenges the assumption of error monotonicity in LLM compression, revealing that error sums don't always correlate with accuracy. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -51,7 +51,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_5_0.png)
 
-> 🔼 The chart displays the fast convergence of EvoPress in finding the optimal configuration for removing transformer blocks from Llama-3-8B.
+> 🔼 The chart displays the fast convergence of EvoPress in finding the optimal configuration for removing twelve transformer blocks from Llama-3-8B, achieving the optimum in only six generations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Removing twelve transformer blocks from Llama-3-8B under the constraint that only pairs of consecutive blocks can be removed. EvoPress finds the optimal configuration from the 8008 possible removal combinations in generation 6.
@@ -64,7 +64,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>Model</td><td>Configuration (Each block contains Attention + MLP)</td><td>Wiki2↓</td><td>C4↓</td><td>FW↓</td></tr><tr><td rowspan="3">Llama-3-8B</td><td></td><td>5.54</td><td>8.80</td><td>7.72</td></tr><tr><td></td><td rowspan="2">188.01 24.39</td><td>147.25</td><td>70.46</td></tr><tr><td></td><td>35.53</td><td>26.24</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table shows that removing more blocks from a Llama-3-8B model does not always lead to lower perplexity, demonstrating that error monotonicity does not hold for LLMs.
+> 🔼 The table shows that removing more blocks from a Llama-3-8B model does not always result in lower perplexity, demonstrating that error monotonicity does not hold generally for LLM compression.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Depth pruning is not monotone. In this example (Llama-3-8B with Fineweb-Edu calibration), removing strictly more blocks (depicted in orange) can improve perplexity across sources. Left half of block corresponds to attention layer, right half to MLP.
@@ -83,7 +83,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_8_0.png "🔼 Figure 2: Depth pruning results, on Mistral-7B-v0.3. (Left) Relative to all prior methods, EvoPress shows significantly lower PPL gap relative to the uncompressed model, with remarkably large gaps at medium compression rates. (Right) Examining the blocks dropped, we observe that EvoPress isolates completely different profiles relative to ShortGPT (which scores by cosine similarity).")
 
-> 🔼 The chart compares the performance of EvoPress against other depth pruning methods across different sparsity levels on the Mistral-7B-v0.3 model, showing EvoPress's superior performance and unique block removal patterns.
+> 🔼 The chart compares the perplexity of different depth pruning methods on the Mistral-7B-v0.3 model across various sparsity levels, showing EvoPress's superior performance and distinct block removal patterns.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Depth pruning results, on Mistral-7B-v0.3. (Left) Relative to all prior methods, EvoPress shows significantly lower PPL gap relative to the uncompressed model, with remarkably large gaps at medium compression rates. (Right) Examining the blocks dropped, we observe that EvoPress isolates completely different profiles relative to ShortGPT (which scores by cosine similarity).
@@ -92,7 +92,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_9_0.png "🔼 Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.")
 
-> 🔼 The chart displays the convergence speed of EvoPress in terms of perplexity and KL-divergence when pruning 8 and 16 transformer blocks from the Mistral-7B-v0.3 model.
+> 🔼 The chart displays the convergence speed of EvoPress in terms of perplexity and KL-divergence when removing different numbers of transformer blocks from the Mistral-7B-v0.3 model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.
@@ -101,7 +101,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_26_0.png "🔼 Figure 4: Convergence of EvoPress for unstructured sparsity (left) and quantization (right) for different fitness functions.")
 
-> 🔼 The chart displays the convergence of EvoPress for unstructured sparsity and quantization using two different fitness functions (perplexity and KL-divergence).
+> 🔼 The chart displays the convergence of EvoPress for unstructured sparsity and quantization using different fitness functions (perplexity and KL-divergence).
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Convergence of EvoPress for unstructured sparsity (left) and quantization (right) for different fitness functions.
@@ -110,7 +110,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_29_0.png "🔼 Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.")
 
-> 🔼 The chart displays the convergence speed of EvoPress in terms of perplexity and KL-divergence when removing 8 and 16 transformer blocks from the Mistral-7B-v0.3 model, showing a rapid convergence to near-optimal solutions within a few hours.
+> 🔼 Figure 5 shows the convergence speed of EvoPress for removing 8 and 16 transformer blocks from Mistral-7B-v0.3, illustrating its rapid convergence to high-quality solutions.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.
@@ -119,25 +119,25 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_29_1.png "🔼 Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.")
 
-> 🔼 The chart displays the convergence of EvoPress in terms of perplexity and KL-divergence over generations when removing 8 and 16 transformer blocks from the Mistral-7B-v0.3 model.
+> 🔼 The chart displays the convergence of EvoPress's perplexity and KL-divergence over generations when pruning 8 and 16 transformer blocks from the Mistral-7B-v0.3 model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.
 > </details>
 
 
-![](charts/charts_29_2.png "🔼 Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.")
+![](charts/charts_29_2.png "🔼 Figure 6: Optimal removal configurations identified by EvoPress for different models.")
 
-> 🔼 The chart displays the convergence speed of EvoPress for removing 8 and 16 transformer blocks from the Mistral-7B-v0.3 model, showing the perplexity and KL divergence over generations.
+> 🔼 The chart visualizes optimal block removal configurations identified by EvoPress for various LLMs under different sparsity levels, showcasing the model's ability to determine optimal configurations that balance compression and accuracy.
 > <details>
 > <summary>read the caption</summary>
-> Figure 5: Convergence of EvoPress when removing 8 transformer blocks (left) and 16 transformer blocks (right) of Mistral-7B-v0.3.
+> Figure 6: Optimal removal configurations identified by EvoPress for different models.
 > </details>
 
 
 ![](charts/charts_30_0.png "🔼 Figure 7: Effect of removing random subsets of blocks for Llama-3-8B.")
 
-> 🔼 The chart displays the correlation between different metrics (cosine similarity, squared error, and normalized squared error) and perplexity when randomly removing subsets of blocks from Llama-3-8B, showing how these correlations change with sparsity levels.
+> 🔼 The chart displays the correlation between the average cosine similarity, average squared error, and average normalized squared error of random subsets of removed blocks with their corresponding perplexity for Llama-3-8B.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Effect of removing random subsets of blocks for Llama-3-8B.
@@ -146,7 +146,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_32_0.png "🔼 Figure 8: Comparison of different block-level sparsity profiles for Llama-3.1-8B at 70% sparsity.")
 
-> 🔼 The chart compares the sparsity profiles generated by EvoPress, OWL, and uniform sparsity methods across different layers of Llama-3.1-8B model at 70% average sparsity.
+> 🔼 The chart compares the sparsity profiles generated by EvoPress, OWL, and uniform sparsity methods across different layers of the Llama-3.1-8B model at 70% overall sparsity.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Comparison of different block-level sparsity profiles for Llama-3.1-8B at 70% sparsity.
@@ -155,7 +155,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_32_1.png "🔼 Figure 9: Average sparsity per projection type for Llama-3.1-8B at 70% sparsity for EvoPress.")
 
-> 🔼 The bar chart displays the average sparsity achieved per projection type (q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj) for the Llama-3.1-8B model using EvoPress at 70% overall sparsity.
+> 🔼 The chart displays the average sparsity per projection type for the Llama-3.1-8B model at 70% sparsity using the EvoPress method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Average sparsity per projection type for Llama-3.1-8B at 70% sparsity for EvoPress.
@@ -164,7 +164,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_33_0.png "🔼 Figure 10: Convergence of EvoPress for 2.25 bit quantization on Llama-3.1-8B (left) and 3 bit quantization on Llama-3-8B (right).")
 
-> 🔼 The chart displays the convergence speed of EvoPress for 2.25-bit and 3-bit quantization on Llama-3.1-8B and Llama-3-8B, respectively, over generations.
+> 🔼 The chart displays the convergence of EvoPress for 2.25-bit and 3-bit quantization on Llama-3.1-8B and Llama-3-8B respectively, showing the perplexity and KL-divergence over generations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 10: Convergence of EvoPress for 2.25 bit quantization on Llama-3.1-8B (left) and 3 bit quantization on Llama-3-8B (right).
@@ -173,7 +173,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_33_1.png "🔼 Figure 10: Convergence of EvoPress for 2.25 bit quantization on Llama-3.1-8B (left) and 3 bit quantization on Llama-3-8B (right).")
 
-> 🔼 The chart displays the convergence speed of EvoPress for 2.25-bit and 3-bit quantization on Llama-3.1-8B and Llama-3-8B, respectively, showing the perplexity and KL-divergence values over generations.
+> 🔼 The chart displays the convergence of EvoPress for 2.25-bit and 3-bit quantization on Llama-3.1-8B and Llama-3-8B, respectively, showing perplexity and KL-divergence over generations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 10: Convergence of EvoPress for 2.25 bit quantization on Llama-3.1-8B (left) and 3 bit quantization on Llama-3-8B (right).
@@ -182,7 +182,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_33_2.png "🔼 Figure 11: Block-level quantization profiles for Llama-3.1-8B at 3 bit compression on average.")
 
-> 🔼 The chart displays the block-level quantization profiles for the Llama-3.1-8B model at an average compression of 3 bits, showing the bit allocation for each block.
+> 🔼 The chart visualizes the block-level quantization profiles generated by EvoPress for Llama-3.1-8B, showing the bitwidth allocated to each block during 3-bit compression on average.
 > <details>
 > <summary>read the caption</summary>
 > Figure 11: Block-level quantization profiles for Llama-3.1-8B at 3 bit compression on average.
@@ -191,7 +191,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 
 ![](charts/charts_33_3.png "🔼 Figure 9: Average sparsity per projection type for Llama-3.1-8B at 70% sparsity for EvoPress.")
 
-> 🔼 The chart visualizes the average sparsity achieved per projection type (q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj) for the Llama-3.1-8B model when applying EvoPress at a 70% overall sparsity level.
+> 🔼 The bar chart displays the average sparsity per projection type for the Llama-3.1-8B model at 70% sparsity using the EvoPress method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Average sparsity per projection type for Llama-3.1-8B at 70% sparsity for EvoPress.
@@ -216,7 +216,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> Table 2 presents a comparison of different model compression methods at 70% average sparsity across multiple LLMs, showing EvoPress's superior performance in terms of perplexity and zero-shot accuracy.
+> Table 2 presents a comparison of various methods for achieving 70% average sparsity across different LLMs, showing that EvoPress outperforms existing methods in terms of perplexity and zero-shot accuracy.
 
 
 {{< table-caption >}}
@@ -228,7 +228,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table shows an example where removing more blocks in a Llama-3-8B model, contrary to the assumption of error monotonicity, improves perplexity across different sources.
+> The table shows that removing more blocks from a Llama-3-8B language model does not always lead to lower perplexity, refuting the assumption of error monotonicity in LLM compression.
 
 
 {{< table-caption >}}
@@ -240,7 +240,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table presents a comparison of different methods for achieving 70% average sparsity in various LLMs, showing EvoPress's superior performance in terms of perplexity and zero-shot accuracy.
+> The table presents a comparison of various methods' performance at 70% average sparsity across different LLMs, showing EvoPress's superior performance in terms of perplexity and zero-shot accuracy.
 
 
 {{< table-caption >}}
@@ -252,7 +252,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table shows an example where removing more blocks from a Llama-3-8B model, contrary to the assumption of error monotonicity, leads to improved perplexity.
+> The table presents a comparison of different model compression methods at 70% average sparsity, showing that EvoPress outperforms existing methods in terms of validation perplexity and zero-shot accuracy.
 
 
 {{< table-caption >}}
@@ -264,7 +264,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> Table 2 presents a comparison of different model compression methods at 70% average sparsity, showing EvoPress's superior performance in terms of perplexity and zero-shot accuracy.
+> Table 2 presents a comparison of different methods for achieving 70% average sparsity across various LLMs, showing that EvoPress achieves the best performance in terms of both perplexity and zero-shot accuracy.
 
 
 {{< table-caption >}}
@@ -276,7 +276,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> Table 2 presents a comparison of different methods for unstructured sparsity at 70% sparsity, showing EvoPress's superior performance in terms of perplexity and zero-shot accuracy across various LLMs.
+> Table 2 shows the performance of different methods on various LLMs at 70% average sparsity, comparing validation perplexity and average zero-shot accuracy across different metrics.
 
 
 {{< table-caption >}}
@@ -288,7 +288,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table shows that removing more blocks from a Llama-3-8B model, as measured by perplexity, does not always lead to a decrease in performance, demonstrating that error monotonicity does not hold for LLMs.
+> The table shows an example where removing more blocks in a Llama-3-8B model, contrary to the assumption of error monotonicity, leads to better perplexity.
 
 
 {{< table-caption >}}
@@ -300,7 +300,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table presents the results of depth pruning experiments on Llama-2-7B model, comparing the perplexity scores of various depth pruning methods at different sparsity levels.
+> The table presents the results of depth pruning experiments on Llama-2-7B at various sparsity levels, comparing EvoPress with other baseline methods.
 
 
 {{< table-caption >}}
@@ -312,7 +312,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table shows that removing more blocks from a Llama-3-8B model, contrary to the assumption of error monotonicity, can sometimes lead to better perplexity.
+> The table demonstrates that removing more blocks from a Llama language model does not always result in worse perplexity, refuting the assumption of error monotonicity in LLM compression.
 
 
 {{< table-caption >}}
@@ -324,7 +324,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table shows the perplexity results of different depth pruning methods on the Llama-3.1-8B model at various sparsity levels.
+> The table shows the perplexity scores achieved by different depth pruning methods on the Llama-3.1-8B model at various sparsity levels.
 
 
 {{< table-caption >}}
@@ -336,7 +336,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> The table shows that in large language models, removing more blocks does not always lead to lower perplexity, contradicting the assumption of error monotonicity in dynamic model compression.
+> The table demonstrates that removing more blocks from a Llama-3-8B language model does not always lead to lower perplexity, contradicting the assumption of error monotonicity in dynamic model compression.
 
 
 {{< table-caption >}}
@@ -348,7 +348,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> Table 2 presents the performance comparison of different methods for unstructured sparsity at 70% average sparsity across various LLMs, showcasing EvoPress's superior performance in terms of perplexity and zero-shot accuracy.
+> Table 2 presents a comparison of different methods for achieving 70% average sparsity across various LLMs, showing EvoPress's superior performance in terms of perplexity and zero-shot accuracy.
 
 
 {{< table-caption >}}
@@ -360,7 +360,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> Table 2 presents a comparison of different methods for achieving 70% average sparsity in LLMs, showing EvoPress's superior performance in both perplexity and zero-shot accuracy.
+> Table 2 presents the performance comparison of different methods for unstructured sparsity at 70% sparsity level across multiple LLMs, showing EvoPress's superior performance.
 
 
 {{< table-caption >}}
@@ -372,7 +372,7 @@ This paper is highly important because it challenges existing assumptions in LLM
 > </details>
 
 
-> Table 2 presents a comparison of different methods for achieving 70% sparsity in various LLMs, showing that EvoPress outperforms existing techniques in terms of both perplexity and zero-shot accuracy.
+> Table 2 presents a comparison of different methods for achieving 70% average sparsity in various LLMs, showing that EvoPress outperforms existing methods in terms of both perplexity and zero-shot accuracy.
 
 
 </details>

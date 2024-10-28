@@ -1,6 +1,6 @@
 ---
 title: "Mitigating Object Hallucination via Concentric Causal Attention"
-summary: "Concentric Causal Attention (CCA) significantly reduces object hallucination in Large Vision Language Models by mitigating the negative effects of long-term decay in Rotary Position Encoding."
+summary: "Concentric Causal Attention (CCA) significantly reduces object hallucination in large vision-language models by mitigating the negative effects of long-term decay in Rotary Position Encoding."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Large Vision-Language Models (LVLMs) often suffer from object hallucination – generating descriptions inconsistent with images.  This paper investigates the role of Rotary Position Encoding (RoPE), a common positional encoding method, in causing this issue.  The authors find that RoPE's long-term decay weakens the model's ability to connect distant visual and textual information, leading to hallucinations. To solve this, they introduce Concentric Causal Attention (CCA). CCA rearranges the order of visual tokens to reduce the relative distance between visual and textual information and modifies the causal attention mechanism to better capture 2D spatial relationships.  Experiments show that CCA significantly reduces hallucination and improves model performance across various benchmarks, outperforming previous methods.
+Large Vision-Language Models (LVLMs) are impressive, but they often 'hallucinate' objects – generating descriptions that don't match the image. This paper finds that a common technique in LVLMs, called Rotary Position Encoding (RoPE), contributes to this problem because of its 'long-term decay'.  RoPE weakens the connection between parts of the image and the description as the distance between them increases.  To solve this, the researchers created a new method called Concentric Causal Attention (CCA). CCA changes how the model processes the image, making it easier to connect all parts to the description, reducing the hallucination. Tests show that CCA significantly improves the accuracy of LVLMs on several benchmark tasks.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Large Vision-Language Models (LVLMs) often suffer from object hallucination – 
 {{< button href="https://arxiv.org/abs/2410.15926" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.15926" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on large vision-language models (LVLMs) because it addresses the critical issue of object hallucination. By identifying Rotary Position Encoding (RoPE) as a key contributor to this problem and proposing a novel solution, the paper offers a valuable contribution to improving the accuracy and reliability of LVLMs.  It opens avenues for research on positional encoding and causal attention mechanisms within multimodal models and has strong implications for improving the robustness and applicability of LVLMs in various real-world applications.
+This paper is crucial for researchers working on large vision-language models (LVLMs) because it addresses the prevalent issue of object hallucination.  By pinpointing the role of Rotary Position Encoding (RoPE) and proposing a novel solution, Concentric Causal Attention (CCA), it offers a practical and effective mitigation strategy.  The findings are broadly relevant to the ongoing efforts to improve LVLMs’ accuracy and reliability, and CCA opens new avenues for research in positional encoding and multimodal alignment.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Rotary Position Encoding (RoPE), while beneficial for language modeling, contributes to object hallucination in LVLMs due to long-term decay. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Rotary Position Encoding (RoPE), while beneficial for language modeling, causes object hallucination in LVLMs due to long-term decay. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Concentric Causal Attention (CCA) effectively mitigates object hallucination by improving the alignment between visual and instruction tokens. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Concentric Causal Attention (CCA) effectively mitigates this issue by reorganizing visual token positions and modifying causal attention masking. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} CCA surpasses existing hallucination mitigation strategies across multiple benchmarks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} CCA substantially improves performance on multiple object hallucination benchmarks, surpassing existing methods. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure illustrates the long-term decay of Rotary Position Encoding (RoPE) in Large Vision Language Models (LVLMs), showing how information flow from visual tokens to instruction tokens diminishes with increasing relative distance.
+> 🔼 The figure illustrates the long-term decay effect of Rotary Position Encoding (RoPE) in Large Vision Language Models (LVLMs), showing how information flow from visual tokens to instruction tokens diminishes with increasing relative distance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Long-term decay of RoPE [61] in Large Vision Language Models (LVLMs). (a) a schematic view of inference in LVLMs, typically involving a pre-trained vision encoder, a large language model and a projector to map visual tokens to textual space. For each of V visual tokens Svision, we aggregate its information flow to instruction tokens Sinstruct and reshape the aggregation results to 2-D (√V by √V). Applying RoPE on visual tokens introduces long-term decay as illustrated in (c), referring to the phenomenon where information flowing from visual tokens to instruction tokens gradually decays from lower-right region (rightmost visual tokens in the 1-D sequence) to upper-left region (leftmost visual tokens). For instruction tokens, they have much less direct interaction with leftmost visual tokens as compared with rightmost visual tokens, leading to inferior multimodal alignment in the trained LVLMs. (b) and (c) are derived from the adversarial subset of the 3k POPE [41] image-instruction pairs. Best viewed in color.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](charts/charts_2_0.png)
 
-> 🔼 The chart visualizes the long-term decay effect of Rotary Position Encoding (RoPE) in Large Vision Language Models (LVLMs), showing how information flow from visual tokens to instruction tokens diminishes with increasing distance when RoPE is applied.
+> 🔼 The chart visualizes the long-term decay effect of Rotary Position Encoding (RoPE) in Large Vision Language Models (LVLMs), showing how information flow from visual to instruction tokens diminishes with increasing relative distance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Long-term decay of RoPE [61] in Large Vision Language Models (LVLMs). (a) a schematic view of inference in LVLMs, typically involving a pre-trained vision encoder, a large language model and a projector to map visual tokens to textual space. For each of V visual tokens Svision, we aggregate its information flow to instruction tokens Sinstruct and reshape the aggregation results to 2-D (√V by √V). Applying RoPE on visual tokens introduces long-term decay as illustrated in (c), referring to the phenomenon where information flowing from visual tokens to instruction tokens gradually decays from lower-right region (rightmost visual tokens in the 1-D sequence) to upper-left region (leftmost visual tokens). For instruction tokens, they have much less direct interaction with leftmost visual tokens as compared with rightmost visual tokens, leading to inferior multimodal alignment in the trained LVLMs. (b) and (c) are derived from the adversarial subset of the 3k POPE [41] image-instruction pairs. Best viewed in color.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on large vision-language models (L
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td rowspan="2">Evaluation</td><td rowspan="2">Method</td><td colspan="2">random</td><td colspan="2">popular</td><td colspan="2">adversarial</td><td colspan="2">average</td></tr><tr><td>acc</td><td>fl</td><td>acc</td><td>fl</td><td>acc</td><td>fl</td><td>acc</td><td>fl</td></tr><tr><td rowspan="4">MSCOCO 42</td><td>baseline</td><td>83.29</td><td>81.33</td><td>81.88</td><td>80.06</td><td>78.96</td><td>77.57</td><td>81.38</td><td>79.65</td></tr><tr><td>VCD 34</td><td>87.73</td><td>87.16</td><td>85.38</td><td>85.06</td><td>80.88</td><td>81.33</td><td>84.66</td><td>84.52</td></tr><tr><td>LLaVA-RLHF 62</td><td>85.90</td><td>83.92</td><td>83.90</td><td>82.05</td><td>82.60</td><td>80.88</td><td>84.13</td><td>82.28</td></tr><tr><td>CCA-LLaVA</td><td>88.03</td><td>86.65</td><td>86.87</td><td>85.54</td><td>85.67</td><td>84.42</td><td>86.86</td><td>85.54</td></tr><tr><td rowspan="4">A-OKVQA 58</td><td>baseline</td><td>83.45</td><td>82.56</td><td>79.90</td><td>79.59</td><td>74.04</td><td>75.15</td><td>79.13</td><td>79.10</td></tr><tr><td>VCD 34</td><td>86.15</td><td>86.34</td><td>81.85</td><td>82.82</td><td>74.97</td><td>77.73</td><td>80.99</td><td>82.30</td></tr><tr><td>LLaVA-RLHF 62</td><td>87.67</td><td>86.60</td><td>85.20</td><td>84.34</td><td>79.97</td><td>79.92</td><td>84.28</td><td>83.62</td></tr><tr><td>CCA-LLaVA</td><td>90.27</td><td>89.71</td><td>88.40</td><td>87.98</td><td>82.30</td><td>82.74</td><td>86.99</td><td>86.81</td></tr><tr><td rowspan="4">GQA 28</td><td>baseline</td><td>83.73</td><td>82.95</td><td>78.17</td><td>78.37</td><td>75.08</td><td>76.06</td><td>78.99</td><td>79.13</td></tr><tr><td>VCD 34</td><td>86.65</td><td>86.99</td><td>80.73</td><td>82.24</td><td>76.09</td><td>78.78</td><td>81.16</td><td>82.67</td></tr><tr><td>LLaVA-RLHF 62</td><td>84.93</td><td>83.38</td><td>81.37</td><td>80.23</td><td>78.30</td><td>77.70</td><td>81.53</td><td>80.44</td></tr><tr><td>CCA-LLaVA</td><td>88.40</td><td>87.68</td><td>86.47</td><td>85.91</td><td>82.20</td><td>82.37</td><td>85.69</td><td>85.32</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the accuracy and F1 scores achieved by the proposed CCA-LLaVA model and other methods on three different datasets using three negative sampling options for the POPE benchmark.
+> 🔼 Table 1 presents the accuracy and F1 scores of different models on the POPE benchmark, comparing the proposed CCA-LLaVA model with baseline and state-of-the-art models.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: POPE Results. acc: accuracy. f1: f1 score, measured by precision and recall. Baseline and VCD results are reported by paper [34].
@@ -91,7 +91,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the long-term decay effect of Rotary Position Encoding (RoPE) in Large Vision Language Models (LVLMs), showing how information flow from visual to instruction tokens diminishes with distance due to RoPE's long-term decay.
+> 🔼 The figure illustrates the long-term decay effect of Rotary Position Encoding (RoPE) in Large Vision Language Models (LVLMs), showing how information flow from visual tokens to instruction tokens weakens with increasing distance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Long-term decay of RoPE [61] in Large Vision Language Models (LVLMs). (a) a schematic view of inference in LVLMs, typically involving a pre-trained vision encoder, a large language model and a projector to map visual tokens to textual space. For each of V visual tokens Svision, we aggregate its information flow to instruction tokens Sinstruct and reshape the aggregation results to 2-D (√V by √V). Applying RoPE on visual tokens introduces long-term decay as illustrated in (c), referring to the phenomenon where information flowing from visual tokens to instruction tokens gradually decays from lower-right region (rightmost visual tokens in the 1-D sequence) to upper-left region (leftmost visual tokens). For instruction tokens, they have much less direct interaction with leftmost visual tokens as compared with rightmost visual tokens, leading to inferior multimodal alignment in the trained LVLMs. (b) and (c) are derived from the adversarial subset of the 3k POPE [41] image-instruction pairs. Best viewed in color.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure shows the aggregated correct responses of two LVLMs with different positional alignment strategies when pasting an object to various positions in a template image, revealing the impact of RoPE long-term decay on object hallucination.
+> 🔼 The figure shows the results of an experiment testing the effect of different positional alignment strategies (raster-scan and reverse raster-scan) on the ability of Large Vision Language Models (LVLMs) to correctly identify objects in images, revealing that object hallucination is closely tied to the positional encoding scheme used.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Motivation Experiment. Given an image I with object O<sub>r</sub>, we crop O<sub>r</sub> and paste it to various spatial positions {v<sub>1</sub>, ..., v<sub>k</sub>} within a pre-defined template. For every pasting position, we ask two LVLMs (F<sub>b</sub> and F<sub>r</sub>) if object O<sub>r</sub> is in this template, where F<sub>b</sub> refers to a baseline model that follows raster-scan positional alignment strategy and F<sub>r</sub> refers to a model that resorts to reversal raster-scan position alignment strategy. The total number of correct responses at different pasting positions {v<sub>1</sub>, ..., v<sub>k</sub>} is reported in (a) and (b), which refers to results from model F<sub>b</sub> and F<sub>r</sub>, respectively. We observe that LVLM F<sub>b</sub> are more likely to generate correct responses when pasting object O<sub>r</sub> to lower region, while F<sub>r</sub> are less hallucinated when pasting object O<sub>r</sub> to upper region. Pasting positions with the most and the least correct responses are highlighted in solid-line and dotted-line red boxes. More details are provided in Appendix C.1. Best viewed in color.
@@ -111,7 +111,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_15_0.png)
 
-> 🔼 The figure shows a schematic view of LLaMA architecture with Rotary Position Encoding (RoPE) highlighted, illustrating how RoPE applies rotation matrices to query and key tokens based on their positions.
+> 🔼 The figure schematically illustrates the application of Rotary Position Encoding (ROPE) in the LLaMA architecture and provides a detailed example of its function.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: ROPE in LLaMA. A schematic view for LLaMA where RoPE is highlighted, and an example illustration on how ROPE is applied over query or key feature. We use a short input sequence with length of 4 and feature dimension of 4 for demonstration purpose. Input tokens are rotated with angles, subject to token positions. For mathematical definition, please refer to Sec. 3.
@@ -131,7 +131,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_16_1.png)
 
-> 🔼 The figure illustrates the long-term decay of RoPE in LVLMs, showing how information flow from visual to instruction tokens diminishes with distance, impacting multimodal alignment.
+> 🔼 The figure illustrates the long-term decay effect of Rotary Position Encoding (RoPE) in Large Vision Language Models (LVLMs), showing how information flow from visual tokens to instruction tokens diminishes with increasing relative distance due to RoPE's long-term decay.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Long-term decay of RoPE [61] in Large Vision Language Models (LVLMs). (a) a schematic view of inference in LVLMs, typically involving a pre-trained vision encoder, a large language model and a projector to map visual tokens to textual space. For each of V visual tokens Svision, we aggregate its information flow to instruction tokens Sinstruct and reshape the aggregation results to 2-D (√V by √V). Applying RoPE on visual tokens introduces long-term decay as illustrated in (c), referring to the phenomenon where information flowing from visual tokens to instruction tokens gradually decays from lower-right region (rightmost visual tokens in the 1-D sequence) to upper-left region (leftmost visual tokens). For instruction tokens, they have much less direct interaction with leftmost visual tokens as compared with rightmost visual tokens, leading to inferior multimodal alignment in the trained LVLMs. (b) and (c) are derived from the adversarial subset of the 3k POPE [41] image-instruction pairs. Best viewed in color.
@@ -141,7 +141,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows a qualitative comparison of the open-ended text generation results between the baseline LLaVA model and the CCA-LLaVA model, highlighting the reduced hallucinations in the CCA-LLaVA model's output.
+> 🔼 The figure shows a qualitative comparison of the outputs generated by the baseline LLaVA model and the CCA-LLaVA model on open-ended image captioning tasks, highlighting the reduction in hallucinations achieved by the proposed method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Qualitative comparison of open-ended generation between baseline and our method.
@@ -151,7 +151,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_18_0.png)
 
-> 🔼 The figure shows a qualitative comparison of the responses generated by LLaVA and CCA-LLaVA to a question about the intended effect of a painting, illustrating CCA's ability to mitigate hallucinations.
+> 🔼 The figure shows a qualitative comparison of responses generated by LLaVA and CCA-LLaVA models to a question about the intended effect of a painting.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Case Study where question is sampled from LLaVA-Bench [46]. LLaVA hallucinates hat in its long response, while CCA answers correctly without hallucination.
@@ -161,7 +161,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_18_1.png)
 
-> 🔼 The figure shows two case studies comparing the performance of LLaVA and CCA-LLaVA on questions about product brand identification and fruit counting, highlighting CCA-LLaVA's improved accuracy.
+> 🔼 The figure shows two case studies comparing the performance of LLaVA and CCA-LLaVA on optical character recognition and numerical prediction tasks, highlighting CCA-LLaVA's superior accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 10: Case Study where question is sampled from LLaVA-Bench [46]. CCA-LLaVA outperforms LLaVA on optical character recognition (left) and numerical prediction in given cases.
@@ -188,7 +188,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 2 presents CHAIR evaluation results, showing the performance of different models in generating image captions with varying lengths (long-text and short-text).
+> Table 2 presents CHAIR evaluation results for long and short text generation using greedy and beam search decoding methods, comparing baseline and CCA-LLaVA performance on sentence and instance levels.
 
 
 {{< table-caption >}}
@@ -200,7 +200,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> The table presents the accuracy and F1 scores of different models on the POPE benchmark for object hallucination mitigation, comparing the proposed CCA-LLaVA model with baselines and state-of-the-art methods across three datasets and three negative sampling strategies.
+> The table presents the accuracy and F1 scores of different models on the POPE benchmark for object hallucination mitigation, comparing the proposed CCA method with baselines and state-of-the-art methods.
 
 
 {{< table-caption >}}
@@ -212,7 +212,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 1 presents the accuracy and F1 scores of different models on the POPE benchmark for object hallucination mitigation, comparing the proposed CCA method with baselines and existing state-of-the-art methods.
+> Table 1 presents the accuracy and F1 scores achieved by the proposed CCA-LLaVA model and other methods on the POPE benchmark for object hallucination mitigation, across different datasets and negative sampling strategies.
 
 
 {{< table-caption >}}
@@ -224,7 +224,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 1 presents the accuracy and F1 scores achieved by different models on the POPE benchmark for object hallucination mitigation, comparing the proposed CCA-LLaVA model against baseline and state-of-the-art methods across various datasets and negative sampling strategies.
+> Table 1 presents the accuracy and F1 scores achieved by the proposed CCA-LLaVA model and existing models on the POPE benchmark for object hallucination mitigation, across different datasets and negative sampling strategies.
 
 
 </details>

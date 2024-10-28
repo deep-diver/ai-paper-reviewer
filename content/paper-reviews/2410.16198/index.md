@@ -1,6 +1,6 @@
 ---
 title: "Improve Vision Language Model Chain-of-thought Reasoning"
-summary: "Researchers enhanced vision-language model reasoning by distilling rationales from GPT-4, fine-tuning models, and applying reinforcement learning, achieving significant improvements in complex reasoni..."
+summary: "Researchers enhance vision-language model reasoning by distilling rationales from GPT-4, fine-tuning with a new dataset, and applying reinforcement learning, achieving significant performance gains."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper tackles the challenge of improving reasoning in vision-language models (VLMs). Current methods struggle because training data often lacks detailed explanations (rationales) for answers.  The researchers cleverly use GPT-4 to generate these missing rationales, creating a much richer dataset.  They then fine-tune a VLM using this new data, significantly boosting its ability to reason through problems step-by-step (chain-of-thought reasoning).  To further enhance performance, they employ reinforcement learning to refine the model's reasoning process. Experiments show remarkable improvements across various tasks, demonstrating the effectiveness of their approach. This research is significant because it provides a practical method for improving the reasoning capabilities of VLMs and offers a valuable new dataset for future research.
+This paper tackles the challenge of improving reasoning in vision-language models (VLMs).  Current methods often rely on limited data, hindering the models' ability to handle complex reasoning tasks. The researchers propose a two-pronged approach: 1) They leverage the power of a large language model (GPT-4) to generate detailed reasoning steps (chain-of-thought) for existing VQA datasets. This enriched dataset is then used to fine-tune the VLMs. 2)  Reinforcement learning is employed to further calibrate the reasoning process.  The results demonstrate that this combined approach leads to substantial improvements in the VLMs' reasoning capabilities, showcasing enhanced interpretability and improved performance on various benchmark datasets. The researchers also release a new, comprehensive dataset to aid future research in this area.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This paper tackles the challenge of improving reasoning in vision-language model
 {{< button href="https://arxiv.org/abs/2410.16198" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16198" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on vision-language models (VLMs) and chain-of-thought (CoT) reasoning. It addresses the critical issue of limited high-quality CoT data for training VLMs, proposing innovative solutions that significantly improve CoT reasoning performance.  The introduction of a new CoT dataset and the application of reinforcement learning techniques are significant contributions that will impact future VLM development.  It also opens avenues for further research into data augmentation, reward modeling, and improved VLM alignment.
+This paper significantly advances research in vision-language models (VLMs) by introducing novel techniques to improve chain-of-thought (CoT) reasoning.  The proposed methods address the limitations of current training approaches, leading to more accurate and generalizable reasoning capabilities in VLMs. This is highly relevant to current trends in AI, particularly in building more explainable and trustworthy AI systems. The open-sourced dataset and improved reasoning techniques offer valuable resources for researchers to advance the state-of-the-art in VLM development.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} A new large-scale chain-of-thought (CoT) dataset, SHAREGPT-40-REASONING, was created by distilling rationales from GPT-4. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} A novel approach for enhancing vision-language model reasoning by combining data distillation, supervised fine-tuning, and reinforcement learning is presented. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Supervised fine-tuning (SFT) with the CoT dataset significantly improved vision-language model CoT reasoning performance. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The newly created SHAREGPT-40-REASONING dataset, containing 193k chain-of-thought examples, significantly improves VLM performance. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Reinforcement learning using Direct Preference Optimization (DPO) further enhanced reasoning abilities and generalization. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Reinforcement learning, using Direct Preference Optimization, further refines reasoning abilities, leading to better generalization and accuracy. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_2_0.png)
 
-> 🔼 This figure illustrates the difference between training a vision language model exclusively on short answers versus incorporating chain-of-thought reasoning for improved accuracy and alignment.
+> 🔼 The figure illustrates the difference between training a VLM on only short answers versus training it on both short answers and detailed reasoning chains (chain-of-thought).
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: The upper figure questions whether training exclusively on direct-answer datasets can effectively teach CoT prediction. In the lower figure, generating CoT for prediction provides the additional benefit of reasoning alignment, allowing the model to improve by leveraging self-generated data.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](charts/charts_3_0.png)
 
-> 🔼 The chart displays the distribution of word counts in chain-of-thought (CoT) answers and direct answers.
+> 🔼 The chart displays the distribution of word counts for chain-of-thought (CoT) answers and direct answers.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: The distribution of word counts for CoT and direct answer.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 {{< table-caption >}}
 <br><table id='8' style='font-size:16px'><tr><td>Dataset</td><td>Dataset Size</td></tr><tr><td>A-OKVQA</td><td>16.9k</td></tr><tr><td>ChartQA</td><td>26.0k</td></tr><tr><td>SQA</td><td>6.1k</td></tr><tr><td>AI2D</td><td>11.9k</td></tr><tr><td>InfoVQA</td><td>22.4k</td></tr><tr><td>DocVQA</td><td>37.3k</td></tr><tr><td>TextVQA</td><td>29.7k</td></tr><tr><td>MathVision</td><td>11.0k</td></tr><tr><td>G-LLaVA</td><td>30.3k</td></tr><tr><td>Total</td><td>193k</td></tr></table>{{< /table-caption >}}
 
-> 🔼 This table presents the results of supervised fine-tuning experiments comparing different combinations of training data (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) on the performance of vision language models in both direct prediction and chain-of-thought prediction tasks.
+> 🔼 The table presents the results of supervised fine-tuning (SFT) experiments on various vision-language models with different data compositions, comparing the performance of direct prediction and chain-of-thought (CoT) reasoning.
 > <details>
 > <summary>read the caption</summary>
 > Table 2: SFT experiments with data composition in fig. 5: ① format alignment only, ② direct responses only, ③ CoT responses only and ④ both direct and CoT responses. Inference is performed using both direct and CoT templates. The best CoT prediction result is highlighted in orange, while the best direct prediction result is marked in blue. The results demonstrate that combining CoT and direct responses during training leads to the best performance across both types of prompts. Refer to section 4 for detailed analysis.
@@ -91,7 +91,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_3_0.png)
 
-> 🔼 The figure illustrates the three-stage pipeline for improving VLM chain-of-thought reasoning: rationale distillation from GPT-40, supervised fine-tuning with chain-of-thought data, and reinforcement learning using direct preference optimization.
+> 🔼 The figure illustrates the three-stage pipeline for improving vision language model chain-of-thought reasoning: rationale distillation, supervised fine-tuning, and reinforcement learning.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Workflow diagram showing: a) the use of GPT-40 to generate rationale given short annotations; b) SFT of open-source VLM for CoT reasoning; c) Build preference dataset for reinforcement learning with DPO to enhance reasoning.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_4_0.png)
 
-> 🔼 This figure illustrates the difference between training a Vision Language Model (VLM) exclusively on direct answers versus generating chain-of-thought (CoT) reasoning for prediction, highlighting the benefits of reasoning alignment using self-generated data.
+> 🔼 This figure illustrates the difference between training a vision language model (VLM) exclusively on direct answers versus incorporating chain-of-thought (CoT) reasoning, highlighting the benefits of CoT for improved reasoning alignment and self-generated data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: The upper figure questions whether training exclusively on direct-answer datasets can effectively teach CoT prediction. In the lower figure, generating CoT for prediction provides the additional benefit of reasoning alignment, allowing the model to improve by leveraging self-generated data.
@@ -111,7 +111,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure shows the data sources and composition used in the supervised fine-tuning (SFT) experiments for training the vision-language models.
+> 🔼 This figure illustrates the data sources and composition used in supervised fine-tuning experiments for the chain-of-thought reasoning model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: The upper section displays the data sources used for the SFT experiments, while the lower section illustrates the data composition for model training.
@@ -121,7 +121,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_10_0.png)
 
-> 🔼 The figure illustrates the difference between training a vision language model exclusively on direct answers versus generating chain-of-thought (CoT) reasoning for prediction, highlighting the benefits of CoT for reasoning alignment and improved model performance.
+> 🔼 The figure illustrates the difference between training a vision language model exclusively on direct answers versus generating chain-of-thought reasoning for prediction, highlighting the benefits of the latter approach for reasoning alignment and model improvement.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: The upper figure questions whether training exclusively on direct-answer datasets can effectively teach CoT prediction. In the lower figure, generating CoT for prediction provides the additional benefit of reasoning alignment, allowing the model to improve by leveraging self-generated data.
@@ -131,7 +131,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_10_1.png)
 
-> 🔼 The figure illustrates the difference between training a vision language model exclusively on short answers versus training it with chain-of-thought reasoning, highlighting the benefits of the latter for reasoning alignment and improved performance.
+> 🔼 The figure illustrates the difference between training a vision language model exclusively on short answers versus incorporating chain-of-thought reasoning and its impact on model performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: The upper figure questions whether training exclusively on direct-answer datasets can effectively teach CoT prediction. In the lower figure, generating CoT for prediction provides the additional benefit of reasoning alignment, allowing the model to improve by leveraging self-generated data.
@@ -141,7 +141,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_16_0.png)
 
-> 🔼 The figure shows two examples from the A-OKVQA dataset where the GPT-40 generated answers are correct but the annotations contain errors, highlighting the need for filtering mismatched annotations during data distillation.
+> 🔼 The figure shows two examples from the A-OKVQA dataset where the provided annotations are incorrect, highlighting the need for filtering mismatched annotations during data distillation.
 > <details>
 > <summary>read the caption</summary>
 > Figure A.3: An example from the A-OKVQA dataset highlights cases where the annotated answer does not match the GPT-40-generated answer. In these cases, the GPT-40 answers are correct, while the annotations contain labeling errors. In the left figure, the sign reads 'dentist' (correctly identified by GPT-40), and the answer should relate to 'teeth,' not ‘heart' as in the annotation. In the right figure, the fridge contains beer, but the annotation incorrectly labels it as 'water.' Consequently, we filter out instances where the GPT-40-generated answer does not match the annotated answers.
@@ -151,10 +151,10 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](figures/figures_16_1.png)
 
-> 🔼 The figure shows two examples from the A-OKVQA dataset illustrating annotation errors in which GPT-40 generated correct answers, while the provided annotations contained errors.
+> 🔼 The figure shows two examples from the A-OKVQA dataset where the GPT-40 generated answers are correct but differ from the annotated answers due to errors in the annotations.
 > <details>
 > <summary>read the caption</summary>
-> Figure A.3: An example from the A-OKVQA dataset highlights cases where the annotated answer does not match the GPT-40-generated answer. In these cases, the GPT-40 answers are correct, while the annotations contain labeling errors. In the left figure, the sign reads 'dentist' (correctly identified by GPT-40), and the answer should relate to ‘teeth,’ not ‘heart’ as in the annotation. In the right figure, the fridge contains beer, but the annotation incorrectly labels it as ‘water.’ Consequently, we filter out instances where the GPT-40-generated answer does not match the annotated answers.
+> Figure A.3: An example from the A-OKVQA dataset highlights cases where the annotated answer does not match the GPT-40-generated answer. In these cases, the GPT-40 answers are correct, while the annotations contain labeling errors. In the left figure, the sign reads 'dentist' (correctly identified by GPT-40), and the answer should relate to 'teeth,' not ‘heart' as in the annotation. In the right figure, the fridge contains beer, but the annotation incorrectly labels it as 'water.' Consequently, we filter out instances where the GPT-40-generated answer does not match the annotated answers.
 > </details>
 
 
@@ -170,7 +170,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](charts/charts_9_0.png "🔼 Figure 6: The figures illustrate the performance of the DPO model as a verifier on ChartQA, A-OKVQA, and MathVista. Compared to the model trained with RLAIF-V, the model trained on our reasoning data pairs consistently shows improvement in both best-of-N selection and weighted voting.")
 
-> 🔼 The chart displays the performance of the DPO model as a verifier on three datasets (ChartQA, A-OKVQA, and MathVista) using three re-ranking methods (weighted voting with DPO, majority voting, and best-of-N with DPO) across different numbers of candidate answers.
+> 🔼 The chart displays the performance of three different re-ranking methods (weighted voting with DPO, majority voting, and best-of-N with DPO) on three datasets (ChartQA, A-OKVQA, and MathVista) as the number of candidate answers increases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: The figures illustrate the performance of the DPO model as a verifier on ChartQA, A-OKVQA, and MathVista. Compared to the model trained with RLAIF-V, the model trained on our reasoning data pairs consistently shows improvement in both best-of-N selection and weighted voting.
@@ -179,7 +179,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](charts/charts_9_1.png "🔼 Figure 6: The figures illustrate the performance of the DPO model as a verifier on ChartQA, A-OKVQA, and MathVista. Compared to the model trained with RLAIF-V, the model trained on our reasoning data pairs consistently shows improvement in both best-of-N selection and weighted voting.")
 
-> 🔼 The chart displays the performance of the DPO model as a verifier for three different datasets (ChartQA, A-OKVQA, and MathVista), comparing its performance with and without RLAIF-V training.
+> 🔼 The chart displays the performance of the DPO model as a verifier across three datasets (ChartQA, A-OKVQA, and MathVista) using three re-ranking strategies (weighted voting with DPO, majority voting, and best-of-N with DPO), showing improved performance with the model trained on reasoning data pairs compared to the one trained with RLAIF-V.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: The figures illustrate the performance of the DPO model as a verifier on ChartQA, A-OKVQA, and MathVista. Compared to the model trained with RLAIF-V, the model trained on our reasoning data pairs consistently shows improvement in both best-of-N selection and weighted voting.
@@ -188,7 +188,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](charts/charts_10_0.png "🔼 Figure C.1: Randomly sampled examples from LLAVA-NEXT-8B with temperature=1.0 for a test case in ChartQA reveal that the model struggles to effectively follow the CoT prompt. In Sample 1, the model refuses to answer the question. In Samples 2-4, the model generates an answer first, followed by an explanation. In the final sample, the model produces a description instead of reasoning through the question, without providing an answer.")
 
-> 🔼 The chart displays examples of the LLAVA-Next-8B model's responses to a question about counting food items in a bar chart, demonstrating its inconsistent handling of a chain-of-thought (CoT) prompt.
+> 🔼 The chart displays examples of the LLAVA-Next-8B model's inability to follow chain-of-thought reasoning prompts, demonstrating inconsistent responses ranging from refusal to answer to providing answers before reasoning.
 > <details>
 > <summary>read the caption</summary>
 > Figure C.1: Randomly sampled examples from LLAVA-NEXT-8B with temperature=1.0 for a test case in ChartQA reveal that the model struggles to effectively follow the CoT prompt. In Sample 1, the model refuses to answer the question. In Samples 2-4, the model generates an answer first, followed by an explanation. In the final sample, the model produces a description instead of reasoning through the question, without providing an answer.
@@ -206,7 +206,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 
 ![](charts/charts_27_0.png "🔼 Figure C.4: Randomly sampled examples from LLAVA-NEXT-FORMAT with a temperature setting of 1.0, evaluated on the same test case in ChartQA, show that after training on 450 format-aligned data, the model is able to follow the CoT prompt by verbalizing the thought process and providing a short answer.")
 
-> 🔼 The chart displays a bar graph showing the long-term price index of various food commodities from 1850 to 2015, with each bar representing a different food item and its length proportional to the price index value.
+> 🔼 The chart displays a bar graph showing the long-term price index of various food commodities from 1850 to 2015, measured relative to real prices in 1900, with each bar representing a different food item.
 > <details>
 > <summary>read the caption</summary>
 > Figure C.4: Randomly sampled examples from LLAVA-NEXT-FORMAT with a temperature setting of 1.0, evaluated on the same test case in ChartQA, show that after training on 450 format-aligned data, the model is able to follow the CoT prompt by verbalizing the thought process and providing a short answer.
@@ -231,7 +231,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table presents the performance of different models trained with varying combinations of direct and chain-of-thought (CoT) response data, demonstrating that combining both improves performance on both direct and CoT prediction tasks.
+> The table presents the results of supervised fine-tuning (SFT) experiments on vision language models, comparing different data compositions and prompting strategies for both direct and chain-of-thought prediction.
 
 
 {{< table-caption >}}
@@ -243,7 +243,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table presents the results of supervised fine-tuning experiments on different combinations of training data (format alignment, direct responses, and chain-of-thought responses), showing the best performance is achieved when combining both direct and chain-of-thought data.
+> The table presents the results of supervised fine-tuning experiments on four different data compositions, comparing the performance of direct and chain-of-thought prediction across various vision-language reasoning tasks.
 
 
 {{< table-caption >}}
@@ -255,7 +255,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> This table presents the results of supervised fine-tuning experiments comparing different data compositions (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) on various tasks and prompting methods (direct and CoT).
+> The table shows the results of supervised fine-tuning experiments on vision language models using different combinations of training data (format-aligned, direct, and chain-of-thought), comparing their performance on direct prediction and chain-of-thought prediction tasks.
 
 
 {{< table-caption >}}
@@ -267,7 +267,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> This table presents the results of supervised fine-tuning (SFT) experiments using different combinations of data (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) and shows that combining CoT and direct responses leads to the best performance.
+> This table presents the results of supervised fine-tuning (SFT) experiments on vision language models (VLMs) using different combinations of direct and chain-of-thought (CoT) reasoning data, showing that combining both data types leads to the best performance.
 
 
 {{< table-caption >}}
@@ -279,7 +279,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table compares the performance of different prompting methods (direct and CoT) on various vision-language tasks using different DPO datasets (RLAIF-V and a custom dataset).
+> The table presents the results of supervised fine-tuning experiments on four different data compositions, comparing the performance of direct and chain-of-thought prediction on various vision-language reasoning tasks.
 
 
 {{< table-caption >}}
@@ -291,7 +291,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table presents the results of supervised fine-tuning (SFT) experiments on various datasets using different combinations of direct and chain-of-thought (CoT) training data.
+> The table presents the results of supervised fine-tuning experiments on various vision-language models, comparing different data compositions (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) and their impact on model performance across both direct prediction and chain-of-thought prompting.
 
 
 {{< table-caption >}}
@@ -303,7 +303,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table presents the results of supervised fine-tuning experiments with different data compositions (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) and shows that combining CoT and direct responses yields the best performance.
+> The table presents the results of supervised fine-tuning experiments on various vision-language models with different data compositions, showing that combining both direct and chain-of-thought data leads to improved performance on both prompt types.
 
 
 {{< table-caption >}}
@@ -315,7 +315,19 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table presents the results of supervised fine-tuning experiments on four different data compositions, comparing the performance of direct and chain-of-thought prediction using various prompting methods.
+> This table presents the results of supervised fine-tuning (SFT) experiments with different combinations of data (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) and prompting methods (direct and CoT) on various vision-language reasoning tasks, showing that combining direct and CoT responses during training improves performance.
+
+
+{{< table-caption >}}
+<table id='4' style='font-size:14px'><tr><td>Dataset</td><td>Prompt</td></tr><tr><td>A-OKVQA AI2D SQA MMStar</td><td>Answer the question. Do not write a full sentence, just provide a letter choice. question {Question}</td></tr><tr><td>ChartQA</td><td>Answer the question with following instruction: 1 . Do not write a full sentence, just provide a value. 2. Don  t include any unit, i . e. 56 instead of 56 meters 3. Don 't include '%' sign, i.e. 56 instead of 56% Question: {Question}</td></tr><tr><td>DocVQA TextVQA InfoVQA</td><td>Answer the question. Do not write a full sentence, just provide a value. Question: {question}</td></tr><tr><td>OCRBench</td><td></td></tr><tr><td>Math Vista MMMU</td><td>Answer the question. Do not write a full sentence, just provide a value or letter choice. {question}</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> This table presents the results of supervised fine-tuning (SFT) experiments on four different data compositions, comparing the performance of direct and chain-of-thought (CoT) prediction across various reasoning tasks.
 
 
 {{< table-caption >}}
@@ -327,7 +339,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table presents the results of supervised fine-tuning experiments on various data compositions, comparing the performance of direct and chain-of-thought prediction on several vision-language reasoning tasks.
+> The table presents the results of supervised fine-tuning (SFT) experiments comparing different data compositions (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) on the performance of vision language models in both direct and chain-of-thought prediction.
 
 
 {{< table-caption >}}
@@ -339,7 +351,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table presents the results of supervised fine-tuning (SFT) experiments on four different data compositions, comparing the performance of direct and chain-of-thought (CoT) prediction on various tasks.
+> The table presents the results of supervised fine-tuning (SFT) experiments on various vision-language models with different data compositions (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) and prompting methods (direct and chain-of-thought), showing that combining both direct and CoT data leads to the best performance.
 
 
 {{< table-caption >}}
@@ -363,7 +375,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> This table presents a comparison of the performance of different models on various visual question answering tasks using both direct and chain-of-thought prediction methods, highlighting the effectiveness of a self-taught reasoning approach with minimal chain-of-thought data.
+> This table presents the results of experiments comparing the performance of a self-taught reasoner trained with minimal chain-of-thought (CoT) data against a baseline model on various benchmark datasets, highlighting the superior performance of the self-taught reasoner.
 
 
 {{< table-caption >}}
@@ -375,7 +387,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> This table presents the results of supervised fine-tuning (SFT) experiments on different combinations of training data (format alignment, direct responses, and CoT responses) and their impact on both direct and chain-of-thought (CoT) prediction performance.
+> This table presents the results of supervised fine-tuning (SFT) experiments using different combinations of data (format alignment only, direct responses only, CoT responses only, and both direct and CoT responses) and demonstrates that combining CoT and direct responses during training yields the best performance.
 
 
 {{< table-caption >}}
@@ -387,7 +399,7 @@ This paper is crucial for researchers working on vision-language models (VLMs) a
 > </details>
 
 
-> The table shows the performance of four different supervised fine-tuning (SFT) models on various vision-language reasoning tasks, trained with different combinations of direct and chain-of-thought (CoT) data.
+> This table presents the results of supervised fine-tuning (SFT) experiments on vision language models using different combinations of direct and chain-of-thought (CoT) reasoning data, showing that combining both data types leads to the best performance.
 
 
 </details>

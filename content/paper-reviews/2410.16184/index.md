@@ -1,6 +1,6 @@
 ---
 title: "RM-Bench: Benchmarking Reward Models of Language Models with Subtlety and Style"
-summary: "RM-BENCH: a new benchmark reveals that current reward models struggle with subtle content and style, highlighting the need for improvement and better alignment of language models."
+summary: "RM-BENCH, a novel benchmark, rigorously evaluates reward models' sensitivity to subtle content and style biases, showing a strong correlation with policy model performance and revealing significant ro..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper introduces RM-BENCH, a novel benchmark for evaluating reward models used in aligning language models. Existing benchmarks often fail to capture the impact of subtle content changes and style biases, leading to poor correlation with actual policy model performance. RM-BENCH directly addresses this issue by focusing on these factors.  Experiments using RM-BENCH on nearly 40 reward models reveal that even state-of-the-art models perform poorly, particularly when dealing with style biases.  The results underscore the need for improved reward models.  The paper also highlights the potential of Direct Policy Optimization (DPO) models, which showed better performance than traditional sequence-classification reward models.  RM-BENCH provides a more reliable tool for evaluating reward models and selecting those that effectively align language models.
+This research introduces RM-BENCH, a new benchmark designed to evaluate reward models used in aligning language models. Unlike previous benchmarks, RM-BENCH focuses on assessing reward models' sensitivity to subtle content changes and resistance to style biases.  The benchmark uses the same powerful language model (gpt-40) to generate both good and bad responses, making the evaluation more robust.  Results from evaluating almost 40 reward models reveal that even state-of-the-art models have average performance of only 46.6%, even worse under style bias interference. This shows there is significant room for improvement in this area. RM-BENCH is highly correlated with policy model performance, making it a useful tool for researchers to select reward models that effectively align language models.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This paper introduces RM-BENCH, a novel benchmark for evaluating reward models u
 {{< button href="https://arxiv.org/abs/2410.16184" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16184" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on reward models and reinforcement learning from human feedback (RLHF). It introduces a novel benchmark, RM-BENCH, which addresses shortcomings of existing benchmarks by focusing on subtle content differences and style biases.  This significantly improves the correlation between reward model evaluation and actual policy model performance, leading to more effective model alignment and better selection of reward models.  The findings highlight the need for improved reward models that are less susceptible to style biases and the significant potential of DPO methods.
+This paper is crucial for researchers working on reward models for language models. It introduces a novel benchmark (RM-BENCH) that addresses limitations of existing benchmarks by focusing on subtle content differences and style biases.  The findings highlight significant room for improvement in current reward models and offer valuable insights for developing more effective and robust models.  This impacts the field of reinforcement learning from human feedback and improves the overall performance and alignment of language models.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} RM-BENCH, a new benchmark for reward models, strongly correlates with policy model performance. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} RM-BENCH offers a new benchmark for evaluating reward models, focusing on subtle content differences and style biases. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Current reward models show significant room for improvement, especially in handling style biases. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Current reward models significantly underperform, especially when dealing with style bias, highlighting the need for improvement. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Direct Policy Optimization (DPO) methods show promise in creating more effective reward models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} RM-BENCH shows a high correlation with policy model performance, making it a reliable tool for selecting reward models. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the data construction process for each domain in the RM-BENCH benchmark, showing how chosen and rejected responses are generated using different language models and prompts.
+> 🔼 The figure illustrates the data construction process for the RM-BENCH dataset across different domains (chat, code & math, and safety).
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: The construction process of chosen response yc and rejected response yr for each domain in RM-BENCH (Section 3.1 to 3.3). LLM we used here is gpt-40. Wary LLM is the language model gpt-40 with special over-cautious system prompt. Unc. LLM is the uncensored language model Llama-3.1-8B-Lexi-Uncensored-V2 which is used to generate harmful responses. which used to generate the refusal response for superficially alarming but benign prompts.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 
 ![](charts/charts_6_0.png)
 
-> 🔼 The Style-Substance Evaluation Matrix visualizes the performance of the sfairXC/FsfairX-LLaMA3-RM-v0.1 reward model in distinguishing between chosen and rejected responses across different styles (concise, detailed, markdown) in the Chat domain.
+> 🔼 The Style-Substance Evaluation Matrix shows the accuracy of the sfairXC/FsfairX-LLaMA3-RM-v0.1 reward model in distinguishing between chosen and rejected responses with different styles (concise, detailed, detailed with markdown) in the chat domain.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Style-Substance Eval Matrix of sfairXC/FsfairX-LLaMA3-RM-v0.1 in Chat Domain
@@ -74,10 +74,10 @@ This paper is crucial for researchers working on reward models and reinforcement
 {{< table-caption >}}
 <br><table id='3' style='font-size:14px'><tr><td></td><td>Response Content</td><td>Reward</td></tr><tr><td>Resp. #1 Correct</td><td>Schrodinger's cat illustrates quantum superposition, where a cat in a sealed box with a ra- dioactive atom is metaphorically both alive and dead until observed.</td><td>4.48</td></tr><tr><td>Resp. #2 Wrong</td><td>Schrodinger's cat illustrates quantum entanglement, where a cat in a sealed box with a ra- dioactive atom is metaphorically both alive and dead until observed.</td><td>4.47</td></tr><tr><td>Resp. #3 Wrong</td><td>Schrodinger's cat illustrates quantum entanglement, where a cat in a sealed box with a radioac- tive atom is metaphorically both alive and dead until observed, highlighting the paradoxical nature of quantum mechanics.</td><td>4.66</td></tr><tr><td>Related Fact</td><td colspan="2">Schr�dinger's cat demonstrates quantum superposition, not quantum entanglement. Quantum superposition involves the cat being both alive and dead until observed, whereas quantum entanglement refers to two particles linked so that the state of one affects the other, which is not the core concept of Schr�dinger's cat.</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table shows three different responses to a prompt about Schrödinger's cat and their corresponding rewards predicted by a reward model, highlighting the model's difficulty in discerning subtle content differences and its bias towards longer responses.
+> 🔼 This table presents the performance of top 20 reward models on RM-BENCH benchmark across four domains (chat, math, code, and safety) and three difficulty levels (easy, normal, hard).
 > <details>
 > <summary>read the caption</summary>
-> Table 1: The three different responses to a prompt about Schrödinger's cat have rewards predicted by reward model LxzGordon/URM-LLaMa-3-8B. Resp #1 provides the correct information, while Resp #2 and #3 contain factual errors. The reward model struggles to discern the nuanced but critical difference between Resp #1 and Resp #2 and tends to prefer Resp #3 due to its longer length.
+> Table 3: Top-20 reward models on RM-BENCH. Chat, Math, Code, Safety show the model's Average Accuracy on each domain. Easy, Normal, Hard show the model's Accuracy on each difficulty level across all domains. Avg shows the model's overall Average Accuracy in RM-BENCH. Icons refer to model types: Sequence Classifier (), Direct Preference Optimization (O), Custom Classifier (). As a baseline, the accuracy of random guessing is 50%.
 > </details>
 
 
@@ -93,7 +93,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 
 ![](charts/charts_8_0.png "🔼 Figure 3: Scatter plot of correctness and verbosity scores of responses in RM-BENCH.")
 
-> 🔼 The scatter plot visualizes the correctness and verbosity scores of concise and detailed chosen and rejected responses in the RM-BENCH dataset across four domains.
+> 🔼 The scatter plot visualizes the relationship between correctness and verbosity scores for chosen and rejected responses in the RM-BENCH dataset, categorized by response style (concise vs. detailed).
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Scatter plot of correctness and verbosity scores of responses in RM-BENCH.
@@ -102,7 +102,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 
 ![](charts/charts_9_0.png "🔼 Figure 4: Line-chart of the policy model style-bias score and the reward model hard accuracy on RM-BENCH chat.")
 
-> 🔼 The chart shows the correlation between a reward model's performance on RM-BENCH's chat domain (Hard Accuracy) and the style bias of its corresponding policy model in a style-controlled setting.
+> 🔼 The chart shows the positive correlation between reward model's hard accuracy on RM-BENCH chat and the policy model's style-control score.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Line-chart of the policy model style-bias score and the reward model hard accuracy on RM-BENCH chat.
@@ -120,7 +120,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 
 ![](charts/charts_16_0.png "🔼 Figure 6: Correlation between the reward model performance on RM-BENCH and the policy model performance on Alpaca Eval.")
 
-> 🔼 The chart shows the correlation between reward model performance on RM-BENCH and policy model performance on a length-controlled evaluation from Alpaca Eval.
+> 🔼 The chart shows the correlation between reward model performance on RM-BENCH and policy model performance on Alpaca Eval, specifically focusing on length-controlled evaluation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Correlation between the reward model performance on RM-BENCH and the policy model performance on Alpaca Eval.
@@ -138,7 +138,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 
 ![](charts/charts_17_0.png "🔼 Figure 8: Correlation between reward model performance on RM-BENCH and policy model performance with Best-of-N strategy, including code (left) and math (right).")
 
-> 🔼 The chart displays the correlation between reward model performance on RM-BENCH and the improvement in policy model performance using the Best-of-N strategy for code and math tasks.
+> 🔼 The chart displays the correlation between reward model performance on RM-BENCH and policy model performance using the Best-of-N strategy for code and math tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Correlation between reward model performance on RM-BENCH and policy model performance with Best-of-N strategy, including code (left) and math (right).
@@ -155,6 +155,18 @@ This paper is crucial for researchers working on reward models and reinforcement
 
 
 {{< table-caption >}}
+<table id='2' style='font-size:16px'><tr><td rowspan="2">Domain</td><td rowspan="2"># Samples</td><td rowspan="2"># Avg Token Prompt</td><td colspan="3"># Avg Token Chosen Resp.</td><td colspan="3"># Avg Token Rejected Resp.</td></tr><tr><td>yc</td><td>yc</td><td>yL⌀M</td><td>yr</td><td>yr</td><td>yLM</td></tr><tr><td>Chat</td><td>129</td><td>31</td><td>40</td><td>351</td><td>423</td><td>40</td><td>406</td><td>489</td></tr><tr><td>Safety</td><td>441</td><td>13</td><td>25</td><td>172</td><td>385</td><td>29</td><td>183</td><td>438</td></tr><tr><td>Math</td><td>529</td><td>96</td><td>319</td><td>500</td><td>720</td><td>321</td><td>504</td><td>720</td></tr><tr><td>Code</td><td>228</td><td>141</td><td>503</td><td>628</td><td>664</td><td>488</td><td>623</td><td>658</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> Table 3 presents the performance of top 20 reward models evaluated on RM-BENCH across various metrics and domains.
+
+
+{{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td>Model Name</td><td>Chat</td><td>Math</td><td>Code</td><td>Safety</td><td>Easy</td><td>Normal</td><td>Hard</td><td>Avg</td></tr><tr><td>Skywork/Skywork-Reward-Llama-3.1-8B</td><td>69.5</td><td>60.6</td><td>54.5</td><td>95.7</td><td>89.0</td><td>74.7</td><td>46.6</td><td>70.1</td></tr><tr><td>LxzGordon/URM-LLaMa-3.1-8B</td><td>71.2</td><td>61.8</td><td>54.1</td><td>93.1</td><td>84.0</td><td>73.2</td><td>53.0</td><td>70.0</td></tr><tr><td>NVIDIA/Nemotron-340B-Reward</td><td>71.2</td><td>59.8</td><td>59.4</td><td>87.5</td><td>81.0</td><td>71.4</td><td>56.1</td><td>69.5</td></tr><tr><td>NCSOFT/Llama-3-OfisetBias-RM-8B</td><td>71.3</td><td>61.9</td><td>53.2</td><td>89.6</td><td>84.6</td><td>72.2</td><td>50.2</td><td>69.0</td></tr><tr><td>internlm/intemlm2-20b-reward</td><td>63.1</td><td>66.8</td><td>56.7</td><td>86.5</td><td>82.6</td><td>71.6</td><td>50.7</td><td>68.3</td></tr><tr><td>Ray2333/GRM-llama3-8B-sfireg</td><td>62.7</td><td>62.5</td><td>57.8</td><td>90.0</td><td>83.5</td><td>72.7</td><td>48.6</td><td>68.2</td></tr><tr><td>Ray2333/GRM-llama3-8B-distill</td><td>62.4</td><td>62.1</td><td>56.9</td><td>88.1</td><td>82.2</td><td>71.5</td><td>48.4</td><td>67.4</td></tr><tr><td>Ray2333/GRM-Llama3-8B-cewardmodel-ft</td><td>66.8</td><td>58.8</td><td>52.1</td><td>91.4</td><td>86.2</td><td>70.6</td><td>45.1</td><td>67.3</td></tr><tr><td>LxzGordon/URM-LLaMa-3-8B</td><td>68.5</td><td>57.6</td><td>52.3</td><td>90.3</td><td>80.2</td><td>69.9</td><td>51.5</td><td>67.2</td></tr><tr><td>internlm/internlm2-7b-reward</td><td>61.7</td><td>71.4</td><td>49.7</td><td>85.5</td><td>85.4</td><td>70.7</td><td>45.1</td><td>67.1</td></tr><tr><td>sfairXC/FsfairX-LLaMA3-RM-v0.1</td><td>61.3</td><td>63.2</td><td>54.8</td><td>88.7</td><td>86.5</td><td>71.3</td><td>43.3</td><td>67.0</td></tr><tr><td>openbmb/Eurus-RM-7b</td><td>59.9</td><td>60.2</td><td>56.9</td><td>86.5</td><td>87.2</td><td>70.2</td><td>40.2</td><td>65.9</td></tr><tr><td>CIR-AMS/BTRM_Qwen2_7b_0613</td><td>57.1</td><td>61.0</td><td>54.3</td><td>87.3</td><td>90.7</td><td>69.7</td><td>34.5</td><td>64.9</td></tr><tr><td>upstage/SOLAR-10.7B-Instruct-v1.0</td><td>78.6</td><td>52.3</td><td>49.6</td><td>78.9</td><td>57.5</td><td>67.6</td><td>69.4</td><td>64.8</td></tr><tr><td>allenai/tulu-2-dpo-13b</td><td>66.4</td><td>51.4</td><td>51.8</td><td>85.4</td><td>86.9</td><td>66.7</td><td>37.7</td><td>63.8</td></tr><tr><td>weqweasdas/RM-Mistral-7B</td><td>57.4</td><td>57.0</td><td>52.7</td><td>87.2</td><td>88.6</td><td>67.1</td><td>34.9</td><td>63.5</td></tr><tr><td>Ray23330distral-7B-instuce-Unified-Feedback</td><td>56.5</td><td>58.0</td><td>51.7</td><td>86.8</td><td>87.1</td><td>67.3</td><td>35.3</td><td>63.2</td></tr><tr><td>allenaitulu-v2.5-706-prefence-mix-mix-m</td><td>58.2</td><td>51.4</td><td>55.5</td><td>87.1</td><td>72.8</td><td>65.6</td><td>50.7</td><td>63.0</td></tr><tr><td>allenai/tulu-v2.5-70b-uf-rm</td><td>59.7</td><td>56.9</td><td>53.4</td><td>81.3</td><td>78.3</td><td>64.8</td><td>45.4</td><td>62.8</td></tr><tr><td>handryiong Misral-RM-for-RAFT-GSHF-wI</td><td>55.8</td><td>57.0</td><td>52.6</td><td>85.3</td><td>88.4</td><td>66.5</td><td>33.1</td><td>62.7</td></tr></table>{{< /table-caption >}}
 > 🔼 {{ table.description }}
 > <details>
@@ -163,7 +175,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> Table 3 presents the average accuracy of top 20 reward models on RM-BENCH across different domains and difficulty levels.
+> Table 3 presents the performance of top 20 reward models evaluated on RM-BENCH, categorized by domain, difficulty level, and model type, showing overall average accuracy and highlighting the performance challenges in different domains.
 
 
 {{< table-caption >}}
@@ -175,7 +187,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, categorized by model type and performance metrics across different domains and difficulty levels.
+> Table 3 presents the performance of top 20 reward models evaluated on RM-BENCH, categorized by model type and accuracy across different tasks and difficulty levels.
 
 
 {{< table-caption >}}
@@ -187,7 +199,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, categorized by domain and difficulty level, showing average accuracy and model type.
+> Table 3 presents the performance of top 20 reward models evaluated on RM-BENCH, categorized by model type and accuracy across various difficulty levels and domains.
 
 
 {{< table-caption >}}
@@ -199,7 +211,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, showing their average accuracy across various domains and difficulty levels.
+> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, showing their average accuracy across different domains and difficulty levels.
 
 
 {{< table-caption >}}
@@ -211,7 +223,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, categorized by model type and performance metrics across different domains and difficulty levels.
+> This table presents the performance of top 20 reward models evaluated on the RM-BENCH benchmark, categorized by their performance across different domains and difficulty levels.
 
 
 {{< table-caption >}}
@@ -223,7 +235,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of top 20 reward models evaluated on the RM-BENCH benchmark, categorized by domain and difficulty level, showing average accuracy and model type.
+> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, showing their average accuracy across different domains and difficulty levels.
 
 
 {{< table-caption >}}
@@ -235,7 +247,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> Table 3 presents the performance of top 20 reward models evaluated on RM-BENCH, categorized by model type and performance metrics across various difficulty levels and domains.
+> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, categorized by domain and difficulty level, along with model type.
 
 
 {{< table-caption >}}
@@ -247,7 +259,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, categorized by model type and showing accuracy across different domains and difficulty levels.
+> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, showing their average accuracy across different domains and difficulty levels.
 
 
 {{< table-caption >}}
@@ -259,7 +271,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of top 20 reward models evaluated on RM-BENCH, categorized by domain and difficulty level, showing average accuracy and model type.
+> This table presents the performance of top 20 reward models evaluated on RM-BENCH across different domains and difficulty levels, indicating their overall average accuracy and performance metrics.
 
 
 {{< table-caption >}}
@@ -271,7 +283,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, categorized by domain, difficulty level, and model type.
+> Table 3 presents the performance of top 20 reward models on RM-BENCH across various metrics and domains, highlighting their overall accuracy and performance on different difficulty levels.
 
 
 {{< table-caption >}}
@@ -283,7 +295,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of top 20 reward models across various metrics on the RM-BENCH benchmark.
+> Table 3 presents the average accuracy of the top 20 reward models evaluated across four domains (Chat, Math, Code, Safety) and three difficulty levels (Easy, Normal, Hard) on the RM-BENCH benchmark.
 
 
 {{< table-caption >}}
@@ -295,7 +307,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> Table 3 presents the performance of top 20 reward models on RM-BENCH, categorized by domain, difficulty level, and model type, highlighting their overall accuracy and indicating the need for improvement in current reward models.
+> The table presents the performance of top 20 reward models across various metrics on the RM-BENCH benchmark, highlighting their strengths and weaknesses in different domains and difficulty levels.
 
 
 {{< table-caption >}}
@@ -307,7 +319,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> This table presents the performance of top 20 reward models evaluated on RM-BENCH across various metrics and domains.
+> This table presents the performance of the top 20 reward models evaluated on the RM-BENCH benchmark, categorized by domain and difficulty level, showing average accuracy and model type.
 
 
 {{< table-caption >}}
@@ -319,7 +331,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> Table 3 presents the average accuracy of the top 20 reward models evaluated on RM-BENCH across different domains and difficulty levels.
+> This table presents the performance of top 20 reward models evaluated on the RM-BENCH benchmark, categorized by domain, difficulty level, and model type.
 
 
 {{< table-caption >}}
@@ -331,7 +343,7 @@ This paper is crucial for researchers working on reward models and reinforcement
 > </details>
 
 
-> Table 3 presents the average accuracy scores of the top 20 reward models evaluated across four domains (Chat, Math, Code, Safety) and three difficulty levels (Easy, Normal, Hard) in the RM-BENCH benchmark.
+> This table presents the performance of top 20 reward models evaluated on the RM-BENCH benchmark across different domains and difficulty levels.
 
 
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "LLM-based Optimization of Compound AI Systems: A Survey"
-summary: "This survey explores using LLMs to optimize compound AI systems, offering a unified framework based on program analysis to understand and improve LLM-based optimization strategies."
+summary: "This survey reveals how Large Language Models (LLMs) efficiently optimize complex AI systems by acting as end-to-end optimizers, bypassing gradient calculations and generating intricate instructions."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research paper surveys the use of Large Language Models (LLMs) to optimize complex AI systems, known as compound AI systems. These systems combine LLMs with other components like retrievers or code interpreters. The core idea is that instead of manually tweaking parameters, an LLM acts as an optimizer.  The paper introduces a new way to understand how this LLM-based optimization works, drawing an analogy from computer science: it uses concepts like 'static' and 'dynamic' program analysis to explain how you instruct the LLM to find the best parameters.  'Static' means giving the LLM all the necessary information upfront to make the optimization, while 'dynamic' means the LLM gets feedback based on how the system performs, allowing it to iteratively improve.  The paper covers several examples and discusses the potential broader impact of this approach, including applications in question answering, mathematical problem-solving, and making decisions.  The authors also highlight challenges and opportunities for future research, including ensuring the safety and reliability of these systems.
+This research paper explores the use of Large Language Models (LLMs) to optimize complex AI systems.  These 'compound AI systems' combine LLMs with other components like code interpreters or tools. Traditionally, optimizing these systems involved manually adjusting parameters, which is time-consuming and complex. This paper introduces a new method: using an LLM as the optimizer. The LLM receives the task description and dataset and automatically generates or refines the system's parameters to improve performance.  The paper also draws a useful analogy between this optimization process and program analysis (a field in computer science) – specifically, static (without running the program) and dynamic (by running the program and observing its behavior) program analysis.  The researchers examine various types of compound AI systems and discuss the potential impact and limitations of this new approach, proposing backpropagation and trace propagation as efficient credit assignment methods for handling multiple parameters simultaneously.  Overall, the paper highlights the potential of LLMs for efficient and adaptable optimization in the rapidly growing field of compound AI systems.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research paper surveys the use of Large Language Models (LLMs) to optimize 
 {{< button href="https://arxiv.org/abs/2410.16392" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16392" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for AI researchers working on large language models and compound AI systems.  It provides a much-needed structured overview of LLM-based optimization techniques, filling a gap in current literature. The framework presented, using concepts from program analysis, offers a novel and unifying perspective that could significantly impact future research directions in the field.  The identification of challenges and future directions encourages further investigation into key aspects of LLM optimization, promoting safer, more efficient, and explainable AI systems.
+This paper is crucial for AI researchers because it surveys a novel approach to optimizing complex AI systems.  LLM-based optimization offers efficiency gains and broader applicability compared to traditional methods. The framework presented opens new avenues for research into prompt engineering, program analysis within LLMs, and the development of safer, more interpretable AI.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} LLMs can efficiently optimize compound AI systems' parameters end-to-end, avoiding gradient calculations. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} LLMs can effectively optimize intricate AI systems by acting as end-to-end optimizers. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A novel framework, drawing parallels to program analysis (static and dynamic), clarifies how to effectively prompt LLMs for optimization. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A novel framework using concepts from program analysis unifies the various approaches to LLM-based optimization. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The survey highlights key applications and discusses future research directions, focusing on process supervision and safety aspects of LLM optimization. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} This approach enables optimization of systems with closed-source LLMs, offering broader applicability. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for AI researchers working on large language models and co
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure shows a tree-like structure that organizes the survey of LLM-based optimization of compound AI systems by workflow, optimization methods, applications, and discussions.
+> 🔼 The figure shows the organization of the survey, illustrating the relationships between different sections and the papers covered in each section.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Organization of this survey. A non-exhaustive list of papers is provided.
@@ -70,7 +70,7 @@ This paper is crucial for AI researchers working on large language models and co
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure illustrates the difference between backpropagation and trace propagation in credit assignment for LLM-based optimization of compound AI systems.
+> 🔼 This figure illustrates the difference between backpropagation and trace propagation in credit assignment for optimizing compound AI systems using LLMs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Credit assignment: a local vs. a global approach. In backpropagation, the optimizer updates each parameter individually. In trace propagation, the prompt contains the execution trace, which allows it to generate all updated variables in a single call. Note that the loss is a textual feedback. In addition, the gradient of the instruction is not the gradient of the output, but the gradient of the instruction with respect to the gradient of the output.
@@ -80,7 +80,7 @@ This paper is crucial for AI researchers working on large language models and co
 
 ![](figures/figures_5_1.png)
 
-> 🔼 The figure illustrates the difference between backpropagation and trace propagation in credit assignment for LLM-based optimization of compound AI systems.
+> 🔼 The figure illustrates the difference between backpropagation and trace propagation in credit assignment for compound AI systems, showing how trace propagation uses the execution trace to update parameters in a single LLM call.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Credit assignment: a local vs. a global approach. In backpropagation, the optimizer updates each parameter individually. In trace propagation, the prompt contains the execution trace, which allows it to generate all updated variables in a single call. Note that the loss is a textual feedback. In addition, the gradient of the instruction is not the gradient of the output, but the gradient of the instruction with respect to the gradient of the output.

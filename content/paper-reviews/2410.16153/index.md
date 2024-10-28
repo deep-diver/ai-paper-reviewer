@@ -1,6 +1,6 @@
 ---
 title: "Pangea: A Fully Open Multilingual Multimodal LLM for 39 Languages"
-summary: "PANGEA: A fully open multilingual, multimodal LLM for 39 languages, significantly outperforming existing models in diverse cultural contexts."
+summary: "PANGEA: A fully open multilingual, multimodal LLM trained on a diverse 6M instruction dataset, significantly outperforming existing models in multilingual and culturally diverse scenarios."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The paper introduces PANGEA, a groundbreaking multilingual and multimodal large language model (LLM) trained on a massive 6M instruction dataset spanning 39 languages.  Unlike most LLMs focusing on English and Western languages, PANGEA tackles the underrepresentation of global languages and diverse cultural contexts.  Its training data, PANGEAINS, includes high-quality English instructions, carefully machine-translated versions, and culturally relevant multimodal tasks.  Researchers rigorously evaluated PANGEA using PANGEABENCH, a holistic benchmark incorporating 14 datasets across 47 languages. Results demonstrate that PANGEA substantially outperforms existing open-source models in multilingual and multicultural scenarios. Ablation studies highlight the critical role of English data proportion, language popularity, and the amount of multimodal training data on model performance. Notably, the authors make PANGEA, PANGEAINS, and PANGEABENCH fully open-source to foster inclusive and robust multilingual MLLM development.
+This research introduces PANGEA, a groundbreaking multilingual and multimodal large language model (LLM). Unlike existing LLMs that primarily focus on English and Western data, PANGEA is trained on a massive, diverse dataset (6 million instructions across 39 languages) to address the issue of bias and underrepresentation in current MLLMs.  The researchers also developed a comprehensive evaluation suite (PANGEABENCH) to thoroughly test the model's capabilities in diverse contexts.  Results show that PANGEA significantly outperforms current open-source models in multilingual scenarios and diverse cultural contexts.  Importantly, all data, code, and trained models are open-sourced, allowing researchers worldwide to build upon this work and promote equity and accessibility in MLLM development. The study also provides valuable insights into the importance of data diversity and the role of English data in training multilingual models. Overall, PANGEA represents a significant step towards creating truly inclusive and robust multilingual LLMs.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The paper introduces PANGEA, a groundbreaking multilingual and multimodal large 
 {{< button href="https://arxiv.org/abs/2410.16153" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16153" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on multilingual and multimodal large language models (MLLMs). It addresses the critical issue of Western-centric bias in existing models by introducing PANGEA, a fully open-source MLLM trained on a diverse, multilingual dataset. This provides a valuable resource for the community to build upon, and the findings on data scaling and the importance of balanced English/multilingual proportions are valuable insights for future model development.  The holistic evaluation suite, PANGEABENCH, also sets a new standard for assessing MLLM performance across diverse languages and cultures.
+This paper is crucial for researchers working on multilingual and multimodal large language models (MLLMs). It addresses the critical issue of bias in current models, which predominantly focus on English and Western-centric data.  The fully open-sourced nature of the data, code, and trained checkpoints allows for broader research participation, fostering inclusivity and reproducibility.  The novel evaluation suite provides a robust benchmark for future research, driving progress in this vital area.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} PANGEA, a new multilingual, multimodal LLM, significantly outperforms existing models on multilingual tasks. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} PANGEA, a new multilingual, multimodal LLM, is fully open-sourced. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PANGEA's performance highlights the importance of balanced English/multilingual data in training. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PANGEA outperforms existing open-source models in multilingual and culturally diverse settings. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The open-sourced PANGEA, its dataset PANGEAINS, and benchmark PANGEABENCH, advance research on inclusive and robust multilingual MLLMs. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} PANGEA's performance highlights the importance of diverse, high-quality data for building inclusive and robust MLLMs. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure shows the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's competitive performance in English and superior performance in multilingual scenarios.
+> 🔼 The figure shows a comparison of the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's competitive performance in English and superior performance in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](charts/charts_1_0.png)
 
-> 🔼 The chart visualizes the aggregate performance of various multimodal large language models (MLLMs) on the PANGEABENCH benchmark, comparing their performance in English and multilingual scenarios.
+> 🔼 The chart shows the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, illustrating PANGEA-7B's comparable performance to state-of-the-art open-source models in English and its superior performance in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>LAION-Multi</td><td>Heuristic Filtering</td><td>LLM Scoring</td><td>三 三 Data Generation</td><td>Instruction-Response</td></tr><tr><td>MeatLove</td><td>□ Image Size (224-4096px) □ Text Length (5-5000char) □ Aspect Ratio (0.25-3.0) □ NSFW Content (Unlikely) □ Offensive Text □ Deduplication □ CLIP Score (>0.3) □ Language Balance</td><td>□ Informativeness Rate the following alt text on a scale from 1 to 5 based on its quality in describing the image... □ Topic Classify Assign a category to the alt text based on its content. Choose from the following categories... □ Country Classify Decide if the alt textis related to a specific country's culture...</td><td>□ Recaption with Alt Text Please describe the image in detail in {language}. The image might be related to the {country}. The topic might be related to {category}. The previous short caption of the image is {text}. □ Instruction Generation Generate two instruction-response pair based on the visual content of an image. Choose two task from the list below to guide the rewriting process...</td><td>问题1: 分析图像中餐具的选择和摆设如何体现, 韩国饮食文化的特点。 (Q1:Analyze how the choicel and arrangement of tableware in the image reflect the characteristicsofKorean food culture.) 回答1: 图像中的餐具选择和摆设充分展现了韩 国饮食文化的特点。 首先, 黄铜碗碟作为韩式 料理的标志性餐具... (A1: The choice and arrangement oftableware in the image fullyhighlight the characteristics ofKoreanfood culture. First, brass bowls anddishes, as iconic tableware in Korean cuisine...) 问题2: 假设你是一位餐厅经营者, 根据图像中 的餐桌布置, 提出提升顾客用餐体验的策略。 (Q2: Suppose you arearestaurant operator. Basedon the table setting shown in the image, suggest strategies to enhance the customer dining experience.</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B compared to existing open-source models.
+> 🔼 Table 1 presents a comparison of the aggregate performance of various multilingual and multimodal large language models on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Overall performance on the multilingual multimodal benchmarks in PANGEABENCH. The best-performing open model on each dataset is in bold and the second best is underlined.
@@ -91,7 +91,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_23_0.png)
 
-> 🔼 The figure shows a bar chart comparing the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior multilingual performance.
+> 🔼 The figure shows a comparison of the aggregate performance of various multilingual and multimodal large language models on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual scenarios compared to existing models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_27_0.png)
 
-> 🔼 The figure shows a comparison of the aggregate performance of various multimodal LLMs on PANGEABENCH, highlighting PANGEA-7B's competitive performance in English and superior performance in multilingual scenarios.
+> 🔼 The figure shows a bar chart comparing the aggregate performance of various multimodal large language models (MLLMs) on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -111,7 +111,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_28_0.png)
 
-> 🔼 The figure shows a comparison of the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's competitive performance in English and superior performance in multilingual scenarios.
+> 🔼 The figure shows the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's comparable performance to state-of-the-art open-source models in English and significantly better performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -121,17 +121,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_29_0.png)
 
-> 🔼 The figure shows that PANGEA-7B achieves comparable performance to state-of-the-art open-source models on English benchmarks but significantly outperforms them on multilingual benchmarks.
-> <details>
-> <summary>read the caption</summary>
-> Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
-> </details>
-
-
-
-![](figures/figures_30_0.png)
-
-> 🔼 The figure shows a bar chart comparing the aggregate performance of various multimodal large language models (MLLMs) on a multilingual benchmark, highlighting the superior performance of the PANGEA-7B model in multilingual scenarios compared to English-centric models.
+> 🔼 The figure shows a bar chart comparing the performance of various multilingual and multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -141,7 +131,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_31_0.png)
 
-> 🔼 The figure shows a bar chart comparing the aggregate performance of various multilingual and English-centric multimodal large language models (MLLMs) on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual scenarios.
+> 🔼 The figure shows the aggregate performance of various multimodal LLMs on PANGEABENCH, demonstrating PANGEA-7B's comparable performance to state-of-the-art open-source models in English and superior performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -149,9 +139,9 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 
 
-![](figures/figures_34_0.png)
+![](figures/figures_32_0.png)
 
-> 🔼 The figure shows a comparison of the aggregate performance of various multilingual and multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual scenarios.
+> 🔼 The figure shows a comparison of the aggregate performance of various multimodal large language models (MLLMs) on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -161,7 +151,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_36_0.png)
 
-> 🔼 The figure shows a comparison of the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's competitive performance in English and superior performance in multilingual settings.
+> 🔼 The figure shows a comparison of the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's comparable performance to state-of-the-art open-source models in English and significantly superior performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -171,7 +161,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_37_0.png)
 
-> 🔼 The figure shows the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's comparable English performance and superior multilingual performance.
+> 🔼 The figure shows a bar chart comparing the aggregate performance of various multilingual and multimodal LLMs on the PANGEABENCH benchmark, highlighting that PANGEA-7B outperforms existing models in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -181,7 +171,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_40_0.png)
 
-> 🔼 The figure shows a comparison of the aggregate performance of various multimodal LLMs on PANGEABENCH, highlighting PANGEA-7B's comparable performance to state-of-the-art open-source models in English and significantly superior performance in multilingual settings.
+> 🔼 The figure shows a comparison of the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's competitive performance in English and its superior performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -191,7 +181,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_42_0.png)
 
-> 🔼 The figure shows a bar chart comparing the aggregate performance of various multilingual and English-centric multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual settings.
+> 🔼 The figure shows the aggregate performance of various multimodal LLMs on PANGEABENCH, demonstrating PANGEA-7B's competitive performance in English and superior performance in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -201,7 +191,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](figures/figures_43_0.png)
 
-> 🔼 The figure shows a bar chart comparing the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual settings.
+> 🔼 The figure shows a bar chart comparing the performance of various multilingual and English-centric multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -220,7 +210,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](charts/charts_2_0.png "🔼 Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.")
 
-> 🔼 The chart shows the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's competitive performance in English and its superior performance in multilingual scenarios.
+> 🔼 The chart displays the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, showing that PANGEA-7B achieves comparable performance to state-of-the-art open-source models in English but significantly outperforms them in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -229,7 +219,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](charts/charts_10_0.png "🔼 Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.")
 
-> 🔼 The chart compares the aggregate performance of various multilingual and English-centric multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual scenarios.
+> 🔼 The chart compares the aggregate performance of various multilingual and English-centric multimodal large language models (MLLMs) on the PANGEABENCH evaluation suite, highlighting PANGEA-7B's superior performance in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -238,7 +228,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](charts/charts_10_1.png "🔼 Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.")
 
-> 🔼 The chart compares the aggregate performance of various multilingual and English-centric multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual settings.
+> 🔼 The chart shows a comparison of the aggregate performance of various multilingual and multimodal LLMs on the PANGEABENCH evaluation suite, highlighting PANGEA-7B's competitive performance in English and superior performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -247,7 +237,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](charts/charts_10_2.png "🔼 Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.")
 
-> 🔼 The chart visualizes the aggregate performance of various multimodal large language models (MLLMs) on the PANGEABENCH evaluation suite, highlighting PANGEA-7B's competitive performance in English and its superior performance in multilingual settings.
+> 🔼 The chart displays the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, showing PANGEA-7B's comparable English performance to state-of-the-art open-source models and significantly better multilingual performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -256,7 +246,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 
 ![](charts/charts_11_0.png "🔼 Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.")
 
-> 🔼 The chart compares the aggregate performance of various multilingual and multimodal large language models (MLLMs) on the PANGEABENCH benchmark, showing PANGEA-7B's competitive performance in English and superior performance in multilingual settings.
+> 🔼 The chart displays the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, showing PANGEA-7B's comparable performance to state-of-the-art open-source models in English and its superior performance in multilingual scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the aggregate performance of various multimodal LLMs on PANGEABENCH. Our PANGEA-7B demonstrates comparable performance to SoTA open-source models in English settings, while significantly outperforming them in multilingual scenarios.
@@ -281,7 +271,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents the overall performance comparison of various multilingual multimodal large language models (MLLMs) on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance across various tasks and languages.
+> Table 1 presents a comparison of the aggregate performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance.
 
 
 {{< table-caption >}}
@@ -293,7 +283,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents a comparison of the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark, showcasing PANGEA-7B's superior performance in multilingual scenarios.
+> Table 1 presents the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B.
 
 
 {{< table-caption >}}
@@ -305,7 +295,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 3 presents a comparison of various models' performance on the xChat benchmark across multiple languages, including English, Spanish, Hindi, Indonesian, Japanese, Korean, and Chinese.
+> The table shows a comparison of different large language models' performance on the xChat benchmark across multiple languages.
 
 
 {{< table-caption >}}
@@ -317,7 +307,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance compared to existing open-source models.
+> Table 1 presents a comparison of the aggregate performance of various multimodal LLMs on the PANGEABENCH evaluation suite, highlighting the superior performance of PANGEA-7B in both English and multilingual scenarios.
 
 
 {{< table-caption >}}
@@ -329,7 +319,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 7 presents a comparison of various large language models' performance across different languages on the MaRVL benchmark, a dataset designed for evaluating cultural understanding in multilingual scenarios.
+> Table 7 shows the performance comparison of various models on the MaRVL benchmark across multiple languages, including English and multilingual settings.
 
 
 {{< table-caption >}}
@@ -341,7 +331,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents a comparison of the overall performance of various multilingual multimodal large language models (MLLMs) on the PANGEABENCH benchmark, highlighting the superior performance of the PANGEA-7B model.
+> Table 1 presents the overall performance comparison of various multilingual multimodal large language models (MLLMs) across multiple benchmark datasets, highlighting PANGEA-7B's superior performance.
 
 
 {{< table-caption >}}
@@ -353,7 +343,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents a comparison of the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance.
+> Table 1 presents an overview of the aggregate performance of various multimodal LLMs on the PANGEABENCH benchmark across English and multilingual scenarios.
 
 
 {{< table-caption >}}
@@ -365,7 +355,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmarks, highlighting the superior performance of PANGEA-7B compared to existing open-source models.
+> Table 1 presents a comparison of the overall performance of various multilingual multimodal LLMs on the PANGEABENCH evaluation suite, highlighting the superior performance of PANGEA-7B.
 
 
 {{< table-caption >}}
@@ -377,7 +367,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B compared to other open-source models.
+> Table 1 presents a comparison of the aggregate performance of various multilingual and multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B in both English and multilingual scenarios.
 
 
 {{< table-caption >}}
@@ -389,7 +379,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents a comparison of the aggregate performance of various open and proprietary multimodal LLMs across different multilingual and multimodal benchmarks in PANGEABENCH.
+> Table 1 presents the overall performance of various multilingual multimodal large language models on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance compared to existing open-source models.
 
 
 {{< table-caption >}}
@@ -401,7 +391,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents a comparison of the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance.
+> Table 1 presents a comparison of the overall performance of various multilingual multimodal LLMs on different benchmarks within PANGEABENCH, highlighting PANGEA-7B's superior performance.
 
 
 {{< table-caption >}}
@@ -413,7 +403,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents a comparison of the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B.
+> Table 1 presents a comparison of the aggregate performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B.
 
 
 {{< table-caption >}}
@@ -425,7 +415,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents a comparative analysis of the aggregate performance of various multilingual multimodal LLMs across different benchmarks within the PANGEABENCH evaluation suite.
+> Table 1 presents the overall performance of various multilingual multimodal LLMs on the PANGEABENCH benchmark, highlighting the superior performance of PANGEA-7B compared to other open-source models.
 
 
 {{< table-caption >}}
@@ -437,7 +427,7 @@ This paper is crucial for researchers working on multilingual and multimodal lar
 > </details>
 
 
-> Table 1 presents the overall performance comparison of different multilingual multimodal LLMs on various benchmark datasets, highlighting PANGEA-7B's superior performance.
+> Table 1 presents the overall performance comparison of various multilingual multimodal large language models (MLLMs) on the PANGEABENCH benchmark, highlighting PANGEA-7B's superior performance in multilingual and multicultural scenarios.
 
 
 </details>

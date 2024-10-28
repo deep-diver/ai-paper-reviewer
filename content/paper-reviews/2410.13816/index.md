@@ -1,6 +1,6 @@
 ---
 title: "Steering Your Generalists: Improving Robotic Foundation Models via Value Guidance"
-summary: "Value-Guided Policy Steering (V-GPS) significantly boosts the performance of generalist robotic policies by re-ranking actions via offline RL, without retraining, improving both precision and robustne..."
+summary: "Boosting robot performance at deployment time, Value-Guided Policy Steering (V-GPS) re-ranks actions from existing policies using a value function learned via offline RL, consistently improving perfor..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The research focuses on enhancing the capabilities of generalist robotic policies, which are trained on large datasets but can suffer from imprecise actions.  The proposed method, Value-Guided Policy Steering (V-GPS), tackles this issue by re-ranking actions suggested by the policy using a value function learned via offline reinforcement learning.  Crucially, V-GPS is a test-time improvement; it doesn't require retraining the main robot policy or accessing its internal weights.  The study demonstrates V-GPS's efficacy across multiple robotic platforms, various policies (Octo, RT-X, OpenVLA, etc.), and twelve different tasks both simulated and real-world settings. The results show that V-GPS consistently improves policy performance (as high as +82% in real-world manipulation) by addressing issues like imprecise grasping, premature actions, and delayed releases.  This plug-and-play approach has significant implications for deploying more robust and efficient robots in real-world applications.
+This research tackles the challenge of improving the accuracy and robustness of general-purpose robot controllers.  Current large-scale robotic models, while versatile, often struggle due to imperfections in training data. The paper proposes Value-Guided Policy Steering (V-GPS), a novel technique that enhances these models' performance without requiring retraining. V-GPS works by adding a 'value function' – essentially a learned scoring system for how good various actions are – during the robot's decision-making process. This value function is learned offline using existing data, allowing for a simple plug-and-play approach. The researchers demonstrated the effectiveness of V-GPS across several state-of-the-art models, various robotic platforms, and twelve different tasks, achieving consistent performance improvements, especially in handling precise movements and avoiding premature action termination.  The approach is valuable because it sidesteps the costly and time-consuming process of retraining these models while significantly boosting performance.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The research focuses on enhancing the capabilities of generalist robotic policie
 {{< button href="https://arxiv.org/abs/2410.13816" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13816" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for robotics researchers as it introduces a novel, efficient method for improving the performance of existing generalist robotic policies without retraining. This addresses a major challenge in the field and opens avenues for enhancing the robustness and precision of robots in real-world scenarios. Its plug-and-play nature makes it highly relevant to current research trends focusing on large-scale, general-purpose models.
+This paper is highly important for researchers in robotics and machine learning because it introduces a novel, efficient method to significantly improve the performance of existing general-purpose robotic policies without needing to retrain or fine-tune them.  This addresses a key challenge in robotics where high-quality training data is scarce and expensive. The plug-and-play nature of the method makes it broadly applicable, accelerating progress in the field.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} V-GPS enhances the performance of generalist robotic policies at deployment time without retraining. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} V-GPS improves robotic policy performance by re-ranking actions at test time, using a value function learned offline. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The same value function improves the performance of various state-of-the-art policies, regardless of their architectures or training datasets. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The method works across different robot platforms and pre-trained policies without retraining, increasing efficiency. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} V-GPS consistently improves performance on multiple robotic platforms and diverse tasks in both simulated and real-world environments. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Consistent performance gains are observed across diverse robotic tasks, demonstrating the broad applicability and robustness of V-GPS. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 
 ![](figures/figures_1_0.png)
 
-> 🔼 The figure illustrates the Value-Guided Policy Steering (V-GPS) process, showing how a value function learned via offline RL is used to re-rank action proposals from a generalist robot policy at test time to improve performance.
+> 🔼 The figure illustrates the Value-Guided Policy Steering (V-GPS) approach, showing how a value function is used to re-rank action proposals from a generalist robotic policy at test time to improve performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (V-GPS) We introduce Value-Guided Policy Steering (V-GPS), a novel approach that improves the performance of pre-trained generalist robotic policies by re-ranking their actions at deployment time based on a value function learned via offline RL. The same single V-GPS value function can be combined with any off-the-shelf generalist policy in a plug-and-play manner, without the need to fine-tune or access the policy's weights, improving downstream performance across multiple robotic platforms.
@@ -64,7 +64,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td colspan="2">Task</td><td>Octo-small-1.5</td><td>V-GPS (Ours)</td><td>Improvement</td></tr><tr><td rowspan="3">Scene A</td><td>Green pepper in pot</td><td>0.15</td><td>0.35</td><td></td></tr><tr><td>Sweet potato on cloth</td><td>0.30</td><td>0.35</td><td></td></tr><tr><td>Average</td><td>0.23</td><td>0.35</td><td>+55.6%</td></tr><tr><td rowspan="3">Scene B</td><td>Mushroom on cloth</td><td>0.35</td><td>0.70</td><td></td></tr><tr><td>Mushroom in pot</td><td>0.30</td><td>0.55</td><td></td></tr><tr><td>Average</td><td>0.33</td><td>0.63</td><td>+92.3%</td></tr><tr><td rowspan="3">Scene C</td><td>Sushi in pot</td><td>0.10</td><td>0.30</td><td></td></tr><tr><td>Spoon in pot</td><td>0.25</td><td>0.40</td><td></td></tr><tr><td>Average</td><td>0.18</td><td>0.35</td><td>+100%</td></tr><tr><td>Total</td><td>Average</td><td>0.24</td><td>0.44</td><td>+82.8%</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the real-world performance improvement of V-GPS across six manipulation tasks using the Octo-small-1.5 policy on a WidowX robot.
+> 🔼 Table 1 shows the success rates of the Octo-small-1.5 policy and the V-GPS method on six real-world robotic manipulation tasks, demonstrating a substantial performance improvement with V-GPS.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: (Real-world performance) V-GPS consistently improves the success rates of Octo across the board, achieving an 82.8% improvement on average. This demonstrates that using our value function to re-rank the actions can enhance the generalist policy.
@@ -81,7 +81,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 
 ![](figures/figures_6_0.png)
 
-> 🔼 The figure shows the experimental setup used in the paper, illustrating the real-world and simulated environments used for evaluation, along with the tasks performed on different robot platforms.
+> 🔼 The figure shows the experimental setup for evaluating the proposed V-GPS method on 12 tasks across real-world and simulated environments using two different robot platforms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: (Experimental setup) We evaluate our method on 12 tasks in total. In the real-world WidowX robot platform, we study 6 tasks across 3 different scenes. In the SIMPLER simulated evaluation suite, we study 4 tasks on the WidowX platform and 2 tasks on the Google Robot.
@@ -91,7 +91,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 
 ![](figures/figures_7_0.png)
 
-> 🔼 The figure illustrates the Value-Guided Policy Steering (V-GPS) method, showing how a value function is used to re-rank action proposals from a generalist robot policy, leading to improved task performance.
+> 🔼 The figure illustrates the Value-Guided Policy Steering (V-GPS) framework, showing how a value function is used to re-rank action proposals from a generalist robotic policy to improve its performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (V-GPS) We introduce Value-Guided Policy Steering (V-GPS), a novel approach that improves the performance of pre-trained generalist robotic policies by re-ranking their actions at deployment time based on a value function learned via offline RL. The same single V-GPS value function can be combined with any off-the-shelf generalist policy in a plug-and-play manner, without the need to fine-tune or access the policy's weights, improving downstream performance across multiple robotic platforms.
@@ -101,7 +101,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 
 ![](figures/figures_15_0.png)
 
-> 🔼 The figure illustrates the Value-Guided Policy Steering (V-GPS) approach, showing how a value function is used to re-rank action proposals from a generalist robot policy at test time, improving performance.
+> 🔼 The figure illustrates the Value-Guided Policy Steering (V-GPS) approach, which enhances the performance of generalist robotic policies by re-ranking actions based on a learned value function.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (V-GPS) We introduce Value-Guided Policy Steering (V-GPS), a novel approach that improves the performance of pre-trained generalist robotic policies by re-ranking their actions at deployment time based on a value function learned via offline RL. The same single V-GPS value function can be combined with any off-the-shelf generalist policy in a plug-and-play manner, without the need to fine-tune or access the policy's weights, improving downstream performance across multiple robotic platforms.
@@ -128,7 +128,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 2 presents the average success rates of five different generalist robotic policies across multiple robot embodiments on twelve SIMPLER tasks, comparing their performance with and without the V-GPS method.
+> Table 2 presents the average success rates of five different generalist robot policies across multiple robot embodiments on twelve tasks within the SIMPLER simulated environment, comparing performance with and without V-GPS.
 
 
 {{< table-caption >}}
@@ -140,7 +140,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 2 presents the average success rates of five different generalist robotic policies on 12 tasks, comparing performance with and without the V-GPS value function.
+> Table 2 presents the average success rates of five different generalist robotic policies across multiple robot embodiments and tasks in the SIMPLER simulated environment, with and without the application of V-GPS.
 
 
 {{< table-caption >}}
@@ -152,7 +152,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 1 presents the success rates of the Octo-small-1.5 policy and V-GPS (ours) on six real-world robotic manipulation tasks, showing consistent performance improvement with V-GPS.
+> Table 1 presents the success rates of the Octo-small-1.5 policy and the V-GPS method on six real-world robotic manipulation tasks, showing consistent performance improvements across all tasks.
 
 
 {{< table-caption >}}
@@ -164,7 +164,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 1 shows the success rates of the Octo-small-1.5 policy with and without V-GPS across six real-world robotic manipulation tasks.
+> Table 1 presents the success rates of the Octo-small-1.5 policy and V-GPS on six real-world robotic manipulation tasks, showing consistent improvement with V-GPS across all tasks.
 
 
 {{< table-caption >}}
@@ -176,7 +176,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 2 presents the success rates of five different generalist policies across multiple robotic platforms and tasks, showing consistent performance improvements when using Value-Guided Policy Steering (V-GPS).
+> Table 1 presents the success rates of the Octo-small-1.5 policy with and without V-GPS across six real-world robotic manipulation tasks.
 
 
 {{< table-caption >}}
@@ -188,7 +188,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 7 compares the performance of V-GPS against fine-tuning generalist policies or training from scratch on the same dataset, demonstrating V-GPS's superior performance.
+> Table 7 compares the performance of V-GPS against fine-tuning generalist policies or training policies from scratch, showing V-GPS achieves superior performance.
 
 
 {{< table-caption >}}
@@ -200,7 +200,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 8 shows the ablation study on the size of datasets used to train the value function, demonstrating that even with reduced data, the value function can effectively improve the success rate of the generalist policies.
+> Table 8 shows the ablation study on the size of the dataset used for training the value function, evaluating its performance on the SIMPLER eggplant task.
 
 
 {{< table-caption >}}
@@ -212,7 +212,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 1 presents the real-world performance improvement of the Octo-small-1.5 policy across six tasks using Value-Guided Policy Steering (V-GPS).
+> Table 1 presents the success rates of the Octo-small-1.5 policy and the V-GPS method on six real-world robotic manipulation tasks, showing consistent improvement with V-GPS.
 
 
 {{< table-caption >}}
@@ -224,7 +224,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 2 presents the average success rates of five different generalist robotic policies across multiple robot embodiments and tasks within the SIMPLER simulation environment, comparing their performance with and without V-GPS.
+> Table 2 presents the average success rates of five different generalist robotic policies across 12 tasks in SIMPLER simulated environment, comparing the performance with and without V-GPS.
 
 
 {{< table-caption >}}
@@ -236,7 +236,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 11 shows that the IQL and Cal-QL actors fail to perform the tasks, highlighting the importance of combining a value function with pre-trained policies.
+> Table 1 presents the real-world performance improvement of the Octo policy across six tasks after applying V-GPS, showing consistent success rate increases.
 
 
 {{< table-caption >}}
@@ -248,7 +248,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 2 presents the average success rates of five different generalist policies across multiple robot embodiments on various tasks within the SIMPLER simulation environment, demonstrating consistent improvement with V-GPS.
+> Table 2 presents the quantitative results of V-GPS across five different generalist policies and two different robot embodiments on SIMPLER benchmark.
 
 
 {{< table-caption >}}
@@ -260,7 +260,7 @@ This paper is crucial for robotics researchers as it introduces a novel, efficie
 > </details>
 
 
-> Table 1 presents the success rates of the Octo-small-1.5 policy and the V-GPS method on six real-world robotic manipulation tasks, showing a significant performance improvement by V-GPS.
+> Table 1 presents the real-world performance improvement of the Octo policy using Value-Guided Policy Steering (V-GPS) across six tasks.
 
 
 </details>

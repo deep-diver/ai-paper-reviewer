@@ -1,6 +1,6 @@
 ---
 title: "HART: Efficient Visual Generation with Hybrid Autoregressive Transformer"
-summary: "HART, a novel hybrid autoregressive transformer, generates high-quality 1024x1024 images efficiently, rivaling diffusion models while being significantly faster."
+summary: "HART: A hybrid autoregressive transformer achieves state-of-the-art image generation quality at significantly higher speeds than diffusion models, thanks to its innovative hybrid tokenizer and residua..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-14", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The research introduces HART, a new method for generating images that combines the best aspects of two existing methods.  These older methods are autoregressive models and diffusion models. Autoregressive models work by building up an image piece-by-piece like a sentence, while diffusion models work by refining a noisy image into a clear picture. HART combines aspects of both: it uses a hybrid approach to tokenization, combining discrete and continuous representations, leading to better image reconstruction. Then it uses both autoregressive and diffusion components, resulting in faster generation and better image quality. Experiments showed HART could generate images as good as the top diffusion models, but much faster. This makes high-quality image generation more efficient, opening up new possibilities for research.
+The research introduces HART, a new autoregressive model for generating high-quality images.  Unlike previous models, HART uses a 'hybrid tokenizer' that combines discrete and continuous representations of image data. This allows it to capture both the overall structure and fine details of images more effectively.  Furthermore, HART incorporates 'residual diffusion,' a lightweight technique that enhances the quality of the generated images.  The results show that HART matches or exceeds the image quality of the best diffusion models but is considerably faster, achieving up to 7.7 times higher throughput and 5.9 times lower latency. This makes HART a promising alternative for applications where speed and efficiency are crucial.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The research introduces HART, a new method for generating images that combines t
 {{< button href="https://arxiv.org/abs/2410.10812" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.10812" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is highly significant for researchers in computer vision and machine learning.  It introduces a novel hybrid autoregressive model that bridges the gap between autoregressive and diffusion models, offering a compelling alternative for image generation tasks. The improved efficiency and comparable image quality to diffusion models could greatly advance research in areas like text-to-image synthesis, image editing, and efficient large-scale visual generation. The hybrid approach also opens up interesting avenues for further exploring the synergy between discrete and continuous latent representations.
+This paper is highly important for researchers in visual generation due to its introduction of HART, a novel autoregressive model that rivals diffusion models in image quality while significantly improving efficiency.  This efficiency gain is critical, enabling applications previously infeasible due to computational constraints.  The hybrid tokenizer and residual diffusion approach offer new avenues for exploring the balance between accuracy and speed in visual AI, influencing future autoregressive model designs.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} HART achieves comparable image quality to state-of-the-art diffusion models. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} HART outperforms existing autoregressive models and rivals top diffusion models in image generation quality. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} HART significantly outperforms existing autoregressive models in terms of efficiency. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} HART achieves significantly higher throughput and lower latency compared to leading diffusion models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} HART's hybrid tokenizer combines discrete and continuous tokenization to improve image quality and training efficiency. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The hybrid tokenizer and residual diffusion mechanism are key innovations that improve the efficiency of autoregressive models. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_1_0.png)
 
-> 🔼 Figure 1 is a comparison of HART's performance against other state-of-the-art diffusion and autoregressive models in terms of image generation quality and efficiency.
+> 🔼 Figure 1 is a comparison chart that shows HART's improved efficiency and image quality compared to other state-of-the-art models in image generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: HART is an early autoregressive model that can directly generate 1024×1024 images with quality comparable to diffusion models, while offering significantly improved efficiency. It achieves 4.5-7.7× higher throughput, 3.1-5.9× lower latency (measured on A100), and 6.9-13.4× lower MACs compared to state-of-the-art diffusion models. Check out our online demo and video.
@@ -61,7 +61,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](charts/charts_10_0.png)
 
-> 🔼 The chart compares the performance of HART and MAR models in terms of Inception Score and FID, showing that HART achieves better results with fewer training steps and sampling steps.
+> 🔼 The chart compares the performance of HART and MAR in terms of ImageNet Inception Score and FID, showing HART's superior efficiency and convergence with alternating training.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Left: residual tokens in HART are much easier to learn than full tokens in MAR. Middle/Right: Despite achieving similar reconstruction FID, single decoder with alternating training enables faster and better generation convergence.
@@ -74,7 +74,7 @@ This paper is highly significant for researchers in computer vision and machine 
 {{< table-caption >}}
 <table id='2' style='font-size:20px'><tr><td>Haotian Tang1 *</td><td>Yecheng Wu1,3* Shang Yang1</td><td>Enze Xie2</td><td>Junsong Chen2</td></tr><tr><td>Junyu Chen1,3</td><td>Zhuoyang Zhang1 Han Cai2</td><td>Yao Lu2</td><td>Song Han 1,2</td></tr><tr><td>MIT1 NVIDIA2</td><td>Tsinghua University3</td><td></td><td></td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 2 compares the performance of HART against state-of-the-art diffusion and autoregressive models on multiple image generation benchmarks, showing HART achieves comparable performance with fewer parameters.
+> 🔼 Table 2 compares the performance of HART against other state-of-the-art diffusion and autoregressive models on three benchmark datasets, showing that HART achieves comparable performance to state-of-the-art diffusion models with fewer parameters.
 > <details>
 > <summary>read the caption</summary>
 > Table 2: The performance of HART on MJHQ-30K, GenEval and DPG-Bench benchmarks. We compare HART with open-source diffusion models and autoregressive models. Results demonstrate that HART can achieve comparable performance to state-of-the-art diffusion models with <1B parameters, surpassing prior autoregressive models by a large margin.
@@ -91,7 +91,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_2_0.png)
 
-> 🔼 Figure 2 shows a comparison of image generation results from HART and other state-of-the-art diffusion models for various prompts, highlighting HART's comparable image quality and significantly improved speed.
+> 🔼 Figure 2 shows a comparison of image generation results between HART and other state-of-the-art models for several image prompts, highlighting HART's competitive quality and superior speed.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: HART generates 1024px images with quality comparable to state-of-the-art diffusion models such as Playground v2.5 (Li et al., 2024a), PixArt-Σ (Chen et al., 2024a), and SDXL (Podell et al., 2023) while being 4.6-5.6× faster.
@@ -101,17 +101,17 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates how HART combines discrete tokens representing the overall image structure with continuous residual tokens representing fine details, which are modeled by a residual diffusion model.
+> 🔼 The figure shows how HART combines discrete tokens representing the overall image structure with continuous residual tokens representing fine details, using a hybrid tokenizer and residual diffusion.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: HART synergizes discrete and continuous tokens. The discrete tokens capture the overall image structure, while the fine details (e.g., eyes, eyebrows and hair) are reflected in the residual tokens, which is modeled by residual diffusion (introduced in Section 3.2).
+> Figure 3: HART synergizes discrete and continuous tokens. The discrete tokens capture the overall image structure, while the fine details (e.g. eyes, eyebrows and hair) are reflected in the residual tokens, which is modeled by residual diffusion (introduced in Section 3.2).
 > </details>
 
 
 
 ![](figures/figures_4_1.png)
 
-> 🔼 The figure shows how HART uses discrete tokens to capture the overall image structure and residual tokens to model fine details, combining autoregressive and diffusion models.
+> 🔼 The figure shows how HART uses both discrete tokens for the overall image structure and continuous residual tokens for fine details, which are modeled by a residual diffusion module.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: HART synergizes discrete and continuous tokens. The discrete tokens capture the overall image structure, while the fine details (e.g., eyes, eyebrows and hair) are reflected in the residual tokens, which is modeled by residual diffusion (introduced in Section 3.2).
@@ -121,7 +121,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure shows a comparison of reconstruction quality between VAR's discrete tokenizer and HART's hybrid tokenizer on the Mona Lisa image, highlighting HART's improved reconstruction detail.
+> 🔼 The figure compares the reconstruction quality of the VAR and HART tokenizers, showing that HART's hybrid tokenizer improves reconstruction quality by preserving details lost by VAR's discrete tokenizer.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Reconstruction quality comparison between VAR and HART tokenizers. The discrete tokenizer employed by VAR will lose some details or have some distortion during the reconstruction, which is solved by hybrid tokenization in HART. Please zoom in for details in 1k images.
@@ -131,7 +131,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_5_1.png)
 
-> 🔼 The figure shows a comparison of reconstruction quality between VAR's discrete tokenizer and HART's hybrid tokenizer, highlighting HART's improved detail preservation.
+> 🔼 The figure shows a comparison of reconstruction quality between VAR and HART tokenizers on images of varying resolutions, highlighting the superior performance of HART.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Reconstruction quality comparison between VAR and HART tokenizers. The discrete tokenizer employed by VAR will lose some details or have some distortion during the reconstruction, which is solved by hybrid tokenization in HART. Please zoom in for details in 1k images.
@@ -141,7 +141,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_5_2.png)
 
-> 🔼 The figure illustrates the hybrid tokenizer in HART, which decomposes continuous latents into discrete and continuous tokens for better image reconstruction.
+> 🔼 The figure illustrates the hybrid tokenizer of HART which decomposes continuous latents into discrete and continuous tokens, using both during training and only continuous tokens during inference.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Unlike conventional image tokenizers that decode either continuous or discrete latents, the hybrid tokenizer in HART is trained to decode both continuous and discrete tokens. At inference time, we only decode continuous tokens, which are the sum of discrete tokens and residual tokens. The residual tokens will be modeled by residual diffusion (introduced in Figure 6).
@@ -151,7 +151,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_6_0.png)
 
-> 🔼 The figure illustrates HART's framework, decomposing continuous image tokens into discrete tokens processed by a scalable autoregressive transformer and residual tokens handled by a lightweight residual diffusion module, then combining them for image generation.
+> 🔼 The figure illustrates HART's framework, which decomposes continuous image tokens into discrete tokens (modeled by a scalable autoregressive transformer) and residual tokens (modeled by residual diffusion), then sums them for image generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: HART is an efficient hybrid autoregressive image generation framework. It decomposes continuous image tokens into two components: 1) a series of discrete tokens modeled by a scalable-resolution (up to 1024px) autoregressive transformer, and 2) residual tokens modeled by a lightweight residual diffusion (37M parameters and 8 steps) module. The final image representation is the sum of these two components.
@@ -161,7 +161,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_10_0.png)
 
-> 🔼 Figure 8 shows the comparison of image generation results of different models at different resolutions with different numbers of steps.
+> 🔼 The figure shows a comparison of image generation results using different resolution settings and demonstrates the effectiveness of the scalable-resolution transformer in HART.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Scalable-resolution transformer accelerates convergence when finetuning HART at higher resolution thanks to relative position embeddings that supports resolution interpolation.
@@ -171,7 +171,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_10_1.png)
 
-> 🔼 The figure compares the image generation results of the official VAR and HART models at different resolutions, showcasing the improved scalability of HART.
+> 🔼 The figure shows the comparison of image generation results between the official VAR and HART models at different resolutions, highlighting the improved scalability and efficiency of HART.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Scalable-resolution transformer accelerates convergence when finetuning HART at higher resolution thanks to relative position embeddings that supports resolution interpolation.
@@ -181,17 +181,17 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_16_0.png)
 
-> 🔼 The figure shows a comparison of image generation results at 1024x1024 resolution and 512x512 resolution, highlighting the increased detail in higher resolution images.
+> 🔼 The figure shows a comparison of image generation results at 1024x1024 resolution versus 512x512 resolution, highlighting the increased detail achieved at higher resolution.
 > <details>
 > <summary>read the caption</summary>
-> Figure 10: Direct high-resolution (1024×1024) image generation yields significantly more detailed results compared to low-resolution (512x512) generation.
+> Figure 10: Direct high-resolution (1024x1024) image generation yields significantly more detailed results compared to low-resolution (512x512) generation.
 > </details>
 
 
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows a comparison of image generation results between HART and other state-of-the-art diffusion models for various prompts, highlighting HART's comparable quality and superior speed.
+> 🔼 Figure 2 shows a comparison of images generated by HART and other state-of-the-art diffusion models for various prompts, highlighting the comparable quality and increased speed of HART.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: HART generates 1024px images with quality comparable to state-of-the-art diffusion models such as Playground v2.5 (Li et al., 2024a), PixArt-Σ (Chen et al., 2024a), and SDXL (Podell et al., 2023) while being 4.6-5.6× faster.
@@ -201,7 +201,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_17_1.png)
 
-> 🔼 Figure 1 shows a comparison of HART's image generation quality and efficiency against state-of-the-art diffusion models, highlighting HART's superior throughput, lower latency, and reduced MACs.
+> 🔼 Figure 1 shows a comparison of HART's image generation quality and efficiency against state-of-the-art diffusion models, highlighting HART's superior throughput, lower latency, and reduced MACs while maintaining comparable image quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: HART is an early autoregressive model that can directly generate 1024×1024 images with quality comparable to diffusion models, while offering significantly improved efficiency. It achieves 4.5-7.7× higher throughput, 3.1-5.9× lower latency (measured on A100), and 6.9-13.4× lower MACs compared to state-of-the-art diffusion models. Check out our online demo and video.
@@ -211,27 +211,27 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_17_2.png)
 
-> 🔼 Figure 2 shows image generation results comparing HART with other state-of-the-art models for several different prompts.
+> 🔼 Figure 1 shows a comparison of HART's performance against state-of-the-art diffusion models in terms of image quality, throughput, latency, and MACs.
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: HART generates 1024px images with quality comparable to state-of-the-art diffusion models such as Playground v2.5 (Li et al., 2024a), PixArt-Σ (Chen et al., 2024a), and SDXL (Podell et al., 2023) while being 4.6-5.6× faster.
+> Figure 1: HART is an early autoregressive model that can directly generate 1024×1024 images with quality comparable to diffusion models, while offering significantly improved efficiency. It achieves 4.5-7.7× higher throughput, 3.1-5.9× lower latency (measured on A100), and 6.9-13.4× lower MACs compared to state-of-the-art diffusion models. Check out our online demo and video.
 > </details>
 
 
 
 ![](figures/figures_17_3.png)
 
-> 🔼 Figure 11 shows additional examples of 1024x1024 images generated by HART, showcasing its ability to generate high-quality and detailed images from complex text prompts.
+> 🔼 Figure 11 shows additional examples of 1024x1024 images generated by HART, demonstrating its ability to produce high-quality images comparable to state-of-the-art diffusion models, with detailed descriptions of the prompts used.
 > <details>
 > <summary>read the caption</summary>
-> Figure 11: Additional 1024x1024 text-to-image generation results with HART. Full prompt for example 2: Full body shot, a French woman, Photography, French Streets background, backlighting, rim light, Fujifilm. Full prompt for example 3: Drone view of waves crashing against the rugged cliffs along Big Sur's Garay Point beach. The crashing blue waters create white-tipped waves, while the golden light of the setting sun illuminates the rocky shore.
+> Figure 11: Additional 1024×1024 text-to-image generation results with HART. Full prompt for example 2: Full body shot, a French woman, Photography, French Streets background, backlighting, rim light, Fujifilm. Full prompt for example 3: Drone view of waves crashing against the rugged cliffs along Big Sur's Garay Point beach. The crashing blue waters create white-tipped waves, while the golden light of the setting sun illuminates the rocky shore.
 > </details>
 
 
 
 ![](figures/figures_17_4.png)
 
-> 🔼 Figure 2 shows a comparison of images generated by HART and several state-of-the-art diffusion models for different prompts, demonstrating HART's comparable image quality and significantly faster generation speed.
+> 🔼 Figure 2 shows a comparison of images generated by HART and other state-of-the-art diffusion models for various prompts, highlighting HART's comparable quality and superior speed.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: HART generates 1024px images with quality comparable to state-of-the-art diffusion models such as Playground v2.5 (Li et al., 2024a), PixArt-Σ (Chen et al., 2024a), and SDXL (Podell et al., 2023) while being 4.6-5.6× faster.
@@ -241,7 +241,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_17_5.png)
 
-> 🔼 Figure 2 shows a comparison of image generation results between HART and other state-of-the-art diffusion models for several different prompts, demonstrating HART's ability to generate high-quality 1024x1024 images efficiently.
+> 🔼 The figure shows a comparison of image generation results between HART and other state-of-the-art diffusion models for various prompts, highlighting HART's comparable quality and superior speed.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: HART generates 1024px images with quality comparable to state-of-the-art diffusion models such as Playground v2.5 (Li et al., 2024a), PixArt-Σ (Chen et al., 2024a), and SDXL (Podell et al., 2023) while being 4.6-5.6× faster.
@@ -251,7 +251,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_17_6.png)
 
-> 🔼 Figure 11 shows additional examples of 1024x1024 images generated by HART, demonstrating its ability to produce high-quality images comparable to state-of-the-art diffusion models from various text prompts.
+> 🔼 Figure 11 shows additional examples of 1024x1024 images generated by HART, showcasing its ability to generate high-quality images from detailed text prompts, comparing favorably to other state-of-the-art models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 11: Additional 1024×1024 text-to-image generation results with HART. Full prompt for example 2: Full body shot, a French woman, Photography, French Streets background, backlighting, rim light, Fujifilm. Full prompt for example 3: Drone view of waves crashing against the rugged cliffs along Big Sur's Garay Point beach. The crashing blue waters create white-tipped waves, while the golden light of the setting sun illuminates the rocky shore.
@@ -261,7 +261,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_17_7.png)
 
-> 🔼 Figure 1 shows a comparison of HART's image generation quality and efficiency against state-of-the-art diffusion models, highlighting HART's superior performance in terms of throughput, latency, and MACs.
+> 🔼 Figure 1 is a comparison of HART's performance against several state-of-the-art diffusion models, highlighting HART's superior efficiency and comparable image quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: HART is an early autoregressive model that can directly generate 1024×1024 images with quality comparable to diffusion models, while offering significantly improved efficiency. It achieves 4.5-7.7× higher throughput, 3.1-5.9× lower latency (measured on A100), and 6.9-13.4× lower MACs compared to state-of-the-art diffusion models. Check out our online demo and video.
@@ -271,7 +271,7 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_17_8.png)
 
-> 🔼 The figure shows reconstruction quality comparison between VAR and HART tokenizers, highlighting how HART's hybrid tokenization solves detail loss and distortion issues present in VAR's discrete tokenizer.
+> 🔼 The figure shows a comparison of reconstruction quality between VAR and HART tokenizers, highlighting HART's improved ability to reconstruct image details.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Reconstruction quality comparison between VAR and HART tokenizers. The discrete tokenizer employed by VAR will lose some details or have some distortion during the reconstruction, which is solved by hybrid tokenization in HART. Please zoom in for details in 1k images.
@@ -281,17 +281,17 @@ This paper is highly significant for researchers in computer vision and machine 
 
 ![](figures/figures_18_0.png)
 
-> 🔼 The figure compares the efficiency and image quality of HART with several state-of-the-art diffusion models, demonstrating HART's superior performance.
+> 🔼 Figure 12 shows additional examples of images generated by HART, compared to other state-of-the-art methods, demonstrating its ability to generate high-quality images from a variety of prompts.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: HART is an early autoregressive model that can directly generate 1024×1024 images with quality comparable to diffusion models, while offering significantly improved efficiency. It achieves 4.5-7.7× higher throughput, 3.1-5.9× lower latency (measured on A100), and 6.9-13.4× lower MACs compared to state-of-the-art diffusion models. Check out our online demo and video.
+> Figure 12: Additional 1024×1024 text-to-image generation results with HART. Full prompt for example 2: 8k uhd A man looks up at the starry sky, lonely and ethereal, Minimalism, Chaotic composition Op Art. Full prompt for example 3: A close-up photo of a person. The subject is a woman. She wore a blue coat with a gray dress underneath. She has blue eyes and blond hair, and wears a pair of earrings. Behind are blurred city buildings and streets. Full prompt for example 5: beautiful lady, freckles, big smile, blue eyes, short ginger hair, dark makeup, wearing a floral blue vest top, soft light, dark grey background.
 > </details>
 
 
 
 ![](figures/figures_19_0.png)
 
-> 🔼 Figure 13 shows 256x256 class-conditional generation results from HART on the ImageNet dataset.
+> 🔼 Figure 13 shows a grid of 30 images generated by HART, demonstrating its class-conditional image generation capabilities on the ImageNet dataset.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: 256×256 class-conditional generation results from HART on ImageNet (Deng et al., 2009).
@@ -318,7 +318,7 @@ This paper is highly significant for researchers in computer vision and machine 
 > </details>
 
 
-> Table 2 compares the performance of HART against other open-source diffusion and autoregressive models on three benchmark datasets, showing that HART achieves comparable performance to state-of-the-art diffusion models with fewer parameters.
+> Table 2 compares the performance of HART with other state-of-the-art diffusion and autoregressive models on various image generation benchmarks, showing HART achieves comparable performance to top models with fewer parameters.
 
 
 {{< table-caption >}}
@@ -330,7 +330,7 @@ This paper is highly significant for researchers in computer vision and machine 
 > </details>
 
 
-> This table compares the efficiency of HART with state-of-the-art diffusion models in terms of latency, throughput and MACs at 512x512 and 1024x1024 resolutions.
+> This table compares the efficiency of HART against state-of-the-art diffusion models in terms of latency, throughput, and MACs at 512x512 and 1024x1024 resolutions.
 
 
 {{< table-caption >}}
@@ -342,7 +342,7 @@ This paper is highly significant for researchers in computer vision and machine 
 > </details>
 
 
-> Table 2 compares the performance of HART with other autoregressive and diffusion models on various image generation benchmarks, showing HART achieves competitive results with significantly fewer parameters.
+> Table 1 shows a comparison of the reconstruction fidelity (rFID) achieved by different tokenizers on the MJHQ-30K and ImageNet datasets, demonstrating that HART's hybrid tokenizer significantly outperforms the discrete VAR tokenizer and matches the performance of the continuous SDXL tokenizer.
 
 
 {{< table-caption >}}
@@ -354,7 +354,7 @@ This paper is highly significant for researchers in computer vision and machine 
 > </details>
 
 
-> This table compares the performance of HART against other autoregressive models (VAR and MAR) on class-conditioned image generation, highlighting HART's superior efficiency and comparable FID (Fréchet Inception Distance).
+> Table 4 presents a comparison of class-conditioned image generation results between HART and other autoregressive models, highlighting HART's superior performance in terms of FID, IS, MACs, and inference time.
 
 
 {{< table-caption >}}
@@ -366,7 +366,7 @@ This paper is highly significant for researchers in computer vision and machine 
 > </details>
 
 
-> Table 4 compares HART's class-conditional image generation performance against other autoregressive models (MAR and VAR) in terms of FID, Inception Score, parameters, number of steps, MACs and inference time.
+> Table 4 compares the performance of HART against MAR and VAR models on class-conditioned image generation, showing that HART achieves better FID and IS scores with significantly fewer computations and faster inference time.
 
 
 {{< table-caption >}}
@@ -378,7 +378,7 @@ This paper is highly significant for researchers in computer vision and machine 
 > </details>
 
 
-> Table 5 shows the ablation study results of HART, demonstrating the impact of residual tokens and other design choices on image generation performance.
+> Table 5 shows the ablation study results on the impact of residual tokens, alternating training, and scalable resolution transformer on FID, IS, and inference time.
 
 
 </details>

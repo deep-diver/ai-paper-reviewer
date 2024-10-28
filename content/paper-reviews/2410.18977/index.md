@@ -1,6 +1,6 @@
 ---
 title: "MotionCLR: Motion Generation and Training-free Editing via Understanding Attention Mechanisms"
-summary: "MotionCLR: Training-free human motion editing via attention mechanism manipulation."
+summary: "MotionCLR: Training-free, interactive human motion editing via attention mechanism manipulation.  Versatile editing, good generation quality, and strong explainability achieved."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-MotionCLR is a new AI model for creating and editing human movement.  Unlike previous models, it uses attention mechanisms to directly link words to motion, making editing much easier.  Researchers can adjust the model's attention to change the intensity of actions, replace parts of the animation, or change the order of events. The model's ability to link words and actions makes it more intuitive and easier to understand than previous models.  Experiments showed it performs as well as other advanced models, opening possibilities for more natural and interactive animation.
+MotionCLR is a new AI model for generating and editing human movements. Unlike older models, MotionCLR understands the link between words and movements, making it easy to precisely adjust animations. By tweaking the model's attention mechanisms, users can effortlessly modify elements like speed, intensity, or even swap actions without retraining the model. Experiments show MotionCLR generates realistic-looking movements and allows for detailed editing, which is very useful for creating animations and virtual characters.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ MotionCLR is a new AI model for creating and editing human movement.  Unlike pre
 {{< button href="https://arxiv.org/abs/2410.18977" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18977" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is significant for researchers working on human motion generation and editing because it introduces a novel attention-based diffusion model, MotionCLR, that offers superior explainability and facilitates training-free editing.  It addresses limitations of existing models by explicitly modeling word-level text-motion correspondence, enabling fine-grained control and opening new avenues for interactive editing techniques. The findings are relevant to ongoing research in AI animation, offering advancements in both generation quality and user interaction.
+This paper is important because it introduces a novel attention-based motion diffusion model, MotionCLR, that enables training-free interactive editing of human motion.  It addresses limitations of previous models by explicitly modeling text-motion correspondence and offering superior explainability.  The method's versatility and ease of use open up new avenues for research in human animation, AI-driven content creation, and beyond.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} MotionCLR, a novel attention-based diffusion model, achieves comparable generation performance while providing clear modeling of text-motion correspondence. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} MotionCLR, a novel attention-based diffusion model, achieves comparable generation performance to state-of-the-art methods while offering superior explainability. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} MotionCLR enables training-free interactive motion editing through simple manipulations of attention maps, including de-emphasizing, in-place replacement, and sequence shifting. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} MotionCLR enables training-free interactive motion editing through simple manipulations of attention maps, including de-emphasizing, emphasizing, in-place replacement, and sequence shifting. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The model demonstrates good explainability, allowing for action counting and grounded motion generation via attention maps. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The paper clarifies the roles of self- and cross-attention in motion generation and demonstrates the potential for action counting and grounded motion generation via attention maps. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing through attention mechanism manipulations.
+> 🔼 MotionCLR supports versatile motion generation and editing through various manipulation methods on attention mechanisms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -61,7 +61,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](charts/charts_6_0.png)
 
-> 🔼 The figure illustrates three motion editing methods (motion de-emphasizing, in-place motion replacement, and motion sequence shifting) by manipulating attention maps.
+> 🔼 The figure illustrates three motion editing methods (motion (de-)emphasizing, in-place motion replacement, and motion sequence shifting) by manipulating attention maps.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Motion editing via manipulating attention maps.
@@ -74,7 +74,7 @@ This paper is significant for researchers working on human motion generation and
 {{< table-caption >}}
 <table id='0' style='font-size:16px'><tr><td rowspan="2">Methods</td><td colspan="3">R-Precision↑</td><td rowspan="2">FID↓</td><td rowspan="2">MM-Dist↓</td><td rowspan="2">Multi-Modality↑</td></tr><tr><td>Top 1</td><td>Top 2</td><td>Top 3</td></tr><tr><td>TM2T [2022b]</td><td>0.424±0.003</td><td>0.618±0.003</td><td>0.729±0.002</td><td>1.501 ±0.017</td><td>3.467±0.011</td><td>2.424±0.093</td></tr><tr><td>T2M [2022a]</td><td>0.455±0.003</td><td>0.636±0.003</td><td>0.736±0.002</td><td>1.087±0.021</td><td>3.347±0.008</td><td>2.219±0.074</td></tr><tr><td>MDM [2022b]</td><td>-</td><td>-</td><td>0.611 ±0.007</td><td>0.544±0.044</td><td>5.566±0.027</td><td>2.799±0.072</td></tr><tr><td>MLD [2023b]</td><td>0.481 ±0.003</td><td>0.673±0.003</td><td>0.772±0.002</td><td>0.473±0.013</td><td>3.196±0.010</td><td>2.413±0.079</td></tr><tr><td>MotionDiffuse [2024b]</td><td>0.491 ±0.001</td><td>0.681 ±0.001</td><td>0.782±0.001</td><td>0.630±0.001</td><td>3.113±0.001</td><td>1.553±0.042</td></tr><tr><td>T2M-GPT [2023a]</td><td>0.492±0.003</td><td>0.679±0.002</td><td>0.775±0.002</td><td>0.141 士0.005</td><td>3.121 ±0.009</td><td>1.831 ±0.048</td></tr><tr><td>ReMoDiffuse [2023b]</td><td>0.510±0.005</td><td>0.698±0.006</td><td>0.795±0.004</td><td>0.103±0.004</td><td>2.974±0.016</td><td>1.795±0.043</td></tr><tr><td>MoMask [2024a]</td><td>0.521 ±0.002</td><td>0.713±0.002</td><td>0.807±0.002</td><td>0.045 ±0.002</td><td>2.958±0.008</td><td>1.241 ±0.040</td></tr><tr><td>MotionCLR</td><td>0.542±0.001</td><td>0.733±0.002</td><td>0.827±0.003</td><td>0.099±0.003</td><td>2.981±0.011</td><td>2.145±0.043</td></tr><tr><td>MotionCLR*</td><td>0.544±0.001</td><td>0.732±0.001</td><td>0.831 士0.002</td><td>0.269±0.001</td><td>2.806±0.014</td><td>1.985±0.044</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset, using metrics such as R-Precision, FID, MM-Dist, and Multi-Modality.
+> 🔼 Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset using various metrics.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Comparison with different methods on the HumanML3D dataset. The '*' notation denotes the DDIM sampling inference design choice and the other is the DPM-solver sampling choice.
@@ -91,17 +91,17 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation, showing examples of de-emphasizing, in-place replacement, diverse generation, style transfer, and sequential editing.
+> 🔼 Figure 3 shows an empirical study of the attention mechanisms in MotionCLR, visualizing key frames, root trajectory, cross-attention between timesteps and words, and the self-attention map for the sentence 'a person jumps.'
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
+> Figure 3: Empirical study of attention mechanisms. We use 'a person jumps.' as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height, in Fig. 3b). As can be seen in Fig. 3, the character jumps at ~ 15-40f, ~ 60-80f, and ~ 125-145f, respectively. (c) The cross-attention between timesteps and words. The 'jump' word is highly activated aligning with the 'jump' action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.
 > </details>
 
 
 
 ![](figures/figures_1_2.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -111,7 +111,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_3.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention maps to achieve motion (de-)emphasizing, in-place motion replacement, example-based motion generation, motion style transfer, and motion sequence shifting.
+> 🔼 MotionCLR supports versatile motion generation and editing through various methods such as de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -121,7 +121,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_4.png)
 
-> 🔼 The figure shows three different motion editing methods by manipulating attention maps: motion (de-)emphasizing, in-place motion replacement, and motion sequence shifting.
+> 🔼 The figure shows three different motion editing methods (motion (de-)emphasizing, in-place motion replacement, and motion sequence shifting) by manipulating attention maps.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Motion editing via manipulating attention maps.
@@ -131,7 +131,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_5.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, showcasing motion de-emphasizing, emphasizing, in-place replacement, style transfer, and sequence editing.
+> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -141,7 +141,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_6.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms.
+> 🔼 The figure shows various motion generation and editing capabilities of the MotionCLR model, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequence editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -151,7 +151,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_7.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacing, style transferring, and editing the sequentiality of a motion.
+> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -161,7 +161,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_1_8.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms.
+> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -171,7 +171,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_4_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -181,27 +181,27 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_5_0.png)
 
-> 🔼 Figure 3 empirically studies attention mechanisms by visualizing key frames of generated motion, root trajectory, cross-attention between timesteps and words, and self-attention map for the sentence 'a person jumps.'
+> 🔼 The figure shows empirical studies of the attention mechanisms in MotionCLR, visualizing the root trajectory, cross-attention between timesteps and words, and the self-attention map for a generated motion of a person jumping.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: Empirical study of attention mechanisms. We use 'a person jumps.' as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height). The character jumps on ~15-40f, ~60-80f, and ~125-145f, respectively. (c) The cross-attention between timesteps and words. The 'jump' word is highly activated aligning with the 'jump' action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.
+> Figure 3: Empirical study of attention mechanisms. We use “a person jumps.” as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y -axis (vertical height). The character jumps on ∼ 15 − 40f, ∼ 60 − 80f, and ∼ 125 − 145f, respectively. (c) The cross-attention between timesteps and words. The “jump” word is highly activated aligning with the “jump” action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.
 > </details>
 
 
 
 ![](figures/figures_7_0.png)
 
-> 🔼 Figure 3 shows an empirical study of attention mechanisms by visualizing key frames, root trajectory, cross-attention between timesteps and words, and self-attention map of a generated motion for the sentence 'a person jumps.'
+> 🔼 The figure shows the results of motion (de-)emphasizing by manipulating the attention weights of the word 'jump', resulting in varied heights and frequencies of jumps.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: Empirical study of attention mechanisms. We use 'a person jumps.' as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height, in Fig. 3b). As can be seen in Fig. 3, the character jumps at ~ 15-40f, ~ 60-80f, and ~ 125-145f, respectively. (c) The cross-attention between timesteps and words. The 'jump' word is highly activated aligning with the 'jump' action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.
+> Figure 5: Motion (de-)emphasizing. Different weights of 'jump' (↑ or ↓) in 'a man jumps.'
 > </details>
 
 
 
 ![](figures/figures_8_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via several methods, including de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -211,7 +211,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_8_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -221,17 +221,17 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_8_2.png)
 
-> 🔼 Figure 3 shows an empirical study of attention mechanisms in MotionCLR, visualizing key frames, root trajectory, cross-attention between timesteps and words, and self-attention map for a 'person jumps.' example.
+> 🔼 The figure empirically studies the attention mechanisms of MotionCLR, visualizing the root trajectory, cross-attention between timesteps and words, and self-attention maps to demonstrate the model's ability to align text and motion and identify similar local motion patterns.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: Empirical study of attention mechanisms. We use 'a person jumps.' as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height, in Fig. 3b). As can be seen in Fig. 3, the character jumps at ~ 15 - 40f, ~ 60 - 80f, and ~ 125-145f, respectively. (c) The cross-attention between timesteps and words. The 'jump' word is highly activated aligning with the 'jump' action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.
+> Figure 3: Empirical study of attention mechanisms. We use “a person jumps.” as an example. (a) Key frames of generated motion. (b) The root trajectory along the Y-axis (vertical height). The character jumps on ~15-40f, ~60-80f, and ~125-145f, respectively. (c) The cross-attention between timesteps and words. The “jump” word is highly activated aligning with the “jump” action. (d) The self-attention map visualization. It is obvious that the character jumps three times. Different jumps share similar local motion patterns.
 > </details>
 
 
 
 ![](figures/figures_8_3.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing through attention mechanism manipulations.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -241,27 +241,27 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_9_0.png)
 
-> 🔼 Figure 10 shows diverse generated motions sharing similar movement content but different trajectories, driven by the same example prompt.
+> 🔼 Figure 10 shows diverse human motions generated from the same example prompt, demonstrating both similarities in overall movement and variations in specific details.
 > <details>
 > <summary>read the caption</summary>
-> Figure 10: Diverse generated motions driven by the same example. Prompt: “a person steps sideways to the left and then sideways to the right.”. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.
+> Figure 10: Diverse generated motions driven by the same example. Prompt: 'a person steps sideways to the left and then sideways to the right.'. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.
 > </details>
 
 
 
 ![](figures/figures_9_1.png)
 
-> 🔼 Figure 10 shows diverse generated motions with similar movement content but different root trajectories, all driven by the same example prompt.
+> 🔼 Figure 10 shows diverse generated motions from the same example prompt, demonstrating both similar movement content and diverse root trajectories.
 > <details>
 > <summary>read the caption</summary>
-> Figure 10: Diverse generated motions driven by the same example. Prompt: “a person steps sideways to the left and then sideways to the right.” (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.
+> Figure 10: Diverse generated motions driven by the same example. Prompt: 'a person steps sideways to the left and then sideways to the right.'. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.
 > </details>
 
 
 
 ![](figures/figures_10_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequence shifting.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -271,7 +271,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_10_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -281,7 +281,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_10_2.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing through attention mechanism manipulations.
+> 🔼 MotionCLR supports versatile motion generation and editing through various methods such as motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -301,7 +301,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_10_4.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms, as shown through examples of de-emphasizing, in-place replacement, diverse generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -311,7 +311,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_10_5.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms, as shown through examples of de-emphasizing, in-place replacement, diverse generation, style transfer, and sequential editing.
+> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention maps, showcasing motion de-emphasizing, emphasizing, in-place replacement, style transfer, and sequence editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -321,7 +321,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms.
+> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention maps, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequence shifting.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -331,7 +331,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms to de-emphasize, emphasize, replace, transfer, and shift motion sequences.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -341,7 +341,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_2.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -361,7 +361,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_4.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing through various methods including motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -371,7 +371,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_5.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanisms, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -381,7 +381,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_6.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via several methods, including de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -391,7 +391,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_7.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms, including de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -401,7 +401,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_8.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -411,7 +411,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_9.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms.
+> 🔼 MotionCLR supports versatile motion generation and editing through various methods, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -421,7 +421,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_10.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, showing examples of de-emphasizing, in-place replacement, diverse generation, style transfer, and sequential editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -431,7 +431,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_24_11.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing through attention mechanism manipulations.
+> 🔼 MotionCLR supports versatile motion generation and editing through various methods such as de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -441,7 +441,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_25_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulation of attention mechanisms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -451,7 +451,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_25_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing through attention mechanism manipulation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -461,7 +461,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_26_0.png)
 
-> 🔼 Figure 10 shows diverse generated motions with similar movement content but different trajectories driven by the same example motion prompt.
+> 🔼 Figure 10 shows diverse generated motions from the same example prompt, demonstrating both similar movement content and diverse root trajectories.
 > <details>
 > <summary>read the caption</summary>
 > Figure 10: Diverse generated motions driven by the same example. Prompt: 'a person steps sideways to the left and then sideways to the right.'. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.
@@ -471,17 +471,17 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_26_1.png)
 
-> 🔼 Figure 10 shows diverse generated motions driven by the same example motion, demonstrating both similar movement content and diverse root trajectories.
+> 🔼 Figure 10 shows diverse generated motions from the same example motion prompt, highlighting both similar movement content and diverse root trajectories.
 > <details>
 > <summary>read the caption</summary>
-> Figure 10: Diverse generated motions driven by the same example. Prompt: 'a person steps sideways to the left and then sideways to the right.'. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.
+> Figure 10: Diverse generated motions driven by the same example. Prompt: “a person steps sideways to the left and then sideways to the right.”. (a) The diverse generated motions driven by the same example motion share similar movement content. (b) The root trajectories of diverse motions are with similar global trajectories, but not the same.
 > </details>
 
 
 
 ![](figures/figures_27_0.png)
 
-> 🔼 The figure compares the results of motion generation with and without temporal grounding, showing how grounding corrects hallucination in the number of jumps.
+> 🔼 The figure shows a comparison of motion generation results with and without temporal grounding, illustrating the impact of grounding on correcting hallucination in action counting.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: Comparison between w/ vs. w/o grounded motion generation settings. The root height and motion visualization of the textual prompt “a person jumps four times”.
@@ -491,7 +491,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_28_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequence shifting.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -501,7 +501,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_29_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms.
+> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -511,7 +511,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_30_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms.
+> 🔼 MotionCLR supports versatile motion generation and editing via various methods including de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -521,7 +521,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_30_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing through various methods, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequence editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, including motion (de-)emphasizing, in-place motion replacement, example-based motion generation, and motion sequence shifting.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -531,7 +531,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_31_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -541,7 +541,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_33_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing by manipulating attention mechanisms, enabling various editing operations such as de-emphasizing, emphasizing, replacing, generating, and shifting motions.
+> 🔼 MotionCLR supports versatile motion generation and editing through various manipulation methods, including de-emphasizing, emphasizing, in-place replacement, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -551,7 +551,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_37_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations, including de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -561,7 +561,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_37_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanisms, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequential editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -571,7 +571,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_38_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequential editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -581,7 +581,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_39_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequential editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention mechanisms.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -591,7 +591,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_39_1.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations.
+> 🔼 MotionCLR supports versatile motion generation and editing via various methods, including de-emphasizing, in-place replacement, example-based generation, style transfer and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -601,7 +601,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](figures/figures_40_0.png)
 
-> 🔼 MotionCLR supports versatile motion generation and editing via attention mechanism manipulations, showcasing motion de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
+> 🔼 MotionCLR supports versatile motion generation and editing via manipulating attention maps, showing examples of de-emphasizing, in-place replacement, example-based generation, style transfer, and sequentiality editing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MotionCLR (/'moυ∫n klır/) supports versatile motion generation and editing. The blue and red figures represent original and edited motions. (a) Motion deemphasizing and emphasizing via adjusting the weight of 'jump'. (b) In-place replacing the action of 'walks' with 'jumps' and 'dances'. (c) Generating diverse motion with the same example motion. (d) Transferring motion style referring to two motions (style and content reference). (e) Editing the sequentiality of a motion.
@@ -630,7 +630,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](charts/charts_6_1.png "🔼 Figure 4: Motion editing via manipulating attention maps.")
 
-> 🔼 The chart illustrates three motion editing methods (motion (de-)emphasizing, in-place motion replacement, motion sequence shifting) by manipulating attention maps.
+> 🔼 The figure shows three different motion editing methods (motion (de-)emphasizing, in-place motion replacement, and motion sequence shifting) by manipulating attention maps.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Motion editing via manipulating attention maps.
@@ -639,7 +639,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](charts/charts_7_0.png "🔼 Figure 5: Motion (de-)emphasizing. Different weights of 'jump' (↑ or ↓) in 'a man jumps.'")
 
-> 🔼 The chart visualizes the impact of modifying the weight of the word 'jump' on the height of jumps in generated motion sequences.
+> 🔼 The chart visualizes how manipulating the weight of the word 'jump' in the prompt affects the height and frequency of jumps in the generated motion.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Motion (de-)emphasizing. Different weights of 'jump' (↑ or ↓) in 'a man jumps.'
@@ -648,7 +648,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](charts/charts_9_0.png "🔼 Figure 8: t-SNE visualization of different example-based generated results. Different colors imply different driven examples.")
 
-> 🔼 t-SNE visualization shows that diverse motions generated from the same example motion share similar motion textures, and different examples are well separated.
+> 🔼 t-SNE plot visualizes the similarity of diverse generated motion results driven by different example motions, showing that similar examples cluster together.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: t-SNE visualization of different example-based generated results. Different colors imply different driven examples.
@@ -657,7 +657,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](charts/charts_10_0.png "🔼 Figure 12: Action counting error rate comparison. Root trajectory (Traj.) vs. attention map (Ours). “σ” is the smoothing parameter.")
 
-> 🔼 The chart compares the error rates of action counting using root trajectory and attention map, showing that attention map-based counting is less sensitive to noise.
+> 🔼 The chart compares the error rates of action counting using root trajectory and self-attention map in MotionCLR, showing the superiority of the self-attention map approach.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Action counting error rate comparison. Root trajectory (Traj.) vs. attention map (Ours). “σ” is the smoothing parameter.
@@ -666,7 +666,7 @@ This paper is significant for researchers working on human motion generation and
 
 ![](charts/charts_20_0.png "🔼 Figure 14: Additional visualization results for different (de-)emphasizing weights. The self-attention maps show how varying the different weights (e.g., ↓ 0.05, ↓ 0.10, ↑ 0.33, and ↑ 1.00) affect the emphasis on motion.")
 
-> 🔼 The self-attention maps for different (de-)emphasizing weights show how varying weights affect motion emphasis.
+> 🔼 The self-attention maps visualize how changing the weights affects the emphasis of motion during (de-)emphasizing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 14: Additional visualization results for different (de-)emphasizing weights. The self-attention maps show how varying the different weights (e.g., ↓ 0.05, ↓ 0.10, ↑ 0.33, and ↑ 1.00) affect the emphasis on motion.
@@ -675,25 +675,25 @@ This paper is significant for researchers working on human motion generation and
 
 ![](charts/charts_21_0.png "🔼 Figure 15: The effect of varying w in classifier-free guidance on generated motions. While changing w influences the general alignment between the text 'a man jumps.' and the generated motion, it does not provide precise control over finer details like jump height and frequency.")
 
-> 🔼 The chart displays the effect of varying classifier-free guidance weights (w) on the height of generated jumps, showing that while it affects overall alignment, it lacks fine-grained control over jump height and frequency.
+> 🔼 The chart shows the effect of varying classifier-free guidance weights (w) on the height of generated jumps, demonstrating that while changing w influences the general alignment, it does not provide precise control over finer details.
 > <details>
 > <summary>read the caption</summary>
 > Figure 15: The effect of varying w in classifier-free guidance on generated motions. While changing w influences the general alignment between the text 'a man jumps.' and the generated motion, it does not provide precise control over finer details like jump height and frequency.
 > </details>
 
 
-![](charts/charts_27_0.png "🔼 Figure 20: Comparison between w/ vs. w/o grounded motion generation settings. The root height and motion visualization of the textual prompt “a person jumps four times”.")
+![](charts/charts_27_0.png "🔼 Figure 5: Motion (de-)emphasizing. Different weights of 'jump' (↑ or ↓) in 'a man jumps.'.")
 
-> 🔼 The chart compares the root height trajectory of a generated motion with and without temporal grounding, showing the improvement in aligning the generated motion with the textual prompt when temporal grounding is used.
+> 🔼 The chart visualizes the impact of modifying the weight of the word 'jump' on the height of a generated jumping motion, comparing vanilla, de-emphasized, and emphasized results.
 > <details>
 > <summary>read the caption</summary>
-> Figure 20: Comparison between w/ vs. w/o grounded motion generation settings. The root height and motion visualization of the textual prompt “a person jumps four times”.
+> Figure 5: Motion (de-)emphasizing. Different weights of 'jump' (↑ or ↓) in 'a man jumps.'.
 > </details>
 
 
 ![](charts/charts_34_0.png "🔼 Figure 26: Empirical study of attention patterns. We use the example “a person walks stop and then jumps.” (a) Horizontal distance traveled by the person over time, highlighting distinct walking and jumping phases. (b) The vertical height changes of the person, indicating variations during walking and jumping actions. (c) The cross-attention map between timesteps and the described actions. Notice that “walk” and “jump” receive a stronger attention signal corresponding to the walk and jump segments. (d) The self-attention map, which clearly identifies repeated walking and jumping cycles, shows similar patterns in the sub-actions. (e) Visualization of the motion sequences, demonstrating the walking and jumping actions.")
 
-> 🔼 Figure 26 shows an empirical study of attention mechanisms by visualizing horizontal distance, vertical height, cross-attention, self-attention maps, and motion visualization of a 'person walks, stops, and then jumps' example, highlighting distinct phases and patterns.
+> 🔼 Figure 26 shows an empirical study of attention mechanisms, visualizing how self- and cross-attention respond to a sequence with walking and jumping actions, highlighting the alignment of attention with the actions and the identification of repeated motion patterns.
 > <details>
 > <summary>read the caption</summary>
 > Figure 26: Empirical study of attention patterns. We use the example “a person walks stop and then jumps.” (a) Horizontal distance traveled by the person over time, highlighting distinct walking and jumping phases. (b) The vertical height changes of the person, indicating variations during walking and jumping actions. (c) The cross-attention map between timesteps and the described actions. Notice that “walk” and “jump” receive a stronger attention signal corresponding to the walk and jump segments. (d) The self-attention map, which clearly identifies repeated walking and jumping cycles, shows similar patterns in the sub-actions. (e) Visualization of the motion sequences, demonstrating the walking and jumping actions.
@@ -718,7 +718,7 @@ This paper is significant for researchers working on human motion generation and
 > </details>
 
 
-> Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset using various metrics, including R-Precision, FID, and MM-Dist.
+> Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset using metrics such as R-Precision, FID, and MM-Dist.
 
 
 {{< table-caption >}}
@@ -730,7 +730,19 @@ This paper is significant for researchers working on human motion generation and
 > </details>
 
 
-> Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset, evaluating motion quality, diversity, and text-motion matching.
+> Table 1 compares MotionCLR's performance against other state-of-the-art methods on the HumanML3D dataset using metrics such as R-Precision, FID, and MM-Dist.
+
+
+{{< table-caption >}}
+<table id='0' style='font-size:18px'><tr><td>Libin Liu, KangKang Yin, Michiel Van de Panne, Tianjia Shao, and Weiwei Xu. Sampling-based contact-rich motion control. In ACM SIGGRAPH, pages 1-10, 2010.</td></tr><tr><td>Yunze Liu, Changxi Chen, and Li Yi. Interactive humanoid: Online full-body motion reaction synthesis with social affordance canonicalization and forecasting. arXiv preprint arXiv:2312.08983, 2023.</td></tr><tr><td>Cheng Lu, Yuhao Zhou, Fan Bao, Jianfei Chen, Chongxuan Li, and Jun Zhu. Dpm-solver: A fast ode solver for diffusion probabilistic model sampling in around 10 steps. NeurIPS, pages 5775-5787, 2022.</td></tr><tr><td>Shunlin Lu, Ling-Hao Chen, Ailing Zeng, Jing Lin, Ruimao Zhang, Lei Zhang, and Heung- Yeung Shum. Humantomato: Text-aligned whole-body motion generation. ICML, 2024.</td></tr><tr><td>Jie Ma, Yalong Bai, Bineng Zhong, Wei Zhang, Ting Yao, and Tao Mei. Visualizing and understanding patch interactions in vision transformer. IEEE TNNLS, 2023.</td></tr><tr><td>Chong Mou, Xintao Wang, Jiechong Song, Ying Shan, and Jian Zhang. Dragondiffusion: Enabling drag-style manipulation on diffusion models. ICLR, 2024.</td></tr><tr><td>Gaurav Parmar, Krishna Kumar Singh, Richard Zhang, Yijun Li, Jingwan Lu, and Jun- Yan Zhu. Zero-shot image-to-image translation. In ACM SIGGRAPH, pages 1-11, 2023.</td></tr><tr><td>Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, et al. Pytorch: An imperative style, high-performance deep learning library. NeurIPS, 2019.</td></tr><tr><td>Fabian Pedregosa, Gael Varoquaux, Alexandre Gramfort, Vincent Michel, Bertrand Thirion, Olivier Grisel, Mathieu Blondel, Peter Prettenhofer, Ron Weiss, Vincent Dubourg, et al. Scikit-learn: Machine learning in python. IMLR, 12:2825-2830, 2011.</td></tr><tr><td>Xiaogang Peng, Yiming Xie, Zizhao Wu, Varun Jampani, Deqing Sun, and Huaizu Jiang. Hoi-diff: Text-driven synthesis of 3d human-object interactions using diffusion models. arXiv preprint arXiv:2312.06553, 2023.</td></tr><tr><td>Mathis Petrovich, Michael J Black, and Gul Varol. Temos: Generating diverse human motions from textual descriptions. In ECCV, pages 480-497, 2022.</td></tr><tr><td>Mathis Petrovich, Michael J Black, and Gul Varol. Tmr: Text-to-motion retrieval using contrastive 3d human motion synthesis. In ICCV, pages 9488-9497, 2023.</td></tr><tr><td>Mathis Petrovich, Or Litany, Umar Iqbal, Michael J Black, Gul Varol, Xue Bin Peng, and Davis Rempe. Multi-track timeline control for text-driven 3d human motion generation. In CVPRW, pages 1911-1921, 2024.</td></tr><tr><td>Ekkasit Pinyoanuntapong, Pu Wang, Minwoo Lee, and Chen Chen. Mmm: Generative masked motion model. In CVPR, pages 1546-1555, 2024.</td></tr><tr><td>Matthias Plappert, Christian Mandery, and Tamim Asfour. Learning a bidirectional mapping between human whole-body motion and natural language using deep recurrent neural networks. RAS, 109: 13-26, 2018.</td></tr><tr><td>Sigal Raab, Inbal Leibovitch, Peizhuo Li, Kfir Aberman, Olga Sorkine-Hornung, and Daniel Cohen- Or. Modi: Unconditional motion synthesis from diverse data. In CVPR, pages 13873-13883, 2023.</td></tr><tr><td>Sigal Raab, Inbar Gat, Nathan Sala, Guy Tevet, Rotem Shalev-Arkushin, Ohad Fried, Amit H Bermano, and Daniel Cohen-Or. Monkey see, monkey do: Harnessing self-attention in motion diffusion for zero-shot motion transfer. ACM SIGGRAPH Asia, 2024a.</td></tr><tr><td>Sigal Raab, Inbal Leibovitch, Guy Tevet, Moab Arar, Amit Haim Bermano, and Daniel Cohen-Or. Single motion diffusion. In ICLR, 2024b.</td></tr><tr><td>Olaf Ronneberger, Philipp Fischer, and Thomas Brox. U-net: Convolutional networks for biomedical image segmentation. In MICCAI, pages 234-241. Springer, 2015.</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset, using metrics such as R-Precision, FID, and MM-Dist.
 
 
 {{< table-caption >}}
@@ -742,7 +754,7 @@ This paper is significant for researchers working on human motion generation and
 > </details>
 
 
-> Table 1 compares the performance of MotionCLR with other state-of-the-art methods for text-driven human motion generation using several metrics on the HumanML3D dataset.
+> Table 1 compares the performance of MotionCLR against other state-of-the-art methods on the HumanML3D dataset using metrics such as R-Precision, FID, and MM-Dist.
 
 
 {{< table-caption >}}
@@ -754,7 +766,7 @@ This paper is significant for researchers working on human motion generation and
 > </details>
 
 
-> Table 1 compares the performance of MotionCLR against other state-of-the-art methods on the HumanML3D dataset, using metrics such as R-Precision, FID, and MM-Dist.
+> Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset using various metrics such as R-Precision, FID, and MM-Dist.
 
 
 {{< table-caption >}}
@@ -766,7 +778,7 @@ This paper is significant for researchers working on human motion generation and
 > </details>
 
 
-> Table 1 compares the performance of MotionCLR against other state-of-the-art methods on the HumanML3D dataset, evaluating metrics such as motion quality, diversity, and text-motion matching.
+> Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset, using metrics such as R-Precision, FID, and MM-Dist.
 
 
 {{< table-caption >}}
@@ -778,7 +790,7 @@ This paper is significant for researchers working on human motion generation and
 > </details>
 
 
-> Table 1 compares the performance of MotionCLR with other state-of-the-art methods on the HumanML3D dataset using various metrics such as R-Precision, FID, and MM-Dist.
+> The table compares MotionCLR's performance against other state-of-the-art methods using metrics such as FID, R-Precision, and MultiModality on the HumanML3D dataset.
 
 
 {{< table-caption >}}
@@ -790,7 +802,7 @@ This paper is significant for researchers working on human motion generation and
 > </details>
 
 
-> Table 1 compares MotionCLR's performance against other state-of-the-art methods on the HumanML3D dataset, using metrics such as FID, R-Precision, and Multi-Modality.
+> Table 1 compares the performance of MotionCLR against other state-of-the-art methods on the HumanML3D dataset, using metrics such as R-Precision, FID, and MM-Dist.
 
 
 </details>

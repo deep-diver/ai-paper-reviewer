@@ -1,6 +1,6 @@
 ---
 title: "Value Residual Learning For Alleviating Attention Concentration In Transformers"
-summary: "ResFormer & SVFormer alleviate Transformer attention concentration, boosting performance and reducing memory needs, paving the way for more efficient large language models."
+summary: "ResFormer and SVFormer alleviate Transformer attention concentration, boosting training speed and accuracy by introducing residual value connections and single-layer value sharing, respectively."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-23", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Deep Transformer networks suffer from 'attention concentration,' where attention focuses on fewer tokens as layers increase, limiting model performance. This paper introduces ResFormer, which addresses this by adding a residual connection from the first layer's values to all subsequent layers.  This approximates cross-layer attention without the computational cost.  A variant, SVFormer, further improves efficiency by sharing the same value embedding from the first layer across all layers, significantly reducing memory usage. Experiments show that ResFormer and SVFormer outperform standard Transformers, DenseFormer, and NeuTRENO across multiple benchmarks, demonstrating improved training and inference efficiency.
+Deep Transformer networks suffer from attention concentration, where attention focuses on fewer tokens as the network deepens.  This paper introduces two novel architectures: ResFormer and SVFormer. ResFormer solves this by adding a residual connection from the first layer's values to all subsequent layers, effectively allowing early information to propagate to later layers. SVFormer further improves efficiency by making all layers share the same value embeddings from the first layer.  Experiments show that both approaches significantly mitigate attention concentration, improving training speed and downstream task performance compared to standard Transformers, DenseFormer, and NeuTRENO. SVFormer especially excels in reducing memory requirements due to its smaller KV cache. This work provides important insights and effective solutions to challenges associated with training and deploying very deep Transformer models.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Deep Transformer networks suffer from 'attention concentration,' where attention
 {{< button href="https://arxiv.org/abs/2410.17897" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.17897" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is significant because it addresses the critical issue of attention concentration in deep Transformer models, a problem hindering the training and performance of large language models.  The proposed solutions, ResFormer and SVFormer, offer practical improvements with minimal computational overhead, directly impacting the efficiency and scalability of LLMs. This opens up new avenues for research in model optimization and deployment.
+This paper is important because it addresses the critical issue of attention concentration in deep Transformers, a problem hindering the training and performance of large language models.  The proposed ResFormer and SVFormer offer efficient solutions to mitigate this, leading to improved model training speed and accuracy. This research opens avenues for more efficient and scalable Transformer architectures.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} ResFormer mitigates attention concentration in deep Transformers by adding a residual connection from the first layer's values to subsequent layers. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} ResFormer effectively mitigates attention concentration in deep Transformers by adding residual value connections from the initial layer. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} SVFormer further improves efficiency by sharing the same value embedding across all layers, reducing KV cache by almost 50%. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} SVFormer significantly reduces the computational burden of large models by sharing the value embedding from the initial layer across all layers. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Both ResFormer and SVFormer significantly outperform vanilla Transformers and other state-of-the-art methods on various benchmarks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Both ResFormer and SVFormer demonstrate substantial performance gains compared to existing methods in both training and downstream tasks. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](figures/figures_3_0.png)
 
-> 🔼 Figure 2 simplifies the architecture of five different Transformer variants, showing the key differences in their information flow and operations.
+> 🔼 The figure illustrates the architectures of vanilla Transformer, NeuTRENO, DenseFormer, ResFormer, and SVFormer, highlighting the differences in their information flow and value vector usage.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Simplified illustration of the vanilla Transformer, NeuTRENO, DenseFormer, ResFormer, and SVFormer, with only three-layer structures and no operations other than attention. A², Vi, and H² denote the attention matrix, value vectors, and attention outputs at the i-th layer, respectively. ⊕, −, and ⊗ represent standard matrix addition, subtraction, and multiplication, respectively.
@@ -61,7 +61,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_2_0.png)
 
-> 🔼 The chart displays a comparison of relative training loss, average entropy of token importance across layers for various transformer models, highlighting the impact of ResFormer on attention concentration.
+> 🔼 The chart illustrates the relative training loss, average entropy of token importance across layers in ResFormers vs. vanilla Transformers, and average entropy of token importance across layers in LLMs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (Left) Illustration of the relative training loss (loss of target model - loss of vanilla Transformer) curve between different Transformer variants; model size is fixed to be 82M. (Middle) The average entropy of token importance across layers in ResFormer vs. the vanilla Transformer, where token importance is derived from the attention matrix. Lower entropy indicates more focused attention on specific tokens. More details can be found in Eqn. 11. (Right) The average entropy of token importance across layers in Llama (8B) (Dubey et al., 2024) and Mistral (7B) (Jiang et al., 2023).
@@ -74,7 +74,7 @@ This paper is significant because it addresses the critical issue of attention c
 {{< table-caption >}}
 <table id='6' style='font-size:16px'><tr><td>Model</td><td>Max Length</td><td>HellaSwag</td><td>Obqa</td><td>WinoGrande</td><td>ARC-c</td><td>ARC-e</td><td>PIQA</td><td>Avg.</td></tr><tr><td>Transformer</td><td>2,048</td><td>0.263</td><td>0.142</td><td>0.492</td><td>0.199</td><td>0.331</td><td>0.572</td><td>0.333</td></tr><tr><td>ResFormer</td><td>2,048</td><td>0.273</td><td>0.148</td><td>0.512</td><td>0.182</td><td>0.414</td><td>0.604</td><td>0.355</td></tr><tr><td>Transformer</td><td>64,000</td><td>0.267</td><td>0.142</td><td>0.485</td><td>0.179</td><td>0.322</td><td>0.570</td><td>0.328</td></tr><tr><td>ResFormer</td><td>64,000</td><td>0.274</td><td>0.136</td><td>0.513</td><td>0.184</td><td>0.407</td><td>0.588</td><td>0.350</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the zero-shot accuracy of different models on several commonsense reasoning tasks, comparing the performance of the Transformer and ResFormer models.
+> 🔼 Table 1 presents the zero-shot accuracy of different models on several commonsense reasoning tasks, comparing the vanilla Transformer and ResFormer with varying sequence lengths.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Zero-shot accuracy on commonsense reasoning tasks.
@@ -93,7 +93,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_5_0.png "🔼 Figure 3: Average token similarity between the outputs of different mapping methods and that of Eqn. 2.")
 
-> 🔼 The chart compares the average cosine similarity between the outputs of different mapping methods (current attention, identity mapping) and that of Equation 2, showing how well different methods approximate the proposed efficient cross-layer attention.
+> 🔼 The chart displays the average cosine similarity between outputs generated using different mapping methods (current attention and identity mapping) and the output from Equation 2, showing how well the approximation method preserves the original attention mechanism.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Average token similarity between the outputs of different mapping methods and that of Eqn. 2.
@@ -102,7 +102,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_5_1.png "🔼 Figure 4: Ablation study on sharing keys or values in every two layers, with CLAttention denoting sharing both.")
 
-> 🔼 The chart shows the ablation study on sharing keys or values in every two layers, comparing different information sharing methods with the relative training loss.
+> 🔼 The chart displays the relative training loss curves for different methods of sharing keys and values in a transformer model, showing the impact of various sharing strategies on model performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Ablation study on sharing keys or values in every two layers, with CLAttention denoting sharing both.
@@ -111,7 +111,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_6_0.png "🔼 Figure 5: (Left) The relative training curve between a 82M ResFormer and Transformer across different training sequence lengths. (Middle) Average training loss for the final 50 steps across different model sizes and the corresponding fitted curves. (Right) The relative training curve across different model size for a fixed 2,048 training sequence length.")
 
-> 🔼 The chart displays the relative training loss curves of ResFormer and Transformer models across various training sequence lengths and model sizes, illustrating ResFormer's superior performance and training efficiency.
+> 🔼 The chart displays the relative training loss curves of ResFormer and Transformer models with varying sequence lengths and model sizes, showing ResFormer's consistent performance advantage.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: (Left) The relative training curve between a 82M ResFormer and Transformer across different training sequence lengths. (Middle) Average training loss for the final 50 steps across different model sizes and the corresponding fitted curves. (Right) The relative training curve across different model size for a fixed 2,048 training sequence length.
@@ -120,7 +120,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_7_0.png "🔼 Figure 6: Ablation study of adding residual connection to queries or keys.")
 
-> 🔼 The chart displays the relative training loss curves for models with residual connections added to queries, keys, and values, respectively, showing that adding a residual connection to the values provides the most benefit.
+> 🔼 The chart displays the relative training loss curves for three different variations of ResFormer, each adding a residual connection to either the queries, keys, or values, to demonstrate the impact of adding residual connections on model training performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Ablation study of adding residual connection to queries or keys.
@@ -129,7 +129,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_8_0.png "🔼 Figure 9: Left: Distribution of eigenvalues for the value vectors in the first layer of ResFormer and Transformer. Right: Maximum eigenvalue for each layer of ResFormer and Transformer.")
 
-> 🔼 The chart visualizes the distribution and maximum values of eigenvalues for value vectors in the first layer and across all layers of ResFormer and Transformer models, comparing their representational capacity.
+> 🔼 The chart displays the distribution and maximum values of eigenvalues for value vectors in the first layer of ResFormer and Transformer models, illustrating differences in their representational capacity across layers.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Left: Distribution of eigenvalues for the value vectors in the first layer of ResFormer and Transformer. Right: Maximum eigenvalue for each layer of ResFormer and Transformer.
@@ -138,7 +138,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_9_0.png "🔼 Figure 10: The relative training loss for SVFormer and other KV efficient model compared with vanilla attention. The numbers in parentheses represent the training sequence length. Left: Model with nearly 1/2 KV cache. Right: Model with nearly 1/8 KV cache.")
 
-> 🔼 The chart compares the relative training loss of SVFormer against other KV-efficient methods (GQA and CLA) with different training sequence lengths and KV cache sizes.
+> 🔼 The chart displays the relative training loss curves of SVFormer, GQA, and CLA, with and without combinations, at two different sequence lengths, illustrating their training efficiency and KV cache usage.
 > <details>
 > <summary>read the caption</summary>
 > Figure 10: The relative training loss for SVFormer and other KV efficient model compared with vanilla attention. The numbers in parentheses represent the training sequence length. Left: Model with nearly 1/2 KV cache. Right: Model with nearly 1/8 KV cache.
@@ -147,7 +147,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_9_1.png "🔼 Figure 11: Left: The relative training loss for SVFormer under different sequence lengths with a fixed batch size of 2M tokens. Right: Analysis of critical point, and we predict it for length 64,000 using linear regression with the last 1,000 data points.")
 
-> 🔼 The chart shows the relative training loss of SVFormer for different sequence lengths and predicts the critical point (training steps exceeded) based on linear regression.
+> 🔼 The chart shows the relative training loss of SVFormer under different sequence lengths and the relationship between the critical point (training steps exceeded) and sequence length.
 > <details>
 > <summary>read the caption</summary>
 > Figure 11: Left: The relative training loss for SVFormer under different sequence lengths with a fixed batch size of 2M tokens. Right: Analysis of critical point, and we predict it for length 64,000 using linear regression with the last 1,000 data points.
@@ -156,7 +156,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_10_0.png "🔼 Figure 12: The relative training loss for SVFormer under different hyper-parameter setting.")
 
-> 🔼 The chart displays the relative training loss curves of SVFormer under various hyperparameter settings (learning rate, warmup steps, model size, and architecture).
+> 🔼 The chart displays the relative training loss curves of SVFormer under different hyperparameter settings, including learning rate, warmup steps, model size, and architecture.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: The relative training loss for SVFormer under different hyper-parameter setting.
@@ -165,7 +165,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_10_1.png "🔼 Figure 13: Ablation study of sharing first layer's query(key) across all layers.")
 
-> 🔼 The chart displays an ablation study comparing the relative training loss when sharing different components (value, query, or key) from the first layer across all layers in a transformer model.
+> 🔼 The chart displays an ablation study showing the effects of sharing the first layer's queries or keys on model performance across all layers.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: Ablation study of sharing first layer's query(key) across all layers.
@@ -174,7 +174,7 @@ This paper is significant because it addresses the critical issue of attention c
 
 ![](charts/charts_14_0.png "🔼 Figure 15: (Left) The average token similarity of hidden states across layers in ResFormer vs. the vanilla Transformer. (Right) The average token similarity of hidden states across layers in Llama (8B) (Dubey et al., 2024) and Mistral (7B) (Jiang et al., 2023).")
 
-> 🔼 The chart displays the average token similarity of hidden states across layers for various transformer models, illustrating the over-smoothing effect in deeper layers.
+> 🔼 The chart displays the average token similarity of hidden states across layers in Resformer, vanilla Transformer, Llama, and Mistral, illustrating the over-smoothing effect in deep networks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 15: (Left) The average token similarity of hidden states across layers in ResFormer vs. the vanilla Transformer. (Right) The average token similarity of hidden states across layers in Llama (8B) (Dubey et al., 2024) and Mistral (7B) (Jiang et al., 2023).
@@ -199,7 +199,7 @@ This paper is significant because it addresses the critical issue of attention c
 > </details>
 
 
-> Table 2 shows the composition of the pretraining dataset, specifying the data source, proportion, and number of tokens for each source.
+> Table 2 presents the data sources, proportions, and number of tokens used for pretraining the language model.
 
 
 {{< table-caption >}}
@@ -211,7 +211,7 @@ This paper is significant because it addresses the critical issue of attention c
 > </details>
 
 
-> Table 5 presents the validation loss for different models on the whole validation split of slimpajama dataset.
+> Table 5 presents the validation loss for different models on the whole validation split of slimpajama.
 
 
 {{< table-caption >}}
@@ -223,7 +223,7 @@ This paper is significant because it addresses the critical issue of attention c
 > </details>
 
 
-> This table provides the training hyperparameters used for models of different sizes, including the number of layers, attention heads, hidden and FFN dimensions, and learning rate scheduling.
+> This table shows the training details of the ResFormer and vanilla Transformer models with different sizes, including the number of layers, attention heads, hidden dimensions, FFN dimensions, and other hyperparameters.
 
 
 {{< table-caption >}}
@@ -235,7 +235,7 @@ This paper is significant because it addresses the critical issue of attention c
 > </details>
 
 
-> Table 5 presents the validation loss for different models on the whole validation split of slimpajama.
+> Table 5 presents the validation loss for different models on the whole validation split of slimpajama dataset, comparing vanilla transformer and resformer models of different sizes.
 
 
 </details>

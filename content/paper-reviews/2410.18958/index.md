@@ -1,6 +1,6 @@
 ---
 title: "Stable Consistency Tuning: Understanding and Improving Consistency Models"
-summary: "Stable Consistency Tuning (SCT) boosts consistency model speed and quality by reducing training variance and discretization errors, achieving new state-of-the-art results on ImageNet-64."
+summary: "Stable Consistency Tuning (SCT) significantly boosts consistency model training, achieving state-of-the-art results by reducing variance and improving sampling efficiency."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research introduces Stable Consistency Tuning (SCT), a new method to enhance consistency models, a type of generative model that produces images faster than traditional diffusion models.  The authors model the denoising process as a Markov Decision Process and frame model training as value estimation.  They find that current training methods suffer from high variance and unstable training due to discretization errors. SCT introduces variance reduction using the score identity and a smoother training schedule, greatly improving performance.  Experiments on CIFAR-10 and ImageNet-64 show significant improvements over previous state-of-the-art, especially at one and two sampling steps.  The framework and techniques are highly relevant to researchers working on generative models and offer exciting avenues for further investigation.
+This research paper focuses on consistency models, a faster alternative to diffusion models for generating images.  The authors found that current training methods for these models suffer from high variance and discretization errors, leading to instability and suboptimal results.  To address this, they propose a new method called Stable Consistency Tuning (SCT). SCT incorporates variance-reduced learning and a smoother training schedule, significantly improving training stability and convergence speed.  They also provide a novel theoretical framework by modeling the denoising process as a Markov Decision Process (MDP), which helps explain the limitations of existing training methods. Experiments demonstrate that SCT achieves state-of-the-art performance on benchmark datasets like CIFAR-10 and ImageNet-64, surpassing previous consistency models and even some diffusion models in terms of both speed and image quality.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research introduces Stable Consistency Tuning (SCT), a new method to enhanc
 {{< button href="https://arxiv.org/abs/2410.18958" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18958" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on generative models, particularly diffusion and consistency models. It offers a novel theoretical framework that improves our understanding of consistency models, leading to significant performance improvements.  The variance reduction techniques and insights into training stability are highly valuable for practical applications, and the new state-of-the-art results on ImageNet-64 benchmarks showcase the impact of this work. Further investigation into the proposed framework and its extension to other generative model families could lead to significant advancements.
+This paper is crucial for researchers in generative modeling due to its novel framework for understanding and improving consistency models.  It introduces Stable Consistency Tuning (SCT), a technique that significantly improves the training stability and speed of these models, leading to state-of-the-art results. The MDP-based analysis provides a new theoretical perspective, while the practical improvements offered by SCT are directly applicable to ongoing research. This work opens doors for further investigation into variance reduction, multistep sampling strategies, and the application of consistency models to more complex domains.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} SCT, a novel tuning strategy, significantly improves the speed and quality of consistency models. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Stable Consistency Tuning (SCT) improves the speed and stability of consistency model training. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} SCT addresses key limitations of existing consistency training/tuning methods by reducing training variance and discretization errors. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} SCT achieves state-of-the-art results on CIFAR-10 and ImageNet-64 benchmarks. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} SCT achieves state-of-the-art results on ImageNet-64, demonstrating its practical effectiveness. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The paper proposes a novel theoretical framework for understanding consistency models using Markov Decision Processes (MDPs). {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure illustrates Stable Consistency Tuning (SCT) as a unifying framework for understanding different training strategies of consistency models, including consistency distillation (CD) and consistency training (CT), by showing how they solve the ODE through approximating the expectation of the score function.
+> 🔼 The figure illustrates Stable Consistency Tuning (SCT) as a unifying framework for understanding different training strategies of consistency models, including consistency distillation (CD) and consistency training (CT), by modeling the denoising process as a Markov Decision Process (MDP).
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](charts/charts_8_0.png)
 
-> 🔼 The chart compares the FID scores of ECT and SCT models over training iterations for both 1-step and 2-step generation, showing SCT's superior convergence speed and performance.
+> 🔼 The chart compares the FID scores of ECT and SCT models over training iterations for both 1-step and 2-step sampling, demonstrating SCT's faster convergence and superior performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: FID vs Training iterations. SCT has faster convergence speed and better performance upper bound than ECT.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on generative models, particularly
 {{< table-caption >}}
 <table id='2' style='font-size:16px'><tr><td>Fu-Yun Wang</td><td>Zhengyang Geng</td><td>Hongsheng Li</td></tr><tr><td>MMLab, CUHK</td><td>Carnegie Mellon University</td><td>MMLab, CUHK</td></tr><tr><td>Hong Kong SAR</td><td>Pittsburgh, USA</td><td>Hong Kong SAR</td></tr><tr><td>fywang@link . cuhk · edu . hk</td><td>zhengyanggeng@gmail · com</td><td>hsli@ee · cuhk · edu. hk</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 2 compares the FID scores of various methods for generating samples on the CIFAR-10 dataset.
+> 🔼 Table 2 compares the quality of image samples generated by various methods on the CIFAR-10 dataset, showing the number of forward function evaluations (NFE) and Frechet Inception Distance (FID) scores.
 > <details>
 > <summary>read the caption</summary>
 > Table 2: Comparing the quality of samples on CIFAR-10.
@@ -91,7 +91,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_5_0.png)
 
-> 🔼 Figure 2 illustrates the difference between one-step inference and edge-skipping multistep inference in consistency models by visualizing the ODE solving process and bootstrapping prediction.
+> 🔼 The figure illustrates the one-step and multistep (phased) inference techniques of consistency models, highlighting the difference in ODE solving and bootstrapping processes for each.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Phasing the ODE path along the time axis for consistency training. We visualize both training and inference techniques in discrete form for easier understanding.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_18_0.png)
 
-> 🔼 The figure illustrates stable consistency tuning (SCT) by showing how it reduces variance in the training target compared to other consistency training methods, unifying different training strategies under a single framework.
+> 🔼 The figure illustrates Stable Consistency Tuning (SCT) and how it unifies different training strategies of consistency models by using variance-reduced training target.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.
@@ -111,17 +111,17 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_19_0.png)
 
-> 🔼 The figure illustrates the Stable Consistency Tuning (SCT) framework, highlighting how it unifies and improves different training strategies for consistency models by incorporating variance-reduced learning.
+> 🔼 Figure 7 shows 1-step samples generated by the Stable Consistency Tuning (SCT) model trained on the CIFAR-10 dataset, with each row representing a different class.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.
+> Figure 7: 1-step samples from class-conditional SCT trained on CIFAR-10. Each row corresponds to a different class.
 > </details>
 
 
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure illustrates Stable Consistency Tuning (SCT) and how it unifies different training strategies of consistency models by variance reduction.
+> 🔼 The figure illustrates stable consistency tuning (SCT), a new training framework unifying different training strategies for consistency models, by comparing consistency distillation (CD), consistency training (CT), and SCT.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.
@@ -131,7 +131,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure illustrates Stable Consistency Tuning (SCT) by comparing different training strategies of consistency models and highlighting how SCT reduces training variance.
+> 🔼 The figure illustrates Stable Consistency Tuning (SCT) which provides a unifying perspective to understand different training strategies of consistency models by modeling the denoising process of the diffusion model as a Markov Decision Process (MDP).
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.
@@ -141,7 +141,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_22_0.png)
 
-> 🔼 The figure illustrates Stable Consistency Tuning (SCT) which incorporates variance-reduced learning using the score identity, providing a unifying perspective to understand different training strategies of consistency models.
+> 🔼 The figure illustrates Stable Consistency Tuning (SCT) and its variance-reduced training target, unifying different training strategies of consistency models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.
@@ -151,7 +151,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_23_0.png)
 
-> 🔼 The figure illustrates Stable Consistency Tuning (SCT) and how it unifies and improves upon different training strategies of consistency models by reducing variance and providing a novel understanding of the training process.
+> 🔼 The figure illustrates Stable Consistency Tuning (SCT) which provides a unifying perspective to understand different training strategies of consistency models by modeling the denoising process of the diffusion model as a Markov Decision Process (MDP) and framing consistency model training as the value estimation through Temporal Difference (TD) Learning.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Stable consistency tuning (SCT) with variance reduced training target. SCT provides a unifying perspective to understand different training strategies of consistency models.
@@ -161,7 +161,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_24_0.png)
 
-> 🔼 The figure shows 1-step samples generated by class-conditional Stable Consistency Tuning (SCT) on ImageNet-64, achieving a Fréchet Inception Distance (FID) score of 2.23.
+> 🔼 Figure 13 shows 1-step samples generated from a class-conditional Stable Consistency Tuning (SCT) model trained on the ImageNet-64 dataset, achieving a Fréchet Inception Distance (FID) score of 2.23.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: 1-step samples from class-conditional SCT trained on ImageNet-64 (FID 2.23). Each row corresponds to a different class.
@@ -171,7 +171,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_25_0.png)
 
-> 🔼 The figure displays 1-step samples generated from a class-conditional Stable Consistency Tuning (SCT) model trained on the ImageNet-64 dataset, achieving a Fréchet Inception Distance (FID) score of 2.23.
+> 🔼 Figure 13 presents 1-step samples generated from class-conditional Stable Consistency Tuning (SCT) model trained on ImageNet-64 dataset, achieving a Fréchet Inception Distance (FID) score of 2.23.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: 1-step samples from class-conditional SCT trained on ImageNet-64 (FID 2.23). Each row corresponds to a different class.
@@ -181,7 +181,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](figures/figures_26_0.png)
 
-> 🔼 The figure displays 1-step samples generated by class-conditional Stable Consistency Tuning (SCT) on ImageNet-64, achieving a Fréchet Inception Distance (FID) score of 2.23.
+> 🔼 Figure 13 shows 1-step samples generated from a class-conditional Stable Consistency Tuning (SCT) model trained on the ImageNet-64 dataset, achieving a Fréchet Inception Distance (FID) score of 2.23.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: 1-step samples from class-conditional SCT trained on ImageNet-64 (FID 2.23). Each row corresponds to a different class.
@@ -200,7 +200,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](charts/charts_9_0.png "🔼 Figure 4: The effectiveness of variance reduced training target.")
 
-> 🔼 The chart compares the 1-step and 2-step FID scores for different training methods, demonstrating the effectiveness of variance reduction techniques.
+> 🔼 The chart compares the 1-step and 2-step FID scores for different training variance reduction methods, showing that using a stable target (all) significantly improves model performance compared to using no stable target or only a batch-based stable target.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: The effectiveness of variance reduced training target.
@@ -209,7 +209,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](charts/charts_9_1.png "🔼 Figure 5: The effectiveness of edge-skipping multi-step sampling.")
 
-> 🔼 The chart displays the FID scores for different eta values (η) during the training process of a multistep sampling method, showing how different eta values affect the performance.
+> 🔼 The chart displays the FID score comparison for different η values in the edge-skipping multi-step sampling method during the training process.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: The effectiveness of edge-skipping multi-step sampling.
@@ -218,7 +218,7 @@ This paper is crucial for researchers working on generative models, particularly
 
 ![](charts/charts_9_2.png "🔼 Figure 6: The effectiveness of classifier-free guidance on consistency models.")
 
-> 🔼 The chart displays the impact of classifier-free guidance (CFG) strength on 1-step and 2-step FID scores for consistency models, showing performance variation at different CFG strengths and iteration numbers.
+> 🔼 The chart displays the impact of classifier-free guidance (CFG) strength on the FID scores for both 1-step and 2-step sampling from consistency models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: The effectiveness of classifier-free guidance on consistency models.

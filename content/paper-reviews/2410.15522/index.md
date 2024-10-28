@@ -1,6 +1,6 @@
 ---
 title: "M-RewardBench: Evaluating Reward Models in Multilingual Settings"
-summary: "M-REWARDBENCH: A new multilingual benchmark reveals significant performance gaps in reward models across languages, highlighting the need for improved cross-lingual alignment in LLMs."
+summary: "M-REWARDBENCH: A new multilingual benchmark reveals significant performance gaps in reward models across languages, highlighting the need for improved multilingual LLM development."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-20", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research tackles the under-studied area of multilingual reward model (RM) performance in large language models (LLMs).  It introduces M-REWARDBENCH, a new benchmark dataset with preference data across 23 languages, covering various tasks like chat, safety, reasoning, and translation.  The study rigorously evaluates a wide range of RMs on this benchmark, uncovering significant performance discrepancies between English and other languages. They find that RM preferences can vary substantially across languages. Importantly, they demonstrate that RMs perform better with higher-quality translations and for high-resource languages.  The research emphasizes the need for further research to understand and address the limitations of current reward models in multilingual settings.  The dataset and code are publicly released to aid this research.
+This research tackles the under-studied area of multilingual reward model (RM) performance in large language models (LLMs).  The core contribution is the creation of M-REWARDBENCH, a comprehensive benchmark dataset containing 2870 preference instances across 23 diverse languages. This dataset tests RMs on chat, safety, reasoning, and translation tasks.  The study rigorously evaluates a wide range of RMs on this benchmark, revealing a considerable performance gap between English and non-English languages.  The results highlight that the quality of the translations used significantly impacts the RM's performance.  Models generally performed better on high-resource languages.  The paper concludes by releasing the M-REWARDBENCH dataset and codebase to foster future research in multilingual RM evaluation and LLM development. This is vital for creating more inclusive and equitable LLMs that can effectively serve a diverse global population.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research tackles the under-studied area of multilingual reward model (RM) p
 {{< button href="https://arxiv.org/abs/2410.15522" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.15522" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on reward models and large language models (LLMs), particularly those focusing on multilingual applications.  It introduces a novel benchmark dataset and systematic evaluation, directly addressing the under-researched area of multilingual reward model performance. The findings highlight significant performance gaps between English and non-English languages, prompting further investigation into techniques for improving multilingual RM capabilities. The publicly available dataset and codebase will significantly aid future research in this area.
+This paper is crucial for researchers working on reward models and large language models (LLMs), especially those focused on multilingual applications.  It introduces a new benchmark, M-REWARDBENCH, filling a critical gap in multilingual RM evaluation. The findings challenge assumptions about RM performance across languages and highlight the need for improved methods. This opens avenues for developing more robust and equitable multilingual LLMs.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} M-REWARDBENCH, the first large-scale multilingual reward model benchmark, shows substantial performance differences across languages. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} M-REWARDBENCH, a new multilingual benchmark for reward models (RMs) is introduced, evaluating RMs across 23 languages and 6 tasks. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Reward model performance strongly correlates with translation quality and language resource availability. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Significant performance differences exist between English and non-English languages in RMs, with translation quality positively impacting performance. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Generative reward models generally outperform classifier and implicit reward models in multilingual settings. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Generative RMs demonstrate more robustness and better performance in multilingual settings compared to classifier and implicit RMs. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -51,7 +51,7 @@ This paper is crucial for researchers working on reward models and large languag
 
 ![](charts/charts_1_0.png)
 
-> 🔼 The chart visualizes the performance gap between RewardBench (English-only benchmark) and M-REWARDBENCH (multilingual benchmark) scores for various reward models, showing significant underperformance in multilingual settings.
+> 🔼 The chart displays the performance gap between RewardBench (English-only benchmark) and M-REWARDBENCH (multilingual benchmark) for various reward models, showing underperformance in multilingual settings.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Performance gap between RewardBench (English) and the average M-REWARDBENCH scores across 23 languages for various reward models (Pearson r: 0.92, Spearman p: 0.89). All models underperform on our multilingual benchmark compared to their performance on the corresponding English benchmark.
@@ -83,25 +83,25 @@ This paper is crucial for researchers working on reward models and large languag
 
 ![](charts/charts_4_0.png "🔼 Figure 2: Label agreement, as measured by Cohen's k, of various RMs with respect to RewardBench (English) averaged across 23 languages. No model achieves complete agreement (к = 1) between other languages and English, with some exhibiting greater volatility across languages and others demonstrating more stability.")
 
-> 🔼 The chart displays the average inner-model agreement across 23 languages for various reward models, using Cohen's kappa to measure label agreement.
+> 🔼 The chart displays the average inner-model agreement across 23 languages for various reward models, measured by Cohen's kappa, illustrating the consistency of models in labeling the same instances across different languages.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Label agreement, as measured by Cohen's k, of various RMs with respect to RewardBench (English) averaged across 23 languages. No model achieves complete agreement (к = 1) between other languages and English, with some exhibiting greater volatility across languages and others demonstrating more stability.
 > </details>
 
 
-![](charts/charts_5_0.png "🔼 Figure 3: (Top) Distribution of label agreement, as measured by Cohen's κ, across the six Generative RMs in the top ten (Table 2) with respect to RewardBench (English) on Indonesian. Interpretation of Cohen's k scores is based on McHugh (2012). (Bottom) Percentage of categories in M-REWARDBENCH for each bin in the histogram.")
+![](charts/charts_5_0.png "🔼 Figure 3: (Top) Distribution of label agreement, as measured by Cohen's κ, across the six Generative RMs in the top ten (Table 2) with respect to RewardBench (English) on Indonesian. Interpretation of Cohen's κ scores is based on McHugh (2012). (Bottom) Percentage of categories in M-REWARDBENCH for each bin in the histogram.")
 
-> 🔼 The chart displays the distribution of label agreement, measured by Cohen's kappa, across six generative reward models for Indonesian, comparing their performance to the English RewardBench, showing the consistency of models in labeling the same instances across different languages.
+> 🔼 The chart displays the distribution of label agreement, measured by Cohen's kappa, across six Generative Reward Models for Indonesian, comparing their performance to the English RewardBench, and also showing the percentage of categories for each bin in the histogram.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: (Top) Distribution of label agreement, as measured by Cohen's κ, across the six Generative RMs in the top ten (Table 2) with respect to RewardBench (English) on Indonesian. Interpretation of Cohen's k scores is based on McHugh (2012). (Bottom) Percentage of categories in M-REWARDBENCH for each bin in the histogram.
+> Figure 3: (Top) Distribution of label agreement, as measured by Cohen's κ, across the six Generative RMs in the top ten (Table 2) with respect to RewardBench (English) on Indonesian. Interpretation of Cohen's κ scores is based on McHugh (2012). (Bottom) Percentage of categories in M-REWARDBENCH for each bin in the histogram.
 > </details>
 
 
 ![](charts/charts_6_0.png "🔼 Figure 4: Performance of ten selected reward models across different RM types on a version of M-REWARDBENCH translated using NLLB 3.3B (Costa-jussà et al., 2022) and the Google Translate API. The performance of RMs improves when they are provided with higher-quality translations.")
 
-> 🔼 The chart displays the performance of ten reward models on a translated subset of M-REWARDBENCH, comparing results using NLLB and Google Translate to show the impact of translation quality on reward model performance.
+> 🔼 The chart displays the performance of ten reward models using two different translation methods (NLLB and Google Translate) on a subset of the M-REWARDBENCH dataset, showing improved performance with higher-quality translations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Performance of ten selected reward models across different RM types on a version of M-REWARDBENCH translated using NLLB 3.3B (Costa-jussà et al., 2022) and the Google Translate API. The performance of RMs improves when they are provided with higher-quality translations.
@@ -147,7 +147,7 @@ This paper is crucial for researchers working on reward models and large languag
 > </details>
 
 
-> Table 4 presents the top ten reward models' performance on the translation task, categorized by model type and performance on easy and hard translation subsets from the MAPLE dataset.
+> Table 4 presents the top ten reward models' performance on the translation task, categorized into easy and hard subsets, with model types indicated.
 
 
 {{< table-caption >}}
@@ -159,7 +159,7 @@ This paper is crucial for researchers working on reward models and large languag
 > </details>
 
 
-> Table 5 lists the proprietary and open-source reward models and their sizes used in the M-REWARDBENCH evaluation,  along with their providers and relevant references.
+> Table 5 lists the proprietary and open-source reward models that were evaluated in the M-REWARDBENCH benchmark, including their provider, size, and reference.
 
 
 {{< table-caption >}}
@@ -171,7 +171,19 @@ This paper is crucial for researchers working on reward models and large languag
 > </details>
 
 
-> Table 6 presents linguistic features of 23 languages included in the M-REWARDBENCH benchmark, including script, family, resource availability, and resource class.
+> Table 6 presents linguistic features of the 23 languages included in the M-REWARDBENCH benchmark, including script, family, resource availability, and resource class.
+
+
+{{< table-caption >}}
+<table id='0' style='font-size:14px'><tr><td>Prompt</td><td>Chosen</td><td>Rejected</td></tr><tr><td colspan="3">ENGLISH CHARACTER-FOCUSED</td></tr><tr><td>define a new language that contains words that are with numbers and letters such as 'IL9op'</td><td>Creating an entire new language is a complex and ex- Ilo9op is a language which con- tensive task that involves defining not only a lexicon sists of words containing both (vocabulary) but also grammar, syntax, and phonetics. and letters, such as However, I can definitely help to outline the basics 'IL9op'. of how you might start to incorporate alphanumeric words like 'IL9op' into a new language construct. [...]</td><td>numbers</td></tr><tr><td colspan="3">ENGLISH LEXEME-FOCUSED</td></tr><tr><td>Generate two rhymes for the following word. Moon</td><td>Soon, Loon</td><td>Clone, June, Nore, Tune</td></tr><tr><td colspan="3">ENGLISH GRAMMAR-FOCUSED</td></tr><tr><td>Notify me of any sug- gestions you may have for making the text more grammatically correct. This is the second time I've been here, and the vibes, and the food were exquisite.</td><td>This is the second time I've been here, and the vibes and food were exquisite. (The comma after "vibes" is unnecessary, so I removed it to make the sentence more grammatically correct.)</td><td>This is the second time I've been here, and the vibes and the food were exquisite.</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> Table 2 presents the top ten performing reward models on the M-REWARDBENCH benchmark, categorized by model type and showing average performance across 23 languages.
 
 
 {{< table-caption >}}
@@ -183,7 +195,7 @@ This paper is crucial for researchers working on reward models and large languag
 > </details>
 
 
-> This table presents examples where reward models' preferences differ from those of native human speakers for Indonesian.
+> Table 8 shows examples where reward model preferences differ from those of native human speakers for Indonesian.
 
 
 {{< table-caption >}}
@@ -195,7 +207,7 @@ This paper is crucial for researchers working on reward models and large languag
 > </details>
 
 
-> Table 10 presents the performance of various reward models on the translation task, categorized into easy and hard subsets, using different model types.
+> Table 10 presents the performance of various reward models on the translation task, categorized by model type and difficulty level (easy/hard), across different language pairs.
 
 
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "Agent-to-Sim: Learning Interactive Behavior Models from Casual Longitudinal Videos"
-summary: "Agent-to-Sim (ATS) learns interactive 3D agent behaviors from casual longitudinal videos using a novel coarse-to-fine registration and generative modeling approach, enabling real-to-sim transfer for v..."
+summary: "Agent-to-Sim (ATS) learns realistic 3D agent behavior models from casual, longitudinal videos by reconstructing a persistent 4D representation and training a generative model, enabling real-to-sim tra..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research introduces Agent-to-Sim (ATS), a groundbreaking framework for creating realistic simulations of interactive behaviors.  Unlike previous methods that rely on meticulously controlled environments and specialized equipment, ATS leverages casually recorded videos—think smartphone footage of pets or people over an extended period, such as a month—to capture natural behaviors.  The brilliance lies in its ability to reconstruct these videos into a comprehensive four-dimensional representation (3D space + time), accurately tracking agent movements and environmental changes. This 4D model is then used to train a generative model capable of simulating agent behavior in response to various stimuli.  The power of ATS is its ability to translate real-world observations into highly realistic, interactive simulations. This could have a significant impact on various fields, including virtual and augmented reality content creation, safe robot planning in complex environments, and understanding and replicating natural animal and human behavior.
+This research introduces Agent-to-Sim (ATS), a novel method to create realistic simulations of agents (animals, humans) interacting with their environment.  Instead of using expensive, controlled settings and special equipment, ATS uses readily available casual videos recorded over a longer period (e.g., a month).  ATS cleverly tracks the agent and camera movements to create a comprehensive 4D representation (3D space + time).  This data is then used to train a model that generates natural behavior, taking into account the scene and observer interactions. The results showcase successful real-to-sim transfer, creating interactive simulations from the original videos.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research introduces Agent-to-Sim (ATS), a groundbreaking framework for crea
 {{< button href="https://arxiv.org/abs/2410.16259" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16259" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper significantly advances research on interactive behavior modeling by introducing a novel framework that leverages casual longitudinal videos.  Its real-world applicability, use of readily available data (smartphone videos), and potential for diverse applications (VR/AR, robotics) make it highly relevant to researchers across several fields.  The innovative 4D reconstruction and generative modeling techniques open exciting new avenues for investigation, especially in areas dealing with complex, dynamic, and interactive behaviors.
+This paper is significant for researchers in computer vision, robotics, and AI because it presents a novel framework for learning realistic interactive behavior models from readily available casual videos.  It addresses the limitations of existing methods that rely on controlled environments and specialized equipment, opening up new possibilities for creating more natural and engaging AI agents.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} ATS learns interactive 3D agent behaviors from casual, longitudinal smartphone videos, bypassing the need for marker-based tracking and multi-view setups. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} ATS learns interactive behavior models from casual, longitudinal videos without requiring marker-based tracking or multi-view cameras. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A coarse-to-fine registration method enables complete and persistent 4D spacetime reconstruction from extensive video data, crucial for accurate behavior modeling. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} ATS reconstructs a complete and persistent 4D representation of agent, scene, and observer from a collection of videos using a novel coarse-to-fine registration method. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The resulting generative behavior model enables real-to-sim transfer, facilitating applications in VR/AR content creation, safe robot planning, and real-world behavior imitation. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} ATS enables real-to-sim transfer, generating interactive behavior simulations from video recordings. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,10 +49,10 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_1_0.png)
 
-> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing how 4D spacetime reconstruction from casual longitudinal videos enables learning and simulation of interactive agent behaviors.
+> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, which learns interactive behavior models from casual longitudinal videos by reconstructing the videos into a 4D representation (3D + time) and training a generative model to simulate agent behavior.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent's ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
+> Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent’s ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
 > </details>
 
 
@@ -64,7 +64,7 @@ This paper significantly advances research on interactive behavior modeling by i
 {{< table-caption >}}
 <table id='4' style='font-size:14px'><tr><td>Method</td><td>Rotation Error (°)</td><td>Translation Error (m)</td><td></td><td>Videos</td><td>Length</td><td>Unique Days / Span</td></tr><tr><td>Ours</td><td>6.35</td><td>0.41</td><td>Cat</td><td>23</td><td>25m 39s</td><td>9/37 days</td></tr><tr><td>w/o Neural Localizer</td><td>37.59</td><td>0.83</td><td>Human</td><td>5</td><td>9m 27s</td><td>2/4 days</td></tr><tr><td>w/o Featuremetric BA</td><td>22.47</td><td>1.30</td><td>Dog</td><td>3</td><td>7m 13s</td><td>1/1 day</td></tr><tr><td>Multi-video TotalRecon</td><td>59.19</td><td>0.68</td><td>Bunny</td><td>2</td><td>1m 48s</td><td>1/1 day</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table evaluates the performance of camera registration using different methods by comparing the rotation and translation errors.
+> 🔼 The table presents the results of camera registration using ground truth cameras, comparing the proposed method with and without neural localization and feature-metric bundle adjustment, also comparing it to the multi-video TotalRecon method.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Evaluation of Camera Registration.
@@ -81,7 +81,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing how 4D spacetime reconstruction from casual longitudinal videos enables learning and simulation of interactive agent behaviors.
+> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing how 4D spacetime reconstruction from casual longitudinal videos enables interactive behavior simulation of 3D agents.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent’s ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
@@ -91,7 +91,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_2_1.png)
 
-> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing the 4D spacetime reconstruction from casual longitudinal videos and the interactive behavior simulator learned from it.
+> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing how it reconstructs casual longitudinal videos into a 4D representation and then trains a generative model to simulate interactive agent behaviors.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent’s ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
@@ -101,17 +101,17 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_2_2.png)
 
-> 🔼 The figure shows the Agent-to-Sim (ATS) framework, illustrating the 4D spacetime reconstruction from longitudinal casual videos and the interactive behavior simulator that learns agent behaviors from this reconstruction.
+> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing the process of reconstructing casual longitudinal videos into a 4D representation and then training an interactive behavior model.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent's ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
+> Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent’s ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
 > </details>
 
 
 
 ![](figures/figures_6_0.png)
 
-> 🔼 This figure illustrates the hierarchical pipeline used for generating the agent's behavior, which involves encoding egocentric information and generating goals, paths, and body poses sequentially.
+> 🔼 The figure illustrates the hierarchical pipeline used for generating agent behavior, starting from encoding egocentric information and progressing through goal generation, path planning, and finally, body pose generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Pipeline for behavior generation. We encode egocentric information into a perception code w, conditioned on which we generate fully body motion in a hierarchical fashion. We start by generating goals Z, then paths P and finally body poses G. Each node is represented by the gradient of its log distribution, trained with denoising objectives (Eq. 8). Given G, the full body motion of an agent can be computed via blend skinning (Eq. 3).
@@ -121,7 +121,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_7_0.png)
 
-> 🔼 Figure 3 shows a comparison of multi-video scene reconstruction results using different methods, highlighting the impact of neural localization, featuremetric losses, and scene annealing on reconstruction quality.
+> 🔼 The figure compares multi-video scene reconstruction results of the proposed Agent-to-Sim (ATS) framework with TotalRecon, showing the impact of different components (neural localizer, featuremetric bundle adjustment, and scene annealing) on reconstruction quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Comparison on multi-video scene reconstruction. We show birds-eye-view rendering of the reconstructed scene using the bunny dataset. Compared to TotalRecon that does not register multiple videos, ATS produces higher-quality scene reconstruction. Neural localizer (NL) and featuremetric losses (FBA) are shown important for camera registration. Scene annealing is important for reconstructing a complete scene from partial video captures.
@@ -131,7 +131,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_9_0.png)
 
-> 🔼 Figure 4 shows an ablation study on the effect of conditioning signals for goal generation, demonstrating that all three signals (user, past trajectory, and environment) contribute to generating realistic goals.
+> 🔼 Figure 4 shows the effect of removing different conditioning signals (user, past trajectory, and environment) on the sampled goals for agent behavior generation, demonstrating that all three signals are important for realistic behavior generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Analysis of conditioning signals. We show results of removing one conditioning signal at a time. Removing observer conditioning and past trajectory conditioning makes the sampled goals more spread out (e.g., regions both in front of the agent and behind the agent); removing the environment conditioning introduces infeasible goals that penetrate the ground and the walls.
@@ -141,7 +141,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_10_0.png)
 
-> 🔼 The figure shows the results of a 4D reconstruction of an agent (cat) and its environment from multiple video sequences, displaying both individual frames and a bird's-eye view of the registered trajectories.
+> 🔼 The figure shows the results of 4D reconstruction of a cat's movement in its environment from multiple video recordings, including both reference images and a bird's-eye view of the reconstructed trajectories.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Results of 4D reconstruction. Top: reference images and renderings. Background color represents correspondence. Colored blobs on the cat represent B = 25 bones (e.g., head is represented by the yellow blob). The magenta colored lines represents reconstructed trajectories of each blob in the world space. Bottom: Bird’s eye view of the reconstructed scene and agent trajectories, registered to the same scene coordinate. Each colored line represents a unique video sequence where boxes and spheres indicate the starting and the end location.
@@ -151,7 +151,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_18_0.png)
 
-> 🔼 Figure 6 shows a qualitative comparison of 4D reconstruction results between the proposed method and TotalRecon, highlighting the superior quality of shape, alignment, and completeness achieved by the proposed method.
+> 🔼 Figure 6 compares the 4D reconstruction results of the proposed method and TotalRecon, highlighting the improvements in agent shape, alignment, and environmental reconstruction accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Qualitative comparison with TotalRecon (Song et al., 2023) on 4D reconstruction. Top: reconstruction of the agent at at specific frame. Total-recon produces shapes with missing limbs and bone transformations that are misaligned with the shape, while our method produces complete shapes and good alignment. Bottom: reconstruction of the environment. TotalRecon produces distorted and incomplete geometry (due to lack of observations from a single video), while our method produces an accurate and complete environment reconstruction.
@@ -161,7 +161,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_18_1.png)
 
-> 🔼 Figure 7 shows a qualitative comparison of 4D reconstruction results between ATS and TotalRecon, highlighting ATS's ability to leverage multiple videos for improved reconstruction of scene details even when those details are not visible in any single video.
+> 🔼 Figure 7 shows a qualitative comparison of 4D reconstruction results between ATS and TotalRecon, highlighting ATS's ability to reconstruct scene elements not visible in individual input videos.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Qualitative comparison on 4D reconstruction (Tab. 3). We compare with TotalRecon on 4D reconstruction quality. We show novel views rendered with a held-out camera that looks from the opposite side. ATS is able to leverage multiple videos captured at different times to reconstruct the wall (blue box) and the tripod stand (red box) even they are not visible in the input views. Multi-video TotalRecon produces blurry RGB and depth due to bad camera registration. The original TotalRecon takes a single video as input and therefore fails to reconstruct the regions (the tripod and the wall) that are not visible in the input video.
@@ -171,17 +171,17 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_19_0.png)
 
-> 🔼 Figure 8 shows the impact of scene awareness on path generation, demonstrating that incorporating scene information prevents the generated path from going through walls.
+> 🔼 Figure 8 shows the effect of scene code on path generation, demonstrating that including scene information prevents the generated path from going through walls.
 > <details>
 > <summary>read the caption</summary>
-> Figure 8: Visual ablation on scene awareness. We demonstrate the effect of the scene code \(\boldsymbol{\omega}_s\) through goal-conditioned path generation (bird’s-eye-view, blue sphere goal; gradient color generated path; gray blocks locations that have been visited in the training data). Conditioned on scene, the generated path abide by the scene geometry, while removing the scene code, the generated paths go through the wall in between two empty spaces.
+> Figure 8: Visual ablation on scene awareness. We demonstrate the effect of the scene code \(\omega_s\) through goal-conditioned path generation (bird's-eye-view, blue sphere goal; gradient color generated path; gray blocks locations that have been visited in the training data). Conditioned on scene, the generated path abide by the scene geometry, while removing the scene code, the generated paths go through the wall in between two empty spaces.
 > </details>
 
 
 
 ![](figures/figures_19_1.png)
 
-> 🔼 Figure 9 shows agent and user's preference over the environment represented by 3D heatmaps generated from their accumulated trajectories.
+> 🔼 Figure 9 shows the visualization of agent and user preferences over the 3D environment as heatmaps generated from their trajectories.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Given the 3D trajectories of the agent and the user accumulated over time (top), one could compute their preference represented by 3D heatmaps (bottom). Note the high agent preference over table and sofa.
@@ -191,7 +191,7 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure shows the generalization ability of the behavior model to generate diverse motions of a cat jumping off a table and landing at different locations, even with limited training data.
+> 🔼 The figure shows the generalization ability of the behavior model to generate diverse motion of a cat jumping off a table and landing at different locations even though there is only one example in the training data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 11: Generalization ability of the behavior model. Thanks to the ego-centric encoding design (Eq. 12), a specific behavior can be learned and generalized to novel situations even it was seen once. Although there's only one data point where the cat jumps off the dining table, our method can generate diverse motion of cat jumping off the table while landing at different locations (to the left, middle, and right of the table) as shown in the visual.
@@ -201,27 +201,27 @@ This paper significantly advances research on interactive behavior modeling by i
 
 ![](figures/figures_20_1.png)
 
-> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing how it reconstructs casual videos into a 4D representation and then uses that to train a generative model for simulating interactive agent behavior.
+> 🔼 The figure shows the results of 4D reconstruction of a cat's movement in its environment over time, combining multiple video clips into a cohesive spatiotemporal representation.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent's ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
+> Figure 5: Results of 4D reconstruction. Top: reference images and renderings. Background color represents correspondence. Colored blobs on the cat represent B = 25 bones (e.g., head is represented by the yellow blob). The magenta colored lines represents reconstructed trajectories of each blob in the world space. Bottom: Bird’s eye view of the reconstructed scene and agent trajectories, registered to the same scene coordinate. Each colored line represents a unique video sequence where boxes and spheres indicate the starting and the end location.
 > </details>
 
 
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure illustrates the Agent-to-Sim (ATS) framework, showing the 4D spacetime reconstruction from longitudinal casual videos and the interactive behavior simulator.
+> 🔼 The figure shows the results of 4D reconstruction of a cat's movement in a scene, combining reference images, renderings, and visualizations of the reconstructed trajectories.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Learning agent behavior from longitudinal casual video recordings. We answer the following question: can we simulate the behavior of an agent, by learning from casually-captured videos of the same agent recorded across a long period of time (e.g., a month)? A) We first reconstruct videos in 4D (3D & time), which includes the scene, the trajectory of the agent, and the trajectory of the observer (i.e., camera held by the observer). Such individual 4D reconstructions are registered across time, resulting in a complete and persistent 4D representation. B) Then we learn a model of the agent for interactive behavior generation. The behavior model explicitly reasons about goals, paths, and full body movements conditioned on the agent's ego-perception and past trajectory. Such an agent representation allows generation of novel scenarios through conditioning. For example, conditioned on different observer trajectories, the cat agent chooses to walk to the carpet, stays still while quivering his tail, or hide under the tray stand. Please see videos results in the supplement.
+> Figure 5: Results of 4D reconstruction. Top: reference images and renderings. Background color represents correspondence. Colored blobs on the cat represent B = 25 bones (e.g., head is represented by the yellow blob). The magenta colored lines represents reconstructed trajectories of each blob in the world space. Bottom: Bird’s eye view of the reconstructed scene and agent trajectories, registered to the same scene coordinate. Each colored line represents a unique video sequence where boxes and spheres indicate the starting and the end location.
 > </details>
 
 
 
 ![](figures/figures_21_1.png)
 
-> 🔼 The figure shows the robustness of the camera localization method to changes in the environment layout, highlighting its limitations when dealing with changes only observed in a few views.
+> 🔼 The figure shows the robustness of the camera localization method to layout changes in the scene.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: Robustness to layout changes. We find our camera localization to be robust to layout changes, e.g., the cushion and the large boxes (left) and the box (right). However, it fails to reconstruct layout changes, especially when they are only observed in a few views.
@@ -248,7 +248,7 @@ This paper significantly advances research on interactive behavior modeling by i
 > </details>
 
 
-> This table shows the quantitative results of 4D reconstruction comparing the proposed method to TotalRecon on several metrics, including depth accuracy and LPIPS.
+> This table presents a quantitative evaluation of the 4D reconstruction performance of the proposed method and compares it with the single-video and multi-video versions of TotalRecon, using metrics such as DepthAcc (for all pixels, foreground, and background) and LPIPS.
 
 
 {{< table-caption >}}
@@ -260,7 +260,7 @@ This paper significantly advances research on interactive behavior modeling by i
 > </details>
 
 
-> Table 4 presents a quantitative evaluation of the interactive behavior prediction model, showing the minimum average displacement error for goal, path, orientation, and joint angle prediction.
+> Table 4 presents a quantitative evaluation of the interactive behavior prediction model, comparing its performance against other methods in predicting goal, path, orientation, and joint angles.
 
 
 {{< table-caption >}}
@@ -272,7 +272,7 @@ This paper significantly advances research on interactive behavior modeling by i
 > </details>
 
 
-> Table 5 presents a quantitative evaluation of the model's ability to generate paths and full body motions conditioned on either goals or paths, comparing its performance to existing methods.
+> Table 5 presents a quantitative evaluation of the model's ability to generate paths and full body motions conditioned on goals, comparing its performance against existing methods.
 
 
 {{< table-caption >}}
@@ -284,19 +284,7 @@ This paper significantly advances research on interactive behavior modeling by i
 > </details>
 
 
-> This table lists the notations and descriptions of symbols used throughout the paper.
-
-
-{{< table-caption >}}
-<table id='3' style='font-size:14px'><tr><td>Stage</td><td>Description</td></tr><tr><td>Overall</td><td>Input: A walk-through video of the scene and videos with agent interactions. Output: An interactive behavior generator of the agent.</td></tr><tr><td>Localizer Training</td><td>Input: 3D reconstruction of the environment and the agent. Output: Neural localizer f⌀.</td></tr><tr><td>Neural Localization</td><td>Input: Neural localizer f⌀ and the agent interaction videos. Output: Camera poses for each video frame.</td></tr><tr><td>4D Reconstruction</td><td>Input: A collection of videos and their corresponding camera poses. Output: Scene feature volume 重, motion of the agent G and observer 8.</td></tr><tr><td>Behavior Learning</td><td>Input: Scene feature volume 重, motion of the agent G and observer E. Output: An interactive behavior generator of the agent.</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
-> <details>
-> <summary>read the caption</summary>
-> {{ table.caption }}
-> </details>
-
-
-> This table summarizes the inputs and outputs at each stage of the proposed method for learning interactive behavior models from casual longitudinal videos.
+> This table lists the notations and symbols used in the paper, categorized into global notations, learnable parameters of 4D reconstruction, and learnable parameters of behavior generation.
 
 
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "WAFFLE: Multi-Modal Model for Automated Front-End Development"
-summary: "WAFFLE, a novel multi-modal model, revolutionizes front-end development by accurately translating UI designs into HTML code using structure-aware attention and contrastive learning, significantly outp..."
+summary: "WAFFLE: a new fine-tuning method dramatically improves UI design-to-HTML code generation by using structure-aware attention and contrastive learning, outperforming current state-of-the-art models."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research introduces WAFFLE, a new technique to automate the process of turning website designs into functional code (HTML).  This is a hard problem because website code is complex and combines visual elements with textual instructions. WAFFLE uses two key ideas to solve this problem: 1) Structure-aware attention helps the computer understand the code's organization. This is important because website code is very structured. 2) Contrastive learning helps the computer better understand the relationship between design images and the code that creates them. Experiments show WAFFLE significantly improves the accuracy of converting designs to code compared to previous methods. A new benchmark dataset is also introduced to support future research.
+This research introduces WAFFLE, a novel fine-tuning approach for multi-modal large language models (MLLMs) to generate HTML code from UI design images.  It tackles two key challenges: representing HTML's hierarchical structure and bridging the visual and text-based formats. WAFFLE uses a structure-aware attention mechanism to help the model understand HTML structure better, and contrastive learning to align the model's understanding of UI images and HTML code.  Experiments show WAFFLE significantly improves HTML match, CW-SSIM, CLIP, and LLEM scores on benchmark datasets, outperforming existing fine-tuning methods.  The new structure-aware attention and contrastive learning approaches are significant contributions, and the generated dataset enhances future research. The method is model-independent, applicable to various MLLMs for UI-to-HTML code generation.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research introduces WAFFLE, a new technique to automate the process of turn
 {{< button href="https://arxiv.org/abs/2410.18362" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18362" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is important because it introduces a novel approach to automated front-end development, addressing key challenges in translating UI designs to HTML code.  The structure-aware attention mechanism and contrastive learning strategy significantly improve the accuracy and efficiency of UI-to-HTML code generation, opening new avenues for research in multi-modal language models and automated web development. The new benchmark dataset also greatly benefits the field.
+This paper is crucial for researchers in front-end development and multi-modal learning.  It introduces a novel fine-tuning strategy, WAFFLE, significantly improving UI image-to-HTML code generation.  The structure-aware attention and contrastive learning techniques are valuable contributions, opening avenues for advancing MLLMs in code generation and other related fields.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} WAFFLE uses a structure-aware attention mechanism to improve LLMs' understanding of HTML's hierarchical structure. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} WAFFLE significantly improves UI image-to-HTML code generation accuracy. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} WAFFLE employs contrastive fine-tuning to align LLMs' understanding of UI images and HTML code. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Structure-aware attention enhances LLMs' understanding of HTML's hierarchical structure. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} WAFFLE significantly outperforms current fine-tuning methods on HTML match, CW-SSIM, CLIP, and LLEM metrics. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Contrastive learning aligns LLMs' understanding of UI images and HTML code. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is important because it introduces a novel approach to automated fron
 
 ![](figures/figures_1_0.png)
 
-> 🔼 Figure 1 shows that removing child elements from a parent element does not affect the visual layout of the parent or its siblings.
+> 🔼 Figure 1 shows that removing child elements from a parent element in HTML does not affect the visual layout of the parent element or its sibling elements.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Removing the children of the element <div id='left-column'> highlighted in yellow does not affect the structure of the visual layout of itself or its sibling element <div id='right-column'>.
@@ -61,7 +61,7 @@ This paper is important because it introduces a novel approach to automated fron
 
 ![](charts/charts_13_0.png)
 
-> 🔼 The t-SNE plot visualizes the closeness of image and text embeddings generated by Standard FT and WAFFLE-attn, revealing that WAFFLE-attn better aligns image and text features.
+> 🔼 The t-SNE plots visualize the relationship between image and text embeddings generated by Standard FT and WAFFLE-attn, revealing how WAFFLE-attn better aligns these modalities.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: t-SNE plots of the text and image embeddings, computed by Moondream2 fine-tuned with Standard FT and WAFFLE-attn.
@@ -74,7 +74,7 @@ This paper is important because it introduces a novel approach to automated fron
 {{< table-caption >}}
 <table id='1' style='font-size:18px'><tr><td>Shanchao Liang</td><td>Nan Jiang</td><td>Shangshu Qian</td><td>Lin Tan</td></tr><tr><td>Purdue University</td><td>Purdue University</td><td>Purdue University</td><td>Purdue University</td></tr><tr><td>liang422@purdue.edu</td><td>jiang719@purdue.edu</td><td>qian151 @purdue.edu</td><td>lintan@purdue.edu</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 2 presents the performance comparison of different fine-tuning techniques on the WebSight-Test dataset, using metrics such as HTML Match, CW-SSIM, CLIP, and LLEM.
+> 🔼 Table 2 presents the performance comparison of different fine-tuning methods on the WebSight-Test dataset, using several metrics including HTML Match, CW-SSIM, CLIP, and LLEM.
 > <details>
 > <summary>read the caption</summary>
 > Table 2: Main results on the WebSight-Test dataset.
@@ -91,7 +91,7 @@ This paper is important because it introduces a novel approach to automated fron
 
 ![](figures/figures_3_0.png)
 
-> 🔼 The figure illustrates the WAFFLE architecture, showing its training data mutation process, structure-aware attention mechanism, and contrastive learning strategy.
+> 🔼 The figure illustrates the overall architecture of WAFFLE, showing its training data mutation process, structure-aware attention mechanism, and contrastive learning objective.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Overview of WAFFLE, including training data mutation, structure-aware attention, and contrastive learning.
@@ -101,7 +101,7 @@ This paper is important because it introduces a novel approach to automated fron
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates WAFFLE's structure-aware attention mechanism, highlighting how tokens focus on parent, sibling, and self elements within the HTML code structure.
+> 🔼 The figure illustrates WAFFLE's structure-aware attention mechanism, showing how tokens attend to parent, sibling, and self elements in the HTML code.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Example of structure-aware attention.
@@ -111,7 +111,7 @@ This paper is important because it introduces a novel approach to automated fron
 
 ![](figures/figures_12_0.png)
 
-> 🔼 The figure shows a comparison of webpage generation results from ground truth, GPT-40, standard fine-tuning, and WAFFLE on a sample from the WebSight-Test dataset, highlighting WAFFLE's superior performance.
+> 🔼 The figure shows a comparison of webpage generation results from GPT-40, standard fine-tuning, and WAFFLE on a sample from the WebSight-Test dataset, highlighting WAFFLE's superior performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Example test instance from WebSight-Test dataset, with the generated images by GPT-40, Standard FT, and WAFFLE.
@@ -121,7 +121,7 @@ This paper is important because it introduces a novel approach to automated fron
 
 ![](figures/figures_12_1.png)
 
-> 🔼 The figure illustrates the tuning process of the hyperparameter controlling the effect of structure-aware attention on validation LLEM score and training loss.
+> 🔼 The figure shows the effect of different portions of structure-aware attention heads on validation LLEM score and training loss.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Illustration of the tuning process of the parameter that controls the effect of structure-aware attention. In (b), the green line almost overlaps with the blue line.
@@ -148,7 +148,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 2 presents the performance comparison of different techniques on the WebSight-Test dataset using various metrics, including HTML-Match, CW-SSIM, CLIP, and LLEM.
+> Table 2 presents the performance comparison of different techniques on the WebSight-Test dataset, evaluating metrics such as HTML-Match, CW-SSIM, CLIP, and LLEM.
 
 
 {{< table-caption >}}
@@ -160,7 +160,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> The table shows the most frequent causes of failures in existing web MLLMs, categorized into seven common error types, each with a corresponding number of occurrences.
+> Table 1 shows the most frequent causes of failures in existing web MLLMs, categorizing errors into seven common types and listing their corresponding frequencies.
 
 
 {{< table-caption >}}
@@ -172,7 +172,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 2 presents the performance comparison of different techniques on the WebSight-Test dataset, showing improvements achieved by WAFFLE across various metrics like HTML-Match, CW-SSIM, CLIP, and LLEM.
+> Table 2 presents the performance comparison of different techniques on the WebSight-Test dataset, showing HTML-Match, CW-SSIM, CLIP, and LLEM metrics.
 
 
 {{< table-caption >}}
@@ -184,7 +184,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 3 presents the performance comparison of various fine-tuning strategies on the Design2Code dataset across multiple metrics, including HTML-Match, CW-SSIM, CLIP, and Low-Level Element Matching (LLEM).
+> Table 3 presents the performance comparison of various fine-tuning strategies on the Design2Code dataset, showing the effectiveness of WAFFLE in improving HTML-Match, CW-SSIM, CLIP, and LLEM metrics.
 
 
 {{< table-caption >}}
@@ -196,7 +196,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 4 presents the performance comparison of different ablation models on two benchmark datasets, showing the impact of contrastive learning and structure-aware attention on various metrics.
+> Table 4 presents the performance comparison of WAFFLE and its ablation models on the WebSight-Test and Design2Code datasets, showing the effectiveness of contrastive learning and structure-aware attention.
 
 
 {{< table-caption >}}
@@ -208,7 +208,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 5 presents human evaluation results on two datasets comparing four different techniques, showing WAFFLE's superior performance.
+> Table 5 presents human evaluation results on two datasets, showing WAFFLE's superior performance in generating high-quality HTML code compared to other methods.
 
 
 {{< table-caption >}}
@@ -220,7 +220,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 5 presents human evaluation results on two datasets using VLM-WebSight, comparing the rankings of generated HTML code from four different techniques.
+> Table 6 shows the impact of intermediate errors during HTML code generation on the CW-SSIM score using the VLM-WebSight backbone.
 
 
 {{< table-caption >}}
@@ -232,7 +232,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> This table shows the mutation rules used to mutate the HTML code and CSS styles for each element to create the contrastive learning dataset.
+> Table 7 specifies the mutation rules used to create the contrastive learning dataset by mutating HTML code and CSS styles for each element based on failure types.
 
 
 {{< table-caption >}}
@@ -244,7 +244,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 2 presents the performance comparison of different fine-tuning techniques on the WebSight-Test dataset, using metrics like HTML-Match, CW-SSIM, CLIP, and LLEM.
+> Table 8 presents the distance and similarity between averaged image and text embeddings, comparing standard fine-tuning with WAFFLE-attn using Moondream2 as the backbone.
 
 
 {{< table-caption >}}
@@ -256,7 +256,7 @@ This paper is important because it introduces a novel approach to automated fron
 > </details>
 
 
-> Table 9 shows the distance and similarity between each averaged image embedding and the centroid of its corresponding group of mutants, using the Moondream2 backbone.
+> Table 9 presents the distances and similarities between averaged image embeddings and centroids of their groups of mutants using Moondream2 as the backbone.
 
 
 </details>

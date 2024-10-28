@@ -1,6 +1,6 @@
 ---
 title: "Data Scaling Laws in Imitation Learning for Robotic Manipulation"
-summary: "Robotic manipulation policies achieve near 90% success in novel environments and with unseen objects using a data-efficient imitation learning approach guided by discovered power-law scaling laws."
+summary: "Robotic manipulation policies achieve near 90% success in novel environments and with unseen objects using a data-driven approach that leverages power-law scaling relationships."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research explores data scaling laws in imitation learning for robotic manipulation.  The researchers collected over 40,000 real-world demonstrations across various environments and objects. Their findings reveal a power-law relationship between the number of environments/objects and a policy's generalization ability.  Diversity of training data proved more critical than the absolute number of demonstrations. They propose a data-efficient strategy achieving approximately 90% success in novel environments with unseen objects. This challenges the common belief that vast amounts of data are needed in robotics and directly impacts how datasets for robotic manipulation are designed and collected.
+This research investigates data scaling laws in imitation learning for robotic manipulation.  The authors collected over 40,000 demonstrations across various environments and objects, evaluating policy performance on unseen scenarios.  Results reveal power-law relationships between policy generalization and the number of training environments/objects.  Diversity is key: increasing the variety of environments and objects improves generalization significantly more than simply increasing demonstrations.  The researchers propose an efficient data collection method, achieving approximately 90% success rates in novel environments with unseen objects using data from a single afternoon of collection by four people.  These findings provide valuable insights for designing efficient data collection strategies and developing more robust, generalizable robotic systems.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research explores data scaling laws in imitation learning for robotic manip
 {{< button href="https://arxiv.org/abs/2410.18647" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18647" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for robotics researchers as it establishes data scaling laws for robotic manipulation, a field previously lacking such comprehensive understanding.  It provides practical guidance for efficient data collection and offers insights into generalizability, directly impacting the design and development of more robust and effective robotic systems. The findings open avenues for further research into model scaling and task-level generalization.
+This paper is crucial for robotics researchers as it establishes data scaling laws for robotic manipulation, a field previously lacking such comprehensive guidelines.  It offers a practical data collection strategy and demonstrates surprisingly high zero-shot generalization performance, opening up new avenues for creating more efficient and generalizable robotic systems.  The findings challenge existing assumptions about the data requirements for robust robotic policies and may change how large-scale robotic datasets are designed and collected.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Data scaling laws in robotic manipulation follow power-law relationships with the number of training environments and objects, emphasizing diversity over sheer quantity of demonstrations. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Robotic manipulation policies show power-law scaling with the number of training environments and objects. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Generalization performance plateaus after a certain number of demonstrations per object/environment, suggesting efficient data collection strategies are possible. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Diversity of environments and objects is more important for generalization than the absolute number of demonstrations. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} A data-efficient imitation learning approach enabled policies to achieve high success rates (≈90%) in novel environments with unseen objects using a small dataset collected in one afternoon with four collectors. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} An efficient data collection strategy is proposed, demonstrating impressive zero-shot generalization with limited data. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -61,7 +61,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](charts/charts_6_0.png)
 
-> 🔼 The chart displays the relationship between a policy's object generalization performance and the number of training objects used, considering different fractions of available demonstrations.
+> 🔼 The chart shows how a robot policy's ability to generalize to unseen objects changes as the number of training objects and the fraction of training demonstrations increases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Object generalization. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training objects.
@@ -74,7 +74,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 {{< table-caption >}}
 <table id='5' style='font-size:14px'><tr><td></td><td>Pour Water</td><td>Mouse Arrangement</td><td>Fold Towels</td><td>Unplug Charger</td></tr><tr><td>Score</td><td>0.922 士 0.075</td><td>0.933 士 0.088</td><td>0.95 士 0.062</td><td>0.887 士 0.14</td></tr><tr><td>Success Rate</td><td>85.0 士 19.4%</td><td>92.5 士 9.7%</td><td>87.5 士 17.1%</td><td>90.0 士 14.1%</td></tr></table>{{< /table-caption >}}
 
-> 🔼 This table summarizes the success rate and standard deviation of the trained policies across four different manipulation tasks in eight unseen environments.
+> 🔼 The table presents the average success rate and standard deviation of the policies across four tasks and eight unseen environments.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Success rate across all tasks. We report the average success rate and standard deviation across 8 unseen environments. The performance in each environment is detailed in Table 12.
@@ -91,7 +91,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_16_0.png)
 
-> 🔼 The figure shows eight unseen testing environments used to evaluate the generalization capabilities of the robotic policies across all four manipulation tasks.
+> 🔼 This figure shows eight unseen testing environments used to evaluate the generalization performance of the robotic manipulation policies across all four tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Testing environments. These 8 environments are not included in the training data and are used across all tasks.
@@ -101,7 +101,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_16_1.png)
 
-> 🔼 The figure shows eight unseen testing environments used to evaluate the generalization performance of the trained policies across all four tasks.
+> 🔼 This figure shows eight unseen testing environments used to evaluate the generalization capability of the robotic policies across all four tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Testing environments. These 8 environments are not included in the training data and are used across all tasks.
@@ -111,27 +111,27 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows 12 different environments used for training a robot to pour water.
+> 🔼 This figure shows eight unseen testing environments used to evaluate the generalization capabilities of the trained robotic manipulation policies across all four tasks.
 > <details>
 > <summary>read the caption</summary>
-> Figure 8: Training environments for Pour Water. We sample 12 environments from our collected training data. See Appendix D.1 for task details.
+> Figure 12: Testing environments. These 8 environments are not included in the training data and are used across all tasks.
 > </details>
 
 
 
 ![](figures/figures_17_1.png)
 
-> 🔼 The figure shows 12 different training environments used for the Pour Water task in the robotic manipulation experiment.
+> 🔼 This figure shows eight unseen testing environments used to evaluate the generalization capabilities of the trained robot policies across four manipulation tasks.
 > <details>
 > <summary>read the caption</summary>
-> Figure 8: Training environments for Pour Water. We sample 12 environments from our collected training data. See Appendix D.1 for task details.
+> Figure 12: Testing environments. These 8 environments are not included in the training data and are used across all tasks.
 > </details>
 
 
 
 ![](figures/figures_17_2.png)
 
-> 🔼 The figure shows eight unseen testing environments used to evaluate the generalization performance of the robotic manipulation policies.
+> 🔼 The figure shows eight unseen testing environments used to evaluate the generalization performance of the robotic policies across four different manipulation tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Testing environments. These 8 environments are not included in the training data and are used across all tasks.
@@ -151,7 +151,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_19_0.png)
 
-> 🔼 The figure shows the 64 training and 16 testing mouse and mousepad pairs used in the experiments.
+> 🔼 The figure shows the 64 training and 16 testing mouse and mousepad used in the experiments.
 > <details>
 > <summary>read the caption</summary>
 > Figure 14: Objects for Mouse Arrangement. All of our experiments include a total of 64 training mice and mouse pads, as well as 16 unseen testing mice and mouse pads.
@@ -161,7 +161,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure shows the 32 training towels and 16 unseen testing towels used in the Fold Towels task.
+> 🔼 This figure shows the 32 training towels and 16 testing towels used in the Fold Towels task of the robotic manipulation experiments.
 > <details>
 > <summary>read the caption</summary>
 > Figure 15: Objects for Fold Towels. All of our experiments include a total of 32 training towels, as well as 16 unseen testing towels.
@@ -171,7 +171,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure shows the 32 training objects and 16 testing objects used for the Unplug Charger task in the experiment.
+> 🔼 The figure shows the 32 training and 16 testing objects used in the Unplug Charger task, which includes various chargers and power strips.
 > <details>
 > <summary>read the caption</summary>
 > Figure 16: Objects for Unplug Charger. All of our experiments include a total of 32 training chargers and power strips, as well as 16 unseen testing chargers and power strips.
@@ -181,7 +181,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_29_0.png)
 
-> 🔼 The figure shows four UMI hand-held grippers used in the data collection process of the paper.
+> 🔼 The figure shows four UMI hand-held grippers used in the study, each equipped with a GoPro camera.
 > <details>
 > <summary>read the caption</summary>
 > Figure 18: UMI hand-held grippers. We do not install side mirrors on the grippers.
@@ -191,7 +191,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](figures/figures_29_1.png)
 
-> 🔼 The figure shows the hardware setup used for the robotic manipulation experiments, including the robot arm, gripper, camera, and power supply.
+> 🔼 The figure shows the hardware setup used for the robotic manipulation experiments, including a Franka Emika Panda robot, WSG-50 gripper, GoPro Hero 10 camera, workstation, and power supply.
 > <details>
 > <summary>read the caption</summary>
 > Figure 19: Deployment hardware setup.
@@ -208,18 +208,18 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 </summary>
 
 
-![](charts/charts_6_1.png "🔼 Figure 2: Object generalization. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training objects.")
+![](charts/charts_6_1.png "🔼 Figure 3: Environment generalization. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training environments.")
 
-> 🔼 The chart displays how a policy's ability to generalize to unseen objects changes as the number of training objects and the fraction of demonstrations used increases.
+> 🔼 The chart displays the relationship between a policy's ability to generalize to new environments and the number of training environments used, considering different fractions of demonstrations.
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: Object generalization. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training objects.
+> Figure 3: Environment generalization. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training environments.
 > </details>
 
 
 ![](charts/charts_7_0.png "🔼 Figure 4: Generlization across environments and objects. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training environment-object pairs.")
 
-> 🔼 The chart displays the relationship between a policy's generalization ability and the number of training environment-object pairs, considering different fractions of used demonstrations.
+> 🔼 The chart visualizes how a policy's generalization ability across both environments and objects scales with the number of training environment-object pairs, showing different performance trends based on varying fractions of training demonstrations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Generlization across environments and objects. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training environment-object pairs.
@@ -228,7 +228,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](charts/charts_7_1.png "🔼 Figure 5: Power-law relationship. Dashed lines represent power-law fits, with the equations provided in the legend. All axes are shown on a logarithmic scale. The correlation coefficient r indicates a power-law relationship between the policy generalization ability and the number of objects, environments, and environment-object pairs. See Appendix G.1 for data scaling laws on MSE.")
 
-> 🔼 The chart displays the power-law relationships between the policy's generalization ability and the number of training objects, environments, and environment-object pairs, showing how generalization scales approximately as a power law with the number of training instances across different data dimensions.
+> 🔼 The chart displays the power-law relationship between the policy's generalization ability and the number of training objects, environments, and environment-object pairs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Power-law relationship. Dashed lines represent power-law fits, with the equations provided in the legend. All axes are shown on a logarithmic scale. The correlation coefficient r indicates a power-law relationship between the policy generalization ability and the number of objects, environments, and environment-object pairs. See Appendix G.1 for data scaling laws on MSE.
@@ -237,7 +237,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](charts/charts_8_0.png "🔼 Figure 6: Multiple objects per environment. Brighter colors indicate higher normalized scores.")
 
-> 🔼 The heatmap visualizes how the policy's normalized scores vary depending on the number of environments and the number of objects per environment.
+> 🔼 The heatmap visualizes the normalized scores achieved by policies trained with varying numbers of environments and objects per environment, revealing the impact of data diversity on policy generalization performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Multiple objects per environment. Brighter colors indicate higher normalized scores.
@@ -246,25 +246,25 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](charts/charts_9_0.png "🔼 Figure 7: Number of demonstrations. Left: In the setting where we collect the maximum number of demonstrations, we examine whether the policy's performance follows a power-law relationship with the total number of demonstrations. The correlation coefficients for Pour Water and Mouse Arrangement are -0.62 and -0.79, respectively, suggesting only a weak power-law relationship. Right: For varying environment-object pairs, the policy performance increases with the total number of demonstrations at first, and then reaches saturation.")
 
-> 🔼 The chart displays the relationship between the number of demonstrations and the policy's performance for object and environment generalization, showing saturation after a certain number of demonstrations.
+> 🔼 The chart displays the relationship between the number of demonstrations and the policy's performance, showing saturation at a certain number of demonstrations for both object and environment generalization.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Number of demonstrations. Left: In the setting where we collect the maximum number of demonstrations, we examine whether the policy's performance follows a power-law relationship with the total number of demonstrations. The correlation coefficients for Pour Water and Mouse Arrangement are -0.62 and -0.79, respectively, suggesting only a weak power-law relationship. Right: For varying environment-object pairs, the policy performance increases with the total number of demonstrations at first, and then reaches saturation.
 > </details>
 
 
-![](charts/charts_27_0.png "🔼 Figure 17: Comparison between normalized score and MSE. Left: In the object generalization experiment, the inverse correlation between MSE and normalized score is weak. Right: In the generalization experiment across both environments and objects, the inverse correlation between MSE and normalized score is very strong. Correlation coefficients (Pearson's r and Spearman's ρ) are shown in the bottom right.")
+![](charts/charts_27_0.png "🔼 Figure 17: Comparison between normalized score and MSE. Left: In the object generalization experiment, the inverse correlation between MSE and normalized score is weak. Right: In the generalization experiment across both environments and objects, the inverse correlation between MSE and normalized score is very strong. Correlation coefficients (Pearson’s r and Spearman’s ρ) are shown in the bottom right.")
 
-> 🔼 The chart compares two evaluation metrics, normalized score and MSE, for evaluating the generalization performance of robot policies in object generalization and generalization across both environments and objects, revealing the strength of correlation between them.
+> 🔼 The chart compares the normalized score and MSE as evaluation metrics for object generalization and generalization across environments and objects, revealing a strong inverse correlation in the latter case.
 > <details>
 > <summary>read the caption</summary>
-> Figure 17: Comparison between normalized score and MSE. Left: In the object generalization experiment, the inverse correlation between MSE and normalized score is weak. Right: In the generalization experiment across both environments and objects, the inverse correlation between MSE and normalized score is very strong. Correlation coefficients (Pearson's r and Spearman's ρ) are shown in the bottom right.
+> Figure 17: Comparison between normalized score and MSE. Left: In the object generalization experiment, the inverse correlation between MSE and normalized score is weak. Right: In the generalization experiment across both environments and objects, the inverse correlation between MSE and normalized score is very strong. Correlation coefficients (Pearson’s r and Spearman’s ρ) are shown in the bottom right.
 > </details>
 
 
 ![](charts/charts_30_0.png "🔼 Figure 20: Data scaling laws on MSE. Dashed lines represent power-law fits, with the equations provided in the legend. All axes are shown on a logarithmic scale.")
 
-> 🔼 The chart shows the relationship between the mean squared error (MSE) and the number of training objects, environments, and environment-object pairs.
+> 🔼 The chart shows the relationship between mean squared error (MSE) and the number of training objects, environments, and environment-object pairs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 20: Data scaling laws on MSE. Dashed lines represent power-law fits, with the equations provided in the legend. All axes are shown on a logarithmic scale.
@@ -273,7 +273,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](charts/charts_31_0.png "🔼 Figure 21: Object generalization. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training objects.")
 
-> 🔼 The chart displays the normalized scores of object generalization for Pour Water and Mouse Arrangement tasks, showing how performance varies with different numbers of training objects and data usage.
+> 🔼 The chart displays the relationship between the number of training objects and the normalized score of the policy, while keeping the total number of demonstrations relatively constant across different data usage levels.
 > <details>
 > <summary>read the caption</summary>
 > Figure 21: Object generalization. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training objects.
@@ -282,7 +282,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](charts/charts_31_1.png "🔼 Figure 21: Object generalization. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training objects.")
 
-> 🔼 The chart displays the object generalization performance of the policies trained with varying amounts of data (2x, 4x, 8x, 16x, and 32x demonstrations) in relation to the number of training objects.
+> 🔼 The chart displays the impact of the number of training objects on object generalization performance while keeping the total number of demonstrations relatively constant.
 > <details>
 > <summary>read the caption</summary>
 > Figure 21: Object generalization. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training objects.
@@ -291,7 +291,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 ![](charts/charts_31_2.png "🔼 Figure 23: Generalization across environments and objects. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training environment-object pairs.")
 
-> 🔼 The chart displays how the policy's generalization ability across environments and objects improves with increasing number of training environment-object pairs while keeping the total number of demonstrations relatively constant.
+> 🔼 The chart shows how a policy's generalization ability to new environments and objects improves with the number of training environment-object pairs, even when the total number of demonstrations is kept relatively constant.
 > <details>
 > <summary>read the caption</summary>
 > Figure 23: Generalization across environments and objects. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training environment-object pairs.
@@ -316,7 +316,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> The table shows the results of model-related experiments on the Pour Water task, comparing different training strategies, visual encoder sizes, and action diffusion model sizes.
+> Table 2 shows the results of experiments conducted to investigate the impact of training strategies and model size on the performance of a diffusion policy for the Pour Water task.
 
 
 {{< table-caption >}}
@@ -328,7 +328,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> The table presents the results of experiments on the Pour Water task, comparing the performance of different model sizes and training strategies for the visual encoder and action diffusion model.
+> The table shows the results of model-related experiments on Pour Water, comparing different visual encoder sizes and training strategies, and the effect of scaling the action diffusion model.
 
 
 {{< table-caption >}}
@@ -340,7 +340,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> This table lists the default hyperparameters used in the policy training process, specifying values for image observation horizon, proprioception observation horizon, action horizon, observation resolution, environment frequency, optimizer, optimizer momentum, learning rate for action diffusion model, learning rate for visual encoder, learning rate schedule, batch size, inference denoising iterations, temporal ensemble steps, and temporal ensemble adaptation rate.
+> Table 3 shows the default set of hyperparameters used in the policy training process, including image observation horizon, action horizon, optimizer, and learning rate.
 
 
 {{< table-caption >}}
@@ -352,7 +352,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> Table 5 shows the results of the environment generalization experiment on the Pour Water task, presenting the normalized scores as a function of the number of training environments and the fraction of demonstrations used.
+> Table 5 shows the results of an experiment on Pour Water, measuring the effect of increasing the number of training environments on the policy's generalization ability while controlling for the number of training objects and demonstrating the power-law relationship of the data.
 
 
 {{< table-caption >}}
@@ -364,7 +364,19 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> The table shows the raw test scores before normalization for the Pour Water task, varying the number of demonstrations used for training.
+> Table 7 shows the relationship between the number of demonstrations and the normalized score for the Pour Water task, after normalizing the raw scores by dividing them by 9.
+
+
+{{< table-caption >}}
+<table id='1' style='font-size:14px'><tr><td>Usage</td><td>3.125%</td><td>6.25%</td><td>12.5%</td><td>25%</td><td>50%</td><td>100%</td></tr><tr><td>#Objs 1</td><td></td><td></td><td></td><td></td><td></td><td>1.3</td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td>2.475</td><td>3.25</td></tr><tr><td>4</td><td></td><td></td><td></td><td>2.425</td><td>2.975</td><td>3.625</td></tr><tr><td>8</td><td></td><td></td><td>1.75</td><td>3.525</td><td>4.1</td><td>4.8</td></tr><tr><td>16</td><td></td><td>2.525</td><td>3.675</td><td>3.925</td><td>4.425</td><td>5.325</td></tr><tr><td>32</td><td>3.7</td><td>3.675</td><td>4.2</td><td>5.025</td><td>5.175</td><td>5.575</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> The table shows the raw test scores of object generalization on Mouse Arrangement before normalization, where scores are shown for different fractions of demonstrations used and numbers of training objects.
 
 
 {{< table-caption >}}
@@ -376,7 +388,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> Table 9 shows the results of the environment generalization experiment on the Mouse Arrangement task, where the normalized scores are obtained by dividing the raw scores by 6.
+> The table shows the raw test scores of environment generalization on Mouse Arrangement before normalization.
 
 
 {{< table-caption >}}
@@ -388,7 +400,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> Table 6 presents the normalized scores for Pour Water experiments evaluating generalization across both environments and objects, showing the impact of different fractions of demonstrations.
+> The table presents the raw success scores for the Mouse Arrangement task before normalization, categorized by the number of training environment-object pairs and the fraction of demonstrations used.
 
 
 {{< table-caption >}}
@@ -400,7 +412,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> Table 11 shows the normalized scores for the Mouse Arrangement task based on varying numbers of demonstrations.
+> Table 11 presents the normalized scores for the Mouse Arrangement task based on varying numbers of demonstrations, used to generate Figure 7 in the paper.
 
 
 {{< table-caption >}}
@@ -412,7 +424,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-> This table presents the success rates of the policies trained across 32 environment-object pairs for four different manipulation tasks, showing the performance in each of eight unseen evaluation environments.
+> This table presents the success rates of the policies trained across 32 environment-object pairs for each task, showing the success rate in each of eight evaluation environments.
 
 
 </details>

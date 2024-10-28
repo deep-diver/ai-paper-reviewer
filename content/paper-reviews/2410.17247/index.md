@@ -1,6 +1,6 @@
 ---
 title: "PyramidDrop: Accelerating Your Large Vision-Language Models via Pyramid Visual Redundancy Reduction"
-summary: "PyramidDrop accelerates large vision-language models by efficiently reducing visual redundancy in deeper layers, achieving significant speedups in training and inference without performance loss."
+summary: "PyramidDrop boosts Large Vision-Language Model efficiency by 40% during training and 55% during inference, achieving comparable performance by progressively reducing image token redundancy in deeper l..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-22", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Large vision-language models (LVLMs) struggle with the computational cost of processing many image tokens.  This paper introduces PyramidDrop, a novel technique to improve LVLMs' efficiency.  PyramidDrop leverages the observation that visual token redundancy increases in deeper layers. It divides the LVLM into stages and selectively drops image tokens at the end of each stage, using a lightweight attention mechanism.  Experiments show that PyramidDrop significantly accelerates training (40% reduction) and inference (55% reduction in FLOPs) in LLaVA-NeXT without harming performance. It also functions as a plug-and-play inference accelerator. The study reveals that not all visual tokens are equally important across all layers of the model and offers a new insight into LVLMs' understanding of visual information.  PyramidDrop's simplicity and adaptability across different LVLMs and its significant performance boost are its strengths.  The findings inspire future research to explore the role of image tokens in LVLMs and further refine efficiency-enhancing strategies.
+Large Vision-Language Models (LVLMs) are powerful but slow due to the high computational cost of processing images.  This paper introduces PyramidDrop, a method to make LVLMs faster.  The core idea is that images contain a lot of redundant information, especially in deeper layers of the model.  PyramidDrop cleverly removes this redundant information to speed up training and inference without losing much accuracy. Experiments show PyramidDrop significantly speeds up LLaVA-NeXT, a popular LVLM, by approximately 40% during training and 55% during inference. It also works as a simple add-on to existing models for faster inference without the need for retraining. The findings suggest that visual tokens become increasingly redundant as the model processes information, offering valuable insights into the architecture of LVLMs.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Large vision-language models (LVLMs) struggle with the computational cost of pro
 {{< button href="https://arxiv.org/abs/2410.17247" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.17247" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on large vision-language models (LVLMs) because it introduces an efficient method for reducing computational costs without sacrificing performance.  It directly addresses the challenge of high computational costs associated with processing high-resolution images in LVLMs, a major bottleneck in current research. The proposed method, PyramidDrop, is easily adaptable to different LVLMs, and its success opens new avenues for optimizing efficiency in this critical area of AI research.  It provides a novel approach for studying visual token redundancy, and its plug-and-play inference acceleration feature makes it practical for a wide range of applications.
+This paper is crucial for researchers working on large vision-language models (LVLMs) because it addresses the significant computational cost associated with processing high-resolution images.  The proposed PyramidDrop method offers a novel and efficient solution, impacting both training and inference speed. This opens avenues for further research into visual token redundancy and efficient LVLMs.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} PyramidDrop significantly reduces training time and inference FLOPs in large vision-language models. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} PyramidDrop accelerates LVLMs by reducing visual token redundancy in deeper layers without significant performance loss. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Visual token redundancy increases progressively in deeper layers of LVLMs, enabling efficient redundancy reduction without sacrificing performance. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The method achieves a 40% reduction in training time and 55% reduction in inference FLOPs. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} PyramidDrop serves as a plug-and-play strategy for inference acceleration, improving efficiency without requiring model retraining. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} PyramidDrop serves as a plug-and-play technique for inference acceleration without retraining. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the PyramidDrop method, showing how the model divides the forward pass into stages and drops image tokens at the end of each stage based on attention weights, reducing the sequence length.
+> 🔼 The figure illustrates the PyramidDrop method, showing how the model divides the forward pass into stages and drops image tokens at the end of each stage based on a lightweight attention mechanism, reducing sequence length and improving efficiency.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Overview of PyramidDrop. We divide the forward pass of the LLM into multiple stages, and drop part of the image tokens at the end of each stage with a pre-defined ratio. The dropping is based on a lightweight attention calculation with a negligible time overhead, and according to this criterion, the LLM accurately selects important image tokens related to instruction. Due to the efficient redundancy reduction strategy, the average sequence length decreases rapidly.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](charts/charts_3_0.png)
 
-> 🔼 The chart displays the TextVQA performance of LLaVA-1.5 with varying ratios of retained image tokens at different layers, and visualizes the attention map in shallow and deep layers to show that visual redundancy progressively increases in deeper layers of the model.
+> 🔼 The chart displays the TextVQA performance of LLaVA-1.5 with varying ratios of retained image tokens at different layers and visualizes the attention maps in shallow and deep layers to show that visual redundancy increases with the depth of the model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Observatioins about visual redundancy acoross layers. Left: TextVQA performance of LLaVA-1.5 with varying ratio of retained image tokens at different layer. The preserved image tokens are those that receive the highest attention from the text tokens. Right: Visualization of attention map in shallow and deep layers.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on large vision-language models (L
 {{< table-caption >}}
 <br><table id='1' style='font-size:14px'><tr><td>Model</td><td>Train & Infer</td><td>GPU hours</td><td>#patches</td><td>Infer Flops(T)</td><td>MME</td><td>MMB</td><td>MMB CN</td><td>SEEDI</td><td>MM Star</td><td>POPE</td><td>Avg</td></tr><tr><td rowspan="4">LLaVA -NeXT-7B</td><td>vanilla</td><td>366</td><td>5</td><td>20.8</td><td>1534.1</td><td>68.7</td><td>60.5</td><td>71.1</td><td>41.1</td><td>86.1</td><td>67.4</td></tr><tr><td>PDrop</td><td>218</td><td>5</td><td>9.46</td><td>1540.8</td><td>67.8</td><td>60.6</td><td>69.9</td><td>41.7</td><td>86.5</td><td>67.3</td></tr><tr><td>vanilla</td><td>483</td><td>9</td><td>40.6</td><td>1544.7</td><td>67.4</td><td>60.0</td><td>69.5</td><td>40.0</td><td>86.3</td><td>66.7</td></tr><tr><td>PDrop</td><td>269</td><td>9</td><td>18.1</td><td>1542.0</td><td>68.1</td><td>61.0</td><td>70.3</td><td>40.9</td><td>86.6</td><td>67.3</td></tr><tr><td rowspan="2">LLaVA -1.5-7B</td><td>vanilla</td><td>104</td><td>1</td><td>3.82</td><td>1510.7</td><td>64.3</td><td>58.3</td><td>66.1</td><td>33.2</td><td>85.9</td><td>63.9</td></tr><tr><td>PDrop</td><td>79</td><td>1</td><td>1.78</td><td>1467.3</td><td>66.1</td><td>58.5</td><td>65.5</td><td>34.0</td><td>86.0</td><td>63.9</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the performance comparison of vanilla LVLMs and LVLMs using PyramidDrop on six benchmarks, showing training and inference efficiency improvements.
+> 🔼 Table 1 shows the performance of LLaVA and LLaVA-NeXT with and without PyramidDrop on six benchmarks, including training and inference time, FLOPs, and scores on different tasks.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: LVLM w and w/o our method on 6 benchmarks. Benchmark names are abbreviated due to space limits. MMB: MMBenchmark (Liu et al., 2023); MMBCN: MMBench-Chinese (Liu et al., 2023); SEED¹: SEED-Bench (Image) (Li et al., 2023b). We denote PyramidDrop as PDrop.
@@ -83,33 +83,6 @@ This paper is crucial for researchers working on large vision-language models (L
 
 
 ### More visual insights
-
-<details>
-<summary>More on figures
-</summary>
-
-
-![](figures/figures_10_0.png)
-
-> 🔼 The figure visualizes how PyramidDrop effectively preserves image tokens related to the instruction, as shown by LLaVA-1.5, accurately retaining relevant tokens for accurate answers.
-> <details>
-> <summary>read the caption</summary>
-> Figure 5: Visualization of token dropping in LLM of LLaVA -1.5. We compute the attention score of image tokens received from the last instruction token as the ranking criterion, and find LLM accurately retain image tokens according to instruction.
-> </details>
-
-
-
-![](figures/figures_10_1.png)
-
-> 🔼 The figure visualizes how PyramidDrop effectively preserves image tokens related to the instruction by showing examples of retained image tokens at different layers of the LLaVA-1.5 model.
-> <details>
-> <summary>read the caption</summary>
-> Figure 5: Visualization of token dropping in LLM of LLaVA-1.5. We compute the attention score of image tokens received from the last instruction token as the ranking criterion, and find LLM accurately retain image tokens according to instruction.
-> </details>
-
-
-
-</details>
 
 
 
@@ -120,7 +93,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](charts/charts_8_0.png "🔼 Figure 3: We compare the performance of the original LLaVA-1.5 and LLaVA-1.5 trained using PDrop, where we preserve different ratios of image tokens at layer 2, 8, 16, and 24, respectively. The horizontal axis represents the proportion of retained image tokens according to attention score.")
 
-> 🔼 The chart displays the TextVQA performance of LLaVA-1.5 models (original and trained with PyramidDrop) at different layers with varying ratios of retained image tokens, demonstrating the impact of PyramidDrop on model performance at different depths.
+> 🔼 The chart visualizes how the performance of LLaVA-1.5, both original and trained with PyramidDrop, changes at different layers with varying ratios of retained image tokens, based on attention scores.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: We compare the performance of the original LLaVA-1.5 and LLaVA-1.5 trained using PDrop, where we preserve different ratios of image tokens at layer 2, 8, 16, and 24, respectively. The horizontal axis represents the proportion of retained image tokens according to attention score.
@@ -129,7 +102,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](charts/charts_8_1.png "🔼 Figure 3: We compare the performance of the original LLaVA-1.5 and LLaVA-1.5 trained using PDrop, where we preserve different ratios of image tokens at layer 2, 8, 16, and 24, respectively. The horizontal axis represents the proportion of retained image tokens according to attention score.")
 
-> 🔼 The chart compares the performance of the original LLaVA-1.5 and the model trained with PyramidDrop across different layers and varying ratios of retained image tokens, showing that PyramidDrop maintains or improves performance while reducing tokens.
+> 🔼 The chart compares the performance of the original LLaVA-1.5 and a version trained with PyramidDrop across different layers and image token retention ratios, showing the effect of the proposed method on model performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: We compare the performance of the original LLaVA-1.5 and LLaVA-1.5 trained using PDrop, where we preserve different ratios of image tokens at layer 2, 8, 16, and 24, respectively. The horizontal axis represents the proportion of retained image tokens according to attention score.
@@ -138,7 +111,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](charts/charts_10_0.png "🔼 Figure 4: The performance of LLaVA-NeXT-7B with different inference acceleration strategies. PDrop (without training) outperforms FastV on DocVQA, ChartQA, and GQA with across various inference cost budgets.")
 
-> 🔼 The chart compares the performance of PyramidDrop and FastV inference acceleration strategies across various inference cost budgets (TFLOPs) on three vision-language benchmarks (DocVQA, ChartQA, and GQA).
+> 🔼 The chart compares the performance of PyramidDrop and FastV on DocVQA, ChartQA, and GQA across various inference costs (TFLOPs).
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: The performance of LLaVA-NeXT-7B with different inference acceleration strategies. PDrop (without training) outperforms FastV on DocVQA, ChartQA, and GQA with across various inference cost budgets.
@@ -147,7 +120,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](charts/charts_10_1.png "🔼 Figure 1: Observatioins about visual redundancy acoross layers. Left: TextVQA performance of LLaVA-1.5 with varying ratio of retained image tokens at different layer. The preserved image tokens are those that receive the highest attention from the text tokens. Right: Visualization of attention map in shallow and deep layers.")
 
-> 🔼 The chart visualizes the impact of dropping different ratios of image tokens at various layers of a Large Vision Language Model (LLaVM) on TextVQA task performance and attention patterns, revealing that visual redundancy increases with depth.
+> 🔼 The chart visualizes the relationship between the proportion of retained image tokens at different layers of a Large Vision Language Model (LLaVM) and its performance on a TextVQA task, showing that redundancy increases with depth.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Observatioins about visual redundancy acoross layers. Left: TextVQA performance of LLaVA-1.5 with varying ratio of retained image tokens at different layer. The preserved image tokens are those that receive the highest attention from the text tokens. Right: Visualization of attention map in shallow and deep layers.
@@ -172,7 +145,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 2 presents the performance comparison of the LLaVA-NeXT-7B model with and without PyramidDrop across eight benchmarks, showcasing the model's performance on benchmarks containing detailed information.
+> Table 2 presents the performance comparison of the LLaVA-NeXT-7B model with and without PyramidDrop across eight benchmarks, focusing on benchmarks with fine-grained visual content.
 
 
 {{< table-caption >}}
@@ -184,7 +157,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 3 shows the performance improvement achieved by applying FastV inference strategy to models trained with PyramidDrop, demonstrating the substantial performance gains obtained.
+> The table compares the performance of models trained with and without PyramidDrop, showing performance gains with the application of FastV inference strategy.
 
 
 {{< table-caption >}}
@@ -196,7 +169,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 4 presents the ablation study results of varying the hyperparameter λ (drop ratio) from 0.4 to 0.6, showing its impact on model performance and training time for two different LVLMs.
+> Table 4 shows the ablation study results of adjusting the hyperparameter λ (drop ratio) from 0.4 to 0.6, demonstrating its impact on performance and training time across different benchmarks for both LLaVA-NeXT-7B and LLaVA-1.5-7B models.
 
 
 {{< table-caption >}}
@@ -208,7 +181,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 5 compares the inference acceleration performance of PyramidDrop, FastV, and a vanilla model across various benchmarks, showing PyramidDrop's superior performance when used as an inference-only strategy.
+> Table 5 compares the inference acceleration performance of PyramidDrop against FastV and a vanilla model across various benchmarks, showing PyramidDrop's superior performance as an inference-only strategy.
 
 
 </details>

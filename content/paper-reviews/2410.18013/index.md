@@ -1,6 +1,6 @@
 ---
 title: "Scalable Ranked Preference Optimization for Text-to-Image Generation"
-summary: "Researchers created a scalable method for aligning text-to-image models using synthetic preference datasets and a novel ranking-based optimization, significantly improving image quality and prompt-fol..."
+summary: "Researchers created a scalable training method for text-to-image models using synthetic, ranked preference data, significantly improving both visual quality and prompt-following."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-23", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research tackles the high cost and time-consuming nature of creating training datasets for aligning text-to-image models with human preferences.  The authors introduce a new technique called Syn-Pic which generates a synthetically labeled preference dataset using multiple pre-trained reward models, eliminating the need for human annotation.  This dataset, combined with a new ranking-based optimization method called RankDPO, allows for more efficient training and improved model performance.  Experiments show that RankDPO significantly improves both how well the generated images follow the text prompt, and the visual quality of the images, even compared to models already trained on human-labeled data.  The results suggest a practical and scalable way to create larger, more diverse, and more up-to-date datasets for text-to-image models without relying on expensive human annotation.
+This research tackles the challenges of aligning text-to-image (T2I) models with human preferences, a process typically hindered by the high cost and time required for large-scale human annotation of image datasets.  The authors propose a novel approach using a synthetically generated preference dataset and a new optimization technique, RankDPO, to overcome these limitations.  Instead of relying on expensive human feedback, they generate images using multiple T2I models and rank them according to a pre-trained reward function.  This synthetic dataset is then used to train the models using RankDPO, which enhances DPO methods by incorporating richer information from the ranking feedback.  Experiments demonstrate that this approach improves both prompt-following and visual quality of the generated images, achieving state-of-the-art results with significantly lower computational costs compared to existing methods.  This work offers a scalable and cost-effective solution for improving T2I model performance.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research tackles the high cost and time-consuming nature of creating traini
 {{< button href="https://arxiv.org/abs/2410.18013" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18013" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in text-to-image generation and AI alignment. It introduces a novel, scalable method for creating preference datasets without human annotation, a significant hurdle in current DPO approaches.  The proposed RankDPO method offers improved efficiency and results, opening avenues for developing safer and higher-performing models. Its synthetic dataset approach addresses the limitations of human-annotated datasets, offering a cost-effective and scalable solution for future research.
+This paper is crucial for researchers in text-to-image generation due to its introduction of a scalable and cost-effective method for training these models.  The use of synthetic data removes the bottleneck of expensive human annotation, and the proposed RankDPO method improves both prompt-following and visual quality, significantly advancing the field. This opens avenues for improved model safety and efficiency.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Synthetic datasets for preference optimization can effectively replace human-labeled data, significantly reducing cost and improving scalability. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Synthetically generated, ranked preference data can effectively train text-to-image models, eliminating costly human annotation. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} RankDPO, a ranking-based preference optimization, outperforms existing methods by leveraging richer information from ranked preferences. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The RankDPO method, leveraging ranking feedback, outperforms existing preference optimization techniques in terms of both performance and efficiency. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The proposed method achieves state-of-the-art results on benchmark datasets for both prompt-following and image quality. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} This approach offers a scalable solution for creating preference datasets that are both cost-effective and adaptable to rapidly evolving text-to-image model advancements. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,10 +49,10 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 
 ![](figures/figures_5_0.png)
 
-> 🔼 This figure illustrates the pipeline of generating a synthetically ranked preference dataset (Syn-Pic) and the ranking-based preference optimization (RankDPO) method.
+> 🔼 The figure shows a schematic overview of the two main components of the proposed method: (A) a synthetically labeled preference dataset generation process (Syn-Pic) and (B) a ranking-based preference optimization method (RankDPO).
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: Overview of our two novel components: (A) Syn-Pic and (B) RankDPO. Left illustrates the pipeline to generate a synthetically ranked preference dataset. It starts by collecting prompts and generating images using the same prompt for different T2I models. Next, we calculate the overall preference score using Reward models (e.g., PickScore, ImageReward). Finally, we rank these images in the decreasing order of preference scores. Right: Given true preference rankings for generated images per prompt, we first obtain predicted ranking by current model checkpoint using scores si (see Eq. 5). In this instance, although the predicted ranking is inverse of the true rankings, the ranks (1, 4) obtains a larger penalty than the ranks (2, 3). This penalty is added to our ranking loss through DCG weights (see Eq. 6). Thus, by optimizing 0 with Ranking Loss (see Eq. 7), the updated model addresses the incorrect rankings (1,4). This procedure is repeated over the training process, where the rankings induced by the model aligns with the labelled preferences.
+> Figure 2: Overview of our two novel components: (A) Syn-Pic and (B) RankDPO. Left illustrates the pipeline to generate a synthetically ranked preference dataset. It starts by collecting prompts and generating images using the same prompt for different T2I models. Next, we calculate the overall preference score using Reward models (e.g., PickScore, ImageReward). Finally, we rank these images in the decreasing order of preference scores. Right: Given true preference rankings for generated images per prompt, we first obtain predicted ranking by current model checkpoint using scores si (see Eq. 5). In this instance, although the predicted ranking is inverse of the true rankings, the ranks (1, 4) obtains a larger penalty than the ranks (2, 3). This penalty is added to our ranking loss through DCG weights (see Eq. 6). Thus, by optimizing θ with Ranking Loss (see Eq. 7), the updated model addresses the incorrect rankings (1,4). This procedure is repeated over the training process, where the rankings induced by the model aligns with the labelled preferences.
 > </details>
 
 
@@ -74,7 +74,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 {{< table-caption >}}
 <br><table id='2' style='font-size:14px'><tr><td>Model</td><td>Mean ↑</td><td>Single ↑</td><td>Two ↑</td><td>Counting ↑</td><td>Colors ↑</td><td>Position ↑</td><td>Color Attribution ↑</td></tr><tr><td>SD v2.1</td><td>0.50</td><td>0.98</td><td>0.51</td><td>0.44</td><td>0.85</td><td>0.07</td><td>0.17</td></tr><tr><td>PixArt-�</td><td>0.48</td><td>0.98</td><td>0.50</td><td>0.44</td><td>0.80</td><td>0.08</td><td>0.07</td></tr><tr><td>PixArt-�</td><td>0.53</td><td>0.99</td><td>0.65</td><td>0.46</td><td>0.82</td><td>0.12</td><td>0.12</td></tr><tr><td>DALL-E 2</td><td>0.52</td><td>0.94</td><td>0.66</td><td>0.49</td><td>0.77</td><td>0.10</td><td>0.19</td></tr><tr><td>DALL-E 3</td><td>0.67</td><td>0.96</td><td>0.87</td><td>0.47</td><td>0.83</td><td>0.43</td><td>0.45</td></tr><tr><td>SDXL</td><td>0.55</td><td>0.98</td><td>0.74</td><td>0.39</td><td>0.85</td><td>0.15</td><td>0.23</td></tr><tr><td>SDXL (Ours)</td><td>0.61</td><td>1.00</td><td>0.86</td><td>0.46</td><td>0.90</td><td>0.14</td><td>0.29</td></tr><tr><td>SD3-Medium</td><td>0.70</td><td>1.00</td><td>0.87</td><td>0.63</td><td>0.84</td><td>0.28</td><td>0.58</td></tr><tr><td>SD3-Medium (Ours)</td><td>0.74</td><td>1.00</td><td>0.90</td><td>0.72</td><td>0.87</td><td>0.31</td><td>0.66</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents a quantitative comparison of different models' performance on the GenEval benchmark, highlighting the improvement achieved by RankDPO on several key categories.
+> 🔼 Table 1 presents a quantitative comparison of different models' performance on the GenEval benchmark, highlighting the improvements achieved by RankDPO on several key categories.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Quantitative Results on GenEval. RankDPO improves results on most categories, notably 'two objects', 'counting', and 'color attribution' for SDXL and SD3-Medium.
@@ -91,7 +91,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 
 ![](figures/figures_9_0.png)
 
-> 🔼 Figure 4 shows a qualitative comparison of images generated by different preference optimization methods for SDXL, highlighting improved prompt alignment and aesthetic quality with RankDPO.
+> 🔼 The figure shows a qualitative comparison of images generated by different preference optimization methods for the same set of prompts, highlighting the superior prompt following and image quality achieved by the proposed RankDPO method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Comparison among different preference optimization methods and RankDPO for SDXL. The results illustrate that we generate images with better prompt alignment and aesthetic quality.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows a qualitative comparison of text-to-image generation results from different models (SDXL and SD3) before and after applying the proposed ranked preference optimization method.
+> 🔼 The figure shows a qualitative comparison of image generation results from different models (SDXL and SD3) with and without the proposed approach, highlighting improvements in prompt following and visual quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our approach, trained on a synthetic preference dataset with a ranking objective in the preference optimization, improves prompt following and visual quality for SDXL (Podell et al., 2023) and SD3-Medium (Esser et al., 2024), without requiring any manual annotations.
@@ -111,7 +111,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 
 ![](figures/figures_19_0.png)
 
-> 🔼 The figure shows a qualitative comparison of text-to-image generation results using different methods (SDXL, SD3, and the proposed approach) for various prompts, highlighting improved prompt following and visual quality with the proposed method.
+> 🔼 The figure shows a comparison of text-to-image generation results using different models (SDXL and SD3) with and without the proposed method, illustrating improved prompt following and visual quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our approach, trained on a synthetic preference dataset with a ranking objective in the preference optimization, improves prompt following and visual quality for SDXL (Podell et al., 2023) and SD3-Medium (Esser et al., 2024), without requiring any manual annotations.
@@ -121,7 +121,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 
 ![](figures/figures_19_1.png)
 
-> 🔼 The figure shows image generation results from SDXL and SD3-Medium models before and after applying the proposed method, demonstrating improved prompt following and visual quality.
+> 🔼 The figure shows image generation results from SDXL and SD3-Medium models before and after applying the proposed approach, highlighting improved prompt following and visual quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our approach, trained on a synthetic preference dataset with a ranking objective in the preference optimization, improves prompt following and visual quality for SDXL (Podell et al., 2023) and SD3-Medium (Esser et al., 2024), without requiring any manual annotations.
@@ -148,7 +148,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 2 presents a quantitative comparison of the performance of SDXL and SD3-Medium models on the T2I-CompBench benchmark, before and after applying RankDPO, showing consistent improvements across various attributes.
+> Table 2 presents a quantitative comparison of the performance of SDXL and SD3-Medium models, before and after applying RankDPO, across various attributes on the T2I-CompBench benchmark.
 
 
 {{< table-caption >}}
@@ -160,7 +160,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 3 presents a quantitative comparison of different models' performance on the DPG-Bench benchmark, evaluating both prompt alignment and visual quality.
+> Table 3 presents a quantitative comparison of different models' performance on the DPG-Bench benchmark, evaluating both prompt alignment and visual quality using various metrics.
 
 
 {{< table-caption >}}
@@ -172,7 +172,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> The table presents the effect of different preference labelling methods and data quality on the final model's performance, measured by prompt alignment and visual quality scores.
+> Table 4 shows the impact of different preference labeling methods and data quality on the final model's performance, measured by prompt alignment and visual quality.
 
 
 {{< table-caption >}}
@@ -184,7 +184,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 3 presents a quantitative comparison of different methods on the DPG-Bench benchmark, evaluating prompt alignment and visual quality using various metrics.
+> Table 3 presents a quantitative comparison of different models' performance on the DPG-Bench benchmark, evaluating both prompt alignment and visual quality.
 
 
 {{< table-caption >}}
@@ -196,7 +196,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 1 presents a quantitative comparison of different models' performance on the GenEval benchmark, highlighting the improvements achieved by RankDPO.
+> Table 1 presents a quantitative comparison of different models' performance on the GenEval benchmark, highlighting the improvements achieved by RankDPO, especially in categories involving multiple objects, counting, and color attribution.
 
 
 {{< table-caption >}}
@@ -208,7 +208,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 1 presents a quantitative comparison of the performance of different models on the GenEval benchmark, showing improvements achieved by the proposed RankDPO method.
+> Table 1 presents a quantitative comparison of different models' performance on the GenEval benchmark, highlighting the improvements achieved by the proposed RankDPO method.
 
 
 {{< table-caption >}}
@@ -220,7 +220,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 6 compares the performance of different models on T2I-Compbench and DPG-Bench datasets, showing model attributes, training time, training data size, and inference time.
+> Table 6 compares the performance of different models on T2I-Compbench and DPG-bench datasets, showing training time, training data size, and inference time.
 
 
 {{< table-caption >}}
@@ -232,7 +232,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 7 compares the training data size, training time, inference cost, and downstream performance of different preference optimization methods for improving text-to-image models.
+> Table 7 compares the proposed method against other baselines in terms of training images, GPU days, inference cost, and DPG-Bench score, highlighting its efficiency and effectiveness.
 
 
 {{< table-caption >}}
@@ -244,19 +244,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 1 presents a quantitative comparison of different models on the GenEval benchmark, showing the improvement achieved by RankDPO on various image generation attributes.
-
-
-{{< table-caption >}}
-<br><table id='2' style='font-size:14px'><tr><td>" colorful flowers...</td><td>"...Mona Lisa... brown</td><td>" .. orange frisbee · ·</td><td>muscular.. tiger.. "</td><td>" majestic white ...</td></tr><tr><td>word 'peace' on the " lush green grass...</td><td>cowboy hat... grips a silver microphone... "</td><td>Nearby a wooden cello.. "</td><td>sleek red electric guitar... "</td><td>crane... ambulance... vibrant red crosses.. . "</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
-> <details>
-> <summary>read the caption</summary>
-> {{ table.caption }}
-> </details>
-
-
-> Table 1 presents a quantitative comparison of different models' performance on the GenEval benchmark, highlighting the improvements achieved by RankDPO.
+> Table 1 presents a quantitative comparison of the performance of different models on the GenEval benchmark, highlighting the improvements achieved by RankDPO on several key categories.
 
 
 {{< table-caption >}}
@@ -268,7 +256,7 @@ This paper is crucial for researchers in text-to-image generation and AI alignme
 > </details>
 
 
-> Table 1 presents a quantitative comparison of different models' performance on the GenEval benchmark, highlighting the improvements achieved by RankDPO on several key categories.
+> Table 1 presents a quantitative comparison of the performance of different models on the GenEval benchmark, highlighting the improvements achieved by RankDPO in various categories.
 
 
 </details>

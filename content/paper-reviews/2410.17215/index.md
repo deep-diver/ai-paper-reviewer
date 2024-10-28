@@ -1,6 +1,6 @@
 ---
 title: "MiniPLM: Knowledge Distillation for Pre-Training Language Models"
-summary: "MINIPLM: A novel knowledge distillation framework boosts smaller language models' performance during pre-training by efficiently refining training data distributions with a teacher model's knowledge, ..."
+summary: "MINIPLM: A novel knowledge distillation framework boosts pre-trained language models' performance by efficiently refining the training data distribution using teacher LM knowledge, achieving significa..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-22", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper introduces MINIPLM, a new and efficient method for training smaller, high-performing language models.  Instead of directly teaching the smaller model (student) from a larger model (teacher), MINIPLM cleverly uses the teacher's knowledge to improve the training data itself.  This means the teacher model works offline, saving time and resources. The improved training data leads to better student model performance. Experiments showed that MINIPLM significantly outperformed previous techniques, achieving better results while using less computing power.  The method is also flexible and works with various model types, making it adaptable and broadly useful for researchers.
+MINIPLM is a new method to train smaller, better language models (LMs) more efficiently.  Instead of directly teaching the smaller model, it improves the data the smaller model trains on. This is done by using a much larger, already trained LM to identify and improve the quality of the training data, making the data harder and more diverse for the smaller model to learn from. This leads to smaller models that are just as good, if not better, than models trained using older methods, while also using less computing power and data.  The new method also works across different types of models, improving flexibility for researchers.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This paper introduces MINIPLM, a new and efficient method for training smaller, 
 {{< button href="https://arxiv.org/abs/2410.17215" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.17215" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on efficient language models.  It introduces a novel knowledge distillation framework (MINIPLM) that significantly improves the performance of smaller language models while reducing computational costs.  Its flexibility and effectiveness across model families make it highly impactful for advancing the development of more efficient and powerful language models. MINIPLM's efficiency gains and its ability to handle limited data open up exciting new research directions.
+This paper is crucial for researchers working on efficient and effective pre-training of language models.  It introduces a novel knowledge distillation method, MINIPLM, significantly improving training efficiency and performance. The flexibility of MINIPLM, enabling cross-model family KD, and the detailed analysis of its effectiveness are highly valuable contributions to the field.  The demonstrated improvement in data utilization opens a significant avenue for future research. 
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} MINIPLM significantly improves the performance of smaller language models (200M, 500M, and 1.2B parameters) on various downstream tasks compared to existing methods. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} MINIPLM offers an efficient knowledge distillation framework for pre-training language models by refining data distribution (offline teacher inference). {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} MINIPLM achieves these performance gains while simultaneously reducing the computational cost of pre-training, making it a more efficient approach. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} MINIPLM enhances student LM performance across various downstream tasks and improves language modeling capabilities. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} MINIPLM's flexible design enables knowledge distillation across different model families, expanding its applicability and usefulness. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} MINIPLM shows flexibility across model families, reducing pre-training computation and improving data utilization. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](figures/figures_3_0.png)
 
-> 🔼 The figure illustrates the MINIPLM training framework, including offline difference sampling and its effect on refining the pre-training corpus.
+> 🔼 The figure illustrates the MINIPLM training framework and the effect of its Difference Sampling method on refining the pre-training corpus.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: MINIPLM. (a): Training framework. MINIPLM distills the knowledge of the teacher LM into the student LM by adjusting the pre-training corpus of the student LM (qe) through offline Difference Sampling, based on the output probability discrepancy between the teacher LM (p) and a small reference LM (pref). (b): Illustration of the effect of Difference Sampling, which down-samples common easy instances, up-samples hard valuable instances, and removes noisy harmful instances.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_1_0.png)
 
-> 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using knowledge distillation with Vanilla KD and the proposed MINIPLM method, demonstrating MINIPLM's improved efficiency and performance.
+> 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using Vanilla KD and the proposed MINIPLM method, demonstrating MINIPLM's efficiency and effectiveness.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td></td><td>I HS</td><td>LAM</td><td>Wino</td><td>OBQA</td><td>ARC-e</td><td>ARC-c</td><td>PIQA</td><td>SIQA</td><td>Story</td><td>Avg.</td></tr><tr><td colspan="11">1.8B Teacher → 200M Student</td></tr><tr><td>Pre-Train w/o KD</td><td>31.1</td><td>32.4</td><td>49.9</td><td>27.6</td><td>38.9</td><td>23.1</td><td>61.8</td><td>36.4</td><td>58.1</td><td>39.9</td></tr><tr><td>Vanilla KD</td><td>30.4</td><td>31.0</td><td>51.4</td><td>26.6</td><td>40.1</td><td>23.1</td><td>62.2</td><td>36.9</td><td>57.3</td><td>39.9</td></tr><tr><td>MiniLLM</td><td>30.2</td><td>29.4</td><td>50.0</td><td>26.6</td><td>39.0</td><td>21.3</td><td>60.5</td><td>36.6</td><td>57.6</td><td>39.0</td></tr><tr><td>SeqKD</td><td>30.5</td><td>31.0</td><td>51.3</td><td>27.4</td><td>39.3</td><td>22.4</td><td>61.3</td><td>36.9</td><td>57.4</td><td>39.7</td></tr><tr><td>MINIPLM</td><td>32.7</td><td>35.4</td><td>51.4</td><td>27.2</td><td>40.6</td><td>23.7</td><td>63.3</td><td>37.0</td><td>60.0</td><td>41.3</td></tr><tr><td colspan="11">1.8B Teacher → 500M Student</td></tr><tr><td>Pre-Train w/o KD</td><td>35.8</td><td>40.1</td><td>51.0</td><td>30.2</td><td>41.7</td><td>24.4</td><td>65.4</td><td>38.2</td><td>61.4</td><td>43.2</td></tr><tr><td>Vanilla KD</td><td>37.0</td><td>39.9</td><td>51.7</td><td>29.4</td><td>45.1</td><td>24.2</td><td>65.8</td><td>38.0</td><td>61.6</td><td>43.6</td></tr><tr><td>MiniLLM</td><td>33.0</td><td>35.4</td><td>51.2</td><td>27.5</td><td>42.1</td><td>24.2</td><td>62.3</td><td>37.3</td><td>60.2</td><td>41.5</td></tr><tr><td>SeqKD</td><td>34.9</td><td>37.9</td><td>50.7</td><td>28.6</td><td>42.7</td><td>23.6</td><td>65.0</td><td>38.4</td><td>58.9</td><td>42.3</td></tr><tr><td>MINIPLM</td><td>39.0</td><td>42.6</td><td>52.2</td><td>30.2</td><td>45.8</td><td>24.9</td><td>67.0</td><td>39.0</td><td>62.2</td><td>44.8</td></tr><tr><td colspan="11">1.8B Teacher → 1.2B Student</td></tr><tr><td>Pre-Train w/o KD</td><td>39.4</td><td>44.5</td><td>51.8</td><td>28.4</td><td>46.0</td><td>25.7</td><td>67.0</td><td>39.5</td><td>62.2</td><td>44.9</td></tr><tr><td>Vanilla KD</td><td>40.7</td><td>43.3</td><td>53.2</td><td>29.8</td><td>46.1</td><td>25.5</td><td>67.3</td><td>39.2</td><td>63.5</td><td>45.4</td></tr><tr><td>MiniLLM</td><td>36.1</td><td>42.5</td><td>51.2</td><td>28.5</td><td>44.1</td><td>25.3</td><td>65.8</td><td>37.9</td><td>61.4</td><td>43.6</td></tr><tr><td>SeqKD</td><td>38.5</td><td>41.4</td><td>51.9</td><td>29.2</td><td>46.5</td><td>25.1</td><td>66.3</td><td>39.0</td><td>61.0</td><td>44.3</td></tr><tr><td>MINIPLM</td><td>42.8</td><td>46.2</td><td>53.3</td><td>31.0</td><td>46.8</td><td>26.9</td><td>68.3</td><td>39.8</td><td>64.0</td><td>46.6</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the zero-shot accuracy scores achieved by student language models of various sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods (Pre-Train w/o KD, Vanilla KD, MiniLLM, SeqKD, and MINIPLM),  evaluated on nine downstream NLP tasks, showing the impact of the proposed MINIPLM method on model performance.
+> 🔼 Table 1 presents the zero-shot accuracy scores achieved by different language models (with varying sizes) on nine downstream tasks, comparing models pre-trained without knowledge distillation and those trained with various knowledge distillation methods.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
@@ -93,7 +93,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_1_1.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
 
-> 🔼 The chart shows the scaling curves of student language models pre-trained using knowledge distillation, comparing MINIPLM with Vanilla KD across different computational budgets and model sizes.
+> 🔼 The chart displays the scaling curves of student language models pre-trained using two different knowledge distillation methods, Vanilla KD and MINIPLM, showing computation and model size scaling.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.
@@ -102,7 +102,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_2_0.png "🔼 Figure 2: Results of applying KD methods in fine-tuning to pre-train a 200M student LM, using a 1.8B teacher LM. See Section 3.1 for method and evaluation details. When the training FLOPs are controlled, all KD methods perform similar or worse than Pre-Train w/o KD.")
 
-> 🔼 The chart compares the performance of various knowledge distillation methods (Vanilla KD, MiniLLM, SeqKD) against a baseline (Pre-Train w/o KD) for pre-training a 200M student language model, showing that when training FLOPs are controlled, all KD methods perform similarly to or worse than the baseline.
+> 🔼 The chart compares the performance of various knowledge distillation methods for pre-training a 200M student language model when controlling either the number of training steps or the total training FLOPs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Results of applying KD methods in fine-tuning to pre-train a 200M student LM, using a 1.8B teacher LM. See Section 3.1 for method and evaluation details. When the training FLOPs are controlled, all KD methods perform similar or worse than Pre-Train w/o KD.
@@ -111,7 +111,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_7_0.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
 
-> 🔼 The chart displays the scaling curves of student language models pre-trained using knowledge distillation, comparing MINIPLM's performance against a vanilla knowledge distillation method across varying computational budgets and model sizes.
+> 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using Vanilla KD and the proposed MINIPLM method, showing MINIPLM's superior performance and efficiency.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.
@@ -120,7 +120,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_8_0.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
 
-> 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using knowledge distillation with Vanilla KD and the proposed MINIPLM method, showcasing MINIPLM's efficiency gains and performance improvements.
+> 🔼 The chart displays the scaling curves of student language models pre-trained using knowledge distillation, comparing MINIPLM with Vanilla KD across computation and model size, showing improvements in performance with MINIPLM.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.
@@ -129,7 +129,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_9_0.png "🔼 Figure 6: Impact of the teacher LM's sizes on Vanilla KD and MINIPLM, with the pre-training FLOPs aligned. The y-axis represents the average zero-shot accuracy on the downstream tasks.")
 
-> 🔼 The chart displays the average zero-shot accuracy on downstream tasks for Vanilla KD and MINIPLM models trained with varying teacher LM sizes, while keeping pre-training FLOPs constant.
+> 🔼 The chart displays the impact of different teacher LM sizes on the average zero-shot accuracy of downstream tasks for Vanilla KD and MINIPLM, while maintaining consistent pre-training FLOPs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Impact of the teacher LM's sizes on Vanilla KD and MINIPLM, with the pre-training FLOPs aligned. The y-axis represents the average zero-shot accuracy on the downstream tasks.
@@ -138,7 +138,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_19_0.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
 
-> 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using knowledge distillation, comparing the performance of Vanilla KD and the proposed MINIPLM method.
+> 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using knowledge distillation with Vanilla KD and MINIPLM, showing the impact on downstream task performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.
@@ -147,7 +147,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_21_0.png "🔼 Figure 8: Impact of the reference model size. We use the 1.8B LM as the teacher and the 200M LM as the student. We report the average zero-shot accuracy on the downstream tasks of the LMs trained with MINIPLM and compare it with Vanilla KD.")
 
-> 🔼 The chart displays the average zero-shot accuracy on downstream tasks for models trained with MINIPLM and Vanilla KD, showing the impact of different reference model sizes.
+> 🔼 The chart displays the impact of different sizes of reference models on the average zero-shot accuracy of language models trained with MINIPLM and Vanilla KD on downstream tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Impact of the reference model size. We use the 1.8B LM as the teacher and the 200M LM as the student. We report the average zero-shot accuracy on the downstream tasks of the LMs trained with MINIPLM and compare it with Vanilla KD.
@@ -156,7 +156,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 
 ![](charts/charts_21_1.png "🔼 Figure 9: Impact of the difference sampling ratio α. We report the average zero-shot accuracy on the downstream tasks of the LMs trained with MINIPLM, using α ∈ [0.3, 0.4, 0.5, 0.6, 0.7, 0.9] and compare it with Vanilla KD.")
 
-> 🔼 The chart displays the impact of the difference sampling ratio on the average zero-shot accuracy of language models trained with MINIPLM and Vanilla KD on downstream tasks.
+> 🔼 The chart displays the impact of the difference sampling ratio on the average zero-shot accuracy of language models trained with MINIPLM compared to Vanilla KD.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Impact of the difference sampling ratio α. We report the average zero-shot accuracy on the downstream tasks of the LMs trained with MINIPLM, using α ∈ [0.3, 0.4, 0.5, 0.6, 0.7, 0.9] and compare it with Vanilla KD.
@@ -181,7 +181,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing performance across different knowledge distillation methods.
+> Table 1 presents the zero-shot accuracy scores of student language models (with varying sizes) pre-trained using different knowledge distillation methods on nine downstream tasks, comparing their performance with a teacher LM of 1.8B parameters.
 
 
 {{< table-caption >}}
@@ -193,7 +193,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents zero-shot accuracy scores on nine downstream tasks for language models (LMs) of varying sizes (200M, 500M, and 1.2B parameters) trained using different knowledge distillation (KD) methods, including MINIPLM and several baselines, with a 1.8B parameter LM as the teacher.
+> This table presents the zero-shot accuracy scores achieved by different language models (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing models pre-trained without knowledge distillation, with Vanilla KD, MiniLLM, SeqKD, and MINIPLM.
 
 
 {{< table-caption >}}
@@ -205,7 +205,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents the zero-shot accuracy scores achieved by different language models (with varying sizes) on nine downstream tasks, comparing the performance of models trained with different knowledge distillation methods against a baseline model trained without knowledge distillation.
+> Table 1 presents the zero-shot accuracy scores achieved by different language models (pre-trained with different methods) on nine downstream tasks, comparing models of varying sizes and training methods.
 
 
 {{< table-caption >}}
@@ -217,7 +217,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents the zero-shot accuracy scores of student language models (200M, 500M, and 1.2B parameters) pre-trained with different methods on nine downstream tasks, using a 1.8B parameter model as the teacher.
+> This table presents the zero-shot accuracy scores achieved by various language models (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing models trained with different methods (Pre-Train w/o KD, Vanilla KD, MiniLLM, SeqKD, and MINIPLM).
 
 
 {{< table-caption >}}
@@ -229,7 +229,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, 1.2B parameters) on nine downstream tasks, comparing different knowledge distillation methods and a baseline with no knowledge distillation.
+> Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing different knowledge distillation methods against a baseline of no knowledge distillation.
 
 
 {{< table-caption >}}
@@ -241,7 +241,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents zero-shot accuracy scores on nine downstream tasks for language models of various sizes trained using different methods.
+> Table 1 presents the zero-shot accuracy scores achieved by various language models (pre-trained with different methods) on nine downstream tasks, comparing models of different sizes and pre-training approaches.
 
 
 {{< table-caption >}}
@@ -253,7 +253,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents the zero-shot accuracy scores of student language models of varying sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods (Pre-Train w/o KD, Vanilla KD, MiniLLM, SeqKD, and MINIPLM) across nine downstream NLP tasks.
+> The table presents the zero-shot accuracy scores achieved by different language models (with varying sizes) on nine downstream tasks, comparing models pre-trained with and without knowledge distillation, using different methods.
 
 
 {{< table-caption >}}
@@ -265,7 +265,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents the zero-shot accuracy scores of student language models with various sizes pre-trained using different knowledge distillation methods on nine downstream tasks, comparing their performance with a baseline of pre-training without knowledge distillation.
+> Table 1 presents the zero-shot accuracy scores of student language models of varying sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods on nine downstream NLP tasks, comparing their performance against a teacher LM (1.8B parameters).
 
 
 {{< table-caption >}}
@@ -277,7 +277,7 @@ This paper is crucial for researchers working on efficient language models.  It 
 > </details>
 
 
-> Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing different knowledge distillation (KD) methods against a baseline model trained without KD.
+> Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods (including MINIPLM) on nine downstream tasks, showing performance improvements with MINIPLM.
 
 
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "PUMA: Empowering Unified MLLM with Multi-granular Visual Generation"
-summary: "PUMA: a unified multi-granular MLLM mastering diverse visual tasks by seamlessly integrating image generation and understanding, achieving both high diversity and precise controllability."
+summary: "PUMA: a unified multi-granular MLLM excels at diverse visual tasks by seamlessly integrating image generation and understanding, addressing varying granularity demands."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The research introduces PUMA, a novel multimodal large language model (MLLM) designed to address the limitations of existing models in visual content generation.  Unlike previous approaches that struggle with balancing the need for diverse image generation and precise control in tasks like image editing, PUMA employs a multi-granular approach. It extracts and processes visual features at various levels of granularity (from coarse semantic concepts to fine-grained details), allowing it to adapt to the specific demands of different tasks.  This is achieved using a three-module system: an image encoder for feature extraction, an autoregressive MLLM for processing features, and multiple diffusion-based image decoders that generate images at different granularities.  The researchers trained PUMA in two stages: pretraining on a large multimodal dataset and subsequent instruction tuning for specific tasks.  Evaluations demonstrate PUMA's proficiency in a broad spectrum of visual tasks, including text-to-image generation, image editing, inpainting, and conditional generation, significantly outperforming existing models on various benchmarks and highlighting the advantages of its multi-granular design.
+The research paper introduces PUMA, a new multimodal large language model (MLLM) designed to improve visual content generation and understanding. Unlike previous models that often struggle to handle different levels of detail in images, PUMA uses a multi-granular approach. This means it can work with both coarse and fine-grained details, making it more versatile.  The paper shows that PUMA is effective at various tasks such as generating images from text, editing existing images, and understanding images. The key is a new architecture that uses an image encoder to extract different levels of detail (multi-granular features) from images, and then a special autoregressive language model (MLLM) to process these details and generate outputs.  The model is trained in two stages: pretraining on a large, diverse dataset to develop fundamental abilities, followed by instruction tuning on specific datasets for particular visual tasks.  The results demonstrate that PUMA's multi-granular approach leads to better performance in many visual tasks when compared to other state-of-the-art models.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The research introduces PUMA, a novel multimodal large language model (MLLM) des
 {{< button href="https://arxiv.org/abs/2410.13861" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13861" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in multimodal AI and large language models (LLMs).  It addresses the challenge of balancing diversity and controllability in visual generation tasks, which is a major limitation of existing methods. PUMA's unified multi-granular approach opens exciting new avenues for building more versatile and capable MLLMs, paving the way for advancements in image generation, editing, and multimodal understanding.
+This paper is significant because it introduces a novel approach to unifying multimodal understanding and generation in large language models (LLMs).  It addresses a critical challenge in the field by handling varying levels of detail in different visual tasks, something that existing LLMs struggle with.  The proposed method, PUMA, is shown to excel in various visual tasks, thus pushing the boundaries of MLLM capabilities and paving the way for more versatile and powerful AI.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} PUMA, a unified multimodal large language model, effectively balances the trade-off between image generation diversity and controllability. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} PUMA, a novel unified multimodal large language model (MLLM), effectively balances diversity and controllability across various visual generation tasks. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PUMA's multi-granular approach enables it to excel across a wide range of visual tasks, including text-to-image generation, image editing, inpainting, and conditional generation. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PUMA processes and generates multi-granular visual representations, addressing the varying granularity requirements of different image generation tasks. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} PUMA demonstrates superior performance compared to state-of-the-art models on various benchmarks, showcasing the effectiveness of its multi-granular visual feature processing. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} PUMA demonstrates proficiency in a wide range of multimodal tasks, including image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_1_0.png)
 
-> 🔼 Figure 1 demonstrates the diversity and controllability trade-offs in various image generation tasks and introduces PUMA, a unified multimodal large language model that addresses these trade-offs by generating multi-granular visual representations.
+> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks, and introduces PUMA, a unified multimodal large language model that balances diversity and controllability across various visual generation and understanding tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -64,7 +64,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 {{< table-caption >}}
 <table id='4' style='font-size:14px'><tr><td>Model</td><td>Encoder foundation</td><td>Token num.</td><td>PSNRT↑</td><td>LPIPST↓</td><td>PSNRd↓</td><td>LPIPSd↑</td></tr><tr><td>SEED-LLaMA (2023</td><td>BLIP-2 ViT (0.3B)</td><td>32</td><td>9.73</td><td>0.6756</td><td>10.45</td><td>0.6189</td></tr><tr><td>SEED-X 2024b</td><td>Qwen-VL Encoder (4B)</td><td>64</td><td>10.86</td><td>0.5152</td><td>11.60</td><td>0.4292</td></tr><tr><td>Emu2 2024b</td><td>EVA02-CLIP-E-plus (4B)</td><td>64</td><td>15.72</td><td>0.2532</td><td>16.07</td><td>0.2101</td></tr><tr><td>PUMA (f4 scale)</td><td>CLIP-Large (0.3B)</td><td>1</td><td>10.76</td><td>0.6481</td><td>12.82</td><td>0.5751</td></tr><tr><td>PUMA (f3 scale)</td><td>CLIP-Large (0.3B)</td><td>4</td><td>11.04</td><td>0.5971</td><td>12.61</td><td>0.5329</td></tr><tr><td>PUMA (f2 scale)</td><td>CLIP-Large (0.3B)</td><td>16</td><td>12.35</td><td>0.4992</td><td>13.50</td><td>0.4354</td></tr><tr><td>PUMA (f1 scale)</td><td>CLIP-Large (0.3B)</td><td>64</td><td>13.26</td><td>0.4325</td><td>14.12</td><td>0.3631</td></tr><tr><td>PUMA (fo scale)</td><td>CLIP-Large (0.3B)</td><td>256</td><td>18.16</td><td>0.2215</td><td>19.36</td><td>0.1559</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents an evaluation of image decoding performance using various models, measured by PSNR, LPIPS, PSNRd, and LPIPSd on the ImageNet validation set.
+> 🔼 Table 1 presents an evaluation of image decoding performance across different models and feature granularities, using PSNR and LPIPS to measure reconstruction quality and PSNRd and LPIPSd to assess reconstruction diversity.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Image decoding evaluation using image encoder and decoder on the ImageNet validation set. PSNR and LPIPS measure the difference between reconstructed and ground truth images. PSNRd and LPIPSd measure the difference between two separate reconstructions of the same image, reflecting decoding diversity.
@@ -81,7 +81,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates PUMA's architecture, a unified multi-granular autoregressive MLLM pipeline, and showcases its versatility across diverse visual generation and understanding tasks.
+> 🔼 The figure illustrates PUMA's architecture, a unified multi-granular autoregressive MLLM pipeline, and its versatility across various visual tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Upper: PUMA's unified multi-granular autoregressive pipeline for processing and generating text and multi-granular visual features. Lower: Illustration of PUMA's versatility across various tasks: 1) diverse text-to-image generation, 2) image editing, 3) conditional image generation, and 4) image understanding, showcasing different input-output configurations.
@@ -91,7 +91,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure shows the multi-granular visual decoding process, illustrating how different levels of image features (from fine-grained to coarse-grained) are decoded by dedicated diffusion-based image decoders, resulting in images with varying levels of detail and diversity.
+> 🔼 The figure showcases the multi-granular visual decoding process, demonstrating how different levels of granularity in image features lead to varying degrees of image reconstruction and generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Multi-granular visual decoding from fine-grained to coarse-grained granularity.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_5_1.png)
 
-> 🔼 The figure illustrates the process of multi-granular visual decoding, showing how images are reconstructed or generated from different levels of granularity.
+> 🔼 The figure illustrates the multi-granular visual decoding process, showing how different granularities of image features are decoded to generate images with varying levels of detail and diversity.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Multi-granular visual decoding from fine-grained to coarse-grained granularity.
@@ -111,7 +111,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_7_0.png)
 
-> 🔼 The figure compares the fine-grained image reconstruction performance of PUMA with other state-of-the-art models, highlighting PUMA's superior reconstruction quality.
+> 🔼 The figure compares the fine-grained image reconstruction performance of PUMA against other state-of-the-art models, showcasing PUMA's superior reconstruction quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Fine-grained image reconstruction of SEED-LLaMA (Ge et al., 2023), SEED-X (Ge et al., 2024b), Emu2 (Sun et al., 2024b) and PUMA (fo scale). High quality image reconstruction is the foundation of precise image manipulation tasks.
@@ -121,7 +121,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_8_0.png)
 
-> 🔼 The figure visualizes the diversity of text-to-image generation results from PUMA using different feature scales and compares it with Emu2.
+> 🔼 The figure shows the diversity of text-to-image generation results from different feature scales and models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Diversity visualization of text-to-image generation results from PUMA feature scales f4 (1 visual token), f3 (4 visual tokens), and Emu2 (Sun et al., 2024b). The generated features are input to corresponding diffusion-based decoders with different random seeds.
@@ -131,7 +131,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_9_0.png)
 
-> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation, and introduces PUMA, a unified multimodal large language model that handles multi-granular visual representations.
+> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks and illustrates how the proposed PUMA model addresses this tradeoff by generating multi-granular visual representations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -141,17 +141,17 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_10_0.png)
 
-> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model that balances these aspects across various visual tasks.
+> 🔼 The figure illustrates PUMA's unified multi-granular autoregressive pipeline and its versatility across diverse visual tasks, showcasing different input-output configurations.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
+> Figure 2: Upper: PUMA's unified multi-granular autoregressive pipeline for processing and generating text and multi-granular visual features. Lower: Illustration of PUMA's versatility across various tasks: 1) diverse text-to-image generation, 2) image editing, 3) conditional image generation, and 4) image understanding, showcasing different input-output configurations.
 > </details>
 
 
 
 ![](figures/figures_10_1.png)
 
-> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation, and illustrates PUMA's ability to balance these aspects across various visual generation tasks.
+> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks and how PUMA, a unified multimodal large language model, balances these aspects across visual generation tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -161,7 +161,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_10_2.png)
 
-> 🔼 The figure compares the results of image editing and colorization tasks using different feature scales (fo and f1) in PUMA, demonstrating the impact of feature granularity on the precision of image manipulation.
+> 🔼 The figure compares the image editing and colorization results using different feature scales (fo and f1) to show the impact of multi-granularity on the image quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Comparison of fo and f1 feature scales for tasks requiring precise controllability.
@@ -171,7 +171,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_18_0.png)
 
-> 🔼 Figure 6 shows the diversity of text-to-image generation results from PUMA using different feature scales and random seeds.
+> 🔼 The figure displays diversity in text-to-image generation results from different feature scales and models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Diversity visualization of text-to-image generation results from PUMA feature scales f4 (1 visual token), f3 (4 visual tokens), and Emu2 (Sun et al., 2024b). The generated features are input to corresponding diffusion-based decoders with different random seeds.
@@ -181,7 +181,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_18_1.png)
 
-> 🔼 Figure 6 shows a comparison of text-to-image generation results from PUMA using different feature scales and a baseline model (Emu2), highlighting the diversity of image generation achieved with different scales.
+> 🔼 The figure shows a comparison of text-to-image generation results using different feature scales from PUMA and Emu2, highlighting the diversity of outputs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Diversity visualization of text-to-image generation results from PUMA feature scales f4 (1 visual token), f3 (4 visual tokens), and Emu2 (Sun et al., 2024b). The generated features are input to corresponding diffusion-based decoders with different random seeds.
@@ -191,7 +191,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_18_2.png)
 
-> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks, and introduces PUMA, a unified multimodal large language model that balances these aspects across various visual generation tasks.
+> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks, and introduces PUMA, a unified multimodal large language model that balances diversity and controllability across visual generation tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -201,7 +201,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_18_3.png)
 
-> 🔼 Figure 1 shows the diversity and controllability trade-offs in various image generation tasks and how the proposed PUMA model addresses these challenges using multi-granular visual representations.
+> 🔼 Figure 1 shows the diversity and controllability tradeoffs in various image generation tasks and introduces PUMA, a unified multimodal large language model that addresses these tradeoffs by generating multi-granular visual representations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -211,7 +211,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_18_4.png)
 
-> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model for multi-granular visual generation.
+> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model that balances diversity and controllability across various visual generation tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -221,7 +221,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_18_5.png)
 
-> 🔼 The figure shows the diversity and controllability tradeoff in image generation tasks and illustrates the PUMA model's ability to balance these aspects across various tasks.
+> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks and shows how the proposed PUMA model addresses this tradeoff by generating multi-granular visual representations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -231,7 +231,17 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_18_6.png)
 
-> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks and how PUMA, a unified multimodal large language model, balances these aspects across various visual generation and understanding tasks.
+> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks and illustrates the proposed PUMA model's ability to balance these aspects across various visual tasks.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
+> </details>
+
+
+
+![](figures/figures_18_7.png)
+
+> 🔼 The figure illustrates the diversity and controllability tradeoffs in various image generation tasks and introduces PUMA, a unified multimodal large language model addressing these tradeoffs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -241,7 +251,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_19_0.png)
 
-> 🔼 Figure 11 shows more examples of multi-granular visual decoding, illustrating how different granularities of image features lead to varying levels of detail and diversity in the generated images.
+> 🔼 Figure 11 shows multiple visualizations of the multi-granular visual decoding process from fine-grained to coarse-grained image features.
 > <details>
 > <summary>read the caption</summary>
 > Figure 11: More visualizations on multi-granular visual decoding from fine-grained to coarse-grained granularity.
@@ -251,7 +261,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model that balances these aspects across various visual generation tasks.
+> 🔼 Figure 1 shows the diversity and controllability tradeoff in image generation tasks, and illustrates the PUMA model's ability to balance these aspects across various visual generation tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -261,7 +271,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks, and introduces PUMA, a unified multimodal large language model that addresses these challenges.
+> 🔼 The figure illustrates the diversity and controllability trade-offs in various image generation tasks and introduces PUMA, a unified multimodal large language model addressing these challenges.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -271,7 +281,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_21_1.png)
 
-> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model that balances these aspects across various visual generation and understanding tasks.
+> 🔼 This figure illustrates the diversity and controllability trade-offs in various image generation tasks and introduces PUMA, a unified multimodal large language model that addresses these challenges.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -281,7 +291,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_21_2.png)
 
-> 🔼 This figure illustrates the diversity and controllability tradeoffs in various image generation tasks and introduces PUMA, a unified multimodal large language model that addresses these challenges by generating multi-granular visual representations.
+> 🔼 This figure illustrates the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model that balances these factors across various visual generation and understanding tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -291,7 +301,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_21_3.png)
 
-> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model that balances these aspects across various visual generation tasks.
+> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks and showcases the proposed PUMA model's ability to balance these aspects across various visual generation tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -301,7 +311,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_22_0.png)
 
-> 🔼 Figure 1 illustrates the diversity and controllability tradeoff in image generation tasks, and introduces PUMA, a unified multimodal large language model that balances these aspects across various tasks.
+> 🔼 This figure illustrates the diversity and controllability trade-offs in various image generation tasks and showcases PUMA's ability to balance these trade-offs using multi-granular visual representations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -311,7 +321,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 
 ![](figures/figures_22_1.png)
 
-> 🔼 The figure illustrates the diversity and controllability tradeoff in image generation tasks, and introduces PUMA, a unified multimodal large language model that balances these factors across various tasks.
+> 🔼 Figure 1 demonstrates the diversity and controllability tradeoff in image generation tasks and introduces PUMA, a unified multimodal large language model that balances these tradeoffs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: a) Diversity and controllability tradeoff in image generation tasks: diverse text-to-image generation requires high diversity and fidelity, while tasks like conditional generation and manipulation require high controllability on the image. b) The introduced PUMA, a unified multimodal large language model that processes and generates multi-granular visual representations, balancing diversity and controllability across visual generation tasks. It excels in image understanding, diverse text-to-image generation, editing, inpainting, colorization, and conditional image generation.
@@ -338,7 +348,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 > </details>
 
 
-> Table 2 presents a quantitative evaluation of diverse text-to-image generation performance on the MSCOCO 30K validation set, measuring the similarity between generated and ground truth images and prompts, as well as the diversity of generated images.
+> Table 2 presents a quantitative comparison of diverse text-to-image generation performance across various models, evaluating consistency (CLIP-I, CLIP-T) and diversity (LPIPSd) of generated images.
 
 
 {{< table-caption >}}
@@ -350,7 +360,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 > </details>
 
 
-> Table 3 presents a quantitative evaluation of image editing performance using CLIP-I, CLIP-T, and DINO scores, comparing PUMA's performance to several existing methods.
+> Table 3 presents a quantitative evaluation of PUMA's image editing capabilities against other state-of-the-art models using CLIP-I, CLIP-T, and DINO scores, indicating its performance relative to existing methods.
 
 
 {{< table-caption >}}
@@ -362,7 +372,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 > </details>
 
 
-> Table 4 presents a comparison of PUMA's performance on several multimodal understanding benchmarks against other state-of-the-art models, highlighting its capabilities in both understanding and generation tasks.
+> Table 4 presents the quantitative comparison of PUMA against other state-of-the-art models on several multimodal understanding benchmarks.
 
 
 {{< table-caption >}}
@@ -374,7 +384,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 > </details>
 
 
-> Table 1 presents quantitative metrics evaluating the performance of different models on ImageNet image reconstruction task, assessing both reconstruction accuracy (PSNR, LPIPS) and diversity (PSNRd, LPIPSd).
+> Table 1 presents the quantitative results of image decoding evaluation using PSNR, LPIPS, PSNRd and LPIPSd on the ImageNet validation set, comparing different models and their decoding diversity.
 
 
 {{< table-caption >}}
@@ -386,7 +396,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 > </details>
 
 
-> Table 5 shows the ablation study of different visual token inputs on image understanding performance using various metrics.
+> Table 5 shows the ablation study of different visual token inputs on image understanding performance using LLaVA-v1.5 setting with CLIP-Large-224 visual encoder.
 
 
 {{< table-caption >}}
@@ -398,7 +408,7 @@ This paper is crucial for researchers in multimodal AI and large language models
 > </details>
 
 
-> Table 6 shows the CLIP-I and CLIP-T scores on the MSCOCO 30K validation set for different feature scales used in text-to-image generation, indicating the impact of feature granularity on image quality and consistency.
+> This table presents CLIP-I and CLIP-T scores on the MSCOCO 30K validation set, comparing the performance of PUMA's text-to-image generation across five different feature scales (f4 to fo).
 
 
 </details>

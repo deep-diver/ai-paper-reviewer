@@ -1,6 +1,6 @@
 ---
 title: "Why Does the Effective Context Length of LLMs Fall Short?"
-summary: "Researchers unveil why LLMs underperform with long contexts, attributing it to skewed position frequency distribution, and introduce STRING, a training-free method that dramatically enhances long-cont..."
+summary: "Researchers unveil STRING, a training-free method that boosts large language models' long-context performance by cleverly shifting position embeddings, achieving state-of-the-art results on open-sourc..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Large Language Models (LLMs) struggle to use their full context window effectively. This paper investigates why and discovers the root cause is a skewed distribution of how often different positions in a text are used during training.  Positions towards the end of long sequences receive much less attention. To fix this, the researchers developed a simple, training-free method called STRING.  STRING shifts the positions used during inference to prioritize more frequently trained positions. This enhances the model's ability to handle longer sequences without additional training.  Experiments show STRING significantly improves various open-source LLMs on standard long-context benchmarks, even outperforming some commercial models. This research is important because it identifies a key limitation in current LLMs and provides a practical, training-free method to address it.
+Large language models (LLMs) struggle to use their full context window effectively, often performing far below their potential.  This is because during training, the model doesn't equally learn relationships between all token positions; it focuses more on close-by tokens. This paper introduces STRING, a method that shifts the trained position embeddings to overwrite the original ineffective ones. It doesn't require any retraining.  Experiments showed STRING dramatically improves the performance of various LLMs, especially on long-context tasks. In benchmarks, STRING-enhanced open-source models even outperformed some top commercial models. This research highlights the left-skewed positional frequency distribution problem in LLMs and provides a simple but powerful solution to improve long-context performance.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Large Language Models (LLMs) struggle to use their full context window effective
 {{< button href="https://arxiv.org/abs/2410.18745" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18745" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on large language models (LLMs) because it addresses a significant limitation in their effective context length.  By identifying the cause of this limitation and proposing a novel solution, it opens new avenues for improving LLM performance and expanding their capabilities for handling longer contexts.  The findings are directly applicable to improving existing models and inspire future research on more effective long-context training.
+This paper is crucial for researchers working on large language models (LLMs) because it addresses a critical limitation: the underutilization of long contexts.  It introduces a novel, training-free method to significantly improve LLM performance on long-context tasks.  The findings challenge existing assumptions about effective context length and open new avenues for enhancing LLM capabilities.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} LLMs often underutilize their full context length due to a skewed position frequency distribution during training. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Large language models often underutilize their full training context length due to a left-skewed distribution of relative positions. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} STRING, a novel training-free method, significantly improves LLM performance on long-context benchmarks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} STRING, a novel training-free method, significantly improves the long-context performance of LLMs by strategically shifting position embeddings. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} STRING achieves state-of-the-art results for open-source LLMs, even surpassing some commercial models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} STRING achieves state-of-the-art results on open-source LLMs, surpassing some commercial models in long-context benchmarks. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows that the position frequency distribution is usually highly left-skewed, indicating that the model is frequently exposed to small positions, while larger positions account for only a small proportion.
+> 🔼 Figure 1 shows that the position frequency distribution in LLMs training data is left-skewed, indicating that the model is frequently exposed to small positions, while larger positions account for only a small proportion.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Position frequency distribution exhibits a pronounced left-skewed pattern across training data of varying lengths. Figure 1a illustrates the natural data length distribution of SlimPajama-627B where oversized data is truncated into multiple 2K sequences. Figure 1b presents the case with a uniform length distribution and the position frequency decline quadratically. Figure 1c demonstrates that when all data are concatenated into a 2K sequence, the position frequency decreases linearly with increasing position indices. The X-axis represents data length (shown in orange) and position indices (shown in blue). The left Y-axis indicates the frequency of each position, while the right Y-axis represents the number of data for each length.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_3_0.png)
 
-> 🔼 The chart shows that the position frequency distribution is usually highly left-skewed across training data of varying lengths, indicating that the model is frequently exposed to small positions, while larger positions account for only a small proportion.
+> 🔼 The chart shows the left-skewed position frequency distribution across training data of varying lengths, illustrating the under-representation of long-range dependencies in LLMs' training data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Position frequency distribution exhibits a pronounced left-skewed pattern across training data of varying lengths. Figure 1a illustrates the natural data length distribution of SlimPajama-627B where oversized data is truncated into multiple 2K sequences. Figure 1b presents the case with a uniform length distribution and the position frequency decline quadratically. Figure 1c demonstrates that when all data are concatenated into a 2K sequence, the position frequency decreases linearly with increasing position indices. The X-axis represents data length (shown in orange) and position indices (shown in blue). The left Y-axis indicates the frequency of each position, while the right Y-axis represents the number of data for each length.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 {{< table-caption >}}
 <table id='3' style='font-size:14px'><tr><td>Model</td><td>Ltrain</td><td>ReRoPE</td><td>NTK</td><td>RoPE(origin)</td><td>Self-Extend</td><td>YaRN</td><td>DCA</td><td>STRING</td></tr><tr><td>TinyLlama-1.3B (ours)</td><td>2k</td><td>62.8</td><td>62.0</td><td>56.6</td><td>60.2</td><td>68.6</td><td>74.4</td><td>84.6</td></tr><tr><td>TinyLlama-1.1B-3T</td><td>2k</td><td>77.2</td><td>79.8</td><td>69.8</td><td>83.2</td><td>88.0</td><td>80.2</td><td>97.2</td></tr><tr><td>Llama-2-7B</td><td>4k</td><td>98.6</td><td>98.6</td><td>98.0</td><td>95.4</td><td>98.0</td><td>91.6</td><td>100.0</td></tr><tr><td>Llama-3-8B</td><td>8k</td><td>99.6</td><td>100.0</td><td>99.8</td><td>99.8</td><td>100.0</td><td>99.9</td><td>99.6</td></tr><tr><td>LWM-7B-base</td><td>32k</td><td>25.2</td><td>19.4</td><td>31.8</td><td>29.0</td><td>22.2</td><td>28.8</td><td>50.4</td></tr><tr><td>Mistral-7B-base</td><td>32k</td><td>54.5</td><td>42.2</td><td>52.8</td><td>54.2</td><td>48.2</td><td>64.2</td><td>73.0</td></tr><tr><td>Llama-3.1-8B</td><td>128k</td><td>53.6</td><td>71.2</td><td>66.0</td><td>65.8</td><td>68.8</td><td>72.8</td><td>95.2</td></tr><tr><td>Average</td><td>-</td><td>67.3</td><td>67.6</td><td>67.8</td><td>69.6</td><td>70.5</td><td>73.1</td><td>85.7</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the Needle-in-a-Haystack (4 needles) results of 7 base models across various methods, showing the impact of different methods on improving the effective context length.
+> 🔼 Table 1 shows the performance comparison of seven base models across various methods on the Needle-in-a-Haystack task, highlighting the impact of STRING on improving effective context length.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Needle-in-a-haystack (4 needles) results of 7 base models across various methods (columns reordered from smallest to largest average) where Ltrain means the size of the training context window. All the models were tested using their training length. The number of test cases is 500.
@@ -91,7 +91,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](figures/figures_17_1.png)
 
-> 🔼 The figure shows the left-skewed position frequency distribution across training data of varying lengths, indicating an underrepresentation of long-range dependencies.
+> 🔼 The figure shows that the frequency of position indices in the training data decreases dramatically as the distance increases, indicating a left-skewed position frequency distribution.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Position frequency distribution exhibits a pronounced left-skewed pattern across training data of varying lengths. Figure 1a illustrates the natural data length distribution of SlimPajama-627B where oversized data is truncated into multiple 2K sequences. Figure 1b presents the case with a uniform length distribution and the position frequency decline quadratically. Figure 1c demonstrates that when all data are concatenated into a 2K sequence, the position frequency decreases linearly with increasing position indices. The X-axis represents data length (shown in orange) and position indices (shown in blue). The left Y-axis indicates the frequency of each position, while the right Y-axis represents the number of data for each length.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](figures/figures_19_0.png)
 
-> 🔼 The figure shows that the position frequency distribution is usually highly left-skewed across training data of varying lengths, indicating that the model is frequently exposed to small positions, while larger positions account for only a small proportion.
+> 🔼 The figure shows that the position frequency distribution is usually highly left-skewed, indicating that the model is frequently exposed to small positions, while larger positions account for only a small proportion.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Position frequency distribution exhibits a pronounced left-skewed pattern across training data of varying lengths. Figure 1a illustrates the natural data length distribution of SlimPajama-627B where oversized data is truncated into multiple 2K sequences. Figure 1b presents the case with a uniform length distribution and the position frequency decline quadratically. Figure 1c demonstrates that when all data are concatenated into a 2K sequence, the position frequency decreases linearly with increasing position indices. The X-axis represents data length (shown in orange) and position indices (shown in blue). The left Y-axis indicates the frequency of each position, while the right Y-axis represents the number of data for each length.
@@ -120,7 +120,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_4_0.png "🔼 Figure 2: Analyzing effective context length of LLMs pretrained on SlimPajama with respect to training length, token consumption, and position frequency. In Figure 2b, we use the model effective length as the X-axis, and the Y-axis indicates the number of times the model was exposed to that specific position during training.")
 
-> 🔼 The chart displays the relationship between effective context length, consumed tokens, and position frequency in LLMs pretrained on SlimPajama dataset.
+> 🔼 The chart displays the relationship between effective context length, consumed tokens, and position frequency in LLMs pretrained on SlimPajama.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Analyzing effective context length of LLMs pretrained on SlimPajama with respect to training length, token consumption, and position frequency. In Figure 2b, we use the model effective length as the X-axis, and the Y-axis indicates the number of times the model was exposed to that specific position during training.
@@ -129,7 +129,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_5_0.png "🔼 Figure 3: Position frequency distribution for models trained with different training lengths after consuming 1T tokens. With the same number of tokens, training length has little effect on small relative positions. For example, the relative position 0 appears 4K times in both a single 4K sequence and two 2K sequences with the same total token count of 4K in each case.")
 
-> 🔼 The chart displays the position frequency distribution for models trained with different training lengths (2K and 4K) after consuming 1 trillion tokens, illustrating the impact of training length on the distribution of position indices.
+> 🔼 The chart shows that models trained with different training lengths have similar position frequencies for small position indices, but the gap widens as position indices increase.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Position frequency distribution for models trained with different training lengths after consuming 1T tokens. With the same number of tokens, training length has little effect on small relative positions. For example, the relative position 0 appears 4K times in both a single 4K sequence and two 2K sequences with the same total token count of 4K in each case.
@@ -138,7 +138,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_6_0.png "🔼 Figure 4: NIAH results for our pretrained model TinyLlama-1.3B (2K) and Llama3.1 (128K) where the X-axis means input context length and the Y-axis represents the document depth. In this figure, we clearly observe that for TinyLlama 2K and Llama3.1 128K, most poor-performing cases are concentrated in the lower-left triangle, indicating that the models are unable to gather distant needles.")
 
-> 🔼 The heatmaps show the performance of two LLMs on the Needle-in-a-Haystack task, revealing that their ability to retrieve distant needles significantly degrades as the distance between the query and the needle increases.
+> 🔼 The heatmaps show the performance of two LLMs (TinyLlama-1.3B and Llama3.1) on the Needle-in-a-Haystack task across different context lengths and document depths, revealing difficulties in retrieving distant information.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: NIAH results for our pretrained model TinyLlama-1.3B (2K) and Llama3.1 (128K) where the X-axis means input context length and the Y-axis represents the document depth. In this figure, we clearly observe that for TinyLlama 2K and Llama3.1 128K, most poor-performing cases are concentrated in the lower-left triangle, indicating that the models are unable to gather distant needles.
@@ -147,7 +147,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_6_1.png "🔼 Figure 1: Position frequency distribution exhibits a pronounced left-skewed pattern across training data of varying lengths. Figure 1a illustrates the natural data length distribution of SlimPajama-627B where oversized data is truncated into multiple 2K sequences. Figure 1b presents the case with a uniform length distribution and the position frequency decline quadratically. Figure 1c demonstrates that when all data are concatenated into a 2K sequence, the position frequency decreases linearly with increasing position indices. The X-axis represents data length (shown in orange) and position indices (shown in blue). The left Y-axis indicates the frequency of each position, while the right Y-axis represents the number of data for each length.")
 
-> 🔼 The chart displays the left-skewed position frequency distribution across various training data lengths, highlighting the underrepresentation of long-distance positions.
+> 🔼 The chart displays the left-skewed position frequency distribution in the training data of varying lengths, illustrating the under-representation of long-range dependencies.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Position frequency distribution exhibits a pronounced left-skewed pattern across training data of varying lengths. Figure 1a illustrates the natural data length distribution of SlimPajama-627B where oversized data is truncated into multiple 2K sequences. Figure 1b presents the case with a uniform length distribution and the position frequency decline quadratically. Figure 1c demonstrates that when all data are concatenated into a 2K sequence, the position frequency decreases linearly with increasing position indices. The X-axis represents data length (shown in orange) and position indices (shown in blue). The left Y-axis indicates the frequency of each position, while the right Y-axis represents the number of data for each length.
@@ -156,7 +156,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_10_0.png "🔼 Figure 7: Ablation study on the local window W and shifted offset S where L is the training length.")
 
-> 🔼 The ablation study shows the effect of local window size and shifted offset size on the performance of four different LLMs on the Needle-in-a-Haystack task.
+> 🔼 The ablation study shows the effect of local window size and shifted offset size on model performance for different training lengths.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Ablation study on the local window W and shifted offset S where L is the training length.
@@ -165,7 +165,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_10_1.png "🔼 Figure 7: Ablation study on the local window W and shifted offset S where L is the training length.")
 
-> 🔼 The chart displays the ablation study results on the local window size (W) and shifted offset size (S) parameters of STRING across four different LLMs with varying training lengths, showing how these parameters impact model performance on the Needle-in-a-Haystack task.
+> 🔼 The chart displays the ablation study of the local window size and shifted offset size on the Needle-in-a-Haystack task, showing how these hyperparameters impact model performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Ablation study on the local window W and shifted offset S where L is the training length.
@@ -174,7 +174,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 
 ![](charts/charts_18_0.png "🔼 Figure 9: Efficiency Test of STRING and the standard Flash Attention based on Llama3.1 8B. All experiments are run on a single NVIDIA 80G A100 GPU.")
 
-> 🔼 The chart compares the inference time and GPU memory consumption of STRING and standard Flash Attention on Llama3.1 8B with varying input lengths.
+> 🔼 The chart compares the inference time and GPU memory consumption of STRING and Flash Attention on Llama3.1 8B with varying input lengths.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Efficiency Test of STRING and the standard Flash Attention based on Llama3.1 8B. All experiments are run on a single NVIDIA 80G A100 GPU.
@@ -199,7 +199,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 > </details>
 
 
-> Table 2 presents the performance comparison of various models and methods on the RULER benchmark, showing their effective sequence lengths and scores on different tasks.
+> Table 2 presents the performance comparison of various models and methods on the RULER benchmark, focusing on the effective context length achieved at a sequence length of 128K.
 
 
 {{< table-caption >}}
@@ -211,7 +211,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 > </details>
 
 
-> Table 3 compares the performance of STRING against three leading commercial long-context models and Llama3.1 8B and 70B on InfiniteBench, showcasing STRING's performance improvement.
+> Table 3 compares the performance of STRING against three leading commercial models and the original RoPE on the InfiniteBench benchmark, using a maximum context length of 128K.
 
 
 {{< table-caption >}}
@@ -223,7 +223,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 > </details>
 
 
-> Table 1 presents the Needle-in-a-Haystack results of seven base models across various methods, showing the impact of different training context window sizes on the performance.
+> Table 1 presents the Needle-in-a-Haystack results of seven base models across various methods, showing the impact of different training context window sizes and methods on performance.
 
 
 {{< table-caption >}}
@@ -235,7 +235,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 > </details>
 
 
-> Table 1 presents the Needle-in-a-Haystack task results for seven base models across different methods, showing the impact of training context window size on model performance.
+> Table 1 presents the Needle-in-a-Haystack results of seven base models across various methods, showing the impact of different methods on the models' performance within their original training context length.
 
 
 {{< table-caption >}}
@@ -247,7 +247,7 @@ This paper is crucial for researchers working on large language models (LLMs) be
 > </details>
 
 
-> Table 1 presents the Needle-in-a-Haystack results of seven base models across various methods, showing the impact of different methods on effective context length.
+> Table 2 presents the performance comparison of various models and methods on the RULER benchmark, focusing on effective context length and overall performance across different task categories.
 
 
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "Web Agents with World Models: Learning and Leveraging Environment Dynamics in Web Navigation"
-summary: "Boosting LLM-based web agents' performance, this study introduces World-Model-Augmented agents that simulate action outcomes for improved decision-making in complex web navigation tasks."
+summary: "Boosting LLM-based web agents: This work introduces world models, improving efficiency and cost in web navigation by simulating action outcomes before execution."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research tackles the problem of LLMs performing poorly in long-term web navigation tasks.  The authors argue that this is because LLMs lack an internal "world model"—an understanding of how their actions change the environment. To solve this, they build a "World-Model-Augmented" (WMA) agent. This agent uses a large language model (LLM) to predict what will happen after each possible action before choosing an action.  The researchers use a clever technique to help the LLM learn this prediction task, focusing on only the differences between the webpage before and after an action.  Experiments showed that this new WMA agent performed better than existing methods on real-world web navigation tasks, and was far more cost- and time-efficient.
+This research tackles the problem of LLMs struggling with long-horizon tasks in web navigation, particularly their inability to anticipate the consequences of their actions.  The core idea is to equip LLMs with 'world models' – essentially, the ability to predict the outcomes of actions before executing them.  To achieve this, the authors propose a new training method that focuses on the transition between different states of the website (rather than the entire website) and uses natural language descriptions instead of raw HTML.  Experiments show that incorporating world models significantly improves decision-making. The resulting World-Model-Augmented (WMA) agent outperforms existing methods in terms of task success rate and efficiency, notably showing improvements when compared to tree-search based approaches that use a much larger number of trials.  The code for the WMA agent is publicly available, encouraging further research and development in this area.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research tackles the problem of LLMs performing poorly in long-term web nav
 {{< button href="https://arxiv.org/abs/2410.13232" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13232" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is highly relevant to researchers working on LLM-based web agents and autonomous agents.  It addresses the critical limitation of current LLMs in understanding environment dynamics and proposes a novel solution using world models.  This opens new avenues for improving the efficiency and robustness of web agents, and its findings on LLM limitations can inform the development of more advanced models.
+This paper is crucial for researchers working on autonomous web agents. It addresses the critical limitation of current LLMs in handling long-horizon tasks by introducing the concept of world models.  The proposed framework improves agent performance and efficiency, opening avenues for future research in LLM-based web agents and more generally in improving decision-making in complex, dynamic environments.  The public availability of the code further enhances its impact.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Current LLMs struggle with predicting the outcomes of their actions in web navigation, lacking a "world model". {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Current LLMs lack world models, hindering performance in long-horizon web tasks. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A novel World-Model-Augmented (WMA) web agent simulates action outcomes using a transition-focused observation abstraction, improving policy selection. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A World-Model-Augmented (WMA) agent simulates action outcomes, improving policy selection without retraining. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} WMA agents demonstrate superior cost and time efficiency compared to tree-search based agents. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} WMA agents demonstrate superior cost- and time-efficiency compared to tree-search-based agents. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the framework of World-Model-Augmented web agents, which includes world model training and inference-time policy optimization via the world model.
+> 🔼 This figure illustrates the overall framework of the World-Model-Augmented (WMA) web agent, showing the training process of the world model and the inference-time policy optimization using the trained model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Framework overview. We first collect training data for world models (top). After training, we perform policy optimization by selecting the action leading to an optimal next state (bottom).
@@ -61,7 +61,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](charts/charts_3_0.png)
 
-> 🔼 The chart displays the accuracy of various LLMs (GPT-40-mini, GPT-40-turbo, GPT-4, Claude-3.5-Sonnet) and humans in predicting the next state of a webpage given the current state and a golden action.
+> 🔼 The chart displays the performance of several LLMs and humans in predicting the next state of a webpage after an action.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: LLMs' performance in next state prediction.
@@ -74,7 +74,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td rowspan="2">Policy LLMs</td><td rowspan="2">Methods</td><td rowspan="2">Max Actions</td><td colspan="2">Success Rate (SR)</td><td rowspan="2"></td></tr><tr><td>No Policy Opt.</td><td>+ Policy Opt.</td></tr><tr><td rowspan="4">GPT-4</td><td>AutoEval Pan et al. 2024</td><td rowspan="4">30</td><td>20.2%</td><td>-</td><td>-</td></tr><tr><td>BrowserGym Drouin et al. 2024</td><td>23.5%</td><td>-</td><td>-</td></tr><tr><td>SteP Sodhi et al. 2023</td><td>35.8%</td><td>-</td><td>-</td></tr><tr><td>AWM Wang et al. 2024b</td><td>35.5%</td><td>-</td><td>-</td></tr><tr><td rowspan="3">GPT-4o</td><td>Vanilla CoT Zhou et al. 2023</td><td>30</td><td>13.1%</td><td>-</td><td>-</td></tr><tr><td>Tree search agent Koh et al., 2024</td><td>5</td><td>15.0%</td><td>19.2%</td><td>+28.0%</td></tr><tr><td>WMA web agent (ours)</td><td>5</td><td>12.8%</td><td>16.6%</td><td>+29.7%</td></tr><tr><td>GPT-4o-mini</td><td>WMA web agent (ours)</td><td>5</td><td>9.4%</td><td>13.5%</td><td>+43.6%</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the success rates of various web agents on the WebArena benchmark, comparing their performance with and without policy optimization using different LLMs.
+> 🔼 Table 1 presents the success rates of various web agents on the WebArena benchmark, comparing their performance with and without policy optimization using world models.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Agent performance in WebArena. Δ: relative performance gains from policy optimization.
@@ -91,7 +91,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_4_1.png)
 
-> 🔼 The figure illustrates the framework of World-Model-Augmented (WMA) web agents, showing the process of world model training and inference-time policy optimization.
+> 🔼 The figure illustrates the World-Model-Augmented (WMA) web agent framework, showing the training process for world models and the inference-time policy optimization using the world model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Framework overview. We first collect training data for world models (top). After training, we perform policy optimization by selecting the action leading to an optimal next state (bottom).
@@ -101,7 +101,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_6_0.png)
 
-> 🔼 The figure illustrates the process of transition-focused observation abstraction, highlighting the use of the Hungarian algorithm to identify key differences between consecutive observations and their transformation into free-form natural language descriptions.
+> 🔼 This figure illustrates the process of transition-focused observation abstraction, showing how the Hungarian algorithm matches elements between consecutive observations and how an LLM generates a free-form natural language description highlighting the key differences.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: The overview of transition-focused observation abstraction.
@@ -111,7 +111,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_6_1.png)
 
-> 🔼 The figure illustrates the transition-focused observation abstraction process, showing how the Hungarian algorithm matches elements between consecutive observations to highlight important state differences, which are then converted into a free-form natural language description by an LLM.
+> 🔼 The figure illustrates the transition-focused observation abstraction process, showing how the Hungarian algorithm matches elements between consecutive observations to generate a free-form description highlighting important state differences.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: The overview of transition-focused observation abstraction.
@@ -121,7 +121,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_6_2.png)
 
-> 🔼 The figure illustrates the process of transition-focused observation abstraction, showing how the Hungarian algorithm matches elements between consecutive observations and an LLM generates a free-form description highlighting state differences.
+> 🔼 The figure illustrates the process of transition-focused observation abstraction, showing how the Hungarian algorithm matches elements between consecutive observations to highlight state differences, which are then used to generate a free-form natural language description of the next observation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: The overview of transition-focused observation abstraction.
@@ -131,7 +131,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure shows the user interface used for human annotation in the preliminary analysis I, where annotators were asked to identify the next state given the current state and an action.
+> 🔼 The figure shows the interface used for human annotation in the preliminary analysis I, which involved a binary classification task to evaluate LLMs' ability to predict next states based on current states and actions.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Human annotation interface for preliminary analysis I in §3.1.
@@ -141,7 +141,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_20_1.png)
 
-> 🔼 The figure shows an example of a counterfactual imagination error in the world model's prediction, where non-existent products are predicted to appear on the next observation.
+> 🔼 The figure shows an example of a counterfactual imagination error in the world model's prediction, where non-existent products are predicted to appear in the next observation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 10: Erroneous example (Counterfactual imagination). The model predicts that specific products (96 TY CITY86 Bmw 740i Limited Collector Hoodie Men's Close; Toyota 86 Bad Institute Monkey Champagne Cup, Volkswagen A9 Bug Pick Dead Red) will appear in the next observation, while this specific page does not list them as the products for sell.
@@ -151,17 +151,17 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure shows an example of an erroneous prediction where the model provides overly generic statements instead of specific details about the next state observation.
+> 🔼 The figure shows an example of an erroneous prediction where the model generates overly generic and unclear descriptions of the next observation, failing to capture specific details about the changes.
 > <details>
 > <summary>read the caption</summary>
-> Figure 11: Erroneous example (Correct yet overly generic statements). “Comprehensive layout
+> Figure 11: Erroneous example (Correct yet overly generic statements). “Comprehensive layout” and “various order-related functionalities” are ambiguous and unclear expressions.
 > </details>
 
 
 
 ![](figures/figures_21_1.png)
 
-> 🔼 The figure shows an example of an erroneous prediction made by the world model, where the predicted next state is several steps ahead of the actual next state.
+> 🔼 The figure shows an example of an erroneous prediction by the world model where the predicted next state is several steps away from the actual next state.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Erroneous example (Others). The predicted next state (i.e., contributions and activities) is actually several steps further away from the current time step.
@@ -171,7 +171,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_22_0.png)
 
-> 🔼 The figure shows a successful example of the WMA web agent using a policy model (GPT-40) to select the optimal action (click [208]) on the Mind2Web benchmark (menards task #0) by leveraging its learned environment dynamics.
+> 🔼 The figure shows a successful example of the WMA web agent performing a task on the Mind2Web benchmark by leveraging its learned environment dynamics to select the optimal action.
 > <details>
 > <summary>read the caption</summary>
 > Figure 13: Successful example (Mind2Web). WMA web agent successfully inferences on the Mind2Web benchmark (menards task #0). Using the policy model (i.e., GPT-40), WMA web agent selects the most proper action click [208] by leveraging its learned environment dynamics.
@@ -181,10 +181,10 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](figures/figures_23_0.png)
 
-> 🔼 The figure illustrates the process of transition-focused observation abstraction, highlighting the steps involved in transforming raw observations into free-form natural language descriptions that emphasize state differences.
+> 🔼 The figure shows a successful example of WMA web agent in WebArena benchmark, where the agent correctly selects the action by leveraging its learned environment dynamics.
 > <details>
 > <summary>read the caption</summary>
-> Figure 5: The overview of transition-focused observation abstraction.
+> Figure 14: Successful example (WebArena). WMA web agent successfully infers on Gitlab domain in the WebArena benchmark (instance #175). Using the policy model (i.e., GPT-40), WMA web agent selects the most proper action click [88] by leveraging its learned environment dynamics.
 > </details>
 
 
@@ -200,7 +200,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](charts/charts_3_1.png "🔼 Figure 2: LLMs' performance in action selection (w/ and w/o next states).")
 
-> 🔼 The chart compares LLMs' performance in differentiating the golden action from negative actions when they are or are not provided with the outcome of each action candidate.
+> 🔼 The chart compares LLMs' performance in differentiating the golden action from negative actions when they are/are not provided with the resulting next state of each action candidate.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: LLMs' performance in action selection (w/ and w/o next states).
@@ -209,7 +209,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](charts/charts_5_0.png "🔼 Figure 4: Sequence length distribution of different observation representations.")
 
-> 🔼 The figure shows the token length distributions of three different observation representations used for training the world models in the paper.
+> 🔼 The chart displays the distribution of token counts for three different observation representations: original observations, transition-focused observations, and transition descriptions.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Sequence length distribution of different observation representations.
@@ -218,7 +218,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 
 ![](charts/charts_9_0.png "🔼 Figure 6: Ablation on the number of sampled actions (k).")
 
-> 🔼 The chart displays the impact of varying the number of sampled actions (k) during inference-time policy optimization on the success rate of the WMA web agent and a baseline with no exploration.
+> 🔼 The chart displays the success rate of the WMA web agent and a baseline (no exploration) across varying numbers of sampled actions (k) during inference-time policy optimization, showing performance gains from increasing exploration.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Ablation on the number of sampled actions (k).
@@ -243,7 +243,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 2 presents the domain-specific performance of agents using GPT-40-mini as policy models, showing the success rate across various domains within the WebArena benchmark and the relative performance gains achieved through policy optimization with world models.
+> Table 2 presents a breakdown of the domain-specific performance of agents using GPT-40-mini as policy models, showing the success rates for each domain and the overall improvement achieved by the WMA web agent compared to the vanilla CoT method.
 
 
 {{< table-caption >}}
@@ -255,7 +255,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 3 presents a comparison of the success rates of various methods on the Mind2Web benchmark, highlighting the performance improvements achieved by incorporating the world model.
+> Table 3 presents the success rates of different methods on the Mind2Web benchmark, comparing element accuracy, action accuracy, step success rate, and overall success rate.
 
 
 {{< table-caption >}}
@@ -279,7 +279,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 5 presents the ablation study results on WebArena, showing the impact of different components of the proposed World-Model-Augmented (WMA) web agent on success rates across various domains.
+> Table 5 presents the results of an ablation study conducted in the WebArena environment, evaluating the impact of different components of the proposed World-Model-Augmented (WMA) web agent on its overall success rate.
 
 
 {{< table-caption >}}
@@ -291,7 +291,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> The table compares the performance of two different value functions, one fine-tuned and another using GPT-40-mini, in terms of success rate (SR) on the WebArena benchmark.
+> This table compares the success rate of web agents using different value functions (a fine-tuned LLM vs. GPT-40-mini) for policy optimization.
 
 
 {{< table-caption >}}
@@ -303,7 +303,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 1 presents the success rate of different web agents on the WebArena benchmark, comparing performance with and without policy optimization using world models.
+> The table presents the success rate (SR) achieved by vanilla CoT and two variations of the proposed WMA web agent (with and without self-refinement) in the Map domain of the WebArena benchmark.
 
 
 {{< table-caption >}}
@@ -315,7 +315,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> This table presents the success rates of various web agents on the WebArena benchmark, comparing performance with and without policy optimization, and showing the relative gains achieved.
+> Table 1 presents the success rate of different web agents on the WebArena benchmark, comparing their performance with and without policy optimization, highlighting the relative improvement achieved by policy optimization.
 
 
 {{< table-caption >}}
@@ -327,19 +327,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 1 presents the success rates of various web agents on the WebArena benchmark, comparing their performance with and without policy optimization using world models.
-
-
-{{< table-caption >}}
-<table id='0' style='font-size:14px'><tr><td>Prompt for preliminary analysis II: action selection w/o next state</td></tr><tr><td>You are an autonomous intelligent agent tasked with navigating a web browser. You will be given web-based tasks. These tasks will be accomplished by selecting the most appropriate action from a list of choices.</td></tr><tr><td>Here's the information you'll have:</td></tr><tr><td>The user's objective: This is the task you're trying to complete.</td></tr><tr><td>The current web page's accessibility tree: This is a simplified representation of the webpage, providing key information. The current web page's URL: This is the page you're currently navigating.</td></tr><tr><td>The open tabs: These are the tabs you have open.</td></tr><tr><td>The previous action: This is the action you just performed. It may be helpful to track your progress.</td></tr><tr><td>For each step, you will be presented with 10 possible actions (A to J). Your task is to select the most appropriate action to progress towards completing the user's objective.</td></tr><tr><td>The fall into several categories:</td></tr><tr><td>actions</td></tr><tr><td>Page Operation Actions:</td></tr><tr><td>Click: This action clicks on an element with a specific id on the webpage. this to type field</td></tr><tr><td>Type: Use content into a with a specific id. By default, the "Enter" key is pressed after typing unless specified otherwise. Hover: Hover over an element with a specific id.</td></tr><tr><td>Press: Simulates the pressing of a key combination on the keyboard (e.g., Ctrl+v).</td></tr><tr><td>Scroll: Scroll the page up or down.</td></tr><tr><td>Tab Management Actions:</td></tr><tr><td>New tab: Open a new, empty browser tab.</td></tr><tr><td>Tab focus: Switch the browser's focus to a specific tab using its index.</td></tr><tr><td>Close tab: Close the currently active tab.</td></tr><tr><td>URL Navigation Actions:</td></tr><tr><td>Goto: Navigate to a specific URL. Go back: Navigate to the previously viewed page.</td></tr><tr><td>Go forward: Navigate to the next page (if a previous 'go_ back' action was performed).</td></tr><tr><td>Completion Action:</td></tr><tr><td></td></tr><tr><td>Stop: Select this action when you believe the task is complete. If the objective is to find a text-based answer, the answer will be included in the action description.</td></tr><tr><td>Additional information:</td></tr><tr><td>If you want to visit other websites, check out the homepage at http://homepage.com. It has a list of websites you can visit.</td></tr><tr><td>http://homepage.com/password.html lists all the account names and passwords for the websites. You can use them to log in to the websites.</td></tr><tr><td>To be successful, it is very important to follow these rules:</td></tr><tr><td>- Choose only an action that is valid given the current observation.</td></tr><tr><td>- Select only one action at a time.</td></tr><tr><td>- Follow the examples to reason step by step before selecting the next action.</td></tr><tr><td>- When you believe you have achieved the objective, select the "stop" action if it's available among the choices.</td></tr><tr><td>- Please generate the final answer the identifier "[Answer]" as "[Answer] <alphabet_of_ the_answer_ choice>".</td></tr><tr><td>[Input]</td></tr><tr><td>OBSERVATION:</td></tr><tr><td>{observation}</td></tr><tr><td>URL: {url}</td></tr><tr><td>OBJECTIVE: {objective}</td></tr><tr><td>PREVIOUS ACTION: {previous_action}</td></tr><tr><td>ACTION CHOICES: {choices}</td></tr><tr><td>[Output]</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
-> <details>
-> <summary>read the caption</summary>
-> {{ table.caption }}
-> </details>
-
-
-> Table 1 presents the performance of various web agents on the WebArena benchmark, comparing their success rates with and without policy optimization, and showing the relative performance gains achieved through policy optimization.
+> Table 1 presents the performance of various agents on the WebArena benchmark, showing the success rate with and without policy optimization, and the relative gain achieved through optimization.
 
 
 {{< table-caption >}}
@@ -351,7 +339,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 1 presents a comparison of different web agent methods on the WebArena benchmark, showing their success rates with and without policy optimization, and the relative performance improvement achieved through policy optimization.
+> This table presents a comparison of different web agent methods' success rates in the WebArena benchmark, showing the relative performance improvement achieved through policy optimization.
 
 
 {{< table-caption >}}
@@ -363,7 +351,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 1 presents the performance of various web agents on the WebArena benchmark, showing improvements achieved through policy optimization with world models.
+> Table 1 presents a comparison of different web agents' success rates in WebArena, showing the relative performance improvement achieved through policy optimization.
 
 
 {{< table-caption >}}
@@ -375,7 +363,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 1 presents the success rate of different web agents on the WebArena benchmark, comparing their performance with and without policy optimization using world models.
+> This table presents the performance of various web agents on the WebArena benchmark, comparing their success rates with and without policy optimization, and showing the relative performance gains achieved through policy optimization.
 
 
 {{< table-caption >}}
@@ -387,7 +375,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> Table 1 presents a comparison of various web agents' performance on the WebArena benchmark, highlighting the relative improvement achieved through policy optimization with and without the proposed world model.
+> The table presents a comparison of the success rates of different web agents on the WebArena benchmark, highlighting the relative performance improvement achieved through policy optimization.
 
 
 {{< table-caption >}}
@@ -399,7 +387,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> This table presents the performance comparison of different web agents on the WebArena benchmark, showing their success rates with and without policy optimization, and the relative performance gains.
+> Table 1 presents the success rates of various web agents on the WebArena benchmark, comparing performance with and without policy optimization.
 
 
 {{< table-caption >}}
@@ -411,7 +399,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> This table presents the success rates of different web agents on the WebArena benchmark, comparing their performance with and without policy optimization, and showing the relative performance gains achieved through policy optimization.
+> This table presents a comparison of different web agents' performance on the WebArena benchmark, showing their success rates with and without policy optimization, and the relative performance gains achieved through policy optimization.
 
 
 {{< table-caption >}}
@@ -423,7 +411,7 @@ This paper is highly relevant to researchers working on LLM-based web agents and
 > </details>
 
 
-> This table presents the success rates of different web agents on the WebArena benchmark, comparing their performance with and without policy optimization, and shows relative performance gains achieved by incorporating the policy optimization.
+> Table 1 presents the success rates of various web agents on the WebArena benchmark, comparing performance with and without policy optimization using world models.
 
 
 </details>

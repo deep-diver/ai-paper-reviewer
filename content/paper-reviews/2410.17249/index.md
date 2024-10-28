@@ -1,6 +1,6 @@
 ---
 title: "SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes"
-summary: "SpectroMotion reconstructs dynamic specular scenes with photorealistic accuracy by combining 3D Gaussian Splatting, physically-based rendering, and deformation fields, outperforming existing methods."
+summary: "SpectroMotion: a novel approach to reconstruct dynamic specular scenes by combining 3D Gaussian Splatting with physically-based rendering and deformation fields, outperforming existing methods in view..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-22", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-SpectroMotion tackles a major challenge in 3D scene reconstruction: accurately representing dynamic scenes with shiny surfaces. Existing methods struggle with this, but SpectroMotion combines several techniques to achieve impressive results.  It uses 3D Gaussian Splatting (a technique for efficient 3D modeling) and integrates physically-based rendering (making the scene look more realistic) and deformation fields (to handle movement).  A crucial aspect is a 'residual correction technique' that makes sure surface details are accurately represented when objects move, combined with an 'environment map' that adapts to changes in lighting.  The researchers also used a 'coarse-to-fine training strategy' to improve the accuracy of both the scene geometry and how shiny surfaces look.  Experiments show SpectroMotion significantly outperforms existing methods, creating high-quality images of complex, dynamic, and specular scenes.  This is a significant step forward as it's the first 3DGS-based method capable of making photorealistic videos of such scenes.
+SpectroMotion tackles a significant challenge in 3D computer vision: accurately reconstructing scenes with both movement and shiny surfaces.  Existing methods using 3D Gaussian Splatting, a fast and efficient technique, have struggled with this. SpectroMotion solves this by introducing three key improvements. First, it uses a more accurate way to calculate surface normals (the direction a surface is facing) even when objects are moving and changing shape. Second, it uses a "deformable environment map" that adapts to changing light conditions.  Third, it uses a smart training approach that starts with a static scene and gradually adds more complexity.  The results show that SpectroMotion produces significantly better results compared to existing methods, creating more realistic-looking images of dynamic, reflective scenes. This is particularly important for applications like virtual and augmented reality where realism is crucial.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ SpectroMotion tackles a major challenge in 3D scene reconstruction: accurately r
 {{< button href="https://arxiv.org/abs/2410.17249" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.17249" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is important because it significantly advances 3D scene reconstruction, particularly for dynamic scenes with specular objects – a challenging area with limited existing solutions.  It offers a novel approach combining 3D Gaussian Splatting with physically-based rendering and deformation fields. The results outperform state-of-the-art methods, opening new avenues for research in areas like virtual and augmented reality, computer vision and visual effects.
+This paper is important because it significantly advances 3D scene reconstruction, particularly for challenging scenarios with dynamic specular objects.  It bridges the gap between dynamic scene reconstruction and specular rendering within the efficient 3D Gaussian Splatting framework, opening new avenues for realistic virtual and augmented reality applications. The innovative coarse-to-fine training strategy and physical normal estimation techniques are valuable contributions to the field.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} SpectroMotion achieves superior view synthesis of dynamic specular scenes by combining 3D Gaussian Splatting with physically-based rendering and deformation fields. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} SpectroMotion combines 3D Gaussian Splatting with physically-based rendering and deformation fields to accurately reconstruct dynamic specular scenes. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A novel residual correction technique and deformable environment map improve surface normal computation and lighting adaptation during deformation. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} It introduces a residual correction technique for accurate surface normal computation during deformation and a deformable environment map for time-varying lighting. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} A coarse-to-fine training strategy significantly enhances both scene geometry and specular color prediction, surpassing state-of-the-art methods in rendering complex, dynamic, and specular scenes. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} A coarse-to-fine training strategy significantly improves both scene geometry and specular color prediction, outperforming state-of-the-art methods. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_1_0.png)
 
-> 🔼 The figure shows a qualitative comparison of SpectroMotion's results against other methods, highlighting its superior rendering quality of dynamic specular scenes.
+> 🔼 The figure shows a comparison of dynamic scene reconstruction results between SpectroMotion and other methods, highlighting SpectroMotion's superior ability to render high-quality reflections in dynamic specular scenes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -64,7 +64,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 {{< table-caption >}}
 <br><table id='1' style='font-size:14px'><tr><td></td><td colspan="3">As</td><td colspan="3">Basin</td><td colspan="3">Bell</td><td colspan="3">Cup</td></tr><tr><td>Method</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td></tr><tr><td>Deformable 3DGS (Yang et al., 2023c)</td><td>26.04</td><td>0.8805</td><td>0.1850</td><td>19.53</td><td>0.7855</td><td>0.1924</td><td>23.96</td><td>0.7945</td><td>0.2767</td><td>24.49</td><td>0.8822</td><td>0.1658</td></tr><tr><td>4DGS (Wu et al., 2023)</td><td>24.85</td><td>0.8632</td><td>0.2038</td><td>19.26</td><td>0.7670</td><td>0.2196</td><td>22.86</td><td>0.8015</td><td>0.2061</td><td>23.82</td><td>0.8695</td><td>0.1792</td></tr><tr><td>GaussianShader (Jiang et al., 2023)</td><td>21.89</td><td>0.7739</td><td>0.3620</td><td>17.79</td><td>0.6670</td><td>0.4187</td><td>20.69</td><td>0.8169</td><td>0.3024</td><td>20.40</td><td>0.7437</td><td>0.3385</td></tr><tr><td>GS-IR (Liang et al., 2023d)</td><td>21.58</td><td>0.8033</td><td>0.3033</td><td>18.06</td><td>0.7248</td><td>0.3135</td><td>20.66</td><td>0.7829</td><td>0.2603</td><td>20.34</td><td>0.8193</td><td>0.2719</td></tr><tr><td>NeRF-DS (Yan et al., 2023)</td><td>25.34</td><td>0.8803</td><td>0.2150</td><td>20.23</td><td>0.8053</td><td>0.2508</td><td>22.57</td><td>0.7811</td><td>0.2921</td><td>24.51</td><td>0.8802</td><td>0.1707</td></tr><tr><td>HyperNeRF (Park et al., 2021b)</td><td>17.59</td><td>0.8518</td><td>0.2390</td><td>22.58</td><td>0.8156</td><td>0.2497</td><td>19.80</td><td>0.7650</td><td>0.2999</td><td>15.45</td><td>0.8295</td><td>0.2302</td></tr><tr><td>Ours</td><td>26.80</td><td>0.8851</td><td>0.1761</td><td>19.75</td><td>0.7922</td><td>0.1896</td><td>25.46</td><td>0.8497</td><td>0.1600</td><td>24.65</td><td>0.8879</td><td>0.1588</td></tr><tr><td></td><td colspan="3">Plate</td><td colspan="3">Press</td><td colspan="3">Sieve</td><td colspan="3">Mean</td></tr><tr><td>Method</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td></tr><tr><td>Deformable 3DGS (Yang et al., 2023c)</td><td>19.07</td><td>0.7352</td><td>0.3599</td><td>25.52</td><td>0.8594</td><td>0.1964</td><td>25.37</td><td>0.8616</td><td>0.1643</td><td>23.43</td><td>0.8284</td><td>0.2201</td></tr><tr><td>4DGS (Wu et al., 2023)</td><td>18.77</td><td>0.7709</td><td>0.2721</td><td>24.82</td><td>0.8355</td><td>0.2255</td><td>25.16</td><td>0.8566</td><td>0.1745</td><td>22.79</td><td>0.8235</td><td>0.2115</td></tr><tr><td>GaussianShader (Jiang et al., 2023)</td><td>14.55</td><td>0.6423</td><td>0.4955</td><td>19.97</td><td>0.7244</td><td>0.4507</td><td>22.58</td><td>0.7862</td><td>0.3057</td><td>19.70</td><td>0.7363</td><td>0.3819</td></tr><tr><td>GS-IR (Liang et al., 2023d)</td><td>15.98</td><td>0.6969</td><td>0.4200</td><td>22.28</td><td>0.8088</td><td>0.3067</td><td>22.84</td><td>0.8212</td><td>0.2236</td><td>20.25</td><td>0.7796</td><td>0.2999</td></tr><tr><td>NeRF-DS (Yan et al., 2023)</td><td>19.70</td><td>0.7813</td><td>0.2974</td><td>25.35</td><td>0.8703</td><td>0.2552</td><td>24.99</td><td>0.8705</td><td>0.2001</td><td>23.24</td><td>0.8384</td><td>0.2402</td></tr><tr><td>HyperNeRF (Park et al., 2021b)</td><td>21.22</td><td>0.7829</td><td>0.3166</td><td>16.54</td><td>0.8200</td><td>0.2810</td><td>19.92</td><td>0.8521</td><td>0.2142</td><td>19.01</td><td>0.8167</td><td>0.2615</td></tr><tr><td>Ours</td><td>20.84</td><td>0.8180</td><td>0.2198</td><td>26.49</td><td>0.8665</td><td>0.1889</td><td>25.22</td><td>0.8712</td><td>0.1513</td><td>24.17</td><td>0.8529</td><td>0.1778</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 quantitatively compares the performance of SpectroMotion against several state-of-the-art methods on the NeRF-DS dataset, reporting average PSNR, SSIM, and LPIPS scores.
+> 🔼 Table 1 quantitatively compares the performance of SpectroMotion against several state-of-the-art methods on the NeRF-DS dataset, reporting the average PSNR, SSIM, and LPIPS scores.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Quantitative comparison on the NeRF-DS (Yan et al., 2023) dataset. We report the average PSNR, SSIM, and LPIPS (VGG) of several previous models on test images. The best, the second best, and third best results are denoted by red, orange, yellow.
@@ -81,7 +81,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_3_0.png)
 
-> 🔼 The figure illustrates the three-stage approach of SpectroMotion for dynamic specular scene reconstruction, showing the process of stabilizing scene geometry, modeling dynamic scenes, and rendering specular reflections.
+> 🔼 The figure illustrates the three-stage training process of SpectroMotion for reconstructing dynamic specular scenes, including static scene stabilization, dynamic scene modeling, and specular reflection handling.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Method Overview. Our method stabilizes the scene geometry through three stages. In the static stage, we stabilize the geometry of the static scene by minimizing photometric loss Lcolor between vanilla 3DGS renders and ground truth images. The dynamic stage combines canonical 3D Gaussians G with a deformable Gaussian MLP to model dynamic scenes while simultaneously minimizing normal loss Lnormal between rendered normal map N¹ and gradient normal map from depth map D¹, thus further enhancing the overall scene geometry. Finally, the specular stage introduces a deformable reflection MLP to handle changing environment lighting, deforming reflection directions w to query a canonical environment map for specular color c. It is then combined with diffuse color ca (using zero-order spherical harmonics) and learnable specular tint Stint per 3D Gaussian to obtain the final color canal. This approach enables the modeling of dynamic specular scenes and high-quality novel view rendering.
@@ -91,27 +91,27 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_6_0.png)
 
-> 🔼 Figure 3 illustrates the proposed method for physical normal estimation of deformed 3D Gaussians, highlighting how the approach accounts for both changes in shape and rotation during deformation.
+> 🔼 Figure 3 illustrates the method for physical normal estimation for deformed 3D Gaussians, showing how flatter Gaussians align better with scene surfaces and how normal residuals are adjusted based on Gaussian flatness.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: Normal estimation. (a) shows that flatter 3D Gaussians align better with scene surfaces, their shortest axis closely matching the surface normal. In contrast, less flat 3D Gaussians fit less accurately, with their shortest axis diverging from the surface normal. (b) shows that when the deformed 3D Gaussian becomes flatter (t = t1), normal residual Δn is rotated by R1 and scaled down by βt1/β, as flatter Gaussians require smaller normal residuals. Conversely, when the deformation results in a less flat shape (t = t2), Δn is rotated by R2 and amplified by βt2/β, requiring a larger correction to align the shortest axis with the surface normal. (c) shows how γk changes with ω (where ω = v/v for k = 1, k = 5, and k = 50. Larger ω indicates less flat Gaussians, while smaller ω represents flatter Gaussians. As k increases, γk decreases more steeply as ω rises. For k = 5, we observe a balanced behavior: γk approaches 1 for low ω and 0 for high ω, providing a nuanced penalty adjustment across different Gaussian shapes.
+> Figure 3: Normal estimation. (a) shows that flatter 3D Gaussians align better with scene surfaces, their shortest axis closely matching the surface normal. In contrast, less flat 3D Gaussians fit less accurately, with their shortest axis diverging from the surface normal. (b) shows that when the deformed 3D Gaussian becomes flatter (t = t1), normal residual Δn is rotated by R1 and scaled down by βt1/β, as flatter Gaussians require smaller normal residuals. Conversely, when the deformation results in a less flat shape (t = t2), Δn is rotated by R2 and amplified by βt2/β, requiring a larger correction to align the shortest axis with the surface normal. (c) shows how γk changes with ω (where ω = v⊥/v) for k = 1, k = 5, and k = 50. Larger ω indicates less flat Gaussians, while smaller ω represents flatter Gaussians. As k increases, γk decreases more steeply as ω rises. For k = 5, we observe a balanced behavior: γk approaches 1 for low ω and 0 for high ω, providing a nuanced penalty adjustment across different Gaussian shapes.
 > </details>
 
 
 
 ![](figures/figures_7_0.png)
 
-> 🔼 Figure 4 shows a qualitative comparison of the proposed method against other state-of-the-art methods on the NeRF-DS dataset, highlighting the superior quality of specular reflections rendered by the proposed method.
+> 🔼 Figure 1 is a qualitative comparison showing SpectroMotion outperforming previous methods by rendering dynamic scenes with higher-quality specular reflections.
 > <details>
 > <summary>read the caption</summary>
-> Figure 4: Qualitative comparison on the NeRF-DS (Yan et al., 2023) dataset.
+> Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
 > </details>
 
 
 
 ![](figures/figures_9_0.png)
 
-> 🔼 Figure 1 compares SpectroMotion's rendering of a dynamic specular scene against prior work, highlighting its improved reflection quality through physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy.
+> 🔼 The figure shows a comparison of the results of SpectroMotion against other methods for rendering dynamic scenes with specular reflections, highlighting the superior quality of reflections achieved by SpectroMotion.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -121,7 +121,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_9_1.png)
 
-> 🔼 The figure shows a qualitative comparison of SpectroMotion with other methods on rendering a dynamic scene with specular reflections, highlighting its superior performance in recovering high-quality reflections.
+> 🔼 The figure shows a comparison of dynamic scene reconstruction results between SpectroMotion and other methods, highlighting SpectroMotion's improved rendering of specular reflections.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -131,7 +131,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_10_0.png)
 
-> 🔼 Figure 7 shows a comparison of ground truth images with our rendered test images, highlighting the specular and diffuse components separately.
+> 🔼 Figure 7 shows a comparison of ground truth images with rendered test images, highlighting specular and diffuse color components.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Visualization our specular and diffuse color. Specular regions are emphasized while non-specular areas are dimmed to highlight the results of specular region color decomposition.
@@ -141,7 +141,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_10_1.png)
 
-> 🔼 The figure shows a comparison of dynamic scene reconstruction results using SpectroMotion against existing methods, highlighting improved reflection quality.
+> 🔼 The figure shows a comparison of the results of SpectroMotion against other methods on a dynamic scene containing specular reflections, highlighting its superior performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -151,7 +151,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_10_2.png)
 
-> 🔼 Figure 1 shows a comparison of SpectroMotion's dynamic scene reconstruction results against existing methods, highlighting improved specular reflection rendering quality.
+> 🔼 Figure 1 shows a comparison of SpectroMotion's results to those of previous methods on a dynamic scene with specular reflections, highlighting its superior quality and ability to capture reflections accurately.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -161,7 +161,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_10_3.png)
 
-> 🔼 Figure 9 shows a qualitative comparison of the full model against ablation studies removing the coarse-to-fine training strategy, normal loss, normal regularization, and the gamma function.
+> 🔼 Figure 9 shows the qualitative comparison of ablation study on different components of the proposed SpectroMotion method, demonstrating the effect of removing each component on the final rendering result.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Qualitative comparison of ablation study without different components.
@@ -171,7 +171,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_10_4.png)
 
-> 🔼 Figure 1 is a comparison of the results of SpectroMotion against prior work on a dynamic specular scene, highlighting improvements in reflection quality and accuracy.
+> 🔼 Figure 1 shows a comparison of dynamic scene rendering results between SpectroMotion and prior methods, highlighting its superior ability to capture high-quality specular reflections.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -181,7 +181,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_14_0.png)
 
-> 🔼 The figure shows the architecture of the deformable Gaussian MLP, which takes the Gaussian center and time as input and outputs the position, rotation, and scaling residuals.
+> 🔼 The figure shows the architecture of the deformable Gaussian MLP used in SpectroMotion for predicting the position, rotation, and scaling residuals of 3D Gaussians during deformation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 11: Architecture of the deformable Gaussian MLP
@@ -191,7 +191,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_14_1.png)
 
-> 🔼 The figure illustrates the architecture of the deformable reflection MLP, showing how positional encoding of reflection direction and time are processed through multiple fully connected layers to produce the deformed reflection residual.
+> 🔼 The figure shows the architecture of the deformable reflection MLP, which takes reflection direction, time, and positional encoding as inputs and outputs the deformed reflection direction.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Architecture of the deformable reflection MLP
@@ -201,7 +201,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_15_0.png)
 
-> 🔼 The figure compares the results of SpectroMotion to other methods on a dynamic specular scene, highlighting its superior reflection quality.
+> 🔼 Figure 1 compares SpectroMotion's rendering of a dynamic specular scene to those of other methods, highlighting its improved reflection quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -211,7 +211,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_15_1.png)
 
-> 🔼 Figure 4 shows a qualitative comparison of several methods on the NeRF-DS dataset, highlighting the superior quality of reflections produced by SpectroMotion.
+> 🔼 The figure shows a qualitative comparison of several methods on the NeRF-DS dataset, highlighting the superior visual quality of the proposed method in rendering dynamic specular scenes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Qualitative comparison on the NeRF-DS Yan et al. (2023) dataset.
@@ -221,7 +221,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_16_0.png)
 
-> 🔼 Figure 1 shows a comparison of SpectroMotion's rendering of a dynamic specular scene against several other methods, highlighting its superior quality of reflections.
+> 🔼 Figure 1 shows a qualitative comparison of SpectroMotion with other methods for rendering a dynamic scene with specular reflections, highlighting SpectroMotion's improved accuracy in rendering specular highlights.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -231,7 +231,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 
 ![](figures/figures_16_1.png)
 
-> 🔼 The figure shows a comparison of SpectroMotion's results against other methods, highlighting the improved quality of reflections rendered by SpectroMotion in a dynamic specular scene.
+> 🔼 Figure 1 shows a comparison of SpectroMotion's rendering of a dynamic specular scene against other methods, highlighting its improved reflection quality.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Our method, SpectroMotion, recovers and renders dynamic scenes with higher-quality reflections compared to prior work. It introduces physical normal estimation, deformable environment maps, and a coarse-to-fine training strategy to achieve superior results in rendering dynamic scenes with reflections. Here we present a rendered test image along with its corresponding normal maps and a ground-truth image. For Deformable 3DGS, we use the shortest axes of the deformed 3D Gaussians as the normals. We have highlighted the specular regions for a scene from the NeRF-DS dataset (Yan et al., 2023) to demonstrate the effectiveness of our approach.
@@ -258,7 +258,7 @@ This paper is important because it significantly advances 3D scene reconstructio
 > </details>
 
 
-> Table 2 quantitatively compares the performance of several methods on the NeRF-DS dataset, specifically focusing on dynamic specular objects, using PSNR, SSIM, and LPIPS metrics.
+> Table 2 quantitatively compares the performance of several methods on the NeRF-DS dataset, specifically focusing on dynamic specular objects, using metrics such as PSNR, SSIM, and LPIPS.
 
 
 {{< table-caption >}}

@@ -1,6 +1,6 @@
 ---
 title: "Distill Visual Chart Reasoning Ability from LLMs to MLLMs"
-summary: "Researchers created REACHQA, a dataset improving visual reasoning in LLMs by using code as an intermediary to translate chart representations into text, enabling efficient and scalable data synthesis."
+summary: "Researchers synthesize a new multimodal dataset, REACHQA, using code as an intermediary to efficiently distill visual chart reasoning abilities from LLMs to MLLMs."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research tackles the challenge of improving visual reasoning in large language models (LLMs), specifically for understanding and answering questions about charts.  Manually creating high-quality training data for this task is expensive and time-consuming. To solve this, the researchers propose a new method called Code-as-Intermediary Translation (CIT). CIT uses code as a bridge between visual charts and text.  The code translates the visual information in a chart into a textual representation that an LLM can easily understand. Using CIT, they created a new dataset called REACHQA, containing 3,000 charts and 20,000 question-answer pairs.  When LLMs are trained using REACHQA, they perform significantly better on various chart-related benchmarks and even show improvement on general mathematical reasoning tasks. This demonstrates that their method is effective in improving the model's ability to reason with visual information and isn't limited to just charts.  The code and dataset are publicly available, making it easy for other researchers to build upon this work.
+This research tackles the challenge of enhancing multimodal large language models (MLLMs) with advanced visual reasoning abilities, particularly for complex chart question answering (CQA).  The key contribution is a novel data synthesis method called Code-as-Intermediary Translation (CIT). CIT uses code as a bridge between visual chart representations and textual descriptions, allowing LLMs to understand and reason about cross-modal information.  This approach is significantly more efficient and cost-effective than traditional manual data collection and annotation.  Using CIT, the researchers created REACHQA, a new dataset with 3,000 reasoning-intensive charts and 20,000 Q&A pairs.  Experiments demonstrate that fine-tuning models on REACHQA substantially improves their performance on various chart-related benchmarks, even generalizing to broader mathematical reasoning tasks.  This work offers a valuable approach for developing advanced visual reasoning capabilities in LLMs and creating high-quality multimodal datasets efficiently.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research tackles the challenge of improving visual reasoning in large langu
 {{< button href="https://arxiv.org/abs/2410.18798" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18798" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is important because it introduces a novel and efficient method for creating high-quality training data for multimodal chart understanding, addressing a key limitation in current research.  It presents a scalable solution to the costly and time-consuming task of data annotation and opens up new avenues for research into more advanced visual reasoning abilities in large language models.
+This paper is highly important for researchers working on multimodal learning and large language models.  It introduces a novel and efficient data synthesis method, addresses the challenges of creating high-quality multimodal datasets, and demonstrates improved performance on various benchmarks.  The proposed method opens new avenues for research in cost-effective data augmentation and the development of advanced visual reasoning capabilities in LLMs.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Code-as-Intermediary Translation (CIT) efficiently synthesizes chart Q&A data. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Code-as-Intermediary Translation (CIT) is proposed as a cost-effective data synthesis method for improving visual reasoning in MLLMs. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} REACHQA dataset enhances visual reasoning capabilities in LLMs. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} REACHQA, a new dataset with 3k reasoning-intensive charts and 20k Q&A pairs, is created to enhance both visual recognition and reasoning abilities. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Improved multimodal reasoning on general mathematical benchmarks demonstrated the model's generalized abilities {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Fine-tuning models on REACHQA improves performance on chart-related benchmarks and general mathematical reasoning tasks. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is important because it introduces a novel and efficient method for c
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure shows the error distribution of a language model on a chart question answering benchmark, highlighting the common error types of recognition and reasoning mistakes.
+> 🔼 The figure shows the error distribution of a LLM on a chart question answering benchmark, highlighting the two main error types: recognition and reasoning errors.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Error distribution of incorrect answers by MiniCPM-V2.5-Llama3 (Yao et al., 2024) on ChartQA test set (Masry et al., 2022), as judged by GPT-40. We present an example chart from ChartQA along with two error cases: one for recognition and one for reasoning. The 'Other Errors' include question misunderstood errors, knowledge and hallucination errors, or refusal to answer.
@@ -61,7 +61,7 @@ This paper is important because it introduces a novel and efficient method for c
 
 ![](charts/charts_9_1.png)
 
-> 🔼 The radar chart visualizes the performance comparison of three models (Base Model, ReachQA-20k, and ReachQA-LLaVA-Mix-40k) across ten different tasks, including six general-purpose and four specialized tasks.
+> 🔼 The radar chart compares the performance of three models (Base Model, ReachQA-20k, and ReachQA-LLaVA-Mix-40k) across ten different benchmark tasks, including six general-purpose multimodal tasks and four specialized chart-related tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Performance comparison of models on 6 general tasks and 4 specialized tasks.
@@ -74,7 +74,7 @@ This paper is important because it introduces a novel and efficient method for c
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td rowspan="2">Datasets</td><td colspan="4">Chart Properties</td><td colspan="3">Q&A Properties</td><td colspan="3">Dataset Properties</td></tr><tr><td># Chart Type</td><td># Chart Topic</td><td>Textual Format</td><td>Vis. Comp.</td><td>Temp. Free</td><td>Vis. Refer.</td><td>Rat. Annot.</td><td>Train Set</td><td>Test Set</td><td>Scal.</td></tr><tr><td>PlotQA Methani et al. 2020</td><td>3</td><td>-</td><td>Table</td><td>X</td><td>X</td><td></td><td>X</td><td></td><td></td><td>X</td></tr><tr><td>ChartQA Masry et al. 2022</td><td>3</td><td>15</td><td>Table</td><td>X</td><td></td><td></td><td>X</td><td>V</td><td></td><td>X</td></tr><tr><td>OpenCQA Kanthara et al. 2022</td><td>5</td><td>10</td><td>Caption</td><td>X</td><td>V</td><td>X</td><td>V</td><td>X</td><td></td><td>X</td></tr><tr><td>MathVista Lu et al. 2024</td><td></td><td>-</td><td>-</td><td>X</td><td>V</td><td>X</td><td>X</td><td>X</td><td></td><td>X</td></tr><tr><td>CharXiv Wang et al 2024c</td><td></td><td>-</td><td>-</td><td>V</td><td>メ</td><td>V</td><td>X</td><td>X</td><td></td><td>X</td></tr><tr><td>ChartBench Xu et al 2023</td><td>9 / 42</td><td>-</td><td>Table</td><td>X</td><td>X</td><td>X</td><td>X</td><td>V</td><td></td><td>V</td></tr><tr><td>ChartX Xia et al. 2024</td><td>18</td><td>22</td><td>Code*</td><td>X</td><td>V</td><td>X</td><td>X</td><td>X</td><td></td><td>V</td></tr><tr><td>MMC Liu et al. 2024a</td><td>6</td><td>5</td><td>Caption</td><td>V</td><td></td><td>X</td><td></td><td></td><td></td><td>メ</td></tr><tr><td>ChartLlama Han et al. 2023</td><td>10</td><td>-</td><td>Table</td><td>X</td><td>V</td><td>X</td><td></td><td></td><td>V</td><td>V</td></tr><tr><td>ChartAst Meng et al. 2024</td><td>9</td><td>-</td><td>Table</td><td>X</td><td>X</td><td>X</td><td></td><td></td><td>X</td><td>メ</td></tr><tr><td>ChartInstruct Masry et al. 2024a</td><td>-</td><td>-</td><td>Table</td><td>X</td><td>V</td><td>X</td><td></td><td></td><td>X</td><td>メ</td></tr><tr><td>ChartGemma Masry et al. 2024b</td><td></td><td>-</td><td>-</td><td>X</td><td>V</td><td>V</td><td></td><td></td><td>X</td><td>メ</td></tr><tr><td>REACHQA (ours)</td><td>10 / 32</td><td>8</td><td>Code</td><td>V</td><td>V</td><td>V</td><td></td><td></td><td>V</td><td>V</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares existing chart-related datasets across three properties: chart properties, Q&A properties, and dataset properties, highlighting the differences in visual complexity, data generation methods, and scalability.
+> 🔼 Table 1 compares existing chart-related datasets across three properties: chart properties, Q&A properties, and dataset properties, highlighting their differences in visual diversity, complexity, generation methods, and scalability.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Comparison of existing chart-related datasets across three properties. Only the chart question-answering (CQA) task is considered, despite some datasets having multiple tasks. Abbreviations: Vis.=visual, Comp.=complexity, Temp.=template, Refer.=Reference, Reas.=reasoning, Rat. rationale, Annot.=annotation and Scal.=scalable. Cells marked with 'X' indicate mixed attributes (e.g., partially template-based; scalable Q&A but non-scalable chart data.). “*” indicates that while the chart-plotting codes are public, the Q&A generation still relies on data tables.
@@ -91,7 +91,7 @@ This paper is important because it introduces a novel and efficient method for c
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure illustrates the Code-as-Intermediary Translation (CIT) method used to create the REACHQA dataset, showing how seed codes are expanded, charts are generated, and instructions are created and filtered.
+> 🔼 The figure illustrates the Code-as-Intermediary Translation (CIT) method used to create the REACHQA dataset, showing the process from seed codes to final data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Overview of the Code-as-Intermediary Translation (CIT) method for synthesizing multimodal instruction data. The process begins with 33 seed codes and generates plot codes across various chart types, topics, and complexity levels through the Self-Instruct and Evol-Instruct stages. The chart set and instruction set are constructed bi-directionally, and the final filtered data yields REACHQA, a dataset for distilling visual chart reasoning abilities from LLMs to MLLMs.
@@ -101,7 +101,7 @@ This paper is important because it introduces a novel and efficient method for c
 
 ![](figures/figures_10_0.png)
 
-> 🔼 The figure shows the error distribution of a language model on a chart question answering benchmark, highlighting the proportions of errors due to misrecognition and reasoning issues.
+> 🔼 The figure shows the error distribution of a language model on a chart question answering benchmark, highlighting the proportions of errors due to misrecognition and reasoning mistakes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Error distribution of incorrect answers by MiniCPM-V2.5-Llama3 (Yao et al., 2024) on ChartQA test set (Masry et al., 2022), as judged by GPT-40. We present an example chart from ChartQA along with two error cases: one for recognition and one for reasoning. The 'Other Errors' include question misunderstood errors, knowledge and hallucination errors, or refusal to answer.
@@ -111,7 +111,7 @@ This paper is important because it introduces a novel and efficient method for c
 
 ![](figures/figures_17_0.png)
 
-> 🔼 Figure 6 presents a visual comparison of chart visualizations from various datasets, highlighting the increased complexity and diversity of charts in REACHQA compared to other datasets.
+> 🔼 Figure 6 shows visualizations of charts from various datasets, highlighting the visual diversity and complexity of REACHQA compared to other datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Visualizations of different chart-related training datasets. As shown, REACHQA and ChartGemma exhibit higher chart richness compared to several other datasets. But the charts in ChartGemma require manual collection from multiple sources (Masry et al., 2024b).
@@ -121,7 +121,7 @@ This paper is important because it introduces a novel and efficient method for c
 
 ![](figures/figures_17_1.png)
 
-> 🔼 Figure 6 shows visualizations of charts from various datasets, highlighting the increased visual complexity and diversity in REACHQA compared to other datasets.
+> 🔼 Figure 6 shows visualizations of charts from various datasets, highlighting the increased visual complexity and diversity of REACHQA compared to other datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Visualizations of different chart-related training datasets. As shown, REACHQA and ChartGemma exhibit higher chart richness compared to several other datasets. But the charts in ChartGemma require manual collection from multiple sources (Masry et al., 2024b).
@@ -141,7 +141,7 @@ This paper is important because it introduces a novel and efficient method for c
 
 ![](figures/figures_17_3.png)
 
-> 🔼 Figure 6 presents visualizations of charts from various datasets, highlighting the increased visual complexity and diversity in REACHQA compared to others.
+> 🔼 Figure 6 visualizes charts from various chart datasets, highlighting the increased complexity and diversity of charts in REACHQA compared to other datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Visualizations of different chart-related training datasets. As shown, REACHQA and ChartGemma exhibit higher chart richness compared to several other datasets. But the charts in ChartGemma require manual collection from multiple sources (Masry et al., 2024b).
@@ -168,7 +168,7 @@ This paper is important because it introduces a novel and efficient method for c
 > </details>
 
 
-> Table 1 compares existing chart-related datasets across three properties: Q&A properties, chart properties, and dataset properties, highlighting their differences in terms of visual format, complexity, and scalability.
+> Table 1 compares existing chart-related datasets across three properties: Q&A properties, chart properties, and dataset properties, highlighting their differences in terms of textual/visual format, complexity, templates, visual complexity, type, topic, scalability, rationale, training/test sets, and free reference annotations.
 
 
 {{< table-caption >}}
@@ -180,7 +180,7 @@ This paper is important because it introduces a novel and efficient method for c
 > </details>
 
 
-> Table 1 compares existing chart-related datasets across three properties: Q&A properties, chart properties, and dataset properties, highlighting their differences in terms of textual format, complexity, templates, visual features, topic diversity, scalability, and annotation methods.
+> Table 1 compares existing chart-related datasets across three properties: chart properties, Q&A properties, and dataset properties, highlighting their differences in terms of visual diversity, complexity, template use, reasoning capabilities, annotation, and scalability.
 
 
 {{< table-caption >}}
@@ -204,7 +204,19 @@ This paper is important because it introduces a novel and efficient method for c
 > </details>
 
 
-> Table 1 compares existing chart-related datasets across three properties: Q&A properties, chart properties, and dataset properties, highlighting their strengths and weaknesses.
+> Table 1 compares existing chart-related datasets across three properties: chart properties, Q&A properties, and dataset properties, highlighting their differences in visual diversity, complexity, question generation methods, and scalability.
+
+
+{{< table-caption >}}
+<table id='6' style='font-size:14px'><tr><td>Major Category</td><td>Minor Category</td></tr><tr><td>~Line Charts Pie Charts n Bar Charts 3D Bar Charts Node Charts Radar Charts Area Charts Box Charts Scatter Charts Specific Charts</td><td>line chart, line chart with data annotation, line chart with error bar pie chart, donut pie chart, sector pie chart, ring chart bar chart, bar chart with data annotation, stacked bar chart, percentage bar chart, horizontal bar chart 3D bar chart, stacked 3D bar chart, percentage 3D bar chart directed node chart, undirected node chart radar chart, radar chart with area filling area chart, stacked area chart vertical box chart, horizontal box chart scatter chart, scatter chart with smooth fitting, 3D scatter chart (bubble chart) heat map, rose chart, funnel chart, waterfall chart, histogram, tree map</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> Table 1 compares existing chart-related datasets across three properties: chart properties, Q&A properties, and dataset properties, highlighting their strengths and weaknesses for use in chart question answering tasks.
 
 
 {{< table-caption >}}
@@ -216,7 +228,7 @@ This paper is important because it introduces a novel and efficient method for c
 > </details>
 
 
-> Table 1 compares existing chart-related datasets across three properties: Q&A properties, chart properties, and dataset properties, highlighting their differences in terms of format, complexity, templates, visual aspects, scalability, and annotation.
+> Table 1 compares existing chart-related datasets across three properties (Q&A properties, chart properties, and dataset properties) highlighting their differences in terms of textual format, complexity, templates, visual features, scalability, and annotation.
 
 
 {{< table-caption >}}
@@ -228,7 +240,7 @@ This paper is important because it introduces a novel and efficient method for c
 > </details>
 
 
-> Table 1 compares existing chart-related datasets across three properties: Q&A properties, chart properties, and dataset properties, highlighting their strengths and weaknesses for chart question answering tasks.
+> Table 1 compares existing chart-related datasets across three properties: Q&A properties, chart properties, and dataset properties, highlighting their differences in terms of format, complexity, and scalability.
 
 
 </details>

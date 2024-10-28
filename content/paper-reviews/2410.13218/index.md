@@ -1,6 +1,6 @@
 ---
 title: "CBT-Bench: Evaluating Large Language Models on Assisting Cognitive Behavior Therapy"
-summary: "CBT-BENCH: A new benchmark systematically evaluates LLMs' potential for assisting Cognitive Behavioral Therapy (CBT), revealing strengths and weaknesses in various CBT tasks."
+summary: "CBT-BENCH: a new benchmark reveals LLMs' potential and limitations in assisting Cognitive Behavioral Therapy, highlighting the need for further research in AI-driven mental healthcare."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research introduces CBT-BENCH, a novel benchmark designed to assess the capabilities of Large Language Models (LLMs) in assisting Cognitive Behavioral Therapy (CBT).  The benchmark includes three levels of tasks: basic CBT knowledge acquisition, cognitive model understanding (including cognitive distortion and core belief classification), and therapeutic response generation.  Evaluation of several LLMs revealed that while they perform well on basic knowledge tasks, they struggle with more complex tasks demanding deep understanding of patient cognitive structures and generation of effective therapeutic responses.  This gap highlights the need for further development of LLMs to enhance their ability to effectively assist professional CBT practitioners.
+This research introduces CBT-BENCH, a novel benchmark to assess Large Language Models' (LLMs) capabilities in assisting Cognitive Behavioral Therapy (CBT).  The benchmark comprises three levels of difficulty: basic CBT knowledge, cognitive model understanding, and therapeutic response generation.  Evaluation of several LLMs revealed that while they perform well on basic knowledge questions, they fall short on higher-level tasks requiring deep analysis of patient's cognitive structures and generating effective therapeutic responses.  This highlights the need for further research to improve LLMs' capabilities in complex real-world scenarios involving mental healthcare.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research introduces CBT-BENCH, a novel benchmark designed to assess the cap
 {{< button href="https://arxiv.org/abs/2410.13218" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13218" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for AI researchers working on mental healthcare applications.  It introduces a novel benchmark, CBT-BENCH, for evaluating LLMs' ability to assist in Cognitive Behavioral Therapy (CBT), addressing a significant gap in current research. CBT-BENCH's comprehensive design and the evaluation results provide valuable insights into LLMs' capabilities and limitations, guiding future research towards developing more effective and ethical AI-assisted therapies.
+This paper is crucial for AI researchers working on mental healthcare applications.  CBT-BENCH offers a novel, comprehensive benchmark for evaluating LLMs, addressing limitations in existing research.  Its findings highlight current LLMs' strengths and weaknesses in assisting CBT, guiding future research directions and model development.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} CBT-BENCH, a three-level benchmark for evaluating LLMs in CBT assistance, was developed. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} CBT-BENCH, a three-level benchmark systematically evaluates LLMs' ability to assist CBT. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Large language models show promise in basic CBT knowledge but struggle with complex tasks requiring deep cognitive understanding and nuanced therapeutic responses. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} LLMs excel at basic CBT knowledge but struggle with complex tasks like cognitive model analysis and therapeutic response generation. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Findings highlight the need for further research to improve LLMs' abilities in handling the complexities of real-world CBT scenarios. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The study reveals a significant gap between current LLM capabilities and the demands of real-world CBT, paving the way for future research. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 
 ![](figures/figures_19_0.png)
 
-> 🔼 The figure is an example of a cognitive model, showing how a patient's cognitive components (beliefs, thoughts, emotions, behaviors) are interconnected.
+> 🔼 The figure presents a diagram illustrating an example of a cognitive model used in Cognitive Behavioral Therapy (CBT).
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: An example cognitive model from (Beck, 2020).
@@ -61,7 +61,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 
 ![](charts/charts_7_0.png)
 
-> 🔼 The radar chart visualizes the detailed F1 scores of each label for CBT-CD and CBT-FC across six different LLMs.
+> 🔼 The radar chart visualizes the detailed F1 scores of each label for CBT-CD and CBT-FC datasets across six different LLMs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Detailed F1 scores of each label for CBT-CD and CBT-FC.
@@ -74,7 +74,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Knowledge Types</td><td>Example QA Pairs from CBT-QA</td><td>Distributions (%)</td></tr><tr><td>Basic CBT knowledge and concepts</td><td>Albert Ellis' Cognitive Model includes which components? A. Activating Events - Behaviors - Cognitions, B. Antecedents - Beliefs - Consequences, C: Activating Events - Beliefs - Consequences, C. Antecedents - Behaviors - Consequences</td><td>41.82</td></tr><tr><td>Practical CBT knowledge</td><td>When helping clients evaluate automatic thoughts, therapists should generally help clients evaluate which aspects of those thoughts? A. Accuracy and/or intensity, B. Intensity and/or utility, C. Accuracy and/or utility</td><td>34.09</td></tr><tr><td>Case studies</td><td>The client has identified an automatic thought of "My partner is going to break up with me". The therapist asks the client, "If your thought is accurate and your partner does break up with you, what does that mean about you?". The therapist is most likely trying to identify: A. The client's intermediate belief, B. The client's core belief, C. The client's thinking error</td><td>18.18</td></tr><tr><td>Others</td><td>What are some ways that CBT therapists can engage in therapy from a multicultural perspective? (select all that apply) A. Not take clients from a different culture than their own, B. Ask clients about the strengths and challenges of their cultural, racial, and ethnic identity during intake, C. Being aware of their own cultural values and biases, D. Work together with the client to incorporate the client's core values</td><td>5.9</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table presents the types of knowledge included in the CBT-QA dataset, example question-answer pairs for each type, and the distribution of each type in the test set.
+> 🔼 Table 1 presents the different types of knowledge included in the CBT-QA dataset, example question-answer pairs for each type, and the percentage of each type in the test set.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Knowledge types in CBT-QA, with example QA pairs and distributions in the test set.
@@ -93,7 +93,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 
 ![](charts/charts_7_1.png "🔼 Figure 1: Detailed F1 scores of each label for CBT-CD and CBT-FC.")
 
-> 🔼 The radar chart visualizes the F1 scores achieved by six different LLMs across various labels in CBT-CD and CBT-FC datasets.
+> 🔼 The radar chart visualizes the F1 scores achieved by six different LLMs across various labels for CBT-CD and CBT-FC datasets, showcasing their performance in cognitive model understanding tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Detailed F1 scores of each label for CBT-CD and CBT-FC.
@@ -102,7 +102,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 
 ![](charts/charts_8_0.png "🔼 Figure 2: The overall pairwise comparison of different models vs. reference across difficulty level.")
 
-> 🔼 The chart displays the overall pairwise comparison scores of three different LLMs against human responses across three difficulty levels (beginner, intermediate, advanced) in the CBT-DP task.
+> 🔼 The chart displays the overall pairwise comparison of three different LLMs against human expert responses across three difficulty levels (beginner, intermediate, advanced) in a CBT therapeutic response generation task.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: The overall pairwise comparison of different models vs. reference across difficulty level.
@@ -111,7 +111,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 
 ![](charts/charts_24_0.png "🔼 Figure 4: Detailed accuracies on different types of knowledge for CBT-QA and the F1 score of each label for CBT-PC.")
 
-> 🔼 The radar chart visualizes the performance of six large language models on different types of CBT knowledge questions and cognitive model understanding tasks.
+> 🔼 The radar chart visualizes the performance of six LLMs on different aspects of CBT knowledge acquisition and cognitive model understanding, showing varying levels of proficiency across different task types.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Detailed accuracies on different types of knowledge for CBT-QA and the F1 score of each label for CBT-PC.
@@ -120,7 +120,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 
 ![](charts/charts_24_1.png "🔼 Figure 4: Detailed accuracies on different types of knowledge for CBT-QA and the F1 score of each label for CBT-PC.")
 
-> 🔼 The radar chart visualizes the detailed performance of different LLMs on CBT-QA and CBT-PC, showcasing their accuracy on various knowledge types and F1 scores for each label.
+> 🔼 The radar chart visualizes the performance of six large language models on two tasks: CBT knowledge acquisition (CBT-QA) and primary core belief classification (CBT-PC).
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Detailed accuracies on different types of knowledge for CBT-QA and the F1 score of each label for CBT-PC.
@@ -129,7 +129,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 
 ![](charts/charts_27_0.png "🔼 Figure 5: The win-tie-loss comparison among different models on three difficulty levels.")
 
-> 🔼 The chart displays the win-tie-loss rates of three LLMs against human experts across different difficulty levels in the therapeutic response generation task.
+> 🔼 The chart displays the win-tie-loss results for three LLMs (Llama-3.1-405B, Llama-3.1-8B, and GPT-40) across three difficulty levels (beginner, intermediate, and advanced) in the therapeutic response generation task.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: The win-tie-loss comparison among different models on three difficulty levels.
@@ -154,7 +154,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 1 presents the different types of knowledge included in the CBT-QA dataset, provides example question-answer pairs for each type, and shows the distribution of each type in the test set.
+> Table 1 presents the different types of knowledge covered in the CBT-QA dataset, along with example questions and answers, and their distribution in the test set.
 
 
 {{< table-caption >}}
@@ -166,7 +166,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> This table presents the number of examples, labels, and average lengths of situations and thoughts for three level II tasks: CBT-CD, CBT-PC, and CBT-FC.
+> The table presents the statistics of the three level II tasks in CBT-BENCH, including the number of examples, labels, and average lengths of situations and thoughts.
 
 
 {{< table-caption >}}
@@ -178,7 +178,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> The table shows the types of knowledge included in the CBT-QA dataset, example question-answer pairs for each type, and the percentage distribution of each type in the test set.
+> The table shows the types of knowledge included in the CBT-QA dataset, example question-answer pairs for each type, and the percentage of each type in the test set.
 
 
 {{< table-caption >}}
@@ -190,7 +190,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> This table presents the performance of six large language models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy for CBT-QA and weighted precision, recall, and F1 scores for the other datasets.
+> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing that larger models generally perform better on knowledge questions but not necessarily on more complex cognitive tasks.
 
 
 {{< table-caption >}}
@@ -202,7 +202,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six large language models on three levels of CBT tasks: basic knowledge acquisition, cognitive model understanding, and therapeutic response generation.
+> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy for CBT-QA and weighted precision, recall, and F1 score for other datasets.
 
 
 {{< table-caption >}}
@@ -214,7 +214,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six LLMs on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy for CBT-QA and weighted precision, recall, and F1 score for other datasets.
+> Table 5 presents the performance of six large language models on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy for CBT-QA and weighted precision, recall, and F1 scores for other datasets.
 
 
 {{< table-caption >}}
@@ -226,7 +226,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 8 presents a breakdown of model performance across four criteria for exercise 2, showing average scores for each criterion.
+> Table 8 presents a breakdown of model scores across four criteria for exercise 2, showing the average score for each model.
 
 
 {{< table-caption >}}
@@ -238,7 +238,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> The table presents the different types of knowledge assessed in the CBT-QA dataset, provides example questions for each type, and shows the percentage of each type in the test set.
+> The table presents the different types of knowledge assessed in the CBT-QA dataset, example question-answer pairs for each type, and the percentage distribution of each type in the test set.
 
 
 {{< table-caption >}}
@@ -250,7 +250,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 1 presents the types of knowledge assessed in the CBT-QA dataset, provides example question-answer pairs for each type, and shows their distribution in the test set.
+> The table presents the different types of knowledge assessed in the CBT-QA dataset, example questions for each type, and their distribution in the test set.
 
 
 {{< table-caption >}}
@@ -274,7 +274,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> The table presents the types of knowledge assessed in the CBT-QA dataset, example questions for each type, and the percentage of questions belonging to each type.
+> The table presents the types of knowledge assessed in the CBT-QA dataset, example question-answer pairs for each type, and the percentage distribution of each type in the test set.
 
 
 {{< table-caption >}}
@@ -286,7 +286,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 1 presents the different types of knowledge assessed in the CBT-QA dataset, provides examples of question-answer pairs for each type, and shows their distribution in the test set.
+> The table shows the different types of knowledge included in the CBT-QA dataset, example question-answer pairs for each type, and the percentage of questions in the test set that belong to each type.
 
 
 {{< table-caption >}}
@@ -298,7 +298,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 1 presents the different types of knowledge included in the CBT-QA dataset, example question-answer pairs for each type, and their corresponding distributions in the test set.
+> The table presents the types of knowledge included in the CBT-QA dataset, example questions and answers, and the percentage distribution of each type in the test set.
 
 
 {{< table-caption >}}
@@ -310,7 +310,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> This table presents the different types of knowledge included in the CBT-QA dataset, provides example question-answer pairs for each type, and shows the distribution of these question types within the test set.
+> Table 1 presents the types of knowledge assessed in the CBT-QA dataset, provides example question-answer pairs for each type, and shows the distribution of each type in the test set.
 
 
 {{< table-caption >}}
@@ -322,7 +322,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> The table shows the types of knowledge included in the CBT-QA dataset, example question-answer pairs for each type, and the percentage distribution of each type in the test set.
+> This table presents the different types of knowledge included in the CBT-QA dataset, along with example questions and their distribution in the test set.
 
 
 {{< table-caption >}}
@@ -334,7 +334,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy, precision, recall, and F1 scores.
+> Table 5 presents the performance of six large language models (LLMs) across four different datasets assessing basic CBT knowledge and cognitive model understanding.
 
 
 {{< table-caption >}}
@@ -346,7 +346,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding.
+> Table 5 presents the performance of six large language models on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy and F1 scores for each dataset.
 
 
 {{< table-caption >}}
@@ -358,7 +358,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> This table shows the types of knowledge covered in the CBT-QA dataset, example question-answer pairs for each type, and the percentage of questions belonging to each type in the test set.
+> The table presents the different types of knowledge included in the CBT-QA dataset, along with example question-answer pairs and their distributions.
 
 
 {{< table-caption >}}
@@ -370,7 +370,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six LLMs on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy for CBT-QA and weighted precision, recall, and F1 scores for the other datasets.
+> Table 5 presents the performance of six large language models on three levels of CBT tasks: basic knowledge acquisition, cognitive model understanding, and therapeutic response generation.
 
 
 {{< table-caption >}}
@@ -382,7 +382,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six large language models on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy, precision, recall, and F1 scores.
+> This table presents the performance of six Large Language Models (LLMs) on three levels of CBT tasks: basic knowledge acquisition, cognitive model understanding, and therapeutic response generation, showing that large LLMs generally perform better on knowledge-based tasks but struggle with complex tasks requiring deeper understanding of cognitive models.
 
 
 {{< table-caption >}}
@@ -394,7 +394,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy, precision, recall, and F1 scores across different datasets.
+> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy for CBT-QA and weighted precision, recall, and F1 scores for other datasets.
 
 
 {{< table-caption >}}
@@ -406,7 +406,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six large language models on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy and F1 scores across different datasets.
+> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, reporting accuracy, precision, recall, and F1 scores across different datasets.
 
 
 {{< table-caption >}}
@@ -418,7 +418,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy for multiple-choice questions and weighted precision, recall, and F1 scores for other tasks.
+> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing that large LLMs perform better on knowledge questions but struggle with complex cognitive tasks.
 
 
 {{< table-caption >}}
@@ -430,7 +430,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> Table 5 presents the performance of six Large Language Models (LLMs) on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy and F1 scores across multiple datasets.
+> Table 5 presents the performance of six large language models on tasks assessing basic CBT knowledge and cognitive model understanding, showing accuracy and F1 scores across datasets.
 
 
 {{< table-caption >}}
@@ -442,7 +442,7 @@ This paper is crucial for AI researchers working on mental healthcare applicatio
 > </details>
 
 
-> This table shows the different types of knowledge in the CBT-QA dataset, provides example question-answer pairs for each type, and indicates the percentage of each type in the test set.
+> The table shows the types of knowledge covered in the CBT-QA dataset, example question-answer pairs for each type, and the percentage of questions belonging to each type.
 
 
 </details>

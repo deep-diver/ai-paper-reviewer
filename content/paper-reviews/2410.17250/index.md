@@ -1,6 +1,6 @@
 ---
 title: "JMMMU: A Japanese Massive Multi-discipline Multimodal Understanding Benchmark for Culture-aware Evaluation"
-summary: "JMMMU, a new Japanese benchmark, provides a comprehensive culture-aware evaluation for Large Multimodal Models, revealing significant performance gaps and highlighting the need for culturally diverse ..."
+summary: "JMMMU, a new benchmark, rigorously evaluates large multimodal models' Japanese language and cultural understanding, revealing significant performance gaps and highlighting the need for culturally awar..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-22", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research introduces JMMMU, a new benchmark for assessing Large Multimodal Models (LMMs) in Japanese.  It addresses the limitations of current English-centric benchmarks by including two key subsets: a culture-agnostic (CA) subset, directly comparable to existing English benchmarks, and a culture-specific (CS) subset designed to evaluate cultural understanding.  Evaluating 18 LMMs, the study reveals significant performance drops in Japanese even on the CA subset, highlighting the importance of language-specific development.  The CS subset further exposes shallow cultural understanding in many models. JMMMU allows for a direct comparison of performance between English and Japanese, revealing purely linguistic performance gaps and cultural understanding shortcomings. This comprehensive benchmark encourages more inclusive and culturally diverse LMM development and evaluation, offering a new standard for benchmarking multilingual AI capabilities.
+This research introduces JMMMU, a novel benchmark designed to thoroughly assess the capabilities of large multimodal models (LMMs) in understanding both the Japanese language and its cultural nuances.  Unlike existing benchmarks that primarily focus on English or lack cultural sensitivity, JMMMU offers a more comprehensive evaluation.  It achieves this through two key subsets: a culture-agnostic (CA) subset, allowing direct comparison with English counterparts, and a culture-specific (CS) subset, uniquely focused on Japanese culture.  Evaluations using JMMMU revealed that many LMMs, while performing well on English benchmarks, struggle significantly in Japanese, highlighting limitations in their true language and cultural understanding. Specifically, models performed worse in Japanese than in English on even the CA subset, indicating a purely language-based performance gap. The CS subset, however, revealed a deeper inadequacy in the models' comprehension of Japanese cultural context. This research underscores the necessity of culturally sensitive and comprehensive evaluation of LMMs, paving the way for the development of more advanced and inclusive multilingual AI systems.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research introduces JMMMU, a new benchmark for assessing Large Multimodal M
 {{< button href="https://arxiv.org/abs/2410.17250" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.17250" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in large multimodal models (LMMs) and cross-cultural AI. It introduces the first large-scale Japanese benchmark, JMMMU, enabling more robust and culturally sensitive evaluations of LMMs.  The findings highlight the limitations of current English-centric evaluations and the need for culturally diverse benchmarks, opening new avenues for research in multilingual LMM development and bias mitigation.
+This paper is crucial for researchers working on large multimodal models (LMMs) and cross-cultural AI.  It introduces JMMMU, the first large-scale Japanese benchmark for evaluating cultural understanding in LMMs, addressing the current lack of comprehensive benchmarks beyond English.  JMMMU's unique design, with both culture-agnostic and culture-specific subsets, allows for a more nuanced evaluation of LMM capabilities and exposes limitations in current models' cross-cultural understanding. This opens avenues for developing more robust and culturally sensitive LMMs, and for creating similar benchmarks for other languages, furthering the development of truly multilingual and inclusive AI.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} JMMMU, the first large-scale Japanese benchmark for evaluating LMMs on expert-level tasks, offers culture-agnostic and culture-specific subsets for comprehensive evaluation. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} JMMMU is the first large-scale Japanese benchmark for evaluating LMMs' cultural understanding. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Many LMMs show performance drops in Japanese compared to English, even on translated, culturally agnostic tasks, highlighting the need for more than just translation in multilingual AI development. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Current LMMs show significant performance drops when evaluated in Japanese, even on culture-agnostic tasks. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Evaluation solely on culture-agnostic tasks misrepresents LMMs' true understanding of culture, making culture-specific datasets crucial for unbiased evaluations. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Combining culture-agnostic and culture-specific evaluations reveals crucial limitations in models' true understanding of language and culture. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, illustrating the number of questions, images, and subjects included in the culture-agnostic and culture-specific subsets.
+> 🔼 The figure shows an overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific questions, along with the number of questions and images, and their distribution across different subjects.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -61,7 +61,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](charts/charts_6_0.png)
 
-> 🔼 The chart shows the correlation between the performance of various large multimodal models on culture-agnostic and culture-specific subsets of a Japanese benchmark, revealing that Japanese models perform particularly well on the culture-specific subset.
+> 🔼 The chart shows the correlation between the performance of various Large Multimodal Models (LMMs) on culture-agnostic (CA) and culture-specific (CS) subsets of the JMMMU benchmark.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Score correlation between subsets. While proprietary models (■) perform the best on both subsets, Japanese LMMs (★) perform remarkably high on CS subset compared to models that perform similarly on CA subset.
@@ -74,7 +74,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 {{< table-caption >}}
 <table id='6' style='font-size:14px'><tr><td>Benchmark</td><td>Culture</td><td>Level</td><td>Questions</td><td>Images</td></tr><tr><td>JA-VG-VQA-500 (SakanaAI, 2024b)</td><td></td><td>Common sense</td><td>500</td><td>500</td></tr><tr><td>LLaVA-Bench-in-the-wild (Turing, 2024b)</td><td></td><td>Common sense</td><td>60</td><td>24</td></tr><tr><td>JA-Multi-Image-VQA (SakanaAI, 2024a)</td><td></td><td>Common sense</td><td>55</td><td>39</td></tr><tr><td>JA-VLM-Bench-in-the-wild (SakanaAI, 2024c)</td><td></td><td>Common sense</td><td>50</td><td>42</td></tr><tr><td>Heron Bench (Inoue et al., 2024b)</td><td></td><td>Common sense</td><td>102</td><td>21</td></tr><tr><td>JMMMU (Ours)</td><td></td><td>Expert</td><td>1,320</td><td>1,118</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares various Japanese LMM benchmarks based on their cultural focus, evaluation level, number of questions, and images.
+> 🔼 Table 1 compares several Japanese LMM benchmarks, highlighting JMMMU's unique focus on expert-level skills and its significantly larger size compared to existing culture-aware benchmarks.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Overview of Japanese LMM benchmarks. JMMMU is the first benchmark that evaluates expert-level skills and is the largest among culture-aware benchmarks.
@@ -91,7 +91,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_2_1.png)
 
-> 🔼 The figure shows a pie chart illustrating the distribution of questions across various subjects in the JMMMU dataset, categorized into culture-agnostic and culture-specific subsets.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in both culture-agnostic and culture-specific subsets, and the subject categories covered.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_2_2.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, illustrating the composition of culture-agnostic and culture-specific questions and their distribution across various subjects.
+> 🔼 The figure shows the overview of the JMMMU dataset, including its composition of culture-agnostic and culture-specific questions, and the number of questions and images in each category.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -111,7 +111,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, detailing its composition of culture-agnostic and culture-specific questions and the number of questions and images.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images included in both culture-agnostic and culture-specific subsets, highlighting its size and scope compared to existing benchmarks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -121,7 +121,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_7_0.png)
 
-> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in culture-agnostic and culture-specific subsets, and highlighting the subjects covered.
+> 🔼 The figure shows a visual overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific subsets and the number of questions and images included.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -131,7 +131,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_8_0.png)
 
-> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images included in its culture-agnostic and culture-specific subsets, and highlighting its size and scope compared to existing benchmarks.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in each of its two subsets (culture-agnostic and culture-specific), highlighting its size and scope compared to existing benchmarks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -141,7 +141,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_13_0.png)
 
-> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in its culture-agnostic and culture-specific subsets, and highlighting its composition across various disciplines.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in both culture-agnostic and culture-specific subsets, categorized by subject area.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -151,7 +151,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_15_0.png)
 
-> 🔼 The figure shows the overview of the JMMMU dataset, which includes 720 culture-agnostic and 600 culture-specific questions, totaling 1320 questions across various subjects, expanding on existing benchmarks.
+> 🔼 The figure shows an overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific questions, image numbers, and subject categories.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -161,7 +161,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_15_1.png)
 
-> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in culture-agnostic and culture-specific subsets, and highlighting its expansion compared to existing benchmarks.
+> 🔼 The figure shows the overview of the JMMMU dataset, which includes 720 culture-agnostic and 600 culture-specific questions, totaling 1320 questions across various subjects.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -171,7 +171,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_15_2.png)
 
-> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific questions across various subject categories.
+> 🔼 The figure shows the composition of the JMMMU dataset, highlighting the number of questions, subjects, and the division into culture-agnostic and culture-specific subsets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -181,7 +181,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_16_0.png)
 
-> 🔼 The figure shows a visual overview of the JMMMU dataset, illustrating the number of questions, image, and subjects included in both the culture-agnostic and culture-specific subsets.
+> 🔼 The figure shows the overview of the JMMMU dataset, detailing the number of questions, images, and subjects categorized into culture-agnostic and culture-specific subsets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -191,17 +191,17 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_16_1.png)
 
-> 🔼 The figure shows the correlation between the performance of Large Multimodal Models (LMMs) on culture-agnostic and culture-specific subsets of a Japanese benchmark.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in its culture-agnostic and culture-specific subsets.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: Score correlation between subsets. While proprietary models (■) perform the best on both subsets, Japanese LMMs (★) perform remarkably high on CS subset compared to models that perform similarly on CA subset.
+> Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
 > </details>
 
 
 
 ![](figures/figures_16_2.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, which includes culture-agnostic and culture-specific questions and images to evaluate large multimodal models on Japanese cultural understanding and language capabilities.
+> 🔼 The figure shows an overview of the JMMMU dataset, detailing its composition of culture-agnostic and culture-specific questions and the overall number of questions and images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -211,7 +211,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_16_3.png)
 
-> 🔼 The figure shows the composition of the JMMMU dataset, detailing the number of questions, image count, and the breakdown into culture-agnostic and culture-specific subsets.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of culture-agnostic and culture-specific questions and their distribution across various subjects.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -221,7 +221,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, illustrating the distribution of culture-agnostic and culture-specific questions across various subjects.
+> 🔼 The figure shows a visual overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific question subsets and their respective numbers.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -231,7 +231,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_1.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, illustrating the number of questions, images, and the breakdown between culture-agnostic and culture-specific subjects.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images in both culture-agnostic and culture-specific subsets, highlighting its size and scope compared to existing benchmarks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -241,7 +241,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_2.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific questions and the subjects covered.
+> 🔼 Figure 1 shows an overview of the JMMMU dataset, illustrating the number of questions and images in its two subsets: culture-agnostic and culture-specific.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -251,7 +251,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_3.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific questions and the overall number of questions and images.
+> 🔼 The figure shows the overview of the JMMMU dataset, which includes 720 culture-agnostic and 600 culture-specific questions, totaling 1320 questions across various subjects.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -261,7 +261,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_4.png)
 
-> 🔼 The figure shows an overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific questions, totaling 1320 questions across various subjects.
+> 🔼 The figure shows an overview of the JMMMU dataset, illustrating its composition of culture-agnostic and culture-specific questions and the overall number of questions and images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -271,7 +271,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_5.png)
 
-> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images included in the culture-agnostic and culture-specific subsets.
+> 🔼 The figure shows a breakdown of the JMMMU dataset, illustrating the number of questions and images, and the distribution across culture-agnostic and culture-specific subsets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the JMMMU dataset. JMMMU includes 720 culture-agnostic (translation-based) questions and 600 culture-specific (newly created) questions, totaling 1,320 questions, thus expanding the existing culture-aware Japanese benchmark (Inoue et al., 2024b) by over 10 times. JMMMU serves as a diagnostic tool for assessing both Japanese cultural understanding and culture-agnostic language understanding capability.
@@ -281,7 +281,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_6.png)
 
-> 🔼 The figure shows example questions from the culture-specific subset of the JMMMU benchmark, highlighting the cultural knowledge required to answer them.
+> 🔼 Figure E shows example questions from the culture-specific subset of the JMMMU benchmark, highlighting their focus on Japanese cultural knowledge.
 > <details>
 > <summary>read the caption</summary>
 > Figure E: Examples in culture-specific subjects. The questions are created by Japanese native speakers and requires knowledge of Japanese culture.
@@ -291,7 +291,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](figures/figures_17_7.png)
 
-> 🔼 Figure 6 shows four examples of GPT-40's errors in JMMMU, categorized by error type: lack of knowledge, image recognition error, answer rejection, and textual misunderstanding.
+> 🔼 Figure 6 presents four example questions from the JMMMU benchmark to illustrate the four main error categories identified when evaluating LMMs on the benchmark.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Examples from each error type: (a) Lack of Knowledge, where the model does not know the necessary information; (b) Image Recognition Errors, where the model fails to correctly interpret the image; (c) Answer Rejection, where the model rejects to answer; and (d) Textual Misunderstanding, where the response is not aligned with the question.
@@ -310,7 +310,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](charts/charts_7_0.png "🔼 Figure 5: Error distribution over culture-specific subjects. Lack of Knowledge is the majority error type at over 50%.")
 
-> 🔼 The chart shows the distribution of error types in GPT-40's responses to culture-specific questions, with the majority (53.8%) being due to a lack of knowledge.
+> 🔼 The chart shows the distribution of error types in the culture-specific subset of the JMMMU benchmark, with the majority of errors (53.8%) attributed to a lack of knowledge.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Error distribution over culture-specific subjects. Lack of Knowledge is the majority error type at over 50%.
@@ -319,7 +319,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 
 ![](charts/charts_14_0.png "🔼 Figure 3: Score correlation between subsets. While proprietary models (■) perform the best on both subsets, Japanese LMMs (★) perform remarkably high on CS subset compared to models that perform similarly on CA subset.")
 
-> 🔼 The chart shows the correlation between the performance of various Large Multimodal Models (LMMs) on culture-agnostic and culture-specific subsets of a Japanese benchmark, highlighting the superior performance of Japanese LMMs on culture-specific tasks.
+> 🔼 The chart displays the correlation between the performance of various large multimodal models (LMMs) on culture-agnostic and culture-specific subsets of a Japanese benchmark, highlighting the strong performance of Japanese LMMs on the culture-specific subset.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Score correlation between subsets. While proprietary models (■) perform the best on both subsets, Japanese LMMs (★) perform remarkably high on CS subset compared to models that perform similarly on CA subset.
@@ -344,7 +344,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 > </details>
 
 
-> Table 2 presents the overall performance of various large multimodal models (LMMs) on the JMMMU benchmark, broken down by model type, subset (culture-agnostic and culture-specific), and individual subject areas, showing the overall performance and highlighting the best-performing models.
+> Table 2 presents the overall performance of various Large Multimodal Models (LMMs) on the JMMMU benchmark, broken down by model type, subset (culture-agnostic and culture-specific), and individual subjects, showing overall performance scores and highlighting the best-performing models.
 
 
 {{< table-caption >}}
@@ -356,7 +356,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 > </details>
 
 
-> Table 3 shows the impact of translating image and text on the performance of various LLMs in a culture-agnostic subset of the JMMMU benchmark.
+> Table 3 presents the effects of translating images and/or text from English to Japanese on various large multimodal models' performance.
 
 
 {{< table-caption >}}
@@ -368,7 +368,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 > </details>
 
 
-> Table A summarizes whether each large multimodal model (LMM) officially supports Japanese, indicating official support with a checkmark and lack of support with an X.
+> This table summarizes the Japanese language support status for various large multimodal models (LMMs), indicating whether each model officially supports Japanese or not.
 
 
 {{< table-caption >}}
@@ -380,19 +380,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 > </details>
 
 
-> Table 2 presents the overall performance of various LLMs on the JMMMU benchmark, broken down by model type, subset (culture-agnostic and culture-specific), and individual subject areas, showing the average and best performing models.
-
-
-{{< table-caption >}}
-<br><table id='33' style='font-size:18px'><tr><td>A.</td><td>オペラント条件付け (Operant conditioning)</td></tr><tr><td>B.</td><td>古典的条件付け (Classical conditioning)</td></tr><tr><td>C.</td><td>準備された条件付け (Prepared conditioning)</td></tr><tr><td>D.</td><td>自己実現 (Self-actualization)</td></tr><tr><td>E.</td><td>観察学習 (Observational learning)</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
-> <details>
-> <summary>read the caption</summary>
-> {{ table.caption }}
-> </details>
-
-
-> Table 1 compares various Japanese LMM benchmarks across different aspects such as culture focus, knowledge level, and the number of questions and images.
+> Table 2 presents the overall performance of various Large Multimodal Models (LMMs) on the JMMMU benchmark, broken down by model type, subset (culture-agnostic and culture-specific), and individual subject area, highlighting performance differences between English and Japanese and between open-source and proprietary models.
 
 
 {{< table-caption >}}
@@ -404,7 +392,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 > </details>
 
 
-> Table 2 presents the overall performance of various Large Multimodal Models (LMMs) on the JMMMU benchmark, broken down by model type, subset (culture-agnostic or culture-specific), and individual subject area.
+> The table presents the overall performance of various large multimodal models (LMMs) on the JMMMU benchmark, broken down by model type, subset (culture-agnostic, culture-specific), and individual subjects, showing performance gaps between English and Japanese and highlighting the need for improvement in cultural understanding.
 
 
 {{< table-caption >}}
@@ -416,7 +404,7 @@ This paper is crucial for researchers in large multimodal models (LMMs) and cros
 > </details>
 
 
-> This table summarizes whether each large multimodal model (LMM) officially supports Japanese.
+> Table 1 compares various Japanese LMM benchmarks based on their cultural focus, question type, and the number of questions and images.
 
 
 </details>

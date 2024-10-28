@@ -1,6 +1,6 @@
 ---
 title: "FiTv2: Scalable and Improved Flexible Vision Transformer for Diffusion Model"
-summary: "FiTv2, an enhanced vision transformer, enables efficient and high-quality image generation at arbitrary resolutions and aspect ratios, surpassing existing diffusion models."
+summary: "FiTv2, an enhanced flexible vision transformer, achieves state-of-the-art image generation by dynamically processing images as sequences of tokens, overcoming resolution limitations of prior models."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The research paper introduces FiTv2, an upgraded version of the Flexible Vision Transformer (FiT) for generating images.  The core improvement lies in treating images as sequences of tokens with dynamic sizes, rather than fixed grids.  This approach enables FiTv2 to handle various image resolutions and aspect ratios effectively during both training and inference.  FiTv2 boasts several innovative features, including Query-Key vector normalization, the AdaLN-LORA module, and a rectified flow scheduler, which lead to a faster convergence rate (twice as fast as FiT). Experiments show FiTv2's superior performance across various image resolutions, especially in handling high-resolution images beyond its initial training range.  The model also shows improvements in class-guided and text-to-image generation.  The researchers have made the codes and models publicly available to encourage further exploration in arbitrary-resolution image generation using diffusion transformer models.
+The research introduces FiTv2, an upgraded version of a flexible vision transformer for generating images.  Unlike traditional methods that treat images as fixed-size grids, FiTv2 views images as variable-length sequences of tokens. This innovative approach enables the model to handle various resolutions and aspect ratios seamlessly during training and inference, improving resolution generalization and eliminating biases from image cropping.  FiTv2 incorporates several improvements, such as Query-Key vector normalization, the AdaLN-LORA module, and a rectified flow scheduler, resulting in a 2x faster convergence speed compared to its predecessor (FiT). Extensive experiments show FiTv2 outperforming state-of-the-art models on various image generation tasks across different resolutions and demonstrates impressive scalability with larger model sizes.  A post-training method allows adaptation to higher resolutions efficiently. The findings are significant for generating high-resolution and diverse images while also having relevance to other image generation approaches.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The research paper introduces FiTv2, an upgraded version of the Flexible Vision 
 {{< button href="https://arxiv.org/abs/2410.13925" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13925" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in image generation and diffusion models.  It introduces FiTv2, a significantly improved architecture that addresses limitations in handling diverse resolutions and aspect ratios. FiTv2's superior performance and scalability open new avenues for high-resolution image synthesis and efficient model training, influencing future research in this rapidly evolving field.
+This paper is crucial for researchers in image generation and diffusion models.  It addresses the limitations of existing models in handling varying resolutions and aspect ratios, offering a novel, scalable architecture (FiTv2). The improved training strategies and enhanced resolution adaptability open exciting avenues for future research in high-resolution image synthesis and diverse application areas.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} FiTv2 significantly improves upon its predecessor (FiT) by incorporating innovative designs such as Query-Key vector normalization and AdaLN-LORA, resulting in a 2x faster convergence speed. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} FiTv2 significantly improves image generation quality and training stability compared to previous models like FiT and DiT, achieving state-of-the-art results. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} FiTv2 demonstrates remarkable adaptability in generating images at resolutions beyond its training range, exceeding the performance of existing state-of-the-art models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} FiTv2's flexible architecture handles diverse resolutions and aspect ratios effectively, overcoming a major limitation of existing diffusion models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The paper introduces an efficient post-training strategy for adapting pre-trained models to high-resolution image generation, reducing computational costs. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The proposed training-free resolution extrapolation techniques enhance FiTv2's ability to generalize to resolutions outside its training data, expanding its applicability. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_2_0.png)
 
-> 🔼 Figure 1 showcases example images generated by the FiTv2-3B/2 model at various resolutions and aspect ratios, demonstrating its ability to generate high-quality images across a wide range of resolutions.
+> 🔼 Figure 1 showcases example images generated by the FiTv2-3B/2 model at various resolutions and aspect ratios, demonstrating its ability to generate high-quality images across a wide range of resolutions and aspect ratios.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
@@ -61,7 +61,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](charts/charts_3_0.png)
 
-> 🔼 The chart displays the distribution of image heights and widths in the ImageNet dataset.
+> 🔼 The chart displays the distribution of image height and width in the ImageNet dataset.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 2: The Height/Width distribution of the original ImageNet [1] dataset.
@@ -74,10 +74,10 @@ This paper is crucial for researchers in image generation and diffusion models. 
 {{< table-caption >}}
 <table id='20' style='font-size:16px'><tr><td>cos m01</td><td>- sin m01 ...</td><td>0</td><td>0</td></tr><tr><td>sin m01</td><td>COS m01 ...</td><td>0</td><td>0</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table I details the architecture of three FiTv2 models (base, XL, and 3B parameter), specifying the number of layers, hidden size, number of heads, and computational cost (GFLOPs and parameters) for each.
+> 🔼 Table I details the architecture of various FiTv2 models, including their number of layers, hidden size, number of heads, total parameters, and GFLOPS.
 > <details>
 > <summary>read the caption</summary>
-> TABLE I: Details of FiTv2 model architecture. We follow our original FiT to set the base model and XL model for FiTv2. We also scale up our FiTv2 to 3 billion parameters as our largest model.
+> TABLE I: Details of FiTv2 model architecture. We follow our original FiT to set the base model and XL model for FiTv2. We also scale up our FiTv2 to 3 billion parameters as our largets model.
 > </details>
 
 
@@ -91,7 +91,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_5_0.png)
 
-> 🔼 Figure 3 illustrates the flexible training and inference pipelines of FiTv2, which processes images as dynamic sequences of tokens to handle various resolutions and aspect ratios.
+> 🔼 Figure 3 illustrates the flexible training and inference pipelines of FiTv2, which treat images as sequences of tokens to enable flexible image generation at various resolutions and aspect ratios.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 3: Overview of (a) flexible training pipeline, and (b) flexible inference pipeline. We conceptualize images as dynamic sequences of tokens, allowing for flexible image generation across different resolutions and aspect ratios.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_5_1.png)
 
-> 🔼 The figure shows a comparison of FiT and FiTv2 blocks, highlighting the new modules added in FiTv2 for improved stability and efficiency.
+> 🔼 Figure 4 shows a comparison of the FiT block architecture with the improved FiTv2 block architecture, highlighting the added QK-Norm, AdaLN-Lora, and Global AdaLN modules.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 4: Block comparison between (a) FiT and (b) FiTv2. New modules, QKNorm, AdaLN-LoRA and Global AdaLN, are marked by red color.
@@ -111,7 +111,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_6_0.png)
 
-> 🔼 Figure 5 illustrates the data preprocessing pipelines of DiT, FiT, and FiTv2, highlighting FiTv2's mixed data preprocessing strategy to improve performance on both fixed and flexible resolutions.
+> 🔼 Figure 5 illustrates the differences in image data preprocessing pipelines between DiT, FiT, and FiTv2, highlighting FiTv2's approach of incorporating both fixed- and flexible-resolution images during training.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 5: Pipeline comparison between (a) DiT, (b) FiT, and (c) FiTv2. In FiTv2, we incorporate both fixed-resolution images and the flexible-resolution images into training process.
@@ -121,7 +121,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_7_0.png)
 
-> 🔼 Figure 6 illustrates the flexible training pipeline for text-to-image generation using FiTv2, incorporating CLIP for text encoding and SD-XL VAE for image latent encoding.
+> 🔼 Figure 6 shows the architecture of the text-to-image generation model, which utilizes CLIP to encode text prompts and SD-XL VAE to encode image latents.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 6: Overview of our text-to-image generation model flexible training pipeline. We utilize CLIP-L to encode text prompts and SD-XL VAE to encode image latents.
@@ -131,17 +131,17 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_12_0.png)
 
-> 🔼 The figure illustrates the differences in data preprocessing pipelines for DiT, FiT, and FiTv2, highlighting FiTv2's incorporation of both fixed and flexible resolution images for training.
+> 🔼 Figure 9 shows example images generated by the FiTv2-XL/2 model from text prompts at 256x256 resolution, demonstrating its text-to-image generation capabilities.
 > <details>
 > <summary>read the caption</summary>
-> Fig. 5: Pipeline comparison between (a) DiT, (b) FiT, and (c) FiTv2. In FiTv2, we incorporate both fixed-resolution images and the flexible-resolution images into training process.
+> Fig. 9: Selected samples from FiTv2-XL/2 models at resolutions of 256 × 256 on text-to-image generation tasks. All the images are sampled with CFG=4.0. With only 400K training steps, our model is capable of generating releastic images according to text descriptions.
 > </details>
 
 
 
 ![](figures/figures_12_1.png)
 
-> 🔼 Figure 1 shows example images generated by FiTv2 at various resolutions and aspect ratios, demonstrating its ability to generate high-quality images across a wide range of resolutions and aspect ratios.
+> 🔼 Figure 1 shows various example images generated by the FiTv2 model at different resolutions and aspect ratios, demonstrating the model's ability to generate high-quality images across a wide range of resolutions.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
@@ -151,7 +151,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_12_2.png)
 
-> 🔼 Figure 1 shows example images generated by FiTv2 at various resolutions and aspect ratios, highlighting its ability to generate high-quality images across a wide range of resolutions.
+> 🔼 Figure 1 showcases image samples generated by FiTv2-3B/2 model at various resolutions and aspect ratios, demonstrating its ability to generate high-quality images at arbitrary resolutions.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
@@ -161,27 +161,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_12_3.png)
 
-> 🔼 Figure 1 shows example images generated by FiTv2 at various resolutions and aspect ratios, demonstrating its ability to generate high-quality images at resolutions and aspect ratios beyond those seen during training.
-> <details>
-> <summary>read the caption</summary>
-> Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 × 256, 512 × 512, 768 × 768, 256 × 768 and 768 × 256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
-> </details>
-
-
-
-![](figures/figures_12_4.png)
-
-> 🔼 Figure 9 shows examples of images generated by the FiTv2-XL/2 model from text descriptions, demonstrating its ability to generate realistic images with only 400K training steps.
-> <details>
-> <summary>read the caption</summary>
-> Fig. 9: Selected samples from FiTv2-XL/2 models at resolutions of 256 × 256 on text-to-image generation tasks. All the images are sampled with CFG=4.0. With only 400K training steps, our model is capable of generating releastic images according to text descriptions.
-> </details>
-
-
-
-![](figures/figures_12_5.png)
-
-> 🔼 The figure showcases various images generated by the FiTv2-3B/2 model at different resolutions and aspect ratios, demonstrating its ability to generate high-quality images across a wide range of resolutions.
+> 🔼 Figure 1 showcases example images generated by the FiTv2-3B/2 model at various resolutions and aspect ratios, demonstrating its ability to produce high-quality images across different scales.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
@@ -189,19 +169,39 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 
 
-![](figures/figures_12_6.png)
+![](figures/figures_12_4.png)
 
-> 🔼 The figure showcases example images generated by the FiTv2-XL/2 model at 256x256 resolution based on corresponding text descriptions, demonstrating its text-to-image generation capabilities.
+> 🔼 Figure 1 showcases image samples generated by FiTv2 at various resolutions and aspect ratios, highlighting its ability to generate high-quality images at unrestricted resolutions.
 > <details>
 > <summary>read the caption</summary>
-> Fig. 9: Selected samples from FiTv2-XL/2 models at resolutions of 256 × 256 on text-to-image generation tasks. All the images are sampled with CFG=4.0. With only 400K training steps, our model is capable of generating releastic images according to text descriptions.
+> Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
+> </details>
+
+
+
+![](figures/figures_12_5.png)
+
+> 🔼 The figure compares the data preprocessing pipelines of DiT, FiT, and FiTv2, highlighting FiTv2's incorporation of both fixed and flexible resolution images for improved training.
+> <details>
+> <summary>read the caption</summary>
+> Fig. 5: Pipeline comparison between (a) DiT, (b) FiT, and (c) FiTv2. In FiTv2, we incorporate both fixed-resolution images and the flexible-resolution images into training process.
+> </details>
+
+
+
+![](figures/figures_12_6.png)
+
+> 🔼 Figure 1 showcases example images generated by FiTv2 across a range of resolutions and aspect ratios demonstrating the model's flexibility and high-resolution capabilities.
+> <details>
+> <summary>read the caption</summary>
+> Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
 > </details>
 
 
 
 ![](figures/figures_12_7.png)
 
-> 🔼 Figure 1 showcases image samples generated by FiTv2-3B/2 at various resolutions and aspect ratios, demonstrating its ability to generate high-quality images at different resolutions.
+> 🔼 Figure 1 showcases image samples generated by the FiTv2-3B/2 model across various resolutions and aspect ratios, demonstrating its ability to generate high-quality images at different scales.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
@@ -211,7 +211,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_12_8.png)
 
-> 🔼 Figure 1 showcases image samples generated by the FiTv2-3B/2 model across various resolutions and aspect ratios, demonstrating its ability to generate high-quality images at unrestricted resolutions.
+> 🔼 Figure 1 shows example images generated by the FiTv2-3B/2 model at various resolutions and aspect ratios, demonstrating its ability to generate high-quality images across a wide range of resolutions.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 1: Selected samples from FiTv2-3B/2 models at resolutions of 256 ×256, 512×512, 768×768, 256×768 and 768×256. All the images are sampeld with CFG=4.0. FiT is capable of generating images at unrestricted resolutions and aspect ratios. FiTv2 pushes the image generation ability of FiT to a new level, capable of generating better and higher-resolution images.
@@ -221,7 +221,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](figures/figures_12_9.png)
 
-> 🔼 Figure 9 shows example images generated by the FiTv2-XL/2 model for various text prompts, demonstrating its ability to generate realistic images from text descriptions.
+> 🔼 Figure 9 shows example images generated by FiTv2-XL/2 model from text prompts at 256x256 resolution, demonstrating its text-to-image generation capability.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 9: Selected samples from FiTv2-XL/2 models at resolutions of 256 × 256 on text-to-image generation tasks. All the images are sampled with CFG=4.0. With only 400K training steps, our model is capable of generating releastic images according to text descriptions.
@@ -240,7 +240,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](charts/charts_8_0.png "🔼 Fig. 7: Effect of classifier-free guidance scale on FID score for ImageNet-256 × 256 and ImageNet-512 × 512 experiments with (a) FiTv2-XL/2 and (b) FiTv2-3B/2 models. (a) For FiTv2-XL/2 model, the optimal performance is achieved with CFG=1.5 for 256 × 256 resolution and CFG=1.65 for 512x 512 resolution. (b) For FiTv2-3B/2 model, the optimal performance is observed with CFG=1.5 for 256 × 256 resolution and CFG=1.6 for 512 × 512 resolution.")
 
-> 🔼 The chart displays the impact of classifier-free guidance (CFG) scale on the FID score for FiTv2 models at different resolutions (256x256 and 512x512).
+> 🔼 The chart displays the relationship between classifier-free guidance (CFG) scale and FID score for FiTv2 models on ImageNet datasets with resolutions 256x256 and 512x512.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 7: Effect of classifier-free guidance scale on FID score for ImageNet-256 × 256 and ImageNet-512 × 512 experiments with (a) FiTv2-XL/2 and (b) FiTv2-3B/2 models. (a) For FiTv2-XL/2 model, the optimal performance is achieved with CFG=1.5 for 256 × 256 resolution and CFG=1.65 for 512x 512 resolution. (b) For FiTv2-3B/2 model, the optimal performance is observed with CFG=1.5 for 256 × 256 resolution and CFG=1.6 for 512 × 512 resolution.
@@ -249,7 +249,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](charts/charts_11_0.png "🔼 Fig. 8: Effect of scaling FiTv2 model. All the images are sampled without using CFG. We demonstrate FID over training iterations (a) and training GFLOPs (b) of our FiTv2 model of three sizes. Scaling our FiTv2 model yields better quantitative and qualitative performance.")
 
-> 🔼 The chart displays the impact of training steps and GFLOPs on the FID score for three different sizes of the FiTv2 model, demonstrating improved performance with increased scale.
+> 🔼 The chart displays the relationship between FID score and both training steps and training GFLOPs for three different sizes of the FiTv2 model, illustrating the impact of model scaling on performance.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 8: Effect of scaling FiTv2 model. All the images are sampled without using CFG. We demonstrate FID over training iterations (a) and training GFLOPs (b) of our FiTv2 model of three sizes. Scaling our FiTv2 model yields better quantitative and qualitative performance.
@@ -258,7 +258,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 
 ![](charts/charts_12_0.png "🔼 Fig. 10: Comparision of FID and CLIP-L score across different CFG scales for two text-to-image models: FiTv2-XL/2 and SiT-XL/2. FiTv2-XL/2 significantly outperforms SiT-XL/2 in terms of FID score and CLIP-L score.")
 
-> 🔼 The chart compares the FID and CLIP-L scores of FiTv2-XL/2 and SiT-XL/2 models at various classifier-free guidance (CFG) scales for text-to-image generation.
+> 🔼 The chart compares the FID and CLIP-L scores of FiTv2-XL/2 and SiT-XL/2 models at various CFG scales for text-to-image generation, showing FiTv2-XL/2's superior performance.
 > <details>
 > <summary>read the caption</summary>
 > Fig. 10: Comparision of FID and CLIP-L score across different CFG scales for two text-to-image models: FiTv2-XL/2 and SiT-XL/2. FiTv2-XL/2 significantly outperforms SiT-XL/2 in terms of FID score and CLIP-L score.
@@ -295,7 +295,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 > </details>
 
 
-> Table II presents an ablation study comparing different configurations of FiTv2-B/2 model, showing the impact of various design choices on FID scores and training stability.
+> Table II shows ablation study results comparing different configurations of FiT and FiTv2 models, highlighting the impact of various design choices on model performance and training stability.
 
 
 {{< table-caption >}}
@@ -307,7 +307,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 > </details>
 
 
-> Table II presents ablation study results comparing different configurations of FiT and FiTv2 models, showing the impact of various design choices on FID score and training stability.
+> Table II presents ablation study results on FiTv2-B/2 model variants, comparing different components against each other regarding FID scores at various training steps and evaluating training stability.
 
 
 {{< table-caption >}}
@@ -319,7 +319,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 > </details>
 
 
-> Table IV presents a comparison of class-conditional image generation performance metrics (FID, sFID, IS, Precision, Recall) across various state-of-the-art models on ImageNet, focusing on in-distribution resolutions (256x256, 160x320, 128x384).
+> Table IV presents a comparison of various class-conditional image generation models on ImageNet using in-distribution resolutions, evaluating their performance using FID, sFID, IS, Precision, and Recall.
 
 
 {{< table-caption >}}
@@ -331,7 +331,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 > </details>
 
 
-> Table V presents a comparison of class-conditional image generation models' performance on out-of-distribution resolutions of ImageNet, highlighting FiTv2's state-of-the-art performance and strong extrapolation capabilities.
+> Table V presents a comparison of different models' performance on class-conditional image generation tasks using out-of-distribution resolutions on the ImageNet dataset, highlighting FiTv2's superior performance and extrapolation capabilities.
 
 
 {{< table-caption >}}
@@ -343,7 +343,7 @@ This paper is crucial for researchers in image generation and diffusion models. 
 > </details>
 
 
-> Table VI presents a benchmark comparing FiTv2's performance against other state-of-the-art models on class-conditional image generation tasks using various high-resolution images and aspect ratios.
+> Table VI presents a comparison of FiTv2 against several state-of-the-art models on image generation tasks with high resolutions, showcasing FiTv2's superior performance across different aspect ratios.
 
 
 </details>

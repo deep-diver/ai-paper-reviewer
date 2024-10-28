@@ -1,6 +1,6 @@
 ---
 title: "Framer: Interactive Frame Interpolation"
-summary: "Framer: a novel interactive frame interpolation method allows users to customize video transitions by intuitively adjusting keypoints, resulting in seamless and creative video generation."
+summary: "Framer: an interactive frame interpolation tool lets users customize video transitions by adjusting keypoints, yielding smooth, creative results—even handling complex scenarios with an 'autopilot' mod..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Framer is a new method for creating smooth and visually appealing transitions between two images. Unlike traditional methods that automatically generate transitions, Framer lets users customize the process by moving selected points (keypoints) in the images. This gives users more control over how objects move and change, making it possible to create more natural and creative transitions. The system uses a large pre-trained image-to-video model, which means it can generate high-quality results.  Additionally, Framer includes an 'autopilot' mode that automatically estimates the paths of the keypoints, which is helpful if the user doesn't want to manually adjust them.  Overall, Framer offers a flexible and intuitive way to create various kinds of video transitions, including image morphing, time-lapse videos, cartoon interpolation, and others.  The research provides several examples of how the system works across different applications.
+Framer is a new approach to video frame interpolation that lets users interactively create smooth transitions between two images. Unlike traditional methods that automatically generate transitions, Framer allows users to customize the process by dragging and manipulating keypoints on the images. This gives users more control over the final result.  The paper also introduces an "autopilot" mode that automatically estimates the keypoints and their trajectories, making it easier to use for users who don't want to manually adjust the keypoints. Experiments show Framer produces high-quality results in various applications, including image morphing, time-lapse video generation, and cartoon animation, often outperforming existing methods.  The core innovation is the blend of human interaction and a generative model, allowing for both fine-grained control and ease of use.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Framer is a new method for creating smooth and visually appealing transitions be
 {{< button href="https://arxiv.org/abs/2410.18978" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18978" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is significant because it introduces an interactive approach to frame interpolation, a crucial area in video processing and computer graphics.  The interactive element addresses limitations of traditional methods, allowing users to customize transitions, handle complex scenarios and control local motions. The use of a pre-trained video diffusion model enhances visual quality, making the findings relevant to researchers working on generative models, video editing tools, and animation. The release of code and model further facilitates broader research and development.
+This paper is important for researchers working on video frame interpolation, generative models, and human-computer interaction.  It introduces a novel interactive approach that bridges the gap between fully automated and entirely manual methods, offering a more intuitive and controllable way to generate high-quality results. The "autopilot" mode also simplifies the process for users who prefer less interaction.  Furthermore, the integration of user-guided controls and the use of a generative model offer promising new avenues for research and development in related fields.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Framer introduces an interactive approach to frame interpolation, enabling users to customize transitions by manipulating keypoints. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Framer allows users to customize video transitions by interactively adjusting keypoints, enabling finer control over local motions. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The method utilizes a pre-trained video diffusion model for high-quality interpolation results, even in challenging cases. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The "autopilot" mode automates keypoint trajectory estimation, simplifying usage and producing high-quality results. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} An "autopilot" mode automates keypoint trajectory estimation, simplifying user interaction and making the method more practical. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Framer demonstrates superior performance on various applications (image morphing, time-lapse generation) compared to existing methods. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_1_0.png)
 
-> 🔼 Figure 1 showcases examples of interactive frame interpolation results generated by Framer, highlighting its ability to handle various levels of motion and image changes.
+> 🔼 Figure 1 shows examples of interactive frame interpolation results generated by the Framer model, highlighting its ability to customize local motions and handle challenging cases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -61,7 +61,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](charts/charts_15_0.png)
 
-> 🔼 The chart displays the FID and FVD scores on DAVIS-7 dataset for different 3D-UNet decoder feature indices used for point tracking.
+> 🔼 The chart shows the FID and FVD scores on DAVIS-7 dataset for different 3D-UNet decoder feature indices used for point tracking.
 > <details>
 > <summary>read the caption</summary>
 > Figure S1: Ablations on diffusion feature for point tracking at test time, experiments conducted on DAVIS-7 (left) and UCF101-7 (right).
@@ -74,7 +74,7 @@ This paper is significant because it introduces an interactive approach to frame
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td></td><td colspan="4">DAVIS-7</td><td colspan="6">UCF101-7</td></tr><tr><td></td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>FID↓</td><td>FVD↓</td><td>PSNR↑</td><td>SSIM↑</td><td>LPIPS↓</td><td>FID↓</td><td>FVD↓</td></tr><tr><td>AMT (Li et al., 2023)</td><td>21.66</td><td>0.7229</td><td>0.2860</td><td>39.17</td><td>245.25</td><td>26.64</td><td>0.9000</td><td>0.1878</td><td>37.80</td><td>270.98</td></tr><tr><td>RIFE (Huang et al., 2020)</td><td>22.00</td><td>0.7216</td><td>0.2663</td><td>39.16</td><td>319.79</td><td>27.04</td><td>0.9020</td><td>0.1575</td><td>27.96</td><td>300.40</td></tr><tr><td>FLAVR Kalluri et al. (2023)</td><td>20.94</td><td>0.6880</td><td>0.3305</td><td>52.23</td><td>296.37</td><td>26.50</td><td>0.8982</td><td>0.1836</td><td>37.79</td><td>279.58</td></tr><tr><td>FILM (Reda et al., 2022)</td><td>21.67</td><td>0.7121</td><td>0.2191</td><td>17.20</td><td>162.86</td><td>26.74</td><td>0.8983</td><td>0.1378</td><td>16.22</td><td>239.48</td></tr><tr><td>LDMVFI (Danier et al., 2024)</td><td>21.11</td><td>0.6900</td><td>0.2535</td><td>21.96</td><td>269.72</td><td>26.68</td><td>0.8955</td><td>0.1446</td><td>17.55</td><td>270.33</td></tr><tr><td>DynamicCrafter (Xing et al., 2023)</td><td>15.48</td><td>0.4668</td><td>0.4628</td><td>35.95</td><td>468.78</td><td>17.62</td><td>0.7082</td><td>0.3361</td><td>61.71</td><td>646.91</td></tr><tr><td>SVDKFI (Wang et al., 2024a)</td><td>16.71</td><td>0.5274</td><td>0.3440</td><td>26.59</td><td>382.19</td><td>21.04</td><td>0.7991</td><td>0.2146</td><td>44.81</td><td>301.33</td></tr><tr><td>Framer (Ours)</td><td>21.23</td><td>0.7218</td><td>0.2525</td><td>27.13</td><td>115.65</td><td>25.04</td><td>0.8806</td><td>0.1714</td><td>31.69</td><td>181.55</td></tr><tr><td>Framer with Co-Tracker (Ours)</td><td>22.75</td><td>0.7931</td><td>0.2199</td><td>27.43</td><td>102.31</td><td>27.08</td><td>0.9024</td><td>0.1714</td><td>32.37</td><td>159.87</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 quantitatively compares Framer with other video interpolation methods using reconstruction and generative metrics across 7 generated frames.
+> 🔼 Table 1 quantitatively compares Framer with other video interpolation methods using reconstruction and generative metrics across all seven generated frames.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Quantitative comparison with existing video interpolation methods on reconstruction and generative metrics, evaluated on all 7 generated frames.
@@ -91,7 +91,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_4_0.png)
 
-> 🔼 Figure 2 illustrates the overall architecture of Framer, detailing its interactive mode, autopilot mode, trajectory controlling branch, and video frame interpolation fine-tuning process.
+> 🔼 Figure 2 illustrates the architecture of Framer, showing its interactive mode, autopilot mode, trajectory controlling branch, and video frame interpolation fine-tuning process.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Framer supports (a) a user-interactive mode for customized point trajectories and (b) an 'autopilot' mode for video frame interpolation without trajectory inputs. During training, (d) we fine-tune the 3D-UNet of a pre-trained video diffusion model for video frame interpolation. Afterward, (c) we introduce point trajectory control by freezing the 3D-UNet and fine-tuning the controlling branch.
@@ -101,7 +101,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_5_0.png)
 
-> 🔼 Figure 3 illustrates the bi-directional point tracking method used in Framer's 'autopilot' mode to estimate point trajectories for video frame interpolation.
+> 🔼 Figure 3 illustrates the bi-directional point tracking method used in Framer's 'autopilot' mode for estimating point trajectories.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Point trajectory estimation. The point trajectory is initialized by interpolating the coordinates of matched keypoints. In each de-noising step, we perform point tracking by finding the nearest neighbor of keypoints in the start and end frames, respectively. Lastly, We check the bi-directional tracking consistency before updating the point coordinate.
@@ -111,7 +111,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_6_0.png)
 
-> 🔼 Figure 4 shows a qualitative comparison of the proposed Framer method with other state-of-the-art video frame interpolation methods on various video clips.
+> 🔼 Figure 4 shows a qualitative comparison of the middle frame of seven interpolated frames generated by different methods, including the ground truth.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Qualitative comparison. 'GT’ strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
@@ -121,7 +121,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_6_1.png)
 
-> 🔼 The figure is a pie chart showing the percentage of human preference for Framer compared to other video interpolation methods.
+> 🔼 The figure is a pie chart showing the results of a human preference test comparing Framer with several other video interpolation methods, indicating that Framer is overwhelmingly preferred.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Reults on human preference.
@@ -131,7 +131,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_7_0.png)
 
-> 🔼 The figure showcases the results of user interaction in the Framer model, demonstrating how different drag controls affect the generated frames and their trajectories.
+> 🔼 The figure shows three sets of video frame interpolation results, each generated with different drag controls, demonstrating the fine-grained customization offered by the Framer model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Results on user interaction. The first row is generated without drag input, while the other two are generated with different drag controls. Customized trajectories are overlaid on frames.
@@ -141,7 +141,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_7_1.png)
 
-> 🔼 The figure showcases examples of frame interpolation results generated by the proposed Framer model, highlighting its ability to customize local motions and handle challenging cases.
+> 🔼 The figure showcases various frame interpolation results generated by the Framer model, highlighting its ability to handle fine-grained customization and challenging scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -151,7 +151,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_8_0.png)
 
-> 🔼 Figure 1 shows example results of the Framer model performing interactive frame interpolation, demonstrating fine-grained control over local motions and the ability to handle challenging cases.
+> 🔼 Figure 1 showcases examples of frame interpolation results generated by the Framer model, highlighting its ability to customize local motions and handle challenging interpolation scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -161,7 +161,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_8_1.png)
 
-> 🔼 Figure 1 shows example results generated by the Framer model, highlighting its ability to customize local motions and produce smooth interpolation results even in challenging cases.
+> 🔼 Figure 1 showcases examples of frame interpolation results generated by the Framer model, highlighting its ability to customize local motions and handle challenging cases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -171,7 +171,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_9_0.png)
 
-> 🔼 The figure showcases examples of frame interpolation results generated by the Framer model, demonstrating its ability to customize local motions and handle challenging cases.
+> 🔼 Figure 1 showcases the results of Framer, demonstrating its ability to customize local motions and generate varying interpolation results from the same input frames, including handling challenging cases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -181,7 +181,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_9_1.png)
 
-> 🔼 The figure shows ablation studies on the individual components of Framer to validate their effectiveness.
+> 🔼 The figure shows ablation studies on each component of the Framer model, demonstrating the impact of trajectory guidance, trajectory updates, and bi-directional consistency verification on the final video interpolation results.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Ablations on each component. 'w/o trajectory' denotes inference without guidance from point trajectory, 'w/o traj. update' indicates inference without trajectory updates, and 'w/o bi' suggests trajectory updating without bi-directional consistency verification.
@@ -191,37 +191,37 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_17_0.png)
 
-> 🔼 Figure 4 shows a qualitative comparison of the middle frame of 7 interpolated frames generated by different video frame interpolation methods, including the ground truth.
+> 🔼 Figure 4 presents a qualitative comparison of the proposed Framer model with other state-of-the-art video frame interpolation methods, showing the middle frame of seven generated frames for each method.
 > <details>
 > <summary>read the caption</summary>
-> Figure 4: Qualitative comparison. 'GT’ strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
+> Figure 4: Qualitative comparison. 'GT” strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
 > </details>
 
 
 
 ![](figures/figures_18_0.png)
 
-> 🔼 Figure 4 shows a qualitative comparison of the proposed Framer model with other state-of-the-art video frame interpolation methods, illustrating the superior performance of Framer in generating visually appealing and temporally coherent frames.
+> 🔼 Figure 4 shows a qualitative comparison of the proposed Framer method against several state-of-the-art video frame interpolation methods, showcasing the superior visual quality of Framer's results.
 > <details>
 > <summary>read the caption</summary>
-> Figure 4: Qualitative comparison. 'GT’ strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
+> Figure 4: Qualitative comparison. 'GT” strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
 > </details>
 
 
 
 ![](figures/figures_19_0.png)
 
-> 🔼 Figure 4 presents a qualitative comparison of the proposed Framer model against several state-of-the-art video interpolation methods, showcasing the middle frame of seven interpolated frames for each approach.
+> 🔼 Figure 4 showcases a qualitative comparison of the proposed Framer model with existing methods for video frame interpolation on various sequences, highlighting the superior visual quality and detail preservation of Framer.
 > <details>
 > <summary>read the caption</summary>
-> Figure 4: Qualitative comparison. 'GT’ strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
+> Figure 4: Qualitative comparison. “GT” strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
 > </details>
 
 
 
 ![](figures/figures_20_0.png)
 
-> 🔼 Figure 4 shows a qualitative comparison of the proposed Framer model with other state-of-the-art video frame interpolation methods on various video sequences.
+> 🔼 Figure 4 shows a qualitative comparison of the proposed Framer model against several state-of-the-art video frame interpolation methods on various application scenarios.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Qualitative comparison. 'GT’ strands for ground truth. For each method, we only present the middle frame of 7 interpolated frames. The full results can be seen in Fig. S4 and Fig. S5 in the Appendix.
@@ -231,7 +231,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure showcases the results of the Framer model for interactive frame interpolation, demonstrating its ability to customize local motions and handle challenging cases.
+> 🔼 Figure 1 showcases examples of frame interpolation results produced by the Framer model, highlighting its ability to handle various levels of motion complexity and user customization.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -241,17 +241,17 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_21_1.png)
 
-> 🔼 Figure S10 presents more examples of cartoon and sketch interpolation results generated using the proposed Framer method.
+> 🔼 The figure showcases the results of interactive frame interpolation using Framer, demonstrating fine-grained control over local motions and smooth transitions between frames, even in challenging scenarios.
 > <details>
 > <summary>read the caption</summary>
-> Figure S10: More results on (a) cartoon and (b) sketch interpolation.
+> Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
 > </details>
 
 
 
 ![](figures/figures_22_0.png)
 
-> 🔼 Figure 1 showcases examples of interactive frame interpolation results generated by the proposed Framer model, highlighting its ability to handle various scenarios and user inputs.
+> 🔼 Figure 1 showcases examples of frame interpolation results generated by the Framer model, highlighting its ability to customize local motions and handle challenging cases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -261,7 +261,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_22_1.png)
 
-> 🔼 Figure 1 showcases the results of interactive frame interpolation using Framer, demonstrating fine-grained control over local motions and the handling of challenging interpolation scenarios.
+> 🔼 Figure 1 showcases the interactive frame interpolation results produced by Framer, demonstrating its ability to customize local motions and handle challenging cases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -271,7 +271,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](figures/figures_22_2.png)
 
-> 🔼 Figure 1 showcases examples of frame interpolation results generated by the Framer model, highlighting its ability to customize local motions and handle challenging cases with smooth transitions.
+> 🔼 Figure 1 showcases examples of frame interpolation results generated by the Framer model, highlighting its ability to customize local motions and handle challenging cases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Showcases produced by our Framer. It facilitates fine-grained customization of local motions and generates varying interpolation results given the same input start and end frame pair (first 3 rows). Moreover, Framer handles challenging cases and can realize smooth image morphing (last 2 rows). The input trajectories are overlayed on the frames.
@@ -290,7 +290,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](charts/charts_15_1.png "🔼 Figure S1: Ablations on diffusion feature for point tracking at test time, experiments conducted on DAVIS-7 (left) and UCF101-7 (right).")
 
-> 🔼 The chart displays the FID and FVD scores on DAVIS-7 and UCF101-7 datasets for different feature indices used in point tracking within the 3D-UNet decoder.
+> 🔼 The chart shows the FID and FVD scores on DAVIS-7 and UCF101-7 datasets for different 3D-UNet decoder feature indices used for point tracking in the Framer model.
 > <details>
 > <summary>read the caption</summary>
 > Figure S1: Ablations on diffusion feature for point tracking at test time, experiments conducted on DAVIS-7 (left) and UCF101-7 (right).
@@ -299,7 +299,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](charts/charts_15_2.png "🔼 Figure S2: Ablations on the start and end diffusion steps for correspondence guidance, experiments conducted on DAVIS-7 (left) and UCF101-7 (right). We use a total sampling step of 30.")
 
-> 🔼 The chart shows the FID and FVD scores on DAVIS-7 dataset for different ranges of diffusion steps used for correspondence guidance during video frame interpolation.
+> 🔼 The chart displays the FID and FVD scores on the DAVIS-7 dataset, varying the start and end steps used for correspondence guidance during diffusion sampling.
 > <details>
 > <summary>read the caption</summary>
 > Figure S2: Ablations on the start and end diffusion steps for correspondence guidance, experiments conducted on DAVIS-7 (left) and UCF101-7 (right). We use a total sampling step of 30.
@@ -308,7 +308,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](charts/charts_15_3.png "🔼 Figure S2: Ablations on the start and end diffusion steps for correspondence guidance, experiments conducted on DAVIS-7 (left) and UCF101-7 (right). We use a total sampling step of 30.")
 
-> 🔼 The chart displays the FID and FVD scores on DAVIS-7 and UCF101-7 datasets for different start and end diffusion steps used for correspondence guidance during video frame interpolation.
+> 🔼 The chart displays the FID and FVD scores on DAVIS-7 and UCF101-7 datasets for different ranges of diffusion steps used for correspondence guidance.
 > <details>
 > <summary>read the caption</summary>
 > Figure S2: Ablations on the start and end diffusion steps for correspondence guidance, experiments conducted on DAVIS-7 (left) and UCF101-7 (right). We use a total sampling step of 30.
@@ -317,7 +317,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](charts/charts_16_0.png "🔼 Figure S3: Ablations on the number of trajectories for guidance during sampling, experiments conducted on DAVIS-7 (left) and UCF101-7 (right).")
 
-> 🔼 The chart displays the FID and FVD scores on DAVIS-7 dataset for different numbers of trajectories used for guidance during sampling.
+> 🔼 The chart shows the impact of varying the number of trajectories used for guidance on FID and FVD scores for video frame interpolation on the DAVIS-7 and UCF101-7 datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure S3: Ablations on the number of trajectories for guidance during sampling, experiments conducted on DAVIS-7 (left) and UCF101-7 (right).
@@ -326,7 +326,7 @@ This paper is significant because it introduces an interactive approach to frame
 
 ![](charts/charts_16_1.png "🔼 Figure S3: Ablations on the number of trajectories for guidance during sampling, experiments conducted on DAVIS-7 (left) and UCF101-7 (right).")
 
-> 🔼 The chart displays the impact of varying the number of trajectories used for guidance on FID and FVD scores for DAVIS-7 and UCF101-7 datasets.
+> 🔼 The chart displays the FID and FVD scores on DAVIS-7 and UCF101-7 datasets for different numbers of trajectories used for guidance during sampling.
 > <details>
 > <summary>read the caption</summary>
 > Figure S3: Ablations on the number of trajectories for guidance during sampling, experiments conducted on DAVIS-7 (left) and UCF101-7 (right).
@@ -340,18 +340,6 @@ This paper is significant because it introduces an interactive approach to frame
 <details>
 <summary>More on tables
 </summary>
-
-
-{{< table-caption >}}
-<table id='6' style='font-size:14px'><tr><td>Strat Frame</td><td colspan="3">Generated Frames</td><td>End Frame</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
-> <details>
-> <summary>read the caption</summary>
-> {{ table.caption }}
-> </details>
-
-
-> Table 1 quantitatively compares Framer with other video interpolation methods across several reconstruction and generative metrics, using all seven generated frames.
 
 
 {{< table-caption >}}
@@ -387,7 +375,7 @@ This paper is significant because it introduces an interactive approach to frame
 > </details>
 
 
-> Table S2 presents ablation study results on different components of the proposed Framer model, focusing on the middle frame of the generated video sequence.
+> Table S2 presents ablation study results on the performance of Framer by removing or disabling each of its components, focusing on the middle frame of a seven-frame interpolation sequence.
 
 
 {{< table-caption >}}
@@ -399,7 +387,7 @@ This paper is significant because it introduces an interactive approach to frame
 > </details>
 
 
-> Table 1 quantitatively compares Framer with other video interpolation methods using reconstruction and generative metrics, evaluated across all 7 generated frames.
+> Table 1 quantitatively compares Framer with other video interpolation methods across reconstruction and generative metrics, evaluating all 7 generated frames.
 
 
 </details>

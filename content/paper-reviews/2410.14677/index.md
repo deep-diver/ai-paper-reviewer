@@ -1,6 +1,6 @@
 ---
 title: "Are AI Detectors Good Enough? A Survey on Quality of Datasets With Machine-Generated Texts"
-summary: "AI-generated text detection models struggle in real-world scenarios due to flawed training datasets; this paper provides a systematic review and proposes robust evaluation methods for these datasets."
+summary: "AI-generated text detection is flawed; this paper reveals dataset quality issues, proposes evaluation methods, and shows how high-quality generated data can improve detection model accuracy."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-18", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The rapid advancement of AI text generation necessitates reliable detection methods.  However, existing detection models often fail in real-world applications because the evaluation datasets used to assess them are of poor quality.  This paper examines various datasets used in AI-generated text detection competitions, revealing significant shortcomings. The authors highlight several problems with these datasets, emphasizing that many datasets contain easily detectable, low-quality AI-generated texts. This leads to inflated performance metrics in controlled settings that don't translate to the real world. The paper introduces new methods to objectively assess dataset quality, examining features like the linguistic characteristics and resilience of the generated texts to alterations. These methods allow researchers to identify and address biases in existing datasets. Furthermore, the researchers suggest using high-quality AI-generated data to improve both detection models and future datasets, moving the field toward more robust and accurate systems.
+This research paper investigates the reliability of datasets used to evaluate AI-generated text detectors.  The authors find that many existing datasets are of low quality, leading to inflated accuracy scores for detectors.  They propose new methods for evaluating dataset quality, emphasizing the need for robustness and generalizability.  These methods include analyzing embedding shifts after text modifications (adversarial perturbations and sentence shuffling), examining attention patterns in the text, and calculating the Kullback-Leibler divergence of intrinsic dimensions.  Furthermore, the paper suggests leveraging high-quality generated data to improve both the training of detection models and the datasets themselves, promoting a more reliable evaluation process.  This study highlights the limitations of current AI-generated text detection methods and calls for a more rigorous approach to dataset evaluation and model training.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The rapid advancement of AI text generation necessitates reliable detection meth
 {{< button href="https://arxiv.org/abs/2410.14677" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.14677" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on AI-generated text detection.  It highlights the critical issue of dataset quality, impacting the reliability of detection models. The proposed evaluation methods and analysis of existing datasets directly address a significant gap in the field, paving the way for more robust and reliable detection systems.  Furthermore, the study's focus on improving datasets through high-quality generated data opens new avenues of research.
+This paper is crucial for researchers working on AI-generated text detection. It highlights the unreliability of existing datasets, proposes methods for evaluating dataset quality, and suggests using high-quality generated data to improve detection models. This opens new avenues for developing more robust and accurate AI detectors, addressing a critical issue in the fight against misinformation and academic dishonesty.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Current AI-generated text detection models perform poorly outside benchmark datasets due to dataset quality issues. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Current AI-generated text detection datasets are of poor quality, leading to overestimated accuracy. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Novel evaluation methods for datasets containing AI-generated text fragments were proposed and applied to various datasets. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} New methods for evaluating generated text datasets are proposed, focusing on robustness and generalizability. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} High-quality generated data can improve both detection models and training datasets. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} High-quality AI-generated data can be used to improve both detection model training and dataset quality. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -64,7 +64,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 {{< table-caption >}}
 <table id='0' style='font-size:16px'><tr><td>Dataset</td><td>Year</td><td>Language</td><td>Num. of Texts</td><td>Generated VS Human</td><td>Average Length</td><td>Median Length</td></tr><tr><td>RuATD</td><td>2022</td><td>ru</td><td>129k</td><td>64.5k / 64.5k</td><td>236.86 / 221.47</td><td>99.0 / 95.0</td></tr><tr><td>DAGPap22</td><td>2022</td><td>en</td><td>5.3k</td><td>3.6k / 1.6k</td><td>799.45 / 1180.07</td><td>680.07 1126.5</td></tr><tr><td>AuTex</td><td>2023</td><td>en, es</td><td>65.9k</td><td>33.1k / 32.8k</td><td>315.08 / 297.28</td><td>386.07 351.0</td></tr><tr><td>IberAuTex</td><td>2024</td><td>es, en, ca, gl, eu, pt</td><td>98k</td><td>52.5k / 45.4k</td><td>1036.92 / 1058.36</td><td>981.0/ 1018.0</td></tr><tr><td>PAN24</td><td>2024</td><td>en</td><td>15.2k</td><td>14.1k / 1.1k</td><td>2640.50/ 3007.04</td><td>2731.0 / 2868.0</td></tr><tr><td>SemEval24 Mono</td><td>2024</td><td>en</td><td>34.2k</td><td>18k / 16.2k</td><td>2465.12/ 2358.05</td><td>2570.0 / 2083.5</td></tr><tr><td>SemEval24 Multi</td><td>2024</td><td>en, ar, de, it</td><td>42.3k</td><td>22.1k / 20.2k</td><td>2217.87 / 2256.67</td><td>2270.0 / 2032.0</td></tr><tr><td>MGT Task 1 Mono</td><td>2025</td><td>en</td><td>610.7k</td><td>381.8k / 228.9k</td><td>1448.28 / 1541.18</td><td>1208.0 / 1080.0</td></tr><tr><td>MGT Task 1 Multi</td><td>2025</td><td>en, zh, it, ar, de, ru, bg, ur, id</td><td>674k</td><td>416.1k / 257.9k</td><td>1422.74/ 1445.33</td><td>1195.0 / 1032.0</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table presents statistics of datasets from shared tasks, including the year, language, number of texts, generated vs. human texts, average length, and median length.
+> 🔼 Table 1 presents a statistical overview of datasets from shared tasks, including the year, language, number of texts, generated versus human text counts, average length, and median length of texts.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Statistics of the datasets from the shared tasks.
@@ -83,7 +83,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 
 ![](charts/charts_8_0.png "🔼 Figure 4: Topological Time Series for remaining datasets from current review. We omitted the results for Au-Tex23en, because virtually all texts there had the dimension of 0.")
 
-> 🔼 Figure 4 is a set of histograms showing the distribution of topological time series scores for different datasets, illustrating variations in dimensionality between human-written and machine-generated texts.
+> 🔼 Figure 4 is a set of histograms that shows the distributions of intrinsic dimension values for human-written and machine-generated texts across several datasets.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Topological Time Series for remaining datasets from current review. We omitted the results for Au-Tex23en, because virtually all texts there had the dimension of 0.
@@ -92,7 +92,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 
 ![](charts/charts_8_1.png "🔼 Figure 3: Attention maps on two excerpts from DAG-Pap22, Layer 15, Head 15.")
 
-> 🔼 The chart displays attention maps for human and machine-generated text excerpts from the DAGPap22 dataset, highlighting differences in attention patterns.
+> 🔼 The chart displays attention maps for machine-generated and human texts from the DAGPap22 dataset, highlighting differences in attention patterns between the two text types.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Attention maps on two excerpts from DAG-Pap22, Layer 15, Head 15.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 
 ![](charts/charts_14_0.png "🔼 Figure 4: Topological Time Series for remaining datasets from current review. We omitted the results for AuTex23en, because virtually all texts there had the dimension of 0.")
 
-> 🔼 The chart displays the topological time series distributions for various datasets, excluding AuTex23es due to its texts having a dimension of 0.
+> 🔼 The chart displays the distribution of intrinsic dimensions for human-written and machine-generated texts across various datasets, illustrating differences in text complexity and structure.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Topological Time Series for remaining datasets from current review. We omitted the results for AuTex23en, because virtually all texts there had the dimension of 0.
@@ -126,7 +126,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 > </details>
 
 
-> Table 2 presents statistics for datasets from research papers, including the year, language, number of texts, generated vs. human text counts, average length, and median length.
+> Table 2 presents statistics of datasets from research papers, including the year, language, number of texts, generated versus human texts, average length, and median length.
 
 
 {{< table-caption >}}
@@ -138,7 +138,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 > </details>
 
 
-> Table 3 presents the F1-scores achieved by three different detectors (DeBERTa, Binoculars, and DetectGPT) on various datasets, highlighting their performance on English and multilingual texts.
+> Table 3 presents the F1-scores achieved by DeBERTa, Binoculars, and DetectGPT classifiers on various datasets for AI-generated text detection.
 
 
 {{< table-caption >}}
@@ -150,7 +150,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 > </details>
 
 
-> Table 4 presents calculated statistics for several datasets, showing the mean difference in attention columns between human and machine-generated texts, and also includes KL divergence scores measuring the similarity of text distributions after adversarial modifications.
+> Table 4 presents calculated statistics, including KL divergence, attention column differences, embedding shifts, and shuffling KL divergence, to evaluate the quality of datasets containing AI-generated texts.
 
 
 {{< table-caption >}}
@@ -162,7 +162,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 > </details>
 
 
-> Table 7 presents the best results obtained in various AI-generated text detection competitions, indicating the performance of different methods evaluated using various metrics.
+> Table 7 presents the best results achieved in various AI-generated text detection competitions, indicating the performance of different methods.
 
 
 {{< table-caption >}}
@@ -174,7 +174,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 > </details>
 
 
-> This table presents statistics of datasets from shared tasks, including the year, language, number of texts, number of human and generated texts, average length, and median length.
+> This table presents statistics for datasets from shared tasks, including the year, language, number of texts, generated vs. human texts, average length, and median length.
 
 
 {{< table-caption >}}
@@ -186,7 +186,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 > </details>
 
 
-> This table presents statistics of datasets from shared tasks, including the year, language, number of texts, number of generated vs human texts, and average and median length.
+> Table 1 presents statistics on datasets from shared tasks, including the year, language, number of texts, number of generated vs human texts, and average and median lengths.
 
 
 {{< table-caption >}}
@@ -198,7 +198,7 @@ This paper is crucial for researchers working on AI-generated text detection.  I
 > </details>
 
 
-> This table presents statistics for datasets from research papers, including year, language, number of texts, generated vs. human texts, average length, and median length.
+> This table presents statistics of datasets from research papers, including the year, language, number of texts, generated vs. human texts, average length, and median length.
 
 
 </details>

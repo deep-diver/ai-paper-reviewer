@@ -1,6 +1,6 @@
 ---
 title: "Cross-Lingual Auto Evaluation for Assessing Multilingual LLMs"
-summary: "The CIA Suite, a novel extensible framework, enables cross-lingual evaluation of multilingual LLMs using evaluator LLMs and a new multilingual benchmark dataset."
+summary: "New framework, CIA Suite, enables accurate, automated cross-lingual evaluation of multilingual LLMs using a novel test set and evaluator LLMs, bridging the gap in multilingual NLP assessment."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research tackles the challenge of evaluating multilingual Large Language Models (LLMs), a significant hurdle in the field of Natural Language Processing (NLP).  Currently, most evaluation methods focus heavily on English, leaving a substantial gap in assessing models' performance across various languages. To bridge this gap, the researchers introduce the Cross-Lingual Auto Evaluation (CIA) Suite. This suite consists of two main components: a novel, extensible framework and a new benchmark test set called RECON.  RECON includes 500 human-annotated instructions across six different languages, along with human-assigned scores, allowing for a comprehensive evaluation of multilingual LLM capabilities.  The framework incorporates a cross-lingual evaluation model called HERCULE. HERCULE cleverly addresses the scarcity of reference answers in many languages by learning to assign scores based on readily available English reference answers.  Experimental results demonstrate that HERCULE's evaluation scores align more closely with human judgments compared to existing proprietary models, especially in low-resource language scenarios.  The model is also effective in zero-shot evaluation settings, meaning it can effectively evaluate languages it wasn't explicitly trained on.  Overall, this work presents a scalable and effective approach to multilingual LLM assessment, filling a crucial gap in the field and offering valuable resources (code, datasets, and models) to the research community.
+This research tackles the challenge of evaluating multilingual large language models (LLMs), a significant gap in current NLP research.  Existing methods primarily focus on English, leaving multilingual evaluation under-resourced.  The researchers introduce the Cross-Lingual Auto Evaluation (CIA) Suite, a novel framework that includes evaluator LLMs (HERCULE) and a new test set (RECON).  RECON contains 500 human-annotated instructions covering diverse tasks across six languages, along with human judgment scores. HERCULE, a cross-lingual model, addresses the lack of reference answers in target languages by using English references.  Experiments show HERCULE aligning closely with human judgments and performs better than commercial LLMs in zero-shot evaluation on unseen languages.  The CIA Suite, including data and models, is publicly available. The work demonstrates the feasibility of using LLMs for cross-lingual evaluation, addressing a critical need for unbiased evaluation in multilingual NLP and providing a valuable resource for future research.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research tackles the challenge of evaluating multilingual Large Language Mo
 {{< button href="https://arxiv.org/abs/2410.13394" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13394" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in multilingual NLP because it addresses the critical need for robust evaluation methods beyond English.  It introduces a novel framework and benchmark dataset that can greatly improve the development and comparison of multilingual LLMs. The findings on cross-lingual transfer and the effectiveness of reference-based evaluation are particularly impactful and point to new areas for research.
+This paper is crucial for researchers working on multilingual language model evaluation. It introduces a novel cross-lingual evaluation framework and benchmark, addressing the scarcity of multilingual evaluation resources.  The findings challenge existing assumptions about multilingual LLM capabilities and provide a scalable solution for future research in this critical area.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} The CIA Suite offers a new approach for cross-lingual evaluation of multilingual LLMs. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} The CIA Suite offers a scalable and effective approach to cross-lingual LLM evaluation, overcoming limitations of existing English-centric methods. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} HERCULE, a cross-lingual evaluator LLM, demonstrates strong alignment with human judgment, especially in low-resource languages. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The newly introduced RECON test set and HERCULE evaluator LLMs provide a robust benchmark for assessing multilingual LLMs across various tasks and languages. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The study highlights the effectiveness of reference-based evaluation and cross-lingual transfer learning in multilingual LLM assessment. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Experiments demonstrate that cross-lingual evaluation models trained on INTEL significantly outperform proprietary LLMs, particularly in low-resource scenarios. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 
 ![](figures/figures_1_0.png)
 
-> 🔼 The figure illustrates the CIA (Cross-Lingual Auto Evaluation) suite architecture, showing how the HERCULE evaluator LLM processes multilingual instructions and responses to generate feedback and scores.
+> 🔼 The figure illustrates the CIA (Cross-Lingual Auto Evaluation) Suite's architecture, showcasing the HERCULE evaluator LLM's cross-lingual evaluation process.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: We present cross-lingual Evaluator LLM, HERCULE, where the Instruction & Response provided to the model are in the target language, while all other fields are in English. The model generates feedback & score in English for a given evaluation example.
@@ -61,7 +61,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 
 ![](charts/charts_6_0.png)
 
-> 🔼 The chart compares LLM and true scores when the difference between them is 1 and greater than or equal to 2, showing that LLM evaluator tends to give higher scores.
+> 🔼 The chart compares LLM evaluation scores versus true scores for model responses, highlighting the tendency of LLMs to be more generous in their assessments.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Comparison of LLM score vs True score when the difference between the predictions is =1 and ≥2. We see that LLM Evaluator is more generous and awards higher scores. Refer Sec. §5.3 for detailed results.
@@ -74,7 +74,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 {{< table-caption >}}
 <table id='0' style='font-size:16px'><tr><td>Model</td><td>Type</td><td>bn</td><td>de</td><td>fr</td><td>hi</td><td>te</td><td>ur</td><td>avg.</td></tr><tr><td>GPT-40</td><td>Zero-Shot</td><td>0.64</td><td>0.66</td><td>0.65</td><td>0.64</td><td>0.61</td><td>0.64</td><td>0.64</td></tr><tr><td>GEMINI-1.5-PRO</td><td>Zero-Shot</td><td>0.54</td><td>0.58</td><td>0.59</td><td>0.57</td><td>0.53</td><td>0.57</td><td>0.56</td></tr><tr><td>8 LLAMA-3.1-405B-I</td><td>Zero-Shot</td><td>0.60</td><td>0.66</td><td>0.66</td><td>0.62</td><td>0.51</td><td>0.65</td><td>0.62</td></tr><tr><td>8 LLAMA-3.2 3B</td><td>FFT</td><td>0.68</td><td>0.72</td><td>0.71</td><td>0.71</td><td>0.70</td><td>0.72</td><td>0.71</td></tr><tr><td>GEMMA 7B</td><td>FFT</td><td>0.47</td><td>0.39</td><td>0.36</td><td>0.43</td><td>0.33</td><td>0.38</td><td>0.39</td></tr><tr><td> AYA23 8B</td><td>FFT</td><td>0.70</td><td>0.72</td><td>0.73</td><td>0.72</td><td>0.65</td><td>0.71</td><td>0.70</td></tr><tr><td>HERCULE 8B</td><td>FFT</td><td>0.74</td><td>0.75</td><td>0.75</td><td>0.74</td><td>0.69</td><td>0.74</td><td>0.73</td></tr><tr><td>HERCULE 8B</td><td>LoRA</td><td>0.72</td><td>0.74</td><td>0.72</td><td>0.72</td><td>0.70</td><td>0.70</td><td>0.72</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the  linear weighted Cohen's Kappa scores for various LLMs (both zero-shot and fine-tuned) on the RECON test set, indicating the correlation between model predictions and human judgments.
+> 🔼 Table 1 presents the evaluation results of various models on the RECON test set using Linear Weighted Cohen's Kappa scores, differentiating between zero-shot and fine-tuned model performances.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Evaluation results of all models on the RECON test set. We report the Linear Weighted Cohen's Kappa (κ) score between the ground truth scores and the model predictions. Higher the value, better is the correlation. The upper half of the table presents zero-shot evaluations, while the lower half shows the results of fine-tuned models. Refer to Sec. §5.1 for detailed results.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 2 presents the Pearson correlation between human annotator scores and Evaluator LLM scores, indicating the level of agreement between human and LLM evaluations.
+> Table 2 presents Pearson correlation values between human annotator scores and LLM-generated scores on 100 prompt-response pairs, assessing evaluator LLM alignment with human judgments.
 
 
 {{< table-caption >}}
@@ -113,7 +113,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 1 presents the linear weighted Cohen's Kappa scores evaluating the agreement between ground truth scores and model predictions for various models on the RECON test set, differentiating between zero-shot and fine-tuned model evaluations.
+> Table 1 presents the linear weighted Cohen's Kappa scores for various LLMs on the RECON test set, comparing zero-shot and fine-tuned model performance across six languages.
 
 
 {{< table-caption >}}
@@ -125,7 +125,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 1 shows the performance of different LLMs (both zero-shot and fine-tuned) on the RECON benchmark, measured by the Linear Weighted Cohen's Kappa score.
+> Table 1 presents the linear weighted Cohen's Kappa scores evaluating the agreement between the ground truth scores and the model predictions for various LLMs on the RECON test set, categorized by zero-shot and fine-tuned models.
 
 
 {{< table-caption >}}
@@ -137,7 +137,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 1 shows the Linear Weighted Cohen's Kappa scores of various LLMs on the RECON benchmark, comparing zero-shot and fine-tuned models.
+> Table 1 presents the Linear Weighted Cohen's Kappa scores for various LLMs (zero-shot and fine-tuned) on the RECON test set, showing the correlation between model-generated scores and human-assigned ground truth scores.
 
 
 {{< table-caption >}}
@@ -149,7 +149,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 1 presents the performance of various LLMs (both zero-shot and fine-tuned) on the RECON benchmark, measured by the linear weighted Cohen's Kappa score.
+> Table 1 presents the Linear Weighted Cohen's Kappa scores achieved by various models (both zero-shot and fine-tuned) on the RECON test set, indicating the correlation between their evaluation scores and human judgements.
 
 
 {{< table-caption >}}
@@ -161,7 +161,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 1 presents the Cohen's Kappa scores evaluating the correlation between ground truth scores and model predictions for various models on the RECON test set, categorized by zero-shot and fine-tuned settings.
+> Table 1 presents the performance of various LLMs (zero-shot and fine-tuned) on the RECON benchmark, measured by the linear weighted Cohen's Kappa score.
 
 
 {{< table-caption >}}
@@ -173,7 +173,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 1 presents the performance of various LLMs, both zero-shot and fine-tuned, on the RECON test set using a linear weighted Cohen's Kappa score.
+> Table 1 shows the Linear Weighted Cohen's Kappa scores evaluating the correlation between ground truth scores and model predictions for various LLMs on the RECON test set, categorized by zero-shot and fine-tuned models.
 
 
 {{< table-caption >}}
@@ -185,7 +185,7 @@ This paper is crucial for researchers in multilingual NLP because it addresses t
 > </details>
 
 
-> Table 1 presents the linear weighted Cohen's Kappa scores of various LLMs on the RECON test set, comparing zero-shot and fine-tuned model performances.
+> Table 1 presents the evaluation results of various models (zero-shot and fine-tuned) on the RECON test set using the Linear Weighted Cohen's Kappa metric.
 
 
 </details>

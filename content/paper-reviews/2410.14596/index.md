@@ -1,6 +1,6 @@
 ---
 title: "Teaching Models to Balance Resisting and Accepting Persuasion"
-summary: "LLMs can be easily persuaded; this paper introduces Persuasion-Balanced Training (PBT) to make them both resistant to misinformation and receptive to helpful influence, leading to improved performance..."
+summary: "LLMs are taught to both resist harmful and accept helpful persuasion using Persuasion-Balanced Training, resulting in more reliable and collaborative AI."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-18", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Large language models (LLMs) are vulnerable to manipulation through persuasion.  This research tackles this issue by developing a new training method called Persuasion-Balanced Training (PBT).  PBT uses multi-agent dialogues to generate training data that represents both positive and negative persuasion scenarios.  The results show that models trained with PBT are significantly better at resisting misinformation and harmful persuasion compared to models trained only to resist or only to accept persuasion.  Furthermore, PBT leads to more stable and robust performance in team settings, eliminating the issue of performance being heavily dependent on which model presents its argument first. The study also delves into the factors that determine a model's acceptance or resistance to persuasion, finding that answer plausibility is the key determinant, resulting in more reliable decision-making. This work is important because it offers a more comprehensive approach to building robust and reliable LLMs, addressing both the risks and the potential benefits of persuasion in human-computer interaction and multi-agent systems.
+Large language models (LLMs) are easily manipulated. This paper introduces Persuasion-Balanced Training (PBT), a novel method that teaches LLMs to both resist harmful persuasion (like misinformation) and accept helpful persuasion.  PBT uses multi-agent dialogues to create training data where models debate and learn to evaluate the quality of arguments. Experiments show PBT improves resistance to misinformation and flip-flopping. Importantly, PBT makes LLMs better teammates in multi-agent debates, reducing the impact of which model speaks first on overall team performance. The study also reveals that model decisions hinge on the plausibility of the answer, not confidence alone.  This work is significant because it moves beyond simply making LLMs resistant to manipulation, instead aiming for a balanced approach that enhances both accuracy and collaboration.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Large language models (LLMs) are vulnerable to manipulation through persuasion. 
 {{< button href="https://arxiv.org/abs/2410.14596" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.14596" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on improving the robustness and reliability of large language models (LLMs).  It addresses the critical issue of LLM susceptibility to persuasion, highlighting the need for a balanced approach that combines resistance to harmful persuasion with the ability to accept beneficial influence.  The proposed Persuasion-Balanced Training (PBT) method and the associated findings offer a significant contribution to the ongoing efforts in making LLMs more reliable and safe for real-world applications.  The research also opens new avenues for exploring multi-agent interactions and team dynamics in LLMs.
+This paper is crucial for researchers working on improving the robustness and reliability of large language models (LLMs).  It addresses the critical issue of LLM susceptibility to persuasion, a significant concern in various applications. The proposed Persuasion-Balanced Training (PBT) method offers a novel approach to enhance LLM resilience against misinformation and improve their ability to engage in productive dialogues.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Persuasion-Balanced Training (PBT) improves LLMs' resistance to misinformation and their ability to accept helpful persuasion. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Persuasion-Balanced Training (PBT) improves LLMs' ability to both resist misinformation and accept helpful persuasion. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PBT models exhibit improved performance in multi-agent debates, showing less sensitivity to the order of argument presentation. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} PBT models exhibit more stable performance in multi-agent settings, unlike models trained to only resist or accept persuasion. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Analysis reveals that PBT models decide whether to accept or reject persuasion based on the plausibility of the proposed answer, improving overall decision-making reliability.  {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Model decisions to accept or reject persuasion are influenced by the plausibility of the proposed answer, rather than confidence scores. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,10 +49,10 @@ This paper is crucial for researchers working on improving the robustness and re
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the importance of balancing resisting negative persuasion with accepting positive persuasion in large language models for productive dialogues.
+> 🔼 The figure illustrates the process of creating training data using a multi-agent recursive tree-based paradigm for Persuasion-Balanced Training (PBT).
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Resisting negative persuasion and accepting positive persuasion are both needed for productive dialogues. However, only optimizing one or the other can lead to overcorrection. We argue that the two must be balanced, i.e. the agent should resist and accept persuasion when appropriate.
+> Figure 2: Overview of our multi-agent recursive tree-based method. Preference pairs are obtained by rolling out dialogues between agents with different roles, producing counterfactual responses with different scores. We balance these pairs use them to train models with PBT.
 > </details>
 
 
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on improving the robustness and re
 
 ![](charts/charts_7_0.png)
 
-> 🔼 The chart displays the impact of different training methods (base, accept-only, resist-only, and PBT) on the performance of multi-agent teams composed of a strong and a weak model, showing how the order of speakers affects the outcome and how PBT training mitigates this effect.
+> 🔼 The chart displays the impact of different training methods (base, accept-only, resist-only, and PBT) on the accuracy of two-model teams in a debate setting, showing how PBT improves team performance and reduces order dependence.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Accuracy of a team after discussion. A strong model (Llama 3.1 70B) paired with a weaker model (Llama 3.1 8B) leads to order dependence. Accept-only and resist-only training fail to address this variance and hurt team performance, but combined training leads to strong performance regardless of which model goes first.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on improving the robustness and re
 {{< table-caption >}}
 <table id='0' style='font-size:20px'><tr><td>model</td><td>NQ1</td><td>NQ2</td><td>Boolq</td><td>TruthfulQA</td><td>Avg.</td></tr><tr><td>Llama-3.1-70B</td><td>75.95± 0.29</td><td>56.88± 0.42</td><td>71.99± 0.60</td><td>38.47± 2.32</td><td>60.82± 0.82</td></tr><tr><td>+ accept</td><td>79.28± 9.98</td><td>85.68± 7.52</td><td>90.51± 4.32</td><td>87.62± 5.93</td><td>85.78± 2.09</td></tr><tr><td>+ resist</td><td>22.45± 37.12</td><td>9.16± 14.82</td><td>26.53± 5.54</td><td>2.41± 2.51</td><td>15.13± 13.55</td></tr><tr><td>+ PBT</td><td>9.63± 3.74</td><td>16.13± 4.10</td><td>37.45± 13.71</td><td>27.54± 8.13</td><td>22.69± 4.02</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the rate at which different language models adopt misinformation across various datasets, comparing the performance of models trained with persuasion-balanced training (PBT), resist-only training, accept-only training, and no training.
+> 🔼 Table 1 shows the rate at which different language models adopt misinformation across various datasets, comparing the performance of models trained with Persuasion-Balanced Training (PBT), resist-only training, accept-only training, and no training.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Rate at which models adopt misinformation across different datasets (lower is better). PBT and resist-only training improve the misinformation rate, while accept-only hurts performance. Other models in Table 5.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on improving the robustness and re
 > </details>
 
 
-> Table 2 shows the accuracy of different models using the “Are you sure?” prompt from Laban et al. (2023), measuring the rate at which models flip their answers when challenged.
+> Table 2 presents the results of the flip-flopping evaluation, showing the impact of different training methods on model accuracy before and after being challenged with the 'Are you sure?' prompt.
 
 
 {{< table-caption >}}
@@ -113,7 +113,7 @@ This paper is crucial for researchers working on improving the robustness and re
 > </details>
 
 
-> Table 3 presents the accuracy of different models on a balanced dataset containing both positive and negative persuasion examples, showing the effect of different training methods on the model's ability to both resist and accept persuasion.
+> Table 3 presents the accuracy of different models on a balanced dataset containing both positive and negative persuasion examples, highlighting the impact of different training methods on model performance in handling both types of persuasion.
 
 
 {{< table-caption >}}
@@ -125,7 +125,7 @@ This paper is crucial for researchers working on improving the robustness and re
 > </details>
 
 
-> Table 1 presents the rate at which different language models adopt misinformation across four datasets, comparing the performance of models trained with Persuasion-Balanced Training (PBT), resist-only training, accept-only training, and a baseline model.
+> Table 1 presents the rate of misinformation adoption across different datasets for various models, highlighting the impact of different training methods (PBT, resist-only, accept-only) on model performance.
 
 
 {{< table-caption >}}
@@ -137,7 +137,7 @@ This paper is crucial for researchers working on improving the robustness and re
 > </details>
 
 
-> Table 1 presents the rate of misinformation adoption by different language models across various datasets, comparing the performance of models trained with PBT, resist-only, accept-only, and base training methods.
+> Table 1 presents the results of evaluating the misinformation rate across various datasets for different models (base, accept-only, resist-only, and PBT).
 
 
 {{< table-caption >}}
@@ -149,7 +149,7 @@ This paper is crucial for researchers working on improving the robustness and re
 > </details>
 
 
-> Table 1 presents the rate at which different language models adopt misinformation across various datasets, comparing the performance of models trained with different methods (PBT, resist-only, accept-only).
+> Table 1 presents the rate at which different language models adopt misinformation across various datasets, comparing the performance of models trained with persuasion-balanced training (PBT), resist-only training, accept-only training, and no training.
 
 
 {{< table-caption >}}
@@ -161,7 +161,7 @@ This paper is crucial for researchers working on improving the robustness and re
 > </details>
 
 
-> Table 2 presents the accuracy of different models using Laban et al. (2023)'s 'Are you sure?' prompt to measure the rate of flip-flopping, showing PBT leads to less flip-flopping.
+> Table 2 presents the accuracy of different models when using the 'Are you sure?' prompt from Laban et al. (2023), showing that PBT leads to less flip-flopping.
 
 
 </details>

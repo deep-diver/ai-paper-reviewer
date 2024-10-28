@@ -1,6 +1,6 @@
 ---
 title: "NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples"
-summary: "NaturalBench: a new benchmark reveals vision-language models struggle with simple, natural images and questions, highlighting biases and prompting development of more robust models."
+summary: "NaturalBench: a new benchmark exposes VLMs' vulnerabilities to natural adversarial samples, highlighting compositionality challenges & bias issues, and promoting dynamic VLM evaluation."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-18", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper introduces NaturalBench, a new benchmark for evaluating vision-language models (VLMs).  Current VQA benchmarks are shown to be flawed because they're easily solved by models that ignore the images and rely on language biases alone. NaturalBench addresses this by carefully pairing each question with two images that yield opposite answers, forcing VLMs to actually use the image information.  It also uses a semi-automated approach to gather a large dataset (10,000 samples) and provides fine-grained skill tagging to better analyze performance.  The results reveal that even state-of-the-art models lag significantly behind human performance, demonstrating the need for further VLM improvement. Importantly, the creation method is easily adaptable for continuous updates, making it a valuable resource for ongoing research in the field.
+Existing vision-language model (VLM) benchmarks are shown to be easily solved by models that don't even look at the images, relying on language biases instead.  This paper introduces NaturalBench, a new benchmark designed to overcome these limitations.  NaturalBench uses pairs of images and questions where the same question has different answers depending on the image. This forces models to actually use visual information.  They create the benchmark semi-automatically, starting with image-text pairs where existing models (like CLIP) make errors.  They then use ChatGPT to generate questions for these pairs of images that have different answers.  Human evaluation is used to filter the results and ensure quality.  Testing many state-of-the-art VLMs reveals that even the best models are far from human-level performance.  They also show that the benchmark highlights problems with model biases and a lack of compositional reasoning skills.  Finally, they demonstrate the benchmark can easily adapt to new data sources, making it suitable for continuously evaluating model progress.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This paper introduces NaturalBench, a new benchmark for evaluating vision-langua
 {{< button href="https://arxiv.org/abs/2410.14669" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.14669" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for vision-language model (VLM) researchers because it introduces NaturalBench, a novel benchmark exposing VLMs' limitations on natural images and highlighting biases.  It offers a semi-automated method for creating robust benchmarks, adaptable to dynamic evaluations, and pushes the development of more robust and unbiased VLMs.
+This paper is crucial for researchers in vision-language models (VLMs). It introduces NaturalBench, a new benchmark that addresses the limitations of existing VQA datasets by focusing on natural adversarial samples and mitigating biases. NaturalBench provides a more rigorous and reliable way to evaluate VLMs, driving innovation and guiding future research in the field.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Existing VQA benchmarks are easily solved by 'blind' models, ignoring visual information. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} NaturalBench, a new benchmark, effectively evaluates VLMs using natural adversarial samples. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} NaturalBench, with 10,000 human-verified samples, effectively evaluates VLMs' true visual understanding by using paired images and questions leading to different answers. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} VLMs struggle with compositional reasoning and exhibit significant biases, as revealed by NaturalBench. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} NaturalBench's semi-automated creation method allows dynamic evaluation by easily incorporating new data sources. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} NaturalBench's design facilitates dynamic evaluation, adapting to new data sources and model advancements. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 
 ![](figures/figures_2_0.png)
 
-> 🔼 Figure 1 shows examples from NaturalBench, a new benchmark for evaluating vision-language models, highlighting the difficulty of the task even for state-of-the-art models compared to human performance.
+> 🔼 Figure 1 shows examples from the NaturalBench dataset, illustrating how even state-of-the-art vision-language models struggle with simple questions about natural images, highlighting the challenge posed by natural adversarial samples.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: NaturalBench examples consist of two questions and two images with alternating answers to prevent 'blind' models from scoring well (e.g., those that predict the same answer regardless of the image or question, as discussed in Section 3). We compare the ground-truth answer for each (image, question) pair with predictions from leading VLMs including GPT-40 (gpt-40-2024-08-06), Qwen2-VL (72B), Llama3.2-Vision (90B), and Molmo (72B) (see Section 4). Even the best models like GPT-40 lags far behind human performance (which is above 90%). Figure 2 shows the pipeline for collecting these natural adversarial examples.
@@ -61,7 +61,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 
 ![](charts/charts_6_0.png)
 
-> 🔼 The chart compares the performance of GPT-3.5 and LLaVA-1.5 models on several existing VQA benchmarks, highlighting the susceptibility of these benchmarks to language biases that allow blind models to achieve high accuracy without image understanding.
+> 🔼 The chart compares the performance of GPT-3.5 and LLaVA-1.5 on several existing VQA benchmarks, highlighting the vulnerability of these benchmarks to 'blind' solutions that exploit language biases.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Performance of GPT-3.5 vs. LLaVA-1.5 on previous VQA benchmarks. We split each benchmark into equal-sized training and test sets, and report zero-shot (in blue) and finetuned (in green) results. Previous benchmarks show strong language biases, allowing blind GPT-3.5 to exploit spurious answer patterns (see Section 4) by finetuning on QA data without images. As a result, blind GPT-3.5 greatly surpasses random chance (see the red dotted line) and sometimes even matches the performance of LLaVA-1.5-7B finetuned using images. In contrast, Figure 5 shows that NaturalBench can effectively prevent blind solutions from exceeding chance.
@@ -74,7 +74,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 {{< table-caption >}}
 <br><table id='1' style='font-size:16px'><tr><td rowspan="2">Model</td><td rowspan="2">Image Encoder</td><td rowspan="2">Language Model</td><td colspan="2">Q-Acc</td><td colspan="2">I-Acc</td><td colspan="2">G-Acc</td></tr><tr><td>Original</td><td>Debiased</td><td>Original</td><td>Debiased</td><td>Original</td><td>Debiased</td></tr><tr><td>LLaVA-1.5</td><td>CLIP-L-14</td><td>Vicuna-13B</td><td>38.6</td><td>86.2</td><td>43.5</td><td>78.6</td><td>14.4</td><td>49.7</td></tr><tr><td>DeepSeek-VL-7B-Chat</td><td>SigLIP-L</td><td>DeepSeek-LLM-7B</td><td>45.8</td><td>86.6</td><td>49.9</td><td>81.8</td><td>19.4</td><td>54.8</td></tr><tr><td>BLIP-3 (XGen-MM)</td><td>CLIP-H-14</td><td>Phi-3-Mini</td><td>46.8</td><td>88.6</td><td>51.1</td><td>81.9</td><td>19.5</td><td>55.3</td></tr><tr><td>Intern VL-Chat-V1.5</td><td>Intern ViT-6B</td><td>InternLM2-Chat-20B</td><td>52.6</td><td>92.3</td><td>56.0</td><td>86.1</td><td>24.3</td><td>66.0</td></tr><tr><td>Intern VL-Chat-V1.2</td><td>Intern ViT-6B</td><td>Nous-Hermes-2- Yi-34B</td><td>52.6</td><td>91.6</td><td>56.0</td><td>86.0</td><td>26.2</td><td>65.8</td></tr><tr><td>Intern VL2-26B</td><td>Intern ViT-6B</td><td>InternLM2-Chat-20B</td><td>55.7</td><td>92.2</td><td>58.5</td><td>87.2</td><td>28.2</td><td>67.7</td></tr><tr><td>LLaVA-OneVision</td><td>SigLIP-S-14</td><td>Qwen2-7B</td><td>55.4</td><td>92.1</td><td>58.2</td><td>87.2</td><td>28.6</td><td>67.8</td></tr><tr><td>GPT-4o</td><td>-</td><td>GPT-4</td><td>65.0</td><td>94.0</td><td>67.0</td><td>90.5</td><td>40.5</td><td>75.6</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 2 presents the original and debiased performance of several models on NaturalBench, highlighting the significant performance gains achieved through debiasing techniques.
+> 🔼 Table 2 shows that debiasing significantly improves the performance of vision-language models on NaturalBench by adjusting the prediction threshold to avoid repetitive answers across images or questions.
 > <details>
 > <summary>read the caption</summary>
 > Table 2: Debiased performance on NaturalBench. Many models underperform on NaturalBench due to biases towards certain answers like “Yes” and “B”. To illustrate this, we compute a debiased Q-Acc by adjusting the prediction threshold (as described in Section 5) to ensure the model predict different answers for the two images of the same question. Similarly, debiased I-Acc ensures different predicted answers for the two questions of the same image. For debiased G-Acc, we tune the threshold so that the model predicts one answer for two (out of four) image-question pairs, and a different answer for the other two pairs. The substantial performance gains of these metrics suggest that proper debiasing can greatly improve performance. Our Appendix evaluates existing debiasing techniques that do not require prior knowledge of image-question pairings.
@@ -91,17 +91,17 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 
 ![](figures/figures_3_0.png)
 
-> 🔼 Figure 1 shows examples from NaturalBench, demonstrating how even state-of-the-art vision-language models struggle with simple questions about natural images, highlighting the challenge posed by the benchmark.
+> 🔼 Figure 2 illustrates a semi-automated pipeline for collecting NaturalBench, using off-the-shelf models to identify confounding image-text pairs and ChatGPT to generate corresponding questions.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: NaturalBench examples consist of two questions and two images with alternating answers to prevent 'blind' models from scoring well (e.g., those that predict the same answer regardless of the image or question, as discussed in Section 3). We compare the ground-truth answer for each (image, question) pair with predictions from leading VLMs including GPT-40 (gpt-40-2024-08-06), Qwen2-VL (72B), Llama3.2-Vision (90B), and Molmo (72B) (see Section 4). Even the best models like GPT-40 lags far behind human performance (which is above 90%). Figure 2 shows the pipeline for collecting these natural adversarial examples.
+> Figure 2: Collecting NaturalBench. We use a semi-automated procedure to collect NaturalBench from natural image-text corpora like Flickr30K [63]. First, we identify confounding pairs of image-text samples that fail discriminative VLMs like CLIP [65] and BLIP-2 [39], e.g., they wrongly match an image with another image's caption. Next, we prompt ChatGPT to design questions that yield different answers for each image, providing the original captions in the prompt. Section 3 details this procedure. We hire human annotators to filter out incorrect VQA samples, such as “Is the motorcyclist wearing a red and white uniform?
 > </details>
 
 
 
 ![](figures/figures_5_0.png)
 
-> 🔼 Figure 1 shows examples from the NaturalBench dataset, demonstrating how state-of-the-art vision-language models struggle with simple questions about natural images, even when humans find them easy to answer.
+> 🔼 The figure displays example questions from the NaturalBench dataset, highlighting how even state-of-the-art vision-language models struggle with questions that humans find easy to answer, demonstrating the challenges posed by natural adversarial examples.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: NaturalBench examples consist of two questions and two images with alternating answers to prevent 'blind' models from scoring well (e.g., those that predict the same answer regardless of the image or question, as discussed in Section 3). We compare the ground-truth answer for each (image, question) pair with predictions from leading VLMs including GPT-40 (gpt-40-2024-08-06), Qwen2-VL (72B), Llama3.2-Vision (90B), and Molmo (72B) (see Section 4). Even the best models like GPT-40 lags far behind human performance (which is above 90%). Figure 2 shows the pipeline for collecting these natural adversarial examples.
@@ -111,7 +111,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 
 ![](figures/figures_9_0.png)
 
-> 🔼 Figure 1 shows examples from the NaturalBench dataset, demonstrating how even state-of-the-art vision-language models struggle with simple questions about natural images, highlighting the need for a more robust benchmark.
+> 🔼 Figure 1 shows examples from the NaturalBench dataset, demonstrating how even state-of-the-art vision-language models struggle with simple questions about natural images, highlighting the challenge of 'blind' solutions that don't utilize visual information.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: NaturalBench examples consist of two questions and two images with alternating answers to prevent 'blind' models from scoring well (e.g., those that predict the same answer regardless of the image or question, as discussed in Section 3). We compare the ground-truth answer for each (image, question) pair with predictions from leading VLMs including GPT-40 (gpt-40-2024-08-06), Qwen2-VL (72B), Llama3.2-Vision (90B), and Molmo (72B) (see Section 4). Even the best models like GPT-40 lags far behind human performance (which is above 90%). Figure 2 shows the pipeline for collecting these natural adversarial examples.
@@ -121,7 +121,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 
 ![](figures/figures_17_0.png)
 
-> 🔼 Figure 1 shows examples from the NaturalBench benchmark, demonstrating how state-of-the-art vision-language models struggle with simple questions about natural images, even when humans find them easy to answer.
+> 🔼 Figure 1 showcases examples from NaturalBench, a new benchmark, comparing human performance with several state-of-the-art vision-language models' performance on natural adversarial samples.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: NaturalBench examples consist of two questions and two images with alternating answers to prevent 'blind' models from scoring well (e.g., those that predict the same answer regardless of the image or question, as discussed in Section 3). We compare the ground-truth answer for each (image, question) pair with predictions from leading VLMs including GPT-40 (gpt-40-2024-08-06), Qwen2-VL (72B), Llama3.2-Vision (90B), and Molmo (72B) (see Section 4). Even the best models like GPT-40 lags far behind human performance (which is above 90%). Figure 2 shows the pipeline for collecting these natural adversarial examples.
@@ -131,7 +131,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 
 ![](figures/figures_21_0.png)
 
-> 🔼 Figure 1 shows examples from the NaturalBench dataset, illustrating how even state-of-the-art vision-language models struggle with simple questions about natural images, while humans easily answer them.
+> 🔼 Figure 1 shows examples from NaturalBench, a new benchmark for evaluating vision-language models, comparing human answers with the predictions of several state-of-the-art models on pairs of questions and images with alternating answers.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: NaturalBench examples consist of two questions and two images with alternating answers to prevent 'blind' models from scoring well (e.g., those that predict the same answer regardless of the image or question, as discussed in Section 3). We compare the ground-truth answer for each (image, question) pair with predictions from leading VLMs including GPT-40 (gpt-40-2024-08-06), Qwen2-VL (72B), Llama3.2-Vision (90B), and Molmo (72B) (see Section 4). Even the best models like GPT-40 lags far behind human performance (which is above 90%). Figure 2 shows the pipeline for collecting these natural adversarial examples.
@@ -158,7 +158,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 > </details>
 
 
-> Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, highlighting the significant gap between model and human performance.
+> Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, showing significant performance gaps between the models and human performance.
 
 
 {{< table-caption >}}
@@ -170,7 +170,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 > </details>
 
 
-> Table 5 presents the performance of various vision-language models on the NaturalBench-Chinese and NaturalBench-Hindi subsets, evaluating their performance with and without English translation of the questions and answers.
+> Table 5 presents the group accuracy (G-Acc) of various vision-language models on the Chinese and Hindi subsets of NaturalBench, both before and after translation to English, highlighting the challenges posed by multilingual VQA tasks.
 
 
 {{< table-caption >}}
@@ -182,7 +182,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 > </details>
 
 
-> This table shows the Group Accuracy (G-Acc) performance of various vision-language models on different subsets of the Flickr30K dataset, comparing the results obtained using the adversarial method proposed in the paper versus a random sampling method, highlighting the effectiveness of the adversarial approach in creating a more challenging benchmark.
+> This table shows the performance (G-Acc) of various vision-language models on different subsets of the Flickr30K dataset, comparing the results from adversarially-generated samples versus randomly-matched samples, highlighting the effectiveness of the proposed method.
 
 
 {{< table-caption >}}
@@ -194,7 +194,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 > </details>
 
 
-> Table 1 presents the group accuracy (G-Acc) performance of 53 vision-language models on the NaturalBench benchmark, highlighting the significant performance gap between these models and human performance.
+> Table 1 presents the group accuracy (G-Acc) of 53 vision-language models on the NaturalBench benchmark, highlighting the significant performance gap between the models and human performance.
 
 
 {{< table-caption >}}
@@ -206,7 +206,19 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 > </details>
 
 
-> Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, highlighting the significant gap between model and human performance.
+> Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, highlighting a significant performance gap between the models and human performance.
+
+
+{{< table-caption >}}
+<br><table id='1' style='font-size:14px'><tr><td rowspan="2">Model</td><td colspan="8">Object</td><td colspan="8">Attribute</td></tr><tr><td>Animal</td><td>Human</td><td>Food</td><td>Building</td><td>Nature</td><td>Vehicle</td><td>Items</td><td>Others</td><td>Emotion</td><td>Shape</td><td>Size</td><td>Color</td><td>State</td><td>Abstract</td><td>Activity</td><td>Gender</td></tr><tr><td>BLIP-3(XGen-MM)</td><td>18.6</td><td>16.2</td><td>15.4</td><td>20.8</td><td>21.7</td><td>22.2</td><td>21.2</td><td>17.6</td><td>9.1</td><td>19.3</td><td>24.1</td><td>21.8</td><td>20.2</td><td>20.4</td><td>16.5</td><td>14.0</td></tr><tr><td>Phi-3-Vision</td><td>15.6</td><td>17.1</td><td>15.4</td><td>17.7</td><td>15.6</td><td>19.0</td><td>18.5</td><td>16.7</td><td>18.2</td><td>17.5</td><td>19.0</td><td>18.9</td><td>16.8</td><td>15.6</td><td>15.2</td><td>15.8</td></tr><tr><td>DeepSeek-VL-7B-Chat</td><td>20.9</td><td>16.9</td><td>15.4</td><td>21.9</td><td>22.1</td><td>16.7</td><td>19.3</td><td>19.0</td><td>12.1</td><td>24.6</td><td>21.4</td><td>20.8</td><td>19.5</td><td>16.7</td><td>20.1</td><td>14.6</td></tr><tr><td>LLaVA-NeXT(Mistral-7B)</td><td>14.2</td><td>16.1</td><td>17.3</td><td>14.0</td><td>13.4</td><td>18.1</td><td>16.7</td><td>15.2</td><td>15.2</td><td>19.3</td><td>14.6</td><td>16.3</td><td>15.7</td><td>14.1</td><td>14.4</td><td>17.9</td></tr><tr><td>InternLM-XC-V2-7B</td><td>23.3</td><td>28.6</td><td>19.2</td><td>30.8</td><td>23.6</td><td>30.6</td><td>27.8</td><td>29.0</td><td>33.3</td><td>31.6</td><td>30.2</td><td>27.8</td><td>25.8</td><td>23.3</td><td>27.0</td><td>30.1</td></tr><tr><td>InternVL-Chat-V1.2-Plus</td><td>23.9</td><td>28.0</td><td>23.1</td><td>20.3</td><td>18.5</td><td>22.7</td><td>25.4</td><td>19.7</td><td>21.2</td><td>17.0</td><td>20.0</td><td>24.8</td><td>22.8</td><td>19.3</td><td>26.2</td><td>30.4</td></tr><tr><td>GPT-4o</td><td>35.4</td><td>39.7</td><td>44.2</td><td>40.1</td><td>41.3</td><td>38.4</td><td>42.8</td><td>38.3</td><td>39.4</td><td>42.1</td><td>40.7</td><td>39.0</td><td>41.1</td><td>38.9</td><td>35.5</td><td>43.2</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> Table 1 presents the group accuracy (G-Acc) of 53 vision-language models on the NaturalBench benchmark, highlighting the significant performance gap between these models and human performance.
 
 
 {{< table-caption >}}
@@ -218,7 +230,7 @@ This paper is crucial for vision-language model (VLM) researchers because it int
 > </details>
 
 
-> Table 10 presents the model's question accuracy (Q-Acc) on different relation and reasoning skills within the NaturalBench benchmark.
+> Table 10 presents the model's question accuracy (Q-Acc) for each relation and reasoning skill tag in the NaturalBench benchmark.
 
 
 </details>

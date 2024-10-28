@@ -1,6 +1,6 @@
 ---
 title: "BiGR: Harnessing Binary Latent Codes for Image Generation and Improved Visual Representation Capabilities"
-summary: "BiGR: a novel conditional image generation model using compact binary codes, unifying generative and discriminative tasks for improved visual representation and zero-shot generalization across multipl..."
+summary: "BiGR: A novel image generation model using compact binary codes, unifying generation and discrimination for superior performance and zero-shot generalization across various vision tasks."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-18", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The research introduces BiGR, a new model for generating and analyzing images. Unlike previous models, BiGR cleverly combines image creation and image understanding into one system. It uses compact binary codes to represent images, making the process more efficient.  BiGR produced high-quality images, outperforming existing models in tests. It also excelled in other vision tasks, such as image inpainting (filling in missing parts of an image) and outpainting (extending an image beyond its boundaries),  without needing any specific adjustments. This shows BiGR's adaptability. The results suggest BiGR is a significant advancement in image generation, offering better efficiency and enabling new possibilities in computer vision.
+The research introduces BiGR, a new model for generating images.  Unlike previous models, BiGR excels at both creating images and understanding their features (discrimination).  It uses short, binary codes to represent images, which makes it efficient and fast.  Experiments show BiGR creates higher-quality images than others and does a better job of identifying different types of images from the data. This versatility is shown by its ability to handle image editing and other tasks without special re-training. BiGR is a significant step forward as it is the first model able to efficiently perform both image generation and feature extraction, paving the way for more versatile and powerful image AI systems.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The research introduces BiGR, a new model for generating and analyzing images. U
 {{< button href="https://arxiv.org/abs/2410.14672" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.14672" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in image generation and visual representation learning.  It introduces a novel model that bridges the gap between generative and discriminative tasks, a major challenge in the field.  The unified framework, combined with efficient binary latent codes, opens exciting avenues for research and application in various vision tasks, including zero-shot generalization.
+This paper is significant as it introduces BiGR, the first conditional image generation model unifying generative and discriminative tasks.  This addresses a key limitation in current models and opens new avenues for research in efficient, flexible, and high-quality image generation and representation learning.  The zero-shot generalization capabilities across multiple visual tasks further expand its applicability and potential impact.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} BiGR is the first conditional image generation model to unify generative and discriminative tasks within a single framework. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} BiGR, a novel conditional image generation model, unifies generation and discrimination within a single framework. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} BiGR uses compact binary latent codes for generative training, improving both image generation quality and representation capabilities. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} BiGR achieves superior performance in both image generation and visual representation compared to existing models, evidenced by FID-50k and linear-probe accuracy. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} BiGR achieves zero-shot generalization across multiple vision tasks like inpainting and outpainting, demonstrating the model's flexibility. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} BiGR demonstrates zero-shot generalization across various vision tasks, including image inpainting, outpainting, editing, and interpolation, without requiring structural modifications. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_1_0.png)
 
-> 🔼 Figure 1 shows BiGR generating high-quality images while simultaneously enhancing the discriminative capabilities of its visual representations, as demonstrated through image samples and t-SNE visualizations of image features.
+> 🔼 The figure shows BiGR generating high-quality images while simultaneously improving the discriminative capabilities of its image representations, as compared to a baseline model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -61,7 +61,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](charts/charts_8_0.png)
 
-> 🔼 The chart shows the relationship between FID-50k score and sample time for different numbers of sampling iterations and diffusion timesteps, across three model sizes.
+> 🔼 The chart displays the relationship between FID-50K score and sample time for different numbers of sampling iterations and diffusion timesteps across three model sizes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Relationships between FID-50K and sample time across varying inference hyperparameters. We compare different numbers of sampling iterations (N) on the left and varying diffusion timesteps (T) on the right for three model sizes.
@@ -74,7 +74,7 @@ This paper is crucial for researchers in image generation and visual representat
 {{< table-caption >}}
 <br><table id='2' style='font-size:16px'><tr><td></td><td></td><td></td><td></td><td></td><td colspan="5">Generative</td><td colspan="2">Discriminative</td></tr><tr><td>Model</td><td>Tokenizer</td><td>Objective</td><td>Type</td><td>Time↓</td><td>FID↓</td><td>IS↑</td><td>sFID↓</td><td>Pre.↑</td><td>Rec.↑</td><td>ACC1</td><td>ACC5</td></tr><tr><td>LlamaGen</td><td>VQGAN</td><td>Cat.</td><td>AR</td><td>1.10</td><td>3.81</td><td>248.28</td><td>8.49</td><td>0.83</td><td>0.52</td><td>40.5</td><td>64.4</td></tr><tr><td>SO</td><td>B-AE</td><td>Cat.</td><td>AR</td><td>1.09</td><td>3.21</td><td>239.17</td><td>5.38</td><td>0.83</td><td>0.54</td><td>23.8</td><td>44.2</td></tr><tr><td>S1</td><td>B-AE</td><td>Cat.</td><td>Mask</td><td>0.10</td><td>3.85</td><td>261.81</td><td>6.10</td><td>0.85</td><td>0.47</td><td>61.1</td><td>83.2</td></tr><tr><td>S2</td><td>B-AE</td><td>Bin.</td><td>AR</td><td>1.04</td><td>7.50</td><td>164.31</td><td>6.56</td><td>0.85</td><td>0.41</td><td>45.2</td><td>69.3</td></tr><tr><td>S3 (Ours)</td><td>B-AE</td><td>Bin.</td><td>Mask</td><td>0.69</td><td>3.17</td><td>262.14</td><td>5.59</td><td>0.86</td><td>0.50</td><td>64.3</td><td>85.4</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares the generative and discriminative performance of BiGR against LlamaGen and three other models, varying tokenizers, training objectives, and modeling types.
+> 🔼 Table 1 compares the generative and discriminative performance of BiGR against LlamaGen and other models with varying tokenizers, objectives, and modeling types.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Uniformity comparison. We compare the generative and discriminative performance of our model against LlamaGen (Sun et al., 2024) and three other settings, varying by tokenizers, training objectives, and modeling types.
@@ -91,7 +91,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_4_0.png)
 
-> 🔼 Figure 2 illustrates the training and generation processes of the BiGR model, highlighting the use of binary latent codes, masked modeling, and a Bernoulli diffusion process for both tasks.
+> 🔼 Figure 2 is an overview of the BiGR model, illustrating its training process using binary codes, the generation process through iterative unmasking, and representation acquisition via average pooling.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Overview of BiGR. For simplicity, we display only 1 bit for each token, although each token actually consists of K bits in length. Left: We outline the training of BiGR. Starting with binary codes from binary tokenizers, we append a condition token and mask partial tokens. These tokens are projected into continuous embeddings and processed by the Llama backbone. The outputs undergo a Bernoulli denoising process in the binary transcoder to generate probabilities, penalized by the weighted binary cross-entropy loss (wBCE) at masked positions. Right: We illustrate the generation process (detailed in Sec. 3.3) and the representation acquisition via average pooling.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_9_0.png)
 
-> 🔼 The figure visualizes BiGR's high-quality image generation and improved discriminative capabilities compared to LlamaGen, showcasing both generated images and t-SNE visualizations of ImageNet-1K features.
+> 🔼 The figure visualizes BiGR's high-quality image generation capabilities and improved discriminative feature representation compared to LlamaGen, showcasing better class separability.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -111,7 +111,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_10_0.png)
 
-> 🔼 Figure 6 showcases BiGR's zero-shot generalization capabilities across various image manipulation tasks, including inpainting, outpainting, editing, interpolation, and enrichment.
+> 🔼 Figure 6 shows examples of BiGR's zero-shot generalization capabilities across various vision tasks, including inpainting, outpainting, editing, interpolation and enrichment.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Zero-shot generalization. We present samples of inpainting, outpainting, editing, interpolation, and enrichment. The original image is marked with a purple border, with a pink box highlighting the masked region. Images without the purple borders are generated by our model.
@@ -121,7 +121,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows BiGR generating high-quality images while simultaneously improving the discriminative capabilities of its image representations compared to the baseline LlamaGen model.
+> 🔼 Figure 1 visualizes BiGR's ability to generate high-quality images and improve discriminative capabilities by comparing generated images and t-SNE visualizations of image features.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -131,7 +131,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_18_0.png)
 
-> 🔼 The figure shows BiGR's high-quality image generation and improved discriminative representation capabilities compared to LlamaGen, visualized using t-SNE.
+> 🔼 The figure shows BiGR generating high-quality images and improving image feature discriminative capabilities compared to a baseline model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -141,7 +141,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_19_0.png)
 
-> 🔼 The figure shows BiGR's high-quality image generation and improved discriminative capabilities compared to LlamaGen, visualized using t-SNE.
+> 🔼 The figure visualizes BiGR's image generation capabilities and improved visual representation by comparing generated images and feature discrimination with a baseline model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -151,7 +151,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure shows BiGR's ability to generate high-quality images while simultaneously improving the discriminative capabilities of its image representations.
+> 🔼 The figure visualizes BiGR's high-quality image generation and improved discriminative capabilities compared to LlamaGen, showcasing both generated samples and t-SNE visualizations of ImageNet-1K features.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -161,7 +161,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure showcases BiGR's ability to generate high-quality images and improve the discriminative capabilities of visual representations compared to a baseline model.
+> 🔼 Figure 1 shows BiGR generating high-quality images and improving the discriminative capabilities of image representations by comparing generated samples and t-SNE visualizations of image features.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -171,7 +171,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_22_0.png)
 
-> 🔼 The figure displays BiGR's image generation capabilities (left) and its improved discriminative representation capabilities compared to LlamaGen (right), visualized using t-SNE.
+> 🔼 Figure 1 shows BiGR generating high-quality images while simultaneously improving the discriminative capabilities of its image representations compared to a baseline model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -181,7 +181,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_22_1.png)
 
-> 🔼 The figure visualizes BiGR's ability to generate high-quality images and improve the discriminative capabilities of image representations, showcasing both its generative and discriminative performance.
+> 🔼 The figure demonstrates BiGR's ability to generate high-quality images and improve the discriminative capabilities of visual representations compared to a baseline model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -191,7 +191,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_23_0.png)
 
-> 🔼 The figure shows BiGR generating high-quality images and improving discriminative capabilities of its representations by visualizing features from 100 classes in ImageNet-1K.
+> 🔼 Figure 1 shows image samples generated by BiGR and compares its feature representations with LlamaGen, demonstrating BiGR's high-quality image generation and improved discriminative capabilities.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -201,7 +201,7 @@ This paper is crucial for researchers in image generation and visual representat
 
 ![](figures/figures_23_1.png)
 
-> 🔼 Figure 1 shows BiGR's high-quality image generation and improved discriminative capabilities compared to LlamaGen, visualized using t-SNE on ImageNet-1K features.
+> 🔼 The figure visualizes the high-quality images generated by BiGR and demonstrates its superior discriminative capabilities compared to the baseline model, LlamaGen, by showing a t-SNE plot of image features.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: BiGR generates high-quality images while improving the discriminative capabilities of the representations. Left: Generated 512×512 samples, 256x256 samples, and class-conditional editing samples. Right: BiGR vs. LlamaGen (Sun et al., 2024). We visualize image features from 100 classes in ImageNet-1K validation split using t-SNE (van der Maaten & Hinton, 2008), where the same color indicates the same class. Our model produces features with greater discriminative separability and enhances both generative and discriminative performance.
@@ -228,7 +228,7 @@ This paper is crucial for researchers in image generation and visual representat
 > </details>
 
 
-> The table compares the performance of BiGR's binary transcoder using different training objectives and whether or not Bernoulli denoising is used, evaluating both generative and discriminative metrics.
+> Table 2 compares the generative and discriminative performance of BiGR using different binary transcoder methods.
 
 
 {{< table-caption >}}
@@ -240,7 +240,7 @@ This paper is crucial for researchers in image generation and visual representat
 > </details>
 
 
-> This table compares the generative and discriminative performance of different sampling methods used in the BiGR model.
+> The table compares the generative and discriminative performance of different sampling order strategies for the BiGR model.
 
 
 {{< table-caption >}}
@@ -252,7 +252,7 @@ This paper is crucial for researchers in image generation and visual representat
 > </details>
 
 
-> Table 4 presents the linear-probe top-1 accuracy results on ImageNet-1K for both conditional and unconditional versions of the BiGR model.
+> Table 4 presents a comparison of the linear-probe top-1 accuracy on ImageNet-1k for conditional and unconditional training models.
 
 
 {{< table-caption >}}
@@ -276,7 +276,7 @@ This paper is crucial for researchers in image generation and visual representat
 > </details>
 
 
-> Table 7 details the default architectural, training, and inference configurations used for three different sizes of the BiGR model: BiGR-L, BiGR-XL, and BiGR-XXL.
+> Table 7 shows the default configuration settings for the model architecture, training and inference of BiGR across different model sizes.
 
 
 {{< table-caption >}}
@@ -288,7 +288,7 @@ This paper is crucial for researchers in image generation and visual representat
 > </details>
 
 
-> Table 8 compares the generative and discriminative performance of deterministic and non-deterministic sampling methods in BiGR, showing that non-deterministic sampling performs slightly better.
+> The table compares the performance of deterministic and non-deterministic sampling methods in terms of FID, IS, sFID, precision, and recall.
 
 
 {{< table-caption >}}
@@ -300,7 +300,7 @@ This paper is crucial for researchers in image generation and visual representat
 > </details>
 
 
-> Table 9 compares the generative performance of BiGR with other state-of-the-art models on the ImageNet-1K dataset using various metrics such as FID, IS, precision, and recall.
+> Table 9 compares the generative performance of BiGR against other state-of-the-art models on ImageNet-1K using FID, IS, precision, and recall metrics.
 
 
 {{< table-caption >}}
@@ -312,7 +312,7 @@ This paper is crucial for researchers in image generation and visual representat
 > </details>
 
 
-> Table 10 compares the linear-probe top-1 accuracy on ImageNet-1K for various models, categorized by their types (Contrastive methods, MIM, Conditional generative methods, and Generative methods), showcasing BiGR's superior performance.
+> Table 10 compares the linear probe top 1 accuracy on ImageNet-1k of various methods, categorized by contrastive methods, masked image modeling methods and conditional generative methods.
 
 
 </details>

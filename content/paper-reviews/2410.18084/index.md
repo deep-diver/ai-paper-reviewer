@@ -1,6 +1,6 @@
 ---
 title: "DynamicCity: Large-Scale LiDAR Generation from Dynamic Scenes"
-summary: "DynamicCity generates large-scale, high-quality 4D LiDAR scenes capturing dynamic environments, improving autonomous driving system development."
+summary: "DynamicCity generates large-scale, high-quality 4D LiDAR scenes capturing dynamic environments, surpassing existing methods in efficiency and accuracy."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-23", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Existing LiDAR scene generation methods struggle with dynamic, large-scale environments. DynamicCity solves this by using a two-stage approach:  First, a Variational Autoencoder (VAE) learns a compact 4D representation called HexPlane.  This efficiently encodes spatial and temporal information. Second, a Diffusion model based on Diffusion Transformers (DiT) generates new HexPlanes.  This DiT model is enhanced to efficiently handle the HexPlane representation.  The researchers show that this method significantly outperforms current approaches in generating large, high-quality dynamic LiDAR data.  The paper further demonstrates the versatility of DynamicCity with applications such as trajectory-guided, command-driven, and inpainting tasks, highlighting its effectiveness in various downstream applications.
+Existing LiDAR scene generation methods primarily focus on static, single-frame scenes. DynamicCity tackles this limitation by introducing a new 4D LiDAR generation framework capable of creating large-scale, high-quality scenes that capture the temporal evolution of dynamic environments.  It achieves this through two key models: a Variational Autoencoder (VAE) that learns a compact 4D representation called HexPlane, and a Diffusion Transformer (DiT) that generates HexPlanes. The VAE employs a novel Projection Module to efficiently compress 4D LiDAR features and an Expansion & Squeeze Strategy to reconstruct 3D features, improving both network training efficiency and reconstruction accuracy.  The DiT uses a Padded Rollout Operation to effectively handle HexPlane generation. DynamicCity supports various conditional generation applications, such as trajectory and command-driven generation, inpainting, and layout-conditioned generation.  Extensive experiments show DynamicCity significantly outperforms existing state-of-the-art methods in terms of multiple evaluation metrics, including generation quality, speed, and memory usage.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Existing LiDAR scene generation methods struggle with dynamic, large-scale envir
 {{< button href="https://arxiv.org/abs/2410.18084" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18084" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in LiDAR scene generation and autonomous driving.  It introduces DynamicCity, a novel framework for generating large-scale, high-quality 4D LiDAR scenes, addressing the limitations of existing methods. This opens new avenues for developing more robust autonomous driving systems and improves the training and evaluation of related AI models.
+This paper is crucial for researchers in LiDAR scene generation and autonomous driving.  It introduces DynamicCity, a novel framework for generating large-scale, high-quality 4D LiDAR scenes, addressing a critical gap in existing methods.  The innovative HexPlane representation and DiT-based diffusion model offer significant improvements in efficiency and accuracy. The paper's findings will inspire further work on 4D LiDAR generation and advance the development of more robust and realistic autonomous systems.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} DynamicCity generates high-quality 4D LiDAR scenes, unlike existing methods which focus on static scenes. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} DynamicCity generates high-quality, large-scale 4D LiDAR scenes. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} It uses a novel VAE model to compress 4D LiDAR data into HexPlanes and then a DiT model for generation. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} DynamicCity utilizes a novel HexPlane representation and DiT-based diffusion model. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} DynamicCity outperforms state-of-the-art methods in generation quality and training speed. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} DynamicCity outperforms state-of-the-art methods in efficiency and accuracy. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_1_0.png)
 
-> 🔼 Figure 1 illustrates DynamicCity's capability to generate diverse large-scale and long-sequential 4D LiDAR scenes from various driving scenarios.
+> 🔼 The figure illustrates the DynamicCity framework, showcasing its ability to generate large-scale, high-quality 4D LiDAR scenes from dynamic environments using command-driven scene generation, trajectory-guided generation, dynamic scene inpainting, and layout-conditioned generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Dynamic LiDAR scene generation from DynamicCity. We introduce a new LiDAR generation model that generates diverse 4D scenes of large spatial scales (80 × 80 × 6.4 meter³) and long sequential modeling (up to 128 frames), enabling a diverse set of downstream applications. For more examples, kindly refer to our Project Page: https://dynamic-city.github.io.
@@ -64,7 +64,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 {{< table-caption >}}
 <br><table id='2' style='font-size:14px'><tr><td>Dataset</td><td>#Classes</td><td>Resolution</td><td>#Frames</td><td>OccSora (Wang et al., 2024)</td><td>Ours (DynamicCity)</td></tr><tr><td rowspan="4">CarlaSC (Wilson et al., 2022)</td><td>10</td><td>128x 128 x8</td><td>4</td><td>41.01%</td><td>79.61% (+38.6%)</td></tr><tr><td>10</td><td>128x 128 x8</td><td>8</td><td>39.91%</td><td>76.18% (+36.3%)</td></tr><tr><td>10</td><td>128x 128 x8</td><td>16</td><td>33.40%</td><td>74.22% (+40.8%)</td></tr><tr><td>10</td><td>128x 128 x8</td><td>32</td><td>28.91%</td><td>59.31% (+30.4%)</td></tr><tr><td>Occ3D-Waymo (Tian et al., 2023)</td><td>9</td><td>200x200x16</td><td>16</td><td>36.38%</td><td>68.18% (+31.8%)</td></tr><tr><td rowspan="4">Occ3D-nuScenes (Tian et al., 2023)</td><td>11</td><td>200x200x 16</td><td>16</td><td>13.70%</td><td>56.93% (+43.2%)</td></tr><tr><td>11</td><td>200x200 x 16</td><td>32</td><td>13.51%</td><td>42.60% (+29.1%)</td></tr><tr><td>17</td><td>200x200x 16</td><td>32</td><td>13.41%</td><td>40.79% (+27.3%)</td></tr><tr><td>17</td><td>200x200x 16</td><td>32</td><td>27.40%†</td><td>40.79% (+13.4%)</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares the 4D scene reconstruction performance of the proposed DynamicCity model against OccSora across different datasets, resolutions, and sequence lengths, showing DynamicCity's superior performance.
+> 🔼 Table 1 compares the 4D scene reconstruction performance of the proposed DynamicCity model against OccSora across different datasets, resolutions, and sequence lengths, measured by mean Intersection over Union (mIoU).
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Comparisons of 4D Scene Reconstruction. We report the mIoU scores of OccSora (Wang et al., 2024) and our DynamicCity framework on the CarlaSC, Occ3D-Waymo, and Occ3D-nuScenes datasets, respectively, under different resolutions and sequence lengths. Symbol † denotes score reported in the OccSora paper. Other scores are reproduced using the official code.
@@ -81,7 +81,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the two-stage pipeline of DynamicCity for dynamic LiDAR scene generation, including HexPlane encoding with a VAE and HexPlane diffusion with DiT.
+> 🔼 The figure illustrates the two-stage pipeline of DynamicCity, which uses a VAE to encode 4D LiDAR scenes as HexPlanes and a DiT to generate novel HexPlanes, subsequently decoded as novel 4D scenes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Pipeline of dynamic LiDAR scene generation. Our DynamicCity framework consists of two key procedures: (a) Encoding HexPlane with an VAE architecture (cf. Sec. 4.1), and (b) 4D Scene Generation with HexPlane DiT (cf. Sec. 4.2).
@@ -91,17 +91,17 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure illustrates the VAE architecture used in DynamicCity for encoding 4D LiDAR scenes into compact HexPlane representations.
+> 🔼 The figure illustrates the Variational Autoencoder (VAE) model used in DynamicCity for encoding 4D LiDAR scenes into compact HexPlane representations.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: VAE for Encoding 4D LIDAR Scenes. We use HexPlane H as the 4D representation. fo and go are convolution-based networks with downsampling and upsampling operations, respectively. h(.) denotes the projection network based on transformer modules.
+> Figure 3: VAE for Encoding 4D LiDAR Scenes. We use HexPlane H as the 4D representation. fo and go are convolution-based networks with downsampling and upsampling operations, respectively. h(.) denotes the projection network based on transformer modules.
 > </details>
 
 
 
 ![](figures/figures_6_0.png)
 
-> 🔼 The figure illustrates the two-stage pipeline of DynamicCity for dynamic LiDAR scene generation, showing the VAE for HexPlane encoding and the DiT for HexPlane-based 4D scene generation.
+> 🔼 This figure illustrates the two-stage pipeline of DynamicCity for dynamic LiDAR scene generation, showing the VAE for HexPlane encoding and the DiT for HexPlane generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Pipeline of dynamic LiDAR scene generation. Our DynamicCity framework consists of two key procedures: (a) Encoding HexPlane with an VAE architecture (cf. Sec. 4.1), and (b) 4D Scene Generation with HexPlane DiT (cf. Sec. 4.2).
@@ -111,7 +111,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_6_1.png)
 
-> 🔼 The figure illustrates how numeric and image conditions are injected into the DiT for conditional generation of HexPlane.
+> 🔼 This figure illustrates how various numeric and image conditions are injected into the DiT model for conditional generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Condition Injection for DiT
@@ -121,7 +121,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_8_0.png)
 
-> 🔼 Figure 6 shows example unconditional generation results from DynamicCity on Occ3D-Waymo and CarlaSC datasets, showcasing the model's ability to generate realistic dynamic scenes across different time steps.
+> 🔼 Figure 6 shows sample unconditional scene generation results from the DynamicCity model at frames 1, 8, and 16, demonstrating the model's ability to generate large-scale dynamic LiDAR scenes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Dynamic Scene Generation Results. We provide unconditional generation scenes from the 1st, 8th, and 16th frames on Occ3D-Waymo (Left) and CarlaSC (Right), respectively. Kindly refer to the Appendix for complete sequential scenes and longer temporal modeling examples.
@@ -131,7 +131,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_9_0.png)
 
-> 🔼 The figure showcases various downstream applications of DynamicCity, including command-driven, layout-conditioned, and trajectory-guided generation, as well as dynamic object inpainting.
+> 🔼 Figure 7 shows qualitative results of DynamicCity on various downstream applications, including command-driven, layout-conditioned, trajectory-guided scene generation and dynamic object inpainting.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Dynamic Scene Generation Applications. We demonstrate the capability of our model on a diverse set of downstream tasks. We show the 1st, 8th, and 16th frames for simplicity. Kindly refer to the Appendix for complete sequential scenes and longer temporal modeling examples.
@@ -141,7 +141,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_20_0.png)
 
-> 🔼 Figure 8 shows 16 consecutive frames of an unconditional dynamic scene generated by DynamicCity on the Occ3D-Waymo dataset, showcasing the model's ability to generate realistic and detailed dynamic scenes.
+> 🔼 Figure 8 shows 16 consecutive frames of an unconditonally generated dynamic scene from the Occ3D-Waymo dataset, showcasing the model's ability to generate realistic and detailed dynamic scenes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Unconditional Dynamic Scene Generation Results. We provide qualitative examples of a total of 16 consectutive frames generated by DynamicCity on the Occ3D-Waymo (Tian et al., 2023) dataset. Best viewed in colors and zoomed-in for additional details.
@@ -151,7 +151,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_21_0.png)
 
-> 🔼 Figure 8 shows 16 consecutive frames of an unconditional dynamic scene generated by DynamicCity on the Occ3D-Waymo dataset.
+> 🔼 Figure 8 shows 16 consecutive frames of an unconditonally generated dynamic scene from the Occ3D-Waymo dataset, illustrating the model's ability to generate realistic and detailed dynamic scenes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Unconditional Dynamic Scene Generation Results. We provide qualitative examples of a total of 16 consectutive frames generated by DynamicCity on the Occ3D-Waymo (Tian et al., 2023) dataset. Best viewed in colors and zoomed-in for additional details.
@@ -161,7 +161,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_22_0.png)
 
-> 🔼 Figure 10 shows 64 consecutive frames generated by DynamicCity, demonstrating the model's ability to generate long, temporally consistent sequences of 4D LiDAR data conditioned on HexPlane.
+> 🔼 This figure shows 64 consecutive frames generated by DynamicCity using HexPlane-guided generation, showcasing strong temporal consistency.
 > <details>
 > <summary>read the caption</summary>
 > Figure 10: HexPlane-Guided Generation Results. We provide qualitative examples of a total of 64 consectutive frames generated by DynamicCity on the Occ3D-Waymo (Tian et al., 2023) dataset. Best viewed in colors and zoomed-in for additional details.
@@ -171,7 +171,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_23_0.png)
 
-> 🔼 Figure 1 shows example LiDAR scene generation results from the DynamicCity model, highlighting its ability to generate diverse and large-scale 4D scenes.
+> 🔼 The figure illustrates the DynamicCity framework's capability to generate diverse 4D LiDAR scenes with large spatial scales and long sequences, showcasing command-driven, trajectory-guided generation, dynamic scene inpainting, and layout-conditioned generation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Dynamic LiDAR scene generation from DynamicCity. We introduce a new LiDAR generation model that generates diverse 4D scenes of large spatial scales (80 × 80 × 6.4 meter³) and long sequential modeling (up to 128 frames), enabling a diverse set of downstream applications. For more examples, kindly refer to our Project Page: https://dynamic-city.github.io.
@@ -181,7 +181,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_24_0.png)
 
-> 🔼 This figure shows qualitative examples of 16 consecutive frames generated by DynamicCity under the command RIGHT, demonstrating the model's ability to control the ego vehicle's motion and the scene's relative motion based on movement trends.
+> 🔼 The figure shows 16 frames of a scene generated using command-guided conditional generation, where the command is to turn right.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Command-Guided Scene Generation Results. We provide qualitative examples of a total of 16 consectutive frames generated under the command RIGHT by DynamicCity on the CarlaSC (Wilson et al., 2022) dataset. Best viewed in colors and zoomed-in for additional details.
@@ -191,17 +191,17 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_25_0.png)
 
-> 🔼 Figure 8 shows 16 consecutive frames of an unconditonally generated dynamic LiDAR scene from the Occ3D-Waymo dataset showcasing the model's ability to generate realistic and detailed dynamic scenes.
+> 🔼 Figure 1 illustrates the DynamicCity framework, showcasing its ability to generate diverse and large-scale 4D LiDAR scenes from dynamic environments.
 > <details>
 > <summary>read the caption</summary>
-> Figure 8: Unconditional Dynamic Scene Generation Results. We provide qualitative examples of a total of 16 consectutive frames generated by DynamicCity on the Occ3D-Waymo (Tian et al., 2023) dataset. Best viewed in colors and zoomed-in for additional details.
+> Figure 1: Dynamic LiDAR scene generation from DynamicCity. We introduce a new LiDAR generation model that generates diverse 4D scenes of large spatial scales (80 × 80 × 6.4 meter³) and long sequential modeling (up to 128 frames), enabling a diverse set of downstream applications. For more examples, kindly refer to our Project Page: https://dynamic-city.github.io.
 > </details>
 
 
 
 ![](figures/figures_26_0.png)
 
-> 🔼 Figure 14 shows the results of dynamic inpainting on 16 consecutive frames from the CarlaSC dataset, demonstrating the model's ability to seamlessly regenerate masked regions while maintaining consistency with the surrounding scene.
+> 🔼 The figure shows before-and-after images of dynamic inpainting results using DynamicCity on the CarlaSC dataset, demonstrating the model's ability to seamlessly regenerate masked regions while maintaining consistency with the original scene.
 > <details>
 > <summary>read the caption</summary>
 > Figure 14: Dynamic Inpainting Results. We provide qualitative examples of a total of 16 consecutive frames generated by DynamicCity on the CarlaSC (Wilson et al., 2022) dataset. Best viewed in colors and zoomed-in for additional details.
@@ -211,7 +211,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 
 ![](figures/figures_27_0.png)
 
-> 🔼 Figure 6 shows the unconditional generation results of DynamicCity on Occ3D-Waymo and CarlaSC datasets, illustrating the model's ability to generate realistic and detailed dynamic scenes.
+> 🔼 Figure 6 shows example unconditional generation results from the DynamicCity model, showcasing its ability to generate large-scale, high-quality 4D LiDAR scenes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Dynamic Scene Generation Results. We provide unconditional generation scenes from the 1st, 8th, and 16th frames on Occ3D-Waymo (Left) and CarlaSC (Right), respectively. Kindly refer to the Appendix for complete sequential scenes and longer temporal modeling examples.
@@ -238,7 +238,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 > </details>
 
 
-> Table 2 compares the performance of three different methods (SemCity, OccSora, and DynamicCity) on 4D scene generation using Inception Score, Fréchet Inception Distance, Kernel Inception Distance, Precision, and Recall in both 2D and 3D spaces.
+> Table 2 compares the performance of three different methods (SemCity, OccSora, and DynamicCity) on 4D scene generation using various metrics in both 2D and 3D spaces.
 
 
 {{< table-caption >}}
@@ -250,7 +250,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 > </details>
 
 
-> The table presents an ablation study comparing different VAE network structures (encoders and decoders, with and without the proposed Expansion & Squeeze Strategy) across two datasets, measuring mIoU scores, training time, and VRAM usage.
+> Table 3 presents an ablation study comparing different VAE network structures (encoder and decoder configurations with and without the proposed Projection Module and Expansion & Squeeze Strategy) on two datasets, showing mIoU scores, training times, and memory usage.
 
 
 {{< table-caption >}}
@@ -262,7 +262,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 > </details>
 
 
-> Table 4 shows the impact of different downsampling rates on the HexPlane's compression ratio, mIoU score, training speed, and VRAM usage for the VAE model on CarlaSC and Occ3D-Waymo datasets.
+> Table 4 shows the effects of different downsampling rates on HexPlane compression ratio, mIoU score, training speed, and memory usage for the VAE model on the CarlaSC and Occ3D-Waymo datasets.
 
 
 {{< table-caption >}}
@@ -274,7 +274,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 > </details>
 
 
-> Table 5 presents an ablation study comparing different methods of organizing HexPlanes as image tokens for 4D LiDAR generation, evaluating their performance using Inception Score, Fréchet Inception Distance, Kernel Inception Distance, Precision, and Recall metrics.
+> Table 5 shows the ablation study results on organizing HexPlane as image tokens for 4D LiDAR scene generation, reporting Inception Score, Fréchet Inception Distance, Kernel Inception Distance, Precision, and Recall rates on CarlaSC dataset.
 
 
 {{< table-caption >}}
@@ -286,7 +286,7 @@ This paper is crucial for researchers in LiDAR scene generation and autonomous d
 > </details>
 
 
-> Table 1 compares the 4D scene reconstruction performance (mIoU) of DynamicCity against OccSora across three datasets with varying resolutions and sequence lengths.
+> Table 1 compares the 4D scene reconstruction performance of the proposed DynamicCity framework against OccSora across different datasets, resolutions, and sequence lengths, measured by mean Intersection over Union (mIoU).
 
 
 </details>

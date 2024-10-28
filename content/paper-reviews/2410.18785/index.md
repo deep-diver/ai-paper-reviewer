@@ -1,6 +1,6 @@
 ---
 title: "Should We Really Edit Language Models? On the Evaluation of Edited Language Models"
-summary: "Language model editing, while efficient for small updates, causes inevitable performance drops and safety issues when scaled, urging a reassessment of its practical applications."
+summary: "Contrary to popular belief, current language model editing techniques cause inevitable performance decline and safety issues when scaling edits, urging the need for more practical methods."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research delves into the effectiveness and limitations of current language model editing techniques.  The study comprehensively evaluates various editing methods across different language models, uncovering a critical flaw:  scaling editing to many updates consistently degrades model performance on general benchmarks and severely compromises the model's safety.  While editing methods excel in targeted knowledge updates (reliability, generalization, locality), their impact on the model's overall abilities was previously unexplored. The findings show that even instruction-tuned models (designed for improved safety and robustness) suffer from performance decline and safety issues.   The paper's key contributions include a comprehensive evaluation of editing methods, highlighting the inherent limitations of the current approaches. The findings demonstrate that editing is only suitable for small-scale knowledge updates, motivating further research into more practical and dependable editing techniques.  The study underscores the importance of carefully considering the potential downsides of model editing before deploying it in real-world applications.
+This research comprehensively evaluates the effectiveness and safety of various language model editing methods.  The key finding is that, despite improvements in reliability, generalization, and locality,  existing methods cause unavoidable performance drops and safety compromises as the number of edits grows.  Instruction-tuned models and larger models proved more robust, but even they eventually suffer from decreased performance and safety risks at a large scale. The study concludes that current methods are insufficient for extensive knowledge updates, underscoring the need for further research into more practical and secure editing techniques.
 
 {{< /lead >}}
 
@@ -21,13 +21,13 @@ This research delves into the effectiveness and limitations of current language 
 {{< button href="https://arxiv.org/abs/2410.18785" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18785" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial because it challenges the prevalent optimism surrounding language model editing.  It reveals limitations of existing methods, influencing future research directions and prompting the development of more robust and reliable techniques. The findings on safety are particularly relevant for responsible AI development.
+This paper is crucial for AI researchers working on language models and model editing.  It reveals critical limitations of current editing methods, challenges existing assumptions, and highlights potential safety risks. This opens new avenues for research focusing on more robust and reliable editing techniques, especially concerning the preservation of general model capabilities and safety.
 #### Key Takeaways
 
 {{< alert "star" >}}
@@ -35,11 +35,11 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Instruction-tuned models show more robustness to editing than base models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Instruction-tuned models are more resistant to performance degradation from editing, while larger models show better robustness than smaller ones. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Larger language models are more resistant to editing-induced performance degradation than smaller models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Current editing methods are unsuitable for large-scale knowledge updates within language models. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure illustrates the effectiveness of model editing methods in updating knowledge within language models and their limitations when scaling to a large number of edits.
+> 🔼 The figure illustrates how model editing methods can efficiently update knowledge but also fail to retain this knowledge when scaled to a large number of edits.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Illustration about the model editing and its pitfalls in retaining edited knowledge. Left panel: model editing methods can efficiently update knowledge within language models; Right panel: when scaling editing to thousands, the model can't retain edited knowledge, see [16] for details.
@@ -61,7 +61,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 
 ![](charts/charts_5_0.png)
 
-> 🔼 The chart displays the performance trends of six different model editing methods on Llama2-7B base model across five different benchmark tasks, showing that PMET and MEND are more robust to editing than others.
+> 🔼 The chart displays the performance trends of six different model editing methods on Llama2-7B base model across multiple benchmarks, showing the impact of the number of edits on the model's abilities.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.
@@ -74,7 +74,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 {{< table-caption >}}
 <table id='4' style='font-size:14px'><tr><td rowspan="3">Method w/o Edit</td><td rowspan="2"># Edits</td><td colspan="4">GPT2-XL</td></tr><tr><td>MMLU</td><td>GSM8K</td><td>BBH</td><td>CSQA</td></tr><tr><td>0</td><td>0.2098</td><td>0.0144</td><td>0.0382</td><td>0.1941</td></tr><tr><td rowspan="6">PMET</td><td>10</td><td>0.2104</td><td>0.0159</td><td>0.0377</td><td>0.1941</td></tr><tr><td>20</td><td>0.1081</td><td>0.0144</td><td>0.0117</td><td>0.2048</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>500</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1000</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="5">MEND</td><td>10</td><td>0.2096</td><td>0.0144</td><td>0.0377</td><td>0.1949</td></tr><tr><td>30</td><td>0.2094</td><td>0.0152</td><td>0.0388</td><td>0.1941</td></tr><tr><td>100</td><td>0.2098</td><td>0.0144</td><td>0.0380</td><td>0.1957</td></tr><tr><td>500</td><td>0.2100</td><td>0.0144</td><td>0.0382</td><td>0.1941</td></tr><tr><td>1000</td><td>0.2099</td><td>0.0144</td><td>0.0381</td><td>0.1933</td></tr><tr><td rowspan="2">KN</td><td>500</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1000</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="2">MEMIT</td><td>500</td><td>0.2112</td><td>0.0159</td><td>0.0363</td><td>0.1957</td></tr><tr><td>1000</td><td>0.2097</td><td>0.0152</td><td>0.0193</td><td>0.199</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the evaluation results of GPT2-XL model with different editing methods and various numbers of edits on MMLU, GSM8K, BBH, and CSQA benchmarks.
+> 🔼 Table 1 presents the evaluation results of the GPT2-XL language model after editing using various methods and a different number of edits.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Evaluation results of GPT2-XL. experiments are conducted on a sever with 8 RTX 4090 GPUs.
@@ -93,7 +93,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 
 ![](charts/charts_6_0.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.")
 
-> 🔼 The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across multiple benchmarks, showing that PMET and MEND effectively preserve model abilities, while KN shows a drastic drop in performance with fewer than ten edits.
+> 🔼 The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across various benchmark tasks, showing how the number of edits affects model performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.
@@ -102,7 +102,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 
 ![](charts/charts_6_1.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.")
 
-> 🔼 The chart displays the performance trends of six different model editing methods on Llama2-7B across multiple benchmarks, showing that PMET and MEND maintain model abilities better than other methods, while KN shows significant performance decline.
+> 🔼 The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across various benchmarks, showing that PMET and MEND maintain model abilities better than others, especially KN.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.
@@ -111,37 +111,37 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 
 ![](charts/charts_7_0.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.")
 
-> 🔼 The chart displays performance trends of six different model editing methods on the Llama2-7B base model across multiple benchmarks, showing that PMET and MEND effectively preserve model abilities while KN's performance drastically declines.
+> 🔼 The chart displays the performance trends of six different model editing methods on Llama2-7B across five different benchmark tasks, showing how the number of edits affects model performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.")
+![](charts/charts_8_0.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.")
 
-> 🔼 The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across various benchmarks, showing that PMET and MEND effectively preserve model abilities while KN shows a drastic performance drop.
+> 🔼 The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across various benchmarks, showing that PMET and MEND effectively preserve model abilities while KN shows a significant performance drop.
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.
+> Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.
 > </details>
 
 
-![](charts/charts_21_0.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.")
+![](charts/charts_21_0.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.")
 
-> 🔼 The chart displays the performance trends of six different model editing methods on Llama2-7B across five benchmark tasks, revealing that PMET and MEND effectively preserve model abilities, while KN shows a sharp decline with fewer than ten edits.
+> 🔼 The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across multiple benchmark tasks, showing that PMET and MEND are more effective in preserving model abilities than other methods.
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.
+> Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.
 > </details>
 
 
-![](charts/charts_21_1.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.")
+![](charts/charts_21_1.png "🔼 Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.")
 
-> 🔼 The chart displays the performance trends of six different model editing methods on the Llama2-7B base model across various benchmark tasks, revealing that PMET and MEND preserve model abilities while KN shows significant degradation with fewer than ten edits.
+> 🔼 The chart displays performance trends of six different model editing methods on the Llama2-7B base model across multiple benchmark tasks, revealing that PMET and MEND are most effective at preserving model abilities while KN shows a significant drop in performance.
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model's abilities across all tasks. While KN drastically drops even less than ten edits.
+> Figure 2: Performance trends of evaluating edited Llama2-7B base model across different benchmarks using six editing methods. Results reveal that PMET and MEND can effectively preserve the model’s abilities across all tasks. While KN drastically drops even less than ten edits.
 > </details>
 
 
@@ -155,6 +155,18 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 
 
 {{< table-caption >}}
+<table id='0' style='font-size:14px'><tr><td rowspan="3">Method w/o Edit</td><td rowspan="2"># Edits</td><td colspan="4">Llama2-7B-Chat</td><td colspan="4">Mistral-7B-Instruct</td></tr><tr><td>MMLU</td><td>GSM8K</td><td>BBH</td><td>CSQA</td><td>MMLU</td><td>GSM8K</td><td>BBH</td><td>CSQA</td></tr><tr><td>0</td><td>0.4516</td><td>0.2032</td><td>0.3997</td><td>0.6134</td><td>0.5350</td><td>0.3450</td><td>0.4668</td><td>0.6601</td></tr><tr><td rowspan="6">ROME</td><td>1</td><td>0.4576</td><td>0.1531</td><td>0.3985</td><td>0.5938</td><td>0.5364</td><td>0.3442</td><td>0.4667</td><td>0.6699</td></tr><tr><td>5</td><td>0.4587</td><td>0.1425</td><td>0.3976</td><td>0.5839</td><td>0.5354</td><td>0.3442</td><td>0.4648</td><td>0.6618</td></tr><tr><td>10</td><td>0.4578</td><td>0.1471</td><td>0.3974</td><td>0.5864</td><td>0.5333</td><td>0.3366</td><td>0.4684</td><td>0.6634</td></tr><tr><td>20</td><td>0.4416</td><td>0.1471</td><td>0.3828</td><td>0.5602</td><td>0.5310</td><td>0.3397</td><td>0.4693</td><td>0.6519</td></tr><tr><td>50</td><td>0.2700</td><td>0.0409</td><td>0.2838</td><td>0.2048</td><td>0.4115</td><td>0.2517</td><td>0.3888</td><td>0.4636</td></tr><tr><td>100</td><td>0.0007</td><td>0.0152</td><td>0</td><td>0</td><td>0.1884</td><td>0.0190</td><td>0.1884</td><td>0.0026</td></tr><tr><td rowspan="6">MEMIT</td><td>1</td><td>0.4715</td><td>0.2085</td><td>0.4106</td><td>0.6143</td><td>0.5356</td><td>0.3450</td><td>0.4664</td><td>0.6683</td></tr><tr><td>5</td><td>0.4717</td><td>0.1895</td><td>0.4114</td><td>0.6233</td><td>0.5345</td><td>0.3419</td><td>0.4656</td><td>0.6675</td></tr><tr><td>10</td><td>0.4704</td><td>0.2047</td><td>0.4132</td><td>0.6151</td><td>0.5357</td><td>0.3434</td><td>0.4674</td><td>0.6716</td></tr><tr><td>20</td><td>0.4698</td><td>0.1956</td><td>0.4087</td><td>0.6405</td><td>0.5358</td><td>0.3465</td><td>0.4670</td><td>0.6667</td></tr><tr><td>50</td><td>0.4682</td><td>0.2039</td><td>0.4017</td><td>0.6405</td><td>0.5328</td><td>0.3487</td><td>0.4643</td><td>0.6536</td></tr><tr><td>100</td><td>0.4485</td><td>0.1850</td><td>0.3959</td><td>0.6044</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="6">PMET</td><td>1</td><td>0.4583</td><td>0.1471</td><td>0.3988</td><td>0.5930</td><td>0.5357</td><td>0.3465</td><td>0.6658</td><td>0.4663</td></tr><tr><td>5</td><td>0.4586</td><td>0.1448</td><td>0.4001</td><td>0.5897</td><td>0.5356</td><td>0.3457</td><td>0.6691</td><td>0.4669</td></tr><tr><td>10</td><td>0.4593</td><td>0.1471</td><td>0.4017</td><td>0.5930</td><td>0.5348</td><td>0.3450</td><td>0.6691</td><td>0.4662</td></tr><tr><td>20</td><td>0.4588</td><td>0.1456</td><td>0.4010</td><td>0.5872</td><td>0.5360</td><td>0.3397</td><td>0.6618</td><td>0.4570</td></tr><tr><td>50</td><td>0.4584</td><td>0.1448</td><td>0.4019</td><td>0.5905</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0.4590</td><td>0.1448</td><td>0.3960</td><td>0.5930</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="10">MEND KN</td><td>10</td><td>0.4731</td><td>0.2100</td><td>0.4097</td><td>0.6216</td><td>-</td><td></td><td>-</td><td></td></tr><tr><td>20</td><td>0.4729</td><td>0.2024</td><td>0.4057</td><td>0.6102</td><td>一</td><td>-</td><td>-</td><td>-</td></tr><tr><td>50</td><td>0.4728</td><td>0.2024</td><td>0.4101</td><td>0.6183</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>100</td><td>0.4731</td><td>0.2009</td><td>0.4093</td><td>0.6183</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>200</td><td>0.4738</td><td>0.2100</td><td>0.4030</td><td>0.6249</td><td>-</td><td>-</td><td>-</td><td></td></tr><tr><td>500</td><td>0.4732</td><td>0.2168</td><td>0.4089</td><td>0.6192</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>1000</td><td>0.4728</td><td>0.2138</td><td>0.4118</td><td>0.6224</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>20</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> Table 2 presents a quantitative analysis of the impact of different editing methods and varying numbers of edits on the general abilities of base language models across four benchmark tasks.
+
+
+{{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Model</td><td>Method</td><td># Edits</td><td>MMLU↑</td><td>GSM8K↑</td><td>BBH↑</td><td>CSQA↑</td></tr><tr><td rowspan="7">Pythia-160M</td><td>w/o Edit</td><td>0</td><td>0.2435</td><td>0.0174</td><td>0.0742</td><td>0.1884</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2460</td><td>0.0212</td><td>0.0785</td><td>0.2056</td></tr><tr><td>50</td><td>0.2447</td><td>0.0227</td><td>0.0755</td><td>0.1982</td></tr><tr><td>100</td><td>0.2468</td><td>0.0235</td><td>0.0743</td><td>0.1990</td></tr><tr><td rowspan="7">Pythia-410M</td><td>w/o Edit</td><td>0</td><td>0.2614</td><td>0.0144</td><td>0.2497</td><td>0.2064</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2628</td><td>0.0182</td><td>0.2476</td><td>0.2015</td></tr><tr><td>50</td><td>0.2629</td><td>0.0144</td><td>0.2482</td><td>0.2080</td></tr><tr><td>100</td><td>0.2627</td><td>0.0190</td><td>0.2490</td><td>0.2048</td></tr><tr><td rowspan="7">Pythia-1B</td><td>w/o Edit</td><td>0</td><td>0.2552</td><td>0.0273</td><td>0.2535</td><td>0.1892</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0.2547</td><td>0.0083</td><td>0.0052</td><td>0.2039</td></tr><tr><td>50</td><td>0.0017</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2562</td><td>0.0265</td><td>0.2545</td><td>0.1908</td></tr><tr><td>50</td><td>0.2539</td><td>0.0265</td><td>0.2544</td><td>0.2015</td></tr><tr><td>100</td><td>0.2547</td><td>0.0258</td><td>0.2532</td><td>0.2064</td></tr><tr><td rowspan="7">Pythia-2.8B</td><td>w/o Edit</td><td>0</td><td>0.2800</td><td>0.0364</td><td>0.2870</td><td>0.2146</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0.2272</td><td>0.0008</td><td>0.0004</td><td>0.1990</td></tr><tr><td>50</td><td>0.0001</td><td>0.0191</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2547</td><td>0.0303</td><td>0.2774</td><td>0.2154</td></tr><tr><td>50</td><td>0.2554</td><td>0.0349</td><td>0.2758</td><td>0.2269</td></tr><tr><td>100</td><td>0.2559</td><td>0.0318</td><td>0.2749</td><td>0.2179</td></tr><tr><td rowspan="14">Pythia-6.9B Pythia-12B</td><td>w/o Edit</td><td>0</td><td>0.2565</td><td>0.0318</td><td>0.2762</td><td>0.2260</td></tr><tr><td rowspan="3">ROME</td><td>10</td><td>0.0189</td><td>0</td><td>0</td><td>0</td></tr><tr><td>50</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>100</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2547</td><td>0.0303</td><td>0.2774</td><td>0.2154</td></tr><tr><td>50</td><td>0.2554</td><td>0.0349</td><td>0.2758</td><td>0.2269</td></tr><tr><td>100</td><td>0.2559</td><td>0.0318</td><td>0.2749</td><td>0.2179</td></tr><tr><td rowspan="4">w/o Edit ROME</td><td>0</td><td>0.2621</td><td>0.0485</td><td>0.2868</td><td>0.2375</td></tr><tr><td>10</td><td>0.0263</td><td>0.0380</td><td>0</td><td>0</td></tr><tr><td></td><td>0</td><td>0.0380</td><td>0</td><td>0</td></tr><tr><td>50 100</td><td>0</td><td>0.0380</td><td>0</td><td>0</td></tr><tr><td rowspan="3">MEMIT</td><td>10</td><td>0.2615</td><td>0.0462</td><td>0.2878</td><td>0.2408</td></tr><tr><td>50</td><td>0.2633</td><td>0.0531</td><td>0.2916</td><td>0.2514</td></tr><tr><td>100</td><td>0.2587</td><td>0.0523</td><td>0.2925</td><td>0.2465</td></tr></table>{{< /table-caption >}}
 > 🔼 {{ table.description }}
 > <details>
@@ -163,7 +175,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 > </details>
 
 
-> This table presents the results of evaluating the impact of different model editing methods and numbers of edits on the general abilities of base language models across various benchmarks.
+> Table 2 presents a quantitative evaluation of the impact of various model editing methods and the number of edits on the general capabilities of base language models across different benchmarks.
 
 
 {{< table-caption >}}
@@ -175,7 +187,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 > </details>
 
 
-> Table 2 presents the results of evaluating the impact of various model editing methods and different numbers of edits on the general abilities of base language models across multiple benchmarks.
+> Table 2 presents a quantitative evaluation of the impact of different model editing methods and varying numbers of edits on the general abilities of several base language models across four distinct benchmark tasks.
 
 
 {{< table-caption >}}
@@ -187,7 +199,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 > </details>
 
 
-> Table 2 presents the performance of various language models (base models) after applying different editing methods with varying numbers of edits, evaluated across four benchmarks.
+> Table 2 presents the results of evaluating the impact of different model editing methods and various numbers of edits on the general abilities of base language models across four benchmark tasks.
 
 
 {{< table-caption >}}
@@ -199,7 +211,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 > </details>
 
 
-> Table 7 compares the time costs of running benchmarks with and without the vLLM inference framework to show that using vLLM significantly reduces the time costs.
+> Table 7 compares the time costs of running benchmarks with and without vLLM, demonstrating the significant time reduction achieved by using vLLM.
 
 
 {{< table-caption >}}
@@ -211,7 +223,7 @@ This paper is crucial because it challenges the prevalent optimism surrounding l
 > </details>
 
 
-> Table 2 presents a quantitative evaluation of different model editing methods' impact on the general abilities of base language models (Llama2-7B and Mistral-7B) across various numbers of edits.
+> Table 2 presents the performance of different model editing methods on various language models (base models) with different numbers of edits, evaluated across multiple benchmarks.
 
 
 </details>

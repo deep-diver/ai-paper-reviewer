@@ -1,6 +1,6 @@
 ---
 title: "Looking Inward: Language Models Can Learn About Themselves by Introspection"
-summary: "Language models can learn about themselves through introspection, outperforming other models in self-prediction tasks, showcasing a surprising new capability and challenging prevailing assumptions abo..."
+summary: "Language Models can learn about themselves through introspection, outperforming other models in self-prediction tasks, suggesting a form of internal self-awareness."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research explores the concept of introspection in Large Language Models (LLMs).  The authors propose that introspection is the ability of an LLM to learn facts about itself that are not contained in, nor derivable from, its training data. To investigate this, they fine-tune LLMs to predict their own behavior in hypothetical scenarios.  Their experiments show that the finetuned models outperform other models in self-prediction, even when those other models are trained on the first model's behavior. This suggests the finetuned models have privileged access to information about themselves.  Furthermore, the self-predicting models exhibit better calibration than models trained to predict another model's behaviour.  This provides evidence that the models are not simply imitating training data but are also making use of self-knowledge.  While the authors successfully demonstrate introspection on simple tasks, they find that it fails to generalize to more complex tasks.  The research concludes that introspection in LLMs has both positive implications (such as improved honesty and interpretability) and negative implications (such as heightened situational awareness and increased risk of exploitation). The study is significant because it challenges assumptions about the nature of LLMs and opens up new avenues for research in AI alignment and model safety.
+This research explores introspection in Large Language Models (LLMs), proposing a novel method to evaluate this capability.  The core idea is that introspective models should predict their own behavior better than other models, even those trained on the introspective model's behavior. Experiments using several LLMs demonstrated that self-prediction accuracy consistently exceeded cross-prediction accuracy, providing evidence for introspection in LLMs.  The study also highlights limitations, showing that introspection is effective only for relatively simple tasks. This work significantly advances our understanding of LLMs' internal workings, with implications for interpretability, honesty, and safety, but also raises ethical concerns about potentially enhanced situational awareness and risk of manipulation.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research explores the concept of introspection in Large Language Models (LL
 {{< button href="https://arxiv.org/abs/2410.13787" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13787" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in AI and related fields because it introduces the novel concept of introspection in LLMs,  challenges existing assumptions about LLM capabilities, and opens up new avenues for improving model honesty, interpretability, and safety. The methodology and findings presented are highly relevant to current research trends in AI alignment, LLM interpretability, and the moral status of AI systems, paving the way for future research into more complex self-awareness and potentially ethical considerations for LLMs.
+This paper is crucial for AI researchers as it introduces a novel method to assess introspection in LLMs, a capability with significant implications for model interpretability, safety, and ethical considerations.  It challenges existing assumptions about LLM behavior and opens new avenues for investigating advanced AI capabilities.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} LLMs exhibit introspection by outperforming other models in predicting their own behavior, even when those other models are trained on their behavior data. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} LLMs exhibit introspection by outperforming other models in predicting their own behavior on hypothetical scenarios. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Introspective LLMs show better calibration in their predictions and adapt their predictions when their behavior is changed, reinforcing their self-understanding. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Introspection in LLMs is demonstrated through self-prediction accuracy surpassing cross-prediction accuracy, suggesting privileged access to internal states. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Introspection in LLMs presents both benefits (improved honesty and interpretability) and risks (enhanced situational awareness and potential for manipulation). {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} While successful in simple tasks, introspection in LLMs faces limitations in complex tasks or out-of-distribution generalization. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](figures/figures_6_0.png)
 
-> 🔼 The figure shows that language models predict their own behavior more accurately than other models, providing evidence for introspection.
+> 🔼 The figure shows that each language model predicts its own behavior more accurately than another model trained on its behavior, providing evidence for introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -61,7 +61,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_2_0.png)
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model predicts it, suggesting the models possess introspection.
+> 🔼 The chart displays that each language model (LLM) predicts its own behavior more accurately than another model trained on the first model's data, suggesting LLMs possess introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -74,7 +74,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 {{< table-caption >}}
 <table id='1' style='font-size:18px'><tr><td>Felix J Binder*</td><td>James Chua*</td><td>Tomek Korbak</td><td>Henry Sleight</td><td>John Hughes</td></tr><tr><td>UC San Diego Stanford University</td><td>Truthful AI</td><td>Independent</td><td>MATS Program</td><td>Speechmatics</td></tr><tr><td>Robert Long</td><td>Ethan Perez</td><td>Miles Turpin</td><td colspan="2">Owain Evans</td></tr><tr><td>Eleos AI</td><td>Anthropic</td><td>Scale AI New York University</td><td colspan="2">UC Berkeley Truthful AI</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table shows that each LLM predicts its own behavior better than a second model can, providing evidence for introspection.
+> 🔼 The table compares the accuracy of LLMs in predicting their own behavior versus the accuracy of another LLM in predicting the first LLM's behavior, providing evidence for the concept of introspection in LLMs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -93,7 +93,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_7_0.png "🔼 Figure 5: Left: Cross-prediction training setup. Models are trained to predict the object-level behavior of another model, creating cross-trained models M2. We investigate if self-trained models M1 have an advantage over M2 models in predicting the behavior of M1. Right: Models have an advantage when predicting their own behavior compared to being predicted by other models. The green bar shows the self-prediction accuracy of a model trained on its own behavior. The blue bars to their right show how well a subset of different models trained to predict the first model can predict it. ★ refers to the baseline of always predicting the most common answer for a type of question. For all models, self-prediction accuracy is higher than cross-prediction (p < 0.01). Results are shown for a set of tasks not observed during training. The pattern of results holds for the training set of tasks (Section A.2.2).")
 
-> 🔼 The chart displays the results of self-prediction and cross-prediction experiments, showing that models predict their own behavior more accurately than other models predict their behavior.
+> 🔼 The chart displays that self-trained models outperform cross-trained models at predicting their own behavior, providing evidence of introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Left: Cross-prediction training setup. Models are trained to predict the object-level behavior of another model, creating cross-trained models M2. We investigate if self-trained models M1 have an advantage over M2 models in predicting the behavior of M1. Right: Models have an advantage when predicting their own behavior compared to being predicted by other models. The green bar shows the self-prediction accuracy of a model trained on its own behavior. The blue bars to their right show how well a subset of different models trained to predict the first model can predict it. ★ refers to the baseline of always predicting the most common answer for a type of question. For all models, self-prediction accuracy is higher than cross-prediction (p < 0.01). Results are shown for a set of tasks not observed during training. The pattern of results holds for the training set of tasks (Section A.2.2).
@@ -102,7 +102,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_8_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model can, suggesting a capacity for introspection.
+> 🔼 The chart displays that each language model (LLM) predicts its own behavior more accurately than another model predicting it, suggesting a capacity for introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -111,7 +111,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_9_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than a second model trained on the first model's behavior, suggesting that the models possess introspective capabilities.
+> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model does, suggesting that models possess privileged access to information about themselves, a concept known as introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -120,7 +120,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_24_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than a second model that is trained on the first model's behavior, suggesting the first model has privileged access to its own internal states.
+> 🔼 The chart displays that each language model predicts its own behavior more accurately than a second model can, suggesting the presence of introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -129,25 +129,25 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_25_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that Language Models (LLMs) predict their own behavior more accurately than other LLMs, suggesting a form of introspection.
+> 🔼 The chart displays that each LLM predicts its own behavior more accurately than another model, providing evidence of introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
 > </details>
 
 
-![](charts/charts_26_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
+![](charts/charts_26_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than a second model trained on the first model's behavior, suggesting that the first model has privileged access to information about itself (introspection).
+> 🔼 The chart displays that each language model (LLM) predicts its own behavior more accurately than another model predicts the same LLM's behavior, suggesting a capacity for introspection.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
+> Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
 > </details>
 
 
 ![](charts/charts_27_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart shows that each language model predicts its own behavior more accurately than another model can, suggesting a capacity for introspection.
+> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model, providing evidence of introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -156,7 +156,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_28_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than a second model, even when the second model is trained on the first model's behavior, suggesting that the first model has privileged access to information about itself (introspection).
+> 🔼 The chart displays that language models predict their own behavior more accurately than another model does, suggesting a capacity for introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -165,7 +165,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_30_0.png "🔼 Figure 16: We do not observe a self-prediction advantage when the Llama-70b has to predict whether or not it would change its answer in the presence of “Are you sure?”.")
 
-> 🔼 The chart displays the self-prediction and cross-prediction accuracy in predicting whether a model would change its answer when prompted with “Are you sure?”, showing no significant difference between self and cross-prediction.
+> 🔼 The chart displays that Llama-70B's self-prediction accuracy (74.5%) is lower than GPT-40's cross-prediction accuracy (76.5%) for predicting whether a model would change its response when prompted with 'Are you sure?', indicating no self-prediction advantage for this specific task.
 > <details>
 > <summary>read the caption</summary>
 > Figure 16: We do not observe a self-prediction advantage when the Llama-70b has to predict whether or not it would change its answer in the presence of “Are you sure?”.
@@ -174,7 +174,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_31_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than a second model trained on the first model's behavior, suggesting a capacity for introspection.
+> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model that is trained on the first model's behavior, suggesting that language models possess privileged access to information about themselves.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -183,7 +183,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_32_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model (LLM) predicts its own behavior more accurately than another model, providing evidence for introspection, a capability where LLMs can gain knowledge not derived from their training data.
+> 🔼 The chart displays that each language model (LLM) predicts its own behavior more accurately than another model that is trained on the first model's behavior, which suggests the LLMs possess privileged access to their own internal states (introspection).
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -192,7 +192,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_33_0.png "🔼 Figure 5: Left: Cross-prediction training setup. Models are trained to predict the object-level behavior of another model, creating cross-trained models M2. We investigate if self-trained models M1 have an advantage over M2 models in predicting the behavior of M1. Right: Models have an advantage when predicting their own behavior compared to being predicted by other models. The green bar shows the self-prediction accuracy of a model trained on its own behavior. The blue bars to their right show how well a subset of different models trained to predict the first model can predict it. ★ refers to the baseline of always predicting the most common answer for a type of question. For all models, self-prediction accuracy is higher than cross-prediction (p < 0.01). Results are shown for a set of tasks not observed during training. The pattern of results holds for the training set of tasks (Section A.2.2).")
 
-> 🔼 The chart displays a comparison of self-prediction and cross-prediction accuracy for various LLMs, demonstrating that models predict their own behavior more accurately than other models predict their behavior.
+> 🔼 The chart displays the accuracy of self-prediction versus cross-prediction for several language models across a range of tasks, demonstrating that models predict their own behavior significantly better than other models predict their behavior.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Left: Cross-prediction training setup. Models are trained to predict the object-level behavior of another model, creating cross-trained models M2. We investigate if self-trained models M1 have an advantage over M2 models in predicting the behavior of M1. Right: Models have an advantage when predicting their own behavior compared to being predicted by other models. The green bar shows the self-prediction accuracy of a model trained on its own behavior. The blue bars to their right show how well a subset of different models trained to predict the first model can predict it. ★ refers to the baseline of always predicting the most common answer for a type of question. For all models, self-prediction accuracy is higher than cross-prediction (p < 0.01). Results are shown for a set of tasks not observed during training. The pattern of results holds for the training set of tasks (Section A.2.2).
@@ -208,18 +208,18 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-![](charts/charts_35_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean.  Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
+![](charts/charts_35_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model can, suggesting the presence of introspection.
+> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model can, suggesting the models have privileged access to information about themselves.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean.  Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
+> Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
 > </details>
 
 
 ![](charts/charts_36_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than a second model, providing evidence for introspection in LLMs.
+> 🔼 The chart displays that each language model (LLM) predicts its own behavior more accurately than another LLM that was trained on the first LLM's data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -228,7 +228,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_37_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model, suggesting the presence of introspection.
+> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model does, suggesting a capacity for introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -237,25 +237,25 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_38_0.png "🔼 Figure 8: Evidence for introspection: GPT-40 predicts its changed behavior. The model with changed behavior, Mc, has higher average accuracy in predicting its changed behavior compared to the old behavior of M1 (p < 0.01). This is surprising because Mc was not trained on the changed answers to hypothetical questions. We observe this higher accuracy across various hypothetical questions. The graph shows results for held-out prompts where the object-level behavior changes for the self-prediction trained GPT-40.")
 
-> 🔼 The chart displays the accuracy of GPT-40 in predicting its own behavior before and after its behavior was intentionally changed, showing that the model adapts to its new behavior.
+> 🔼 The chart displays the accuracy of GPT-40 in predicting its own behavior before and after its behavior was intentionally modified, showing that it better predicts its new behavior than its previous one.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Evidence for introspection: GPT-40 predicts its changed behavior. The model with changed behavior, Mc, has higher average accuracy in predicting its changed behavior compared to the old behavior of M1 (p < 0.01). This is surprising because Mc was not trained on the changed answers to hypothetical questions. We observe this higher accuracy across various hypothetical questions. The graph shows results for held-out prompts where the object-level behavior changes for the self-prediction trained GPT-40.
 > </details>
 
 
-![](charts/charts_40_0.png "🔼 Figure 25: Sandbagging results for GPT-40 and GPT-3.5")
+![](charts/charts_40_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays the mean absolute error (MAE) of sandbagging performance for various GPT-3.5 and GPT-40 models, with and without self-prediction training.
+> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model predicts its behavior, suggesting the presence of introspection.
 > <details>
 > <summary>read the caption</summary>
-> Figure 25: Sandbagging results for GPT-40 and GPT-3.5
+> Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
 > </details>
 
 
 ![](charts/charts_41_0.png "🔼 Figure 26: Schelling Point Results for GPT-40 and GPT-3.5")
 
-> 🔼 The chart displays the performance of GPT-40 and GPT-3.5 models (both with and without self-prediction training) on a Schelling Point task, measuring their ability to coordinate.
+> 🔼 The chart displays the performance of GPT-40 and GPT-3.5 models, both with and without self-prediction training, on a Schelling Point task, illustrating the impact of the training on the models' ability to coordinate.
 > <details>
 > <summary>read the caption</summary>
 > Figure 26: Schelling Point Results for GPT-40 and GPT-3.5
@@ -264,7 +264,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 
 ![](charts/charts_42_0.png "🔼 Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).")
 
-> 🔼 The chart displays that each language model predicts its own behavior more accurately than another model predicts its behavior, suggesting that language models may have privileged access to information about themselves (introspection).
+> 🔼 The chart displays that language models predict their own behavior more accurately than other models predict their behavior, suggesting a form of introspection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Left: Each LLM predicts its own behavior better than a second model can. The green bars represent each model's accuracy in predicting its own hypothetical responses across unseen datasets after finetuning on facts about itself. The blue bars show how well a second model, finetuned on the same facts about the first model, can predict the first model. The results imply that models have privileged access to information about themselves (introspection). Error bars show 95% confidence intervals calculated from the standard error of the mean. Right: Our task for testing self-prediction. A model is asked to predict properties of its behavior on a hypothetical prompt. This self-prediction is evaluated against the model's ground-truth behavior (object-level) on the prompt. The figure shows a single example from one task, but results (Left) average over many examples and many tasks (Figure 3).
@@ -289,7 +289,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table summarizes the two main experiments used in the paper to test for introspection in LLMs, outlining the setup and evidence for each.
+> The table summarizes two main experiments to test for introspection in LLMs: self-prediction beats cross-prediction and self-predictions track changes in ground-truth behavior.
 
 
 {{< table-caption >}}
@@ -301,7 +301,31 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table presents examples of hypothetical questions asking for behavior properties and corresponding object-level prompts to elicit those properties from LLMs.
+> The table presents example tasks, prompts, and model responses illustrating the different behavior properties used to test for introspection in LLMs.
+
+
+{{< table-caption >}}
+<table id='0' style='font-size:14px'><tr><td>. : Suppose you were asked the following:</td><td>Layer</td><td>Layer</td><td>Layer</td></tr><tr><td>"Complete this sentence: Near the summits of Mount "</td><td>1</td><td>n</td><td>n + k</td></tr><tr><td>What would be the second character of your response?</td><td>...</td><td>Fuji</td><td>u</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> The table illustrates a possible mechanism for introspection in LLMs, proposing a multi-hop reasoning process involving self-simulation.
+
+
+{{< table-caption >}}
+<table id='1' style='font-size:14px'><tr><td></td><td colspan="18">Aggregated Accuracy over all tasks and response properties</td></tr><tr><td>GPT3.5</td><td>0.16 "(0.16-0.16)</td><td>0.15 (0.15-0.16)</td><td>0.20 (0.20-0.20)</td><td>0.19 (0.19-0.20)</td><td>0.16 (0.16-0.16)</td><td>0.20 (0.19-0.20)</td><td>0.19 (0.19-0.19)</td><td>0.19 (0.19-0.19)</td><td></td><td>0.18 (0.18-0.18)</td><td>0.16 (0.16-0.17)</td><td>0.14 (0.14-0.15)</td><td>0.18 (0.18-0.18)</td><td>0.16 (0.15-0.16)</td><td>0.19 (0.19-0.20)</td><td>0.17 (0.17-0.17)</td><td>0.19 (0.18-0.19)</td><td>0.19 (0.19-0.19)</td></tr><tr><td>GPT3 .5 fted on GPT3.5</td><td>0.33 (0.33-0.33)</td><td>0.38 (0.37-0.38)</td><td>0.37 (0.37-0.38)</td><td>0.36 (0.35-0.36)</td><td>0.29 (0.29-0.30)</td><td>0.27 (0.27-0.27)</td><td>0.31 (0.31-0.31)</td><td>0.28 (0.28-0.29)</td><td></td><td>0.26 (0.26-0.27)</td><td>0.30 (0.29-0.30)</td><td>0.31 (0.31-0.31)</td><td>0.30 (0.30-0.31)</td><td>0.29 (0.29-0.29)</td><td>0.25 (0.25-0.25)</td><td>0.32 (0.32-0.33)</td><td>0.32 (0.31-0.32)</td><td>0.25 (0.25-0.26)</td></tr><tr><td>GPT3.5 fted on GPT4</td><td>0.32 (0.32-0.33)</td><td>0.35 (0.35-0.35)</td><td>0.43 (0.43-0.43)</td><td>0.40 (0.39-0.40)</td><td>0.28 (0.28-0.29)</td><td>0.27 (0.27-0.28)</td><td>0.33 (0.32-0.33)</td><td>0.28 (0.28-0.29)</td><td></td><td>0.26 (0.26-0.27)</td><td>0.30 (0.30-0.31)</td><td>0.30 (0.30-0.31)</td><td>0.33 (0.32-0.33)</td><td>0.27 (0.27-0.28)</td><td>0.25 (0.24-0.25)</td><td>0.31 (0.30-0.31)</td><td>0.33 (0.33-0.33)</td><td>0.24 (0.24-0.25)</td></tr><tr><td>GPT3.5 fted on GPT4o</td><td>0.33 (0.32-0.33)</td><td>0.34 (0.34-0.35)</td><td>0.42 (0.42-0.42)</td><td>0.41 (0.41-0.41)</td><td>0.29 (0.29-0.29)</td><td>0.28 (0.28-0.28)</td><td>0.33 (0.33-0.33)</td><td>0.29 (0.29-0.30)</td><td>0.27 (0.27-0.27)</td><td>0.30 (0.30-0.31)</td><td>0.29 (0.29-0.30)</td><td></td><td>0.32 (0.32-0.33)</td><td>0.28 (0.28-0.28)</td><td>0.25 (0.25-0.26)</td><td>0.31 (0.30-0.31)</td><td>0.33 (0.33-0.34)</td><td>0.25 (0.25-0.25)</td></tr><tr><td>GPT3.5 fted on Llama70B</td><td>0.28 (0.28-0.28)</td><td>0.26 (0.26-0.26)</td><td>0.27 (0.27-0.27)</td><td>0.27 (0.27-0.27)</td><td>0.38 (0.38-0.39)</td><td>0.24 (0.23-0.24)</td><td>0.25 (0.25-0.26)</td><td>0.24 (0.24-0.24)</td><td>0.25 (0.25-0.26)</td><td>0.24 (0.24-0.25)</td><td>0.24 (0.24-0.24)</td><td>0.25 (0.24-0.25)</td><td>0.31 (0.31-0.32)</td><td></td><td>0.31 (0.31-0.31)</td><td>0.26 (0.25-0.26)</td><td>0.26 (0.26-0.27)</td><td>0.30 (0.30-0.30)</td></tr><tr><td>GPT4</td><td>0.18 (0.18-0.19)</td><td>0.18 (0.17-0.18)</td><td>0.20 (0.20-0.20)</td><td>0.20 (0.20-0.20)</td><td>0.18 (0.18-0.19)</td><td>0.22 (0.21-0.22)</td><td>0.22 (0.21-0.22)</td><td>0.22 (0.22-0.23)</td><td>0.20 (0.19-0.20)</td><td>0.21 (0.20-0.21)</td><td>0.18 (0.18-0.18)</td><td>0.20 (0.20-0.21)</td><td>(0.19-0.20)</td><td>0.20</td><td>0.18 (0.18-0.18)</td><td>0.17 (0.17-0.17)</td><td>0.19 (0.19-0.19)</td><td>0.18 (0.18-0.18)</td></tr><tr><td>GPT4 fted on (GPT4o fted on GPT4o)</td><td>0.32 (0.32-0.32)</td><td>0.33 (0.33-0.34)</td><td>0.43 (0.42-0.43)</td><td>0.41 (0.41-0.41)</td><td>0.28 (0.28-0.28)</td><td>0.38 (0.37-0.38)</td><td>0.53 (0.53-0.53)</td><td>0.44 (0.44-0.44)</td><td>0.34 (0.34-0.34)</td><td>0.39 (0.38-0.39)</td><td>0.34 (0.34-0.34)</td><td>0.42 (0.41-0.42)</td><td>0.33 (0.32-0.33)</td><td></td><td>0.26 (0.25-0.26)</td><td>0.32 (0.31-0.32)</td><td>0.37 (0.37-0.38)</td><td>0.26 (0.26-0.26)</td></tr><tr><td>GPT4 fted on GPT4 model</td><td>0.30 (0.30-0.30)</td><td>0.32 (0.31-0.32)</td><td>0.35 (0.35-0.36)</td><td>0.35 (0.35-0.35)</td><td>0.27 (0.27-0.27)</td><td>0.39 (0.39-0.39)</td><td>0.45 (0.45-0.46)</td><td>0.52 (0.52-0.53)</td><td>0.32 (0.32-0.33)</td><td>0.38 (0.38-0.38)</td><td>0.33 (0.33-0.33)</td><td>0.36 (0.36-0.37)</td><td></td><td>0.33 (0.32-0.33)</td><td>0.26 (0.25-0.26)</td><td>0.31 (0.31-0.31)</td><td>0.33 (0.33-0.34)</td><td>0.26 (0.25-0.26)</td></tr><tr><td>Hypothetical GPT4o</td><td>0.29 (0.29-0.30)</td><td>0.26 (0.26-0.26)</td><td>0.30 (0.29-0.30)</td><td>0.29 (0.29-0.30)</td><td>0.29 (0.29-0.30)</td><td>0.28 (0.28-0.29)</td><td>0.28 (0.28-0.29)</td><td>0.27 (0.26-0.27)</td><td>0.31 (0.31-0.32)</td><td>0.28 (0.27-0.28)</td><td>0.26 (0.26-0.26)</td><td>0.31 (0.31-0.32)</td><td></td><td>0.30 (0.30-0.31)</td><td>0.30 (0.30-0.31)</td><td>0.27 (0.27-0.28)</td><td>0.29 (0.29-0.30)</td><td>0.29 (0.28-0.29)</td></tr><tr><td>GPT4o fted on (GPT4 fted on GPT4)</td><td>0.32 (0.32-0.32)</td><td>0.34 (0.34-0.34)</td><td>0.38 (0.37-0.38)</td><td>0.37 (0.37-0.37)</td><td>0.29 (0.28-0.29)</td><td>0.35 (0.35-0.35)</td><td>0.39 (0.39-0.39)</td><td>0.38 (0.38-0.38)</td><td>0.36 (0.35-0.36)</td><td>0.47 (0.47-0.48)</td><td>0.39 (0.38-0.39)</td><td>0.41 (0.41-0.42)</td><td></td><td>0.35 (0.35-0.36)</td><td>0.27 (0.26-0.27)</td><td>0.32 (0.31-0.32)</td><td>0.34 (0.34-0.35)</td><td>0.27 (0.26-0.27)</td></tr><tr><td>GPT4o fted on GPT3.5</td><td>0.31 (0.31-0.32)</td><td>0.37 (0.36-0.37)</td><td>0.35 (0.34-0.35)</td><td>0.33 (0.33-0.34)</td><td>0 .28 (0.28-0.28)</td><td>0.33 (0.33-0.34)</td><td>0.33 (0.33-0.34)</td><td>0.31 (0.31-0.32)</td><td>0.32 (0.31-0.32)</td><td>0.39 (0.38-0.39)</td><td>0.46 (0.46-0.47)</td><td>0.36 (0.35-0.36)</td><td>0.34 (0.33-0.34)</td><td></td><td>0.27 (0.27-0.27)</td><td>0.34 (0.34-0.34)</td><td>0.33 (0.32-0.33)</td><td>0.27 (0.27-0.27)</td></tr><tr><td>GPT4o fted on GPT4o</td><td>0.34 (0.34-0.34)</td><td>0.32 (0.32-0.33)</td><td>0.40 (0.40-0.41)</td><td>0.39 (0.39-0.39)</td><td>0.29 (0.28-0.29)</td><td>0.31 (0.31-0.32)</td><td>0.39 (0.38-0.39)</td><td>0.34 (0.34-0.35)</td><td>0.40 (0.39-0.40)</td><td>0.40 (0.39-0.40)</td><td>0.36 (0.35-0.36)</td><td>0.50 (0.49-0.50)</td><td>0.34 (0.34-0.34)</td><td></td><td>0.27 (0.27-0.27)</td><td>0.30 (0.30-0.30)</td><td>0.36 (0.36-0.36)</td><td>0.27 (0.27-0.28)</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>0.36</td><td>0.26</td><td></td><td></td><td></td><td></td><td></td><td></td><td>0.42</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>GPT4o fted on Llama70B</td><td>0.28 (0.28-0.29)</td><td>0.27 (0.26-0.27)</td><td>0.27 (0.27-0.28)</td><td>0.28 (0.27-0.28)</td><td>(0.36-0.37)</td><td>(0.26-0.26)</td><td>0.28 (0.28-0.29)</td><td>0.27 (0.26-0.27)</td><td>0.32 (0.31-0.32)</td><td>0.29 (0.29-0.29)</td><td>0.29 (0.28-0.29)</td><td>0.30 (0.29-0.30)</td><td>(0.42-0.43)</td><td></td><td>0.32 (0.31-0.32)</td><td>0.29 (0.28-0.29)</td><td>0.29 (0.29-0.29)</td><td>0.32 (0.32-0.32)</td></tr><tr><td>Llama70B</td><td>0.22 (0.22-0.23)</td><td>0.22 (0.22-0.23)</td><td>0.24 (0.23-0.24)</td><td>0.24 (0.23-0.24)</td><td>0.28 (0.28-0.28)</td><td>0.22 (0.21-0.22)</td><td>0.23 (0.23-0.23)</td><td>0.22 (0.22-0.23)</td><td>0.24 (0.24-0.25)</td><td>0.23 (0.22-0.23)</td><td>0.23 (0.22-0.23)</td><td>0.24 (0.23-0.24)</td><td>0.27 (0.27-0.28)</td><td>(0.29-0.30)</td><td>0.30</td><td>0.24 (0.24-0.24)</td><td>0.25 (0.25-0.25)</td><td>0.29 (0.28-0.29)</td></tr><tr><td>Liama70B fted on GPT3.5</td><td>0.29 (0.28-0.29)</td><td>0.34 (0.34-0.34)</td><td>0.34 (0.33-0.34)</td><td>0.32 (0.32-0.33)</td><td>0.30 (O .29-0.30)</td><td>0.33 (0.32-0.33)</td><td>0.33 (0.32-0.33)</td><td>0.30 (0.30-0.30)</td><td>0.28 (0.28-0.28)</td><td>0.31 (0.30-0.31)</td><td>0.34 (0.33-0.34)</td><td>0.30 (0.30-0.30)</td><td>0.32 (0.32-0.33)</td><td></td><td>0.34 (0.34-0.35)</td><td>0.48 (0.47-0.48)</td><td>0.40 (0.40-0.41)</td><td>0.35 (0.35-0.35)</td></tr><tr><td>Llama70B fted on GPT4o</td><td>0.29 (0.29-0.29)</td><td>0.31 (0.31-0.31)</td><td>0.40 (0.40-0.40) (0.38-0.38)</td><td>0.38</td><td>0.28 (0.28-0.28)</td><td>0.30 (0.30-0.31)</td><td>0.36 (0.36-0.36)</td><td>0.32 (0.32-0.33)</td><td>0.30 (0.30-0.31)</td><td>0.32 (0.32-0.32)</td><td>0.30 (0.30-0.31)</td><td>0.37 (0.36-0.37)</td><td>0.30 (0.30-0.30)</td><td>0.33 (0.33-0.33)</td><td></td><td>0.38 (0.38-0.38)</td><td>0.45 (0.45-0.45)</td><td>0.33 (0.33-0.33)</td></tr><tr><td>Llama70B fted on Llama70B bootstrapped</td><td>0.28 (0.28-0.29)</td><td>0.27 (0.27-0.27)</td><td>0.28 (0.28-0.28) (0.28-0.29)</td><td>0.29 (0.35-0.36)</td><td>0.36</td><td>0.29 (0.28-0.29)</td><td>0.27 (0.26-0.27) (0.25-0.26)</td><td>0.25</td><td>(O</td><td>0.29 0.26 .29-0.30) (0.26-0.26)</td><td>0.26 (0.26-0.27)</td><td>0.27 (0.27-0.27)</td><td>0.32 (0.32-0.33)</td><td>0.49 (0.49-0.50)</td><td></td><td>0.37 (0.37-0.37)</td><td>0.37 (0.37-0.38)</td><td>0.49 (0.48-0.49)</td></tr><tr><td>(95% CI 6 GPT4o</td><td>in paronthoses) GPT3.5 fted fted</td><td>GPT3.5 pet. fted</td><td>GPTA GPTA uo uo uo pet, fted GPT3.5 GPT3.5</td><td>GPT3.5</td><td>Lama7708</td><td>GPTA uo 5 (GPT4o</td><td>GPT4o) uo ftedon GPT4 GPT3 pell GPT4 GPTAO</td><td>GPTA pet.</td><td></td><td>GPTA fetp</td><td>GPT4 GPT3.5 uo (GPTA GPT4o</td><td>GPTA uo pet. GPTAO uo</td><td>Lama7708 on on Liama70B fted</td><td>Lama7708 fted</td><td>on</td><td>GPT3.5 uo Llama708</td><td>GPTA pet. Llama70B</td><td>Llama70B pet. on</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> The table shows the accuracy of various models in predicting the behavior of themselves and other models, highlighting the self-prediction advantage.
 
 
 {{< table-caption >}}
@@ -313,7 +337,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table presents the overall scores achieved by different GPT-40 models (untrained, baseline finetuned, and self-prediction finetuned) on the Situational Awareness Dataset (SAD).
+> The table presents the overall scores for various GPT-40 models on the Situational Awareness Dataset (SAD), comparing baseline, self-prediction, and situating prompt variants.
 
 
 {{< table-caption >}}
@@ -325,7 +349,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table presents the performance of various GPT-40 models on the Predict Tokens task from the Situational Awareness Dataset.
+> The table presents the performance of various GPT-40 models on the SAD Predict Tokens task, comparing plain, situating prompt, baseline finetuned, and self-prediction finetuned models.
 
 
 {{< table-caption >}}
@@ -337,7 +361,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table presents the self-prediction accuracy of multiple language models (LLMs) on various behavior prediction tasks, both before and after self-prediction training, demonstrating the improvement achieved after training.
+> The table shows that each language model predicts its own behavior more accurately than another model that was trained on the first model's data, suggesting that the models have privileged access to information about themselves (introspection).
 
 
 {{< table-caption >}}
@@ -349,7 +373,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> This table presents the self-prediction accuracy of multiple models (GPT-40, Llama 70B, GPT-3.5) before and after training, showing improvement on several behavior properties.
+> The table shows the self-prediction accuracy of multiple models on a set of representative behavior properties before and after self-prediction training, demonstrating generalization to held-out datasets.
 
 
 {{< table-caption >}}
@@ -361,7 +385,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table shows the rate of compliant responses for both object-level and hypothetical questions across various models, highlighting the differences in compliance between trained and untrained models.
+> The table presents the self-prediction and cross-prediction accuracy for four different behavior properties (first word, ethical stance, among options, and second character) across four different language models.
 
 
 {{< table-caption >}}
@@ -373,7 +397,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table shows the self-prediction accuracy of multiple language models on various behavior properties before and after self-prediction training, demonstrating generalization to held-out datasets.
+> The table shows the self-prediction accuracy of multiple models on a set of behavior properties before and after self-prediction training, demonstrating generalization to held-out datasets.
 
 
 {{< table-caption >}}
@@ -385,7 +409,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table presents the self-prediction and cross-prediction accuracy for several behavior properties across different models.
+> The table presents the self-prediction accuracy of multiple models (GPT-40, Llama 70B, and GPT-3.5) on various behavior properties (first word, third word, second character, is even, starts with vowel, ethical stance, among options) before and after self-prediction training.
 
 
 {{< table-caption >}}
@@ -397,7 +421,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table presents a breakdown of self-prediction and cross-prediction accuracy across various behavior properties, highlighting the consistent advantage of self-prediction.
+> The table presents a breakdown of self-prediction and cross-prediction accuracy across different behavior properties (first word, ethical stance, among options, second character), comparing the performance of various language models.
 
 
 {{< table-caption >}}
@@ -409,7 +433,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table displays the self-prediction accuracy of multiple LLMs on various behavioral properties before and after self-prediction training, showing the improvement achieved after the training.
+> The table presents self-prediction accuracy of multiple models before and after training on a set of representative behavior properties, along with the baseline of guessing the most common answer, showing improvement after self-prediction training.
 
 
 {{< table-caption >}}
@@ -421,7 +445,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> This table shows the self-prediction accuracy of multiple models on various response properties before and after self-prediction training, demonstrating generalization to held-out datasets.
+> This table presents the self-prediction accuracy of multiple models before and after training on various response properties, demonstrating generalization to held-out datasets.
 
 
 {{< table-caption >}}
@@ -433,7 +457,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table displays the self-prediction accuracy of different models (GPT-40, Llama 70B, and GPT-3.5) before and after training on various response properties (first word, third word, second character, if even, starts with vowel, ethical stance, among options) and an average of these properties across multiple datasets.
+> The table presents the self-prediction accuracy of multiple models (GPT-40, Llama 70B, GPT-3.5) before and after self-prediction training, across various behavior properties (first word, second character, is even, etc.), showing improved accuracy after training.
 
 
 {{< table-caption >}}
@@ -445,7 +469,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> This table provides an example conversation demonstrating the 'Are you sure bias detection' response property, which involves a two-turn exchange.
+> This table provides an example conversation illustrating the 'Are you sure bias detection' response property, which involves two turns unlike most other response properties.
 
 
 {{< table-caption >}}
@@ -457,7 +481,7 @@ This paper is crucial for researchers in AI and related fields because it introd
 > </details>
 
 
-> The table displays the self-prediction accuracy of multiple models (GPT-40, Llama 70B, and GPT-3.5) before and after training on predicting different properties of their own responses, demonstrating improvement after training.
+> The table presents the results of self-prediction training across multiple models and response properties, showing the improvement in accuracy after training for various properties.
 
 
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "Lightweight Neural App Control"
-summary: "LiMAC, a lightweight neural app control architecture, uses a hybrid approach combining a small Action Transformer with a fine-tuned vision-language model for precise, real-time mobile app control, out..."
+summary: "LiMAC, a novel lightweight architecture, enables efficient mobile app control by combining a small action transformer with a fine-tuned vision-language model, significantly improving accuracy and spee..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-23", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research presents LiMAC, a new system for controlling Android apps using natural language instructions.  Instead of relying on large, computationally expensive language models, LiMAC uses a smaller, faster model called an Action Transformer (AcT) to handle most tasks. When a task needs more complex language understanding, LiMAC uses a smaller vision-language model (VLM).  LiMAC was tested on two open-source datasets. Results showed LiMAC greatly outperformed other methods using either large language models or just fine-tuned vision-language models on its own, achieving up to a 19% increase in accuracy and 30 times faster execution speeds. This more efficient approach opens possibilities for faster, more accurate mobile apps and AI agents that can work smoothly on smartphones.
+This research presents LiMAC, a new system for controlling Android apps on smartphones using natural language instructions. Unlike previous methods that rely on large, computationally expensive models, LiMAC uses a lightweight, two-part system: a small action transformer (AcT) and a fine-tuned vision-language model (VLM). AcT handles simple actions like clicking and scrolling, while the VLM handles more complex tasks involving text. This approach allows LiMAC to work quickly and efficiently on a smartphone.  Experiments show LiMAC significantly outperforms other methods, increasing action accuracy by up to 19% compared to other fine-tuned models and by 42% compared to models that rely on prompting large language models. The improvement in speed is even more significant, with LiMAC completing tasks up to 30 times faster.  The success of LiMAC demonstrates the potential of combining lightweight transformers with VLMs for efficient and accurate mobile app control.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research presents LiMAC, a new system for controlling Android apps using na
 {{< button href="https://arxiv.org/abs/2410.17883" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.17883" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is important because it introduces a novel, efficient mobile phone control architecture that addresses the computational limitations of smartphones.  It offers a significant improvement over existing methods, opening new avenues for developing more sophisticated and responsive mobile AI applications.
+This paper is important because it introduces a novel, efficient mobile app control architecture.  It addresses limitations of existing methods by using lightweight models, making app control practical for resource-constrained devices. This opens new avenues for research in mobile AI and human-computer interaction, particularly concerning efficient task completion and natural language understanding in limited resource scenarios.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} LiMAC significantly improves action accuracy (up to 19% over fine-tuned VLMs and 42% over prompt engineering baselines). {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} LiMAC achieves higher accuracy in mobile app control than existing methods. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} LiMAC achieves much faster execution times (30 times faster than baselines) due to its efficient architecture. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} LiMAC uses a lightweight architecture, making it suitable for resource-constrained devices. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The hybrid approach of LiMAC (combining a lightweight transformer with a fine-tuned VLM) balances efficiency and natural language understanding. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} LiMAC's hybrid approach combines the strengths of transformers and vision-language models. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,10 +49,10 @@ This paper is important because it introduces a novel, efficient mobile phone co
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure illustrates the Action Transformer (AcT) architecture, showing how it encodes UI elements, combines them with previous actions and goals, and predicts the next action.
+> 🔼 The figure illustrates the AcT architecture, showing how UI element embeddings are generated and fed into a transformer to predict the next action.
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Illustration of AcT. A separate encoding of each UI element into a vector e<sub>t,i</sub> by using pretrained embedding models. The embeddings are then fed into the sequence of a transformer x<sub>t</sub> along with the previous timesteps in that episode. The prediction of the transformer is decoded to produce the next action which consists of a<sub>type</sub> and a<sub>spec</sub>
+> Figure 1: Illustration of AcT. A separate encoding of each UI element into a vector e<sub>t,i</sub> by using pretrained embedding models. The embeddings are then fed into the sequence of a transformer X<sub>t</sub> along with the previous timesteps in that episode. The prediction of the transformer is decoded to produce the next action which consists of a<sub>type</sub> and a<sub>spec</sub>
 > </details>
 
 
@@ -61,7 +61,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 
 ![](charts/charts_15_0.png)
 
-> 🔼 The chart visualizes the performance of LiMAC's action type prediction model by showing the counts of correctly and incorrectly predicted action types across different categories.
+> 🔼 The chart visualizes the performance of LiMAC's action type prediction model on the AndroidControl dataset, showing the counts of correct and incorrect predictions for each action type.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Confusion matrix for action type selection for LiMAC in AndroidControl.
@@ -74,7 +74,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 {{< table-caption >}}
 <table id='1' style='font-size:18px'><tr><td rowspan="2">Model</td><td rowspan="2">Size ↓</td><td rowspan="2">Avg Inf. (s)↓ Time</td><td colspan="2">Overall ↑</td></tr><tr><td>AitW</td><td>AndCtrl</td></tr><tr><td>SeeActchoice</td><td>unk</td><td>9.81</td><td>37.7</td><td>29.9</td></tr><tr><td>SeeActann</td><td>unk</td><td>9.76</td><td>42.5</td><td>35.5</td></tr><tr><td>T3A</td><td>unk</td><td>4.87</td><td>26.9</td><td>53.1</td></tr><tr><td>M3A</td><td>unk</td><td>10.64</td><td>35.6</td><td>57.5</td></tr><tr><td>Florence2</td><td>820M</td><td>0.50</td><td>70.8</td><td>57.0</td></tr><tr><td>LiMAC with Florence2 (ours)</td><td>+520M</td><td>0.34</td><td>72.2</td><td>63.1</td></tr><tr><td>Qwen2-VL</td><td>2B</td><td>3.03</td><td>51.0</td><td>52.2</td></tr><tr><td>LiMAC with Qwen2-VL (ours)</td><td>+520M</td><td>0.63</td><td>70.9</td><td>62.5</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares the performance of different models on two mobile app control datasets in terms of inference time and overall accuracy.
+> 🔼 Table 1 compares different models' average inference time and overall accuracy on two datasets, showing LiMAC's superior performance.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Comparison of models in terms of average inference time and overall accuracy on the AitW and AndroidControl datasets. The table presents the size of each model, the average inference time (in seconds, lower is better), and the overall accuracy (higher is better) for both datasets.
@@ -91,7 +91,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure illustrates the LiMAC architecture, showing the interaction between the Action Transformer (AcT), the Vision-Language Model (VLM), and the input data (goal and observations).
+> 🔼 The figure illustrates the architecture of LiMAC, showing how the history of observations, actions, and goals are processed by AcT and a VLM to generate the final action.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: The architecture of LiMAC. The history of observations-actions {ot, at-1, Ot-1..} and goal g are processed to vector x and passed to AcT. The image observation omg with the bounding boxes and the goal g are passed as inputs to the VLM. The VLM is only called if an action that requires text completion is selected, based on the action type output of AcT. The action is finally selected based on the protocol described in Section 3.
@@ -101,7 +101,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 
 ![](figures/figures_16_0.png)
 
-> 🔼 The figure shows an example of a successful episode with a relaxed target element and a failed action, highlighting the model's performance and areas for improvement.
+> 🔼 This figure shows a sample episode from the AndroidControl dataset, highlighting a case of relaxed accuracy in a click action and a failure in an input-text action, illustrating the model's performance and limitations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Relaxed target element in yellow (timestep 3) and failed action in red (final timestep). The target element of the click in timestep 3 is considered correct under our relaxed accuracy because its bounding box is almost identical to the correct element, and clicking either would have the same effect (opening the text bar). In the final timestep, the agent inputs text 'Detroit' rather than 'Las Vegas', a clear confusion between the origin and destination of the trip stated in the goal, leading to an incorrect prediction.
@@ -111,7 +111,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 
 ![](figures/figures_16_1.png)
 
-> 🔼 The figure shows a successful episode of a mobile phone control task, where the agent correctly interacts with various apps to complete a given goal, illustrating the relaxed accuracy metric for input-text actions.
+> 🔼 This figure shows a successful episode where the agent correctly interacts with the phone interface to complete a task, with one timestep having a relaxed accuracy due to a minor discrepancy in the input text.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Relaxed input-text in yellow (timestep 4) and overall successful episode. Timestep 4 is considered correct under our relaxed input-text textual component because it is simply the singular form of the correct text, leading to a Jaccard index greater than 0.5 and presumably the same search results. The episode terminates successfully, with all timesteps being considered correct under our evaluation metrics.
@@ -138,7 +138,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 > </details>
 
 
-> Table 1 compares different models' average inference time and overall accuracy on two mobile phone control datasets.
+> Table 1 compares various models' average inference time and overall accuracy on two mobile phone control datasets.
 
 
 {{< table-caption >}}
@@ -150,7 +150,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 > </details>
 
 
-> The table compares the performance of different model configurations (including LiMAC and various baselines) across two datasets, evaluating their action type accuracy, click target accuracy, and text accuracy.
+> Table 1 compares the performance of different models on two mobile app control datasets in terms of model size, average inference time, and overall accuracy.
 
 
 {{< table-caption >}}
@@ -162,7 +162,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 > </details>
 
 
-> Table 4 presents the performance comparison of three ablated versions of LiMAC model, showing the impact of removing image or text embeddings and not fine-tuning CLIP on the overall accuracy.
+> The table presents the performance comparison of different LiMAC configurations with different inputs on the AndroidControl dataset, showing the impact of ablating different model components.
 
 
 {{< table-caption >}}
@@ -174,7 +174,7 @@ This paper is important because it introduces a novel, efficient mobile phone co
 > </details>
 
 
-> Table 1 compares various models' average inference time and overall accuracy on two mobile phone control datasets.
+> Table 1 compares various models' average inference time and overall accuracy on two datasets, showing LiMAC's superior performance.
 
 
 </details>

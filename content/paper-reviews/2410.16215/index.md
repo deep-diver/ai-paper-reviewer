@@ -1,6 +1,6 @@
 ---
 title: "Pre-training Distillation for Large Language Models: A Design Space Exploration"
-summary: "Boosting LLMs: This study reveals how pre-training distillation significantly enhances large language models, exploring key design factors for optimal performance."
+summary: "Boosting large language model pre-training: This research explores pre-training distillation, systematically optimizing its design to significantly improve student LLM performance."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research delves into pre-training distillation (PD) for Large Language Models (LLMs), a method of transferring knowledge from a large, pre-trained "teacher" LLM to a smaller, more efficient "student" LLM during the pre-training phase. Unlike traditional knowledge distillation focused on post-training, PD integrates the knowledge transfer directly into the initial model training.  The study systematically explores four key design aspects to optimize PD:  how to process the teacher's outputs (logits), which loss function to use, the relative sizes of the teacher and student LLMs, and whether to obtain the teacher's logits offline (from a pre-trained model) or online (during teacher training). Experiments show that PD improves performance, with larger student models generally benefiting more.  Offline logits tend to be more effective than online ones.  Specific optimal configurations of the design factors are identified, providing valuable practical guidance for researchers in the field.  The results suggest that PD is a promising method to enhance LLM training, and the paper's systematic exploration of its design space contributes significantly to future advancements in LLM optimization.
+This research delves into pre-training distillation (PD), a method to improve the training of smaller language models (LLMs) by leveraging knowledge from larger, more advanced models.  Unlike typical knowledge distillation which happens after the initial training phase, this paper focuses on integrating it directly into the pre-training phase.  The researchers explored four key aspects impacting PD's effectiveness:  how teacher model outputs are processed, the choice of loss function, scaling the sizes of both the teacher and student models, and whether information from the teacher is taken 'offline' (after teacher training) or 'online' (during teacher training). Their experiments revealed interesting findings: larger student LLMs significantly benefit from PD,  but the size of the teacher model isn't directly proportional to student LLM improvement.  They also identified optimal settings for the four aspects investigated, finding that some methods of combining loss functions and learning rate scheduling lead to substantial improvements.  The findings of this research offer valuable guidance to researchers looking for better, more efficient ways to train large language models.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research delves into pre-training distillation (PD) for Large Language Mode
 {{< button href="https://arxiv.org/abs/2410.16215" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16215" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for LLM researchers because it systematically explores pre-training distillation (PD), a novel technique to improve LLMs.  It provides valuable insights into the design space of PD, offering practical guidelines and opening new avenues for optimizing LLM training efficiency and performance. This work directly addresses current trends in efficient LLM development and model compression.
+This paper significantly advances the field of large language model (LLM) pre-training by systematically exploring the design space of pre-training distillation (PD).  It offers valuable insights into optimizing PD, addressing limitations in current LLM development, and opening new research avenues in efficient and high-performing LLM training. The findings, particularly the scaling laws observed, will directly influence future LLM training practices.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Pre-training distillation (PD) improves LLMs by transferring knowledge from a larger teacher model during the pre-training phase, yielding better performance than traditional methods. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Pre-training distillation (PD) effectively enhances student LLM performance compared to standard pre-training. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The design space of PD, including logits processing, loss function selection, and scaling laws, significantly impacts performance.  Larger student models benefit more from PD. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Larger student LLMs benefit more from PD, while larger teacher LLMs don't guarantee better results. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Offline logits generally yield superior results compared to online logits, enhancing the efficiency of PD. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Optimizing logits processing, loss function selection, and training hyperparameters significantly impacts PD effectiveness. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -51,7 +51,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 
 ![](charts/charts_1_0.png)
 
-> 🔼 The chart displays the accuracy of pre-trained language models (LLMs) with varying sizes (1.9B, 3.8B, and 6.8B parameters) using different pre-training distillation configurations (LM loss, vanilla PD, and optimized PD*).
+> 🔼 The chart displays the accuracy of three different pre-trained LLMs (1.9B, 3.8B, and 6.8B parameters) using LM loss, vanilla pre-training distillation, and an improved pre-training distillation configuration.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Results of the pre-trained 1.9B, 3.8B, and 6.8B student LLMs, using only LM loss, vanilla PD configuration (§ 3.1), and a better PD configuration (PD*) after our exploration. Details are placed in appendix A.6.
@@ -64,10 +64,10 @@ This paper is crucial for LLM researchers because it systematically explores pre
 {{< table-caption >}}
 <table id='0' style='font-size:16px'><tr><td></td><td>HellaSwag</td><td>WinoGrande</td><td>PIQA</td><td>MMLU</td><td>KBQA</td><td>C3</td><td>C-Eval</td><td>GSM8k</td><td>Average</td></tr><tr><td>LLM-LM</td><td>53.3</td><td>54.8</td><td>72.9</td><td>28.0</td><td>3.6</td><td>54.7</td><td>25.9</td><td>8.6</td><td>37.7</td></tr><tr><td>LLM-KD</td><td>54.2</td><td>55.2</td><td>72.5</td><td>27.8</td><td>3.5</td><td>55.8</td><td>26.7</td><td>10.8</td><td>38.3</td></tr><tr><td></td><td>↑1.7%</td><td>↑ 0.7%</td><td>↓ 0.5%</td><td>↓ 0.5%</td><td>↓ 1.3%</td><td>↑ 1.9%</td><td>↑ 3.2%</td><td>↑ 24.6%</td><td>↑ 1.6%</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table presents the preliminary experimental results of LLMs pre-trained with only LM loss and LLMs pre-trained with distillation on eight evaluation datasets.
+> 🔼 Table 1 presents the preliminary experimental results comparing the performance of LLMs pre-trained with only LM loss and LLMs pre-trained with distillation (LLM-KD) across various evaluation datasets.
 > <details>
 > <summary>read the caption</summary>
-> Table 1: Preliminary experimental results on the evaluation datasets. A is relative to LLM-LM.
+> Table 1: Preliminary experimental results on the evaluation datasets. Δ is relative to LLM-LM.
 > </details>
 
 
@@ -83,7 +83,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 
 ![](charts/charts_4_0.png "🔼 Figure 2: Relative improvements compared to LLM-LM using different p in top-p-100 logits truncation and logits sizes per token with different p. The sizes are estimated using 10 million tokens.")
 
-> 🔼 The chart shows the relative improvements and logit sizes per token when using different values of p in top-p-100 logits truncation.
+> 🔼 The chart shows the relative improvements in performance compared to a baseline model (LLM-LM) when using different top-p values in the top-p-100 logits truncation method, along with the number of logits per token for both top-p-100 and top-p-inf methods.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Relative improvements compared to LLM-LM using different p in top-p-100 logits truncation and logits sizes per token with different p. The sizes are estimated using 10 million tokens.
@@ -92,7 +92,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 
 ![](charts/charts_4_1.png "🔼 Figure 3: Relative improvements compared to LLM-LM using different k in top-0.95-k logits truncation and logits sizes per token with different k.")
 
-> 🔼 The chart illustrates the relationship between the number of logits (using top-0.95-k and top-1.0-k truncation methods) and the relative improvement in performance compared to a baseline LLM, across different values of k.
+> 🔼 The chart displays the relative improvements in LLM performance and the logit size per token using different values of k in top-0.95-k logits truncation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Relative improvements compared to LLM-LM using different k in top-0.95-k logits truncation and logits sizes per token with different k.
@@ -101,7 +101,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 
 ![](charts/charts_6_0.png "🔼 Figure 4: Relative improvements compared to LLM-LM using varying sizes of student and teacher LLMs.")
 
-> 🔼 The chart displays the relative improvement in performance of student LLMs of different sizes when trained using pre-training distillation with GLM-4-9B and GLM-4-32B as teacher models.
+> 🔼 The chart displays the relative improvements of distilled LLMs compared to baseline LLMs trained using only LM loss with varying sizes of student and teacher LLMs.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Relative improvements compared to LLM-LM using varying sizes of student and teacher LLMs.
@@ -110,7 +110,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 
 ![](charts/charts_7_0.png "🔼 Figure 5: Experimental results of the checkpoints saved every 10,000 step (about 83B tokens) during the pre-training of 1.9B and 3.8B LLMs on 500B tokens. The last data point is from the checkpoint saved at the end.")
 
-> 🔼 The chart displays the accuracy of 1.9B and 3.8B LLMs pre-trained with and without knowledge distillation (KD) across varying numbers of consumed tokens during the pre-training phase.
+> 🔼 The chart shows the accuracy of 1.9B and 3.8B LLMs pre-trained with and without knowledge distillation (KD) across varying amounts of training tokens.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Experimental results of the checkpoints saved every 10,000 step (about 83B tokens) during the pre-training of 1.9B and 3.8B LLMs on 500B tokens. The last data point is from the checkpoint saved at the end.
@@ -135,7 +135,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> The table presents the preliminary experimental results of LLMs pre-trained with and without knowledge distillation on various evaluation datasets, showing a marginal performance improvement with knowledge distillation.
+> The table presents the preliminary experimental results on several evaluation datasets, comparing the performance of LLMs pre-trained with and without pre-training distillation.
 
 
 {{< table-caption >}}
@@ -147,7 +147,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 3 presents the experimental results of LLMs pre-trained with different adaptive temperature methods, comparing their performance across various evaluation datasets and highlighting the best-performing method.
+> Table 3 presents the experimental results of LLMs pre-trained with different adaptive temperature methods, comparing their performance across various evaluation datasets.
 
 
 {{< table-caption >}}
@@ -159,7 +159,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 4 shows the relative improvements in performance compared to a baseline LLM-LM model when using different values of alpha (α) to combine language modeling loss and distillation loss during training.
+> Table 4 presents the relative improvements in performance compared to the baseline LLM-LM model,  showing the impact of varying the combination factor (α) of language modeling loss and distillation loss on the overall performance across various datasets.
 
 
 {{< table-caption >}}
@@ -171,7 +171,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> This table presents the experimental results comparing the performance of LLMs pre-trained with various loss functions and their combinations, showing the impact of different loss selection strategies on the performance of the models.
+> Table 5 presents the experimental results of LLMs pre-trained with different loss functions, showing the relative improvements compared to a baseline LLM trained only with language modeling loss.
 
 
 {{< table-caption >}}
@@ -183,7 +183,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 6 presents the performance comparison of LLMs pre-trained with online logits against a baseline LLM, showing that while online logits can be effective, they yield better results when the teacher model is closer to convergence.
+> Table 6 presents the performance comparison of three LLMs pre-trained with online logits, showing that using online logits in pre-training distillation can yield comparable performance to offline logits, particularly when the teacher LLM is closer to convergence.
 
 
 {{< table-caption >}}
@@ -195,7 +195,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 7 presents the model architectures of student LLMs with varying sizes, showing their hidden size, feed-forward network hidden size, number of layers, attention heads, and query groups.
+> This table presents the model architectures of student LLMs with different sizes, including hidden size, FFN hidden size, number of layers, attention heads, and query groups.
 
 
 {{< table-caption >}}
@@ -207,7 +207,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 7 presents the architectures of student LLMs with varying sizes, detailing their hidden size, feed-forward network (FFN) hidden size, number of layers, attention heads, query groups, and whether word embeddings and output weights are tied.
+> Table 7 shows the different architectures of student LLMs with varying sizes used in the experiments.
 
 
 {{< table-caption >}}
@@ -219,7 +219,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 8 presents the relative improvements compared to LLM-LM using different p and k values in top-p-k logits truncation, showing the impact on various evaluation datasets.
+> Table 8 presents the relative improvements compared to LLM-LM using different p and k values in top-p-k logits truncation, showing the impacts of different p and k values on pre-training distillation performance across various datasets.
 
 
 {{< table-caption >}}
@@ -231,7 +231,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 9 shows the experimental results on multiple datasets using different temperatures (τ) for logits normalization in pre-training distillation.
+> Table 9 presents the performance of LLMs pre-trained with different normalization temperatures (τ) across various evaluation datasets.
 
 
 {{< table-caption >}}
@@ -243,7 +243,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 10 presents the experimental results on eight evaluation datasets using different values of α (the combination factor of language modeling loss and distillation loss) in Equation 1, showing the impact of loss selection on the performance of pre-training distillation.
+> Table 10 presents the experimental results on various evaluation datasets using different values of the combination factor (a) for the language modeling loss and distillation loss in Equation 1, demonstrating the impact of loss selection on the performance of pre-training distillation.
 
 
 {{< table-caption >}}
@@ -255,7 +255,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 11 presents the performance comparison of baseline LLMs trained solely with LM loss against distilled LLMs using different sizes of teacher and student LLMs across various evaluation datasets.
+> Table 1 presents the preliminary experimental results on several evaluation datasets, comparing the performance of a 1.9B student LLM pre-trained with and without knowledge distillation.
 
 
 {{< table-caption >}}
@@ -279,7 +279,7 @@ This paper is crucial for LLM researchers because it systematically explores pre
 > </details>
 
 
-> Table 13 presents the performance of 1.9B, 3.8B, and 6.8B LLMs on eight evaluation datasets after using a better pre-training distillation configuration.
+> Table 13 presents the performance of 1.9B, 3.8B and 6.8B LLMs trained with a better pre-training distillation configuration on eight different evaluation datasets.
 
 
 </details>

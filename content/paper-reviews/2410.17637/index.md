@@ -1,6 +1,6 @@
 ---
 title: "MIA-DPO: Multi-Image Augmented Direct Preference Optimization For Large Vision-Language Models"
-summary: "MIA-DPO boosts large vision-language model performance on multi-image tasks by cleverly augmenting single-image data and using attention mechanisms to filter out inaccurate responses."
+summary: "MIA-DPO boosts large vision-language models' multi-image understanding by cleverly augmenting single-image data and using attention mechanisms to improve preference alignment, significantly reducing a..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-23", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-The research introduces Multi-Image Augmented Direct Preference Optimization (MIA-DPO), a novel approach to improve Large Vision-Language Models (LVLMs) in handling multi-image inputs.  Current methods struggle with multi-image tasks due to limited training data and annotation costs. MIA-DPO cleverly addresses this by augmenting existing single-image datasets with extra, unrelated images arranged in different configurations (grid collages, pic-in-pic).  This significantly lowers the cost of acquiring multi-image data.  The method also leverages the attention mechanisms within LVLMs to identify and filter out incorrect responses, improving the accuracy of the preference optimization process.  Experiments on five multi-image benchmarks show MIA-DPO outperforms existing methods, demonstrating significant improvements in model performance. Notably, the method's impact on single-image understanding is minimal.  This research offers a cost-effective solution for training more robust and powerful LVLMs capable of managing complex, real-world multi-image contexts.
+Existing methods for aligning large vision-language models (LVLMs) with human preferences struggle with multi-image tasks due to limited data and high annotation costs.  This paper introduces MIA-DPO, a novel approach that addresses these limitations.  MIA-DPO cleverly augments existing single-image datasets by creating multi-image collages, significantly lowering data requirements.  Furthermore, it utilizes the model's internal attention mechanism to identify and filter out unreliable responses, further improving accuracy and reducing manual effort.  Experiments across various benchmarks demonstrate that MIA-DPO significantly outperforms existing methods in handling multi-image tasks, while maintaining comparable performance on single-image tasks.  The attention-aware selection process is particularly noteworthy as it avoids the need for human annotation or expensive APIs, making it a cost-effective and scalable solution.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ The research introduces Multi-Image Augmented Direct Preference Optimization (MI
 {{< button href="https://arxiv.org/abs/2410.17637" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.17637" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on large vision-language models (LVLMs) and visual preference alignment.  It addresses the significant challenge of adapting existing single-image methods to multi-image scenarios, a critical step towards more robust and realistic LVLMs.  The cost-effective method and improved performance on multiple benchmarks make it highly relevant to current research trends and open exciting avenues for future investigation in multi-modal understanding.
+This paper is crucial for researchers working on large vision-language models (LVLMs) and visual preference alignment.  It introduces a novel, cost-effective approach to handle multi-image scenarios, a significant challenge in current research. The findings will impact the development of more robust and versatile LVLMs, enhancing their ability to understand and reason in complex, real-world environments.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} MIA-DPO significantly improves LVLMs' performance on multi-image tasks. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} MIA-DPO enhances LVLMs' performance on multi-image tasks by augmenting data and leveraging attention mechanisms. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The attention-aware selection method reduces the cost and complexity of data annotation for multi-image preference optimization. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The method significantly reduces the high annotation costs associated with existing multi-image visual preference alignment techniques. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} MIA-DPO is compatible with various LVLMs and maintains single-image performance. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} MIA-DPO demonstrates robustness across various model architectures and benchmarks, improving performance while maintaining single-image capabilities. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure shows an overview of the MIA-DPO framework and its performance on single-image and multi-image benchmarks.
+> 🔼 The figure shows an overview of the MIA-DPO framework and its performance improvements on various single and multi-image benchmarks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Overview of MIA-DPO. We transform single-image data (e.g., LLaVA 665k) into multi-image data by adding noisy or unrelated images and using language descriptions to specify the target image. Attention values are then used to detect hallucinations in multi-image contexts, filtering out rejected data for DPO optimization. (b) Benchmark Results. MIA-DPO excels across five multi-image benchmarks while maintaining competitive performance on seven single-image benchmarks, demonstrating its robustness in both single and multi-image tasks.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](charts/charts_7_0.png)
 
-> 🔼 The chart displays the distribution of attention ratios for different numbers of images across three data types (Sequence, Grid Collage, and Pic-in-Pic), showing how the attention focus changes with the number of images and data type.
+> 🔼 The chart visualizes the distribution of attention ratios across different image counts and data types (Sequence, Grid Collage, Pic-in-pic) in a multi-image visual preference alignment task.
 > <details>
 > <summary>read the caption</summary>
 > Figure 5: Attention Ratio Statistic. We analyze the attention ratios distribution for different image counts across various data types, and use dashed lines to indicate the thresholds for each data set.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on large vision-language models (L
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>Models</td><td>Parameter</td><td>MMMU</td><td>BLINK</td><td>Mantis</td><td>NLVR2</td><td>MVBench</td><td>Average</td></tr><tr><td>GPT-4V (Achiam et al., 2023)</td><td>-</td><td>56.8</td><td>51.1</td><td>62.7</td><td>88.8</td><td>43.5</td><td>60.6</td></tr><tr><td>LLaVA-v1.6 (Li et al., 2024b)</td><td>7B</td><td>35.8</td><td>39.6</td><td>45.6</td><td>58.9</td><td>40.9</td><td>44.2</td></tr><tr><td>Qwen-VL-Chat (Bai et al., 2023)</td><td>7B</td><td>35.9</td><td>31.2</td><td>39.2</td><td>58.7</td><td>42.2</td><td>41.4</td></tr><tr><td>VideoLLaVA (Lin et al., 2023)</td><td>7B</td><td>-</td><td>38.9</td><td>35.9</td><td>56.5</td><td>44.3</td><td>-</td></tr><tr><td>Fuyu (Bavishi et al., 2023)</td><td>8B</td><td>27.9</td><td>36.6</td><td>27.2</td><td>51.1</td><td>30.2</td><td>34.6</td></tr><tr><td>Idefics2 (Lauren�on et al., 2024b)</td><td>8B</td><td>43.0</td><td>45.2</td><td>48.9</td><td>86.9</td><td>29.7</td><td>50.7</td></tr><tr><td>InstructBLIP (Dai et al., 2023)</td><td>13B</td><td>30.6</td><td>42.2</td><td>45.6</td><td>60.3</td><td>32.5</td><td>42.2</td></tr><tr><td>CogVLM (Wang et al., 2023)</td><td>17B</td><td>32.1</td><td>41.5</td><td>45.2</td><td>58.6</td><td>37.3</td><td>42.9</td></tr><tr><td>Emu2-Chat (Sun et al., 2024)</td><td>37B</td><td>36.3</td><td>36.2</td><td>37.8</td><td>58.2</td><td>39.7</td><td>41.6</td></tr><tr><td>LLaVA-v1.5 (Liu et al., 2024a)</td><td>7B</td><td>35.1</td><td>37.1</td><td>41.9</td><td>52.1</td><td>36.0</td><td>40.4</td></tr><tr><td>+ LLaVA-RLHF (Sun et al., 2023)</td><td>7B</td><td>34.6</td><td>40.8</td><td>30.4</td><td>51.8</td><td>38.0</td><td>39.1</td></tr><tr><td>+ HA-DPO (Zhao et al., 2023)</td><td>7B</td><td>35.8</td><td>38.6</td><td>34.6</td><td>51.6</td><td>40.6</td><td>40.2</td></tr><tr><td>+ POVID (Zhou et al., 2024)</td><td>7B</td><td>35.2</td><td>19.9</td><td>37.8</td><td>21.4</td><td>39.4</td><td>30.7</td></tr><tr><td>+ MIA-DPO (Ours)</td><td>7B</td><td>36.3</td><td>42.9</td><td>44.2</td><td>54.2</td><td>39.5</td><td>43.4</td></tr><tr><td>△</td><td>-</td><td>+1.2</td><td>+5.8</td><td>+2.3</td><td>+2.1</td><td>+3.5</td><td>+3.0</td></tr><tr><td>InternLM-XC2.5 (Zhang et al., 2024)</td><td>7B</td><td>41.4</td><td>46.9</td><td>49.3</td><td>70.7</td><td>59.5</td><td>53.6</td></tr><tr><td>+ MIA-DPO (Ours)</td><td>7B</td><td>42.6</td><td>47.7</td><td>60.4</td><td>75.2</td><td>63.6</td><td>57.9</td></tr><tr><td>△</td><td>-</td><td>+1.2</td><td>+0.8</td><td>11.1</td><td>+4.5</td><td>4.1</td><td>+4.3</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents a comparison of MIA-DPO and other DPO algorithms across five multi-image benchmarks, showing MIA-DPO's superior performance.
+> 🔼 Table 1 compares the performance of MIA-DPO and other preference optimization methods across five multi-image benchmarks, highlighting MIA-DPO's superior performance on both LLaVa-v1.5 and InternLM-XC2.5.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Main results on multi-image benchmarks. We compare our MIA-DPO along with other DPO algorithms across five multi-image benchmarks. Our method brings significant performance improvements to both the classic LLaVa-v1.5 and the recent InternLM-XC2.5. In contrast, other single-image DPO methods perform poorly on multi-image benchmarks.
@@ -91,37 +91,17 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_4_0.png)
 
-> 🔼 This figure shows examples of two types of multi-image hallucinations: sequence confusion and element interference, illustrating how attention values reveal the model's focus and contribute to these errors.
+> 🔼 The figure shows two examples of multi-image hallucinations, sequence confusion and element interference, and illustrates how attention values reveal the model's focus across different images.
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: Examples of Multi-Image Hallucinations. Top: Sequence Confusion that the model is confused about the order in which the images should be referenced. Bottom: Element Interference. The model incorrectly identified the attributes due to visual element interference across different images. Attention values illustrate how the model's focus was dispersed across different images, resulting in the hallucination response.
+> Figure 2: Examples of Multi-Image Hallucinations. Top: Sequence Confusion that the model is confused about the order in which the images should be referenced. Bottom: Element Interference. The model incorrectly identified the attributes due to visual element interference across different images. Attention values illustrate how the model’s focus was dispersed across different images, resulting in the hallucination response.
 > </details>
 
 
 
 ![](figures/figures_5_0.png)
 
-> 🔼 The figure shows an overview of the MIA-DPO framework and its performance on multi-image and single-image benchmarks.
-> <details>
-> <summary>read the caption</summary>
-> Figure 1: (a) Overview of MIA-DPO. We transform single-image data (e.g., LLaVA 665k) into multi-image data by adding noisy or unrelated images and using language descriptions to specify the target image. Attention values are then used to detect hallucinations in multi-image contexts, filtering out rejected data for DPO optimization. (b) Benchmark Results. MIA-DPO excels across five multi-image benchmarks while maintaining competitive performance on seven single-image benchmarks, demonstrating its robustness in both single and multi-image tasks.
-> </details>
-
-
-
-![](figures/figures_6_0.png)
-
-> 🔼 The figure shows an overview of the MIA-DPO framework and its performance on several multi-image and single-image benchmarks.
-> <details>
-> <summary>read the caption</summary>
-> Figure 1: (a) Overview of MIA-DPO. We transform single-image data (e.g., LLaVA 665k) into multi-image data by adding noisy or unrelated images and using language descriptions to specify the target image. Attention values are then used to detect hallucinations in multi-image contexts, filtering out rejected data for DPO optimization. (b) Benchmark Results. MIA-DPO excels across five multi-image benchmarks while maintaining competitive performance on seven single-image benchmarks, demonstrating its robustness in both single and multi-image tasks.
-> </details>
-
-
-
-![](figures/figures_6_1.png)
-
-> 🔼 The figure illustrates the MIA-DPO framework, which extends single-image datasets to multi-image datasets and uses attention values to filter out hallucination responses.
+> 🔼 The figure illustrates the MIA-DPO framework, detailing how single-image data is augmented with irrelevant images, attention values are used to filter out hallucinated responses, and the DPO algorithm is applied to create chosen/rejected pairs for model training.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: MIA-DPO Framework. We extend the single-image dataset to multi-image datasets by inserting irrelevant images and using attention values to filter out the hallucination responses for rejected samples of the DPO algorithm.
@@ -129,9 +109,19 @@ This paper is crucial for researchers working on large vision-language models (L
 
 
 
+![](figures/figures_6_0.png)
+
+> 🔼 The figure illustrates the MIA-DPO framework and its performance on multi-image and single-image benchmarks.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: (a) Overview of MIA-DPO. We transform single-image data (e.g., LLaVA 665k) into multi-image data by adding noisy or unrelated images and using language descriptions to specify the target image. Attention values are then used to detect hallucinations in multi-image contexts, filtering out rejected data for DPO optimization. (b) Benchmark Results. MIA-DPO excels across five multi-image benchmarks while maintaining competitive performance on seven single-image benchmarks, demonstrating its robustness in both single and multi-image tasks.
+> </details>
+
+
+
 ![](figures/figures_6_2.png)
 
-> 🔼 The figure shows two examples of multi-image hallucinations: sequence confusion and element interference, illustrating how the model's attention is dispersed across different images, resulting in incorrect responses.
+> 🔼 The figure shows two examples of multi-image hallucinations: sequence confusion and element interference, illustrating how the model's attention is incorrectly focused on irrelevant images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Examples of Multi-Image Hallucinations. Top: Sequence Confusion that the model is confused about the order in which the images should be referenced. Bottom: Element Interference. The model incorrectly identified the attributes due to visual element interference across different images. Attention values illustrate how the model's focus was dispersed across different images, resulting in the hallucination response.
@@ -141,7 +131,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_6_3.png)
 
-> 🔼 The figure illustrates the MIA-DPO framework, showing how single-image data is augmented with irrelevant images, attention values are used to filter out hallucinations, and chosen/rejected pairs are created for DPO optimization.
+> 🔼 The figure illustrates the MIA-DPO framework, which extends single-image data to multi-image data by adding irrelevant images and uses attention values to filter out hallucination responses for DPO.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: MIA-DPO Framework. We extend the single-image dataset to multi-image datasets by inserting irrelevant images and using attention values to filter out the hallucination responses for rejected samples of the DPO algorithm.
@@ -151,17 +141,17 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_10_0.png)
 
-> 🔼 The figure visualizes the attention distribution changes in LLaVa-v1.5 before and after applying MIA-DPO on three multi-image examples.
+> 🔼 The figure visualizes the attention distribution across different layers of the LLaVA model before and after applying MIA-DPO, highlighting changes in focus on specific image regions.
 > <details>
 > <summary>read the caption</summary>
-> Figure 6: Attention Difference Before and After DPO. We present the attention distribution in the intermediate layers for the original LLaVa-v1.5 (top row), MIA-DPO + LLaVa-v1.5 (second row), and the difference value (bottom row), respectively.
+> Figure 6: Attention Difference Before and After DPO. We present the attention distribution in the intermediate layers for the original LLaVA-v1.5 (top row), MIA-DPO + LLaVA-v1.5 (second row), and the difference value (bottom row), respectively.
 > </details>
 
 
 
 ![](figures/figures_21_0.png)
 
-> 🔼 This figure shows an overview of the MIA-DPO framework and its performance on various multi-image and single-image benchmarks.
+> 🔼 The figure shows an overview of the MIA-DPO framework and its performance on multi-image and single-image benchmarks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Overview of MIA-DPO. We transform single-image data (e.g., LLaVA 665k) into multi-image data by adding noisy or unrelated images and using language descriptions to specify the target image. Attention values are then used to detect hallucinations in multi-image contexts, filtering out rejected data for DPO optimization. (b) Benchmark Results. MIA-DPO excels across five multi-image benchmarks while maintaining competitive performance on seven single-image benchmarks, demonstrating its robustness in both single and multi-image tasks.
@@ -171,7 +161,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_23_0.png)
 
-> 🔼 The figure shows an overview of the MIA-DPO framework and its performance on single and multi-image benchmarks.
+> 🔼 The figure shows an overview of the MIA-DPO framework and its performance on various single-image and multi-image benchmarks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Overview of MIA-DPO. We transform single-image data (e.g., LLaVA 665k) into multi-image data by adding noisy or unrelated images and using language descriptions to specify the target image. Attention values are then used to detect hallucinations in multi-image contexts, filtering out rejected data for DPO optimization. (b) Benchmark Results. MIA-DPO excels across five multi-image benchmarks while maintaining competitive performance on seven single-image benchmarks, demonstrating its robustness in both single and multi-image tasks.
@@ -181,7 +171,7 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_24_0.png)
 
-> 🔼 The figure shows an overview of the MIA-DPO framework and its superior performance on multi-image and single-image benchmarks.
+> 🔼 The figure shows an overview of the MIA-DPO framework and its performance on multi-image and single-image benchmark tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Overview of MIA-DPO. We transform single-image data (e.g., LLaVA 665k) into multi-image data by adding noisy or unrelated images and using language descriptions to specify the target image. Attention values are then used to detect hallucinations in multi-image contexts, filtering out rejected data for DPO optimization. (b) Benchmark Results. MIA-DPO excels across five multi-image benchmarks while maintaining competitive performance on seven single-image benchmarks, demonstrating its robustness in both single and multi-image tasks.
@@ -191,17 +181,17 @@ This paper is crucial for researchers working on large vision-language models (L
 
 ![](figures/figures_24_1.png)
 
-> 🔼 The figure shows three different ways of creating multi-image prompts from single-image data to address hallucination issues in large vision language models.
+> 🔼 The figure shows two examples of multi-image hallucinations in Large Vision-Language Models (LVLMs): sequence confusion and element interference, illustrating how attention values reveal the model's mistaken focus.
 > <details>
 > <summary>read the caption</summary>
-> Figure 4: Multi-Images DPO Data Format. To address multi-image hallucinations mentioned in Fig. 2, we construct our multi-image prompts in three formats: (a) Sequence. (b) Grid Collage. (c) Pic-in-Pic.
+> Figure 2: Examples of Multi-Image Hallucinations. Top: Sequence Confusion that the model is confused about the order in which the images should be referenced. Bottom: Element Interference. The model incorrectly identified the attributes due to visual element interference across different images. Attention values illustrate how the model's focus was dispersed across different images, resulting in the hallucination response.
 > </details>
 
 
 
 ![](figures/figures_24_2.png)
 
-> 🔼 The figure illustrates the MIA-DPO framework, showing how single-image data is augmented with irrelevant images to create multi-image data, and attention mechanisms are used to filter out hallucinated responses for constructing chosen/rejected pairs in the DPO algorithm.
+> 🔼 The figure illustrates the MIA-DPO framework, showing how single-image data is augmented with extra images, attention is used to filter out hallucinations, and chosen/rejected pairs are used for DPO.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: MIA-DPO Framework. We extend the single-image dataset to multi-image datasets by inserting irrelevant images and using attention values to filter out the hallucination responses for rejected samples of the DPO algorithm.
@@ -228,7 +218,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 2 compares MIA-DPO's performance on seven single-image benchmarks against other DPO approaches, demonstrating its ability to maintain strong single-image performance while enhancing multi-image capabilities.
+> Table 2 compares MIA-DPO's performance on seven single-image benchmarks against other direct preference optimization methods, showing its ability to maintain strong single-image performance while improving multi-image results.
 
 
 {{< table-caption >}}
@@ -240,7 +230,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 3 shows the ablation study results on MIA-DPO, comparing the performance with and without post-selection and different data types.
+> Table 3 presents ablation study results comparing MIA-DPO with and without post-selection and different data types, showing the impact of each component on the overall performance.
 
 
 {{< table-caption >}}
@@ -252,7 +242,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 1 compares the performance of MIA-DPO and other direct preference optimization methods across five multi-image benchmarks, showing MIA-DPO's significant performance improvement on both LLaVa-v1.5 and InternLM-XC2.5.
+> Table 1 compares the performance of MIA-DPO and other DPO methods across five multi-image benchmarks, showing MIA-DPO's significant performance improvements on LLaVa-v1.5 and InternLM-XC2.5.
 
 
 {{< table-caption >}}
@@ -264,7 +254,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> This table compares the performance of MIA-DPO against a baseline and an alternative approach using GPT-40-mini for data selection across five multi-image benchmarks.
+> The table compares the performance of using GPT-40-mini for data selection against MIA-DPO across five multi-image benchmarks.
 
 
 {{< table-caption >}}
@@ -276,7 +266,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 1 compares the performance of MIA-DPO and other direct preference optimization methods across five multi-image benchmarks, showing MIA-DPO's significant performance improvements over existing methods for both LLaVa-v1.5 and InternLM-XC2.5.
+> Table 1 compares the performance of MIA-DPO and other DPO algorithms across five multi-image benchmarks, showing MIA-DPO's significant performance improvements over existing methods.
 
 
 {{< table-caption >}}
@@ -288,7 +278,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> Table 1 compares the performance of MIA-DPO and other DPO methods across five multi-image benchmarks, showing MIA-DPO's superior performance on both LLaVa-v1.5 and InternLM-XC2.5.
+> This table compares the performance of MIA-DPO and other direct preference optimization methods across five multi-image benchmarks, showing MIA-DPO's superior performance.
 
 
 {{< table-caption >}}
@@ -300,7 +290,7 @@ This paper is crucial for researchers working on large vision-language models (L
 > </details>
 
 
-> The table shows the number of data samples used for direct preference optimization (DPO) in the MIA-DPO model, broken down by data type and language model.
+> The table presents the data volume used for direct preference optimization (DPO) with two large vision-language models, LLaVa-v1.5 and InternLM-XC2.5, categorized by data type (Sequence, Grid Collage, Pic-in-Pic).
 
 
 </details>

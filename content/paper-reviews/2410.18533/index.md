@@ -1,6 +1,6 @@
 ---
 title: "LOGO -- Long cOntext aliGnment via efficient preference Optimization"
-summary: "LOGO, a novel training strategy, significantly enhances long-context language model generation by efficiently optimizing preferences, achieving performance comparable to GPT-4 on real-world tasks with..."
+summary: "LOGO, a novel training strategy, significantly boosts long-context model performance by efficiently optimizing preference alignment, achieving comparable results to GPT-4 with minimal data."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Long-context models (LCMs) struggle with accurate and aligned responses despite advancements.  This paper introduces LOGO (Long context aliGnment via efficient preference Optimization), a training strategy focusing on preference optimization for better long-context alignment.  To overcome GPU memory limitations, LOGO uses a reference-free method and positional index synthesis.  Using only 0.3B data on a single 8xA800 GPU for 16 hours, LOGO enabled a Llama-3-8B-Instruct-80K model to match GPT-4's performance in real-world long-context tasks, while retaining its performance on other tasks. LOGO can also expand the model's context window.  Experiments demonstrate significant improvements on real-world tasks, synthetic retrieval tasks, and language modeling, showcasing the effectiveness and efficiency of the proposed training strategy.
+Long-context models (LCMs) struggle with generating accurate responses to long prompts, often producing misaligned outputs.  Existing solutions focus on increasing data size and quality, but these methods are often insufficient or inefficient. This paper introduces LOGO (Long context aliGnment via efficient preference Optimization), a novel training strategy that uses preference optimization to improve the alignment between the model's responses and the desired output.  LOGO addresses the GPU memory limitations inherent in training with long sequences by employing a reference-free preference optimization strategy. This approach, along with a position synthesis method for constructing training data, allows significant improvements in LCM performance with minimal data. Using only 0.3B training data on a single 8xA800 GPU, LOGO enabled a Llama-3-8B-Instruct-80K model to reach performance comparable to GPT-4 in real-world long-context tasks, while maintaining its capabilities in other tasks and expanding the model's context window size.  The results suggest that focusing on the training objective, rather than solely on data size, is a more effective approach to enhancing LCM capabilities. This makes LOGO an attractive method for researchers aiming to develop more powerful and efficient long-context models.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Long-context models (LCMs) struggle with accurate and aligned responses despite 
 {{< button href="https://arxiv.org/abs/2410.18533" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18533" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is highly relevant to researchers working on long-context language models. It introduces a novel training strategy that addresses the limitations of existing methods, offering a more efficient and effective way to improve the generation capabilities of LLMs. The findings have implications for various applications requiring long-context understanding, and the proposed approach opens new avenues for further investigation in the field of LLM training and optimization.
+This paper is crucial for researchers working on long-context models (LCMs). It introduces a novel training strategy, improving LCM performance significantly and offering a more efficient approach than existing methods.  The findings challenge current training paradigms and open up new avenues for optimizing LCMs, impacting various NLP applications.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} LOGO, a new training strategy, uses preference optimization to improve long-context alignment in LLMs. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} LOGO, a new training strategy, significantly improves long-context model (LCM) generation performance. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} LOGO achieves performance comparable to GPT-4 on real-world tasks using only 0.3B data and a single 8xA800 GPU. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} LOGO uses preference optimization to improve alignment, addressing misaligned responses in LCMs. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} LOGO improves generation capabilities while maintaining original performance on other tasks, extending context window size. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} LOGO is efficient; comparable performance to GPT-4 is achieved using only 0.3B training data on a single 8xA800 GPU machine in 16 hours. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](figures/figures_5_0.png)
 
-> 🔼 Figure 1 shows the performance comparison of various long-context models (LCMs) on real-world and synthetic tasks, along with their training data sizes.
+> 🔼 The figure compares the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing their retrieval and generation capabilities in relation to the size of their training data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -61,7 +61,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](charts/charts_1_0.png)
 
-> 🔼 The chart displays the performance of various Long-Context Models (LCMs) across real-world and synthetic long-context tasks, showing retrieval and recall scores, and relating performance to training data size.
+> 🔼 The chart displays the performance of various long-context models (LCMs) on real-world tasks, their retrieval and recall scores on a synthetic task, and their training data sizes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -74,7 +74,7 @@ This paper is highly relevant to researchers working on long-context language mo
 {{< table-caption >}}
 <br><table id='2' style='font-size:14px'><tr><td>Models</td><td>S-Doc QA</td><td>M-Doc QA</td><td>Summ</td><td>Few-shot</td><td>Synthetic</td><td>Avg.</td></tr><tr><td>GPT-3.5-Turbo-16K</td><td>39.8</td><td>38.7</td><td>26.5</td><td>67.1</td><td>37.8</td><td>42.0</td></tr><tr><td>LongChat-v1.5-7B-32k</td><td>28.7</td><td>20.6</td><td>26.7</td><td>60.0</td><td>15.8</td><td>30.4</td></tr><tr><td>LLama-3.1-8B-Instruct-128K</td><td>23.9</td><td>15.8</td><td>28.9</td><td>69.8</td><td>57.5</td><td>39.2</td></tr><tr><td colspan="7">Results on SCMs (scaling x8 context window)</td></tr><tr><td>Llama-3-8B-Instruct-8K</td><td>39.3</td><td>36.2</td><td>24.8</td><td>63.5</td><td>39.9</td><td>40.7</td></tr><tr><td>+ YaRN-64K+</td><td>38.0</td><td>36.6</td><td>27.4</td><td>61.7</td><td>40.9</td><td>40.9</td></tr><tr><td>+ RandPOS-64K</td><td>32.5</td><td>30.5</td><td>26.5</td><td>61.3</td><td>33.4</td><td>36.8</td></tr><tr><td>+ LOGO-64K</td><td>39.8</td><td>36.7</td><td>28.8</td><td>65.4</td><td>49.0</td><td>43.9</td></tr><tr><td>Llama-2-7B-Chat-4K</td><td>24.9</td><td>22.6</td><td>24.7</td><td>60.0</td><td>5.9</td><td>27.6</td></tr><tr><td>+ LOGO-32K</td><td>26.7</td><td>23.3</td><td>26.3</td><td>63.1</td><td>11.1</td><td>30.1</td></tr><tr><td colspan="7">Results on LCMs (long-context alignment)</td></tr><tr><td>Llama-3-8B-Instruct-80K</td><td>43.0</td><td>39.8</td><td>22.2</td><td>64.3</td><td>46.3</td><td>42.3</td></tr><tr><td>+ Instruct Tuning (Full)</td><td>38.8</td><td>35.0</td><td>24.6</td><td>65.9</td><td>44.5</td><td>41.8</td></tr><tr><td>+ Instruct Tuning (Partial)</td><td>39.3</td><td>36.2</td><td>26.8</td><td>63.5</td><td>48.0</td><td>42.8</td></tr><tr><td>+ LOGO-80K</td><td>44.0</td><td>41.2</td><td>28.1</td><td>68.6</td><td>53.0</td><td>47.0</td></tr><tr><td>Llama-2-7B-Instruct-80K</td><td>26.9</td><td>23.8</td><td>21.3</td><td>65.0</td><td>7.9</td><td>29.0</td></tr><tr><td>+ LOGO-80K</td><td>33.6</td><td>28.0</td><td>29.4</td><td>65.1</td><td>24.5</td><td>36.1</td></tr><tr><td>Mistral-Instruct-7B- V0.2-32K</td><td>31.7</td><td>30.6</td><td>16.7</td><td>58.4</td><td>17.9</td><td>31.1</td></tr><tr><td>+ LOGO-32K</td><td>38.3</td><td>37.6</td><td>26.1</td><td>67.0</td><td>31.5</td><td>40.1</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table presents the quantitative results of different long-context models on various tasks within the LongBench benchmark, comparing the performance of LOGO with other methods.
+> 🔼 Table 1 presents the quantitative results of different long-context models on the LongBench benchmark, comparing their performance across six tasks and highlighting the impact of different training strategies.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Evaluation results on LongBench benchmark, where † denotes training-free method.
@@ -91,7 +91,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](figures/figures_17_0.png)
 
-> 🔼 The figure shows the performance comparison of various long-context models (LCMs) on real-world and synthetic tasks, highlighting their retrieval and generation capabilities, and the amount of training data used.
+> 🔼 Figure 1 shows the performance comparison of various long-context models (LCMs) on real-world and synthetic tasks, highlighting their retrieval and generation capabilities and the training data size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -101,7 +101,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](figures/figures_18_0.png)
 
-> 🔼 The figure compares the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing their retrieval and generation capabilities in relation to training data size.
+> 🔼 The figure compares the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing retrieval and recall scores and the amount of training data used.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -120,7 +120,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](charts/charts_1_1.png "🔼 Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.")
 
-> 🔼 The chart compares the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing retrieval and recall scores, and training data size.
+> 🔼 The chart displays the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing their retrieval and recall scores along with the training data size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -129,7 +129,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](charts/charts_1_2.png "🔼 Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.")
 
-> 🔼 The chart displays the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing their retrieval and recall scores in relation to their training data size.
+> 🔼 The chart displays the performance of various Long-Context Models (LCMs) on real-world and synthetic tasks, showing their retrieval and recall scores, and relating performance to training data size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -138,7 +138,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](charts/charts_8_0.png "🔼 Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.")
 
-> 🔼 The chart displays the performance of various long-context models (LCMs) on real-world tasks, their retrieval and recall scores on a synthetic task, and their training data sizes.
+> 🔼 The chart displays the performance of various Long-Context Models (LCMs) on real-world and synthetic tasks, showing retrieval and recall scores, and relating them to the training data size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -147,7 +147,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](charts/charts_8_1.png "🔼 Figure 4: Evaluation results of language modeling task. The solid and dashed curves represent the PPL of the baselines and LOGO, respectively.")
 
-> 🔼 The chart displays the perplexity (PPL) scores of several large language models (LLMs) with and without LOGO training across various context lengths, illustrating LOGO's impact on language modeling performance.
+> 🔼 The chart displays the perplexity (PPL) scores of several large language models (LLMs) with and without LOGO training across varying context lengths, showing LOGO's impact on language modeling performance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Evaluation results of language modeling task. The solid and dashed curves represent the PPL of the baselines and LOGO, respectively.
@@ -156,25 +156,25 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](charts/charts_9_0.png "🔼 Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.")
 
-> 🔼 The chart compares the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing their retrieval and recall scores, and the amount of training data used.
+> 🔼 The chart compares the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing retrieval and recall scores, and training data sizes.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
 > </details>
 
 
-![](charts/charts_9_1.png "🔼 Figure 6: Ablation study results. (a) Comparison among different settings on the language modeling task (PPL) and real-world tasks (Avg. score on LongBench testing set); (b) Reward difference distribution under different M settings; (c) Training GPU memory consumption of different settings.")
+![](charts/charts_9_1.png "🔼 Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.")
 
-> 🔼 Figure 6 presents the ablation study results showing the impact of different hyperparameters (M, λ) and context lengths on both the language modeling task and real-world tasks, along with the distribution of reward differences and GPU memory consumption.
+> 🔼 The chart displays the performance of various long-context models (LCMs) on real-world tasks, their retrieval and recall scores on a synthetic task, and their respective training data sizes.
 > <details>
 > <summary>read the caption</summary>
-> Figure 6: Ablation study results. (a) Comparison among different settings on the language modeling task (PPL) and real-world tasks (Avg. score on LongBench testing set); (b) Reward difference distribution under different M settings; (c) Training GPU memory consumption of different settings.
+> Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
 > </details>
 
 
 ![](charts/charts_9_2.png "🔼 Figure 6: Ablation study results. (a) Comparison among different settings on the language modeling task (PPL) and real-world tasks (Avg. score on LongBench testing set); (b) Reward difference distribution under different M settings; (c) Training GPU memory consumption of different settings.")
 
-> 🔼 Figure 6 presents an ablation study showing the impact of different hyperparameters (M and λ) and context lengths on both language modeling performance and real-world task performance, along with GPU memory usage.
+> 🔼 The chart displays ablation study results, showing the impact of different settings (number of dis-preference instances, SFT regularization, context length) on language modeling performance and real-world task performance, as well as GPU memory consumption.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Ablation study results. (a) Comparison among different settings on the language modeling task (PPL) and real-world tasks (Avg. score on LongBench testing set); (b) Reward difference distribution under different M settings; (c) Training GPU memory consumption of different settings.
@@ -183,7 +183,7 @@ This paper is highly relevant to researchers working on long-context language mo
 
 ![](charts/charts_10_0.png "🔼 Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.")
 
-> 🔼 The chart displays a comparison of various Long-Context Models (LCMs) across real-world tasks, a synthetic retrieval task, and their respective training data sizes.
+> 🔼 The chart displays the performance of various long-context models (LCMs) on real-world and synthetic tasks, showing retrieval and recall scores and correlating them with training data size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: (a) Performance of LCMs on real-world long-context tasks; (b) Retrieval score (long-context understanding ability) and recall score (generation ability) of LCMs on the synthetic retrieval long-context task (multi-value NIAH); (c) Long-context (pre-)training data size for each LCM.
@@ -208,7 +208,7 @@ This paper is highly relevant to researchers working on long-context language mo
 > </details>
 
 
-> Table 1 presents the quantitative results of different models on six categories of tasks in the LongBench benchmark, comparing the performance of LOGO with other methods.
+> Table 1 presents the quantitative results of different long-context models evaluated on the LongBench benchmark across six categories of tasks, including single-document QA, multi-document QA, summarization, few-shot learning, synthetic tasks, and code generation.
 
 
 {{< table-caption >}}
@@ -220,7 +220,7 @@ This paper is highly relevant to researchers working on long-context language mo
 > </details>
 
 
-> Table 1 presents the average scores of different LLMs on six categories of tasks in the LongBench benchmark, comparing the performance of several LLMs with different context scaling and alignment methods.
+> Table 1 presents the quantitative results of different long-context models on the LongBench benchmark across various tasks, comparing their performance with and without the LOGO training strategy.
 
 
 {{< table-caption >}}
@@ -232,7 +232,7 @@ This paper is highly relevant to researchers working on long-context language mo
 > </details>
 
 
-> Table 1 presents the average scores of different language models on six categories of tasks from the LongBench benchmark, comparing the performance of various context scaling and alignment methods.
+> Table 1 presents a comparison of different models' performance on the LongBench benchmark, including several long-context models and short-context models with different context window scaling methods applied.
 
 
 </details>

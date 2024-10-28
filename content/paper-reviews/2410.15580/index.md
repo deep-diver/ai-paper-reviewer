@@ -1,6 +1,6 @@
 ---
 title: "Language Models are Symbolic Learners in Arithmetic"
-summary: "LLMs don't calculate; they're symbolic pattern-matchers in arithmetic, mastering easy patterns first, then tackling harder ones through subgroup selection, as shown by a novel experimental framework."
+summary: "LLMs don't calculate; they're symbolic learners in arithmetic, mastering tasks through subgroup pattern recognition, prioritizing easy-to-hard pattern selection."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research investigates how large language models (LLMs) perform arithmetic. Contrary to the belief that LLMs perform calculations like humans, this study reveals that they function more like symbolic pattern-matchers. The researchers conducted experiments to determine whether LLMs leverage partial products during arithmetic tasks, discovering that while LLMs can identify partial products, they don't utilize them for calculations.  To further explore this, they broke down arithmetic problems into smaller sub-problems or 'subgroups,' hypothesizing that the difficulty arises from the complexity and selection of these subgroups. They found that LLMs first learn the easiest patterns within these subgroups and then progress to harder ones, following a U-shaped learning curve where accuracy is highest for the easiest, beginning and end positions.  The findings underscore that label space entropy significantly affects the difficulty of these problems, indicating LLMs function as symbolic learners identifying patterns rather than performing explicit computations.
+This research paper investigates how large language models (LLMs) learn arithmetic.  Contrary to the belief that LLMs perform calculations like humans do, the study reveals LLMs learn symbolically, focusing on patterns and relations within the numbers rather than performing step-by-step calculations.  The researchers explored this by examining whether LLMs use 'partial products' (intermediate results in multiplication) during learning. They found that LLMs struggle to utilize partial products, even after targeted training, suggesting they don't operate like traditional calculators.  The researchers then analyzed how LLMs handle arithmetic tasks by breaking them down into smaller sub-problems or 'subgroups'.  They found that the complexity of these subgroups, measured by factors such as the number of possible inputs and outputs, significantly impacts the LLM's success.  Importantly, they observed a U-shaped learning curve, where LLMs quickly learn the simplest parts of a problem (e.g., the first and last digits in multiplication) but struggle more with intermediate steps.  This 'easy-to-hard' learning paradigm suggests LLMs focus on pattern recognition and subgroup selection, revealing a symbolic learning approach rather than direct numerical computation.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research investigates how large language models (LLMs) perform arithmetic. 
 {{< button href="https://arxiv.org/abs/2410.15580" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.15580" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is important because it challenges the common assumption that large language models (LLMs) perform arithmetic through numerical computation.  It introduces a novel framework for analyzing LLMs' arithmetic abilities by focusing on subgroup-level complexity and selection, offering a new perspective on how these models learn and solve mathematical problems. This work opens avenues for designing more effective training methods and improving the performance of LLMs on arithmetic tasks.
+This paper is crucial for researchers working on large language models (LLMs) and their application to mathematical reasoning. It challenges the common assumption that LLMs perform calculations, offering a novel perspective on their symbolic learning capabilities. This opens up new research avenues in understanding how LLMs learn, improving their mathematical abilities, and potentially even broadening the scope of LLM capabilities beyond arithmetic to more complex symbolic tasks.  The findings highlight the importance of subgroup-level analysis in evaluating and improving LLMs for symbolic reasoning tasks, which is a significant contribution to the field.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Large language models (LLMs) do not use numerical calculation methods like partial products in arithmetic; instead, they learn through symbolic pattern matching. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Large language models (LLMs) do not perform arithmetic calculations directly but instead utilize symbolic learning methods. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} LLMs' arithmetic learning follows an "easy-to-hard" paradigm, prioritizing simple patterns before tackling more complex ones within subgroups. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} LLMs' learning process in arithmetic is heavily influenced by the selection of subgroups (sub-tasks) based on their complexity and label space entropy. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} A novel framework is proposed to analyze LLMs' arithmetic learning by quantifying subgroup complexity and selection, highlighting the importance of label space entropy. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The accuracy of LLMs in arithmetic tasks follows a U-shaped pattern across digit positions due to varying subgroup complexity. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure illustrates the two-pronged approach of the paper: investigating partial product usage in LLMs and analyzing arithmetic learning through subgroup-level complexity and selection.
+> 🔼 The figure illustrates the two-pronged approach of the paper: investigating partial product usage and analyzing arithmetic learning through subgroup-level complexity and selection.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Fundamental structure of the paper. We begin by investigating partial products and proceed to a detailed examination at the subgroup level to understand the mechanism in a symbolic manner.
@@ -61,7 +61,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_5_0.png)
 
-> 🔼 The chart displays the accuracy of identifying partial products in different multiplication methods before and after fine-tuning for two large language models.
+> 🔼 The chart displays the accuracy of identifying partial products in four different multiplication methods (standard, repetitive addition, lattice, and Egyptian) before and after fine-tuning.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Partial products identification accuracy before and after fine-tuning on tasks. Scores are reported on average of Gemma-2-2B and Llama-3.1-8B.
@@ -74,7 +74,7 @@ This paper is important because it challenges the common assumption that large l
 {{< table-caption >}}
 <table id='0' style='font-size:18px'><tr><td></td><td colspan="4">Gemma-2-2B</td><td colspan="4">Llama-3.1-8B</td></tr><tr><td></td><td>Standard</td><td>Lattice</td><td>Repetitive</td><td>Egyptian</td><td>Standard</td><td>Lattice</td><td>Repetitive</td><td>Egyptian</td></tr><tr><td>Task → Partial P.</td><td>+4.1%</td><td>+6.8%</td><td>-29.0%</td><td>+3.6%</td><td>+40.6%</td><td>+40.8%</td><td>-59.0%</td><td>+29.6%</td></tr><tr><td>Partial P. → Task</td><td>-6.1%</td><td>-10.7%</td><td>-20.3%</td><td>-9.6%</td><td>-3.7%</td><td>-0.2%</td><td>-0.9%</td><td>-2.7%</td></tr></table>{{< /table-caption >}}
 
-> 🔼 This table presents the changes in accuracy on multiplication tasks before and after fine-tuning LLMs on diagnostic sets for four different multiplication calculation methods.
+> 🔼 This table shows the inductive and deductive accuracy differences in identifying tasks and partial products for two LLMs (Gemma-2-2B and Llama-3.1-8B) across four multiplication calculation methods.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Inductive and deductive accuracy difference Δ.
@@ -93,7 +93,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_8_0.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> 🔼 The chart displays the U-shaped pattern of position-level accuracy in 3, 4, and 5-digit multiplication tasks across various training set sizes for Gemma-2-2B and Llama-3.1-8B models.
+> 🔼 The chart displays the U-shaped pattern of position-level accuracy across different training set sizes for 3, 4, and 5-digit multiplication tasks using Gemma-2-2B and Llama-3.1-8B language models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
@@ -102,7 +102,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_8_1.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> 🔼 The chart displays the position-level accuracy of LLMs in multiplication tasks, revealing a U-shaped pattern across different training set sizes.
+> 🔼 The chart displays the position-level accuracy of LLMs in multiplication tasks across various training set sizes, revealing a U-shaped pattern.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
@@ -111,7 +111,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_8_2.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> 🔼 The chart displays the position-level accuracy of LLMs in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the U-shaped pattern of position-level accuracy across different training set sizes for 3-digit, 4-digit, and 5-digit multiplication tasks using Gemma-2-2B and Llama-3.1-8B language models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
@@ -120,7 +120,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_8_3.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> 🔼 The chart displays the position-level accuracy of LLMs in multiplication tasks across varying training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the position-level accuracy of LLMs in multiplication tasks across different training set sizes, revealing a U-shaped pattern.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
@@ -129,7 +129,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_8_4.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> 🔼 The chart displays the position-level accuracy of LLMs in 3, 4, and 5 digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the U-shaped pattern of position-level accuracy in 3-digit, 4-digit, and 5-digit multiplication tasks across various training set sizes for Gemma-2-2B and Llama-3.1-8B language models.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
@@ -138,7 +138,7 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_8_5.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> 🔼 The chart displays the position-level accuracy of LLMs (Gemma-2-2B and Llama-3.1-8B) in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the position-level accuracy of LLMs in 3, 4, and 5-digit multiplication tasks across varying training set sizes, revealing a U-shaped pattern where accuracy is highest at the beginning and end positions and lowest in the middle.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
@@ -163,7 +163,7 @@ This paper is important because it challenges the common assumption that large l
 > </details>
 
 
-> The table presents diagnostic sets for four multiplication calculation methods (standard multiplication, repetitive addition, lattice method, and Egyptian multiplication) used to investigate whether LLMs leverage partial products during arithmetic learning.
+> The table presents the diagnostic sets used to probe language models' partial products in four different multiplication calculation methods.
 
 
 {{< table-caption >}}
@@ -175,7 +175,7 @@ This paper is important because it challenges the common assumption that large l
 > </details>
 
 
-> Table 3 shows the label space entropy and cardinality for various addition and multiplication tasks with different rule perturbations.
+> Table 3 shows the label space entropy and size for different rule perturbations applied to addition and multiplication tasks, highlighting the impact of rule variations on task complexity.
 
 
 {{< table-caption >}}
@@ -187,7 +187,7 @@ This paper is important because it challenges the common assumption that large l
 > </details>
 
 
-> The table shows the accuracy difference (Δ) in percentage for addition and multiplication tasks on Gemma-2-2B and Llama-3.1-8B models with various rule perturbations.
+> Table 4 presents the accuracy difference (Δ) in percentage for addition and multiplication tasks, showing the impact of rule perturbation on the performance of Gemma-2-2B and Llama-3.1-8B language models.
 
 
 {{< table-caption >}}
@@ -199,7 +199,7 @@ This paper is important because it challenges the common assumption that large l
 > </details>
 
 
-> This table presents the accuracy difference (Δ) in percentage points for addition and multiplication tasks, comparing the performance of Gemma-2-2B and Llama-3.1-8B models under three different input format perturbations (Natural Language, Random String, and Disturbed Digits).
+> Table 6 presents the accuracy difference (Δ) in percentage for addition and multiplication tasks with different input format perturbations (Natural Language, Random String, and Disturbed Digits) using Gemma-2-2B and Llama-3.1-8B language models.
 
 
 {{< table-caption >}}
@@ -211,7 +211,7 @@ This paper is important because it challenges the common assumption that large l
 > </details>
 
 
-> The table presents the inductive and deductive accuracy differences (Δ) for four multiplication calculation methods (Standard, Lattice, Repetitive, Egyptian) across two LLMs (Gemma-2-2B and Llama-3.1-8B), showing the impact of fine-tuning on partial products.
+> The table presents the changes in accuracy for identifying partial products and solving arithmetic tasks before and after fine-tuning LLMs on different sets of diagnostic tasks, comparing the performance across four multiplication calculation methods.
 
 
 </details>

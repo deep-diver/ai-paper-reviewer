@@ -1,6 +1,6 @@
 ---
 title: "MedINST: Meta Dataset of Biomedical Instructions"
-summary: "MEDINST: a massive biomedical instruction dataset (133 tasks, 7M samples) improves LLM cross-task generalization in medical analysis."
+summary: "MEDINST, a novel biomedical instruction meta-dataset with 133 tasks and 7M samples, significantly improves LLMs' cross-task generalization in medical analysis."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Researchers created MEDINST, a huge new dataset for training AI models to understand and work with medical information.  It contains 133 different tasks and over 7 million examples, making it the most comprehensive resource of its kind. They also made a benchmark called MEDINST32 to test how well AI models can handle these various tasks.  Tests showed that fine-tuning AI models using MEDINST improved their ability to handle new, unseen medical tasks significantly, highlighting the dataset's value and the effectiveness of this training method.
+The research introduces MEDINST, a massive new dataset for training large language models (LLMs) to perform various tasks related to biomedical natural language processing (NLP).  It contains over 7 million samples and covers 133 tasks in 12 categories. To test the effectiveness of MEDINST, the researchers also created a benchmark called MEDINST32 that contains 32 challenging tasks. They then fine-tuned several LLMs on MEDINST and evaluated their performance on MEDINST32. The results showed that the models fine-tuned on MEDINST performed significantly better on MEDINST32 than models that were not trained on this dataset, demonstrating the value of MEDINST for improving the ability of LLMs to handle biomedical tasks. The study highlights the need for more comprehensive datasets in this area and suggests that MEDINST is a valuable resource for researchers in this field.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Researchers created MEDINST, a huge new dataset for training AI models to unders
 {{< button href="https://arxiv.org/abs/2410.13458" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13458" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for biomedical NLP researchers as it introduces MEDINST, the largest biomedical instruction dataset, enabling advancements in LLM adaptation for various medical tasks.  The MEDINST32 benchmark facilitates rigorous cross-task generalization evaluations, addressing limitations in existing datasets and fostering innovation in model development and evaluation.  The study's findings highlight the efficacy of instruction fine-tuning and pave the way for more robust and generalized biomedical LLMs.
+This paper is crucial for biomedical NLP researchers as it addresses the scarcity of large, diverse, and well-annotated datasets.  MEDINST, the introduced meta-dataset, enables better LLM adaptation for biomedical tasks, leading to improved generalization and performance.  Researchers can leverage MEDINST to create more effective models, advancing the field of medical analysis and potentially impacting diagnostics and therapeutics.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} MEDINST, a large-scale, multi-domain, multi-task biomedical instruction dataset is introduced. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} MEDINST, a large-scale biomedical instruction meta-dataset, is introduced. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A challenging benchmark, MEDINST32, evaluates LLMs' cross-task generalization on diverse biomedical tasks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} MEDINST32, a benchmark using MEDINST, effectively evaluates LLMs' cross-task generalization abilities. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Instruction fine-tuning on MEDINST significantly improves LLMs' performance and generalization across various biomedical NLP tasks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Fine-tuned LLMs on MEDINST show improved performance on MEDINST32, highlighting the dataset's value. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 
 ![](figures/figures_4_0.png)
 
-> 🔼 The figure shows a treemap of the MEDINST dataset, illustrating the composition of tasks and the number of samples in each category.
+> 🔼 The figure shows a treemap visualization of the MEDINST dataset composition and the number of samples in each task category.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: MEDINST overview.
@@ -61,7 +61,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 
 ![](charts/charts_7_0.png)
 
-> 🔼 The chart displays the performance of various models with different training data sizes and model parameters across different task categories.
+> 🔼 The chart displays the average Rouge-L scores across various biomedical tasks for different models trained with varying training data sizes and model parameters.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Training sample and model parameter scale analysis.
@@ -74,7 +74,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Resource</td><td>MEDINST (this work)</td><td>SUP-NATINST (Wang et al., 2022) (Biomedicine)</td><td>BoX (Parmar et al., 2022)</td><td>BLURB (Gu et al., 2021)</td></tr><tr><td>Has task instructions?</td><td></td><td></td><td></td><td>x</td></tr><tr><td>Has multi-task datasets?</td><td></td><td></td><td></td><td>x</td></tr><tr><td>Has examples?</td><td></td><td></td><td></td><td>x</td></tr><tr><td>Is public?</td><td></td><td></td><td></td><td></td></tr><tr><td>Number of tasks</td><td>133</td><td>30</td><td>32</td><td>13</td></tr><tr><td>Number of instructions</td><td>133</td><td>30</td><td>32</td><td>-</td></tr><tr><td>Number of annotated task types</td><td>12</td><td>-</td><td>9</td><td>6</td></tr><tr><td>Avg. task definition length (words)</td><td>45.98</td><td>56.6</td><td>-</td><td>-</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares MEDINST with other biomedical datasets, highlighting key differences in features like the presence of task instructions, multi-task datasets, examples, and the number of tasks and samples.
+> 🔼 Table 1 compares MEDINST with other biomedical datasets, highlighting the number of tasks, instructions, and other key characteristics.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Comparison of MEDINST to several datasets in biomedical field.
@@ -93,6 +93,18 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 
 
 {{< table-caption >}}
+<table id='0' style='font-size:14px'><tr><td colspan="7">NER</td></tr><tr><td>AnEM</td><td>AnatEM</td><td>BC2GM</td><td>BC4CHEMD</td><td></td><td>BCSCDR</td><td>BLURB</td></tr><tr><td>BioInfer</td><td>BioNLP 2009</td><td>BioNLP 2011 EPI</td><td>BI⌀NLP 2011 GE</td><td></td><td>BioNLP 2011 ID</td><td>BioNLP 2011 REL</td></tr><tr><td>BioNLP 2013 CG</td><td>BioNLP 2013 GE</td><td>BioNLP 2013 GRO</td><td>BI⌀NLP 2013 PC</td><td></td><td>BioNLP 2019 BB</td><td>BioRED</td></tr><tr><td>BioRelEx</td><td>BloScope</td><td>CADEC</td><td>CHEBI</td><td></td><td>CHEMDNER</td><td>CHIA</td></tr><tr><td>CORD NER</td><td>CPI</td><td>CellFinder</td><td>ChemProt</td><td></td><td>Citation GIA Test Collection</td><td>DDI</td></tr><tr><td>DIANN</td><td>DrugProt</td><td>EBM NLP</td><td>EU ADR</td><td></td><td>GENETAG</td><td>GENIA Term</td></tr><tr><td>GNorm⌀lus</td><td>JNLPBA RNA</td><td>Linnaeus</td><td>MLEE</td><td></td><td>Mantra GSC</td><td>MedMentions</td></tr><tr><td>HPRD50</td><td>MuchMore</td><td>Nagel</td><td>OSIRIS</td><td>PCR</td><td>PDR</td><td>Annotation PICD</td></tr><tr><td>JNLPBA CL</td><td></td><td>Pluticefinds PTM Events</td><td>SCAI Chemical</td><td>SCAI Disease</td><td>SETH</td><td>SNP</td></tr><tr><td>JNLPBA CT</td><td>NCBI disease</td><td>ProGene</td><td>SPL ADR</td><td>1022 De identification</td><td>器 Moscalors</td><td>n2c2 2010 Concepts Assertions Relations</td></tr><tr><td>JNLPBA DNA</td><td>NLM Chem</td><td>PsyTAR</td><td>Verspoor 2013</td><td>n2c2 2014 De identification</td><td rowspan="2">tmVar v1</td><td rowspan="2">tmVar v2</td></tr><tr><td rowspan="4">JNLPBA Protein</td><td rowspan="4">NLM Gene</td><td rowspan="4">PubTator Central</td><td rowspan="4">miRNA</td><td rowspan="4">n2c2 2018 ADE</td></tr><tr><td rowspan="3" colspan="2">tmVar v3</td></tr><tr></tr><tr></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> The table compares MEDINST with other biomedical datasets across several features, including the presence of task instructions, multi-task datasets, examples, and public availability, as well as the number of tasks, instructions, annotated task types, and average task definition length.
+
+
+{{< table-caption >}}
 <table id='5' style='font-size:16px'><tr><td colspan="3"></td><td>NER</td><td>RE</td><td>NED</td><td>QA</td><td>COREF</td><td>EE</td><td>TE</td><td>STS</td><td>TXTCLASS</td><td>TRANSL</td><td>SUM</td><td>TEXTPAIRCLASS</td><td>ALL</td></tr><tr><td rowspan="6">Dataset #</td><td rowspan="3">MEDINST</td><td>Train</td><td>56</td><td>24</td><td>21</td><td>13</td><td>13</td><td>10</td><td>8</td><td>7</td><td>5</td><td>3</td><td>2</td><td>1</td><td>163</td></tr><tr><td>Dev</td><td>30</td><td>11</td><td>10</td><td>8</td><td>10</td><td>7</td><td>5</td><td>1</td><td>4</td><td>1</td><td>1</td><td>-</td><td>88</td></tr><tr><td>Test</td><td>37</td><td>9</td><td>12</td><td>10</td><td>2</td><td>1</td><td>8</td><td>1</td><td>5</td><td>1</td><td>1</td><td>-</td><td>87</td></tr><tr><td rowspan="3">MEDINST32</td><td>Train</td><td>43</td><td>21</td><td>19</td><td>10</td><td>11</td><td>9</td><td>5</td><td>6</td><td>3</td><td>2</td><td>1</td><td>1</td><td>131</td></tr><tr><td>Dev</td><td>19</td><td>9</td><td>9</td><td>6</td><td>8</td><td>6</td><td>5</td><td>-</td><td>2</td><td>-</td><td>-</td><td>-</td><td>64</td></tr><tr><td>Test</td><td>13</td><td>3</td><td>2</td><td>3</td><td>2</td><td>1</td><td>3</td><td>1</td><td>2</td><td>1</td><td>1</td><td>-</td><td>32</td></tr><tr><td colspan="3"># Instruction/Task</td><td>49</td><td>23</td><td>19</td><td>9</td><td>7</td><td>9</td><td>3</td><td>3</td><td>5</td><td>3</td><td>2</td><td>1</td><td>133</td></tr></table>{{< /table-caption >}}
 > 🔼 {{ table.description }}
 > <details>
@@ -101,7 +113,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> The table presents a summary of the MEDINST dataset, showing the number of datasets, instructions, and tasks within each of the 12 categories.
+> Table 2 presents the number of datasets, instructions, and samples across 12 categories in the MEDINST and MEDINST32 datasets.
 
 
 {{< table-caption >}}
@@ -113,7 +125,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> Table 4 presents the multiple-choice accuracy of various models on six medical subtasks of the MMLU benchmark, comparing their performance across different medical subjects.
+> Table 4 presents the multiple-choice accuracy evaluation results of various models on the MMLU-Medicine benchmark, a subset of the MMLU benchmark, across six medical subjects.
 
 
 {{< table-caption >}}
@@ -125,7 +137,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> Table 1 compares MEDINST with other datasets in the biomedical field across several criteria, such as the presence of task instructions and multi-task datasets.
+> Table 1 compares MEDINST with other datasets in the biomedical field across several key features, such as the presence of task instructions, multi-task datasets, examples, and public availability, along with the number of tasks, instructions, annotated task types and average task definition lengths.
 
 
 {{< table-caption >}}
@@ -137,7 +149,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> Table 11 lists all the datasets employed in MEDINST, categorized by task and showing the number of training, development, and test samples.
+> Table 11 lists all the datasets employed in MEDINST, showing the train, dev, and test sizes for each dataset and task.
 
 
 {{< table-caption >}}
@@ -149,7 +161,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> Table 11 presents the dataset employed in MEDINST, showing the train, dev, and test set sizes for each task.
+> Table 1 compares MEDINST to other biomedical datasets across several key features, such as the presence of task instructions, multi-task datasets, examples, and the number of tasks and samples.
 
 
 {{< table-caption >}}
@@ -161,7 +173,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> Table 3 presents the evaluation results of various models on the MEDINST32 benchmark, highlighting the performance of different models across various difficulty levels of tasks.
+> Table 3 presents the evaluation results of different LLMs on MEDINST32, a benchmark dataset of 32 biomedical tasks with varying difficulty levels, comparing their performance with and without fine-tuning on the MEDINST dataset.
 
 
 {{< table-caption >}}
@@ -173,7 +185,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> Table 1 compares MEDINST to other biomedical datasets based on the presence of task instructions, multi-task datasets, examples, public availability, number of tasks, number of instructions, number of annotated task types, and average task definition length.
+> Table 10 presents the performance of various models on the ParaMed dataset using BERTScore and METEOR Score metrics for translation task.
 
 
 {{< table-caption >}}
@@ -185,7 +197,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> Table 11 shows the dataset statistics, including the number of training, development, and test samples for each task in the MEDINST dataset.
+> Table 11 shows the train, dev, and test set sizes for each dataset used in the MEDINST dataset collection.
 
 
 {{< table-caption >}}
@@ -197,7 +209,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> This table lists all the datasets employed in MEDINST, showing the task, train, dev, and test set sizes for each.
+> The table presents the datasets used in MEDINST, categorized by task (e.g., NER, QA, RE), and shows the number of training, development, and test samples for each dataset.
 
 
 {{< table-caption >}}
@@ -209,7 +221,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> This table presents the 133 biomedical NLP tasks included in the MEDINST dataset, categorized by task type, and shows the number of training, development, and test samples for each task.
+> The table presents the details of the 133 biomedical NLP tasks included in the MEDINST dataset, categorized into 12 categories, showing the number of training, development, and test samples for each task.
 
 
 {{< table-caption >}}
@@ -221,7 +233,7 @@ This paper is crucial for biomedical NLP researchers as it introduces MEDINST, t
 > </details>
 
 
-> The table presents the dataset collection details of MEDINST, showing the task type, and the number of training, development, and test samples for each dataset.
+> Table 11 presents the dataset employed in MEDINST, showing the number of training, development and test samples for each task.
 
 
 </details>

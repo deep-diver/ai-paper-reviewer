@@ -1,6 +1,6 @@
 ---
 title: "xGen-MM-Vid (BLIP-3-Video): You Only Need 32 Tokens to Represent a Video Even in VLMs"
-summary: "BLIP-3-Video achieves state-of-the-art video question answering with only 32 visual tokens, drastically reducing computational costs while maintaining high accuracy."
+summary: "xGen-MM-Vid efficiently captures temporal information in videos using only 32 tokens, achieving state-of-the-art accuracy with significantly reduced computational cost."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-23"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research introduces xGen-MM-Vid (BLIP-3-Video), a new vision-language model for videos.  Unlike other models that use thousands of tokens to represent a video, BLIP-3-Video efficiently uses only 32 tokens.  This is achieved through a novel temporal encoder that effectively summarizes temporal information across multiple video frames.  Experiments show that BLIP-3-Video performs comparably to much larger models on video question answering and captioning benchmarks, while being significantly more computationally efficient. The model's architecture explores different types of temporal encoders, including learnable spatio-temporal pooling and sequential models like Token Turing Machines, demonstrating the effectiveness of the proposed approach. BLIP-3-Video's smaller size and efficiency make it particularly suitable for resource-constrained applications and promote further research in efficient video understanding.
+The research introduces xGen-MM-Vid (BLIP-3-Video), a new model designed for processing videos within large vision-language models (VLMs).  Existing VLMs often require thousands of tokens to represent a video, leading to high computational costs. This new model uses a clever 'temporal encoder' to dramatically reduce this to just 32 tokens per video, even for complex videos.  It explores various temporal encoder designs, with the best performing being space-time attentional pooling and sequential models.  Despite its significantly smaller size and efficiency, xGen-MM-Vid achieves accuracy comparable to much larger, more computationally expensive state-of-the-art models on video question answering benchmarks.  The research highlights the importance of efficient temporal encoding techniques and challenges the assumption that large numbers of visual tokens are always necessary for effective video understanding in VLMs.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research introduces xGen-MM-Vid (BLIP-3-Video), a new vision-language model
 {{< button href="https://arxiv.org/abs/2410.16267" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16267" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is highly important for researchers in computer vision and natural language processing.  It introduces a novel, efficient multimodal language model for videos, significantly reducing computational costs associated with processing video data.  The findings challenge existing assumptions about the number of visual tokens needed for video understanding, and the proposed model opens new avenues for research into more efficient and scalable video understanding systems.  The open-sourced nature of the model also facilitates broader adoption and collaborative development within the research community.
+This paper is important because it introduces xGen-MM-Vid, a highly efficient video-language model that achieves state-of-the-art results while requiring significantly fewer computational resources compared to existing models.  This is crucial for the field, which is moving towards more efficient and scalable models.  Furthermore, it opens new avenues of research in temporal video encoding techniques and compact video representation.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} BLIP-3-Video uses a novel temporal encoder to drastically reduce the number of visual tokens needed to represent a video (32 tokens vs. thousands in other models). {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} xGen-MM-Vid (BLIP-3-Video) uses a novel temporal encoder to represent videos with only 32 tokens, drastically reducing computational needs compared to other models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Despite its smaller size (4B parameters), BLIP-3-Video achieves competitive performance with much larger state-of-the-art models in video question answering and captioning tasks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The model achieves comparable video question-answering accuracy to much larger state-of-the-art models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The model's efficiency is demonstrated through faster training and inference times, making it suitable for resource-constrained environments. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Experiments show that learnable spatio-temporal attentional pooling and sequential models are highly effective temporal encoding methods. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure illustrates the architecture of the BLIP-3-Video model, showing its components including a temporal encoder inserted into BLIP-3.
+> 🔼 The figure illustrates the architecture of the BLIP-3-Video model, highlighting the explicit temporal encoder inserted into BLIP-3.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: An illustration of the BLIP-3-Video model architecture. It has the explicit temporal encoder inserted to BLIP-3.
@@ -61,7 +61,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](charts/charts_1_0.png)
 
-> 🔼 The chart compares state-of-the-art video Vision-Language Models (VLMs) based on the number of visual tokens used and the model size against their video question answering accuracy.
+> 🔼 The chart compares state-of-the-art video VLMs based on the number of visual tokens used and the model size, showing their video question-answering accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -74,10 +74,10 @@ This paper is highly important for researchers in computer vision and natural la
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Method</td><td>Size</td><td>#tokens</td><td>MSVD-QA</td><td>MSRVTT-QA</td><td>ActivityNet-QA</td><td>TGIF-QA</td></tr><tr><td>VideoChat (Li et al., 2023b)</td><td>7B</td><td>32</td><td>56.3/2.8</td><td>45.0/2.5</td><td>-/2.2</td><td>34.4/2.3</td></tr><tr><td>Video-LLaMA (Zhang et al., 2023)</td><td>7B</td><td>32</td><td>51.6/2.5</td><td>29.6/1.8</td><td>12.4/1.1</td><td>-/-</td></tr><tr><td>Video-ChatGPT (Maaz et al., 2024)</td><td>7B</td><td>264+</td><td>64.9/3.3</td><td>49.3/2.8</td><td>34.2/2.8</td><td>51.4/3.0</td></tr><tr><td>Chat-UniVi (Jin et al., 2024)</td><td>7B</td><td>112</td><td>69.3 /3.7</td><td>55.0 /3.1</td><td>46.1 /3.3</td><td>69.0/3.8</td></tr><tr><td>LLaMA-VID (Li et al., 2024c)</td><td>7B</td><td>32</td><td>69.7 /3.7</td><td>57.7 /3.2</td><td>47.4/3.3</td><td>-</td></tr><tr><td>LLaMA-VID (Li et al., 2024c)</td><td>13B</td><td>32</td><td>70.0 / 3.7</td><td>58.9 /3.3</td><td>47.5 /3.3</td><td>-</td></tr><tr><td>Video-LLaVA (Lin et al., 2023)</td><td>7B</td><td>2048</td><td>71.8 /3.9</td><td>59.2 /3.5</td><td>45.3 /3.3</td><td>70.0/4.0</td></tr><tr><td>MiniGPT4- Video (Ataallah et al., 2024)</td><td>7B</td><td>2880+</td><td>73.9 / 4.1</td><td>59.7/3.3</td><td>46.3 /3.4</td><td>72.2 /4.1</td></tr><tr><td>PLLaVA (Xu et al., 2024a)</td><td>7B</td><td>576+</td><td>76.6 / 4.1</td><td>62.0 /3.5</td><td>56.3 /3.5</td><td>77.5 / 4.1</td></tr><tr><td>SlowFast-LLaVA Xu et al. (2024b)</td><td>7B</td><td>3680</td><td>79.1 / 4.1</td><td>65.8 /3.6</td><td>56.3/3.4</td><td>78.7 / 4.2</td></tr><tr><td>LLaVA-Hound-DPO Zhang et al. (2024b)</td><td>7B</td><td>2048</td><td>80.7 /4.1</td><td>70.2/3.7</td><td>-/-</td><td>61.4/3.5</td></tr><tr><td>LLaVA-OneVision* (Wang et al., 2024a)</td><td>7B</td><td>1568</td><td>72.9 /3.9</td><td>57.8 /3.4</td><td>55.3/3.6</td><td>41.1 /3.1</td></tr><tr><td>Tarsier (Wang et al., 2024a)</td><td>7B</td><td>4608+</td><td>77.0/4.1</td><td>62.0/3.5</td><td>59.5/3.6</td><td>79.2/4.2</td></tr><tr><td>Tarsier * (Wang et al., 2024a)</td><td>7B</td><td>4608</td><td>74.4/4.0</td><td>59.1/3.4</td><td>54.3 /3.5</td><td>-/-</td></tr><tr><td>PLLaVA (Xu et al., 2024a)</td><td>34B</td><td>576+</td><td>79.9/4.2</td><td>68.7/3.8</td><td>60.9/3.7</td><td>80.6/4.3</td></tr><tr><td>LLaVA-NeXT-Video* (Li et al., 2024b)</td><td>32B</td><td>1152</td><td>73.6/4.0</td><td>56.8/3.4</td><td>58.4/3.6</td><td>73.5/4.1</td></tr><tr><td>Tarsier (Wang et al., 2024a)</td><td>34B</td><td>4608+</td><td>80.3/4.2</td><td>66.4/3.7</td><td>61.6/3.7</td><td>82.5/4.4</td></tr><tr><td>Tarsier * (Wang et al., 2024a)</td><td>34B</td><td>4608</td><td>79.3/4.1</td><td>62.2/3.5</td><td>61.5/3.7</td><td>-/-</td></tr><tr><td>BLIP-3-Video</td><td>4B</td><td>32</td><td>77.7/4.2</td><td>60.0/3.6</td><td>55.7/3.5</td><td>76.5/4.3</td></tr><tr><td>BLIP-3-Video</td><td>4B</td><td>128</td><td>77.9/4.3</td><td>59.7/3.6</td><td>56.9/3.6</td><td>77.1/4.3</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares the performance of BLIP-3-Video against other state-of-the-art models on open-ended video question answering tasks, considering model size and the number of visual tokens used.
+> 🔼 Table 1 compares the video question answering accuracy of BLIP-3-Video against other state-of-the-art models, showing its competitive performance despite its smaller size and fewer visual tokens.
 > <details>
 > <summary>read the caption</summary>
-> Table 1: Comparison against reported numbers of other models on open-ended question answering evaluation. The number of visual tokens are also reported. The numbers after '/' are answer quality scores. * indicates our evaluation using the checkpoint and inference code provided by the author, with the identical videos used in our model (8 frames of 384×384 resolution).
+> Table 1: Comparison against reported numbers of other models on open-ended question answering evaluation. The number of visual tokens are also reported. The numbers after '/' are answer quality scores. * indicates our evaluation using the checkpoint and inference code provided by the author, with the identical videos used in our model (8 frames of 384x384 resolution).
 > </details>
 
 
@@ -91,7 +91,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_3_0.png)
 
-> 🔼 Figure 3 visually compares four different types of temporal encoders used in the BLIP-3-Video model architecture, highlighting the attentional pooling and sequential model as particularly effective.
+> 🔼 The figure visually compares four different types of temporal encoders used in the BLIP-3-Video model architecture, highlighting the differences in their approach to processing sequences of frame-level tokens.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Visually comparing different types of temporal encoders we explored in our model architecture. (c) and (d) are particularly effective, as we discuss further in the experiments.
@@ -101,7 +101,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_7_0.png)
 
-> 🔼 The figure compares state-of-the-art video VLMs in terms of their video question answering accuracy against the number of visual tokens used and model size.
+> 🔼 The figure compares state-of-the-art video VLMs in terms of model size, number of visual tokens, and video question answering accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -111,7 +111,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_7_1.png)
 
-> 🔼 The figure compares state-of-the-art video Vision-Language Models in terms of their size, number of visual tokens, and video question answering accuracy.
+> 🔼 The figure compares state-of-the-art video VLMs in terms of their video question answering accuracy, number of visual tokens, and model size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -121,7 +121,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_7_2.png)
 
-> 🔼 The figure compares state-of-the-art video VLMs in terms of model size, number of visual tokens, and video question answering accuracy.
+> 🔼 The figure compares the performance of several state-of-the-art video Vision-Language Models (VLMs) in terms of video question answering accuracy against the number of visual tokens used and model size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -131,7 +131,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_7_3.png)
 
-> 🔼 The figure compares state-of-the-art video VLMs in terms of video question answering accuracy against the number of visual tokens and model size.
+> 🔼 The figure compares state-of-the-art video Vision-Language Models (VLMs) in terms of video question answering accuracy against the number of visual tokens and model size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -141,7 +141,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_8_0.png)
 
-> 🔼 The figure shows example video captioning results from the BLIP-3-Video model and compares its performance against Tarsier and LLaVA-OneVision on the Mira dataset, highlighting differences in caption quality and hallucination rates.
+> 🔼 The figure shows example video captioning results on the Mira dataset, comparing the outputs of BLIP-3-Video, Tarsier, and LLaVA-OneVision for several video clips, presented in a question-answering format.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Example video captioning results on Mira dataset, formed in question-answering style.
@@ -151,7 +151,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_8_1.png)
 
-> 🔼 The figure shows example video captioning results of three different models on the Mira dataset, presented in a question-answering format, comparing the models' outputs with the ground truth captions.
+> 🔼 The figure shows example video captioning results from the Mira dataset, comparing the model's generated captions with ground truth captions in a question-answering format.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Example video captioning results on Mira dataset, formed in question-answering style.
@@ -161,7 +161,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_8_2.png)
 
-> 🔼 The figure compares state-of-the-art video VLMs in terms of their video question answering accuracy, number of visual tokens, and model size.
+> 🔼 The figure compares state-of-the-art video Vision-Language Models (VLMs) based on the number of visual tokens used and the model size against video question answering accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -171,7 +171,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_8_3.png)
 
-> 🔼 The figure compares state-of-the-art video VLMs in terms of the number of visual tokens used versus video question answering accuracy and model size.
+> 🔼 The figure compares the performance of different state-of-the-art video Vision-Language Models (VLMs) in terms of video question answering accuracy against the number of visual tokens used and model size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -181,7 +181,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_14_0.png)
 
-> 🔼 The figure compares state-of-the-art video Vision-Language Models in terms of their video question answering accuracy against the number of visual tokens used and model size.
+> 🔼 The figure compares state-of-the-art video VLMs in terms of their video question answering accuracy, number of visual tokens, and model size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -191,7 +191,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_14_1.png)
 
-> 🔼 The figure shows a comparison of state-of-the-art video Vision-Language Models in terms of the number of visual tokens used and model size against video question answering accuracy.
+> 🔼 The figure compares state-of-the-art video VLMs in terms of their video question answering accuracy, number of visual tokens, and model size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -201,7 +201,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_15_0.png)
 
-> 🔼 The figure compares state-of-the-art video Vision-Language Models in terms of their video question answering accuracy against the number of visual tokens used and their model sizes.
+> 🔼 The figure compares state-of-the-art video vision-language models in terms of their size, number of visual tokens used, and video question answering accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -211,7 +211,7 @@ This paper is highly important for researchers in computer vision and natural la
 
 ![](figures/figures_15_1.png)
 
-> 🔼 The figure shows a comparison of state-of-the-art video vision-language models in terms of their size, number of visual tokens, and video question answering accuracy.
+> 🔼 The figure compares the performance of various state-of-the-art video Vision-Language Models (VLMs) in terms of video question answering accuracy against the number of visual tokens used and model size.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: SOTA video VLM model comparison: (Left) Number of visual tokens vs. video-QA accuracy. (Right) Model size vs. video-QA accuracy.
@@ -238,7 +238,7 @@ This paper is highly important for researchers in computer vision and natural la
 > </details>
 
 
-> Table 2 compares the performance of BLIP-3-Video against other models on multiple-choice video question answering tasks, showing its accuracy using different numbers of tokens.
+> Table 2 compares the performance of BLIP-3-Video against other models on multiple-choice question answering benchmarks, showing its accuracy with different numbers of tokens.
 
 
 {{< table-caption >}}
@@ -250,7 +250,7 @@ This paper is highly important for researchers in computer vision and natural la
 > </details>
 
 
-> Table 3 shows the ablation study comparing different temporal encoders in terms of question-answering accuracy on four datasets, using 128 tokens for each video.
+> Table 3 shows the results comparing the question-answering accuracies of different types of temporal encoders when abstracting a video into 128 tokens.
 
 
 {{< table-caption >}}
@@ -262,7 +262,7 @@ This paper is highly important for researchers in computer vision and natural la
 > </details>
 
 
-> The table compares different pooling strategies for 32 tokens, showing their effects on MSVD-QA, TGIF-QA, and NEXT-QA.
+> The table shows the ablation study comparing different temporal encoders when abstracting a video into 32 tokens, evaluating their performance on MSVD-QA, TGIF-QA, and NEXT-QA.
 
 
 {{< table-caption >}}
@@ -274,7 +274,7 @@ This paper is highly important for researchers in computer vision and natural la
 > </details>
 
 
-> Table 6 compares the video captioning performance of BLIP-3-Video with other state-of-the-art models on MSVD-Caption, MSRVTT-Caption, and Mira-Cap datasets, showing BLIP-3-Video's superior performance despite its smaller size and fewer visual tokens.
+> Table 6 compares the video captioning performance of BLIP-3-Video against other state-of-the-art models on MSVD-Caption, MSRVTT-Caption, and Mira-Cap datasets, using 8 frames per video and VideoChatGPT's LLM for evaluation.
 
 
 </details>

@@ -1,6 +1,6 @@
 ---
 title: "CCI3.0-HQ: a large-scale Chinese dataset of high quality designed for pre-training large language models"
-summary: "CCI3.0-HQ: A new 500GB high-quality Chinese dataset boosts Chinese LLM performance, outperforming existing datasets on key benchmarks."
+summary: "CCI3.0-HQ: A new 500GB high-quality Chinese dataset significantly boosts large language model performance, surpassing existing datasets on various benchmarks."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Researchers present CCI3.0-HQ, a substantially improved 500GB Chinese language dataset for pre-training large language models (LLMs).  Addressing the lack of high-quality data for Chinese LLMs, they employed a two-stage filtering process. The first stage uses standard web data cleaning techniques. The second stage leverages a powerful LLM (Qwen2-72B-Instruct) to identify high-quality samples, followed by training a smaller classifier to efficiently filter the entire dataset.  Experimental results demonstrate that models trained on CCI3.0-HQ significantly outperform those trained on other popular Chinese datasets across multiple benchmarks in zero-shot settings.  This superior performance highlights the critical role of high-quality data in LLM development. The dataset and classifier are made publicly available to further advance research.
+Researchers created CCI3.0-HQ, a massive, high-quality dataset (500GB) of Chinese text for training large language models (LLMs). They used a two-part filtering system: first, standard cleaning and safety checks; second, a sophisticated machine learning model to select only the highest-quality text.  Testing shows that LLMs trained on CCI3.0-HQ substantially outperform those trained on other commonly used Chinese datasets across various tasks.  This dataset and the associated quality classifier are openly available, hoping to level the playing field for research and development of Chinese LLMs.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Researchers present CCI3.0-HQ, a substantially improved 500GB Chinese language d
 {{< button href="https://arxiv.org/abs/2410.18505" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18505" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in natural language processing (NLP), especially those working with Chinese language models.  It addresses the scarcity of high-quality Chinese datasets, a major bottleneck in LLM development. By providing a large, meticulously cleaned dataset (CCI3.0-HQ) and a robust quality classifier, this research directly facilitates the creation of better performing Chinese LLMs and provides new benchmarks for future work.  The open-sourced resources further accelerate progress in the field.
+This paper is crucial for researchers in natural language processing (NLP), particularly those working with Chinese language models.  It addresses the scarcity of high-quality, large-scale Chinese datasets, a major bottleneck in LLM development.  The open-sourced dataset and classifier will significantly accelerate research and development, fostering collaboration and establishing new benchmarks. The novel hybrid filtering method also offers a valuable contribution to data curation techniques, influencing future dataset creation efforts.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} A new, high-quality 500GB Chinese dataset (CCI3.0-HQ) is introduced, significantly improving upon existing datasets. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} CCI3.0-HQ, a 500GB high-quality Chinese dataset, significantly outperforms existing datasets in training large language models. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} CCI3.0-HQ enables training of smaller, high-performing LLMs by effectively distilling capabilities from larger models. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} A novel two-stage hybrid filtering pipeline effectively enhances data quality, achieving superior results in zero-shot settings. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} A novel two-stage filtering process and a sophisticated quality classifier are presented, setting new standards for data quality in LLM training. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The open-sourced dataset and advanced quality classifier facilitate broader access to high-quality language models and improve data selection processes in LLM training. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in natural language processing (NLP), espe
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure shows the two-stage hybrid filtering strategy for creating the CCI3.0-HQ dataset, starting from raw data and going through fundamental and high-quality processing stages.
+> 🔼 The figure shows the two-stage hybrid filtering strategy for creating the CCI3.0-HQ dataset, starting from raw data and involving Fundamental Processing and High-Quality Processing.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Dataset Curation Pipeline
@@ -61,7 +61,7 @@ This paper is crucial for researchers in natural language processing (NLP), espe
 
 ![](charts/charts_4_0.png)
 
-> 🔼 The chart displays the effects of locking/unlocking the backbone and using different learning rates on the F1 score during classifier tuning.
+> 🔼 The chart displays the effects of locking/unlocking the backbone and using different learning rates on a classifier's F1 score during tuning.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Effects of Backbone Freezing and Learning Rate Adjustments on Classifier Tuning Performance
@@ -100,12 +100,12 @@ This paper is crucial for researchers in natural language processing (NLP), espe
 > </details>
 
 
-![](charts/charts_10_0.png "🔼 Figure 3: Mixed Dataset Experiment")
+![](charts/charts_10_0.png "🔼 Figure 3, 4: Dataset Experiment")
 
-> 🔼 The chart displays the performance of various datasets (Wanjuan-v1, CCI3.0, CCI3.0-HQ, and SkyPile) across different training token amounts in a mixed dataset experiment, showing average and average Chinese scores.
+> 🔼 The chart displays the performance of various datasets across different training token sizes in mixed and Chinese-specific dataset experiments.
 > <details>
 > <summary>read the caption</summary>
-> Figure 3: Mixed Dataset Experiment
+> Figure 3, 4: Dataset Experiment
 > </details>
 
 
@@ -127,7 +127,7 @@ This paper is crucial for researchers in natural language processing (NLP), espe
 > </details>
 
 
-> Table 2 presents a comparison of the performance of different datasets (SkyPile, Wanjuan-v1, CCI3.0, and CCI3.0-HQ) on various metrics in both mixed and Chinese-only language model pre-training experiments.
+> The table presents a comparison of the performance of different datasets (SkyPile, Wanjuan-v1, CCI3.0, and CCI3.0-HQ) on various metrics across mixed and Chinese-only datasets.
 
 
 {{< table-caption >}}
@@ -139,7 +139,7 @@ This paper is crucial for researchers in natural language processing (NLP), espe
 > </details>
 
 
-> Table 3 compares the performance of two quality annotation methods, DCLM and FineWeb-edu, across various metrics, showing FineWeb-edu's superior performance in Chinese-specific tasks.
+> Table 3 compares the performance of two quality annotation methods, DCLM and FineWeb-edu, across various metrics, showing FineWeb-edu's superiority in Chinese-specific tasks and overall performance.
 
 
 {{< table-caption >}}
@@ -151,7 +151,7 @@ This paper is crucial for researchers in natural language processing (NLP), espe
 > </details>
 
 
-> Table 4 compares the performance of four different quality classifiers (classifierFineWeb-edu, classifierChineseWebText, classifierIndustryCorpus2, and classifierCC13.0-HQ) in terms of precision, recall, and F1-score for both positive and negative classes, along with macro averages.
+> Table 4 presents a comparison of four different quality classifiers (classifierFineWeb-edu, classifierChineseWebText, classifierIndustryCorpus2, and classifierCC13.0-HQ) based on their precision, recall, and F1-score for both positive and negative sample classifications.
 
 
 </details>

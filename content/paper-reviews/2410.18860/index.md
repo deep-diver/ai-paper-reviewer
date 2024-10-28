@@ -1,6 +1,6 @@
 ---
 title: "DeCoRe: Decoding by Contrasting Retrieval Heads to Mitigate Hallucinations"
-summary: "DeCoRe, a training-free decoding strategy, significantly reduces LLM hallucinations by contrasting outputs from masked and unmasked retrieval heads, improving contextual faithfulness."
+summary: "DeCoRe, a novel training-free decoding strategy, significantly reduces LLM hallucinations by contrasting outputs from masked and unmasked retrieval heads, improving accuracy on various tasks."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-24", "🤗 24-10-25"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Large language models (LLMs) often produce inaccurate or fabricated information, a problem known as hallucination. This paper introduces DeCoRe, a method to reduce these hallucinations. DeCoRe identifies and masks specific attention heads within the LLM (called 'retrieval heads') that are responsible for retrieving information from the provided context.  By comparing the output of the original LLM with the output of the LLM where these retrieval heads are masked, DeCoRe dynamically adjusts the final output, reducing hallucinations.  Experiments show DeCoRe significantly improves performance on tasks requiring high contextual fidelity like summarization, instruction following, and open-book question answering. The method is training-free, making it easily adaptable to various LLMs.
+Large language models (LLMs) sometimes produce incorrect or nonsensical outputs, a phenomenon known as 'hallucinations.' This paper introduces DeCoRe (Decoding by Contrasting Retrieval Heads), a new technique to reduce these hallucinations.  DeCoRe identifies and temporarily deactivates specific parts of the LLM (retrieval heads) responsible for pulling information from context, creating an output prone to hallucinations.  It then compares this 'hallucinated' output to the normal LLM output. By strategically weighting these two outputs based on their uncertainty, DeCoRe produces a final, more accurate and less hallucinatory result. Experiments show that DeCoRe significantly improves the accuracy of LLMs on tasks requiring strong contextual understanding, such as summarization and question answering.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Large language models (LLMs) often produce inaccurate or fabricated information,
 {{< button href="https://arxiv.org/abs/2410.18860" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18860" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on mitigating hallucinations in large language models (LLMs).  It introduces a novel, training-free method that significantly improves LLM accuracy in tasks requiring contextual faithfulness.  The research opens new avenues for exploring the role of attention mechanisms in LLMs and offers a practical solution to a critical problem in the field.
+This paper is highly relevant to researchers working on large language models (LLMs), particularly those focused on mitigating hallucinations.  It introduces a novel, training-free method that significantly improves LLM accuracy on tasks requiring high contextual faithfulness. This opens up new avenues of research in hallucination mitigation techniques and offers a practical solution for improving LLM reliability.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} DeCoRe, a novel training-free decoding strategy, significantly reduces LLM hallucinations. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} DeCoRe, a training-free decoding method, significantly reduces LLM hallucinations. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Masking retrieval heads in LLMs induces hallucinations; contrasting these outputs with the base LLM improves accuracy. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Masking retrieval heads in LLMs induces hallucinations, which DeCoRe uses to improve accuracy. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} DeCoRe substantially improves performance on summarization, instruction following, and open-book question answering tasks. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} DeCoRe shows significant improvements in summarization, instruction following, and question answering. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](figures/figures_2_0.png)
 
-> 🔼 The figure illustrates the DeCoRe workflow, showing how contrasting the outputs of a base LLM and a masked LLM, guided by conditional entropy, leads to more accurate predictions by mitigating hallucinations.
+> 🔼 The figure illustrates the DeCoRe workflow, showing how contrasting the outputs of a base LLM and a masked LLM, guided by conditional entropy, improves the accuracy of predictions.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the DeCoRe workflow. Given the same input, the base LLM (LLMbase) and the variant with masked retrieval heads (LLMmasked) predict the next token. An uncertainty estimation is applied to the base model's output using conditional entropy: higher conditional entropy increases the contrastive factor (a), penalising predictions that align with the LLMmasked. The final prediction is selected based on weighted contrastive decoding of the outputs from both models, leading to a more grounded response.
@@ -61,7 +61,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_8_0.png)
 
-> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing mostly negative correlation for faithfulness and factuality, but positive correlation for instruction-following.
+> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReEntropy across various tasks, showing positive correlations in some faithfulness and factuality tasks and negative correlations in others.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td rowspan="2">Model</td><td colspan="3">XSum</td><td colspan="2">MemoTrap</td><td colspan="2">IFEval</td><td>NQ-Open</td><td>NQ-Swap</td></tr><tr><td>ROUGE-L ↑</td><td>BERTScore-F1 ↑</td><td>factKB ↑</td><td>Macro Acc ↑</td><td>Micro Acc ↑</td><td>Prompt Acc ↑</td><td>Instruct Acc ↑</td><td>EM ↑</td><td>EM ↑</td></tr><tr><td>Llama3-8b-Instruct</td><td>19.90</td><td>67.23</td><td>47.61</td><td>65.86</td><td>64.40</td><td>70.24</td><td>78.30</td><td>69.68</td><td>60.62</td></tr><tr><td>+ ITI (Li et al., 2024b)</td><td>13.25</td><td>59.96</td><td>34.35</td><td>62.65</td><td>58.96</td><td>52.31</td><td>63.19</td><td>56.16</td><td>51.08</td></tr><tr><td>+ CAD (Shi et al., 2024)</td><td>18.82</td><td>67.20</td><td>67.16</td><td>-</td><td>-</td><td>-</td><td>-</td><td>69.83</td><td>74.21</td></tr><tr><td>+ DoLA (low) (Chuang et al., 2023)</td><td>19.82</td><td>67.19</td><td>47.21</td><td>65.27</td><td>63.69</td><td>69.69</td><td>78.18</td><td>69.68</td><td>60.77</td></tr><tr><td>+ DoLA (high) (Chuang et al., 2023)</td><td>19.92</td><td>67.34</td><td>48.49</td><td>64.85</td><td>63.17</td><td>70.24</td><td>78.66</td><td>69.49</td><td>60.98</td></tr><tr><td>+ AD (Chen et al., 2024)</td><td>19.79</td><td>67.31</td><td>48.49</td><td>65.38</td><td>64.28</td><td>67.65</td><td>76.26</td><td>68.93</td><td>60.51</td></tr><tr><td>+ DeCoRestatic</td><td>19.87</td><td>67.83</td><td>64.07</td><td>69.53</td><td>69.20</td><td>69.13</td><td>78.06</td><td>70.62</td><td>64.43</td></tr><tr><td>+ DeCoReentropy</td><td>19.45</td><td>67.69</td><td>66.10</td><td>74.14</td><td>74.87</td><td>68.39</td><td>76.38</td><td>70.66</td><td>66.08</td></tr><tr><td>Llama3-70b-Instruct</td><td>22.41</td><td>69.77</td><td>61.32</td><td>68.47</td><td>66.52</td><td>77.45</td><td>84.41</td><td>71.07</td><td>76.11</td></tr><tr><td>+ ITI (Li et al., 2024b)</td><td>21.64</td><td>69.46</td><td>61.33</td><td>71.24</td><td>68.73</td><td>76.71</td><td>83.69</td><td>71.90</td><td>74.76</td></tr><tr><td>+ CD (Li et al., 2023)</td><td>22.71</td><td>69.99</td><td>54.73</td><td>69.27</td><td>67.55</td><td>71.72</td><td>79.74</td><td>65.80</td><td>68.37</td></tr><tr><td>+ CAD (Shi et al., 2024)</td><td>21.45</td><td>69.28</td><td>65.61</td><td>-</td><td>-</td><td>-</td><td>-</td><td>71.83</td><td>84.70</td></tr><tr><td>+ DoLA (low) (Chuang et al., 2023)</td><td>22.46</td><td>69.80</td><td>61.11</td><td>67.99</td><td>65.93</td><td>77.08</td><td>84.29</td><td>71.07</td><td>75.98</td></tr><tr><td>+ DoLA (high) (Chuang et al., 2023)</td><td>22.43</td><td>69.93</td><td>59.99</td><td>67.92</td><td>65.81</td><td>78.00</td><td>84.65</td><td>70.40</td><td>75.26</td></tr><tr><td>+ AD (Chen et al., 2024)</td><td>22.49</td><td>69.91</td><td>60.57</td><td>67.51</td><td>66.44</td><td>76.89</td><td>84.41</td><td>71.15</td><td>74.02</td></tr><tr><td>+ DeCoRestatic</td><td>21.94</td><td>69.35</td><td>64.88</td><td>71.96</td><td>71.41</td><td>78.56</td><td>84.89</td><td>72.51</td><td>79.06</td></tr><tr><td>+ DeCoReentropy</td><td>21.93</td><td>69.40</td><td>65.49</td><td>74.07</td><td>73.65</td><td>78.56</td><td>84.89</td><td>72.66</td><td>79.79</td></tr><tr><td>+ DeCoReentropy-lite</td><td>22.28</td><td>69.34</td><td>59.57</td><td>72.11</td><td>70.58</td><td>61.37</td><td>71.46</td><td>71.26</td><td>75.90</td></tr></table>{{< /table-caption >}}
 
-> 🔼 The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, showing DeCoRe's improvement over baselines.
+> 🔼 The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best and second-best performing methods for each model.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Performance of different models and decoding methods on faithfulness evaluation tasks. For each base model, the best performance is indicated in bold, and the second-best is underlined.
@@ -91,7 +91,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](figures/figures_8_0.png)
 
-> 🔼 Figure 3 shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct with DeCoRe entropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
+> 🔼 The figure shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoRe entropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](figures/figures_8_1.png)
 
-> 🔼 The figure shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReEntropy across various faithfulness, factuality and chain-of-thought reasoning tasks.
+> 🔼 The figure shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct with DeCoReentropy on various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -111,7 +111,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](figures/figures_8_2.png)
 
-> 🔼 The figure shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct with DeCoReentropy on various faithfulness, factuality, and chain-of-thought reasoning tasks.
+> 🔼 Figure 3 shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReentropy on various tasks, showing negative correlations for some tasks and positive correlations for others.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -121,7 +121,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](figures/figures_18_0.png)
 
-> 🔼 This figure illustrates the workflow of DeCoRe, showing how it contrasts the outputs of a base LLM and a masked LLM to mitigate hallucinations.
+> 🔼 The figure illustrates the workflow of DeCoRe, a decoding strategy that contrasts the outputs of a base LLM and a masked LLM to mitigate hallucinations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the DeCoRe workflow. Given the same input, the base LLM (LLMbase) and the variant with masked retrieval heads (LLMmasked) predict the next token. An uncertainty estimation is applied to the base model's output using conditional entropy: higher conditional entropy increases the contrastive factor (a), penalising predictions that align with the LLMmasked. The final prediction is selected based on weighted contrastive decoding of the outputs from both models, leading to a more grounded response.
@@ -131,7 +131,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](figures/figures_20_0.png)
 
-> 🔼 The figure shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct with DeCoReentropy on several faithfulness, factuality, and chain-of-thought reasoning tasks.
+> 🔼 The figure shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -141,7 +141,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](figures/figures_25_0.png)
 
-> 🔼 Figure 8 shows the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various tasks.
+> 🔼 Figure 8 shows the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -170,7 +170,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_8_1.png "🔼 Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of the Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing positive correlations for some tasks and negative correlations for others.
+> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -179,7 +179,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_8_2.png "🔼 Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart shows the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReEntropy on various faithfulness, factuality and chain-of-thought reasoning tasks.
+> 🔼 The chart visualizes the correlation between the number of masked retrieval heads and the performance of the Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing that performance generally correlates with the number of masked heads.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -188,7 +188,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_8_3.png "🔼 Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked retrieval heads in the Llama3-8B-Instruct model using DeCoReentropy and its performance across various tasks, showing varying degrees of correlation across different task types.
+> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing varying degrees of correlation for different tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -197,7 +197,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_8_4.png "🔼 Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct using DeCoReEntropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
+> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -206,7 +206,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_8_5.png "🔼 Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of the Llama3-8B-Instruct model using DeCoReentropy across various tasks.
+> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -215,34 +215,34 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_9_0.png "🔼 Figure 4: Comparison of Length-normalised conditional entropy of Greedy, ITI, DoLa, and DeCoReentropy in long-generation tasks (i.e., XSum (a), MuSiQue (Closed) + CoT (b), and MuSiQue (Open) + CoT (c)). Asterisks (*) indicate statistically significant differences between the distributions based on one-tailed Welch's t-test results. Detailed results are listed in Table 28.")
 
-> 🔼 The violin plot shows that DeCoReEntropy has significantly lower length-normalized conditional entropy than other decoding methods in long-generation tasks.
+> 🔼 The violin plot compares the length-normalized conditional entropy of four different decoding methods across three long-generation tasks, showing that DeCoReEntropy consistently achieves significantly lower entropy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Comparison of Length-normalised conditional entropy of Greedy, ITI, DoLa, and DeCoReentropy in long-generation tasks (i.e., XSum (a), MuSiQue (Closed) + CoT (b), and MuSiQue (Open) + CoT (c)). Asterisks (*) indicate statistically significant differences between the distributions based on one-tailed Welch's t-test results. Detailed results are listed in Table 28.
 > </details>
 
 
-![](charts/charts_9_1.png "🔼 Figure 4: Comparison of Length-normalised conditional entropy of Greedy, ITI, DoLa, and DeCoReentropy in long-generation tasks (i.e., XSum (a), MuSiQue (Closed) + CoT (b), and MuSiQue (Open) + CoT (c)). Asterisks (*) indicate statistically significant differences between the distributions based on one-tailed Welch’s t-test results. Detailed results are listed in Table 28.")
+![](charts/charts_9_1.png "🔼 Figure 4: Comparison of Length-normalised conditional entropy of Greedy, ITI, DoLa, and DeCoReentropy in long-generation tasks (i.e., XSum (a), MuSiQue (Closed) + CoT (b), and MuSiQue (Open) + CoT (c)). Asterisks (*) indicate statistically significant differences between the distributions based on one-tailed Welch's t-test results. Detailed results are listed in Table 28.")
 
-> 🔼 The violin plot displays the comparison of length-normalized conditional entropy across different decoding methods in long-generation tasks.
+> 🔼 The violin plot shows the comparison of length-normalized conditional entropy of four decoding methods (Greedy, ITI, DoLa, and DeCoRe) across three long-generation tasks.
 > <details>
 > <summary>read the caption</summary>
-> Figure 4: Comparison of Length-normalised conditional entropy of Greedy, ITI, DoLa, and DeCoReentropy in long-generation tasks (i.e., XSum (a), MuSiQue (Closed) + CoT (b), and MuSiQue (Open) + CoT (c)). Asterisks (*) indicate statistically significant differences between the distributions based on one-tailed Welch’s t-test results. Detailed results are listed in Table 28.
+> Figure 4: Comparison of Length-normalised conditional entropy of Greedy, ITI, DoLa, and DeCoReentropy in long-generation tasks (i.e., XSum (a), MuSiQue (Closed) + CoT (b), and MuSiQue (Open) + CoT (c)). Asterisks (*) indicate statistically significant differences between the distributions based on one-tailed Welch's t-test results. Detailed results are listed in Table 28.
 > </details>
 
 
-![](charts/charts_9_2.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation.")
+![](charts/charts_9_2.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)")
 
-> 🔼 The chart displays the relationship between length-normalized entropy and answer correctness in MuSiQue CoT generation, showing that lower entropy correlates with higher accuracy.
+> 🔼 The chart shows the relationship between length-normalized entropy and answer correctness in MuSiQue CoT generation, indicating a negative correlation.
 > <details>
 > <summary>read the caption</summary>
-> Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation.
+> Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)
 > </details>
 
 
 ![](charts/charts_24_0.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)")
 
-> 🔼 The chart displays the distribution of length-normalized entropy for correct and incorrect answers, demonstrating a negative correlation between entropy and correctness in MuSiQue CoT generation.
+> 🔼 The chart displays density and regression plots demonstrating the negative correlation between length-normalized entropy and answer correctness in the MuSiQue CoT generation task, indicating lower entropy is associated with higher accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)
@@ -251,34 +251,34 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_24_1.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)")
 
-> 🔼 The chart displays the distribution of length-normalized entropy for correct and incorrect answers, demonstrating a negative correlation between entropy and correctness in the MuSiQue CoT generation task.
+> 🔼 The chart displays density and regression plots demonstrating the negative correlation between length-normalised entropy and answer correctness in MuSiQue CoT generation, indicating that lower entropy is associated with higher accuracy.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)
 > </details>
 
 
-![](charts/charts_24_2.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation.")
+![](charts/charts_24_2.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)")
 
-> 🔼 The chart displays the distribution of length-normalized entropy for correct and incorrect answers across different models (DeCoRe, Baseline, and DoLa), showing a negative correlation between length-normalized entropy and answer correctness.
+> 🔼 The chart displays density and regression plots illustrating the negative correlation between length-normalized entropy and answer correctness in the MuSiQue CoT generation task.
+> <details>
+> <summary>read the caption</summary>
+> Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)
+> </details>
+
+
+![](charts/charts_24_3.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation.")
+
+> 🔼 The chart displays the relationship between length-normalized entropy and answer correctness for DeCoRe, baseline, and DoLa models, showing a strong negative correlation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation.
 > </details>
 
 
-![](charts/charts_24_3.png "🔼 Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)")
-
-> 🔼 The chart displays the negative correlation between length-normalized entropy and answer correctness across three different LLMs (DeCoRe, Baseline, and DoLa) in the MuSiQue CoT generation task, illustrating that lower entropy values are associated with higher correctness.
-> <details>
-> <summary>read the caption</summary>
-> Figure 7: Relation between length-normalised entropy and correctness in MuSiQue CoT generation. Entropy tends to be negatively correlated with the final answer correctness (i.e., the lower the length-normalised entropy, the more likely that the answer is correct.)
-> </details>
-
-
 ![](charts/charts_25_0.png "🔼 Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various faithfulness, factuality, and Chain-of-Thought reasoning tasks.
+> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing varying correlation strengths.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -287,7 +287,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_25_1.png "🔼 Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of the Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing positive correlations for some tasks and negative for others.
+> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing mostly negative correlations for tasks requiring contextual faithfulness.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -296,7 +296,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_25_2.png "🔼 Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various faithfulness, factuality, and Chain-of-Thought reasoning tasks.
+> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -305,7 +305,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_25_3.png "🔼 Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct model using DeCoReentropy across various tasks, showing varying trends depending on the task type.
+> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct model using DeCoReEntropy across various tasks, showing a variety of positive and negative correlations.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -314,7 +314,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_25_4.png "🔼 Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct using DeCoReentropy across various tasks.
+> 🔼 The chart visualizes the correlation between the number of masked retrieval heads and the performance of Llama3-8B-Instruct model using DeCoReEntropy across various tasks, showing varying trends depending on the task type.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Correlation between the number of masked retrieval heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -332,7 +332,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_25_6.png "🔼 Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
+> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct using DeCoReEntropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -341,7 +341,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_25_7.png "🔼 Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.")
 
-> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct with DeCoReentropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
+> 🔼 The chart displays the correlation between the number of masked random heads and the performance of Llama3-8B-Instruct model using DeCoReEntropy across various faithfulness, factuality, and chain-of-thought reasoning tasks.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Correlation between the number of masked random heads and performance of Llama3-8B-Instruct with DeCoReentropy on each task. The correlations are quantified by the Pearson Correlation Coefficient r for each plot. Detailed results are listed in Table 14 and Table 16.
@@ -350,7 +350,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 
 ![](charts/charts_31_0.png "🔼 Figure 9: Relation between α and performance metrics of Llama3-8b-Instruct with DeCoRestatic in the faithfulness (a), factuality (b), and Chain-of-Thought reasoning (c) evaluation tasks. Detailed results are listed in Table 23, Table 24, and Table 25.")
 
-> 🔼 The chart displays how varying the scaling factor α in DeCoRestatic affects the performance across different faithfulness, factuality, and chain-of-thought reasoning tasks.
+> 🔼 The chart displays the performance of Llama3-8b-Instruct with DeCoRestatic across various faithfulness, factuality, and chain-of-thought reasoning evaluation tasks, showing the relationship between the hyperparameter α and different performance metrics.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Relation between α and performance metrics of Llama3-8b-Instruct with DeCoRestatic in the faithfulness (a), factuality (b), and Chain-of-Thought reasoning (c) evaluation tasks. Detailed results are listed in Table 23, Table 24, and Table 25.
@@ -375,7 +375,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best performing model for each task.
+> The table presents the performance comparison of different LLMs and decoding methods across multiple faithfulness evaluation tasks, highlighting the best performing model for each task.
 
 
 {{< table-caption >}}
@@ -387,7 +387,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> This table presents the performance comparison of different LLMs and decoding methods on the MuSiQue dataset, with and without Chain-of-Thought prompting, across closed-book and open-book settings.
+> This table presents the performance comparison of different LLMs and decoding methods on the MuSiQue dataset with and without Chain-of-Thought prompting in closed-book and open-book settings.
 
 
 {{< table-caption >}}
@@ -399,7 +399,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different models and decoding methods on several faithfulness evaluation tasks, highlighting the best-performing model for each task.
+> This table presents the performance of different LLMs and decoding methods on several faithfulness evaluation tasks, highlighting the best performing model for each task.
 
 
 {{< table-caption >}}
@@ -411,7 +411,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different LLMs and decoding methods across several faithfulness evaluation tasks (XSum, MemoTrap, IFEval, NQ-Open, and NQ-Swap).
+> The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing model and method for each task.
 
 
 {{< table-caption >}}
@@ -423,7 +423,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing models and methods for each task.
+> The table presents the performance comparison of different LLMs and decoding methods across multiple faithfulness evaluation tasks, highlighting the best and second-best performance for each model.
 
 
 {{< table-caption >}}
@@ -435,7 +435,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of Llama3-8B-Instruct with varying numbers of masked retrieval heads on factuality evaluation tasks, showing the impact of masked retrieval heads on factuality.
+> The table shows the performance comparison of Llama3-8B-Instruct model on factuality evaluation tasks with varying numbers of masked retrieval heads.
 
 
 {{< table-caption >}}
@@ -447,7 +447,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> Table 2 presents the performance comparison of different LLMs and decoding methods across various factuality evaluation tasks, highlighting the best and second-best performances for each model.
+> This table presents the performance comparison of Llama3-8B-Instruct model on factuality evaluation tasks with varying numbers of masked retrieval heads.
 
 
 {{< table-caption >}}
@@ -459,7 +459,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance of various LLMs and decoding methods on several faithfulness evaluation tasks, highlighting the best performing model for each task and model size.
+> Table 9 shows the performance of Llama3-8B-Instruct model on MuSiQue dataset with different numbers of masked retrieval heads, both with and without Chain-of-Thought prompting, and under both closed-book and open-book settings.
 
 
 {{< table-caption >}}
@@ -471,7 +471,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> This table presents the performance comparison of Llama3-8B-Instruct model on MuSiQue with different numbers of masked random heads, both with and without CoT prompting in closed-book and open-book settings.
+> This table presents the performance of Llama3-8B-Instruct model on MuSiQue with different numbers of masked random heads, evaluating its performance with and without chain-of-thought prompting in both closed and open book settings.
 
 
 {{< table-caption >}}
@@ -483,7 +483,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents a comparison of different LLMs and decoding methods on several faithfulness evaluation tasks, highlighting the best-performing models for each task.
+> The table presents the performance comparison of different LLMs and decoding methods on multiple faithfulness evaluation tasks, highlighting the best-performing model for each task.
 
 
 {{< table-caption >}}
@@ -495,7 +495,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different models and decoding methods on several faithfulness evaluation tasks, highlighting the best performing model for each task and model size.
+> The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best performing model for each task and base model.
 
 
 {{< table-caption >}}
@@ -507,7 +507,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> This table presents the results of an ablation study on the DeCoRe entropy method, varying the number of masked random heads on faithfulness evaluation tasks.
+> The table presents the performance comparison of Llama3-8B-Instruct with different numbers of masked random heads on faithfulness evaluation tasks.
 
 
 {{< table-caption >}}
@@ -519,7 +519,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents a comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing model for each task and model.
+> The table presents the performance comparison of different LLMs and decoding methods on several faithfulness evaluation tasks, highlighting the best-performing model and method for each task.
 
 
 {{< table-caption >}}
@@ -531,7 +531,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table shows the performance comparison of Llama3-8B-Instruct model with different numbers of masked retrieval heads on various factuality evaluation tasks, including TruthfulQA, TriviaQA, PopQA, and NQ-Open.
+> The table presents the performance comparison of Llama3-8B-Instruct with different numbers of masked random heads on factuality evaluation tasks.
 
 
 {{< table-caption >}}
@@ -543,7 +543,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different LLMs and decoding methods on faithfulness evaluation tasks, highlighting the best-performing model and method for each task.
+> The table presents the performance of various LLMs and decoding methods on several faithfulness evaluation tasks, highlighting the best-performing methods for each model.
 
 
 {{< table-caption >}}
@@ -555,7 +555,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> This table presents the performance comparison of Llama3-8B-Instruct with different numbers of masked random heads on MuSiQue, a multi-hop reasoning task, with and without CoT prompting in both closed-book and open-book settings.
+> The table presents the performance of Llama3-8B-Instruct model on MuSiQue with DeCoRe entropy across various numbers of masked random heads, in closed-book and open-book settings, with and without Chain-of-Thought prompting.
 
 
 {{< table-caption >}}
@@ -567,7 +567,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different LLMs and decoding methods on multiple faithfulness evaluation tasks, highlighting the best-performing models and methods for each task.
+> The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing model for each task.
 
 
 {{< table-caption >}}
@@ -579,7 +579,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> Table 2 presents the performance comparison of different LLMs and decoding methods on various factuality evaluation tasks, highlighting the best-performing models and methods for each task.
+> Table 21 presents the performance comparison of different LLMs (Mistral-7B-Instruct-v0.3 and Qwen2-7B-Instruct) across various factuality evaluation tasks using different decoding methods.
 
 
 {{< table-caption >}}
@@ -591,7 +591,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> This table presents the performance comparison of different models and decoding strategies on the MuSiQue multi-hop reasoning dataset, showing the impact of different decoding methods on the accuracy of different models in this task.
+> This table presents the performance comparison of different decoding strategies including DeCoRe on MuSiQue, a multi-hop reasoning task, using Mistral-7B-Instruct-v0.3 and Qwen2-7B-Instruct as base models.
 
 
 {{< table-caption >}}
@@ -603,7 +603,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table shows the performance of Llama3-8b-Instruct model with DeCoRestatic decoding method on faithfulness evaluation tasks using different values of hyperparameter alpha.
+> Table 23 shows the performance of Llama3-8b-Instruct model with DeCoRestatic decoding strategy on faithfulness evaluation tasks with varying scaling factor (alpha) values.
 
 
 {{< table-caption >}}
@@ -615,7 +615,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance of Llama3-8b-Instruct with DeCoRestatic on factuality evaluation tasks with varying scaling factor (α).
+> The table presents the performance of Llama3-8b-Instruct with DeCoRestatic across different values of the hyperparameter α on factuality evaluation tasks.
 
 
 {{< table-caption >}}
@@ -627,7 +627,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing method for each model.
+> This table presents the performance comparison of Llama3-8B-Instruct across different numbers of masked retrieval heads on MuSiQue, a multi-hop reasoning dataset, with and without CoT prompting, in both closed-book and open-book settings.
 
 
 {{< table-caption >}}
@@ -639,7 +639,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance comparison of different LLMs and decoding methods on multiple faithfulness evaluation tasks, highlighting the best-performing model for each task and base model.
+> The table presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing model for each task.
 
 
 {{< table-caption >}}
@@ -651,7 +651,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> The table presents the performance of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing model and method for each task.
+> Table 1 presents the performance comparison of different LLMs and decoding methods on various faithfulness evaluation tasks, highlighting the best-performing model for each task.
 
 
 {{< table-caption >}}
@@ -663,7 +663,7 @@ This paper is crucial for researchers working on mitigating hallucinations in la
 > </details>
 
 
-> This table presents the performance comparison of different models and decoding methods on the MuSiQue dataset, a multi-hop reasoning task, with and without Chain-of-Thought (CoT) prompting in both closed-book and open-book settings.
+> This table presents the performance comparison of different models and decoding methods on the MuSiQue dataset, with and without chain-of-thought prompting, across closed-book and open-book settings.
 
 
 </details>

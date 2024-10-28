@@ -1,6 +1,6 @@
 ---
 title: "CompassJudger-1: All-in-one Judge Model Helps Model Evaluation and Evolution"
-summary: "CompassJudger-1: An open-source, all-in-one judge LLM offering robust generalization and diverse evaluation capabilities, enhanced by the new JudgerBench benchmark, propelling LLM evaluation forward."
+summary: "CompassJudger-1: An open-source, all-in-one judge LLM offering unitary scoring, model comparison, critique generation, and diverse task execution, significantly advancing LLM evaluation."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-21", "🤗 24-10-22"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-Researchers developed CompassJudger-1, an open-source large language model (LLM) designed to evaluate other LLMs.  Unlike previous models, CompassJudger-1 isn't limited to a single evaluation task; it can perform various tasks, including providing scores, comparing different models, and generating critiques.  To better test these models, they also created a new benchmark called JudgerBench.  The results showed that CompassJudger-1 performs well against other similar models and is particularly useful due to its open-source nature, making it accessible to researchers. This helps to advance the field of LLM evaluation and encourage more collaboration among researchers.
+This research introduces CompassJudger-1, a versatile, open-source large language model (LLM) designed to significantly improve the evaluation and development of other LLMs. Unlike previous specialized judge models, CompassJudger-1 handles various evaluation tasks: providing scores for individual models, comparing two models, creating critiques, and executing general LLM tasks.  To effectively test these capabilities, the researchers also created a new benchmark called JudgerBench, which includes a variety of subjective evaluation tasks covering many topics.  The combined release of CompassJudger-1 and JudgerBench is expected to greatly aid the community in improving the quality of future LLMs.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ Researchers developed CompassJudger-1, an open-source large language model (LLM)
 {{< button href="https://arxiv.org/abs/2410.16256" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.16256" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in large language model (LLM) evaluation.  It introduces CompassJudger-1, the first open-source all-in-one judge LLM, addressing the need for cost-effective and reproducible subjective evaluation.  The accompanying JudgerBench benchmark facilitates fair comparison of judge models and accelerates progress in LLM evaluation methodologies.
+This paper is crucial for researchers in LLM evaluation. It introduces CompassJudger-1, the first open-source all-in-one judge LLM, addressing the limitations of existing methods.  The open-sourcing of CompassJudger-1 and the accompanying JudgerBench benchmark facilitates collaboration and accelerates progress in LLM evaluation methodologies. This work opens avenues for further research into more robust and adaptable LLM evaluation techniques.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} CompassJudger-1, a versatile open-source LLM, performs unitary scoring, two-model comparisons, critique generation, and various other tasks. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} CompassJudger-1, the first open-source all-in-one judge LLM, is introduced, capable of various evaluation tasks. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} JudgerBench, a new benchmark, provides a unified evaluation framework for subjective LLM assessment. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} JudgerBench, a new benchmark for evaluating judge models' capabilities under a unified setting, is established. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Open-sourcing CompassJudger-1 and JudgerBench promotes collaboration and accelerates progress in LLM evaluation methodologies. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Open-sourcing CompassJudger-1 and JudgerBench fosters collaboration and accelerates progress in LLM evaluation. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 
 ![](figures/figures_3_0.png)
 
-> 🔼 The figure illustrates the data collection and processing pipeline for training the CompassJudger-1 model, including data sources, preprocessing steps, and model training.
+> 🔼 The figure illustrates the data collection and processing pipeline for training CompassJudger-1, including the sources of data, preprocessing steps, and the final training data pool.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Training Data Collection of CompassJudger-1.
@@ -64,7 +64,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 {{< table-caption >}}
 <br><table id='5' style='font-size:14px'><tr><td>Attribution</td><td>Dataset Name</td><td>Data Format</td><td>Number</td><td>Language</td></tr><tr><td rowspan="7">Open-source Judge Data</td><td>AlpacaFarm (Dubois et al., 2024b)</td><td>Pairwise</td><td>39k</td><td>EN</td></tr><tr><td>Auto-J (Li et al., 2023)</td><td>Pointwise, Pairwise, Generative</td><td>9k</td><td>ZH, EN</td></tr><tr><td>PandaLM (Wang et al., 2023)</td><td>Pairwise</td><td>287k</td><td>EN</td></tr><tr><td>JudgeLM (Zhu et al., 2023)</td><td>Pointwise</td><td>100k</td><td>EN</td></tr><tr><td>LLM-Eval2 (Zhang et al., 2023)</td><td>Pointwise, Generative</td><td>10k</td><td>ZH</td></tr><tr><td>CritiqueBench (Lan et al., 2024)</td><td>Generative</td><td>1k</td><td>EN</td></tr><tr><td>UltraFeedback (Cui et al., 2023)</td><td>Pointwise, Generative</td><td>380k</td><td>EN</td></tr><tr><td rowspan="6">Open-source Reward Data</td><td>OffsetBias (Park et al., 2024)</td><td>Pairwise</td><td>8k</td><td>EN</td></tr><tr><td>Hendrydong (Dong et al., 2024)</td><td>Pairwise</td><td>700k</td><td>EN</td></tr><tr><td>SkyWorker (Shiwen et al., 2024)</td><td>Pairwise</td><td>80k</td><td>EN</td></tr><tr><td>Airoboros</td><td>Pairwise</td><td>36k</td><td>EN</td></tr><tr><td>Anthropic</td><td>Pairwise</td><td>161k</td><td>EN</td></tr><tr><td>PKU Alignment</td><td>Pairwise</td><td>82k</td><td>EN</td></tr><tr><td>Self Collect Judge Data</td><td>CJ-Judge-Data-v1</td><td>Pointwise, Pairwise, Generative</td><td>60k</td><td>ZH, EN</td></tr><tr><td rowspan="4">Self Collect Reward Data</td><td>Math Code Preference</td><td>Pairwise</td><td>11k</td><td>EN</td></tr><tr><td>Chinese Math</td><td>Pairwise</td><td>76k</td><td>ZH</td></tr><tr><td>LengthControl</td><td>Pairwise</td><td>0.6k</td><td>EN</td></tr><tr><td>Language Match</td><td>Pairwise</td><td>0.5k</td><td>ZH, EN</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 details the composition of the training dataset for CompassJudger-1, specifying the source, format, size, and language of each dataset.
+> 🔼 Table 1 details the composition of the CompassJudger-1 training dataset, specifying the source, format, size, and language of each dataset used.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Training Data Construction of CompassJudger-1, Pointwise indicates that the data contains only one model's response along with the score given by the Judge model/Reward model. Pairwise indicates that the data includes responses from two models and the comparison result given by the Judge model/Reward model. Generative indicates that the data includes the Judge results as well as the reasoning process of the Judge. The number of each dataset refers to the number of candidates in the Training Data pool, not the final amount of training data.
@@ -91,7 +91,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> The table presents the ablation study results on the proportion of reward data used for training CompassJudger-1, showing the model's performance on RewardBench, JudgerBench, and their average across different reward data proportions.
+> The table presents the ablation study results on the performance of CompassJudger-1 with varying proportions of reward data in RewardBench and JudgerBench.
 
 
 {{< table-caption >}}
@@ -103,7 +103,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> The table presents the ablation study results of the impact of general SFT data on the CompassJudger model's performance across various benchmarks.
+> The table presents an ablation study showing the impact of general SFT data on the CompassJudger model's performance across multiple evaluation benchmarks.
 
 
 {{< table-caption >}}
@@ -115,7 +115,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> Table 4 details the subjective evaluation datasets used in JudgerBench part B, specifying their data format, number of turns, scenario label, and language.
+> Table 1 details the training data used for CompassJudger-1, specifying the source, format, size, and language of each dataset.
 
 
 {{< table-caption >}}
@@ -127,7 +127,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> Table 5 presents the results of several models on RewardBench and JudgerBench, showing their performance on different evaluation metrics.
+> Table 5 presents the results of various models on RewardBench and JudgerBench, showing their performance on different aspects of subjective evaluation.
 
 
 {{< table-caption >}}
@@ -139,7 +139,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> The table presents a detailed breakdown of the performance of various models (including CompassJudger series and other LLMs) on the RewardBench dataset, showing their scores across different categories: Chat, Chat Hard, Safety, and Reasoning.
+> The table presents the detailed performance of various models on the RewardBench benchmark, broken down by category (Chat, Chat Hard, Safety, Reasoning) and overall average score.
 
 
 {{< table-caption >}}
@@ -151,7 +151,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> This table presents the detailed results of different models on the English section of the JudgerBench Arena component, categorized by task type.
+> This table presents the detailed performance of various models on the English section of JudgerBench part A, broken down by task category.
 
 
 {{< table-caption >}}
@@ -163,7 +163,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> Table 8 presents the detailed performance of different models on the Chinese section of JudgerBench A, broken down by task category.
+> Table 8 presents the detailed performance of various models on the Chinese subset of the Arena component of JudgerBench, categorized by task type.
 
 
 {{< table-caption >}}
@@ -175,7 +175,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> Table 9 presents the accuracy results of different models on the JudgerBench B, which includes four datasets: AlignBench, FoFo, WildBench, and ArenaHard, showing the accuracy of each model on each dataset and the average accuracy across all four datasets.
+> Table 9 presents the accuracy results of different models on the JudgerBench B dataset, which includes four subjective evaluation datasets (AlignBench, FoFo, WildBench, and ArenaHard).
 
 
 {{< table-caption >}}
@@ -187,7 +187,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> The table presents the correlation results of several models' judgments on the JudgerBench B dataset, using the accuracy rate per question and the correlation results based on the overall model scores as evaluation metrics.
+> This table presents the correlation results of several models on the JudgerBench B dataset, specifically focusing on the AlignBench, Fofo, WildBench, and ArenaHard subsets.
 
 
 {{< table-caption >}}
@@ -199,7 +199,7 @@ This paper is crucial for researchers in large language model (LLM) evaluation. 
 > </details>
 
 
-> The table presents the ablation study results on different proportions of reward data used for training CompassJudger-1, evaluating performance across RewardBench, JudgerBench, and their average.
+> Table 1 details the composition of the CompassJudger-1 training dataset, specifying the source, format, size, and language of each dataset.
 
 
 {{< table-caption >}}

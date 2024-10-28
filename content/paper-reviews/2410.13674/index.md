@@ -1,6 +1,6 @@
 ---
 title: "Diffusion Curriculum: Synthetic-to-Real Generative Curriculum Learning via Image-Guided Diffusion"
-summary: "Diffusion Curriculum Learning (DisCL) generates high-quality synthetic data via image-guided diffusion, significantly boosting accuracy in long-tail and low-quality data classification."
+summary: "Boosting AI's learning from limited or poor-quality data, this paper introduces DisCL, a novel curriculum learning method using image-guided diffusion models to generate diverse synthetic training dat..."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-17", "🤗 24-10-21"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This paper presents Diffusion Curriculum Learning (DisCL), a novel approach to improve the performance of deep learning models trained on limited or low-quality data.  DisCL leverages image-guided diffusion models to create a spectrum of synthetic images ranging from purely text-generated (diverse but potentially irrelevant) to images highly similar to the original training examples (less diverse but highly relevant).  A key innovation is the use of a curriculum learning strategy that starts by training the model on the most easily learned data (diverse synthetic images) and gradually progresses to more challenging data (real and visually similar synthetic images).  Experiments on challenging datasets show that DisCL leads to significant improvements in classification accuracy, particularly for minority classes in long-tailed datasets or when trained on low-quality real-world images. The paper proposes both non-adaptive and adaptive curriculum learning strategies, highlighting the adaptive approach as being especially useful for data with low-quality.
+This research tackles the challenge of training AI models with limited or low-quality data.  The core idea is to use a technique called 'Diffusion Curriculum Learning' (DisCL).  DisCL leverages image-guided diffusion models to produce a range of synthetic images, bridging the gap between fully synthetic and real-world images.  This allows the model to learn easier features first, before tackling more complex, real-world examples.  The study shows this approach improves the accuracy of models, especially for tasks with imbalanced data where certain classes have few examples (long-tail problem) and when training data is noisy or of poor quality.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This paper presents Diffusion Curriculum Learning (DisCL), a novel approach to i
 {{< button href="https://arxiv.org/abs/2410.13674" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.13674" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers working on long-tail learning, low-quality data learning, and generative curriculum learning.  It introduces a novel method to generate synthetic data using image-guided diffusion, effectively bridging the gap between synthetic and real data. The results show substantial improvements in classification accuracy across multiple benchmarks, making this approach relevant to various AI applications.  The proposed method also opens new avenues for exploring advanced curriculum learning strategies.
+This paper is crucial for researchers working on long-tail image classification and low-quality data learning.  It introduces a novel generative curriculum learning method, which significantly improves model performance on challenging datasets.  The image-guided diffusion model synthesis technique is especially relevant to current research trends, and opens new avenues for creating more robust and generalizable AI systems.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} DisCL uses image-guided diffusion to generate a spectrum of synthetic-to-real data, offering greater diversity and quality. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} DisCL, a novel generative curriculum learning method, improves AI performance by creating diverse, synthetic training data. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} DisCL improves classification accuracy in long-tail and low-quality data scenarios by strategically adjusting the image guidance level during training. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Image-guided diffusion models enable controlled synthesis of data spanning a spectrum from prototypical to near-real images. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The adaptive curriculum strategy in DisCL dynamically selects the optimal image guidance for each training stage, maximizing the model's learning progress. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} DisCL shows significant gains in long-tail classification and low-quality data learning tasks. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_3_0.png)
 
-> 🔼 The figure illustrates the two-phase DisCL framework, showing how it generates synthetic-to-real data and uses a curriculum strategy to select training data for each stage.
+> 🔼 This figure illustrates the two phases of the Diffusion Curriculum (DisCL) method, showing how it generates a spectrum of synthetic-to-real images and uses them in a curriculum learning process.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of Diffusion Curriculum (DisCL). DisCL consists of two phases: (Phase 1) Syn-to-Real Data Generation and (Phase 2) Generative Curriculum learning. In Phase 1, we use a pretrained model to identify the 'hard' samples in the original images and use them as guidance to generate a full spectrum of synthetic to real images by varying image guidance strength λ. In Phase 2, a curriculum strategy (Non-Adaptive or Adaptive) selects training data from the full spectrum, by determining the image guidance level for each training stage e. Synthetic data of the selected guidance level is then combined with non-hard real samples to train the task model.
@@ -74,7 +74,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td rowspan="2"></td><td rowspan="2">Method</td><td rowspan="2">Curriculum</td><td colspan="4">ImageNet-LT</td></tr><tr><td>Many</td><td>Medium</td><td>Few</td><td>Overall</td></tr><tr><td rowspan="5">Baselines</td><td rowspan="5">CE CE + CUDA CE + LDMLR BSt BS + CUDA†</td><td>N/A</td><td>57.70</td><td>26.60</td><td>4.40</td><td>35.80</td></tr><tr><td>N/A</td><td>57.20</td><td>29.20</td><td>7.30</td><td>37.20</td></tr><tr><td>N/A</td><td>57.49</td><td>28.16</td><td>6.58</td><td>36.30</td></tr><tr><td>N/A</td><td>51.14</td><td>37.02</td><td>19.29</td><td>39.80</td></tr><tr><td>N/A</td><td>51.16</td><td>37.35</td><td>19.28</td><td>40.03</td></tr><tr><td rowspan="6">Ablations</td><td rowspan="6">CE + Text-only Guidance CE + All-Level Guidance CE + DisCL CE + DisCL CE + DisCL [Lower CLIPScore Threshold] CE + DisCL [Higher CLIPScore Threshold]</td><td>N/A</td><td>56.63</td><td>30.69</td><td>17.90</td><td>39.10</td></tr><tr><td>N/A</td><td>56.77</td><td>30.88</td><td>19.17</td><td>39.40</td></tr><tr><td>Adaptive</td><td>56.21</td><td>30.43</td><td>16.78</td><td>38.65</td></tr><tr><td>Specific to Diverse</td><td>56.71</td><td>30.67</td><td>18.36</td><td>39.18</td></tr><tr><td>Diverse to Specific</td><td>57.66</td><td>30.61</td><td>23.69</td><td>39.67</td></tr><tr><td>Diverse to Specific</td><td>56.92</td><td>30.64</td><td>22.88</td><td>39.68</td></tr><tr><td rowspan="2">Ours</td><td rowspan="2">BS + DisCL CE + DisCL</td><td>Diverse to Specific</td><td>56.78</td><td>30.73</td><td>23.64</td><td>39.82</td></tr><tr><td>Diverse to Specific</td><td>52.68</td><td>37.68</td><td>21.36</td><td>41.33</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents the accuracy results of different methods on the ImageNet-LT dataset for long-tail classification, comparing baselines and the proposed DisCL method with various curriculum strategies.
+> 🔼 Table 1 presents the accuracy results of different methods on the ImageNet-LT dataset for long-tail classification, comparing various curriculum strategies and baselines.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Accuracy (%) of long-tail classification on ImageNet-LT with base model ResNet-10. The best accuracy is highlighted in bold. † marks our reproduced results using the original paper provided code. BS refers to Balanced Softmax Loss(Ren et al., 2020). Baselines (LDMLR, CUDA) are defined in §5.1.
@@ -91,7 +91,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_4_0.png)
 
-> 🔼 Figure 2 shows synthetic images generated with various image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data generated by the diffusion model.
+> 🔼 The figure shows synthetic images generated with different image guidance levels, demonstrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -101,7 +101,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_4_1.png)
 
-> 🔼 The figure shows synthetic images generated with different image guidance levels, demonstrating a spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
+> 🔼 The figure shows synthetic images generated with different image guidance levels, demonstrating the spectrum of synthetic-to-real data generated by varying the image guidance.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -111,7 +111,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_4_2.png)
 
-> 🔼 The figure shows synthetic images generated from iWildCam dataset using different image guidance levels, demonstrating the spectrum of synthetic-to-real data.
+> 🔼 The figure shows synthetic images generated from various image guidance levels and random seeds based on iWildCam dataset, illustrating the spectrum of synthetic-to-real data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Synthetic generation with various image guidance and random seeds based on iWildCam.
@@ -121,7 +121,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_4_3.png)
 
-> 🔼 The figure shows synthetic images generated with different image guidance levels, illustrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
+> 🔼 The figure shows synthetic images generated with various image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -131,7 +131,17 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_19_0.png)
 
-> 🔼 Figure 2 shows synthetic images generated with different image guidance levels, demonstrating the spectrum of synthetic-to-real data generated by varying the image guidance parameter.
+> 🔼 The figure shows synthetic images generated from various image guidance levels, demonstrating the spectrum from prototypical features to high fidelity to the original real images.
+> <details>
+> <summary>read the caption</summary>
+> Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
+> </details>
+
+
+
+![](figures/figures_19_1.png)
+
+> 🔼 The figure shows synthetic images generated with different image guidance levels, demonstrating the spectrum of synthetic-to-real data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -139,29 +149,19 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 
 
-![](figures/figures_19_1.png)
-
-> 🔼 The figure shows synthetic images generated from ImageNet-LT with various image guidance levels and random seeds, illustrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
-> <details>
-> <summary>read the caption</summary>
-> Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
-> </details>
-
-
-
 ![](figures/figures_19_2.png)
 
-> 🔼 The figure shows synthetic images generated from ImageNet-LT using different levels of image guidance, demonstrating the spectrum from prototypical to near-real images.
+> 🔼 The figure shows synthetic images generated with different image guidance levels, demonstrating the spectrum from prototypical features to high fidelity to the original image.
 > <details>
 > <summary>read the caption</summary>
-> Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
+> Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
 > </details>
 
 
 
 ![](figures/figures_19_3.png)
 
-> 🔼 The figure shows synthetic images generated with different image guidance levels, illustrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
+> 🔼 The figure shows synthetic images generated with different image guidance levels, demonstrating the spectrum from prototypical features (low guidance) to high fidelity to the original image (high guidance).
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -171,7 +171,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_19_4.png)
 
-> 🔼 The figure shows synthetic images generated from ImageNet-LT with various image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data.
+> 🔼 The figure shows synthetic images generated with various image guidance levels and random seeds, illustrating the spectrum from prototypical to high-fidelity images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
@@ -181,7 +181,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_19_5.png)
 
-> 🔼 Figure 8 shows examples of synthetic image generation failures, highlighting cases where the generated images lack key features or fidelity to the text prompt.
+> 🔼 Figure 8 shows examples of synthetic image generation failures, highlighting issues such as object misidentification and low-fidelity results.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Failure cases for ImageNet-LT synthetic generation
@@ -191,7 +191,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_20_0.png)
 
-> 🔼 Figure 2 shows synthetic images generated with various image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data generated by the diffusion model.
+> 🔼 The figure shows synthetic images generated with different levels of image guidance, demonstrating the spectrum of synthetic-to-real data generated by the model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -201,7 +201,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_20_1.png)
 
-> 🔼 The figure shows synthetic images generated from iWildCam dataset with different image guidance levels and random seeds, illustrating the transition from prototypical features to real-world images.
+> 🔼 The figure shows synthetic images generated from iWildCam dataset with various image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data generated by the proposed method.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Synthetic generation with various image guidance and random seeds based on iWildCam.
@@ -211,17 +211,17 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_20_2.png)
 
-> 🔼 The figure shows synthetic images generated from ImageNet-LT with various levels of image guidance, demonstrating the spectrum from prototypical features (low guidance) to high-fidelity images (high guidance).
+> 🔼 The figure shows synthetic images generated with different image guidance levels, illustrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
 > <details>
 > <summary>read the caption</summary>
-> Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
+> Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
 > </details>
 
 
 
 ![](figures/figures_20_3.png)
 
-> 🔼 The figure shows synthetic images generated from iWildCam dataset with different image guidance levels, demonstrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
+> 🔼 The figure showcases synthetic images generated from iWildCam dataset using various image guidance levels and random seeds, illustrating the spectrum from prototypical to real-world images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Synthetic generation with various image guidance and random seeds based on iWildCam.
@@ -231,7 +231,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_20_4.png)
 
-> 🔼 The figure shows synthetic images generated from iWildCam dataset with various image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data generated by the model.
+> 🔼 The figure shows synthetic images generated from iWildCam dataset using different image guidance levels and random seeds.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Synthetic generation with various image guidance and random seeds based on iWildCam.
@@ -241,17 +241,17 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_20_5.png)
 
-> 🔼 Figure 7 shows synthetic images generated from iWildCam dataset with various image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data generated by DisCL.
+> 🔼 Figure 9 shows examples of synthetic image generation failures from the iWildCam dataset, highlighting issues such as object misidentification and low image quality.
 > <details>
 > <summary>read the caption</summary>
-> Figure 7: Synthetic generation with various image guidance and random seeds based on iWildCam.
+> Figure 9: Failure cases for iWildCam synthetic generation
 > </details>
 
 
 
 ![](figures/figures_21_0.png)
 
-> 🔼 The figure shows synthetic images generated from ImageNet-LT using different image guidance levels, demonstrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
+> 🔼 The figure showcases synthetic images generated from ImageNet-LT using different image guidance levels, demonstrating the spectrum of synthetic-to-real data.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
@@ -261,7 +261,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_21_2.png)
 
-> 🔼 Figure 8 shows examples of synthetic image generation failures from the ImageNet-LT dataset, highlighting issues with object recognition and image quality.
+> 🔼 Figure 8 shows examples of synthetic image generation failures from ImageNet-LT, highlighting instances where the generated images deviate significantly from the expected class.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Failure cases for ImageNet-LT synthetic generation
@@ -271,27 +271,27 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_21_3.png)
 
-> 🔼 The figure shows synthetic images generated with different image guidance levels, illustrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
+> 🔼 The figure displays synthetic images generated from iWildCam dataset using different image guidance levels and random seeds, illustrating the spectrum of synthetic-to-real data.
 > <details>
 > <summary>read the caption</summary>
-> Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
+> Figure 7: Synthetic generation with various image guidance and random seeds based on iWildCam.
 > </details>
 
 
 
 ![](figures/figures_21_4.png)
 
-> 🔼 Figure 8 shows examples of synthetic image generation failures from ImageNet-LT, highlighting issues such as object misidentification and low-quality image generation.
+> 🔼 Figure 9 shows examples of synthetic image generation failures from the iWildcam dataset, highlighting issues such as object misidentification and low image quality.
 > <details>
 > <summary>read the caption</summary>
-> Figure 8: Failure cases for ImageNet-LT synthetic generation
+> Figure 9: Failure cases for iWildCam synthetic generation
 > </details>
 
 
 
 ![](figures/figures_22_0.png)
 
-> 🔼 The figure visualizes synthetic images generated with various image guidance levels and random seeds, illustrating the spectrum of image quality from prototypical to photorealistic.
+> 🔼 The figure visualizes synthetic images generated with various image guidance levels and random seeds using ImageNet-LT.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
@@ -311,7 +311,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_22_2.png)
 
-> 🔼 The figure shows examples of synthetic images generated with different levels of image guidance, illustrating the spectrum from prototypical features (low guidance) to high fidelity to the original image (high guidance).
+> 🔼 The figure shows synthetic images generated with different levels of image guidance, demonstrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -321,17 +321,17 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_22_3.png)
 
-> 🔼 Figure 9 shows examples of synthetic images generated by the diffusion model that failed quality checks, illustrating challenges in generating high-quality synthetic data for low-quality images.
+> 🔼 Figure 8 shows examples of synthetic image generation failures for ImageNet-LT, highlighting instances where the generated images do not accurately reflect the intended class or contain significant artifacts.
 > <details>
 > <summary>read the caption</summary>
-> Figure 9: Failure cases for iWildCam synthetic generation
+> Figure 8: Failure cases for ImageNet-LT synthetic generation
 > </details>
 
 
 
 ![](figures/figures_22_4.png)
 
-> 🔼 The figure shows synthetic images generated with different image guidance levels, demonstrating the spectrum from prototypical features (low guidance) to high fidelity to real images (high guidance).
+> 🔼 The figure shows synthetic images generated with various image guidance levels, illustrating the spectrum from prototypical features to high fidelity to real images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -341,17 +341,17 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_22_5.png)
 
-> 🔼 The figure illustrates the two-phase DisCL process, showing how a pretrained model identifies hard samples, generates synthetic-to-real images with varying guidance strength, and employs curriculum learning strategies to select data for training.
+> 🔼 The figure displays synthetic images generated using different image guidance levels, illustrating the spectrum from prototypical features (low guidance) to high fidelity to the original image (high guidance).
 > <details>
 > <summary>read the caption</summary>
-> Figure 1: Overview of Diffusion Curriculum (DisCL). DisCL consists of two phases: (Phase 1) Syn-to-Real Data Generation and (Phase 2) Generative Curriculum learning. In Phase 1, we use a pretrained model to identify the 'hard' samples in the original images and use them as guidance to generate a full spectrum of synthetic to real images by varying image guidance strength λ. In Phase 2, a curriculum strategy (Non-Adaptive or Adaptive) selects training data from the full spectrum, by determining the image guidance level for each training stage e. Synthetic data of the selected guidance level is then combined with non-hard real samples to train the task model.
+> Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
 > </details>
 
 
 
 ![](figures/figures_22_6.png)
 
-> 🔼 The figure shows synthetic images generated with various image guidance levels, demonstrating the spectrum from prototypical to real-like images.
+> 🔼 Figure 2 shows synthetic images generated with various image guidance levels, demonstrating the spectrum of synthetic-to-real data created by adjusting the image guidance parameter.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Synthetic images generated with various image guidance levels and random seeds. × marks images with low-fidelity to the text prompt, which are filtered out by CLIPScore (ref. the end of §3.1).
@@ -361,7 +361,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_22_7.png)
 
-> 🔼 Figure 8 shows examples of synthetic image generation failures where the model struggles to generate high-quality or relevant images due to issues such as object obscuration or difficulty in identifying the object in the original image.
+> 🔼 Figure 8 shows examples of synthetic image generation failures from ImageNet-LT, highlighting instances where the generated images have low fidelity or do not accurately represent the target object.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Failure cases for ImageNet-LT synthetic generation
@@ -371,7 +371,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_22_8.png)
 
-> 🔼 Figure 8 shows examples of synthetic image generation failures, highlighting issues such as object misidentification and low-fidelity image generation.
+> 🔼 Figure 8 shows examples of synthetic image generation failures in ImageNet-LT due to issues such as object occlusion or difficulty in object identification.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Failure cases for ImageNet-LT synthetic generation
@@ -381,7 +381,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](figures/figures_23_0.png)
 
-> 🔼 Figure 6 shows example synthetic images generated from ImageNet-LT using various image guidance levels and random seeds, illustrating the spectrum of image quality from prototypical features to high-fidelity images.
+> 🔼 The figure shows synthetic images generated from ImageNet-LT using different levels of image guidance, demonstrating the transition from prototypical to realistic images.
 > <details>
 > <summary>read the caption</summary>
 > Figure 6: Synthetic generation with various image guidance and random seeds based on ImageNet-LT.
@@ -400,7 +400,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](charts/charts_13_0.png "🔼 Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.")
 
-> 🔼 The chart displays the cosine similarity scores between synthetic images and real images, as well as between synthetic images and their corresponding text prompts, across different image guidance levels.
+> 🔼 The violin plots show the cosine similarity scores between synthetic and real images, and between synthetic images and text prompts, at different image guidance levels.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.
@@ -409,7 +409,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](charts/charts_13_1.png "🔼 Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.")
 
-> 🔼 The violin plot shows the cosine similarity scores between synthetic images and their corresponding real images or text prompts, varying across different image guidance levels.
+> 🔼 The chart shows the cosine similarity scores computed using CLIP between synthetic images and real images as well as between synthetic images and their text prompts across different image guidance levels.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.
@@ -418,7 +418,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](charts/charts_15_0.png "🔼 Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.")
 
-> 🔼 The chart visualizes the cosine similarity scores computed using CLIP between synthetic images and both their corresponding real images and text prompts across various image guidance levels.
+> 🔼 The chart displays the CLIP cosine similarity scores between synthetic images and original real images (a) and text prompts (b) across various image guidance levels.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.
@@ -427,7 +427,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](charts/charts_15_1.png "🔼 Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.")
 
-> 🔼 The violin plot visualizes the cosine similarity scores between synthetic images and real images (a) and between synthetic images and text prompts (b) at different image guidance levels.
+> 🔼 The violin plot visualizes the cosine similarity scores between synthetic images and either real images or text prompts across different image guidance levels.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: CLIP Cosine similarity score on ImageNet-LT computed between: (a) Synthetic image - original real images. (b) Synthetic image - defined text prompt.
@@ -436,7 +436,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 
 ![](charts/charts_23_0.png "🔼 Figure 12: Effect of Image Guidance (mixing syn+real). All-level experiments use the synthesis samples from all guidance scales selected for each task. 0.5 refers to only using synthetic data with guidance level λ = 0.5 for fine-tuning. Left: results on iWildCam. Right: results on ImageNet-LT")
 
-> 🔼 The chart displays the effect of various image guidance levels on the performance of the model for both iWildCam and ImageNet-LT datasets, comparing the results of using only one guidance level versus all guidance levels.
+> 🔼 The chart displays the impact of various image guidance levels on out-of-distribution (OOD) F1 score for iWildCam and few-class accuracy for ImageNet-LT, comparing the performance of DisCL with baselines.
 > <details>
 > <summary>read the caption</summary>
 > Figure 12: Effect of Image Guidance (mixing syn+real). All-level experiments use the synthesis samples from all guidance scales selected for each task. 0.5 refers to only using synthetic data with guidance level λ = 0.5 for fine-tuning. Left: results on iWildCam. Right: results on ImageNet-LT
@@ -461,7 +461,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 > </details>
 
 
-> Table 2 presents the accuracy of long-tail classification on CIFAR-100-LT dataset using different methods with various curriculum strategies, showing the impact of DisCL on model performance across different class cardinalities.
+> Table 2 presents the accuracy of long-tail classification on CIFAR-100-LT dataset using different methods and curriculum strategies, showing improvement with DisCL.
 
 
 {{< table-caption >}}
@@ -473,7 +473,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 > </details>
 
 
-> Table 3 presents the accuracy of long-tail classification on the iNaturalist2018 dataset using different methods and curriculum strategies.
+> Table 3 presents the accuracy of long-tail classification on the iNaturalist2018 dataset using ResNet-10 as the base model, comparing different curriculum learning strategies.
 
 
 {{< table-caption >}}
@@ -485,7 +485,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 > </details>
 
 
-> Table 5 presents the in-distribution and out-of-distribution macro F1 scores for low-quality image learning on the iWildCam dataset, comparing different methods including the proposed DisCL approach.
+> Table 5 presents the in-distribution and out-of-distribution macro F1 scores achieved by various methods on the iWildCam dataset for low-quality image learning using CLIP ViT-B/16 model.
 
 
 {{< table-caption >}}
@@ -497,7 +497,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 > </details>
 
 
-> Table 5 presents the in-distribution and out-of-distribution macro F1 scores for low-quality image learning on the iWildCam dataset using various methods, including baselines and the proposed DisCL approach with different curriculum strategies.
+> Table 5 presents a comparison of in-distribution (ID) and out-of-distribution (OOD) macro F1 scores for various methods on the iWildCam dataset, highlighting the impact of DisCL.
 
 
 {{< table-caption >}}
@@ -509,7 +509,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 > </details>
 
 
-> Table 6 presents the statistics of synthetic data generated for four different datasets used in the experiments, including the number of hard samples, image guidance scales, random seeds, and generated images before and after filtering.
+> Table 6 presents the statistics of synthetic data generated for four datasets, including the number of hard samples, image guidance scales, random seeds, and the number of generated images before and after filtering.
 
 
 {{< table-caption >}}
@@ -521,7 +521,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 > </details>
 
 
-> Table 1 shows the accuracy of different methods on the ImageNet-LT dataset for long-tail classification, comparing baselines and the proposed DisCL method with various curriculum strategies.
+> Table 1 presents the accuracy of different methods on ImageNet-LT dataset for long-tail classification, comparing various curriculum learning strategies and baselines.
 
 
 {{< table-caption >}}
@@ -545,7 +545,7 @@ This paper is crucial for researchers working on long-tail learning, low-quality
 > </details>
 
 
-> This table lists the hyperparameters used for synthetic data generation with diffusion models and curriculum learning.
+> This table lists the hyperparameters and their corresponding values used in the synthetic data generation and model training processes for ImageNet-LT and iWildCam datasets.
 
 
 </details>

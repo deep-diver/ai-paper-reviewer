@@ -1,6 +1,6 @@
 ---
 title: "WorldSimBench: Towards Video Generation Models as World Simulators"
-summary: "WorldSimBench: A new benchmark rigorously evaluates video generation models' ability to simulate realistic, actionable videos, advancing embodied AI."
+summary: "WorldSimBench: a new benchmark rigorously evaluates video generation models as embodied AI agents, using dual evaluation (perceptual and manipulative) and the novel HF-Embodied Dataset."
 categories: ["AI Generated"]
 tags: ["🔖 24-10-23", "🤗 24-10-24"]
 showSummary: true
@@ -13,7 +13,7 @@ draft: false
 
 {{< lead >}}
 
-This research introduces WorldSimBench, a novel dual evaluation framework for assessing video generation models as "world simulators."  It moves beyond simplistic aesthetic evaluations by including both explicit perceptual evaluation (assessing visual quality through human preference) and implicit manipulative evaluation (checking if the generated videos can be accurately translated into actions within dynamic environments).  The framework covers three scenarios: open-ended embodied environments, autonomous driving, and robotic manipulation.  A new dataset, HF-Embodied, is introduced to support human-in-the-loop evaluation of video generation. The findings highlight the strengths and limitations of current world simulators, offering key insights for future development.  The paper also proposes a hierarchy to categorize predictive models based on their degree of embodiment.
+This research introduces WorldSimBench, a novel benchmark for evaluating video generation models designed to function as embodied AI agents. Unlike existing benchmarks, WorldSimBench uses a dual evaluation approach:  Explicit Perceptual Evaluation (assessing visual quality and consistency via a Human Preference Evaluator trained on the new HF-Embodied Dataset) and Implicit Manipulative Evaluation (assessing how well generated videos translate into correct actions within dynamic environments).  The evaluation covers three representative scenarios: Open-Ended Embodied Environments, Autonomous Driving, and Robot Manipulation.  The study reveals current limitations in video generation models, particularly in accurately representing physical rules, and highlights the need for further innovation in embodied AI.  The resulting HF-Embodied Dataset is a valuable resource for researchers.
 
 {{< /lead >}}
 
@@ -21,25 +21,25 @@ This research introduces WorldSimBench, a novel dual evaluation framework for as
 {{< button href="https://arxiv.org/abs/2410.18072" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br><br>
 {{< button href="https://huggingface.co/papers/2410.18072" target="_self" >}}
 {{< icon "hf-logo" >}} &nbsp; on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
-This paper is crucial for researchers in AI, especially those working on video generation and embodied AI.  It introduces a novel benchmark, WorldSimBench, rigorously evaluating predictive models' ability to generate realistic and actionable videos, pushing the boundaries of embodied AI. The benchmark's dual evaluation framework, encompassing both visual fidelity and action consistency, provides much needed standardization and will likely shape future research in the field.  The proposed HF-Embodied dataset, a valuable resource for training human-aligned video evaluators, further strengthens its impact.
+This paper is crucial for researchers in AI, particularly those working on video generation and embodied AI. It introduces a novel benchmark, WorldSimBench, which addresses the limitations of existing benchmarks in evaluating highly embodied predictive models.  The benchmark's dual evaluation framework (explicit perceptual and implicit manipulative evaluation) provides a more comprehensive and human-centric assessment.  The creation of the HF-Embodied Dataset, a valuable resource for training Human Preference Evaluators, further enhances the paper's significance. This work is timely and relevant to the current surge in research on embodied AI and video generation, opening exciting new avenues for research and innovation.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} WorldSimBench provides a dual evaluation framework assessing both perceptual video quality and action consistency. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} WorldSimBench offers a dual evaluation framework for embodied AI video generation models, addressing existing benchmark limitations. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The HF-Embodied dataset facilitates training human-aligned video quality evaluators. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The HF-Embodied Dataset provides a valuable resource for training Human Preference Evaluators. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The study categorizes predictive models based on embodiment levels, offering a new hierarchy for evaluation. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The study reveals that current video generation models need significant improvements in accurately capturing physical rules and generating highly embodied actions. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -49,7 +49,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 ![](figures/figures_2_0.png)
 
-> 🔼 Figure 1 illustrates the hierarchical capabilities of predictive models, showing the progression from text prediction to actionable video generation and introducing WorldSimBench, a dual evaluation framework.
+> 🔼 Figure 1 shows a hierarchical system categorizing predictive models by their capabilities and level of embodiment, and introduces WorldSimBench, a dual evaluation framework for assessing World Simulators.
 > <details>
 > <summary>read the caption</summary>
 > Figure 1: Overview of the hierarchical capabilities of the Predictive Models. Models at higher stages demonstrate more advanced capabilities. We take the initial step in evaluating Predictive Generative Models up to the S3 stage, known as World Simulators, by introducing a parallel evaluation framework, WorldSimBench. WorldSimBench assesses the models both Explicit Perceptual Evaluation and Implicit Manipulative Evaluation, focusing on video generation and action transformation across three critical embodied scenarios.
@@ -61,7 +61,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 ![](charts/charts_9_0.png)
 
-> 🔼 The radar chart visualizes the performance of multiple video generation models across different evaluation dimensions within three embodied scenarios.
+> 🔼 The radar chart visualizes the performance of eight different video generation models across three embodied scenarios (OE, AD, RM) based on various evaluation dimensions.
 > <details>
 > <summary>read the caption</summary>
 > Figure 4: Result of Explicit Perceptual Evaluation across three embodied scenarios. Scores in each embodied scenario are normalized to 0-1. The abbreviations are listed in Tab. 2.
@@ -74,7 +74,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 {{< table-caption >}}
 <br><table id='1' style='font-size:14px'><tr><td>Benchmark</td><td>Input Modality</td><td>Output Modality</td><td>Based Method</td><td>Stage</td><td>Interactive Env.</td><td>Evaluation Strategy</td></tr><tr><td>AgentBench Liu et al. 2023b</td><td>Text</td><td>Text</td><td>LLM</td><td>So</td><td>Task-Level</td><td>Human Judgement</td></tr><tr><td>EgoPlan-Bench Chen etal. 2023</td><td>Text & Images</td><td>Text</td><td>MLLM</td><td>So</td><td>N/A</td><td>Multi-choice</td></tr><tr><td>MMWorld He et al. 2024</td><td>Text & Images</td><td>Text</td><td>MLLM</td><td>So</td><td>N/A</td><td>GPT Judgement</td></tr><tr><td>VAB Liu et al. 2024a</td><td>Text & Images</td><td>Text</td><td>MLLM</td><td>So</td><td>Task-Level</td><td>Human Judgement</td></tr><tr><td>LEGO Lai et al. 2023</td><td>Text & Images</td><td>Image</td><td>IGM</td><td>S1</td><td>Task-Level</td><td>Feature Similarity</td></tr><tr><td>VBench Huang etal. 2024</td><td>Text</td><td>Video</td><td>VGM</td><td>S2</td><td>N/A</td><td>Feature Similarity</td></tr><tr><td>EvalCrafter Liu etal. 2024b</td><td>Text & Images</td><td>Video</td><td>VGM</td><td>S2</td><td>N/A</td><td>Feature Similarity</td></tr><tr><td>WorldSimBench</td><td>Text & Images</td><td>Actionable Video</td><td>VGM</td><td>S3</td><td>Action-Level</td><td>Human Preference Evaluator Embodied Metric</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 compares existing predictive model benchmarks based on input/output modalities, methods, stages, interactive environments, and evaluation strategies.
+> 🔼 Table 1 compares existing predictive model benchmarks based on input modality, output modality, method, stage, interactive environment, and evaluation strategy.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Comparisons between existing Predictive Model benchmarks. Interactive Environment refers to the interaction with the simulation environment during the prediction phase. Task-Level Interaction denotes that each task interacts once, whereas Action-Level Interaction represents the frequency of interactions that occur through the generation of actions for control purposes.
@@ -91,7 +91,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 ![](figures/figures_5_0.png)
 
-> 🔼 This figure illustrates the process of generating the HF-Embodied dataset for explicit perceptual evaluation, which involves instruction prompt generation, data generation model training, and fine-grained human feedback annotation.
+> 🔼 The figure illustrates the process of Explicit Perceptual Evaluation, including instruction prompt generation and HF-Embodied dataset creation with fine-grained human feedback annotation.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Overview of Explicit Perceptual Evaluation. (Top) Instruction Prompt Generation. We use a large collection of video captions from the internet and our predefined embodied evaluation dimensions. These are expanded using GPT and manually verified to create a corresponding Task Instruction Prompt List for data generation and evaluation. (Bottom) HF-Embodied Dataset Generation. Massive internet-sourced embodied videos with captions are used to train data generation models. Fine-grained Human Feedback Annotation is then applied to the embodied videos according to the corresponding Task Instruction Prompt List, covering multiple embodied dimensions.
@@ -101,7 +101,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 ![](figures/figures_7_0.png)
 
-> 🔼 The figure illustrates the process of Implicit Manipulative Evaluation, decomposing embodied tasks into sub-tasks, using video generation models and video-to-action mapping to evaluate task performance.
+> 🔼 The figure illustrates the Implicit Manipulative Evaluation process, showing how embodied tasks are broken down into sub-tasks, video generation models predict videos, and video-to-action mappings allow agents to execute actions in simulation environments.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Overview of Implicit Manipulative Evaluation. Embodied tasks in different scenarios are decomposed into executable sub-tasks. The video generation model generates corresponding predicted videos based on the current instructions and real-time observations. Using a pre-trained IDM or a goal-based policy, the agent executes the generated sequence of actions. After a fixed timestep, the predicted video is refreshed by sampling again from the video generation model, and this process repeats. Finally, the success rates of various embodied tasks are obtained through monitors in the simulation environment.
@@ -111,7 +111,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 ![](figures/figures_22_0.png)
 
-> 🔼 Figure 7 shows a sequence of images from a Minecraft environment illustrating the execution of a task in the Implicit Manipulative Evaluation.
+> 🔼 The figure shows a sequence of images from the Minecraft environment illustrating the agent's actions in response to the instruction to collect wood.
 > <details>
 > <summary>read the caption</summary>
 > Figure 7: Rollout of Open-Ended Embodied Environment in Implicit Manipulative Evaluation.
@@ -121,7 +121,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 ![](figures/figures_24_0.png)
 
-> 🔼 The figure shows a sequence of frames from an autonomous driving simulation, illustrating the execution process in the Implicit Manipulative Evaluation.
+> 🔼 The figure shows a sequence of frames from the Autonomous Driving simulation environment, illustrating the execution of a driving task guided by a video generation model.
 > <details>
 > <summary>read the caption</summary>
 > Figure 8: Rollout of Autonomous Driving in Implicit Manipulative Evaluation.
@@ -131,7 +131,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 ![](figures/figures_26_0.png)
 
-> 🔼 The figure shows a sequence of images illustrating the steps involved in a robot manipulation task within the Implicit Manipulative Evaluation process.
+> 🔼 The figure shows a sequence of images depicting the steps involved in a robot manipulation task, illustrating the process of translating video predictions into executable actions.
 > <details>
 > <summary>read the caption</summary>
 > Figure 9: Rollout of Robot Manipulation in Implicit Manipulative Evaluation.
@@ -150,6 +150,18 @@ This paper is crucial for researchers in AI, especially those working on video g
 
 
 {{< table-caption >}}
+<br><table id='1' style='font-size:14px'><tr><td>Embodied Scenarios</td><td>Visual Quality</td><td>Condition Consistency</td><td>Embodiment</td></tr><tr><td>Open-Ended Embodied Environment (OE)</td><td>Background Consistency (BC) Foreground Consistency (FC)</td><td>Instruction Alignment (IA) Scenario Alignment (SA)</td><td>Velocity (VC) Trajectory (TJ) Embodied Interaction (EI)</td></tr><tr><td>Autonomous Driving (AD)</td><td>Aesthetics (AE)</td><td>Instruction Alignment (IA)</td><td>Perspectivity (PV) Trajectory (TJ) Key Element (KE) Safety (SF)</td></tr><tr><td>Robot Manipulation (RM)</td><td>Aesthetics (AE) Background Consistency (BC) Foreground Consistency (FC)</td><td>Instruction Alignment (IA)</td><td>Perspectivity (PV) Trajectory (TJ) Embodied Interaction (EI)</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
+
+> This table compares existing Predictive Model benchmarks across various features including input/output modalities, methods, evaluation strategies, and interaction types.
+
+
+{{< table-caption >}}
 <br><table id='1' style='font-size:14px'><tr><td>Embodied Scenario</td><td>GPT-4o</td><td>HPE</td><td>GPT-4o@OpenSora</td><td>HPE@OpenSora</td><td>GPT-4o@Lavie</td><td>HPE@Lavie</td></tr><tr><td>OE@Acc(↑)</td><td>72.8</td><td>89.4</td><td>66.5</td><td>71.6</td><td>78.5</td><td>87.9</td></tr><tr><td>AD @ PLCC(↑)</td><td>0.28</td><td>0.60</td><td>0.03</td><td>0.34</td><td>-0.04</td><td>0.49</td></tr><tr><td>RM@PLCC(↑)</td><td>0.07</td><td>0.43</td><td>-0.06</td><td>0.47</td><td>0.17</td><td>0.44</td></tr></table>{{< /table-caption >}}
 > 🔼 {{ table.description }}
 > <details>
@@ -158,7 +170,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> The table compares the overall performance of the Human Preference Evaluator and GPT-40 across three embodied scenarios (Open-Ended Embodied Environment, Autonomous Driving, and Robot Manipulation) using different evaluation metrics.
+> The table compares the overall performance of the Human Preference Evaluator and GPT-40 across three embodied scenarios (OE, AD, RM) using different metrics (Acc, PLCC).
 
 
 {{< table-caption >}}
@@ -170,19 +182,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> Table 4 presents the analysis of the HF-Embodied Dataset, showing the number of instructions, videos, dimensions, actions, positive samples, and negative samples for each of the three embodied scenarios.
-
-
-{{< table-caption >}}
-<table id='7' style='font-size:14px'><tr><td>Model</td><td>Open-Sora-Plan</td><td>Lavie</td><td>ModelScope</td><td>OpenSora</td><td>AnimateDiff</td><td>DynamicCrafter</td><td>EasyAnimate</td></tr><tr><td>Short Videos(frames)</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td><td>16</td></tr><tr><td>Long Videos(frames)</td><td>64</td><td>48</td><td>60</td><td>48</td><td>64</td><td>60</td><td>64</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
-> <details>
-> <summary>read the caption</summary>
-> {{ table.caption }}
-> </details>
-
-
-> The table presents the number of training frames used for short and long videos across eight different video generation models.
+> Table 4 presents the analysis of the HF-Embodied Dataset, showing the number of instructions, videos, dimensions, actions, positive, and negative samples for each of the three embodied scenarios.
 
 
 {{< table-caption >}}
@@ -194,7 +194,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> This table compares various existing predictive model benchmarks across different dimensions, including input/output modalities, methods, evaluation strategies, and interaction types.
+> This table compares existing predictive model benchmarks across various dimensions, including input/output modality, method stage, interactive environment, and evaluation strategy.
 
 
 {{< table-caption >}}
@@ -206,7 +206,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> This table compares existing predictive model benchmarks based on input modality, output modality, method, stage, interactive environment, and evaluation strategy.
+> The table presents the evaluation results of seven video generation models across seven dimensions for the Open-Ended Embodied Environment scenario.
 
 
 {{< table-caption >}}
@@ -218,7 +218,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> The table presents a comparison of the performance of several video generation models across various evaluation dimensions (Aesthetics, Instruction Alignment, Perspectivity, Trajectory, Key Element, Safety) in the context of Autonomous Driving.
+> The table presents a comparison of eight video generation models' performance across six evaluation dimensions (Aesthetics, Instruction Alignment, Perspectivity, Trajectory, Key Element, and Safety) in the Autonomous Driving scenario.
 
 
 {{< table-caption >}}
@@ -230,7 +230,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> This table categorizes the evaluation dimensions for three embodied scenarios (Open-Ended Embodied Environment, Autonomous Driving, and Robot Manipulation) into three aspects: Visual Quality, Condition Consistency, and Embodiment, each with specific sub-dimensions.
+> This table presents a hierarchical categorization of evaluation dimensions for three embodied scenarios, categorized into Visual Quality, Condition Consistency, and Embodiment.
 
 
 {{< table-caption >}}
@@ -242,7 +242,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> This table compares various existing predictive model benchmarks, highlighting their input/output modalities, methodologies, and interaction levels with the environment.
+> This table compares different existing benchmarks for evaluating predictive models based on their input modality, output modality, the stage of the predictive model, interactive environment, evaluation strategy, and key elements.
 
 
 {{< table-caption >}}
@@ -254,7 +254,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> This table presents the evaluation results of three video generation models across eight metrics in the Autonomous Driving scenario of the Implicit Manipulative Evaluation.
+> The table presents the evaluation results of three video generation models across eight metrics in the autonomous driving task within the Implicit Manipulative Evaluation.
 
 
 {{< table-caption >}}
@@ -266,7 +266,7 @@ This paper is crucial for researchers in AI, especially those working on video g
 > </details>
 
 
-> Table 1 compares existing predictive model benchmarks across various criteria, including input/output modalities, model type, interaction type, and evaluation strategy.
+> Table 1 compares existing predictive model benchmarks across various dimensions, including input/output modalities, evaluation strategies, and interaction frequency with the environment.
 
 
 </details>
