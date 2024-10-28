@@ -42,8 +42,8 @@ jobs:
           pip install -r requirements.txt
           sudo apt install poppler-utils
           sudo chmod 777 ./run.sh
-          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} ./run.sh ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }} ${{ github.event.inputs.num_threads }}
-          ./gen_articles.py ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }}
+          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} ./run-linux.sh ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }} ${{ github.event.inputs.num_threads }}
+          ./gen-articles-linux.sh ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }}
           
       - name: Move Articles to Repository A
         run: |
