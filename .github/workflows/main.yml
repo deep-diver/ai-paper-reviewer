@@ -1,0 +1,54 @@
+name: update
+
+on: 
+  # schedule:
+  #   - cron: "0 20 * * *"
+  workflow_dispatch:
+    inputs:
+      start_date:
+        required: true
+        type: string
+      end_date:
+        required: true
+        type: string
+        
+jobs:
+  update-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository A
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Checkout Repository B
+        uses: actions/checkout@v3
+        with:
+          repository: 'deep-diver/paper-reviewer' # Replace with the actual owner and name of repository B
+          token: ${{ secrets.GH_TOKEN }} # Create a PAT with read access to repository B and store it as a secret in repository A
+          path: 'paper-reviewer'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Setup dependencies and run the script
+      - run: |
+          cd paper-reviewer
+          pip install -r requirements.txt
+          apt install poppler-utils
+          chmod 777 ./run.sh
+          GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} ./run.sh ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }}
+          ./gen_articles.py ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }}
+          
+      - name: Move Articles to Repository A
+        run: |
+          mv paper-reviewer/articles/* ./content/paper-reviews/ # Assuming articles are generated in the 'public' directory of repository B and need to be moved to the root of repository A
+
+      - name: Commit and Push Changes
+        run: |
+          git config user.name 'Chansung'
+          git config user.email 'deep.diver.csp@gmail.com'
+          git add .
+          git commit -m "Automated update of static pages"
+          git push
