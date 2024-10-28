@@ -36,8 +36,8 @@ jobs:
         run: |
           cd paper-reviewer
           pip install -r requirements.txt
-          apt install poppler-utils
-          chmod 777 ./run.sh
+          sudo apt install poppler-utils
+          sudo chmod 777 ./run.sh
           GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} ./run.sh ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }}
           ./gen_articles.py ${{ github.event.inputs.start_date }} ${{ github.event.inputs.end_date }}
           
