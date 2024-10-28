@@ -75,6 +75,10 @@ mainSections = ["paper-reviews"]
   cardViewScreenWidth = false
   showTaxonomies = true
 
+[buymeacoffee]
+  identifier = chansung
+  globalWidget = true
+
 [sitemap]
   excludedKinds = []
 
