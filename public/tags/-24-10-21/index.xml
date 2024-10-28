@@ -9,26 +9,6 @@
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
     <lastBuildDate>Mon, 21 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-24-10-21/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/</guid>
-      <description>3DGS-Enhancer boosts realistic 3D scene generation from limited viewpoints by cleverly using 2D video diffusion priors to improve 3D view consistency.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/cover.png" />
-    </item>
-    
-    <item>
-      <title>Agent-to-Sim: Learning Interactive Behavior Models from Casual Longitudinal Videos</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16259/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16259/</guid>
-      <description>Agent-to-Sim (ATS) learns interactive 3D agent behaviors from casual longitudinal videos using a novel coarse-to-fine registration and generative modeling approach, enabling real-to-sim transfer for v&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16259/cover.png" />
-    </item>
-    
-    <item>
       <title>Alchemy: Amplifying Theorem-Proving Capability through Symbolic Mutation</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15748/</link>
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
@@ -46,36 +26,6 @@
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15735/</guid>
       <description>AutoTrain: a no-code, open-source library simplifies training state-of-the-art models for diverse tasks, democratizing access to advanced AI.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15735/cover.png" />
-    </item>
-    
-    <item>
-      <title>Can Knowledge Editing Really Correct Hallucinations?</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/</guid>
-      <description>HalluEditBench: A new benchmark reveals whether knowledge editing truly fixes LLM hallucinations, offering insights into efficacy, generalization, and robustness.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16251/cover.png" />
-    </item>
-    
-    <item>
-      <title>CompassJudger-1: All-in-one Judge Model Helps Model Evaluation and Evolution</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16256/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16256/</guid>
-      <description>CompassJudger-1: An open-source, all-in-one judge LLM offering robust generalization and diverse evaluation capabilities, enhanced by the new JudgerBench benchmark, propelling LLM evaluation forward.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16256/cover.png" />
-    </item>
-    
-    <item>
-      <title>FrugalNeRF: Fast Convergence for Few-shot Novel View Synthesis without Learned Priors</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16271/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16271/</guid>
-      <description>FrugalNeRF: a novel few-shot NeRF, achieves high-fidelity 3D scene reconstruction with significantly faster convergence, eliminating the need for external data or complex scheduling.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16271/cover.png" />
     </item>
     
     <item>
@@ -99,16 +49,6 @@
     </item>
     
     <item>
-      <title>LLM-based Optimization of Compound AI Systems: A Survey</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/</guid>
-      <description>This survey explores using LLMs to optimize compound AI systems, offering a unified framework based on program analysis to understand and improve LLM-based optimization strategies.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/cover.png" />
-    </item>
-    
-    <item>
       <title>Mitigating Object Hallucination via Concentric Causal Attention</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15926/</link>
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
@@ -126,16 +66,6 @@
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16153/</guid>
       <description>PANGEA: A fully open multilingual, multimodal LLM for 39 languages, significantly outperforming existing models in diverse cultural contexts.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16153/cover.png" />
-    </item>
-    
-    <item>
-      <title>Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/</guid>
-      <description>Pantograph, a new Lean 4 tool, revolutionizes machine-assisted theorem proving by offering a seamless interface for integrating machine learning models and proof assistants, enabling more efficient an&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16429/cover.png" />
     </item>
     
     <item>
@@ -159,16 +89,6 @@
     </item>
     
     <item>
-      <title>SAM2Long: Enhancing SAM 2 for Long Video Segmentation with a Training-Free Memory Tree</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16268/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16268/</guid>
-      <description>SAM2Long enhances video object segmentation by using a training-free memory tree, significantly improving accuracy and handling of occlusions and reappearing objects in long videos.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16268/cover.png" />
-    </item>
-    
-    <item>
       <title>Selecting Influential Samples for Long Context Alignment via Homologous Models&#39; Guidance and Contextual Awareness Measurement</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15633/</link>
       <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
@@ -186,16 +106,6 @@
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/</guid>
       <description>SPARE, a training-free method, uses sparse autoencoders to precisely steer LLMs&amp;rsquo; knowledge selection, resolving conflicts between memory and context for improved accuracy.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15999/cover.png" />
-    </item>
-    
-    <item>
-      <title>xGen-MM-Vid (BLIP-3-Video): You Only Need 32 Tokens to Represent a Video Even in VLMs</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/</guid>
-      <description>BLIP-3-Video achieves state-of-the-art video question answering with only 32 visual tokens, drastically reducing computational costs while maintaining high accuracy.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/cover.png" />
     </item>
     
   </channel>

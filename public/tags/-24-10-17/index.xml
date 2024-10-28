@@ -9,16 +9,6 @@
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
     <lastBuildDate>Thu, 17 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-24-10-17/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ARKit LabelMaker: A New Scale for Indoor 3D Scene Understanding</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13924/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13924/</guid>
-      <description>ARKit LabelMaker creates a massive, real-world 3D dataset with dense semantic labels, automatically generated to boost indoor scene understanding model performance.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13924/cover.png" />
-    </item>
-    
-    <item>
       <title>CBT-Bench: Evaluating Large Language Models on Assisting Cognitive Behavior Therapy</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13218/</link>
       <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
@@ -59,46 +49,6 @@
     </item>
     
     <item>
-      <title>DPLM-2: A Multimodal Diffusion Protein Language Model</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13782/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13782/</guid>
-      <description>DPLM-2: a new multimodal model revolutionizes protein design by simultaneously generating protein sequences and 3D structures, surpassing existing methods in accuracy and diversity.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13782/cover.png" />
-    </item>
-    
-    <item>
-      <title>FiTv2: Scalable and Improved Flexible Vision Transformer for Diffusion Model</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13925/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13925/</guid>
-      <description>FiTv2, an enhanced vision transformer, enables efficient and high-quality image generation at arbitrary resolutions and aspect ratios, surpassing existing diffusion models.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13925/cover.png" />
-    </item>
-    
-    <item>
-      <title>In-context learning and Occam&#39;s razor</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14086/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14086/</guid>
-      <description>This study reveals that in-context learning implicitly minimizes model complexity alongside training error, providing a theoretical basis for Occam&amp;rsquo;s Razor in modern sequence models.</description>
-      
-    </item>
-    
-    <item>
-      <title>Looking Inward: Language Models Can Learn About Themselves by Introspection</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13787/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13787/</guid>
-      <description>Language models can learn about themselves through introspection, outperforming other models in self-prediction tasks, showcasing a surprising new capability and challenging prevailing assumptions abo&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13787/cover.png" />
-    </item>
-    
-    <item>
       <title>MagicTailor: Component-Controllable Personalization in Text-to-Image Diffusion Models</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13370/</link>
       <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
@@ -119,16 +69,6 @@
     </item>
     
     <item>
-      <title>PUMA: Empowering Unified MLLM with Multi-granular Visual Generation</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13861/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13861/</guid>
-      <description>PUMA: a unified multi-granular MLLM mastering diverse visual tasks by seamlessly integrating image generation and understanding, achieving both high diversity and precise controllability.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13861/cover.png" />
-    </item>
-    
-    <item>
       <title>Router-Tuning: A Simple and Effective Approach for Enabling Dynamic-Depth in Transformers</title>
       <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13184/</link>
       <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
@@ -146,36 +86,6 @@
       <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13276/</guid>
       <description>SeerAttention learns to automatically identify and leverage inherent attention sparsity in LLMs, drastically boosting inference speed and scalability while maintaining accuracy.</description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13276/cover.png" />
-    </item>
-    
-    <item>
-      <title>SemiEvol: Semi-supervised Fine-tuning for LLM Adaptation</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14745/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14745/</guid>
-      <description>SEMIEVOL: A novel semi-supervised fine-tuning framework boosts LLM performance by cleverly integrating labeled and unlabeled data via knowledge propagation and adaptive selection, enabling efficient m&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14745/cover.png" />
-    </item>
-    
-    <item>
-      <title>Steering Your Generalists: Improving Robotic Foundation Models via Value Guidance</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13816/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13816/</guid>
-      <description>Value-Guided Policy Steering (V-GPS) significantly boosts the performance of generalist robotic policies by re-ranking actions via offline RL, without retraining, improving both precision and robustne&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.13816/cover.png" />
-    </item>
-    
-    <item>
-      <title>UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14059/</link>
-      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14059/</guid>
-      <description>UCFE benchmark realistically evaluates LLMs&amp;rsquo; financial expertise via user-centric design and dynamic interactions, revealing performance gaps and highlighting the need for more robust, human-aligned m&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14059/cover.png" />
     </item>
     
     <item>

@@ -22,6 +22,10 @@ This research introduces KeyNMF, a novel approach to topic modeling that leverag
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
 
+{{< button href="https://huggingface.co/papers/2410.12791" target="_self" >}}
+{{< icon "hf-logo" >}} &nbsp; on Hugging Face
+{{< /button >}}
+
 #### Why does it matter?
 This paper is crucial for researchers studying information dynamics and media manipulation, offering a novel approach to topic modeling and a valuable dataset of Chinese diaspora media. Its findings on the correlation between media narratives and political events can influence future research on media's role in shaping public opinion and electoral processes. The open-source code and data further enhance the paper's significance by enabling further research and replication.
 #### Key Takeaways
@@ -43,26 +47,38 @@ This paper is crucial for researchers studying information dynamics and media ma
 
 
 
-![](figures/figures_8_0.png "🔼 Figure 3: The number of new articles collected at each time point for each source. An article is 'new' if it did not appear in the collected set of articles from the previous time point.")
+![](figures/figures_8_0.png)
 
-> Figure 3 shows the number of new articles collected at each time point for five different Chinese diaspora news websites.
-
-
-
-
-
-![](charts/charts_6_0.png "🔼 Figure 1: Sensitivity of KeyNMF to the choice of N keywords on multiple metrics and news sources.")
-
-> The chart displays the sensitivity of KeyNMF's performance to the number of keywords used across multiple metrics and news sources.
+> 🔼 Figure 3 shows the number of new articles collected at each time point for five different Chinese diaspora news websites.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: The number of new articles collected at each time point for each source. An article is 'new' if it did not appear in the collected set of articles from the previous time point.
+> </details>
 
 
 
 
 
-{{< table-caption caption="🔽 Table 1 KeyNMF's performance on Chinese news data against a number of baselines. Topic descriptions were evaluated on diversity (d), internal (Cin) and external (Cex) word embedding coherence." >}}
+![](charts/charts_6_0.png)
+
+> 🔼 The chart displays the sensitivity of KeyNMF's performance to the number of keywords used across multiple metrics and news sources.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: Sensitivity of KeyNMF to the choice of N keywords on multiple metrics and news sources.
+> </details>
+
+
+
+
+
+{{< table-caption >}}
 <br><table id='2' style='font-size:14px'><tr><td></td><td colspan="3">chinanews</td><td colspan="3">ihuawen</td><td colspan="3">oushinet</td><td colspan="3">xinozhou</td><td colspan="3">yidali-huarenjie</td></tr><tr><td>Model</td><td>d</td><td>Cin</td><td>Cex</td><td>d</td><td>Cin</td><td>Cex</td><td>d</td><td>Cin</td><td>Cex</td><td>d</td><td>Cin</td><td>Cex</td><td>d</td><td>Cin</td><td>Cex</td></tr><tr><td>KeyNMF</td><td>0.93</td><td>0.29</td><td>0.63</td><td>0.91</td><td>0.17</td><td>0.64</td><td>0.84</td><td>0.23</td><td>0.58</td><td>0.85</td><td>0.26</td><td>0.55</td><td>0.88</td><td>0.52</td><td>0.57</td></tr><tr><td>S3</td><td>0.91</td><td>0.16</td><td>0.47</td><td>0.91</td><td>0.11</td><td>0.47</td><td>0.83</td><td>0.12</td><td>0.54</td><td>0.96</td><td>0.17</td><td>0.55</td><td>0.93</td><td>0.46</td><td>0.52</td></tr><tr><td>Top2Vec</td><td>0.78</td><td>0.14</td><td>0.71</td><td>0.83</td><td>0.10</td><td>0.70</td><td>0.87</td><td>0.12</td><td>0.73</td><td>0.86</td><td>0.14</td><td>0.71</td><td>0.75</td><td>0.46</td><td>0.69</td></tr><tr><td>BERTopic</td><td>0.89</td><td>0.31</td><td>0.52</td><td>0.89</td><td>0.26</td><td>0.50</td><td>0.84</td><td>0.23</td><td>0.50</td><td>0.84</td><td>0.26</td><td>0.52</td><td>0.91</td><td>0.57</td><td>0.51</td></tr><tr><td>CTMcombined</td><td>0.99</td><td>0.27</td><td>0.52</td><td>0.99</td><td>0.23</td><td>0.51</td><td>0.99</td><td>0.21</td><td>0.51</td><td>0.98</td><td>0.25</td><td>0.51</td><td>0.97</td><td>0.54</td><td>0.49</td></tr><tr><td>CTMzeroshot</td><td>0.99</td><td>0.28</td><td>0.53</td><td>0.99</td><td>0.23</td><td>0.50</td><td>0.99</td><td>0.22</td><td>0.50</td><td>1.00</td><td>0.26</td><td>0.51</td><td>0.97</td><td>0.54</td><td>0.51</td></tr><tr><td>NMF</td><td>0.74</td><td>0.27</td><td>0.57</td><td>0.60</td><td>0.18</td><td>0.53</td><td>0.64</td><td>0.18</td><td>0.54</td><td>0.66</td><td>0.18</td><td>0.56</td><td>0.71</td><td>0.49</td><td>0.54</td></tr><tr><td>LDA</td><td>0.61</td><td>0.19</td><td>0.57</td><td>0.53</td><td>0.16</td><td>0.54</td><td>0.41</td><td>0.13</td><td>0.54</td><td>0.48</td><td>0.14</td><td>0.58</td><td>0.57</td><td>0.34</td><td>0.54</td></tr></table>{{< /table-caption >}}
 
-> Table 1 presents KeyNMF's performance against other topic modeling baselines, evaluated across multiple metrics on various Chinese news datasets.
+> 🔼 Table 1 presents KeyNMF's performance against other topic modeling baselines, evaluated across multiple metrics on various Chinese news datasets.
+> <details>
+> <summary>read the caption</summary>
+> Table 1 KeyNMF's performance on Chinese news data against a number of baselines. Topic descriptions were evaluated on diversity (d), internal (Cin) and external (Cex) word embedding coherence.
+> </details>
 
 
 
@@ -73,14 +89,24 @@ This paper is crucial for researchers studying information dynamics and media ma
 </summary>
 
 
-![](figures/figures_17_0.png "🔼 Figure 7: The distributions over time for two topics with high pseudo-probabilities before Putin’s state visit to China. These topics are generated by the 10-topic KeyNMF model for Oushinet. Note that the y-axis scale differs for each subplot.")
+![](figures/figures_17_0.png)
 
-> Figure 7 shows the change in topic distributions over time for two topics in Oushinet news before Putin's visit to China, highlighting the shift in focus.
+> 🔼 Figure 7 shows the change in topic distributions over time for two topics in Oushinet news before Putin's visit to China, highlighting the shift in focus.
+> <details>
+> <summary>read the caption</summary>
+> Figure 7: The distributions over time for two topics with high pseudo-probabilities before Putin’s state visit to China. These topics are generated by the 10-topic KeyNMF model for Oushinet. Note that the y-axis scale differs for each subplot.
+> </details>
 
 
-![](figures/figures_19_0.png "🔼 Figure 9: The distributions over time for five topics with high pseudo-probabilities during Xi Jinping's European tour. These topics are generated by the 10-topic KeyNMF models for Oushinet and Xinouzhou. Note that the y-axis scale differs for each subplot.")
 
-> The figure shows the pseudo-probability distributions over time for five topics with high pseudo-probabilities during Xi Jinping's European tour, generated by the 10-topic KeyNMF models for Oushinet and Xinouzhou.
+![](figures/figures_19_0.png)
+
+> 🔼 The figure shows the pseudo-probability distributions over time for five topics with high pseudo-probabilities during Xi Jinping's European tour, generated by the 10-topic KeyNMF models for Oushinet and Xinouzhou.
+> <details>
+> <summary>read the caption</summary>
+> Figure 9: The distributions over time for five topics with high pseudo-probabilities during Xi Jinping's European tour. These topics are generated by the 10-topic KeyNMF models for Oushinet and Xinouzhou. Note that the y-axis scale differs for each subplot.
+> </details>
+
 
 
 </details>

@@ -22,6 +22,10 @@ AutoTrain is a revolutionary open-source tool designed to make training cutting-
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
 
+{{< button href="https://huggingface.co/papers/2410.15735" target="_self" >}}
+{{< icon "hf-logo" >}} &nbsp; on Hugging Face
+{{< /button >}}
+
 #### Why does it matter?
 This paper is crucial for researchers in machine learning and AI, particularly those working on model training and deployment. AutoTrain offers a significant advancement by simplifying the complex process of training state-of-the-art models, making it accessible to a wider audience. Its open-source nature and support for various tasks encourage wider adoption and further development, opening new avenues for research in automated machine learning and efficient model customization.
 #### Key Takeaways
@@ -43,9 +47,13 @@ This paper is crucial for researchers in machine learning and AI, particularly t
 
 
 
-![](figures/figures_2_0.png "🔼 Figure 1: A screenshot of the AutoTrain User Interface (UI)")
+![](figures/figures_2_0.png)
 
-> The figure shows a screenshot of the AutoTrain user interface, which provides a graphical user interface for configuring and running model training tasks.
+> 🔼 The figure shows a screenshot of the AutoTrain user interface, which provides a graphical user interface for configuring and running model training tasks.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: A screenshot of the AutoTrain User Interface (UI)
+> </details>
 
 
 

@@ -1,141 +1,71 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>🤗 24-10-23 on AI Paper Reviews by AI</title>
+    <title>🔖 24-10-23 on AI Paper Reviews by AI</title>
     <link>http://localhost:1313/ai-paper-reviewer/tags/-24-10-23/</link>
-    <description>Recent content in 🤗 24-10-23 on AI Paper Reviews by AI</description>
+    <description>Recent content in 🔖 24-10-23 on AI Paper Reviews by AI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 AI Paper Reviews by AI</copyright>
-    <lastBuildDate>Tue, 22 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-24-10-23/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/ai-paper-reviewer/tags/-24-10-23/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Aligning Large Language Models via Self-Steering Optimization</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17131/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      <title>ADEM-VL: Adaptive and Embedded Fusion for Efficient Vision-Language Tuning</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17131/</guid>
-      <description>Self-Steering Optimization (SSO) autonomously generates high-quality preference signals for aligning LLMs, eliminating manual annotation and improving model performance significantly.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17131/cover.png" />
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/</guid>
+      <description>ADEM-VL: A novel vision-language tuning framework achieves state-of-the-art accuracy with significantly reduced computational cost and parameters, using a parameter-free cross-attention mechanism and &amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17779/cover.png" />
     </item>
     
     <item>
-      <title>Frontiers in Intelligent Colonoscopy</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17241/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      <title>Lightweight Neural App Control</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17883/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17241/</guid>
-      <description>Revolutionizing colonoscopy, this study introduces ColonINST, a massive multimodal dataset, and ColonGPT, a powerful language model, enabling interactive, AI-assisted colonoscopy and improving diagnos&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17241/cover.png" />
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17883/</guid>
+      <description>LiMAC, a lightweight neural app control architecture, uses a hybrid approach combining a small Action Transformer with a fine-tuned vision-language model for precise, real-time mobile app control, out&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17883/cover.png" />
     </item>
     
     <item>
-      <title>JMMMU: A Japanese Massive Multi-discipline Multimodal Understanding Benchmark for Culture-aware Evaluation</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17250/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      <title>MIA-DPO: Multi-Image Augmented Direct Preference Optimization For Large Vision-Language Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17637/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17250/</guid>
-      <description>JMMMU, a new Japanese benchmark, provides a comprehensive culture-aware evaluation for Large Multimodal Models, revealing significant performance gaps and highlighting the need for culturally diverse &amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17250/cover.png" />
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17637/</guid>
+      <description>MIA-DPO boosts large vision-language model performance on multi-image tasks by cleverly augmenting single-image data and using attention mechanisms to filter out inaccurate responses.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17637/cover.png" />
     </item>
     
     <item>
-      <title>Math Neurosurgery: Isolating Language Models&#39; Math Reasoning Abilities Using Only Forward Passes</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16930/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      <title>Scalable Ranked Preference Optimization for Text-to-Image Generation</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18013/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16930/</guid>
-      <description>Math Neurosurgery precisely isolates LLMs&amp;rsquo; math skills using only forward passes, boosting their math performance significantly without affecting other abilities.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16930/cover.png" />
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18013/</guid>
+      <description>Researchers created a scalable method for aligning text-to-image models using synthetic preference datasets and a novel ranking-based optimization, significantly improving image quality and prompt-fol&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.18013/cover.png" />
     </item>
     
     <item>
-      <title>MiniPLM: Knowledge Distillation for Pre-Training Language Models</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17215/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      <title>Scaling Diffusion Language Models via Adaptation from Autoregressive Models</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17891/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17215/</guid>
-      <description>MINIPLM: A novel knowledge distillation framework boosts smaller language models&amp;rsquo; performance during pre-training by efficiently refining training data distributions with a teacher model&amp;rsquo;s knowledge, &amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17215/cover.png" />
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17891/</guid>
+      <description>Researchers efficiently adapt large autoregressive language models into competitive diffusion language models, overcoming previous scalability challenges and demonstrating improved performance on vari&amp;hellip;</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17891/cover.png" />
     </item>
     
     <item>
-      <title>PyramidDrop: Accelerating Your Large Vision-Language Models via Pyramid Visual Redundancy Reduction</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17247/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
+      <title>Value Residual Learning For Alleviating Attention Concentration In Transformers</title>
+      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/</link>
+      <pubDate>Wed, 23 Oct 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17247/</guid>
-      <description>PyramidDrop accelerates large vision-language models by efficiently reducing visual redundancy in deeper layers, achieving significant speedups in training and inference without performance loss.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17247/cover.png" />
-    </item>
-    
-    <item>
-      <title>SpectroMotion: Dynamic 3D Reconstruction of Specular Scenes</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17249/</link>
-      <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17249/</guid>
-      <description>SpectroMotion reconstructs dynamic specular scenes with photorealistic accuracy by combining 3D Gaussian Splatting, physically-based rendering, and deformation fields, outperforming existing methods.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17249/cover.png" />
-    </item>
-    
-    <item>
-      <title>3DGS-Enhancer: Enhancing Unbounded 3D Gaussian Splatting with View-consistent 2D Diffusion Priors</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/</guid>
-      <description>3DGS-Enhancer boosts realistic 3D scene generation from limited viewpoints by cleverly using 2D video diffusion priors to improve 3D view consistency.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16266/cover.png" />
-    </item>
-    
-    <item>
-      <title>Improve Vision Language Model Chain-of-thought Reasoning</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16198/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16198/</guid>
-      <description>Researchers enhanced vision-language model reasoning by distilling rationales from GPT-4, fine-tuning models, and applying reinforcement learning, achieving significant improvements in complex reasoni&amp;hellip;</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16198/cover.png" />
-    </item>
-    
-    <item>
-      <title>LLM-based Optimization of Compound AI Systems: A Survey</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/</guid>
-      <description>This survey explores using LLMs to optimize compound AI systems, offering a unified framework based on program analysis to understand and improve LLM-based optimization strategies.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16392/cover.png" />
-    </item>
-    
-    <item>
-      <title>Mitigating Object Hallucination via Concentric Causal Attention</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15926/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15926/</guid>
-      <description>Concentric Causal Attention (CCA) significantly reduces object hallucination in Large Vision Language Models by mitigating the negative effects of long-term decay in Rotary Position Encoding.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.15926/cover.png" />
-    </item>
-    
-    <item>
-      <title>xGen-MM-Vid (BLIP-3-Video): You Only Need 32 Tokens to Represent a Video Even in VLMs</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/</link>
-      <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/</guid>
-      <description>BLIP-3-Video achieves state-of-the-art video question answering with only 32 visual tokens, drastically reducing computational costs while maintaining high accuracy.</description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.16267/cover.png" />
-    </item>
-    
-    <item>
-      <title>EvoPress: Towards Optimal Dynamic Model Compression via Evolutionary Search</title>
-      <link>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14649/</link>
-      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.14649/</guid>
-      <description>EvoPress uses evolutionary search to optimize dynamic LLM compression, proving optimality and surpassing existing methods in accuracy and efficiency.</description>
-      
+      <guid>http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/</guid>
+      <description>ResFormer &amp;amp; SVFormer alleviate Transformer attention concentration, boosting performance and reducing memory needs, paving the way for more efficient large language models.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/ai-paper-reviewer/paper-reviews/2410.17897/cover.png" />
     </item>
     
   </channel>

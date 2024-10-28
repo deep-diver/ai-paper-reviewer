@@ -22,6 +22,10 @@ This research investigates how large language models (LLMs) perform arithmetic. 
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
 
+{{< button href="https://huggingface.co/papers/2410.15580" target="_self" >}}
+{{< icon "hf-logo" >}} &nbsp; on Hugging Face
+{{< /button >}}
+
 #### Why does it matter?
 This paper is important because it challenges the common assumption that large language models (LLMs) perform arithmetic through numerical computation.  It introduces a novel framework for analyzing LLMs' arithmetic abilities by focusing on subgroup-level complexity and selection, offering a new perspective on how these models learn and solve mathematical problems. This work opens avenues for designing more effective training methods and improving the performance of LLMs on arithmetic tasks.
 #### Key Takeaways
@@ -43,26 +47,38 @@ This paper is important because it challenges the common assumption that large l
 
 
 
-![](figures/figures_2_0.png "🔼 Figure 1: Fundamental structure of the paper. We begin by investigating partial products and proceed to a detailed examination at the subgroup level to understand the mechanism in a symbolic manner.")
+![](figures/figures_2_0.png)
 
-> The figure illustrates the two-pronged approach of the paper: investigating partial product usage in LLMs and analyzing arithmetic learning through subgroup-level complexity and selection.
-
-
-
-
-
-![](charts/charts_5_0.png "🔼 Figure 2: Partial products identification accuracy before and after fine-tuning on tasks. Scores are reported on average of Gemma-2-2B and Llama-3.1-8B.")
-
-> The chart displays the accuracy of identifying partial products in different multiplication methods before and after fine-tuning for two large language models.
+> 🔼 The figure illustrates the two-pronged approach of the paper: investigating partial product usage in LLMs and analyzing arithmetic learning through subgroup-level complexity and selection.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: Fundamental structure of the paper. We begin by investigating partial products and proceed to a detailed examination at the subgroup level to understand the mechanism in a symbolic manner.
+> </details>
 
 
 
 
 
-{{< table-caption caption="🔽 Table 1: Inductive and deductive accuracy difference Δ." >}}
+![](charts/charts_5_0.png)
+
+> 🔼 The chart displays the accuracy of identifying partial products in different multiplication methods before and after fine-tuning for two large language models.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Partial products identification accuracy before and after fine-tuning on tasks. Scores are reported on average of Gemma-2-2B and Llama-3.1-8B.
+> </details>
+
+
+
+
+
+{{< table-caption >}}
 <table id='0' style='font-size:18px'><tr><td></td><td colspan="4">Gemma-2-2B</td><td colspan="4">Llama-3.1-8B</td></tr><tr><td></td><td>Standard</td><td>Lattice</td><td>Repetitive</td><td>Egyptian</td><td>Standard</td><td>Lattice</td><td>Repetitive</td><td>Egyptian</td></tr><tr><td>Task → Partial P.</td><td>+4.1%</td><td>+6.8%</td><td>-29.0%</td><td>+3.6%</td><td>+40.6%</td><td>+40.8%</td><td>-59.0%</td><td>+29.6%</td></tr><tr><td>Partial P. → Task</td><td>-6.1%</td><td>-10.7%</td><td>-20.3%</td><td>-9.6%</td><td>-3.7%</td><td>-0.2%</td><td>-0.9%</td><td>-2.7%</td></tr></table>{{< /table-caption >}}
 
-> This table presents the changes in accuracy on multiplication tasks before and after fine-tuning LLMs on diagnostic sets for four different multiplication calculation methods.
+> 🔼 This table presents the changes in accuracy on multiplication tasks before and after fine-tuning LLMs on diagnostic sets for four different multiplication calculation methods.
+> <details>
+> <summary>read the caption</summary>
+> Table 1: Inductive and deductive accuracy difference Δ.
+> </details>
 
 
 
@@ -77,32 +93,56 @@ This paper is important because it challenges the common assumption that large l
 
 ![](charts/charts_8_0.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> The chart displays the U-shaped pattern of position-level accuracy in 3, 4, and 5-digit multiplication tasks across various training set sizes for Gemma-2-2B and Llama-3.1-8B models.
+> 🔼 The chart displays the U-shaped pattern of position-level accuracy in 3, 4, and 5-digit multiplication tasks across various training set sizes for Gemma-2-2B and Llama-3.1-8B models.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
+> </details>
 
 
 ![](charts/charts_8_1.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> The chart displays the position-level accuracy of LLMs in multiplication tasks, revealing a U-shaped pattern across different training set sizes.
+> 🔼 The chart displays the position-level accuracy of LLMs in multiplication tasks, revealing a U-shaped pattern across different training set sizes.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
+> </details>
 
 
 ![](charts/charts_8_2.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> The chart displays the position-level accuracy of LLMs in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the position-level accuracy of LLMs in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
+> </details>
 
 
 ![](charts/charts_8_3.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> The chart displays the position-level accuracy of LLMs in multiplication tasks across varying training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the position-level accuracy of LLMs in multiplication tasks across varying training set sizes, revealing a U-shaped pattern.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
+> </details>
 
 
 ![](charts/charts_8_4.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> The chart displays the position-level accuracy of LLMs in 3, 4, and 5 digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the position-level accuracy of LLMs in 3, 4, and 5 digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
+> </details>
 
 
 ![](charts/charts_8_5.png "🔼 Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.")
 
-> The chart displays the position-level accuracy of LLMs (Gemma-2-2B and Llama-3.1-8B) in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> 🔼 The chart displays the position-level accuracy of LLMs (Gemma-2-2B and Llama-3.1-8B) in 3, 4, and 5-digit multiplication tasks across different training set sizes, revealing a U-shaped pattern.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Position-level Accuracy from Gemma-2-2B and Llama-3.1-8B.
+> </details>
 
 
 </details>
@@ -114,32 +154,62 @@ This paper is important because it challenges the common assumption that large l
 </summary>
 
 
-{{< table-caption caption="🔽 Table 2: Diagnostic sets with four calculation methods." >}}
+{{< table-caption >}}
 <br><table id='5' style='font-size:16px'><tr><td>Standard Multiplication</td><td>Pstd = {A1 xB1B2, A2xB1B2, B1 xA1A2,B2 x A1A2}</td></tr><tr><td>Repetitive Addition</td><td>Pra = {�B1B2 A1A2, ��� B1B2}</td></tr><tr><td>Lattice Method</td><td>Plattice = {A10x B10,A10x B2,A2 x B10, A2 x B2}</td></tr><tr><td>Egyptian Multiplication</td><td>Pegyptian = {2k xA1A2|ke0,1,..., [log2(B1B2)]}</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > The table presents diagnostic sets for four multiplication calculation methods (standard multiplication, repetitive addition, lattice method, and Egyptian multiplication) used to investigate whether LLMs leverage partial products during arithmetic learning.
 
 
-{{< table-caption caption="🔽 Table 3: Label space statistics with different rule perturbations. H(L) represents the entropy of the label space, and |L| is the size of the label space. {C}i=1 represents all positions in output digits." >}}
+{{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td></td><td></td><td>C1</td><td>C2</td><td>C3</td><td>C4</td><td>C5</td><td colspan="2">{Ci}i=1</td></tr><tr><td>Task</td><td>Format</td><td>H(L)</td><td>H(L)</td><td>H(L)</td><td>H(L)</td><td>H(L)</td><td>ILI</td><td>H(L)</td></tr><tr><td>f(a,b) = a + b</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9710</td><td>3.3215</td><td>3.3219</td><td></td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = a + b + 1</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9649</td><td>3.3215</td><td>3.3219</td><td></td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = a +6+ 15</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9280</td><td>3.3214</td><td>3.3219</td><td></td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = a +b + 115</td><td>A1A2 + B1B2 = C1C2C3</td><td>0.9280</td><td>3.3214</td><td>3.3219</td><td>-</td><td></td><td>179</td><td>7.2130</td></tr><tr><td>f(a,b) = (a+ b) mod 100</td><td>A1A2 + B1B2 = C1C2</td><td>3.3214</td><td>3.3219</td><td>-</td><td>-</td><td>-</td><td>100</td><td>6.6432</td></tr><tr><td>f(a,b) = (a+ b) mod 50</td><td>A1A2 + B1B2 = C1C2</td><td>2.3217</td><td>3.3219</td><td>-</td><td>-</td><td>-</td><td>50</td><td>5.6436</td></tr><tr><td>f(a,b) = (a+b) mod 10</td><td>A1A2 + B1B2 = C1</td><td>3.3219</td><td>-</td><td>-</td><td>-</td><td>-</td><td>10</td><td>3.3219</td></tr><tr><td>f(a,b) = a xb</td><td>A1A2 x B1B2 = C1C2C3C4</td><td>2.8979</td><td>3.3215</td><td>3.3160</td><td>3.0340</td><td>-</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = a xbx 2</td><td>A1A2 x B1B2 = C1C2C3C4C5</td><td>0.6873</td><td>3.2173</td><td>3.3215</td><td>3.2964</td><td>2.2227</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = a xbx 4</td><td>A1A2 x B1B2 = C1C2C3C4C5</td><td>1.6030</td><td>3.3020</td><td>3.3204</td><td>3.2234</td><td>2.2227</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = a xbx 8</td><td>A1A2 x B1B2 = C1C2C3C4C5</td><td>2.5811</td><td>3.3202</td><td>3.3151</td><td>3.2235</td><td>2.2227</td><td>2621</td><td>11.1172</td></tr><tr><td>f(a,b) = (a x b) mod 100</td><td>A1A2 x B1B2 = C1C2</td><td>3.3160</td><td>3.0340</td><td>-</td><td>-</td><td>-</td><td>100</td><td>6.2912</td></tr><tr><td>f(a,b) = (a x b) mod 50</td><td>A1A2 x B1B2 = C1C2</td><td>2.3210</td><td>3.0340</td><td>-</td><td>-</td><td>-</td><td>50</td><td>5.3494</td></tr><tr><td>f(a,b) = (a x b) mod 10</td><td>A1A2 x B1B2 = C1</td><td>3.0340</td><td>-</td><td>-</td><td>-</td><td>-</td><td>10</td><td>3.0340</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 3 shows the label space entropy and cardinality for various addition and multiplication tasks with different rule perturbations.
 
 
-{{< table-caption caption="🔽 Table 4: Test Accuracy difference Δ on perturbed addition and multiplication." >}}
+{{< table-caption >}}
 <table id='7' style='font-size:14px'><tr><td></td><td>Gemma-2-2B</td><td>Llama-3.1-8B</td></tr><tr><td>f(a,b) = a + 6</td><td></td><td></td></tr><tr><td>f(a,b) = a + 6 + 1</td><td>-0.1%</td><td>-0.1%</td></tr><tr><td>f(a,b) = a + 6 + 15</td><td>-0.9%</td><td>+0.1%</td></tr><tr><td>f(a,b) = a + b + 115</td><td>-1.4%</td><td>+0.7%</td></tr><tr><td>f(a,b) = (a + b) mod 100</td><td>+10.1%</td><td>+3.7%</td></tr><tr><td>f(a,b) = (a + b) mod 50</td><td>+13.1%</td><td>+6.7%</td></tr><tr><td>f(a,b) = (a+b) mod 10</td><td>+26.1%</td><td>+13.7%</td></tr><tr><td>f(a,b) = a x 6</td><td>-</td><td></td></tr><tr><td>f(a,b) = a X 6 X 2</td><td>-1.1%</td><td>-2.7%</td></tr><tr><td>f(a,b) = a x 6 x 4</td><td>-1.7%</td><td>+0.7%</td></tr><tr><td>f(a,b) = a X b x 8</td><td>+0.2%</td><td>-3.7%</td></tr><tr><td>f(a,b) = (a x b) mod 100</td><td>+7.1%</td><td>+3.8%</td></tr><tr><td>f(a,b) = (a X b) mod 50</td><td>+12.1%</td><td>+5.3%</td></tr><tr><td>f(a,b) = (a x b) mod 10</td><td>+18.9%</td><td>+10.7%</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > The table shows the accuracy difference (Δ) in percentage for addition and multiplication tasks on Gemma-2-2B and Llama-3.1-8B models with various rule perturbations.
 
 
-{{< table-caption caption="🔽 Table 6: Test Accuracy difference Δ on perturbed addition and multiplication." >}}
+{{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td></td><td>Format</td><td>Gemma-2-2B</td><td>Llama-3.1-8B</td></tr><tr><td>f(a,b) =a+b</td><td>Natural Language</td><td>-</td><td>-</td></tr><tr><td>f(a,b) = a+b</td><td>Random String</td><td>+0.1%</td><td>-0.2%</td></tr><tr><td>f(a,b) =a+b</td><td>Disturbed Digits</td><td>-3.9%</td><td>-2.1%</td></tr><tr><td>f(a,b) = a x b</td><td>Natural Language</td><td>-</td><td>-</td></tr><tr><td>f(a,b) = a x b</td><td>Random String</td><td>+0.3%</td><td>-0.5%</td></tr><tr><td>f(a,b) = a X b</td><td>Disturbed Digits</td><td>-1.9%</td><td>-3.1%</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > This table presents the accuracy difference (Δ) in percentage points for addition and multiplication tasks, comparing the performance of Gemma-2-2B and Llama-3.1-8B models under three different input format perturbations (Natural Language, Random String, and Disturbed Digits).
 
 
-{{< table-caption caption="🔽 Table 1: Inductive and deductive accuracy difference Δ." >}}
+{{< table-caption >}}
 <table id='16' style='font-size:22px'><tr><td></td><td>B1 B2</td></tr><tr><td>A1</td><td>A1B1 A1B2</td></tr><tr><td>A2</td><td>A2B1 A2B2</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > The table presents the inductive and deductive accuracy differences (Δ) for four multiplication calculation methods (Standard, Lattice, Repetitive, Egyptian) across two LLMs (Gemma-2-2B and Llama-3.1-8B), showing the impact of fine-tuning on partial products.
 

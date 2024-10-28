@@ -22,6 +22,10 @@ This research tackles the slow speed of Large Language Model (LLM) text generati
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
 
+{{< button href="https://huggingface.co/papers/2410.18234" target="_self" >}}
+{{< icon "hf-logo" >}} &nbsp; on Hugging Face
+{{< /button >}}
+
 #### Why does it matter?
 This paper significantly advances the efficiency of large language model (LLM) inference by proposing a novel multi-draft speculative sampling method. It offers both theoretical analysis and empirical improvements, thus opening avenues for optimizing LLM decoding and impacting various downstream applications.  It addresses a critical bottleneck in LLM deployment, making it relevant to a broad research community.
 #### Key Takeaways
@@ -43,26 +47,38 @@ This paper significantly advances the efficiency of large language model (LLM) i
 
 
 
-![](figures/figures_4_0.png "🔼 Figure 1: Optimal Approach for Multi-Draft Speculative Sampling")
+![](figures/figures_4_0.png)
 
-> The figure illustrates the optimal two-step approach for multi-draft speculative sampling, which involves importance weighted sampling followed by speculative sampling.
-
-
-
-
-
-![](charts/charts_6_0.png "🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.")
-
-> The chart numerically evaluates the acceptance probability for the optimal scheme and two baseline schemes (SpecTr and SpecInfer) by varying the target distribution parameter q2.
+> 🔼 The figure illustrates the optimal two-step approach for multi-draft speculative sampling, which involves importance weighted sampling followed by speculative sampling.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: Optimal Approach for Multi-Draft Speculative Sampling
+> </details>
 
 
 
 
 
-{{< table-caption caption="🔽 Table 3: Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts." >}}
+![](charts/charts_6_0.png)
+
+> 🔼 The chart numerically evaluates the acceptance probability for the optimal scheme and two baseline schemes (SpecTr and SpecInfer) by varying the target distribution parameter q2.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.
+> </details>
+
+
+
+
+
+{{< table-caption >}}
 <table id='2' style='font-size:16px'><tr><td>Ashish Khisti * 12</td><td>M.Reza Ebrahimi ・1</td><td>Hassan Dbouk1</td></tr><tr><td>Arash Behboodi1</td><td>Roland Memisevic 1</td><td>Christos Louizos t 1</td></tr></table>{{< /table-caption >}}
 
-> This table compares the average acceptance probability across different tasks (XSum, Dolly, WMT) for varying numbers of draft models (K=2, 4, 8) using different methods (Optimal, IS, SpecTr, SpecInfer).
+> 🔼 This table compares the average acceptance probability across different tasks (XSum, Dolly, WMT) for varying numbers of draft models (K=2, 4, 8) using different methods (Optimal, IS, SpecTr, SpecInfer).
+> <details>
+> <summary>read the caption</summary>
+> Table 3: Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts.
+> </details>
 
 
 
@@ -73,14 +89,24 @@ This paper significantly advances the efficiency of large language model (LLM) i
 </summary>
 
 
-![](figures/figures_24_0.png "🔼 Figure 1: Optimal Approach for Multi-Draft Speculative Sampling")
+![](figures/figures_24_0.png)
 
-> The figure illustrates the optimal two-step scheme for multi-draft speculative sampling, showing importance weighted sampling followed by speculative sampling.
+> 🔼 The figure illustrates the optimal two-step scheme for multi-draft speculative sampling, showing importance weighted sampling followed by speculative sampling.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: Optimal Approach for Multi-Draft Speculative Sampling
+> </details>
 
 
-![](figures/figures_35_0.png "🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.")
 
-> The figure shows a numerical evaluation of the acceptance probability for the optimal scheme and two baseline schemes, SpecTr and SpecInfer, for different values of q2.
+![](figures/figures_35_0.png)
+
+> 🔼 The figure shows a numerical evaluation of the acceptance probability for the optimal scheme and two baseline schemes, SpecTr and SpecInfer, for different values of q2.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.
+> </details>
+
 
 
 </details>
@@ -94,22 +120,38 @@ This paper significantly advances the efficiency of large language model (LLM) i
 
 ![](charts/charts_9_0.png "🔼 Figure 3: Performance comparison of different multi-draft schemes, while we vary the temperature of the two draft models.")
 
-> The chart compares the block efficiency and token rate improvement over single-draft speculative decoding for different multi-draft schemes (IS, SpecTr, SpecInfer) across three datasets (Dolly, XSum, WMT) while varying the temperature of the draft models.
+> 🔼 The chart compares the block efficiency and token rate improvement over single-draft speculative decoding for different multi-draft schemes (IS, SpecTr, SpecInfer) across three datasets (Dolly, XSum, WMT) while varying the temperature of the draft models.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Performance comparison of different multi-draft schemes, while we vary the temperature of the two draft models.
+> </details>
 
 
 ![](charts/charts_10_0.png "🔼 Figure 4: Performance comparison of different multi-draft schemes. The temperature of the first draft model is set to 1.2, while we vary the temperature of the other draft.")
 
-> The chart compares the performance of different multi-draft schemes across three datasets (Dolly, XSum, WMT) while varying the temperature of one draft model while keeping the other constant.
+> 🔼 The chart compares the performance of different multi-draft schemes across three datasets (Dolly, XSum, WMT) while varying the temperature of one draft model while keeping the other constant.
+> <details>
+> <summary>read the caption</summary>
+> Figure 4: Performance comparison of different multi-draft schemes. The temperature of the first draft model is set to 1.2, while we vary the temperature of the other draft.
+> </details>
 
 
 ![](charts/charts_34_0.png "🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.")
 
-> The chart numerically evaluates the acceptance probability for the optimal scheme and compares it with two baseline schemes, SpecTr and SpecInfer, by varying the parameter q2.
+> 🔼 The chart numerically evaluates the acceptance probability for the optimal scheme and compares it with two baseline schemes, SpecTr and SpecInfer, by varying the parameter q2.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.
+> </details>
 
 
 ![](charts/charts_34_1.png "🔼 Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.")
 
-> The chart numerically evaluates the acceptance probability for the optimal scheme and two baseline schemes (SpecTr and SpecInfer) by varying the target distribution parameter q2.
+> 🔼 The chart numerically evaluates the acceptance probability for the optimal scheme and two baseline schemes (SpecTr and SpecInfer) by varying the target distribution parameter q2.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Numerical evaluation of Pr(accept) for the optimal scheme (Theorem 3) as well as two baseline schemes – SpecTr (Sun et al., 2024b) and SpecInfer (Miao et al., 2024). For sake of illustration we select alphabet Ω = {1,2,3} and p = [1/3,1/3, 1/3]. The left plot sets q = [1/3, q2, 2/3-q2] while the right plot sets q = [1/6, q2, 5/6 - q2] where q2 is varied on the x-axis.
+> </details>
 
 
 </details>
@@ -121,50 +163,98 @@ This paper significantly advances the efficiency of large language model (LLM) i
 </summary>
 
 
-{{< table-caption caption="🔽 Table 1: Block efficiency achieved in the Dolly task for different number of draft models." >}}
+{{< table-caption >}}
 <br><table id='4' style='font-size:16px'><tr><td>Scheme</td><td>K = 2</td><td>K = 3</td><td>K = 4</td><td>K = 5</td><td>K = 6</td></tr><tr><td>IS</td><td>2.13 土 0.05</td><td>2.22 士 0.05</td><td>2.26 土 0.05</td><td>2.27 士 0.05</td><td>2.28 士 0.06</td></tr><tr><td>SpecInfer</td><td>1.76 士 0.04</td><td>1.86 士 0.05</td><td>1.95 土 0.05</td><td>2.00 士 0.04</td><td>2.04 士 0.05</td></tr><tr><td>SpecTr</td><td>1.77 土 0.04</td><td>1.89 土 0.05</td><td>1.96 土 0.05</td><td>2.03 士 0.06</td><td>2.08 土 0.04</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 1 shows the block efficiency achieved by three different multi-draft speculative sampling methods using 2 to 6 draft models on the Dolly task.
 
 
-{{< table-caption caption="🔽 Table 2: Effect of LP Truncation and Alphabet Truncation" >}}
+{{< table-caption >}}
 <br><table id='4' style='font-size:18px'><tr><td></td><td></td><td>Block Efficiency</td><td>Token Rate (% improvement to SD)</td></tr><tr><td rowspan="4">Alphabet Truncation ( 2⌀ )</td><td>10</td><td>1.98 士 0.03</td><td>-0.57 士 3.38%</td></tr><tr><td>20</td><td>2.00 士 0.04</td><td>1.00 土 3.08%</td></tr><tr><td>40</td><td>2.05 士 0.04</td><td>6.63 土 3.18%</td></tr><tr><td>50</td><td>2.03 士 0.05</td><td>3.22 土 3.39%</td></tr><tr><td rowspan="3">LP-Truncation Threshold (s)</td><td>5</td><td>2.05 士 0.04</td><td>6.63 士 3.18%</td></tr><tr><td>10</td><td>2.04 土 0.05</td><td>1.52 土 3.47%</td></tr><tr><td>15</td><td>2.04 士 0.04</td><td>1.74 土 2.36%</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 2 shows the effect of LP truncation and alphabet truncation on the block efficiency and token rate improvement over the single-draft baseline.
 
 
-{{< table-caption caption="🔽 Table 3: Comparison of average acceptance probability across different tasks for K = 2, 4, 8 drafts." >}}
+{{< table-caption >}}
 <br><table id='8' style='font-size:16px'><tr><td>Scheme</td><td colspan="3">XSum</td><td colspan="3">Dolly</td></tr><tr><td></td><td>K=2</td><td>K=4</td><td>K=8</td><td>K=2</td><td>K=4</td><td>K=8</td></tr><tr><td>Optimal</td><td>0.5009</td><td>0.5226</td><td>0.5419</td><td>0.6384</td><td>0.6731</td><td>0.6962</td></tr><tr><td>IS</td><td>0.4933</td><td>0.5145</td><td>0.5333</td><td>0.6348</td><td>0.6691</td><td>0.6919</td></tr><tr><td>SpecTr</td><td>0.4889</td><td>0.5083</td><td>0.5263</td><td>0.6246</td><td>0.6560</td><td>0.6800</td></tr><tr><td>SpecInfer</td><td>0.4875</td><td>0.5058</td><td>0.5227</td><td>0.6202</td><td>0.6489</td><td>0.6722</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 3 compares the token-level acceptance probability across different methods for K=2, 4, and 8 drafts on three different tasks.
 
 
-{{< table-caption caption="🔽 Table 4: Block Efficiency achieved in the Dolly Task with top-k sampling" >}}
+{{< table-caption >}}
 <br><table id='12' style='font-size:18px'><tr><td rowspan="2">Sampling</td><td rowspan="2">Scheme</td><td colspan="2">K = 2 drafts</td><td colspan="2">K = 3 drafts</td></tr><tr><td>Block Efficiency</td><td>Loss</td><td>Block Efficiency</td><td>Loss</td></tr><tr><td rowspan="3">top-k (k = 10)</td><td>IS</td><td>2.48 土 0.01</td><td></td><td>2.59 士 0.02</td><td></td></tr><tr><td>SpecTr</td><td>2.43 土 0.01</td><td>98%</td><td>2.55 士 0.01</td><td>98%</td></tr><tr><td>SpecInfer</td><td>2.38 士 0.02</td><td>96%</td><td>2.49 士 0.02</td><td>96%</td></tr><tr><td rowspan="3">top-k (k = 5)</td><td>IS</td><td>2.52 士 0.02</td><td></td><td>2.63 士 0.03</td><td></td></tr><tr><td>SpecTr</td><td>2.48 土 0.02</td><td>98%</td><td>2.56 士 0.03</td><td>97%</td></tr><tr><td>SpecInfer</td><td>2.47 士 0.01</td><td>98%</td><td>2.55 士 0.04</td><td>97%</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 4 compares the block efficiencies for different methods using K=2 and K=3 drafts, applying top-k sampling with k=10 and k=5, and using temperature of 1.0 for both models.
 
 
-{{< table-caption caption="🔽 Table 5: ROUGE-L scores on the XSum task across various decoders and sampling temperatures." >}}
+{{< table-caption >}}
 <br><table id='3' style='font-size:16px'><tr><td>Draft Temp.</td><td>1.2</td><td>1.4</td><td>1.6</td><td>2.0</td><td>2.4</td></tr><tr><td colspan="6">Decoder</td></tr><tr><td>IS</td><td>0.186 士 0.004</td><td>0.188 土 0.002</td><td>0.191 土 0.003</td><td>0.186 土 0.004</td><td>0.187 士 0.003</td></tr><tr><td>Signle-draft SD</td><td>0.190 士 0.006</td><td>0.185 士 0.005</td><td>0.190 士 0.004</td><td>0.186 士 0.003</td><td>0.186 士 0.004</td></tr><tr><td>SpecInfer</td><td>0.184 土 0.004</td><td>0.190 土 0.002</td><td>0.187 土 0.001</td><td>0.186 士 0.003</td><td>0.186 士 0.004</td></tr><tr><td>SpecTr</td><td>0.188 土 0.002</td><td>0.182 土 0.006</td><td>0.188 士 0.001</td><td>0.185 土 0.006</td><td>0.188 土 0.001</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 5 presents ROUGE-L scores on the XSum task for different decoders (IS, single-draft, SpecInfer, SpecTr) and draft model temperatures.
 
 
-{{< table-caption caption="🔽 Table 6: BLEU scores on the WMT dataset across various decoders and sampling temperatures." >}}
+{{< table-caption >}}
 <br><table id='5' style='font-size:18px'><tr><td>Draft Temp.</td><td>1.2</td><td>1.4</td><td>1.6</td><td>2.0</td><td>2.4</td></tr><tr><td colspan="6">Decoder</td></tr><tr><td>IS</td><td>0.037 士 0.002</td><td>0.038 土 0.004</td><td>0.034 土 0.002</td><td>0.039 士 0.003</td><td>0.039 土 0.002</td></tr><tr><td>Signle-draft SD</td><td>0.036 土 0.000</td><td>0.037 土 0.003</td><td>0.038 土 0.004</td><td>0.037 士 0.003</td><td>0.038 土 0.002</td></tr><tr><td>SpecInfer</td><td>0.035 土 0.003</td><td>0.039 土 0.004</td><td>0.035 士 0.003</td><td>0.034 士 0.009</td><td>0.036 土 0.003</td></tr><tr><td>SpecTr</td><td>0.039 土 0.001</td><td>0.037 土 0.001</td><td>0.039 土 0.001</td><td>0.036 士 0.002</td><td>0.035 士 0.001</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 6 presents BLEU scores on the WMT dataset for different decoding methods (IS, single-draft speculative decoding, SpecInfer, and SpecTr) across various draft and target model temperatures.
 
 
-{{< table-caption caption="🔽 Table 7: ROUGE-L scores on the XSum task across various decoders and sampling temperatures." >}}
+{{< table-caption >}}
 <table id='8' style='font-size:16px'><tr><td></td><td colspan="5">Temperature</td></tr><tr><td>Draft 1</td><td colspan="5">1.2</td></tr><tr><td>Draft 2</td><td>1.2</td><td>1.6</td><td>2.0</td><td>2.4</td><td>N/A</td></tr><tr><td>Decoder</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>IS</td><td>0.187 士 0.004</td><td>0.189 土 0.007</td><td>0.189 士 0.001</td><td>0.191 士 0.002</td><td>-</td></tr><tr><td>SpecInfer</td><td>0.184 士 0.004</td><td>0.190 土 0.003</td><td>0.185 土 0.006</td><td>0.189 土 0.006</td><td></td></tr><tr><td>Single-draft SD</td><td>-</td><td></td><td></td><td>-</td><td>0.190 土 0.006</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 7 compares the ROUGE-L scores for different multi-draft schemes across various decoders and sampling temperatures on the XSum task.
 
 
-{{< table-caption caption="🔽 Table 8: BLEU scores on the WMT dataset across various decoders and sampling temperatures." >}}
+{{< table-caption >}}
 <table id='10' style='font-size:14px'><tr><td></td><td colspan="5">Temperature</td></tr><tr><td>Draft 1</td><td colspan="5">1.2</td></tr><tr><td>Draft 2</td><td>1.2</td><td>1.6</td><td>2.0</td><td>2.4</td><td>N/A</td></tr><tr><td>Decoder</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>IS</td><td>0.036 土 0.003</td><td>0.035 土 0.002</td><td>0.036 土 0.002</td><td>0.035 士 0.002</td><td>-</td></tr><tr><td>SpecInfer</td><td>0.035 士 0.003</td><td>0.038 土 0.005</td><td>0.041 土 0.002</td><td>0.040 土 0.002</td><td></td></tr><tr><td>Single-draft SD</td><td>-</td><td>-</td><td>-</td><td>-</td><td>0.036 士 0.000</td></tr></table>{{< /table-caption >}}
+> 🔼 {{ table.description }}
+> <details>
+> <summary>read the caption</summary>
+> {{ table.caption }}
+> </details>
+
 
 > Table 8 shows the BLEU scores on the WMT dataset for different multi-draft schemes while varying the temperature of the two draft models.
 

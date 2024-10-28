@@ -22,6 +22,10 @@ This research paper surveys the use of Large Language Models (LLMs) to optimize 
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
 
+{{< button href="https://huggingface.co/papers/2410.16392" target="_self" >}}
+{{< icon "hf-logo" >}} &nbsp; on Hugging Face
+{{< /button >}}
+
 #### Why does it matter?
 This paper is crucial for AI researchers working on large language models and compound AI systems.  It provides a much-needed structured overview of LLM-based optimization techniques, filling a gap in current literature. The framework presented, using concepts from program analysis, offers a novel and unifying perspective that could significantly impact future research directions in the field.  The identification of challenges and future directions encourages further investigation into key aspects of LLM optimization, promoting safer, more efficient, and explainable AI systems.
 #### Key Takeaways
@@ -43,9 +47,13 @@ This paper is crucial for AI researchers working on large language models and co
 
 
 
-![](figures/figures_2_0.png "🔼 Figure 1: Organization of this survey. A non-exhaustive list of papers is provided.")
+![](figures/figures_2_0.png)
 
-> The figure shows a tree-like structure that organizes the survey of LLM-based optimization of compound AI systems by workflow, optimization methods, applications, and discussions.
+> 🔼 The figure shows a tree-like structure that organizes the survey of LLM-based optimization of compound AI systems by workflow, optimization methods, applications, and discussions.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: Organization of this survey. A non-exhaustive list of papers is provided.
+> </details>
 
 
 
@@ -60,14 +68,24 @@ This paper is crucial for AI researchers working on large language models and co
 </summary>
 
 
-![](figures/figures_5_0.png "🔼 Figure 2: Credit assignment: a local vs. a global approach. In backpropagation, the optimizer updates each parameter individually. In trace propagation, the prompt contains the execution trace, which allows it to generate all updated variables in a single call. Note that the loss is a textual feedback. In addition, the gradient of the instruction is not the gradient of the output, but the gradient of the instruction with respect to the gradient of the output.")
+![](figures/figures_5_0.png)
 
-> The figure illustrates the difference between backpropagation and trace propagation in credit assignment for LLM-based optimization of compound AI systems.
+> 🔼 The figure illustrates the difference between backpropagation and trace propagation in credit assignment for LLM-based optimization of compound AI systems.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Credit assignment: a local vs. a global approach. In backpropagation, the optimizer updates each parameter individually. In trace propagation, the prompt contains the execution trace, which allows it to generate all updated variables in a single call. Note that the loss is a textual feedback. In addition, the gradient of the instruction is not the gradient of the output, but the gradient of the instruction with respect to the gradient of the output.
+> </details>
 
 
-![](figures/figures_5_1.png "🔼 Figure 2: Credit assignment: a local vs. a global approach. In backpropagation, the optimizer updates each parameter individually. In trace propagation, the prompt contains the execution trace, which allows it to generate all updated variables in a single call. Note that the loss is a textual feedback. In addition, the gradient of the instruction is not the gradient of the output, but the gradient of the instruction with respect to the gradient of the output.")
 
-> The figure illustrates the difference between backpropagation and trace propagation in credit assignment for LLM-based optimization of compound AI systems.
+![](figures/figures_5_1.png)
+
+> 🔼 The figure illustrates the difference between backpropagation and trace propagation in credit assignment for LLM-based optimization of compound AI systems.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Credit assignment: a local vs. a global approach. In backpropagation, the optimizer updates each parameter individually. In trace propagation, the prompt contains the execution trace, which allows it to generate all updated variables in a single call. Note that the loss is a textual feedback. In addition, the gradient of the instruction is not the gradient of the output, but the gradient of the instruction with respect to the gradient of the output.
+> </details>
+
 
 
 </details>

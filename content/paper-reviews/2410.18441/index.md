@@ -22,6 +22,10 @@ This research paper focuses on improving Transformer models for generative AI by
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
 
+{{< button href="https://huggingface.co/papers/2410.18441" target="_self" >}}
+{{< icon "hf-logo" >}} &nbsp; on Hugging Face
+{{< /button >}}
+
 #### Why does it matter?
 This paper is crucial for researchers in generative AI, offering significant improvements to Transformer models.  Its exploration of probabilistic optimization techniques and novel approaches to attention mechanisms directly addresses current limitations in model efficiency and performance. The proposed methods offer substantial improvements in training speed, inference efficiency, and extrapolation capabilities, opening up new avenues for future research and development.
 #### Key Takeaways
@@ -47,10 +51,14 @@ This paper is crucial for researchers in generative AI, offering significant imp
 
 
 
-{{< table-caption caption="🔽 Figure 3: the Cross-Entropy HyperParameter Optimization (CEHPO) Algorithm." >}}
+{{< table-caption >}}
 <br><table id='1' style='font-size:14px'><tr><td>Input: KV cache,t E R 1xd</td></tr><tr><td>tQ = tW⌀ix = tWrity = tWy</td></tr><tr><td>Q(XKg),XK,,Q(Xv),XV, ← KV cache</td></tr><tr><td>XKr = Concat([Xkr,tk],dim = token)</td></tr><tr><td>Xvr = Concat([Xvv,tv],dim = token)</td></tr><tr><td>if len(Xkr) = = S:</td></tr><tr><td>Q(XKr), - = Kquant(Xkr)</td></tr><tr><td>Sn = len(Q(Xkg))//S</td></tr><tr><td>if sn ≤ (qn - 2):</td></tr><tr><td>Q(Xkg⌀i) = Q(Xkg)[-ixS : (i - 1)xS],dim = token, for in range[1:s"]</td></tr><tr><td>XKg,i = GrpDeQuant(Q(Xkxi), dim = channel, qbits = Bi+1, numGroup = SIIG) for i in range[1:sn]</td></tr><tr><td>Q(Xkg,i) = GrpQuant(Xkg,i' dim = channel, qbits = Bi+2, numGroup = SI/G) for in range[1:s"]</td></tr><tr><td>else:</td></tr><tr><td>Q(Xkg,i) = Q(XK )[-ixS : (i- 1)xS], dim = token, for i in range[1:qn - 2] Q(XKg,qn-1) = Q(Xkg)[: - (qn - 2)xS]</td></tr><tr><td>XKg,i GrpDeQuant(Q(Xxg,i), dim = channel, qbits = Bi+1, numGroup = SI/G) for i in range[1:</td></tr><tr><td>= In - 2]</td></tr><tr><td>XKg,qn-1 = GrpDeQuant(Q(Xkgi), dim = channel, qbits = Bi+1, numGroup = (Sn - In + 2)S//G)</td></tr><tr><td>Q(Xkg,i) = GrpQuant(Xkg,i' dim = channel, qbits = Bi+2, numGroup = SIIG) for in range[1:qn - 2]</td></tr><tr><td>Q(XKg,qn-1) = GrpQuant(Xkg:qn-19 dim = channel, qbits = Bqn' numGroup = (Sn - In + 2)S//G)</td></tr><tr><td>if Sn ≤ (qn - 1):</td></tr><tr><td>Q(Xkg) = Concat([Q(Xkg.sn), · , Q(Xkg.1+Q(Xkr)], dim = token)</td></tr><tr><td>else:</td></tr><tr><td>Q(Xkg) = Concat([Q(XKg,qn-1), · · · , Q(Xkg,1), Q(Xkr)], dim = token)</td></tr><tr><td>XKr ← empty tensor</td></tr></table>{{< /table-caption >}}
 
-> The table provides a step-by-step algorithm for cross-entropy hyperparameter optimization in the word2vec model.
+> 🔼 The table provides a step-by-step algorithm for cross-entropy hyperparameter optimization in the word2vec model.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: the Cross-Entropy HyperParameter Optimization (CEHPO) Algorithm.
+> </details>
 
 
 
