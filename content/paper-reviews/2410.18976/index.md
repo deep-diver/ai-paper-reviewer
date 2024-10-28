@@ -21,9 +21,10 @@ Researchers have developed CAMEL-Bench, the first large-scale benchmark for eval
 {{< button href="https://arxiv.org/abs/2410.18976" target="_self" >}}
 {{< icon "link" >}} &nbsp; read the paper on arXiv
 {{< /button >}}
-
+<br>
+<br>
 {{< button href="https://huggingface.co/papers/2410.18976" target="_self" >}}
-{{< icon "hf-logo" >}} &nbsp; on Hugging Face
+{{< icon "hf-logo" >}} &nbsp; discuss on Hugging Face
 {{< /button >}}
 
 #### Why does it matter?
