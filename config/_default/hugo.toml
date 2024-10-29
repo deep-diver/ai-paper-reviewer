@@ -15,6 +15,8 @@ buildFuture = false
 
 enableEmoji = true
 
+timeout = 600000
+
 # googleAnalytics = "G-XXXXXXXXX"
 
 [taxonomies]
