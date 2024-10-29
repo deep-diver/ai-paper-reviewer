@@ -26,7 +26,7 @@ jobs:
           hugo-version: "latest"
 
       - name: Build
-        run: hugo --minify --config config.yaml
+        run: hugo --minify --config config.toml
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
