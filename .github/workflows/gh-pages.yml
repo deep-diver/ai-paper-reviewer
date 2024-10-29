@@ -3,6 +3,11 @@
 name: GitHub Pages
 
 on:
+  workflow_run:
+    workflows: ["update"]  # Name of the workflow that triggers this one
+    branches: [main]    # Only trigger if the 'build' workflow runs on the 'main' branch
+    types: 
+      - completed   
   workflow_dispatch:
   # push:
   #   branches:
