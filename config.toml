@@ -1,2 +1,2 @@
 [build]
-timeout = 200000 
+timeout = 60000  # Increase to 60 seconds
