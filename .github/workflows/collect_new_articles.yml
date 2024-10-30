@@ -60,7 +60,7 @@ jobs:
           ./convert-hf-linux.sh \
             ${{ github.event.inputs.start_date }} \
             ${{ github.event.inputs.end_date }} \
-            --upload-images-r2
+            true
           
       - name: Move Articles to Repository A
         run: |
