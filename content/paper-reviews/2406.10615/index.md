@@ -10,6 +10,11 @@ draft: false
 
 {{< keyword >}} 2406.10615 {{< /keyword >}}
 
+{{< keywordList >}}
+{{< keyword icon="github" >}} Lorem ipsum dolor. {{< /keyword >}}
+{{< keyword icon="code" >}} **Important** skill {{< /keyword >}}
+{{< /keywordList >}}
+
 ### TL;DR
 
 

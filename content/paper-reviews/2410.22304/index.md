@@ -1,25 +1,28 @@
 ---
 title: "Flow-DPO: Improving LLM Mathematical Reasoning through Online Multi-Agent Learning"
-summary: "Flow-DPO improves LLM mathematical reasoning by using online multi-agent learning and direct preference optimization to generate high-quality reasoning traces, surpassing existing methods in performan..."
-categories: ["AI Generated"]
-tags: ["🔖 24-10-29", "🤗 24-10-30"]
+summary: "Flow-DPO boosts LLM mathematical reasoning by using online multi-agent learning to generate detailed, accurate reasoning traces."
+categories: ["AI Generated", "Hugging Face Daily Papers"]
+tags: ["🔖 24-10-29", "🤗 24-10-30", "🏢 University of California, Los Angeles",]
 showSummary: true
 date: 2024-10-29
 draft: false
 ---
 
-{{< keyword >}} 2410.22304 {{< /keyword >}}
+{{< keywordList >}}
+{{< keyword icon="fingerprint" >}} 2410.22304 {{< /keyword >}}
+{{< keyword icon="writer" >}} Yihe Deng et el. {{< /keyword >}}
+{{< /keywordList >}}
 
 ### TL;DR
 
 
 {{< lead >}}
 
-Current LLMs struggle to generate detailed and accurate mathematical reasoning traces, hindering their performance in complex tasks.  Existing methods often rely on expensive human annotations or lack the granularity to capture the nuances of mathematical problem-solving. 
+Current Large Language Models (LLMs) struggle to generate detailed and accurate mathematical reasoning steps, hindering their improvement.  Existing methods often rely on expensive human annotations or produce insufficiently informative traces. 
 
 
 
-Flow-DPO offers a solution by employing an incremental output production flow with two collaborative LLMs: an Answer LLM generating solution chunks and a Stop LLM determining completion. This flow is trained using online Direct Preference Optimization (DPO) with rollouts, creating high-quality reasoning traces for fine-tuning. **This approach significantly improves LLM performance, is cost-effective, and provides better flexibility than previous methods.**
+Flow-DPO tackles this by using an innovative online multi-agent learning system.  Multiple LLMs collaborate to iteratively build solutions, trained in real-time using Direct Preference Optimization (DPO) with rollouts. This method produces superior reasoning traces compared to traditional approaches, enhancing LLM performance and opening new avenues for LLM self-improvement and fine-tuning.
 
 {{< /lead >}}
 
@@ -33,19 +36,19 @@ Flow-DPO offers a solution by employing an incremental output production flow wi
 {{< /button >}}
 
 #### Why does it matter?
-This paper is important because it presents a novel approach to enhance LLMs' mathematical reasoning abilities.  **The method uses online multi-agent learning and direct preference optimization to generate high-quality reasoning traces**, significantly improving the model's performance and offering a cost-effective alternative to human annotation.  This opens avenues for research in more efficient LLM training and advancement of mathematical reasoning capabilities in AI.
+**This paper is crucial for researchers working on large language models (LLMs) and mathematical reasoning.**  It introduces a novel online multi-agent learning approach that significantly improves the generation of high-quality reasoning traces, a critical challenge in LLM development.  The findings offer practical solutions and open avenues for further exploration in LLM fine-tuning and self-improvement strategies, potentially impacting numerous applications.
 #### Key Takeaways
 
 {{< alert "star" >}}
-{{< typeit speed=10 lifeLike=true >}} Flow-DPO uses online multi-agent learning to collaboratively construct solutions, improving reasoning trace quality. {{< /typeit >}}
+{{< typeit speed=10 lifeLike=true >}} Flow-DPO, a novel online multi-agent learning method, improves LLM mathematical reasoning. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Online DPO learning with rollouts efficiently trains the model, updating it in real-time and improving performance. {{< /typeit >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Incremental output production and online DPO with rollouts enhance reasoning trace quality. {{< /typeit >}}
 {{< /alert >}}
 
 {{< alert "star" >}}
-{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The method outperforms existing techniques in generating high-quality reasoning traces for LLM fine-tuning, even with fewer training resources. {{< /typeit >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} The approach shows significant improvements in both quantitative and qualitative evaluations. {{< /typeit >}}
 {{< /alert >}}
 
 ------
@@ -55,7 +58,7 @@ This paper is important because it presents a novel approach to enhance LLMs' ma
 
 ![](https://ai-paper-reviewer.com/2410.22304/figures_3_0.png)
 
-> 🔼 The figure illustrates the online DPO learning process with rollouts, showing how random rollouts at each output node generate DPO pairs for training.
+> 🔼 The figure illustrates the online DPO learning process with rollouts, showing how random rollouts are used to generate DPO pairs for training.
 > <details>
 > <summary>read the caption</summary>
 > Figure 2: Illustration of the DPO training with rollouts. At each node of the initial generation, we do a random rollout that is different from the original node and continue generation to a final answer. A pair that leads to different answers (correct and incorrect) is considered a DPO training data.
@@ -67,7 +70,7 @@ This paper is important because it presents a novel approach to enhance LLMs' ma
 
 ![](https://ai-paper-reviewer.com/2410.22304/charts_4_0.png)
 
-> 🔼 The chart displays the progressive validation accuracy of the Flow during online DPO training with rollouts for Llama-3-Instruct and Phi-3-Medium models on the MetaMath dataset, comparing performance with and without training and zero-shot model performance.
+> 🔼 The charts display the progressive validation accuracy of the Flow model with and without online DPO training, compared to the zero-shot performance of a single LLM, across different numbers of training samples for Llama-3-Instruct and Phi-3-Medium models on the MetaMath dataset.
 > <details>
 > <summary>read the caption</summary>
 > Figure 3: Progressive validation accuracy of Llama-3-Instruct on MetaMath. Figure 4: Progressive validation accuracy of Phi-3-Medium on MetaMath.
@@ -80,7 +83,7 @@ This paper is important because it presents a novel approach to enhance LLMs' ma
 {{< table-caption >}}
 <table id='8' style='font-size:14px'><tr><td>Model</td><td>Method</td><td>GSM8K</td><td>MATH</td></tr><tr><td rowspan="4">Llama-3-Instruct (8B)</td><td>0-shot</td><td>48.9</td><td>22.3</td></tr><tr><td>SFT (ground-truth)</td><td>67.2</td><td>25.1</td></tr><tr><td>SFT (self-generated)</td><td>68.8</td><td>24.2</td></tr><tr><td>SFT (Flow-generated)</td><td>71.3</td><td>27.8</td></tr><tr><td rowspan="4">Phi-3-Medium (14B)</td><td>0-shot</td><td>-</td><td>35.4</td></tr><tr><td>SFT (ground-truth)</td><td>-</td><td>36.3</td></tr><tr><td>SFT (self-generated)</td><td>-</td><td>36.5</td></tr><tr><td>SFT (Flow-generated)</td><td>-</td><td>38.6</td></tr></table>{{< /table-caption >}}
 
-> 🔼 Table 1 presents a comparison of the accuracy achieved by different fine-tuning methods (ground-truth, self-generated, and Flow-generated traces) on the GSM8K and MATH datasets for Llama-3-Instruct (8B) and Phi-3-Medium (14B) language models.
+> 🔼 Table 1 compares the accuracy of different LLMs fine-tuned using different reasoning traces (ground-truth, self-generated, and Flow-generated) on GSM8K and MATH datasets.
 > <details>
 > <summary>read the caption</summary>
 > Table 1: Main results of comparing the quality of traces used for SFT. We report the accuracy (%) for each model fine-tuned on an identical set of prompts, but with varying answer sources. For Phi-3, we does not include GSM8K due to its already optimized performance on the dataset.
@@ -88,7 +91,35 @@ This paper is important because it presents a novel approach to enhance LLMs' ma
 
 
 
+
+
 ### More visual insights
+
+
+
+
+<details>
+<summary>More on tables
+</summary>
+
+
+{{< table-caption >}}
+<br><table id='1' style='font-size:16px'><tr><td>Learning rate</td><td>5e-6</td></tr><tr><td>Optimizer</td><td>Adam</td></tr><tr><td>Global batch size</td><td>32</td></tr><tr><td>DPO coefficient B</td><td>1.0</td></tr><tr><td>Gradient clipping</td><td>1.0</td></tr><tr><td>lora_r</td><td>8</td></tr><tr><td>lora_alpha</td><td>8</td></tr><tr><td>lora_dropout</td><td>0.05</td></tr><tr><td>lora_ target</td><td>all</td></tr><tr><td>Maximum steps (chunks)</td><td>6</td></tr><tr><td>Chunk size</td><td>160</td></tr></table>{{< /table-caption >}}
+> 🔼 This table presents the hyperparameters used during the online direct preference optimization (DPO) fine-tuning process.
+> <details>
+> <summary>read the caption</summary>
+> Table 2: Online DPO Fine-tuning hyperparameters.
+> </details>
+
+{{< table-caption >}}
+<br><table id='3' style='font-size:16px'><tr><td>Learning rate</td><td>2e-4</td></tr><tr><td>Optimizer</td><td>Adam</td></tr><tr><td>Global batch size</td><td>16</td></tr><tr><td>Gradient clipping</td><td>1.0</td></tr><tr><td>gradient_accumulation_steps</td><td>2</td></tr><tr><td>warmup_ratio</td><td>0.1</td></tr><tr><td>lora_r</td><td>16</td></tr><tr><td>lora_alpha</td><td>16</td></tr><tr><td>lora_dropout</td><td>0.05</td></tr><tr><td>lora_target</td><td>all</td></tr><tr><td>Training epochs</td><td>3</td></tr></table>{{< /table-caption >}}
+> 🔼 Table 3 presents the hyperparameters used during the Compile (SFT) step of the proposed model.
+> <details>
+> <summary>read the caption</summary>
+> Table 3: Comiple (SFT) hyperparameters.
+> </details>
+
+</details>
 
 
 
