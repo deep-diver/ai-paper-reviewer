@@ -2,11 +2,13 @@
 title: "TP-Eval: Tap Multimodal LLMs' Potential in Evaluation by Customizing Prompts"
 summary: "TP-Eval, a novel framework, tackles MLLM evaluation bias by customizing prompts for each model, revealing true capabilities and improving benchmark reliability."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-23", "🤗 24-10-24"]
+tags: ["🔖 24-10-23", ]
 showSummary: true
 date: 2024-10-23
 draft: false
 ---
+
+{{< keyword >}} 2410.18071 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers working on multimodal large language model
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.18071/figures_1_0.png)
 
 > 🔼 Figure 1 shows the underestimation problem caused by unsuitable prompts in the MMT-Bench benchmark and introduces the TP-Eval framework which solves this issue through prompt customization.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers working on multimodal large language model
 
 
 
-![](charts/charts_7_0.png)
+![](https://ai-paper-reviewer.com/2410.18071/charts_7_0.png)
 
 > 🔼 The chart displays the accuracy improvement percentage for three different models across various tasks in the MMT-S benchmark after prompt optimization.
 > <details>
@@ -91,7 +93,7 @@ This paper is crucial for researchers working on multimodal large language model
 </summary>
 
 
-![](charts/charts_8_0.png "🔼 Figure 4: Overall performance with different prompt methods on MMMU with LLaVA. In most cases, the results after optimization surpass those achieved with the initial prompts, and they generally outperform the original questions as well.")
+![](https://ai-paper-reviewer.com/2410.18071/charts_8_0.png)
 
 > 🔼 The chart displays the overall performance of LLaVA on MMMU using original questions, initial prefix prompts, and optimized prefix prompts, revealing improvements through prompt optimization.
 > <details>
@@ -100,7 +102,7 @@ This paper is crucial for researchers working on multimodal large language model
 > </details>
 
 
-![](charts/charts_8_1.png "🔼 Figure 5: Result of applying optimized prompts to other models. Applying customized prompts from one model to another yields performance changes that differ from each model's inherent characteristics.")
+![](https://ai-paper-reviewer.com/2410.18071/charts_8_1.png)
 
 > 🔼 The chart displays the performance changes when prompts optimized for one model are applied to other models, illustrating the model-specific nature of optimal prompts.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers working on multimodal large language model
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 6: Performance on whether to use introspection or not.")
+![](https://ai-paper-reviewer.com/2410.18071/charts_9_0.png)
 
 > 🔼 The chart displays the performance comparison of three different methods (original, no introspection, and the proposed method) on three tasks from the MMT-S benchmark, showing the effectiveness of incorporating introspection in the proposed method.
 > <details>
@@ -118,7 +120,7 @@ This paper is crucial for researchers working on multimodal large language model
 > </details>
 
 
-![](charts/charts_9_1.png "🔼 Figure 7: Influence of re-ranking. Both excessively high and low a* can lead to a reduction in performance, and each model achieves optimal performance with a* ∈ [0.5, 0.6].")
+![](https://ai-paper-reviewer.com/2410.18071/charts_9_1.png)
 
 > 🔼 The chart displays the impact of the re-ranking parameter (a*) on the accuracy of three different models (LLaVA, DeepSeek, and InternVL).
 > <details>
@@ -138,27 +140,19 @@ This paper is crucial for researchers working on multimodal large language model
 
 {{< table-caption >}}
 <table id='3' style='font-size:20px'><tr><td>Model</td><td>Original Score</td><td>TP-Eval Score</td><td>#Improved Task</td><td>Ratio</td></tr><tr><td>LLaVA-1.5-7B</td><td>50.4</td><td>54.4</td><td>32</td><td>25.1%</td></tr><tr><td>DeepSeek-VL-7B</td><td>55.2</td><td>57.3</td><td>21</td><td>23.3%</td></tr><tr><td>Mini-Intern VL-Chat-4B-V1-5</td><td>54.6</td><td>56.9</td><td>16</td><td>40.4%</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 presents the overall performance of three models on the MMT-S benchmark before and after prompt customization using TP-Eval, showing significant improvements in several tasks.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Overall result for MMT-S. All three models exhibited significant performance improvements across a substantial number of tasks following prompt customization.
 > </details>
-
-
-> Table 2 presents the overall performance of three models on the MMT-S benchmark before and after prompt customization using TP-Eval, showing significant improvements in several tasks.
-
 
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td>Task name</td><td>Original prompt</td><td>Zero-shot</td><td>Few-shot</td></tr><tr><td>helmet anomaly detection</td><td>0.65</td><td>0.86</td><td>0.92</td></tr><tr><td>artwork emotion recognition</td><td>0.3</td><td>0.33</td><td>0.41</td></tr><tr><td>spot similarity</td><td>0.23</td><td>0.42</td><td>0.52</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table shows the original prompt accuracy and the accuracy after zero-shot and few-shot prompt optimization for three tasks from the MMT-S benchmark using In-context Learning.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: Zero-shot prompt optimization utilizing In-context Learning.
 > </details>
-
-
-> The table shows the original prompt accuracy and the accuracy after zero-shot and few-shot prompt optimization for three tasks from the MMT-S benchmark using In-context Learning.
-
 
 </details>
 
@@ -166,15 +160,15 @@ This paper is crucial for researchers working on multimodal large language model
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18071/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

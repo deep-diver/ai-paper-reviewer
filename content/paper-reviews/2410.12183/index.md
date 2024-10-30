@@ -2,11 +2,13 @@
 title: "TransAgent: Transfer Vision-Language Foundation Models with Heterogeneous Agent Collaboration"
 summary: "TransAgent empowers vision-language models by collaboratively distilling knowledge from diverse expert agents, achieving state-of-the-art performance on visual recognition tasks."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-16", "🤗 24-10-18"]
+tags: ["🔖 24-10-16", ]
 showSummary: true
 date: 2024-10-16
 draft: false
 ---
+
+{{< keyword >}} 2410.12183 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers working on vision-language models and tran
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.12183/figures_2_0.png)
 
 > 🔼 This figure illustrates the TransAgent framework, showing how it leverages multiple heterogeneous agents to improve the generalization ability of vision-language foundation models, and compares its performance against state-of-the-art methods.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers working on vision-language models and tran
 
 
 
-![](charts/charts_9_0.png)
+![](https://ai-paper-reviewer.com/2410.12183/charts_9_0.png)
 
 > 🔼 The heatmap visualizes the average gating weights of vision, language, and multi-modal agents across eleven datasets, indicating their contribution to the final gated features.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for researchers working on vision-language models and tran
 </summary>
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.12183/figures_4_0.png)
 
 > 🔼 Figure 2 illustrates the TransAgent framework's vision and language agent collaboration, detailing knowledge integration and distillation processes for enhanced model performance.
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for researchers working on vision-language models and tran
 
 
 
-![](figures/figures_6_0.png)
+![](https://ai-paper-reviewer.com/2410.12183/figures_6_0.png)
 
 > 🔼 This figure illustrates the multi-modal agent collaboration in TransAgent, showing how cross attention maps are extracted from T2I and I2T agents, processed, and used to align learnable prompts via score distillation.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers working on vision-language models and tran
 
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.12183/figures_8_0.png)
 
 > 🔼 Figure 4 shows the accuracy comparison of TransAgent and other methods in few-shot classification settings on eleven different datasets.
 > <details>
@@ -131,51 +133,35 @@ This paper is crucial for researchers working on vision-language models and tran
 
 {{< table-caption >}}
 <br><table id='5' style='font-size:18px'><tr><td>Models</td><td>Base</td><td>Novel</td><td>HM</td></tr><tr><td>baseline</td><td>84.21</td><td>71.79</td><td>77.51</td></tr><tr><td>GPT-3</td><td>85.15</td><td>74.55</td><td>79.50</td></tr><tr><td>Vicuna</td><td>85.35</td><td>74.70</td><td>79.67</td></tr><tr><td>[SOS]</td><td>84.19</td><td>75.25</td><td>79.47</td></tr><tr><td>[EOS]</td><td>85.29</td><td>77.62</td><td>81.27</td></tr><tr><td>Average</td><td>84.23</td><td>75.98</td><td>79.89</td></tr><tr><td>Add</td><td>82.44</td><td>74.89</td><td>78.48</td></tr><tr><td>Gating</td><td>85.29</td><td>77.62</td><td>81.27</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 3 presents the results of ablating different designs for Language Agent Collaboration (LAC) module, showing the base, novel, and harmonic mean (HM) accuracy for different model choices and fusion methods.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: LAC Design.
 > </details>
-
-
-> Table 3 presents the results of ablating different designs for Language Agent Collaboration (LAC) module, showing the base, novel, and harmonic mean (HM) accuracy for different model choices and fusion methods.
-
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td rowspan="2">Model</td><td rowspan="2">Parameters</td><td rowspan="2">Model Type</td><td colspan="2">Pre-training</td><td rowspan="2">Knowledge</td></tr><tr><td>Tasks</td><td>Datasets</td></tr><tr><td>DINO 9</td><td>86M</td><td>ViT</td><td>IC</td><td>ImageNet-1K</td><td>Vision</td></tr><tr><td>MAE 33</td><td>86M</td><td>ViT</td><td>MIM</td><td>ImageNet-1K</td><td>Vision</td></tr><tr><td>SAM 43</td><td>86M</td><td>ViT</td><td>IS</td><td>SA-1B</td><td>Vision</td></tr><tr><td>ViTDet 49</td><td>86M</td><td>ViT</td><td>OD</td><td>COCO</td><td>Vision</td></tr><tr><td>GPT-3</td><td>175B</td><td>LLM</td><td>TG</td><td>-</td><td>Language</td></tr><tr><td>Vicuna / 8</td><td>13B</td><td>LLM</td><td>TG</td><td>-</td><td>Language</td></tr><tr><td>BERT 22</td><td>38M</td><td>Transformer</td><td>MLM</td><td>-</td><td>Language</td></tr><tr><td>Stable Diffusion 64</td><td>0.86B</td><td>UNet</td><td>IG</td><td>LAION-2B</td><td>Multi-modal</td></tr><tr><td>Pixart-� I</td><td>0.6B</td><td>DiT</td><td>IG</td><td>-</td><td>Multi-modal</td></tr><tr><td>BLIP2 46</td><td>2.7B</td><td>MLLM</td><td>ITC+ITM+ITG</td><td>-</td><td>Multi-modal</td></tr><tr><td>Shikra 12</td><td>7B</td><td>MLLM</td><td>ITC+ITM+ITG</td><td>-</td><td>Multi-modal</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 7 presents the different agents used in the TransAgent framework, specifying their parameters, model type, pre-training tasks and datasets, and the type of knowledge they provide.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 7: Demonstration of heterogeneous agents specialized in different domains or tasks.
 > </details>
-
-
-> Table 7 presents the different agents used in the TransAgent framework, specifying their parameters, model type, pre-training tasks and datasets, and the type of knowledge they provide.
-
 
 {{< table-caption >}}
 <br><table id='3' style='font-size:14px'><tr><td></td><td>Setting</td><td>ImageNet</td><td>Caltech 101</td><td>Oxford Pets</td><td>Standford Cars</td><td>Flowers 102</td><td>Food101</td><td>FGVC Aircraft</td><td>SUN397</td><td>DTD</td><td>Euro SAT</td><td>UCF101</td></tr><tr><td rowspan="2">Memory (MB)</td><td>Base-to-novel</td><td>11790</td><td>4708</td><td>4692</td><td>6698</td><td>4702</td><td>4708</td><td>5286</td><td>7708</td><td>5008</td><td>4034</td><td>4718</td></tr><tr><td>Few-shot (16-shot)</td><td>19978</td><td>4542</td><td>6892</td><td>6892</td><td>5488</td><td>5488</td><td>5486</td><td>10110</td><td>4700</td><td>4124</td><td>5484</td></tr><tr><td rowspan="2">Time (ms/batch)</td><td>Base-to-novel</td><td>400</td><td>190</td><td>195</td><td>226</td><td>211</td><td>209</td><td>219</td><td>273</td><td>191</td><td>190</td><td>193</td></tr><tr><td>Few-shot (16-shot)</td><td>688</td><td>214</td><td>206</td><td>262</td><td>217</td><td>215</td><td>221</td><td>356</td><td>196</td><td>205</td><td>220</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 This table shows the memory usage (in MB) and training time per batch (in milliseconds) for different datasets and training settings (base-to-novel and 16-shot).
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 8: Memory and training time required for each dataset.
 > </details>
-
-
-> This table shows the memory usage (in MB) and training time per batch (in milliseconds) for different datasets and training settings (base-to-novel and 16-shot).
-
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td rowspan="2">Method</td><td>Source</td><td colspan="11">Target</td></tr><tr><td>ImageNet</td><td>Caltech 101</td><td>Oxford Pets</td><td>Standford Cars</td><td>Flowers 102</td><td>Food101</td><td>FGVC Aircraft</td><td>SUN397</td><td>DTD</td><td>Euro SAT</td><td>UCF101</td><td>Avg.</td></tr><tr><td>CLIP</td><td>66.72</td><td>92.94</td><td>89.07</td><td>65.29</td><td>71.30</td><td>86.11</td><td>24.87</td><td>62.62</td><td>44.56</td><td>47.69</td><td>66.77</td><td>65.12</td></tr><tr><td>CoOp</td><td>71.51</td><td>93.70</td><td>89.14</td><td>64.51</td><td>68.71</td><td>85.30</td><td>18.47</td><td>64.15</td><td>41.92</td><td>46.39</td><td>66.55</td><td>63.88</td></tr><tr><td>CoCoOp</td><td>71.02</td><td>94.43</td><td>90.14</td><td>65.32</td><td>71.88</td><td>86.06</td><td>22.94</td><td>67.36</td><td>45.73</td><td>45.37</td><td>68.21</td><td>65.74</td></tr><tr><td>MaPLe</td><td>70.72</td><td>93.53</td><td>90.49</td><td>65.57</td><td>72.23</td><td>86.20</td><td>24.74</td><td>67.01</td><td>46.49</td><td>48.06</td><td>68.69</td><td>66.30</td></tr><tr><td>PromptSRC</td><td>71.27</td><td>93.60</td><td>90.25</td><td>65.70</td><td>70.25</td><td>86.15</td><td>23.90</td><td>67.10</td><td>46.87</td><td>45.50</td><td>68.75</td><td>65.81</td></tr><tr><td>TransAgent</td><td>72.00</td><td>94.37</td><td>90.33</td><td>65.43</td><td>71.40</td><td>86.47</td><td>23.20</td><td>66.20</td><td>45.30</td><td>52.13</td><td>69.93</td><td>66.48</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 9 presents a comparison of the accuracy achieved by various methods on cross-dataset evaluation, highlighting the superior performance of TransAgent.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 9: Accuracy comparison with previous methods on cross-dataset evaluation.
 > </details>
-
-
-> Table 9 presents a comparison of the accuracy achieved by various methods on cross-dataset evaluation, highlighting the superior performance of TransAgent.
-
 
 </details>
 
@@ -183,23 +169,23 @@ This paper is crucial for researchers working on vision-language models and tran
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12183/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

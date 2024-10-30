@@ -2,11 +2,13 @@
 title: "Minimum Tuning to Unlock Long Output from LLMs with High Quality Data as the Key"
 summary: "High-quality data, not sheer volume, is key to unlocking LLMs' potential for generating long, coherent outputs, as demonstrated by significant performance improvements with minimal tuning."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-14", "🤗 24-10-18"]
+tags: ["🔖 24-10-14", ]
 showSummary: true
 date: 2024-10-14
 draft: false
 ---
+
+{{< keyword >}} 2410.10210 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it offers a novel approach to improving LLMs' ab
 
 
 
-![](figures/figures_7_0.png)
+![](https://ai-paper-reviewer.com/2410.10210/figures_7_0.png)
 
 > 🔼 The figure compares the correlation between required and actual output lengths for different datasets after data refinement steps.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it offers a novel approach to improving LLMs' ab
 
 
 
-![](charts/charts_3_0.png)
+![](https://ai-paper-reviewer.com/2410.10210/charts_3_0.png)
 
 > 🔼 The chart shows the dataset size reduction of LongWriter-6K after removing two categories of suboptimal data entries, resulting in LongWriter-6K-filtered.
 > <details>
@@ -91,7 +93,7 @@ This paper is important because it offers a novel approach to improving LLMs' ab
 </summary>
 
 
-![](charts/charts_3_1.png "🔼 Figure 2: Comparison of different dataset's 'length-following' characteristics.")
+![](https://ai-paper-reviewer.com/2410.10210/charts_3_1.png)
 
 > 🔼 Figure 2 shows a comparison of the length-following characteristics of different datasets after applying filtration of Category 1 and 2 data entries, illustrating the improved correlation between required and actual output lengths after data refinement.
 > <details>
@@ -100,7 +102,7 @@ This paper is important because it offers a novel approach to improving LLMs' ab
 > </details>
 
 
-![](charts/charts_5_0.png "🔼 Figure 3: Improvement on \'length-following\' characteristics on Qwen2-7B-Instruct.")
+![](https://ai-paper-reviewer.com/2410.10210/charts_5_0.png)
 
 > 🔼 The chart compares the length-following characteristics of the original Qwen2-7B-Instruct model and the fine-tuned MS-LongWriter-Qwen2-7B-Instruct model, showing improved adherence to the instructed length in the latter.
 > <details>
@@ -120,27 +122,19 @@ This paper is important because it offers a novel approach to improving LLMs' ab
 
 {{< table-caption >}}
 <table id='1' style='font-size:18px'><tr><td></td><td>Training data and epoch setup</td><td>s (avg) SL SQ</td><td>Improvement</td></tr><tr><td>GLM4-9b-Chat</td><td>-</td><td>67.8 52.8 82.78</td><td>-</td></tr><tr><td>LongWriter-GLM4-9B[7, 8]</td><td>Trained from GLM-4-9B[11] with LongWrite-6k plus 1:30 mixing ratio using entire GLM chat SFT dataset (180k), trained for 4 epochs</td><td>80.5 78.6 82.3</td><td>+12.7 pt</td></tr><tr><td>Setup 4</td><td>LongWriter-6k-filtered with 1:20 mixing ratio of alignment data (13k), trained for 2 epochs</td><td>79.88 77.42 82.33</td><td>+12.08 pt</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 presents the results of tuning the GLM4-9b-Chat model using different training data setups and compares the performance to the original LongWriter model.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Tuning GLM4-9b-Chat with various setups for long-writing task.
 > </details>
-
-
-> Table 2 presents the results of tuning the GLM4-9b-Chat model using different training data setups and compares the performance to the original LongWriter model.
-
 
 {{< table-caption >}}
 <table id='3' style='font-size:18px'><tr><td></td><td>Training data and epoch setup</td><td>s (avg)</td><td>SL</td><td>SQ</td><td>Improvement</td></tr><tr><td>Qwen2. 5-7B-Instruct</td><td>-</td><td>75.79</td><td>66.4</td><td>85.17</td><td>-</td></tr><tr><td>Setup 4</td><td>LongWriter-6k-filtered with 1:20 mixing ratio of alignment data (13k), trained for 2 epochs</td><td>79.88</td><td>77.42</td><td>82.33</td><td>+4.75 pt</td></tr><tr><td>Setup 5</td><td>Based on Setup 4, introduce additional annealing with learning rate of 2e - 6 using LongWriter-6k-filtered for another 2 epochs</td><td>82.84</td><td>81.24</td><td>84.44</td><td>+7.05 pt</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table presents the performance of the Qwen2.5-7B-Instruct model fine-tuned using different training data and epoch setups for long-form text generation.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: Tuning Qwen2.5-7B-Instruct with various setups for long-writing task.
 > </details>
-
-
-> The table presents the performance of the Qwen2.5-7B-Instruct model fine-tuned using different training data and epoch setups for long-form text generation.
-
 
 </details>
 
@@ -148,12 +142,12 @@ This paper is important because it offers a novel approach to improving LLMs' ab
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.10210/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

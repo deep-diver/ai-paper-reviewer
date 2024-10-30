@@ -2,11 +2,13 @@
 title: "ZIP-FIT: Embedding-Free Data Selection via Compression-Based Alignment"
 summary: "ZIP-FIT uses gzip compression to efficiently select task-relevant training data for language models, drastically improving fine-tuning speed and performance."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-23", "🤗 24-10-25"]
+tags: ["🔖 24-10-23", ]
 showSummary: true
 date: 2024-10-23
 draft: false
 ---
+
+{{< keyword >}} 2410.18194 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.18194/figures_2_0.png)
 
 > 🔼 The figure illustrates the ZIP-FIT algorithm, detailing how it uses gzip compression to measure alignment between source and target datasets for efficient data selection and fine-tuning of large language models.
 > <details>
@@ -59,7 +61,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 
 
 
-![](charts/charts_2_0.png)
+![](https://ai-paper-reviewer.com/2410.18194/charts_2_0.png)
 
 > 🔼 The chart displays the cross-entropy test loss reduction speed for different models and token selection sizes, demonstrating ZIP-FIT's superior efficiency compared to DSIR and D4 in code generation tasks.
 > <details>
@@ -91,7 +93,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 </summary>
 
 
-![](charts/charts_3_0.png "🔼 Figure 3: Higher ZIP-FIT alignment correlates with lower cross-entropy loss. The relationship between ZIP-FIT alignment and cross-entropy (CE) loss for (a) GPT-2 trained on 22k tokens (R2 = 0.90, p = 0.001) and (b) Mistral7B trained on 22k tokens (R2 = 0.75, p = 0.025). Each point represents a dataset, with its position reflecting the dataset's ZIP-FIT alignment score against the ProofNet test set and the resulting CE loss. The dashed red line indicates the linear regression fit, while the dashed grey line shows the pretrained CE loss. Higher alignment scores correspond to lower CE losses, demonstrating that training on better aligned data yields better performance.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_3_0.png)
 
 > 🔼 The chart shows a strong negative correlation between ZIP-FIT alignment scores and cross-entropy loss, indicating that higher alignment scores correspond to lower cross-entropy losses.
 > <details>
@@ -100,7 +102,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_3_1.png "🔼 Figure 3: Higher ZIP-FIT alignment correlates with lower cross-entropy loss. The relationship between ZIP-FIT alignment and cross-entropy (CE) loss for (a) GPT-2 trained on 22k tokens (R2 = 0.90, p = 0.001) and (b) Mistral7B trained on 22k tokens (R2 = 0.75, p = 0.025). Each point represents a dataset, with its position reflecting the dataset's ZIP-FIT alignment score against the ProofNet test set and the resulting CE loss. The dashed red line indicates the linear regression fit, while the dashed grey line shows the pretrained CE loss. Higher alignment scores correspond to lower CE losses, demonstrating that training on better aligned data yields better performance.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_3_1.png)
 
 > 🔼 The chart shows a strong negative correlation between ZIP-FIT alignment scores and cross-entropy loss for two language models, indicating that higher alignment leads to lower loss and better model performance.
 > <details>
@@ -109,7 +111,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_5_0.png "🔼 Figure 4: Highly aligned data lowers cross-entropy loss more efficiently. The x-axis shows the number of training tokens, and the y-axis represents the cross-entropy (CE) test loss. Different curves correspond to datasets filtered by different alignment scores, indicating their relevance to the target domain. The most aligned data reduce Test CE loss significantly faster than less aligned data. The left panel depicts results using GPT-2, and the right panel uses Mistral7B, demonstrating that using highly aligned data not only accelerates training but also achieves better model performance, validating the effectiveness of ZIP-FIT for data selection in fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_5_0.png)
 
 > 🔼 The chart displays the relationship between data alignment, as measured by ZIP-FIT, and the speed and extent of cross-entropy loss reduction during model fine-tuning, showcasing the efficiency of using highly aligned data for training.
 > <details>
@@ -118,7 +120,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_6_0.png "🔼 Figure 5: AutoFormalization: ZIP-FIT consistently achieves lower test loss more quickly than D4 and DSIR, demonstrating its efficiency in data selection. The plots show cross-entropy test loss versus the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across different token selection sizes. ZIP-FIT (blue line) consistently outperforms both DSIR (green line) and D4 (red line) across all model and token size configurations, highlighting its ability to process data more efficiently. The percentage labels in each plot indicate the relative speedup of ZIP-FIT over DSIR in reaching the lowest cross-entropy loss, reinforcing the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_6_0.png)
 
 > 🔼 The chart shows that ZIP-FIT consistently achieves lower cross-entropy test loss faster than D4 and DSIR across three different models and various token selection sizes for the AutoFormalization task, demonstrating its efficiency in data selection.
 > <details>
@@ -127,7 +129,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 6: Selective data filtering with ZIP-FIT allows us to achieve better cross-entropy test loss faster than training on all the data, resulting in improved performance and efficiency. The x-axis represents the number of training tokens, while the y-axis shows the cross-entropy test loss. The curves represent models fine-tuned (FT) on datasets filtered by varying alignment thresholds (>0.1, >0.2, >0.3). The dashed line indicates the baseline performance of the pretrained Mistral7B model. Training on data filtered with higher alignment thresholds leads to superior performance, demonstrating the effectiveness of removing misaligned data in fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_8_0.png)
 
 > 🔼 The chart displays the relationship between the number of training tokens and cross-entropy test loss for different alignment thresholds, demonstrating that data filtering with higher alignment thresholds leads to faster convergence and lower test loss.
 > <details>
@@ -136,7 +138,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_0.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_0.png)
 
 > 🔼 The chart displays the cross-entropy test loss against the number of training tokens for three different models using three different data selection methods, showing that ZIP-FIT consistently achieves lower test loss at a faster rate.
 > <details>
@@ -145,7 +147,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_1.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_1.png)
 
 > 🔼 The chart displays the cross-entropy test loss for three different language models across various token selection sizes, showing that ZIP-FIT consistently achieves lower test loss at a faster rate compared to D4 and DSIR.
 > <details>
@@ -154,7 +156,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_2.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_2.png)
 
 > 🔼 The chart displays the cross-entropy test loss against the number of training tokens for three models using different data selection methods, showing ZIP-FIT consistently achieves lower loss faster than D4 and DSIR.
 > <details>
@@ -163,7 +165,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_3.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_3.png)
 
 > 🔼 The chart displays the cross-entropy test loss for three different models across various token selection sizes, demonstrating ZIP-FIT's superior performance and speed compared to D4 and DSIR in achieving lower test loss.
 > <details>
@@ -172,7 +174,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_4.png "🔼 Figure 2: Code Generation: ZIP-FIT accelerates cross-entropy loss reduction, even in code-specialized models like CodeGemma-2B. The plots show cross-entropy test loss versus the number of training tokens for Gemma2-2B (top row) and CodeGemma-2B (bottom row) across different token selection sizes. ZIP-FIT (blue) consistently reduces loss faster than DSIR (green) and D4 (red), achieving up to 85.11% speed improvement at lower token counts. These results demonstrate ZIP-FIT's efficiency in data selection for fine-tuning models on code-geneation tasks.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_4.png)
 
 > 🔼 The chart displays the efficiency of ZIP-FIT, DSIR, and D4 in reducing cross-entropy test loss during code generation model fine-tuning, showcasing ZIP-FIT's superior performance and speed.
 > <details>
@@ -181,7 +183,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_5.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_5.png)
 
 > 🔼 The chart compares the cross-entropy test loss and training speed of three different language models using three data selection methods (ZIP-FIT, DSIR, and D4) across various dataset sizes.
 > <details>
@@ -190,7 +192,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_6.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_6.png)
 
 > 🔼 The chart displays the cross-entropy test loss for three different language models across varying token selection sizes, demonstrating that ZIP-FIT consistently achieves lower loss faster than D4 and DSIR.
 > <details>
@@ -199,7 +201,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_7.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_7.png)
 
 > 🔼 The chart compares the performance of ZIP-FIT, DSIR, and D4 in reducing cross-entropy loss during Autoformalization across different models and token selection sizes, demonstrating ZIP-FIT's superior efficiency and speed.
 > <details>
@@ -208,7 +210,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_17_8.png "🔼 Figure 7: ZIP-FIT consistently achieves a lower test loss at a faster rate compared to D4 and DSIR for Autoformalization. The plots show the cross-entropy test loss against the number of training tokens for three models (InterLM-Math-Plus-1.8B, Gemma2-2B, and Mistral7B) across various token selection sizes. ZIP-FIT (blue line) consistently surpasses both DSIR (green line) and D4 (red line) across all model and token size configurations, emphasizing its superior data processing efficiency. The percentage labels in each plot denote the relative speedup of ZIP-FIT over DSIR in attaining the lowest cross-entropy loss, further underscoring the method's scalability and adaptability for domain-specific fine-tuning.")
+![](https://ai-paper-reviewer.com/2410.18194/charts_17_8.png)
 
 > 🔼 The chart displays the cross-entropy test loss for three different language models across varying numbers of training tokens, demonstrating that ZIP-FIT consistently achieves lower loss faster than two other methods.
 > <details>
@@ -217,7 +219,7 @@ This paper is significant because it introduces a novel, efficient data selectio
 > </details>
 
 
-![](charts/charts_18_0.png "🔼 Figure 8: ZIP-FIP demonstrates lower cross-entropy and lower run time during data selection than competing DSIR and D4 methods. ZIP-FIT is cheaper, faster, and better performing. The run times do no include fine-tuning time, since it's a constant offset across all models. D4's data selection (not shown) takes 5hs because it uses an embedding model (opt-125m Zhang et al. (2022)), the same one as the original paper Tirumala et al. (2023).")
+![](https://ai-paper-reviewer.com/2410.18194/charts_18_0.png)
 
 > 🔼 The chart compares the cross-entropy test loss and data selection time of ZIP-FIT against DSIR for different model and token sizes, showing ZIP-FIT's superior efficiency and performance.
 > <details>
@@ -233,23 +235,23 @@ This paper is significant because it introduces a novel, efficient data selectio
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18194/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

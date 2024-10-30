@@ -2,11 +2,13 @@
 title: "Context is Key(NMF): Modelling Topical Information Dynamics in Chinese Diaspora Media"
 summary: "KeyNMF, a novel topic modeling approach, effectively analyzes information dynamics in Chinese diaspora media, revealing the PRC's potential influence on European elections."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-16", "🤗 24-10-21"]
+tags: ["🔖 24-10-16", ]
 showSummary: true
 date: 2024-10-16
 draft: false
 ---
+
+{{< keyword >}} 2410.12791 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers studying information dynamics, particularl
 
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.12791/figures_8_0.png)
 
 > 🔼 The figure shows the number of new articles collected at each time point for five different Chinese diaspora news sources.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers studying information dynamics, particularl
 
 
 
-![](charts/charts_6_0.png)
+![](https://ai-paper-reviewer.com/2410.12791/charts_6_0.png)
 
 > 🔼 The chart displays the sensitivity of KeyNMF's performance to the number of keywords used, across multiple metrics and five different news sources.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for researchers studying information dynamics, particularl
 </summary>
 
 
-![](figures/figures_17_0.png)
+![](https://ai-paper-reviewer.com/2410.12791/figures_17_0.png)
 
 > 🔼 The figure shows the pseudo-probability distributions over time for two topics from the Oushinet news site, focusing on the period before Putin’s state visit to China.
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for researchers studying information dynamics, particularl
 
 
 
-![](figures/figures_19_0.png)
+![](https://ai-paper-reviewer.com/2410.12791/figures_19_0.png)
 
 > 🔼 The figure shows the pseudo-probability distributions over time for five topics identified by the KeyNMF model during Xi Jinping’s European tour, highlighting changes in topic prominence across different time periods for Oushinet and Xinouzhou news sites.
 > <details>
@@ -117,23 +119,23 @@ This paper is crucial for researchers studying information dynamics, particularl
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12791/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

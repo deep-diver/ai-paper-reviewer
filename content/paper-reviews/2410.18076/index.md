@@ -2,11 +2,13 @@
 title: "Leveraging Skills from Unlabeled Prior Data for Efficient Online Exploration"
 summary: "SUPE leverages unlabeled prior data to pre-train skills and pseudo-label trajectories for efficient online RL exploration, significantly outperforming existing methods on challenging tasks."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-23", "🤗 24-10-28"]
+tags: ["🔖 24-10-23", ]
 showSummary: true
 date: 2024-10-23
 draft: false
 ---
+
+{{< keyword >}} 2410.18076 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it presents a novel method for efficient online 
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.18076/figures_2_0.png)
 
 > 🔼 The figure illustrates the SUPE method, showing how unlabeled trajectory data is used for both offline skill pretraining and online high-level policy learning via off-policy RL.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it presents a novel method for efficient online 
 
 
 
-![](charts/charts_8_0.png)
+![](https://ai-paper-reviewer.com/2410.18076/charts_8_0.png)
 
 > 🔼 The chart shows the aggregated normalized return across three different domains (AntMaze, Visual AntMaze, and Kitchen) over various environment steps for different exploration strategies.
 > <details>
@@ -89,7 +91,7 @@ This paper is important because it presents a novel method for efficient online 
 </summary>
 
 
-![](figures/figures_6_0.png)
+![](https://ai-paper-reviewer.com/2410.18076/figures_6_0.png)
 
 > 🔼 Figure 2 shows the three challenging sparse-reward environments used in the paper: AntMaze, Kitchen, and Visual AntMaze.
 > <details>
@@ -99,7 +101,7 @@ This paper is important because it presents a novel method for efficient online 
 
 
 
-![](figures/figures_9_0.png)
+![](https://ai-paper-reviewer.com/2410.18076/figures_9_0.png)
 
 > 🔼 Figure 2 shows the three challenging sparse-reward environments used in the paper: AntMaze, Kitchen, and Visual AntMaze, illustrating their layouts and observation modalities.
 > <details>
@@ -109,7 +111,7 @@ This paper is important because it presents a novel method for efficient online 
 
 
 
-![](figures/figures_23_0.png)
+![](https://ai-paper-reviewer.com/2410.18076/figures_23_0.png)
 
 > 🔼 The figure shows the three challenging sparse-reward environments used in the paper: AntMaze, Kitchen, and Visual AntMaze, illustrating their layouts and observation modalities.
 > <details>
@@ -128,7 +130,7 @@ This paper is important because it presents a novel method for efficient online 
 </summary>
 
 
-![](charts/charts_10_0.png "🔼 Figure 5: Coverage on three different AntMaze mazes, averaged over runs on four goals. Ours has the best coverage performance on the challenging antmaze-ultra, and is only passed by HILP w/ Offline Data on antmaze-large. Online w/ Traj. Skills and Online with HILP Skills struggle to explore after initial learning, and Online and Diffusion BC + JSRL generally perform poorly at all time steps.")
+![](https://ai-paper-reviewer.com/2410.18076/charts_10_0.png)
 
 > 🔼 The chart displays the coverage performance of different exploration methods across three AntMaze environments over training time.
 > <details>
@@ -137,7 +139,7 @@ This paper is important because it presents a novel method for efficient online 
 > </details>
 
 
-![](charts/charts_19_0.png "🔼 Figure 6: Success rate on Visual AntMaze environment with and without ICVF. Ours works well without ICVF, almost matching the original performance. However, the other baselines Online w/ Trajectory Skills and EXPLORe achieve far worse performance without ICVF, which shows that using offline data both for extracting skills and online learning leads to better utilization of noisy exploration bonuses. Initializing ExPLORe critic with ICVF helps, but does not substantially change performance.")
+![](https://ai-paper-reviewer.com/2410.18076/charts_19_0.png)
 
 > 🔼 The chart shows the success rate of different methods on the Visual AntMaze environment with and without using ICVF (a method for learning image/state representations from passive data).
 > <details>
@@ -146,7 +148,7 @@ This paper is important because it presents a novel method for efficient online 
 > </details>
 
 
-![](charts/charts_20_0.png "🔼 Figure 7: Normalized return on three AntMaze mazes, comparing Ours with a KL regularized alternative (Ours (KL)). We that Ours consistently outperforms Ours (KL) on all three mazes, with initial learning that is at least as fast and significantly improved asymptotic performance. Only Ours is able to meet or surpass the asymptotic performance of ExPLORe on all mazes.")
+![](https://ai-paper-reviewer.com/2410.18076/charts_20_0.png)
 
 > 🔼 The chart compares the performance of the proposed method (Ours) with a KL-regularized version and ExPLORE across three AntMaze environments of varying complexity.
 > <details>
@@ -155,7 +157,7 @@ This paper is important because it presents a novel method for efficient online 
 > </details>
 
 
-![](charts/charts_21_0.png "🔼 Figure 8: Success rate by goal location. The addition of online RND in ExPLORe leads to better performance on goals with less offline data coverage, and slightly worse performance on goals well-represented in the dataset. Ours consistently matches are outperforms all other methods on all goals throughout training.")
+![](https://ai-paper-reviewer.com/2410.18076/charts_21_0.png)
 
 > 🔼 The chart displays the success rate of different methods across various AntMaze goal locations, illustrating the impact of online RND and the effectiveness of the proposed method.
 > <details>
@@ -164,7 +166,7 @@ This paper is important because it presents a novel method for efficient online 
 > </details>
 
 
-![](charts/charts_22_0.png "🔼 Figure 9: Coverage for every goal location on three antmaze environments. There is significant variation between goals, and Ours consistently has the best initial coverage performance on 11 of 12 goals. Flattening coverage compared to other methods can be at least partially attributed to having already found the goal, and sucessfully optimizing reaching that goal, rather than continuing to explore after already finding the goal.")
+![](https://ai-paper-reviewer.com/2410.18076/charts_22_0.png)
 
 > 🔼 The chart displays the percentage of the maze explored by different methods over time across various goal locations and maze sizes.
 > <details>
@@ -173,7 +175,7 @@ This paper is important because it presents a novel method for efficient online 
 > </details>
 
 
-![](charts/charts_23_0.png "🔼 Figure 10: Data corruption ablation on state-based antmaze-large. Top: The success rate of different methods on these data corruption settings. Bottom: Visualization of the data distribution for each corruption setting. We experiment with two data corruption settings. Our method performs worse than the full data setting but still consistently outperforms all baselines.")
+![](https://ai-paper-reviewer.com/2410.18076/charts_23_0.png)
 
 > 🔼 The chart displays the success rate of different reinforcement learning methods on the AntMaze task under two data corruption scenarios (5% data and insufficient coverage), showing the robustness of the proposed method.
 > <details>
@@ -189,27 +191,27 @@ This paper is important because it presents a novel method for efficient online 
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18076/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

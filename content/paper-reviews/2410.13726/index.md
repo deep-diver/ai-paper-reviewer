@@ -2,11 +2,13 @@
 title: "DAWN: Dynamic Frame Avatar with Non-autoregressive Diffusion Framework for Talking Head Video Generation"
 summary: "DAWN: a new framework for generating realistic talking head videos from a single image and audio, using a fast non-autoregressive diffusion model to overcome limitations of previous approaches."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-17", "🤗 24-10-21"]
+tags: ["🔖 24-10-17", ]
 showSummary: true
 date: 2024-10-17
 draft: false
 ---
+
+{{< keyword >}} 2410.13726 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.13726/figures_4_0.png)
 
 > 🔼 Figure 1 illustrates the pipeline of the DAWN framework, showing how it uses a latent flow generator, a pose and blink generation network, and an audio-to-video flow diffusion model to generate talking head videos.
 > <details>
@@ -59,7 +61,7 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 
 
 
-![](charts/charts_16_0.png)
+![](https://ai-paper-reviewer.com/2410.13726/charts_16_0.png)
 
 > 🔼 The chart compares the generation time cost of different talking head generation methods, highlighting that the proposed DAWN method is significantly faster than previous diffusion-based approaches.
 > <details>
@@ -89,7 +91,7 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 </summary>
 
 
-![](figures/figures_4_1.png)
+![](https://ai-paper-reviewer.com/2410.13726/figures_4_1.png)
 
 > 🔼 The figure illustrates the overall architecture of DAWN, showing the three main components: Latent Flow Generator (LFG), Pose and Blink generation Network (PBNet), and Audio-to-Video Flow Diffusion Model (A2V-FDM), and their interactions.
 > <details>
@@ -99,7 +101,7 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.13726/figures_8_0.png)
 
 > 🔼 Figure 2 shows a qualitative comparison of DAWN with other state-of-the-art talking head generation methods on two datasets, highlighting DAWN's superior video quality, lip synchronization, identity preservation, and head motion.
 > <details>
@@ -109,7 +111,7 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 
 
 
-![](figures/figures_10_0.png)
+![](https://ai-paper-reviewer.com/2410.13726/figures_10_0.png)
 
 > 🔼 Figure 3 shows the results of cross-identity reenactment, where audio, head pose, and blink signals from one video are used to generate a talking head video from a different source image.
 > <details>
@@ -119,7 +121,7 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 
 
 
-![](figures/figures_15_0.png)
+![](https://ai-paper-reviewer.com/2410.13726/figures_15_0.png)
 
 > 🔼 Figure 4 presents qualitative results demonstrating the model's ability to generate high-resolution talking head videos across various portrait styles, including photos, paintings, anime, and sketches.
 > <details>
@@ -129,7 +131,7 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 
 
 
-![](figures/figures_17_0.png)
+![](https://ai-paper-reviewer.com/2410.13726/figures_17_0.png)
 
 > 🔼 The figure visualizes the results of cross-identity reenactment, showing how the model can generate talking head videos using audio, pose, and blink signals from one video and apply them to a different source image.
 > <details>
@@ -151,51 +153,35 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 
 {{< table-caption >}}
 <br><table id='2' style='font-size:20px'><tr><td>Method</td><td>Time(s)↓</td><td>FID↓</td><td>FVD16↓</td><td>FVD32↓</td><td>LSEc↑</td><td>LSED↓</td></tr><tr><td>SAR</td><td>11.42</td><td>13.00</td><td>120.33</td><td>210.52</td><td>4.34</td><td>8.29</td></tr><tr><td>TTR</td><td>19.25</td><td>9.77</td><td>95.42</td><td>137.14</td><td>4.87</td><td>8.68</td></tr><tr><td>Ours</td><td>7.32</td><td>9.60</td><td>60.34</td><td>95.64</td><td>6.71</td><td>7.94</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 compares the proposed non-autoregressive method with SAR and TTR methods in terms of generation time, FID, FVD16, FVD32, LSEC, and LSED scores on the CREMA dataset.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Comparison with other generation strategies. The semi-autoregressive (SAR) generation strategy is similar to He et al. (2023). The two temporal resolution (TTR) generation method is mentioned in Harvey et al. (2022).
 > </details>
-
-
-> Table 2 compares the proposed non-autoregressive method with SAR and TTR methods in terms of generation time, FID, FVD16, FVD32, LSEC, and LSED scores on the CREMA dataset.
-
 
 {{< table-caption >}}
 <br><table id='4' style='font-size:20px'><tr><td>Inference length</td><td>FID↓</td><td>FVD16↓</td><td>FVD32↓</td><td>LSEc↑</td><td>LSED↓</td></tr><tr><td>40</td><td>9.35</td><td>59.58</td><td>94.09</td><td>5.76</td><td>7.89</td></tr><tr><td>100</td><td>9.83</td><td>61.72</td><td>98.80</td><td>6.41</td><td>7.96</td></tr><tr><td>200</td><td>9.60</td><td>60.34</td><td>95.64</td><td>6.71</td><td>7.94</td></tr><tr><td>400</td><td>10.36</td><td>61.57</td><td>97.84</td><td>6.63</td><td>8.12</td></tr><tr><td>600</td><td>10.30</td><td>60.44</td><td>96.62</td><td>6.76</td><td>8.02</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 3 shows the quantitative results of the extrapolation experiment by changing the inference length, demonstrating the stable performance of the model across different lengths.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: The experiment of extrapolation evaluation. “Inference length” refers to the number of frames generated in a single inference process.
 > </details>
-
-
-> Table 3 shows the quantitative results of the extrapolation experiment by changing the inference length, demonstrating the stable performance of the model across different lengths.
-
 
 {{< table-caption >}}
 <br><table id='2' style='font-size:18px'><tr><td>Method</td><td>GT PB</td><td>FID↓</td><td>FVD16↓</td><td>FVD32↓</td><td>LSEc↑</td><td>LSED↓</td></tr><tr><td>only stage 1</td><td></td><td>7.95</td><td>81.84</td><td>126.52</td><td>4.38</td><td>10.04</td></tr><tr><td>only stage 2</td><td></td><td>13.71</td><td>125.75</td><td>166.83</td><td>6.14</td><td>8.43</td></tr><tr><td>DAWN</td><td></td><td>9.68</td><td>52.05</td><td>87.11</td><td>6.71</td><td>7.99</td></tr><tr><td>w/o PBNet</td><td>x</td><td>15.20</td><td>100.94</td><td>162.35</td><td>5.79</td><td>8.36</td></tr><tr><td>DAWN</td><td>x</td><td>9.60</td><td>60.34</td><td>95.64</td><td>6.71</td><td>7.94</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 4 presents the ablation study results of the two-stage curriculum learning (TCL) and Pose and Blink generation Network (PBNet), comparing different model configurations on various metrics such as FID, FVD16, FVD32, LSEC, and LSED.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 4: Ablation study on TCL and PBNet. The “GT PB” refers to whether to use ground truth pose/blink signal.
 > </details>
-
-
-> Table 4 presents the ablation study results of the two-stage curriculum learning (TCL) and Pose and Blink generation Network (PBNet), comparing different model configurations on various metrics such as FID, FVD16, FVD32, LSEC, and LSED.
-
 
 {{< table-caption >}}
 <br><table id='4' style='font-size:20px'><tr><td>Window</td><td>FID↓</td><td>FVD16↓</td><td>FVD32↓</td><td>LSEc↑</td><td>LSED↓</td></tr><tr><td>20</td><td>14.47</td><td>159.19</td><td>217.54</td><td>5.69</td><td>8.97</td></tr><tr><td>40</td><td>10.93</td><td>72.93</td><td>114.52</td><td>6.35</td><td>8.33</td></tr><tr><td>80</td><td>9.68</td><td>52.05</td><td>87.11</td><td>6.71</td><td>7.99</td></tr><tr><td>200</td><td>9.44</td><td>53.48</td><td>88.84</td><td>6.60</td><td>7.94</td></tr><tr><td>None</td><td>9.70</td><td>63.95</td><td>103.83</td><td>6.37</td><td>8.15</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 5 shows the ablation study on the local attention mechanism with different window sizes, showing that a window size of 80 yields the best performance.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 5: Ablation study on the local attention mechanism. The 'window' means the window size in the local attention operation. The “None” means we use the original attention mechanism instead.
 > </details>
-
-
-> Table 5 shows the ablation study on the local attention mechanism with different window sizes, showing that a window size of 80 yields the best performance.
-
 
 </details>
 
@@ -203,21 +189,21 @@ This paper is significant because it introduces a novel, non-autoregressive appr
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13726/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

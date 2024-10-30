@@ -2,11 +2,13 @@
 title: "MuVi: Video-to-Music Generation with Semantic Alignment and Rhythmic Synchronization"
 summary: "MuVi: a novel framework generating synchronized music for videos, achieving superior semantic alignment and rhythmic synchronization through contrastive learning and flow-matching."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-16", "🤗 24-10-18"]
+tags: ["🔖 24-10-16", ]
 showSummary: true
 date: 2024-10-16
 draft: false
 ---
+
+{{< keyword >}} 2410.12957 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is highly relevant to current research trends in AI-generated content
 
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.12957/figures_4_0.png)
 
 > 🔼 This figure illustrates the architecture of MuVi, a video-to-music generation framework, showing its visual encoder, visual adaptor, and diffusion transformer-based music generator.
 > <details>
@@ -59,7 +61,7 @@ This paper is highly relevant to current research trends in AI-generated content
 
 
 
-![](charts/charts_10_0.png)
+![](https://ai-paper-reviewer.com/2410.12957/charts_10_0.png)
 
 > 🔼 The chart displays the impact of classifier-free guidance (CFG) scales on various metrics, including audio quality, diversity, and synchronization.
 > <details>
@@ -94,75 +96,51 @@ This paper is highly relevant to current research trends in AI-generated content
 
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td>Method</td><td>FAD↓</td><td>KL↓</td><td>IS↑</td><td>FD↓</td><td>BCS↑</td><td>BHS↑</td><td>SIM↑</td><td>MOS-Q↑</td><td>MOS-A↑</td></tr><tr><td>MuVi(beta)</td><td>4.56</td><td>4.25</td><td>1.54</td><td>35.19</td><td>95.21</td><td>45.19</td><td>10.71</td><td>3.55±0.08</td><td>3.89±0.05</td></tr><tr><td>M2UGen</td><td>5.12</td><td>3.83</td><td>1.65</td><td>32.14</td><td>75.21</td><td>25.14</td><td>1.41</td><td>3.79±0.09</td><td>3.19±0.14</td></tr><tr><td>MuVi</td><td>4.28</td><td>3.52</td><td>1.63</td><td>28.15</td><td>104.17</td><td>49.23</td><td>19.18</td><td>3.81±0.05</td><td>4.15±0.08</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 presents a comparison of several video-to-music generation systems, evaluating their performance using various metrics including FAD, KL, IS, FD, BCS, BHS, SIM, MOS-Q, and MOS-A.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Results of several V2M systems.
 > </details>
-
-
-> Table 2 presents a comparison of several video-to-music generation systems, evaluating their performance using various metrics including FAD, KL, IS, FD, BCS, BHS, SIM, MOS-Q, and MOS-A.
-
 
 {{< table-caption >}}
 <table id='4' style='font-size:14px'><tr><td>Method</td><td>CLAP</td><td>FAD↓</td><td>KL↓</td><td>IS↑</td><td>FD↓</td><td>BCS↑</td><td>BHS↑</td><td>SIM↑ I</td><td>MOS-Q↑</td><td>MOS-A↑</td></tr><tr><td>MuVi</td><td>-</td><td>4.28</td><td>3.52</td><td>1.63</td><td>28.15</td><td>104.17</td><td>49.23</td><td>19.18</td><td>3.81±0.05</td><td>4.15±0.08</td></tr><tr><td>MuVi (ICL)</td><td>0.35</td><td>6.13</td><td>3.71</td><td>1.48</td><td>34.16</td><td>93.30</td><td>44.06</td><td>13.55</td><td>3.84±0.07</td><td>3.95±0.09</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 3 presents a comparison of the performance metrics for MuVi with and without in-context learning, showing the impact of incorporating a music prompt on the generated music's quality and alignment with the video.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: Results of in-context learning (ICL).
 > </details>
-
-
-> Table 3 presents a comparison of the performance metrics for MuVi with and without in-context learning, showing the impact of incorporating a music prompt on the generated music's quality and alignment with the video.
-
 
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td>PT(DiT)</td><td>CL</td><td>TS</td><td>RR</td><td>FAD↓</td><td>KL↓</td><td>IS↑</td><td>FD↓</td><td>BCS↑</td><td>BHS↑</td><td>SIM↑</td><td>MOS-Q↑</td><td>MOS-A↑</td></tr><tr><td>x</td><td>V</td><td>V</td><td>V</td><td>6.82</td><td>4.28</td><td>1.33</td><td>32.75</td><td>101.83</td><td>49.57</td><td>17.15</td><td>3.45±0.09</td><td>3.93±0.06</td></tr><tr><td></td><td>X</td><td>x</td><td>x</td><td>4.21</td><td>3.69</td><td>1.68</td><td>28.49</td><td>97.35</td><td>47.01</td><td>8.42</td><td>3.75±0.05</td><td>4.01±0.08</td></tr><tr><td></td><td>V</td><td>x</td><td>X</td><td>4.25</td><td>3.73</td><td>1.59</td><td>28.19</td><td>99.43</td><td>48.53</td><td>17.73</td><td>3.77±0.06</td><td>4.05±0.06</td></tr><tr><td></td><td>V</td><td>V</td><td>X</td><td>4.31</td><td>3.65</td><td>1.57</td><td>28.36</td><td>103.78</td><td>49.45</td><td>18.80</td><td>3.80±0.09</td><td>4.15±0.12</td></tr><tr><td></td><td>V</td><td>x</td><td>V</td><td>4.24</td><td>3.55</td><td>1.53</td><td>28.21</td><td>102.91</td><td>49.17</td><td>18.69</td><td>3.79±0.08</td><td>4.13±0.07</td></tr><tr><td></td><td>V</td><td>V</td><td>V</td><td>4.28</td><td>3.53</td><td>1.53</td><td>28.15</td><td>104.17</td><td>49.23</td><td>19.18</td><td>3.81±0.05</td><td>4.15±0.08</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 4 presents the ablation study results showing the impact of different pre-training settings on the performance of the MuVi model.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 4: Results of different settings of pre-training. PT(DiT) indicates whether the DiT is pre-trained unconditionally with music; CL stands for basic contrastive learning; TS and RR stand for the involvement of negative samples constructed from temporal shift and random replacement, respectively.
 > </details>
-
-
-> Table 4 presents the ablation study results showing the impact of different pre-training settings on the performance of the MuVi model.
-
 
 {{< table-caption >}}
 <table id='4' style='font-size:16px'><tr><td>Model Size</td><td>FAD↓</td><td>KL↓</td><td>IS↑</td><td>FD↓</td><td>BCS↑</td><td>BHS↑</td><td>SIM↑</td><td>MOS-Q↑</td><td>MOS-A↑</td></tr><tr><td>Small (85M)</td><td>5.21</td><td>3.87</td><td>1.41</td><td>32.47</td><td>98.14</td><td>47.75</td><td>16.33</td><td>3.66±0.07</td><td>3.99±0.09</td></tr><tr><td>Base (150M)</td><td>4.28</td><td>3.52</td><td>1.63</td><td>28.15</td><td>104.17</td><td>49.23</td><td>19.18</td><td>3.81±0.05</td><td>4.15±0.08</td></tr><tr><td>Large (330M)</td><td>4.25</td><td>3.49</td><td>1.65</td><td>28.11</td><td>104.23</td><td>49.56</td><td>19.24</td><td>3.82±0.06</td><td>4.17±0.09</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 5 presents the results of using different model sizes (small, base, and large) for video-to-music generation, evaluating performance metrics such as FAD, KL, IS, FD, BCS, BHS, SIM, MOS-Q, and MOS-A.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 5: Results of different model sizes.
 > </details>
-
-
-> Table 5 presents the results of using different model sizes (small, base, and large) for video-to-music generation, evaluating performance metrics such as FAD, KL, IS, FD, BCS, BHS, SIM, MOS-Q, and MOS-A.
-
 
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td>Hyperparameter</td><td>Small</td><td>Base</td><td>Large</td></tr><tr><td>Hidden dimension</td><td>768</td><td>1024</td><td>1280</td></tr><tr><td>#Layers</td><td>12</td><td>12</td><td>16</td></tr><tr><td>#Attention heads</td><td>16</td><td>16</td><td>16</td></tr><tr><td>#Parameters</td><td>85M</td><td>150M</td><td>330M</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 6 shows the hyperparameters of the diffusion transformer (DiT) model with different sizes (small, base, and large), including hidden dimension, number of layers, attention heads, and total number of parameters.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 6: Model configurations of the DiT with different sizes.
 > </details>
-
-
-> Table 6 shows the hyperparameters of the diffusion transformer (DiT) model with different sizes (small, base, and large), including hidden dimension, number of layers, attention heads, and total number of parameters.
-
 
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td>FPS</td><td>FAD↓</td><td>KL↓</td><td>IS↑</td><td>FD↓</td><td>BCS↑</td><td>BHS↑</td><td>SIM↑</td><td>MOS-Q↑</td><td>MOS-A↑</td></tr><tr><td>2</td><td>7.86</td><td>4.24</td><td>1.28</td><td>39.18</td><td>85.33</td><td>40.12</td><td>11.12</td><td>3.71±0.03</td><td>3.76±0.07</td></tr><tr><td>4</td><td>5.38</td><td>4.14</td><td>1.39</td><td>34.24</td><td>96.46</td><td>47.13</td><td>15.26</td><td>3.75±0.07</td><td>3.93±0.05</td></tr><tr><td>10</td><td>4.28</td><td>3.52</td><td>1.63</td><td>28.15</td><td>104.17</td><td>49.23</td><td>19.18</td><td>3.81±0.05</td><td>4.15±0.08</td></tr><tr><td>20</td><td>4.25</td><td>3.53</td><td>1.65</td><td>28.11</td><td>104.22</td><td>50.08</td><td>20.11</td><td>3.83±0.08</td><td>4.16±0.05</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 7 presents the effects of different video frame rates on the performance of MuVi, comparing metrics such as FAD, KL, IS, FD, BCS, BHS, SIM, MOS-Q, and MOS-A.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 7: Results of different video frame rates.
 > </details>
-
-
-> Table 7 presents the effects of different video frame rates on the performance of MuVi, comparing metrics such as FAD, KL, IS, FD, BCS, BHS, SIM, MOS-Q, and MOS-A.
-
 
 </details>
 
@@ -170,22 +148,22 @@ This paper is highly relevant to current research trends in AI-generated content
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12957/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

@@ -2,11 +2,13 @@
 title: "Router-Tuning: A Simple and Effective Approach for Enabling Dynamic-Depth in Transformers"
 summary: "Router-Tuning and MindSkip boost Transformer efficiency by dynamically adjusting computation depth, achieving 21% speedup with minimal performance loss."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-17", "🤗 24-10-22"]
+tags: ["🔖 24-10-17", ]
 showSummary: true
 date: 2024-10-17
 draft: false
 ---
+
+{{< keyword >}} 2410.13184 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it addresses the critical challenge of computati
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.13184/figures_2_0.png)
 
 > 🔼 Figure 1 illustrates the MindSkip mechanism, showing how it selectively processes input tokens based on a routing score to achieve dynamic depth in the transformer network.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it addresses the critical challenge of computati
 
 
 
-![](charts/charts_4_0.png)
+![](https://ai-paper-reviewer.com/2410.13184/charts_4_0.png)
 
 > 🔼 The chart compares the performance of MindSkip against Attention Drop under different skipping ratios (12.5% and 25%) on a specific benchmark, highlighting MindSkip's superior performance.
 > <details>
@@ -94,27 +96,19 @@ This paper is important because it addresses the critical challenge of computati
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>Dataset</td><td>HellaSwag</td><td>MMLU</td><td>OBQA</td><td>WinoGrande</td><td>Avg.</td></tr><tr><td>Baseline</td><td>82.1</td><td>65.3</td><td>45.0</td><td>77.7</td><td>67.5</td></tr><tr><td>Alpaca</td><td>79.8</td><td>62.2</td><td>43.8</td><td>77.4</td><td>65.8</td></tr><tr><td>Evol-Instruct</td><td>80.4</td><td>64.0</td><td>44.4</td><td>77.6</td><td>66.6</td></tr><tr><td>ShareGPT</td><td>80.6</td><td>63.3</td><td>45.4</td><td>76.7</td><td>66.5</td></tr><tr><td>Llama-Pro</td><td>80.7</td><td>65.1</td><td>44.6</td><td>77.7</td><td>67.0</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the experimental results of applying MindSkip at different granularities (Block, MLP, and Attention layers) on Llama-3-8B and Llama-3-8B-Instruct models, showcasing the speedup and performance metrics achieved.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Experimental results of MindSkip deployed at different granularities. While MindSkip is primarily applied to Attention layers, we also evaluate its performance on Block and MLP layers for comparison. The number of skippable layers is constrained to 16, and the overall capacity of MindSkip is 50%.
 > </details>
-
-
-> Table 1 presents the experimental results of applying MindSkip at different granularities (Block, MLP, and Attention layers) on Llama-3-8B and Llama-3-8B-Instruct models, showcasing the speedup and performance metrics achieved.
-
 
 {{< table-caption >}}
 <table id='4' style='font-size:14px'><tr><td>Task</td><td>Number of few-shot</td><td>Metric</td></tr><tr><td>BoolQ</td><td>0</td><td>Accuracy</td></tr><tr><td>RTE</td><td>0</td><td>Accuracy</td></tr><tr><td>OBQA</td><td>0</td><td>Accuracy (Norm)</td></tr><tr><td>PIQA</td><td>0</td><td>Accuracy (Norm)</td></tr><tr><td>MMLU</td><td>5</td><td>Accuracy</td></tr><tr><td>WinoGrande</td><td>5</td><td>Accuracy</td></tr><tr><td>GSM8K</td><td>5</td><td>Exact Match</td></tr><tr><td>HellaSwag</td><td>10</td><td>Accuracy (Norm)</td></tr><tr><td>ARC-C</td><td>25</td><td>Accuracy (Norm)</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the experimental results of MindSkip applied to different granularities (Attention, Block, and MLP layers) on Llama-3-8B and Llama-3-8B-Instruct models, showing speedup, and performance metrics (average and per task).
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Experimental results of MindSkip deployed at different granularities. While MindSkip is primarily applied to Attention layers, we also evaluate its performance on Block and MLP layers for comparison. The number of skippable layers is constrained to 16, and the overall capacity of MindSkip is 50%.
 > </details>
-
-
-> Table 1 presents the experimental results of MindSkip applied to different granularities (Attention, Block, and MLP layers) on Llama-3-8B and Llama-3-8B-Instruct models, showing speedup, and performance metrics (average and per task).
-
 
 </details>
 
@@ -122,12 +116,12 @@ This paper is important because it addresses the critical challenge of computati
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13184/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

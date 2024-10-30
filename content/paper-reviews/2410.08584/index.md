@@ -2,11 +2,13 @@
 title: "ZipVL: Efficient Large Vision-Language Models with Dynamic Token Sparsification and KV Cache Compression"
 summary: "ZipVL boosts large vision-language model efficiency by 2.6x via dynamic token sparsfication and 50% memory reduction using KV cache compression, all while maintaining minimal accuracy loss."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-11", "🤗 24-10-17"]
+tags: ["🔖 24-10-11", ]
 showSummary: true
 date: 2024-10-11
 draft: false
 ---
+
+{{< keyword >}} 2410.08584 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 
 
 
-![](figures/figures_3_0.png)
+![](https://ai-paper-reviewer.com/2410.08584/figures_3_0.png)
 
 > 🔼 Figure 2 illustrates the ZipVL framework's prefill phase, showing dynamic ratio allocation for important tokens, token-level sparse attention using FlashAttention, and mixed-precision KV cache compression.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 
 
 
-![](charts/charts_2_0.png)
+![](https://ai-paper-reviewer.com/2410.08584/charts_2_0.png)
 
 > 🔼 The chart displays attention maps from different layers of a large vision-language model (LLaVA-Next-7B) across two different tasks (VQAv2 and ChartQA), highlighting their distinct sparse patterns and variations.
 > <details>
@@ -91,7 +93,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 </summary>
 
 
-![](charts/charts_5_0.png "🔼 Figure 3: The ratio of important tokens distributed across layers. Data was collected from the LLaVA-Next-7B model using input samples from the VQAv2 and ChartQA datasets.")
+![](https://ai-paper-reviewer.com/2410.08584/charts_5_0.png)
 
 > 🔼 The chart displays the varying ratios of important tokens across different layers for the VQAv2 and ChartQA datasets, comparing ZipVL's dynamic approach to FastV's fixed ratio.
 > <details>
@@ -100,7 +102,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 4: The ratio of important tokens across different methods on different tasks. The proposed ZipVL can adaptively determine this ratio based on the attention scores, assigning more ratio to important tokens on complex tasks.")
+![](https://ai-paper-reviewer.com/2410.08584/charts_8_0.png)
 
 > 🔼 The chart displays the ratio of important tokens across different tasks and models, showing that ZipVL dynamically adjusts this ratio based on task complexity.
 > <details>
@@ -109,7 +111,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 > </details>
 
 
-![](charts/charts_8_1.png "🔼 Figure 4: The ratio of important tokens across different methods on different tasks. The proposed ZipVL can adaptively determine this ratio based on the attention scores, assigning more ratio to important tokens on complex tasks.")
+![](https://ai-paper-reviewer.com/2410.08584/charts_8_1.png)
 
 > 🔼 The chart shows the ratio of important tokens across different tasks for three methods: ZipVL-0.96, ZipVL-0.975, and FastV, demonstrating ZipVL's adaptive token ratio adjustment based on task complexity.
 > <details>
@@ -118,7 +120,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 > </details>
 
 
-![](charts/charts_8_2.png "🔼 Figure 4: The ratio of important tokens across different methods on different tasks. The proposed ZipVL can adaptively determine this ratio based on the attention scores, assigning more ratio to important tokens on complex tasks.")
+![](https://ai-paper-reviewer.com/2410.08584/charts_8_2.png)
 
 > 🔼 The chart shows the ratio of important tokens used by different methods (ZipVL with thresholds 0.96 and 0.975, and FastV) across five image comprehension tasks.
 > <details>
@@ -127,7 +129,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 > </details>
 
 
-![](charts/charts_10_0.png "🔼 Figure 5: The effect of attention scores retention threshold τ on the ratio of important tokens and the model performance. Data was collected on GQA benchmark over LLaVA-v1.5-7B model.")
+![](https://ai-paper-reviewer.com/2410.08584/charts_10_0.png)
 
 > 🔼 The chart shows the relationship between the attention retention threshold (τ) and both the ratio of important tokens and the model's accuracy on the GQA benchmark, revealing an optimal threshold around 0.97.
 > <details>
@@ -136,7 +138,7 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 > </details>
 
 
-![](charts/charts_10_1.png "🔼 Figure 6: Comparisons of prefill phase latency and GPU memory across different sequence lengths. Data is collected from LongVA-7B model.")
+![](https://ai-paper-reviewer.com/2410.08584/charts_10_1.png)
 
 > 🔼 The chart compares the prefill phase latency and GPU memory usage of FlashAttention, MInference, and the proposed ZipVL method across various sequence lengths.
 > <details>
@@ -156,39 +158,27 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 
 {{< table-caption >}}
 <table id='2' style='font-size:18px'><tr><td>Model</td><td>Method</td><td>Ratio</td><td>VQAv2</td><td>ChartQA</td><td>TextVQA</td><td>GQA</td><td>MME</td></tr><tr><td rowspan="6">LLaVA-v1.5-7B</td><td>Full</td><td>100%</td><td>76.6</td><td>18.2</td><td>46.1</td><td>61.9</td><td>1507</td></tr><tr><td>FastV+</td><td>53.1%</td><td>75.8</td><td>17.7</td><td>45.5</td><td>60.2</td><td>1511</td></tr><tr><td>HiRED</td><td>20%</td><td>73.0</td><td>17.3</td><td>45.6</td><td>56.8</td><td>1368</td></tr><tr><td>HiRED</td><td>40%</td><td>75.5</td><td>17.6</td><td>45.6</td><td>59.5</td><td>1433</td></tr><tr><td>Ours (T=0.96)</td><td>44.1%</td><td>76.1</td><td>17.9</td><td>45.0</td><td>61.3</td><td>1515</td></tr><tr><td>Ours (�=0.975)</td><td>52.8%</td><td>76.4</td><td>18.0</td><td>45.7</td><td>61.7</td><td>1524</td></tr><tr><td rowspan="6">LLa VA-Next-7B</td><td>Full</td><td>100%</td><td>80.3</td><td>54.8</td><td>64.8</td><td>64.1</td><td>1519</td></tr><tr><td>FastV+</td><td>53.1%</td><td>79.5</td><td>51.2</td><td>63.7</td><td>63.7</td><td>1490</td></tr><tr><td>HiRED</td><td>20%</td><td>77.5</td><td>42.0</td><td>61.4</td><td>61.4</td><td>1483</td></tr><tr><td>HiRED</td><td>40%</td><td>78.8</td><td>46.5</td><td>61.8</td><td>59.4</td><td>1474</td></tr><tr><td>Ours (�=0.96)</td><td>40.4%</td><td>79.4</td><td>51.0</td><td>62.6</td><td>63.8</td><td>1489</td></tr><tr><td>Ours (�=0.975)</td><td>49.7%</td><td>79.8</td><td>52.4</td><td>63.9</td><td>64.1</td><td>1495</td></tr><tr><td rowspan="6">LLa VA-Next-13B</td><td>Full</td><td>100%</td><td>80.9</td><td>66.2</td><td>66.9</td><td>65.7</td><td>1570</td></tr><tr><td>FastV†</td><td>53.1%</td><td>76.8</td><td>51.6</td><td>59.7</td><td>62.9</td><td>1555</td></tr><tr><td>HiRED</td><td>20%</td><td>77.9</td><td>48.9</td><td>63.6</td><td>63.1</td><td>1545</td></tr><tr><td>HiRED</td><td>40%</td><td>79.3</td><td>53.7</td><td>65.2</td><td>64.1</td><td>1570</td></tr><tr><td>Ours (T=0.96)</td><td>30.6%</td><td>79.7</td><td>56.2</td><td>63.8</td><td>64.4</td><td>1549</td></tr><tr><td>Ours (T=0.975)</td><td>36.7%</td><td>80.3</td><td>58.2</td><td>65.0</td><td>65.0</td><td>1551</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 compares the performance of different image LVLMs on various benchmark datasets using different methods with varying ratios of important tokens.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance comparisons of image LVLMs on various benchmarks. Here, “Ratio” denotes the proportion of tokens participating in attention computation. “†” denotes token-level sparsity is only employed in attention modules.
 > </details>
-
-
-> Table 1 compares the performance of different image LVLMs on various benchmark datasets using different methods with varying ratios of important tokens.
-
 
 {{< table-caption >}}
 <table id='1' style='font-size:18px'><tr><td>Model</td><td>Frames</td><td>Method</td><td>Attn FLOPs Reduction</td><td>Short</td><td>Medium</td><td>Long</td><td>Overall</td></tr><tr><td rowspan="10">Long VA-7B</td><td rowspan="5">64</td><td>Full</td><td>0%</td><td>61.4</td><td>50.9</td><td>45.0</td><td>52.4</td></tr><tr><td>QK-sparse</td><td>47.0%</td><td>60.9</td><td>51.4</td><td>45.1</td><td>52.4</td></tr><tr><td>MInference</td><td>54.2%</td><td>60.7</td><td>51.2</td><td>44.6</td><td>52.1</td></tr><tr><td>FastV+</td><td>71.7%</td><td>61.0</td><td>50.6</td><td>45.0</td><td>52.2</td></tr><tr><td>Ours(T=0.975)</td><td>77.0%</td><td>61.1</td><td>51.6</td><td>45.0</td><td>52.5</td></tr><tr><td rowspan="5">128</td><td>Full</td><td>0%</td><td>61.1</td><td>50.4</td><td>46.2</td><td>52.6</td></tr><tr><td>QK-sparse</td><td>46.9%</td><td>61.3</td><td>49.7</td><td>46.3</td><td>52.4</td></tr><tr><td>MInference</td><td>77.1%</td><td>61.0</td><td>50.5</td><td>45.3</td><td>52.3</td></tr><tr><td>FastV+</td><td>71.7%</td><td>60.2</td><td>50.2</td><td>46.2</td><td>52.2</td></tr><tr><td>Ours(T=0.975)</td><td>82.3%</td><td>60.7</td><td>51.3</td><td>45.2</td><td>52.4</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 compares the performance of different methods on the Video-MME benchmark, showing the reduction in FLOPs of attention mechanisms and overall accuracy for different video lengths.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Performance comparisons of video LVLMs on Video-MME benchmark. Here, 'Attn FLOPs Reduction' denotes the reduction in floating-point operations (FLOPs) of the attention mechanism. '+' denotes token-level sparsity is only employed in attention modules.
 > </details>
-
-
-> Table 2 compares the performance of different methods on the Video-MME benchmark, showing the reduction in FLOPs of attention mechanisms and overall accuracy for different video lengths.
-
 
 {{< table-caption >}}
 <table id='7' style='font-size:20px'><tr><td colspan="4">Sparse Attention</td></tr><tr><td>Method</td><td>Ratio (%)</td><td>Attn FLOPs Reduction (%)</td><td>Video-MME (%)</td></tr><tr><td>LongVA-7B</td><td>100</td><td>0</td><td>52.6</td></tr><tr><td>Fixed</td><td>42.1</td><td>82.3</td><td>51.1</td></tr><tr><td>Ours</td><td>42.1</td><td>82.3</td><td>52.4</td></tr><tr><td colspan="4">KV Cache Compression</td></tr><tr><td>Method</td><td>Ratio (%)</td><td>Compression Ratio</td><td>GSM8k Acc. (%)</td></tr><tr><td>LLaMA3-8B</td><td>100</td><td>1x</td><td>55.88</td></tr><tr><td>Fixed (He et al., 2024b)</td><td>70.0</td><td>4.69x</td><td>53.75</td></tr><tr><td>Ours</td><td>28.6</td><td>6.18x</td><td>54.06</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 compares the performance of different image LVLMs on various benchmarks using different methods with varying ratios of important tokens.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance comparisons of image LVLMs on various benchmarks. Here, “Ratio
 > </details>
-
-
-> Table 1 compares the performance of different image LVLMs on various benchmarks using different methods with varying ratios of important tokens.
-
 
 </details>
 
@@ -196,19 +186,19 @@ This paper is important because it introduces ZipVL, a novel framework that sign
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.08584/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

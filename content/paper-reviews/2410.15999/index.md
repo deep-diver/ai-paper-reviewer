@@ -2,11 +2,13 @@
 title: "Steering Knowledge Selection Behaviours in LLMs via SAE-Based Representation Engineering"
 summary: "SPARE, a training-free method, uses sparse autoencoders to precisely steer LLMs' knowledge selection, resolving context-memory conflicts and significantly improving accuracy."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-21", "🤗 24-10-25"]
+tags: ["🔖 24-10-21", ]
 showSummary: true
 date: 2024-10-21
 draft: false
 ---
+
+{{< keyword >}} 2410.15999 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is significant because it introduces a novel, training-free method to
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.15999/figures_1_0.png)
 
 > 🔼 The figure shows two examples of how SPARE steers Llama2-7B to use either contextual or parametric knowledge when there is a knowledge conflict.
 > <details>
@@ -59,7 +61,7 @@ This paper is significant because it introduces a novel, training-free method to
 
 
 
-![](charts/charts_3_0.png)
+![](https://ai-paper-reviewer.com/2410.15999/charts_3_0.png)
 
 > 🔼 The chart displays the AUROC scores for knowledge conflict detection across different layers and activation types in Llama2-7B and Gemma2-9B models.
 > <details>
@@ -91,7 +93,7 @@ This paper is significant because it introduces a novel, training-free method to
 </summary>
 
 
-![](charts/charts_7_0.png "🔼 Figure 4: Detailed evaluation results of controlling capability on NQSwap. We use different colours for different methods and use different shapes for different models. The upper-right area indicates a high performance for all figures. (a) presents the capability of changing the behaviour of LLMs, where x-axis and y-axis are EMC→M and EMM→C, measuring the capability of changing the answer from C to M and from M to C, respectively; (b) presents the capability of maintaining the behaviour when steering to the same behaviour as the original behaviour, where x-axis and y-axis are EMM→M and EMC→C, measuring the maintaining capability of generating M and C, respectively; (c) present the ablation analysis of SPARE, x-axis and y-axis are EMM and EMC.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_7_0.png)
 
 > 🔼 Figure 4 shows a multi-faceted evaluation of SPARE and other methods' capabilities in controlling LLM behavior, focusing on changing and maintaining knowledge selection.
 > <details>
@@ -100,7 +102,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 5: Effectiveness of SPARE on editing different layers individually.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_8_0.png)
 
 > 🔼 The chart displays the effectiveness of SPARE in controlling the knowledge selection behavior of LLMs when editing different layers individually, showing performance variations across different layers.
 > <details>
@@ -109,7 +111,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_8_1.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_8_1.png)
 
 > 🔼 The chart displays the knowledge conflict probing results for Llama2-7B and Gemma2-9B models on the NQSwap dataset, showing the accuracy of detecting knowledge conflicts across different layers and activation types.
 > <details>
@@ -118,7 +120,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_8_2.png "🔼 Figure 6: The residual stream changes after applying SPARE to Llama3-8B at the 15th layer.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_8_2.png)
 
 > 🔼 The chart displays the AUROC and kurtosis of the residual stream for Llama3-8B on the NQSwap dataset with and without applying SPARE, showing how SPARE changes the representation to guide knowledge selection.
 > <details>
@@ -127,7 +129,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_14_0.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_14_0.png)
 
 > 🔼 The chart displays the AUROC scores achieved by a linear probing method to classify knowledge conflicts in different layers of Llama2-7B and Gemma2-9B.
 > <details>
@@ -136,7 +138,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_14_1.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_14_1.png)
 
 > 🔼 The chart displays the AUROC scores for detecting knowledge conflicts in Llama2-7B and Gemma2-9B across different layers and activation types.
 > <details>
@@ -145,7 +147,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_14_2.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_14_2.png)
 
 > 🔼 The chart displays the AUROC scores achieved when probing different layers of Llama2-7B and Gemma2-9B LLMs for the ability to detect knowledge conflicts.
 > <details>
@@ -154,7 +156,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_14_3.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_14_3.png)
 
 > 🔼 The chart displays the accuracy of detecting knowledge conflicts in LLMs across different layers and activation types.
 > <details>
@@ -163,7 +165,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_14_4.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_14_4.png)
 
 > 🔼 The chart displays the AUROC scores for detecting knowledge conflicts in different layers of Llama2-7B and Gemma2-9B language models, broken down by activation type (hidden, MLP, and attention).
 > <details>
@@ -172,7 +174,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_14_5.png "🔼 Figure 8: Knowledge conflict probing results using Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_14_5.png)
 
 > 🔼 The chart displays the AUPRC scores for knowledge conflict probing across different layers and activation types (hidden, mlp, attn) in the Llama2-7B model on the NQSwap dataset.
 > <details>
@@ -181,7 +183,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_16_0.png "🔼 Figure 10: The impact of the number of the collected hidden states N on the controlling performance.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_16_0.png)
 
 > 🔼 The chart displays the performance of the controlling capability of SPARE in relation to the number of hidden states used for calculating the functional activations.
 > <details>
@@ -190,7 +192,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_0.png "🔼 Figure 11: Proportion of accumulated mutual Information (K) on Gemma2-9B")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_0.png)
 
 > 🔼 The chart shows the relationship between the proportion of accumulated mutual information and the number of selected activations for different layers of the Gemma2-9B model.
 > <details>
@@ -199,7 +201,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_1.png "🔼 Figure 11: Proportion of accumulated mutual Information (K) on Gemma2-9B")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_1.png)
 
 > 🔼 The chart displays the relationship between the proportion of accumulated mutual information and the number of selected activations for different layers (23, 24, and 25) in the Gemma2-9B model.
 > <details>
@@ -208,7 +210,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_2.png "🔼 Figure 11: Proportion of accumulated mutual Information (K) on Gemma2-9B")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_2.png)
 
 > 🔼 The chart shows the relationship between the proportion of accumulated mutual information and the number of selected activations for Gemma2-9B across different layers.
 > <details>
@@ -217,7 +219,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_3.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_3.png)
 
 > 🔼 The chart displays the AUROC scores for knowledge conflict detection in different layers of Llama2-7B and Gemma2-9B models using various activation types.
 > <details>
@@ -226,7 +228,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_4.png "🔼 Figure 16: Skewness of the MLP activation of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_4.png)
 
 > 🔼 The chart displays the skewness of MLP activations for Llama2-7B on the NQSwap dataset, differentiating between instances where the model uses parametric knowledge (DM) and contextual knowledge (DC).
 > <details>
@@ -235,7 +237,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_5.png "🔼 Figure 19: L1 norm and L2 norm of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_5.png)
 
 > 🔼 The chart displays the L1 and L2 norm values of the hidden states of Llama2-7B model on the NQSwap dataset, categorized by whether the model uses contextual or parametric knowledge.
 > <details>
@@ -244,7 +246,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_6.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_6.png)
 
 > 🔼 The chart displays the results of probing experiments to detect knowledge conflicts in LLMs, showing that the accuracy of detection increases in the middle layers of the model across different activation types.
 > <details>
@@ -253,7 +255,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_7.png "🔼 Figure 14: Skewness of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_7.png)
 
 > 🔼 The chart displays the skewness of hidden states across layers for Llama2-7B on the NQSwap dataset, differentiating between instances where the model uses parametric knowledge (DM) versus contextual knowledge (DC).
 > <details>
@@ -262,7 +264,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_19_8.png "🔼 Figure 14: Skewness of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_19_8.png)
 
 > 🔼 The chart displays the skewness of hidden states across different layers in Llama2-7B model for two groups of instances (DM and Dc) on NQSwap dataset.
 > <details>
@@ -271,7 +273,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_0.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_0.png)
 
 > 🔼 The chart displays the results of probing experiments to detect knowledge conflicts in Llama2-7B and Gemma2-9B models across different layer types.
 > <details>
@@ -280,7 +282,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_1.png "🔼 Figure 14: Skewness of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_1.png)
 
 > 🔼 The chart displays the skewness of the hidden states of Llama2-7B model when generating answers using either parametric knowledge (DM) or contextual knowledge (DC) in the NQSwap dataset.
 > <details>
@@ -289,7 +291,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_2.png "🔼 Figure 19: L1 norm and L2 norm of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_2.png)
 
 > 🔼 The chart displays the L1 and L2 norms of the hidden states for Llama2-7B model on the NQSwap dataset, categorized by whether the model uses parametric knowledge (DM) or contextual knowledge (DC).
 > <details>
@@ -298,7 +300,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_3.png "🔼 Figure 2: The knowledge conflict probing results of Llama2-7B and Gemma2-9B on NQSwap (Longpre et al., 2021). The probing results on hidden states, MLP and Self-Attention activations are coloured differently.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_3.png)
 
 > 🔼 The chart displays the results of probing experiments to detect knowledge conflicts in Llama2-7B and Gemma2-9B LLMs on the NQSwap dataset, showing the AUROC scores across different layers and activation types.
 > <details>
@@ -307,7 +309,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_4.png "🔼 Figure 14: Skewness of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_4.png)
 
 > 🔼 The chart displays the skewness of hidden states for Llama2-7B model on the NQSwap dataset, differentiating between instances where the model uses parametric knowledge (DM) versus contextual knowledge (DC) to generate answers.
 > <details>
@@ -316,7 +318,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_5.png "🔼 Figure 14: Skewness of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_5.png)
 
 > 🔼 The chart displays the skewness of hidden states for Llama2-7B model on the NQSwap dataset, differentiating between instances where the model uses parametric knowledge (DM) versus contextual knowledge (Dc).
 > <details>
@@ -325,7 +327,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_6.png "🔼 Figure 19: L1 norm and L2 norm of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_6.png)
 
 > 🔼 The chart displays the L1 and L2 norms of the hidden states of the Llama2-7B model on the NQSwap dataset, categorized by whether the model used parametric knowledge (DM) or contextual knowledge (DC) to generate its answers.
 > <details>
@@ -334,7 +336,7 @@ This paper is significant because it introduces a novel, training-free method to
 > </details>
 
 
-![](charts/charts_20_7.png "🔼 Figure 19: L1 norm and L2 norm of the hidden states of Llama2-7B on NQSwap.")
+![](https://ai-paper-reviewer.com/2410.15999/charts_20_7.png)
 
 > 🔼 The chart displays the L1 and L2 norms of the hidden states for Llama2-7B model on the NQSwap dataset, differentiating between instances where the model selects parametric knowledge (DM) versus contextual knowledge (DC).
 > <details>
@@ -350,24 +352,24 @@ This paper is significant because it introduces a novel, training-free method to
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.15999/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

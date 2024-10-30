@@ -2,11 +2,13 @@
 title: "SBI-RAG: Enhancing Math Word Problem Solving for Students through Schema-Based Instruction and Retrieval-Augmented Generation"
 summary: "SBI-RAG enhances math word problem solving by integrating schema-based instruction with a large language model, improving reasoning clarity and accuracy."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-17", "🤗 24-10-18"]
+tags: ["🔖 24-10-17", ]
 showSummary: true
 date: 2024-10-17
 draft: false
 ---
+
+{{< keyword >}} 2410.13293 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it introduces a novel framework for improving ma
 
 
 
-![](figures/figures_3_0.png)
+![](https://ai-paper-reviewer.com/2410.13293/figures_3_0.png)
 
 > 🔼 The figure illustrates the architecture of the SBI-RAG framework, showing the steps involved in schema classification, prompt creation, context retrieval, and answer generation.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it introduces a novel framework for improving ma
 
 
 
-![](charts/charts_8_0.png)
+![](https://ai-paper-reviewer.com/2410.13293/charts_8_0.png)
 
 > 🔼 The chart displays the distribution of math word problems across six sub-categories within the Schema-Based Instruction dataset.
 > <details>
@@ -89,7 +91,7 @@ This paper is important because it introduces a novel framework for improving ma
 </summary>
 
 
-![](figures/figures_14_0.png)
+![](https://ai-paper-reviewer.com/2410.13293/figures_14_0.png)
 
 > 🔼 The figure illustrates the SBI-RAG architecture, showing the four main parts: Schema Classifier, Prompt Creation, Context Retrieval, and Answer and Response Generation.
 > <details>
@@ -99,7 +101,7 @@ This paper is important because it introduces a novel framework for improving ma
 
 
 
-![](figures/figures_14_1.png)
+![](https://ai-paper-reviewer.com/2410.13293/figures_14_1.png)
 
 > 🔼 The figure illustrates the four main parts of the SBI-RAG framework: Schema Classifier, Prompt Creation, Context Retrieval, and Answer and Response Generation.
 > <details>
@@ -118,7 +120,7 @@ This paper is important because it introduces a novel framework for improving ma
 </summary>
 
 
-![](charts/charts_10_0.png "🔼 Figure 4: Confusion matrix for the schema classifier")
+![](https://ai-paper-reviewer.com/2410.13293/charts_10_0.png)
 
 > 🔼 The confusion matrix visualizes the performance of the schema classifier, showing the counts of correctly and incorrectly classified instances across six schema sub-categories.
 > <details>
@@ -127,7 +129,7 @@ This paper is important because it introduces a novel framework for improving ma
 > </details>
 
 
-![](charts/charts_10_1.png "🔼 Figure 5: Training and validation losses for the schema classifier")
+![](https://ai-paper-reviewer.com/2410.13293/charts_10_1.png)
 
 > 🔼 The chart displays the training and validation losses of a schema classifier model over 20 epochs, showing model convergence.
 > <details>
@@ -136,7 +138,7 @@ This paper is important because it introduces a novel framework for improving ma
 > </details>
 
 
-![](charts/charts_11_0.png "🔼 Figure 6: Reasoning Score SBI-RAG vs GPT-4")
+![](https://ai-paper-reviewer.com/2410.13293/charts_11_0.png)
 
 > 🔼 The bar chart compares the reasoning scores of SBI-RAG and GPT-4, showing that SBI-RAG achieved a significantly higher reasoning score.
 > <details>
@@ -145,7 +147,7 @@ This paper is important because it introduces a novel framework for improving ma
 > </details>
 
 
-![](charts/charts_11_1.png "🔼 Figure 7: Reasoning Score SBI-RAG vs GPT 3.5 Turbo")
+![](https://ai-paper-reviewer.com/2410.13293/charts_11_1.png)
 
 > 🔼 The bar chart compares the reasoning scores of SBI-RAG and GPT 3.5 Turbo models, showing that SBI-RAG achieved a significantly higher score.
 > <details>
@@ -165,27 +167,19 @@ This paper is important because it introduces a novel framework for improving ma
 
 {{< table-caption >}}
 <table id='0' style='font-size:18px'><tr><td>Hyperparameter</td><td>Value</td></tr><tr><td>Learning rate</td><td>2 X 10 5</td></tr><tr><td>Batch size</td><td>16</td></tr><tr><td>Number of epochs</td><td>20</td></tr><tr><td>Optimizer</td><td>AdamW with weight decay of 0.01</td></tr><tr><td>Evaluation strategy</td><td>Model evaluation at the end of each epoch</td></tr><tr><td>Logging</td><td>Evaluation results logged every 10 steps</td></tr><tr><td colspan="2">Table 1: Training Hyperparameters for Schema-Based Classifier</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table lists the hyperparameters and their corresponding values used for training the schema-based classifier.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Training Hyperparameters for Schema-Based Classifier
 > </details>
-
-
-> The table lists the hyperparameters and their corresponding values used for training the schema-based classifier.
-
 
 {{< table-caption >}}
 <table id='3' style='font-size:22px'><tr><td>[Task]</td><td></td></tr><tr><td>You will be given a user question and Responses for that question. You have to act as a Judge and evaluate those responses from an educational point of view.</td><td></td></tr><tr><td>Your task is to provide a 'total rating' scoring to each response and how well the system answer answers the user concerns expressed in the question and</td><td></td></tr><tr><td>user whether they follow step by step reasoning with clarity Give your answers as a float on a scale of 0 to 10, where 0 means that the responses is not helpful at all, and 10 means that the answer completely and helpfully addresses the question from an educational point of view.</td><td></td></tr><tr><td>Feedback:::</td><td></td></tr><tr><td>Total rating: (your rating, as a float between 0 and 10)</td><td></td></tr><tr><td>Now here are the question and responses.</td><td></td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the hyperparameters used during the training of the schema-based classifier, including the learning rate, batch size, number of epochs, optimizer, and evaluation strategy.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Training Hyperparameters for Schema-Based Classifier
 > </details>
-
-
-> Table 1 presents the hyperparameters used during the training of the schema-based classifier, including the learning rate, batch size, number of epochs, optimizer, and evaluation strategy.
-
 
 </details>
 
@@ -193,19 +187,19 @@ This paper is important because it introduces a novel framework for improving ma
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13293/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

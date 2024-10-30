@@ -2,11 +2,13 @@
 title: "How Do Training Methods Influence the Utilization of Vision Models?"
 summary: "Training methods profoundly alter how neural networks utilize their layers, revealing that efficient training prioritizes early layers while adversarial training emphasizes deeper ones."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-18", "🤗 24-10-21"]
+tags: ["🔖 24-10-18", ]
 showSummary: true
 date: 2024-10-18
 draft: false
 ---
+
+{{< keyword >}} 2410.14470 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers in deep learning and computer vision. It r
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.14470/figures_2_0.png)
 
 > 🔼 The figure shows that different training methods lead to different layers of a ResNet-50 model becoming critical for the decision function.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers in deep learning and computer vision. It r
 
 
 
-![](charts/charts_5_0.png)
+![](https://ai-paper-reviewer.com/2410.14470/charts_5_0.png)
 
 > 🔼 The chart shows that adversarial training increases the average criticality of layers in a neural network proportionally to the attack budget used during training.
 > <details>
@@ -91,7 +93,7 @@ This paper is crucial for researchers in deep learning and computer vision. It r
 </summary>
 
 
-![](charts/charts_6_0.png "🔼 Figure 3: Correlation between average network criticality and performance on ImageNet-1k.")
+![](https://ai-paper-reviewer.com/2410.14470/charts_6_0.png)
 
 > 🔼 The chart shows the correlation between the average layer criticality and the ImageNet-1k validation accuracy across different training methods.
 > <details>
@@ -100,7 +102,7 @@ This paper is crucial for researchers in deep learning and computer vision. It r
 > </details>
 
 
-![](charts/charts_11_0.png "🔼 Figure 1: Training methods determine what layers become critical. We measure the criticality of fifty different ResNet-50-based models that all utilize the same exact network architecture and training data (ImageNet-1k) but differ in their training methods. Darker spots denote layers that are critical, i.e., in significantly different predictions and decreased performance after reset. Brighter spots are auxiliary, i.e., resetting these layers does not significantly affect the model. We denote the average (mean±std) layer criticality for both, a model across layers on the right, for a layer across model on the bottom.")
+![](https://ai-paper-reviewer.com/2410.14470/charts_11_0.png)
 
 > 🔼 The chart visualizes how different training methods influence the criticality of different layers in ResNet-50 models trained on ImageNet-1k.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers in deep learning and computer vision. It r
 > </details>
 
 
-![](charts/charts_12_0.png "🔼 Figure 1: Training methods determine what layers become critical. We measure the criticality of fifty different ResNet-50-based models that all utilize the same exact network architecture and training data (ImageNet-1k) but differ in their training methods. Darker spots denote layers that are critical, i.e., in significantly different predictions and decreased performance after reset. Brighter spots are auxiliary, i.e., resetting these layers does not significantly affect the model. We denote the average (mean±std) layer criticality for both, a model across layers on the right, for a layer across model on the bottom.")
+![](https://ai-paper-reviewer.com/2410.14470/charts_12_0.png)
 
 > 🔼 The chart visualizes how different training methods impact the criticality of various layers within ResNet-50 models trained on ImageNet-1k.
 > <details>
@@ -125,17 +127,17 @@ This paper is crucial for researchers in deep learning and computer vision. It r
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14470/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

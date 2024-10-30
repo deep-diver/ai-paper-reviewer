@@ -2,11 +2,13 @@
 title: "UCFE: A User-Centric Financial Expertise Benchmark for Large Language Models"
 summary: "UCFE benchmark realistically evaluates LLMs' financial expertise via user-centric design and dynamic interactions, revealing performance gaps and highlighting human-preference alignment."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-17", "🤗 24-10-21"]
+tags: ["🔖 24-10-17", ]
 showSummary: true
 date: 2024-10-17
 draft: false
 ---
+
+{{< keyword >}} 2410.14059 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.14059/figures_2_0.png)
 
 > 🔼 The figure illustrates the overall framework of the User-Centric Financial Expertise (UCFE) benchmark, showing its key components and workflow.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 
 
 
-![](charts/charts_4_0.png)
+![](https://ai-paper-reviewer.com/2410.14059/charts_4_0.png)
 
 > 🔼 The chart visualizes the top 25 most frequent verbs and their associated nouns from a corpus of financial texts, highlighting common financial interactions.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 </summary>
 
 
-![](figures/figures_7_0.png)
+![](https://ai-paper-reviewer.com/2410.14059/figures_7_0.png)
 
 > 🔼 The figure illustrates the evaluation pipeline of the UCFE benchmark, showing the steps involved in evaluating large language models' performance on financial tasks using a user simulator, human evaluators, and Elo rating system.
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.14059/figures_8_0.png)
 
 > 🔼 The figure illustrates the five-stage evaluation pipeline of the UCFE benchmark, showing the process from selecting models and tasks to computing Elo scores based on human evaluation.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 
 
 
-![](figures/figures_15_0.png)
+![](https://ai-paper-reviewer.com/2410.14059/figures_15_0.png)
 
 > 🔼 The figure illustrates the five-step evaluation pipeline of the UCFE benchmark, showing the process from model and task selection to final Elo score computation based on human expert judgments.
 > <details>
@@ -128,7 +130,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 </summary>
 
 
-![](charts/charts_4_1.png "🔼 Figure 6: Comparison of average dialogue rounds and total tokens across different models in few shot tasks.")
+![](https://ai-paper-reviewer.com/2410.14059/charts_4_1.png)
 
 > 🔼 The chart displays the distribution of average dialogue rounds and total tokens across different models in few-shot tasks, highlighting variations in model response length and interaction complexity.
 > <details>
@@ -137,7 +139,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 5: Comparison of model performance on UCFE benchmark across three evaluators.")
+![](https://ai-paper-reviewer.com/2410.14059/charts_7_0.png)
 
 > 🔼 The radar chart visualizes the performance of different LLMs across various financial tasks, comparing results from three different evaluation methods.
 > <details>
@@ -146,7 +148,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 6: Comparison of average dialogue rounds and total tokens across different models in few shot tasks.")
+![](https://ai-paper-reviewer.com/2410.14059/charts_8_0.png)
 
 > 🔼 The chart displays the average number of dialogue rounds and total tokens used across different large language models in few-shot tasks of the UCFE benchmark.
 > <details>
@@ -155,7 +157,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_8_1.png "🔼 Figure 7: Correlation between human Elo scores and Claude-3.5-Sonnet Elo scores.")
+![](https://ai-paper-reviewer.com/2410.14059/charts_8_1.png)
 
 > 🔼 The chart displays a positive correlation between human expert judgments and model evaluations, indicating alignment between human preferences and model performance.
 > <details>
@@ -164,7 +166,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_8_2.png "🔼 Figure 5: Comparison of model performance on UCFE benchmark across three evaluators.")
+![](https://ai-paper-reviewer.com/2410.14059/charts_8_2.png)
 
 > 🔼 The chart compares the overall Elo scores of various models plotted against model parameters (in billions), showing that mid-sized models perform particularly well.
 > <details>
@@ -173,7 +175,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_14_0.png "🔼 Figure 11: Geographical Distribution of Survey Respondents")
+![](https://ai-paper-reviewer.com/2410.14059/charts_14_0.png)
 
 > 🔼 The chart shows the geographical distribution of survey respondents, with the majority from China, followed by the USA, and a small percentage from other regions.
 > <details>
@@ -182,7 +184,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_14_1.png "🔼 Figure 13: Results of whether preferring generation answers or predefined options from using EastMoney.")
+![](https://ai-paper-reviewer.com/2410.14059/charts_14_1.png)
 
 > 🔼 The chart displays the number of survey respondents who prefer generation answers, predefined options, or a mixture of both for financial tasks.
 > <details>
@@ -191,7 +193,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_14_2.png "🔼 Figure 12: Primary Source of Financial Information extracted from the survey")
+![](https://ai-paper-reviewer.com/2410.14059/charts_14_2.png)
 
 > 🔼 The bar chart displays the frequency of responses from survey participants regarding their primary source of financial information.
 > <details>
@@ -200,7 +202,7 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 > </details>
 
 
-![](charts/charts_15_0.png "🔼 Figure 14: Win counts heatmap for all tasks. The heatmap illustrates the total number of wins where the target model outperforms the base model across all head-to-head comparisons.")
+![](https://ai-paper-reviewer.com/2410.14059/charts_15_0.png)
 
 > 🔼 The heatmap in Figure 14 shows the number of times each target model outperformed its base model across all tasks in the UCFE benchmark.
 > <details>
@@ -220,63 +222,43 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 
 {{< table-caption >}}
 <table id='0' style='font-size:16px'><tr><td>Category</td><td>Task</td><td>Source</td><td>Target User Group</td></tr><tr><td>Few-shot</td><td>Analyst Simulation Asset Valuation Reporting Company Evaluation Reporting Corporate Operation Analysis Credit Risk Evaluation Financial Knowledge Consulting Financial Regulation Consulting Industry Report Summarization Insider Trading Detection Investment Strategy Evaluation Investment Strategy Optimization Newshare Evaluation Reporting Prospectus Risk Summarization</td><td>TCL Annual Report & Analyst Report EastMoney Analyst Report Analyst Report GPT-4 Generated Investopedial Securities Law2 EastMoney Securities Regulatory Commission3 Seeking Alpha4 Financestrategists5 Stock.us6 Prospectus & Inquiry Letter7</td><td>Senior Analyst Analyst Analyst Analyst Analyst General Public & Financial Professional General Public & Financial Professional & Regulatory Professional General Public & Financial Professional Regulatory Professional Analyst Analyst Analyst General Public & Financial Professional</td></tr><tr><td>Zero-shot</td><td>Stock Price Prediction Negative Information Detection Financial Indicator Calculation Financial Text Summarization</td><td>A-stock Statistics EastMoney CPA & CFA News Headlines</td><td>General Public & Financial Professional General Public & Financial Professional General Public & Financial Professional General Public & Financial Professional</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 provides a statistical breakdown of the UCFE benchmark tasks, categorized by task type, source of data, and target user groups.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Overview of UCFE benchmark tasks, including task categories, sources, and target user groups.
 > </details>
-
-
-> Table 2 provides a statistical breakdown of the UCFE benchmark tasks, categorized by task type, source of data, and target user groups.
-
 
 {{< table-caption >}}
 <table id='3' style='font-size:16px'><tr><td>Task Type</td><td>Number of Tasks</td><td>Number of Questions</td></tr><tr><td>Zero-shot Tasks</td><td>4</td><td>80</td></tr><tr><td>Few-shot Tasks</td><td>13</td><td>250</td></tr><tr><td>Total</td><td>17</td><td>330</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 3 shows the number of tasks and questions for zero-shot and few-shot tasks in the UCFE benchmark.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: Summary of Task Types and Corresponding Number of Questions in the UCFE benchmark. Note that all tasks have 20 questions except that 'Analyst Simulation' has only 10 questions.
 > </details>
-
-
-> Table 3 shows the number of tasks and questions for zero-shot and few-shot tasks in the UCFE benchmark.
-
 
 {{< table-caption >}}
 <br><table id='10' style='font-size:16px'><tr><td>Model</td><td>Type</td></tr><tr><td>CFGPT2-7B 1(Li et al., 2023a)</td><td>Financial</td></tr><tr><td>GPT-4o</td><td>General</td></tr><tr><td>GPT-4o-mini</td><td>General</td></tr><tr><td>InternLM2.5-7B-Chat (Cai et al., 2024)</td><td>General</td></tr><tr><td>Llama-3.1-70B-Instruct (AI@Meta, 2024)</td><td>General</td></tr><tr><td>Llama-3.1-8B-Instruct</td><td>General</td></tr><tr><td>Llama3-XuanYuan3-70B-Chat (Zhang et al., 2023b)</td><td>Financial</td></tr><tr><td>Palmyra-Fin-70B-32k (team, 2024)</td><td>Financial</td></tr><tr><td>Qwen2.5-14B-Instruct (Team, 2024)</td><td>General</td></tr><tr><td>Tongyi-Finance-14B-Chat2</td><td>Financial</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 4 lists all 11 large language models used in the UCFE benchmark experiments, specifying their type as either general-purpose or financial.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 4: Models evaluated in UCFE benchmark.
 > </details>
-
-
-> Table 4 lists all 11 large language models used in the UCFE benchmark experiments, specifying their type as either general-purpose or financial.
-
 
 {{< table-caption >}}
 <table id='2' style='font-size:16px'><tr><td>Model</td><td>Overall</td><td>Zero Shot</td><td>Few Shot</td><td>Win Counts</td></tr><tr><td>Tongyi-Finance-14B-Chat</td><td>1156.99</td><td>1007.52</td><td>1171.27</td><td>3614</td></tr><tr><td>CFGPT2-7B</td><td>1155.75</td><td>1125.33</td><td>1157.93</td><td>3972</td></tr><tr><td>Palmyra-Fin-70B-32k</td><td>1128.25</td><td>1028.18</td><td>1143.66</td><td>3634</td></tr><tr><td>GPT-4o</td><td>1117.68</td><td>979.85</td><td>1120.89</td><td>3040</td></tr><tr><td>Llama-3. 1-8B-Instruct</td><td>1046.87</td><td>1062.18</td><td>1051.32</td><td>3294</td></tr><tr><td>Internlm2.5-7b-chat</td><td>995.85</td><td>1009.78</td><td>1000.52</td><td>2964</td></tr><tr><td>Llama3-Xuan Yuan3-70B-Chat</td><td>913.48</td><td>934.51</td><td>911.59</td><td>2050</td></tr><tr><td>Llama-3. 1-70B-Instruct</td><td>912.26</td><td>986.77</td><td>906.80</td><td>2196</td></tr><tr><td>GPT-4o-mini</td><td>901.75</td><td>943.81</td><td>908.92</td><td>2326</td></tr><tr><td>Qwen2.5-14B-Instruct</td><td>855.82</td><td>974.27</td><td>840.05</td><td>1774</td></tr><tr><td>Qwen2.5-7B-Instruct</td><td>814.48</td><td>946.45</td><td>786.28</td><td>1312</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 5 presents the overall, zero-shot, and few-shot performance results of various LLMs evaluated using the UCFE benchmark, highlighting the best-performing models in each category.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 5: Model results in the UCFE benchmark. Red highlights the highest value, while Blue represents the second-highest value.
 > </details>
-
-
-> Table 5 presents the overall, zero-shot, and few-shot performance results of various LLMs evaluated using the UCFE benchmark, highlighting the best-performing models in each category.
-
 
 {{< table-caption >}}
 <table id='9' style='font-size:14px'><tr><td>Test Prompt</td></tr><tr><td>Model Prompt:</td></tr><tr><td>You are providing a summary service for financial texts to help users extract key points from complex financial information.</td></tr><tr><td>The given financial text is: { information}</td></tr><tr><td>Your task is: {needs}.</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 presents an overview of the UCFE benchmark's tasks, detailing their categories, data sources, and intended user groups.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Overview of UCFE benchmark tasks, including task categories, sources, and target user groups.
 > </details>
-
-
-> Table 2 presents an overview of the UCFE benchmark's tasks, detailing their categories, data sources, and intended user groups.
-
 
 </details>
 
@@ -284,24 +266,24 @@ This paper is crucial for researchers in finance and AI because it introduces a 
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14059/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

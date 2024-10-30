@@ -2,11 +2,13 @@
 title: "Counting Ability of Large Language Models and Impact of Tokenization"
 summary: "LLM counting abilities are surprisingly sensitive to tokenization;  carefully crafted tokenization strategies significantly improve accuracy, bridging the gap between theory and practice."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-25", "🤗 24-10-28"]
+tags: ["🔖 24-10-25", ]
 showSummary: true
 date: 2024-10-25
 draft: false
 ---
+
+{{< keyword >}} 2410.19730 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers working with large language models (LLMs) 
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.19730/figures_1_0.png)
 
 > 🔼 The figure shows that using character-level tokenization instead of BPE tokenization significantly improves the accuracy of GPT-40 mini in counting tasks.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers working with large language models (LLMs) 
 
 
 
-![](charts/charts_7_0.png)
+![](https://ai-paper-reviewer.com/2410.19730/charts_7_0.png)
 
 > 🔼 The chart displays the distribution of errors (shifts from the correct count) in GPT's counting performance for different tokenization methods, revealing a bias towards undercounting with pure BPE tokenization.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for researchers working with large language models (LLMs) 
 </summary>
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.19730/figures_4_0.png)
 
 > 🔼 The figure illustrates the inductive counting process performed by humans, recurrent neural networks (RNNs), and large language models (LLMs) using chain-of-thought (CoT).
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for researchers working with large language models (LLMs) 
 
 
 
-![](figures/figures_4_1.png)
+![](https://ai-paper-reviewer.com/2410.19730/figures_4_1.png)
 
 > 🔼 The figure illustrates the inductive counting process performed by humans, recurrent neural networks (RNNs), and large language models (LLMs) using Chain of Thought (CoT).
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers working with large language models (LLMs) 
 
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.19730/figures_8_0.png)
 
 > 🔼 Figure 5 shows a pairwise comparison of counting accuracy for different letter pairs (a,b and e,z) across various string tokenization methods and CoT conditions.
 > <details>
@@ -119,7 +121,7 @@ This paper is crucial for researchers working with large language models (LLMs) 
 
 
 
-![](figures/figures_14_0.png)
+![](https://ai-paper-reviewer.com/2410.19730/figures_14_0.png)
 
 > 🔼 The figure shows four different ways of formatting strings for counting tasks, demonstrating how different tokenization methods impact the ability of large language models to count.
 > <details>
@@ -141,75 +143,51 @@ This paper is crucial for researchers working with large language models (LLMs) 
 
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td rowspan="3">String-Token Type</td><td colspan="6">Counting letter e</td><td colspan="6">Counting letter z</td></tr><tr><td colspan="2">len E [10-20]</td><td colspan="2">len E [20-30]</td><td colspan="2">len E [30-40]</td><td colspan="2">len E [10-20]</td><td colspan="2">len E [20-30]</td><td colspan="2">len E [30-40]</td></tr><tr><td>no-CoT</td><td>CoT</td><td>no-CoT</td><td>CoT</td><td>no-CoT</td><td>CoT</td><td>no-CoT</td><td>CoT</td><td>no-CoT</td><td>CoT</td><td>no-CoT</td><td>CoT</td></tr><tr><td>pure string BPE tokens (a)</td><td>26.60</td><td>55.20</td><td>19.80</td><td>12.20</td><td>11.40</td><td>2.10</td><td>31.10</td><td>59.10</td><td>11.70</td><td>22.10</td><td>4.60</td><td>7.30</td></tr><tr><td>" "-deliminated token (b)</td><td>41.00</td><td>52.90</td><td>23.90</td><td>28.20</td><td>13.00</td><td>16.00</td><td>45.30</td><td>63.90</td><td>16.60</td><td>46.20</td><td>6.80</td><td>29.50</td></tr><tr><td>" " -deliminated token (c) ,</td><td>45.50</td><td>64.20</td><td>27.40</td><td>44.20</td><td>18.00</td><td>27.60</td><td>56.20</td><td>73.60</td><td>28.20</td><td>55.60</td><td>13.90</td><td>41.90</td></tr><tr><td>precise-item token (d)</td><td>60.10</td><td>97.70</td><td>32.50</td><td>89.30</td><td>15.30</td><td>70.70</td><td>60.60</td><td>98.40</td><td>30.60</td><td>93.80</td><td>13.30</td><td>74.80</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 presents the results of counting the occurrences of the letters 'e' and 'z' in strings of varying lengths, using four different tokenization methods and with/without chain-of-thought prompting, based on GPT-40-mini model.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Resulst of counting es and zs in string consisting of letter e and z, using GPT-40-mini model.
 > </details>
-
-
-> Table 2 presents the results of counting the occurrences of the letters 'e' and 'z' in strings of varying lengths, using four different tokenization methods and with/without chain-of-thought prompting, based on GPT-40-mini model.
-
 
 {{< table-caption >}}
 <table id='4' style='font-size:14px'><tr><td>string-token</td><td colspan="2">len E [10-20]</td><td colspan="2">len E [20-30]</td><td colspan="2">len E [30-40]</td></tr><tr><td>type</td><td>count a</td><td>count b</td><td>count a</td><td>count b</td><td>count a</td><td>count b</td></tr><tr><td>(a)</td><td>86.30</td><td>86.20</td><td>62.40</td><td>65.20</td><td>50.60</td><td>54.40</td></tr><tr><td>(b)</td><td>90.60</td><td>94.00</td><td>80.40</td><td>87.50</td><td>76.10</td><td>79.60</td></tr><tr><td>(c)</td><td>94.90</td><td>97.70</td><td>92.80</td><td>97.90</td><td>91.40</td><td>94.20</td></tr><tr><td>(d)</td><td>93.00</td><td>94.20</td><td>87.80</td><td>91.00</td><td>87.30</td><td>89.80</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 3 presents Claude-3.5-sonnet API counting results using supervised CoT for strings with varying lengths and different tokenization types.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: Counting results on strings with letter a and b, using Claude-3.5-sonnet API. All results are using supervised CoT (Zhang and Ding, 2024), with same prompt for GPT-40-mini.
 > </details>
-
-
-> Table 3 presents Claude-3.5-sonnet API counting results using supervised CoT for strings with varying lengths and different tokenization types.
-
 
 {{< table-caption >}}
 <br><table id='5' style='font-size:14px'><tr><td rowspan="2">String-Token Type</td><td colspan="4">len E [80, 100]</td></tr><tr><td>Z</td><td>b</td><td>r</td><td>e</td></tr><tr><td>(b)</td><td>14.50</td><td>13.60</td><td>8.90</td><td>8.40</td></tr><tr><td>(c)</td><td>36.00</td><td>36.60</td><td>28.30</td><td>24.30</td></tr><tr><td>(d)</td><td>61.60</td><td>60.20</td><td>54.10</td><td>51.90</td></tr><tr><td colspan="5">Letter Frequency</td></tr><tr><td>percentage</td><td>0.07</td><td>1.48</td><td>6.02</td><td>12.70</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table presents the counting accuracy of four letters (z, b, r, e) with varying frequencies in human language using different tokenization methods.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 4: Counting performance of letters that have very different letter frequency in human language.
 > </details>
-
-
-> The table presents the counting accuracy of four letters (z, b, r, e) with varying frequencies in human language using different tokenization methods.
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td rowspan="2">String-token Type</td><td colspan="2">Counting a</td><td colspan="2">Counting b</td></tr><tr><td>Unsupervised-CoT</td><td>Supervised CoT</td><td>Unsupervised-CoT</td><td>Supervised CoT</td></tr><tr><td>(b)</td><td>8.40</td><td>10.90</td><td>20.70</td><td>18.60</td></tr><tr><td>(c)</td><td>24.00</td><td>28.10</td><td>29.30</td><td>42.30</td></tr><tr><td>(d)</td><td>34.90</td><td>56.10</td><td>42.70</td><td>70.80</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 5 presents counting experiment results in the length range of 30-40, comparing the performance of supervised and unsupervised chain-of-thought prompting methods.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 5: Counting experiments in the length range of 30-40 comparing Supervised CoT and Unsupervised CoT. The bolded font indicates the better performance in the pairwise comparison between Supervised and Unsupervised CoT.
 > </details>
-
-
-> Table 5 presents counting experiment results in the length range of 30-40, comparing the performance of supervised and unsupervised chain-of-thought prompting methods.
-
 
 {{< table-caption >}}
 <table id='17' style='font-size:16px'><tr><td>Prompt:</td></tr><tr><td>Determine the number of appearances of {substring} 's in the string below. Think step by step. Directly output 'Result: , followed by the counted number. Do not use bold font in the response. String: b b a a b b b a b b b b b a a a b b b b</td></tr><tr><td>Response:</td></tr><tr><td>Result (Experiment 2):</td></tr><tr><td>To determine the number of appearances of , a's in the given string, we will analyze the string step by step. 1. Let's first isolate the string and count the occurrences of the letter a' · The given string is: "b b a a b b b a b b b b b a a a b b b b" 2. We can count the 'a's by looking through the string or splitting it into individual elements to count: 、 The string has the following elements: b, b, a, a, b, b, b, a, b, b, b, b, b, a, a, a, b, b, b, b. 3. Now we count each , a' : - First occurrence: a (1) - Second occurrence: a (2) - Third occurrence: a (3) - Fourth occurrence: a (4) - Fifth occurrence: a (5) 4. Total occurrences of , a' : 5 Result: 5</td></tr><tr><td>Correct Answer: 6</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the average accuracy of counting the letters 'a' and 'b' across different string lengths and tokenization methods using the GPT-40-mini API, with and without Chain-of-Thought (CoT).
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Resulst of counting as and bs in string consisting of letter a and b, using GPT-40-mini API. Numbers indicate the average accuracy (%) over 1000 random generated instances.
 > </details>
-
-
-> Table 1 presents the average accuracy of counting the letters 'a' and 'b' across different string lengths and tokenization methods using the GPT-40-mini API, with and without Chain-of-Thought (CoT).
-
 
 {{< table-caption >}}
 <table id='19' style='font-size:18px'><tr><td>Prompt:</td></tr><tr><td>Task: Count the number of occurrences of the substring 'a' in the given string step by step. Do not use bold font in the response. Instructions: Iterate through the string and count each occurrence of the substring. Use a counter to keep track of how many times the substring appears. Output your step-by-step counting process. Conclude with: 'Result: , followed by the number. String: bbaabbbabbbbbaaabbbb Response:</td></tr><tr><td>Result (Experiment 1): Let's go through the string "bbaabbbabbbbbaaabbbb" step by step to count the occurrences of the substring a , 1. Initialize a · counter to 0. 2. Start reading the string from the first character. - Character 1: 'b' (no a , counter remains 0) - Character 2: 'b' (no 'a , counter remains 0) - Character 3: 'a' (found 'a' , increment counter to 1) - Character 4: 'a' (found a' , increment , , a  counter remains 2) - Character 7: 'b' (no , a , counter to 2) - Character 5: 'b' (no a , counter remains 2) - Character 6: 'b' (no , counter remains 2) - Character 8: 'a' (found 'a' , increment counter to 3) - Character 9: 'b' (no 'a' , counter remains 3) - Character 10: 'b' (no 'a' · counter remains 3) - Character 11: 'b' (no 'a  counter remains 3) - Character 12: 'b' (no 'a' , counter remains 3) - Character 13: 'a' (found 'a' · increment counter to 4) - Character 14: 'a' (found 'a' · increment counter to 5) - Character 15: 'b' (no a , counter remains 5) - Character 16: 'b' (no a , counter remains 5) - Character 17: 'b' (no  a , counter remains 5) - Character 18: 'b' (no 'a' counter remains 5) 3. End of the string reached. Result: 5</td></tr><tr><td>Correct Answer: 6</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the average accuracy of counting the letters 'a' and 'b' in strings of varying lengths (10-20, 20-30, and 30-40 characters) and tokenization types using GPT-40-mini, with and without Chain of Thought prompting.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Resulst of counting as and bs in string consisting of letter a and b, using GPT-40-mini API. Numbers indicate the average accuracy (%) over 1000 random generated instances.
 > </details>
-
-
-> Table 1 presents the average accuracy of counting the letters 'a' and 'b' in strings of varying lengths (10-20, 20-30, and 30-40 characters) and tokenization types using GPT-40-mini, with and without Chain of Thought prompting.
-
 
 </details>
 
@@ -217,18 +195,18 @@ This paper is crucial for researchers working with large language models (LLMs) 
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19730/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

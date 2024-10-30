@@ -2,11 +2,13 @@
 title: "Scaling Diffusion Language Models via Adaptation from Autoregressive Models"
 summary: "Researchers efficiently adapt existing large autoregressive language models into competitive diffusion language models, achieving scalability and outperforming prior diffusion models on various benchm..."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-23", "🤗 24-10-24"]
+tags: ["🔖 24-10-23", ]
 showSummary: true
 date: 2024-10-23
 draft: false
 ---
+
+{{< keyword >}} 2410.17891 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 
 
-![](figures/figures_3_0.png)
+![](https://ai-paper-reviewer.com/2410.17891/figures_3_0.png)
 
 > 🔼 This figure illustrates the adaptation process from autoregressive language models to diffusion language models, highlighting the key steps of causal mask annealing, shift operation, and the resulting bi-directional attention mechanism.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers in natural language processing and machine
 
 
 
-![](charts/charts_6_0.png)
+![](https://ai-paper-reviewer.com/2410.17891/charts_6_0.png)
 
 > 🔼 The chart displays the training loss curves for three different-sized diffusion language models (127M, 355M, and 7B parameters) across billions of training tokens.
 > <details>
@@ -91,7 +93,7 @@ This paper is crucial for researchers in natural language processing and machine
 </summary>
 
 
-![](charts/charts_8_0.png "🔼 Figure 3: Quality evaluation for unconditional generation, with perplexity measured by GPT2 large and distinct 2-gram diversity.")
+![](https://ai-paper-reviewer.com/2410.17891/charts_8_0.png)
 
 > 🔼 The chart displays the relationship between decoding steps, generative perplexity, and distinct 2-gram diversity for various diffusion models in unconditional text generation.
 > <details>
@@ -100,7 +102,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 4: Single batch decoding speed (seconds) for different models using flash-attention 2.")
+![](https://ai-paper-reviewer.com/2410.17891/charts_9_0.png)
 
 > 🔼 The chart compares the single-batch decoding speed of LLaMA2 and DiffuLLaMA models with varying sequence lengths and different numbers of diffusion timesteps (T).
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-![](charts/charts_22_0.png "🔼 Figure 5: The unconditional generation quality for different diffusion time steps T and sampling algorithms. We annotate the temperature of top-k sampling and top-p sampling.")
+![](https://ai-paper-reviewer.com/2410.17891/charts_22_0.png)
 
 > 🔼 The chart shows the unconditional generation quality, measured by perplexity and distinct 2-gram diversity, for different diffusion time steps and sampling algorithms.
 > <details>
@@ -118,7 +120,7 @@ This paper is crucial for researchers in natural language processing and machine
 > </details>
 
 
-![](charts/charts_22_1.png "🔼 Figure 6: Finetune GSM8K data with discrete diffusion objectives, using a base model of either GPT2-S/M or DiffuGPT-S/M. DiffuGPT converges faster and attains a lower loss.")
+![](https://ai-paper-reviewer.com/2410.17891/charts_22_1.png)
 
 > 🔼 The chart shows that using DiffuGPT as the base model for finetuning GSM8K data with discrete diffusion objectives leads to faster convergence and lower training loss compared to using GPT2 as the base model.
 > <details>
@@ -138,63 +140,43 @@ This paper is crucial for researchers in natural language processing and machine
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>Model</td><td>Size</td><td>Type</td><td>QA TriQA</td><td>Word Lamb.</td><td>HSwag</td><td>CommonSense Wino.</td><td>SIQA</td><td>Reasoning PIQA</td><td>Math GSM8K*</td><td>Infilling ROCStories</td><td>Code</td></tr><tr><td>GPT2-S</td><td>127M</td><td>AR</td><td>4.0</td><td>25.9</td><td>29.9</td><td>48.5</td><td>35.7</td><td>62.1</td><td>44.8</td><td>(7.8/0.8/7.4)</td><td>(1.6)</td></tr><tr><td>SEDD-S</td><td>170M</td><td>DD</td><td>1.5</td><td>12.4</td><td>30.2</td><td>50.1</td><td>34.4</td><td>55.6</td><td>45.3</td><td>11.9/0.7/10.9</td><td>0.7</td></tr><tr><td>DiffuGPT-S</td><td>127M</td><td>DD</td><td>2.0</td><td>45.0</td><td>33.4</td><td>50.8</td><td>37.0</td><td>57.7</td><td>50.2</td><td>13.7/1.4/12.6</td><td>0.3</td></tr><tr><td>GPT2-M</td><td>355M</td><td>AR</td><td>6.7</td><td>37.7</td><td>38.3</td><td>50.7</td><td>37.7</td><td>67.4</td><td>45.6</td><td>(8.6/0.9/8.2)</td><td>(2.6)</td></tr><tr><td>SEDD-M</td><td>424M</td><td>DD</td><td>1.8</td><td>23.1</td><td>31.5</td><td>49.0</td><td>35.4</td><td>56.1</td><td>53.5</td><td>13.1/1.4/12.2</td><td>0.5</td></tr><tr><td>DiffuGPT-M</td><td>355M</td><td>DD</td><td>3.8</td><td>60.5</td><td>37.2</td><td>52.6</td><td>39.0</td><td>59.6</td><td>61.8</td><td>18.7/2.7/17.0</td><td>2.9</td></tr><tr><td>Plaid1B</td><td>1.3B</td><td>CD</td><td>1.2</td><td>8.6</td><td>39.3</td><td>51.3</td><td>32.3</td><td>54.5</td><td>32.6</td><td>12.1/1.1/11.2</td><td>0.1</td></tr><tr><td>LLaMA2</td><td>7B</td><td>AR</td><td>45.4</td><td>68.8</td><td>74.9</td><td>67.1</td><td>44.8</td><td>78.3</td><td>58.6</td><td>(11.6/2.1/10.5)</td><td>(1.7)</td></tr><tr><td>DiffuLLaMA</td><td>7B</td><td>DD</td><td>18.5</td><td>70.9</td><td>58.7</td><td>56.4</td><td>43.2</td><td>63.3</td><td>63.1</td><td>23.3/5.5/21.2</td><td>15.5</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 provides a comprehensive comparison of different diffusion language models and their autoregressive counterparts across various tasks, including question answering, commonsense reasoning, and infilling, using accuracy and ROUGE scores.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Comprehensive evaluation of different diffusion language models and the same scale pre-trained autoregressive models. There are 3 types of these models: AR for autoregressive, DD for discrete diffusion and CD for continuous diffusion. For the infilling task, we use ROUGE-1/2/L score; for other tasks, we use the accuracy (%) metric. * indicates we finetune GSM8K on models; other tasks are all in zero-shot setting. Numbers in the () indicate that AR models are only given prefix for infilling tasks. We bold the best performance among diffusion language models and underline results that surpass their base models.
 > </details>
-
-
-> Table 1 provides a comprehensive comparison of different diffusion language models and their autoregressive counterparts across various tasks, including question answering, commonsense reasoning, and infilling, using accuracy and ROUGE scores.
-
 
 {{< table-caption >}}
 <table id='9' style='font-size:16px'><tr><td>Models</td><td>MAWPS</td><td>SATMath</td><td>TriviaQA</td></tr><tr><td>LLaMA2</td><td>63.5</td><td>24.5</td><td>45.4</td></tr><tr><td>DiffuLLaMA-ZS</td><td>9.7</td><td><1</td><td>18.5</td></tr><tr><td>DiffuLLaMA-FS</td><td>31.3</td><td>23.6</td><td>20.9</td></tr><tr><td>DiffuLLaMA-SC</td><td>33.1</td><td>27.7</td><td>26.0</td></tr><tr><td>DiffuLLaMA-@k</td><td>40.8</td><td>57.7</td><td>34.1</td></tr><tr><td>DiffuLLaMA-CoT</td><td>28.7</td><td>9.5</td><td>-</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents a comprehensive evaluation comparing various diffusion language models and their autoregressive counterparts across multiple tasks, including question answering, common sense reasoning, math problem solving, and text infilling.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Comprehensive evaluation of different diffusion language models and the same scale pre-trained autoregressive models. There are 3 types of these models: AR for autoregressive, DD for discrete diffusion and CD for continuous diffusion. For the infilling task, we use ROUGE-1/2/L score; for other tasks, we use the accuracy (%) metric. * indicates we finetune GSM8K on models; other tasks are all in zero-shot setting. Numbers in the () indicate that AR models are only given prefix for infilling tasks. We bold the best performance among diffusion language models and underline results that surpass their base models.
 > </details>
-
-
-> Table 1 presents a comprehensive evaluation comparing various diffusion language models and their autoregressive counterparts across multiple tasks, including question answering, common sense reasoning, math problem solving, and text infilling.
-
 
 {{< table-caption >}}
 <table id='4' style='font-size:16px'><tr><td></td><td></td><td>GPT2-S GPT2-M</td></tr><tr><td></td><td>44.8</td><td>45.6</td></tr><tr><td></td><td>19.2</td><td>20.2</td></tr><tr><td></td><td>33.5</td><td>34.5</td></tr><tr><td></td><td>43.3</td><td>47.2</td></tr><tr><td></td><td>45.4</td><td>49.7</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents a comprehensive evaluation of various diffusion and autoregressive language models across multiple tasks, highlighting their performance in zero-shot and few-shot settings.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Comprehensive evaluation of different diffusion language models and the same scale pre-trained autoregressive models. There are 3 types of these models: AR for autoregressive, DD for discrete diffusion and CD for continuous diffusion. For the infilling task, we use ROUGE-1/2/L score; for other tasks, we use the accuracy (%) metric. * indicates we finetune GSM8K on models; other tasks are all in zero-shot setting. Numbers in the () indicate that AR models are only given prefix for infilling tasks. We bold the best performance among diffusion language models and underline results that surpass their base models.
 > </details>
-
-
-> Table 1 presents a comprehensive evaluation of various diffusion and autoregressive language models across multiple tasks, highlighting their performance in zero-shot and few-shot settings.
-
 
 {{< table-caption >}}
 <table id='11' style='font-size:16px'><tr><td>Models</td><td>Training steps</td><td>Global batch size</td><td>Context length</td></tr><tr><td>SEDD (Lou et al., 2024)</td><td>400k</td><td>512</td><td>1024</td></tr><tr><td>MD4 (Shi et al., 2024)</td><td>1000k</td><td>512</td><td>1024</td></tr><tr><td>DiffuGPT-S</td><td>1000k</td><td>256</td><td>512</td></tr><tr><td>DiffuGPT-M</td><td>160k</td><td>1280</td><td>1024</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents a comprehensive evaluation comparing various diffusion language models against their autoregressive counterparts across multiple tasks, including question answering, common sense reasoning, and infilling.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Comprehensive evaluation of different diffusion language models and the same scale pre-trained autoregressive models. There are 3 types of these models: AR for autoregressive, DD for discrete diffusion and CD for continuous diffusion. For the infilling task, we use ROUGE-1/2/L score; for other tasks, we use the accuracy (%) metric. * indicates we finetune GSM8K on models; other tasks are all in zero-shot setting. Numbers in the () indicate that AR models are only given prefix for infilling tasks. We bold the best performance among diffusion language models and underline results that surpass their base models.
 > </details>
-
-
-> Table 1 presents a comprehensive evaluation comparing various diffusion language models against their autoregressive counterparts across multiple tasks, including question answering, common sense reasoning, and infilling.
-
 
 {{< table-caption >}}
 <table id='9' style='font-size:20px'><tr><td>Length</td><td>Attention</td><td>DiffuLLaMA (sec)</td><td>LLaMA (sec)</td></tr><tr><td>512</td><td>flash-attention 2</td><td>12.5</td><td>9.2</td></tr><tr><td>1024</td><td>SDPA</td><td>13.2</td><td>16.3</td></tr><tr><td>1024</td><td>flash-attention 2</td><td>13.3</td><td>17.5</td></tr><tr><td>1024</td><td>vanilla</td><td>16.2</td><td>17.2</td></tr><tr><td>2048</td><td>SDPA</td><td>28.5</td><td>29.5</td></tr><tr><td>2048</td><td>flash-attention 2</td><td>23.5</td><td>35.7</td></tr><tr><td>2048</td><td>vanilla</td><td>38.1</td><td>32.8</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents a comprehensive comparison of various diffusion and autoregressive language models across multiple tasks, including question answering, commonsense reasoning, math problem solving, and text infilling, highlighting the performance differences and improvements achieved through model adaptation.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Comprehensive evaluation of different diffusion language models and the same scale pre-trained autoregressive models. There are 3 types of these models: AR for autoregressive, DD for discrete diffusion and CD for continuous diffusion. For the infilling task, we use ROUGE-1/2/L score; for other tasks, we use the accuracy (%) metric. * indicates we finetune GSM8K on models; other tasks are all in zero-shot setting. Numbers in the () indicate that AR models are only given prefix for infilling tasks. We bold the best performance among diffusion language models and underline results that surpass their base models.
 > </details>
-
-
-> Table 1 presents a comprehensive comparison of various diffusion and autoregressive language models across multiple tasks, including question answering, commonsense reasoning, math problem solving, and text infilling, highlighting the performance differences and improvements achieved through model adaptation.
-
 
 </details>
 
@@ -202,29 +184,29 @@ This paper is crucial for researchers in natural language processing and machine
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17891/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

@@ -2,11 +2,13 @@
 title: "Neural Metamorphosis"
 summary: "NeuMeta learns a continuous weight manifold for neural networks, enabling the generation of any-sized network without retraining, even for unseen configurations."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-10", "🤗 24-10-17"]
+tags: ["🔖 24-10-10", ]
 showSummary: true
 date: 2024-10-10
 draft: false
 ---
+
+{{< keyword >}} 2410.11878 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 
 
 
-![](figures/figures_6_0.png)
+![](https://ai-paper-reviewer.com/2410.11878/figures_6_0.png)
 
 > 🔼 The figure illustrates the pipeline of Neural Metamorphosis, showing the process of transforming a trained neural network into a smoothed network, training an implicit neural representation (INR), sampling weights from the INR, and generating weights for a target model.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 
 
 
-![](charts/charts_13_0.png)
+![](https://ai-paper-reviewer.com/2410.11878/charts_13_0.png)
 
 > 🔼 The chart compares the negative log-likelihood (NLL) of different methods across various compression ratios for MNIST and CelebA datasets.
 > <details>
@@ -89,7 +91,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 </summary>
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.11878/figures_8_0.png)
 
 > 🔼 The figure illustrates how intra-model smoothness is achieved by permuting weights within neural network cliques to minimize total variance, enhancing overall smoothness.
 > <details>
@@ -99,7 +101,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 
 
 
-![](figures/figures_9_0.png)
+![](https://ai-paper-reviewer.com/2410.11878/figures_9_0.png)
 
 > 🔼 Figure 4 illustrates the contrast between discrete weight prediction in a grid (left) versus the continuous weight prediction as an expectation over a small neighborhood by INR (right).
 > <details>
@@ -109,7 +111,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 
 
 
-![](figures/figures_12_0.png)
+![](https://ai-paper-reviewer.com/2410.11878/figures_12_0.png)
 
 > 🔼 Figure 5 shows the accuracy comparison of NeuMeta against various structure pruning methods across four datasets (MNIST, CIFAR10, CIFAR100, and ImageNet) at different compression ratios.
 > <details>
@@ -119,7 +121,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 
 
 
-![](figures/figures_13_0.png)
+![](https://ai-paper-reviewer.com/2410.11878/figures_13_0.png)
 
 > 🔼 The figure shows the visualization results of generated images by VAE on MNIST and CelebA datasets with 25% compression rate using NeuMeta and L1 25% pruning methods, indicating NeuMeta's superior performance with lower MSE and NLL values.
 > <details>
@@ -129,7 +131,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 
 
 
-![](figures/figures_13_1.png)
+![](https://ai-paper-reviewer.com/2410.11878/figures_13_1.png)
 
 > 🔼 The figure shows the visualization of generated images by VAE on MNIST and CelebA datasets using NeuMeta with 25% compression for MNIST and 50% for CelebA, comparing the results with L1 pruning-based method, showing superior image generation quality of NeuMeta with lower MSE and NLL values.
 > <details>
@@ -148,7 +150,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 </summary>
 
 
-![](charts/charts_14_0.png "🔼 Fig. 9: Similarity Analysis Between Models. (Top) the CKA comparison between the full model and various other models of different sizes. (Bottom) heatmap of the output KL divergence for each pair of models.")
+![](https://ai-paper-reviewer.com/2410.11878/charts_14_0.png)
 
 > 🔼 The chart displays the CKA values and KL divergence between the full-sized model and models of different sizes, illustrating the feature similarity and knowledge distillation aspects of NeuMeta.
 > <details>
@@ -157,7 +159,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 > </details>
 
 
-![](charts/charts_14_1.png "🔼 Fig. 9: Similarity Analysis Between Models. (Top) the CKA comparison between the full model and various other models of different sizes. (Bottom) heatmap of the output KL divergence for each pair of models.")
+![](https://ai-paper-reviewer.com/2410.11878/charts_14_1.png)
 
 > 🔼 The chart displays the CKA scores and KL divergence between various sized models trained using individual training, knowledge distillation, and the proposed NeuMeta method, revealing the feature similarity and knowledge transfer properties of each approach.
 > <details>
@@ -166,7 +168,7 @@ This paper is important because it introduces a novel paradigm for creating adap
 > </details>
 
 
-![](charts/charts_14_2.png "🔼 Fig. 10: Ablation study with or without manifold sampling.")
+![](https://ai-paper-reviewer.com/2410.11878/charts_14_2.png)
 
 > 🔼 The chart displays the effect of manifold sampling on both validation loss and accuracy across various hidden dimensions, showing improved performance with sampling.
 > <details>
@@ -186,27 +188,19 @@ This paper is important because it introduces a novel paradigm for creating adap
 
 {{< table-caption >}}
 <br><table id='11' style='font-size:14px'><tr><td rowspan="2">Method</td><td colspan="2">25%</td><td colspan="2">50%</td><td colspan="2">75% T</td></tr><tr><td>mIOU</td><td>F1</td><td>mIOU</td><td>F1</td><td>mIOU</td><td>F1</td></tr><tr><td>Individual</td><td>84.70</td><td>90.63</td><td>83.14</td><td>89.59</td><td>82.79</td><td>89.36</td></tr><tr><td>Slimmable [57]</td><td>81.09</td><td>88.14</td><td>80.92</td><td>88.03</td><td>61.19</td><td>72.78</td></tr><tr><td>Ours</td><td>81.94</td><td>88.75</td><td>81.93</td><td>88.74</td><td>81.94</td><td>88.75</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 compares the accuracy of ResNet20 on CIFAR10 and CIFAR100 datasets at different compression ratios (0%, 25%, 50%, and 75%) for four different methods: Individually trained models, Slimable networks, Integral Neural Networks, and the proposed NeuMeta method.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Accuracy comparison of ResNet20 on CIFAR10 and CIFAR100 at different compression ratios. The 75% compression ratio wasn't applied in training.
 > </details>
-
-
-> Table 2 compares the accuracy of ResNet20 on CIFAR10 and CIFAR100 datasets at different compression ratios (0%, 25%, 50%, and 75%) for four different methods: Individually trained models, Slimable networks, Integral Neural Networks, and the proposed NeuMeta method.
-
 
 {{< table-caption >}}
 <br><table id='10' style='font-size:18px'><tr><td>No. </td><td>Weight Permutation</td><td>入1</td><td>入2</td><td>Accuracy</td></tr><tr><td>1</td><td></td><td>0</td><td>1e-4</td><td>73.56</td></tr><tr><td>2</td><td></td><td>1</td><td>1e-4</td><td>80.33</td></tr><tr><td>3</td><td></td><td>1</td><td>0</td><td>64.37</td></tr><tr><td>4</td><td></td><td>1</td><td>1e-4</td><td>91.84</td></tr><tr><td>5</td><td></td><td>10</td><td>1e-4</td><td>91.73</td></tr><tr><td>6</td><td></td><td>100</td><td>1e-4</td><td>91.47</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 compares the accuracy of ResNet20 on CIFAR10 and CIFAR100 datasets at different compression ratios (0%, 25%, 50%, and 75%) using NeuMeta, Slimmable networks, Integral Neural Networks, and individually trained models.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Accuracy comparison of ResNet20 on CIFAR10 and CIFAR100 at different compression ratios. The 75% compression ratio wasn't applied in training.
 > </details>
-
-
-> Table 2 compares the accuracy of ResNet20 on CIFAR10 and CIFAR100 datasets at different compression ratios (0%, 25%, 50%, and 75%) using NeuMeta, Slimmable networks, Integral Neural Networks, and individually trained models.
-
 
 </details>
 
@@ -214,22 +208,22 @@ This paper is important because it introduces a novel paradigm for creating adap
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.11878/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

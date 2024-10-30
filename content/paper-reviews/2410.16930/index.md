@@ -2,11 +2,13 @@
 title: "Math Neurosurgery: Isolating Language Models' Math Reasoning Abilities Using Only Forward Passes"
 summary: "Math Neurosurgery precisely isolates math reasoning parameters within LLMs using only forward passes, boosting performance without affecting non-math skills."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-22", "🤗 24-10-23"]
+tags: ["🔖 24-10-22", ]
 showSummary: true
 date: 2024-10-22
 draft: false
 ---
+
+{{< keyword >}} 2410.16930 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is highly relevant to researchers working on large language models (L
 
 
 
-![](figures/figures_3_0.png)
+![](https://ai-paper-reviewer.com/2410.16930/figures_3_0.png)
 
 > 🔼 The figure illustrates the MathNeuro process of identifying math-specific parameters by comparing top parameters for math and non-math inputs and removing those important for both.
 > <details>
@@ -59,7 +61,7 @@ This paper is highly relevant to researchers working on large language models (L
 
 
 
-![](charts/charts_5_0.png)
+![](https://ai-paper-reviewer.com/2410.16930/charts_5_0.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by four different methods on math and non-math performance for the Llama 3.2 1B IT language model.
 > <details>
@@ -80,7 +82,7 @@ This paper is highly relevant to researchers working on large language models (L
 </summary>
 
 
-![](charts/charts_5_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_5_1.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by four different methods on Llama 3.2 1B IT's performance across three tasks (GSM8K, MMLU, and RACE).
 > <details>
@@ -89,7 +91,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_7_0.png)
 
 > 🔼 The chart displays the effect of pruning parameters identified by four different methods (including MathNeuro) on the model's accuracy for math and non-math tasks.
 > <details>
@@ -98,7 +100,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_7_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_7_1.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by different methods on Llama 3.2 1B IT's performance on GSM8K, MMLU, and RACE datasets.
 > <details>
@@ -107,7 +109,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_7_2.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_7_2.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by different methods on math and non-math performance for Llama 3.2 1B IT model, showing MathNeuro's effectiveness in isolating math-specific parameters.
 > <details>
@@ -116,7 +118,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_7_3.png "🔼 Figure 6: Consistency of math-specific parameters identified by MathNeuro for Llama 3.2 1B IT when identifying using GSM8K compared to RACE.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_7_3.png)
 
 > 🔼 The chart displays the percentage of consistently identified math-specific parameters across different random data subsets for various proportions of top parameters calculated and numbers of samples used in the comparison.
 > <details>
@@ -125,7 +127,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_7_4.png "🔼 Figure 6: Consistency of math-specific parameters identified by MathNeuro for Llama 3.2 1B IT when identifying using GSM8K compared to RACE.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_7_4.png)
 
 > 🔼 The chart displays the consistency of math-specific parameters identified by MathNeuro across different random subsets of data, showing high consistency even with a single sample.
 > <details>
@@ -134,7 +136,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 6: Consistency of math-specific parameters identified by MathNeuro for Llama 3.2 1B IT when identifying using GSM8K compared to RACE.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_8_0.png)
 
 > 🔼 The chart displays the percentage of consistently identified math-specific parameters by MathNeuro across different random subsets of data, varying sample sizes and proportions of top parameters calculated.
 > <details>
@@ -143,7 +145,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_8_1.png "🔼 Figure 6: Consistency of math-specific parameters identified by MathNeuro for Llama 3.2 1B IT when identifying using GSM8K compared to RACE.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_8_1.png)
 
 > 🔼 The chart displays the consistency of parameters identified as math-specific by MathNeuro across different random subsets of math and non-math data for Llama 3.2 1B IT model, comparing GSM8K and RACE datasets.
 > <details>
@@ -152,7 +154,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_8_2.png "🔼 Figure 10: Distribution of math-specific parameters identified by MathNeuro for Llama 3.2 1B IT when identifying using GSM8K compared to RACE.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_8_2.png)
 
 > 🔼 The chart displays the distribution of math-specific parameters across different layers of the Llama 3.2 1B IT model, comparing parameters identified using GSM8K and RACE datasets.
 > <details>
@@ -161,7 +163,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_8_3.png "🔼 Figure 10: Distribution of math-specific parameters identified by MathNeuro for Llama 3.2 1B IT when identifying using GSM8K compared to RACE.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_8_3.png)
 
 > 🔼 The bar chart displays the distribution of math-specific parameters across different layers of Llama 3.2 1B IT language model, showing a relatively even distribution throughout the layers.
 > <details>
@@ -170,7 +172,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_12_0.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_12_0.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by four different methods on Llama 3.2 1B IT's performance on GSM8K, MMLU, and RACE datasets.
 > <details>
@@ -179,7 +181,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_12_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_12_1.png)
 
 > 🔼 Figure 2 shows the effect of pruning parameters identified by four different methods on both math and non-math performance for the Llama 3.2 1B IT model.
 > <details>
@@ -188,7 +190,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_12_2.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_12_2.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by four different methods on Llama 3.2 1B IT's performance in math reasoning (GSM8K) and two non-math tasks (RACE and MMLU).
 > <details>
@@ -197,7 +199,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_12_3.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_12_3.png)
 
 > 🔼 The chart displays the effect of pruning parameters identified by different methods on math and non-math performance for Llama 3.2 1B IT, showing that MathNeuro effectively isolates math-specific parameters.
 > <details>
@@ -206,7 +208,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_13_0.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_13_0.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified by four different methods (MathNeuro, LAPE, Wanda, and Random) on the model's performance across three tasks (GSM8K, MMLU, and RACE).
 > <details>
@@ -215,7 +217,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_13_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_13_1.png)
 
 > 🔼 The chart displays the effect of pruning parameters identified by different methods on Llama 3.2 1B IT's performance on math and non-math tasks.
 > <details>
@@ -224,7 +226,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_13_2.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_13_2.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified by four different methods (including MathNeuro) on Llama 3.2 1B IT's performance in math reasoning (GSM8K) and non-math tasks (MMLU and RACE).
 > <details>
@@ -233,7 +235,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_13_3.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_13_3.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified by different methods on Llama 3.2 1B IT's performance across math and non-math tasks.
 > <details>
@@ -242,7 +244,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_14_0.png "🔼 Figure 16: Impact of parameter proportion on GSM8K performance for pruning parameters identified by each method for Llama 3.2 1B IT.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_14_0.png)
 
 > 🔼 The chart displays the effect of pruning different proportions of parameters identified by various methods (including MathNeuro) on the GSM8K performance of Llama 3.2 1B IT model.
 > <details>
@@ -251,7 +253,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_14_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_14_1.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified as important for math reasoning on both math and non-math task performance for the Llama 3.2 1B IT language model.
 > <details>
@@ -260,7 +262,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_14_2.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_14_2.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by different methods (including MathNeuro) on the model's performance on math and non-math tasks.
 > <details>
@@ -269,7 +271,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_15_0.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_15_0.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified as important for math on the model's performance on math and non-math tasks.
 > <details>
@@ -278,7 +280,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_15_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_15_1.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified by different methods on the Llama 3.2 1B IT model's performance in math and non-math tasks.
 > <details>
@@ -287,7 +289,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_15_2.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_15_2.png)
 
 > 🔼 The chart displays the effect of pruning parameters identified by different methods on the math and non-math performance of Llama 3.2 1B IT, showing the trade-off between preserving non-math performance and reducing math accuracy.
 > <details>
@@ -296,7 +298,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_15_3.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_15_3.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified by different methods on Llama 3.2 1B IT's performance on math and non-math tasks, showing MathNeuro's superior ability to isolate math-specific parameters.
 > <details>
@@ -305,7 +307,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_15_4.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_15_4.png)
 
 > 🔼 The chart displays the effect of pruning parameters identified by different methods on Llama 3.2 1B IT's performance on math and non-math tasks, showing MathNeuro's effectiveness in isolating math-specific parameters.
 > <details>
@@ -314,7 +316,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_16_0.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_16_0.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified as important for math reasoning on both math and non-math tasks, for the Llama 3.2 1B IT model.
 > <details>
@@ -323,7 +325,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_16_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_16_1.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by four different methods on the model's performance on math and non-math tasks, showing MathNeuro's superior ability to isolate math-specific parameters.
 > <details>
@@ -332,7 +334,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_16_2.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_16_2.png)
 
 > 🔼 Figure 2 shows the effect of pruning parameters identified as important for math on both math and non-math performance for the Llama 3.2 1B IT model.
 > <details>
@@ -341,7 +343,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_16_3.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_16_3.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by different methods on math and non-math performance for Llama 3.2 1B IT model.
 > <details>
@@ -350,7 +352,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_17_0.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_17_0.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by different methods (including MathNeuro) on Llama 3.2 1B IT's performance on math and non-math tasks, showing MathNeuro effectively isolates math parameters.
 > <details>
@@ -359,7 +361,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_17_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_17_1.png)
 
 > 🔼 The chart displays the effect of pruning parameters identified as important for math reasoning on a Llama 3.2 1B IT language model's performance on math and non-math tasks.
 > <details>
@@ -368,7 +370,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_17_2.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_17_2.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by different methods on Llama 3.2 1B IT's performance on GSM8K, MMLU, and RACE datasets.
 > <details>
@@ -377,7 +379,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_17_3.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_17_3.png)
 
 > 🔼 The chart displays the impact of pruning parameters identified by different methods on math and non-math performance for Llama 3.2 1B IT, showing the trade-off between reducing math accuracy and preserving non-math accuracy.
 > <details>
@@ -386,7 +388,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_18_0.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_18_0.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified as important for math on both math and non-math task performance for the Llama 3.2 1B IT model.
 > <details>
@@ -395,7 +397,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_18_1.png "🔼 Figure 2: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT based on calculating the top 15% of parameters. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_18_1.png)
 
 > 🔼 The chart displays the effects of pruning parameters identified by different methods on Llama 3.2 1B IT's performance on math and non-math tasks.
 > <details>
@@ -404,7 +406,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_18_2.png "🔼 Figure 4: Effect of pruning identified parameters on math and non-math performance for Llama 3.2 1B IT for calculating the top 10% of parameters based on one sample. Ideal methods should fall in the top left of the plot. MMLU and RACE denote that a point was calculated using MMLU or RACE, respectively, as Dnon-math.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_18_2.png)
 
 > 🔼 The chart displays the effects of pruning parameters (identified by four different methods) on Llama 3.2 1B IT's performance across math and non-math tasks using a single sample, highlighting the effectiveness of MathNeuro in isolating math-specific parameters.
 > <details>
@@ -413,7 +415,7 @@ This paper is highly relevant to researchers working on large language models (L
 > </details>
 
 
-![](charts/charts_19_0.png "🔼 Figure 29: Impact of MathNeuro scale factor on GSM8K performance for Llama 3.2 1B.")
+![](https://ai-paper-reviewer.com/2410.16930/charts_19_0.png)
 
 > 🔼 The chart displays the impact of scaling the weights of math-specific parameters identified by MathNeuro on the GSM8K performance of Llama 3.2 1B model.
 > <details>
@@ -429,25 +431,25 @@ This paper is highly relevant to researchers working on large language models (L
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16930/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

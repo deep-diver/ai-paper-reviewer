@@ -2,11 +2,13 @@
 title: "Continuous Speech Synthesis using per-token Latent Diffusion"
 summary: "SALAD, a novel per-token latent diffusion model, achieves superior zero-shot speech synthesis, surpassing discrete methods in intelligibility while maintaining speech quality and speaker similarity."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-21", "🤗 24-10-28"]
+tags: ["🔖 24-10-21", ]
 showSummary: true
 date: 2024-10-21
 draft: false
 ---
+
+{{< keyword >}} 2410.16048 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it introduces a novel approach to speech synthes
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.16048/figures_2_0.png)
 
 > 🔼 The figure illustrates the difference between continuous and discrete speech modeling approaches, showing how continuous latent variables are processed using a diffusion head versus discrete RVQ codes processed using RVQ prediction heads.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it introduces a novel approach to speech synthes
 
 
 
-![](charts/charts_8_0.png)
+![](https://ai-paper-reviewer.com/2410.16048/charts_8_0.png)
 
 > 🔼 The chart displays the results of subjective listening tests, comparing the MOS (Mean Opinion Score) and speaker similarity scores for various speech synthesis models, including ground truth, XTTS, and different variants of SALAD (Text-to-Acoustic and Semantic-to-Acoustic, both continuous and discrete).
 > <details>
@@ -89,7 +91,7 @@ This paper is important because it introduces a novel approach to speech synthes
 </summary>
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.16048/figures_4_0.png)
 
 > 🔼 The figure illustrates the per-token diffusion head architecture used in the SALAD model, showing both the training and inference processes.
 > <details>
@@ -99,7 +101,7 @@ This paper is important because it introduces a novel approach to speech synthes
 
 
 
-![](figures/figures_5_0.png)
+![](https://ai-paper-reviewer.com/2410.16048/figures_5_0.png)
 
 > 🔼 The figure illustrates the process of speech synthesis using semantic-to-acoustic models, showing the flow of information from text and speaker prompt to the final synthesized audio.
 > <details>
@@ -118,7 +120,7 @@ This paper is important because it introduces a novel approach to speech synthes
 </summary>
 
 
-![](charts/charts_9_0.png "🔼 Figure 6: Inference hyperparameters influence")
+![](https://ai-paper-reviewer.com/2410.16048/charts_9_0.png)
 
 > 🔼 The chart displays the impact of various inference hyperparameters, such as CFG scale, noise scale, diffusion steps, and MaskGIT steps, on the UTMOS score and speaker similarity.
 > <details>
@@ -127,7 +129,7 @@ This paper is important because it introduces a novel approach to speech synthes
 > </details>
 
 
-![](charts/charts_10_0.png "🔼 Figure 7: High-fidelity RVQ codes")
+![](https://ai-paper-reviewer.com/2410.16048/charts_10_0.png)
 
 > 🔼 The chart displays the relationships between reconstruction quality, noise sensitivity, and cross entropy loss with different numbers of RVQ codebooks and VAE embedding dimensions.
 > <details>
@@ -136,7 +138,7 @@ This paper is important because it introduces a novel approach to speech synthes
 > </details>
 
 
-![](charts/charts_14_0.png "🔼 Figure 8: Additional results")
+![](https://ai-paper-reviewer.com/2410.16048/charts_14_0.png)
 
 > 🔼 The chart displays the GMM entropy drop to zero during training and the SoundStorm unmasking method performance comparison.
 > <details>
@@ -145,7 +147,7 @@ This paper is important because it introduces a novel approach to speech synthes
 > </details>
 
 
-![](charts/charts_14_1.png "🔼 Figure 8: Additional results")
+![](https://ai-paper-reviewer.com/2410.16048/charts_14_1.png)
 
 > 🔼 The chart compares three different unmasking methods in the SoundStorm model, showing that random unmasking achieves the highest UTMOS score.
 > <details>
@@ -165,27 +167,19 @@ This paper is important because it introduces a novel approach to speech synthes
 
 {{< table-caption >}}
 <table id='3' style='font-size:18px'><tr><td></td><td>UTMOS ↑</td><td>Intelligibility ↓</td><td>Similarity ↑</td></tr><tr><td>T2A HiFi Continuous d = 32</td><td>4.271</td><td>1.157</td><td>0.545</td></tr><tr><td>T2A HiFi Discrete Q = 12</td><td>4.203</td><td>5.461</td><td>0.597</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 This table compares the performance of high-fidelity continuous and discrete T2A models, showing the continuous model achieves better intelligibility with comparable quality and similarity scores.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Discrete vs continuous models with high-fidelity representations
 > </details>
-
-
-> This table compares the performance of high-fidelity continuous and discrete T2A models, showing the continuous model achieves better intelligibility with comparable quality and similarity scores.
-
 
 {{< table-caption >}}
 <table id='6' style='font-size:18px'><tr><td></td><td>UTMOS ↑</td><td>Intelligibility ↓</td><td>Similarity ↑</td></tr><tr><td>VAE Sample</td><td>4.280</td><td>0.739</td><td>0.539</td></tr><tr><td>VAE NoSample</td><td>3.468</td><td>1.891</td><td>0.613</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the objective evaluation results of different speech synthesis models on the LibriSpeech test-clean dataset, comparing metrics such as UTMOS, STT CER, and speaker similarity.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Objective evaluation of LibriSpeech test-clean
 > </details>
-
-
-> Table 1 presents the objective evaluation results of different speech synthesis models on the LibriSpeech test-clean dataset, comparing metrics such as UTMOS, STT CER, and speaker similarity.
-
 
 </details>
 
@@ -193,18 +187,18 @@ This paper is important because it introduces a novel approach to speech synthes
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16048/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

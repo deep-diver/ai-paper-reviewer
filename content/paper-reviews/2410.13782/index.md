@@ -2,11 +2,13 @@
 title: "DPLM-2: A Multimodal Diffusion Protein Language Model"
 summary: "DPLM-2: A multimodal diffusion model revolutionizes protein structure & sequence generation, achieving superior accuracy and diversity via efficient training and structure tokenization."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-17", "🤗 24-10-21"]
+tags: ["🔖 24-10-17", ]
 showSummary: true
 date: 2024-10-17
 draft: false
 ---
+
+{{< keyword >}} 2410.13782 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.13782/figures_2_0.png)
 
 > 🔼 Figure 1 illustrates the overall architecture of DPLM-2, including structure tokenization, multimodal training and sampling, and various applications of DPLM-2 as a protein foundation model.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 
 
 
-![](charts/charts_7_0.png)
+![](https://ai-paper-reviewer.com/2410.13782/charts_7_0.png)
 
 > 🔼 Figure 3 shows the evaluation results of DPLM-2 on unconditional structure-sequence co-generation, including designability, structure diversity, sequence foldability, structure novelty, model size comparison, long protein generation, case study of structure-sequence co-generated samples and showcase of designing symmetric oligomers.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 </summary>
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.13782/figures_4_0.png)
 
 > 🔼 Figure 1 illustrates the overall architecture of DPLM-2, including structure tokenization, multimodal training and sampling, and various applications of DPLM-2 as a protein foundation model.
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 
 
 
-![](figures/figures_7_0.png)
+![](https://ai-paper-reviewer.com/2410.13782/figures_7_0.png)
 
 > 🔼 Figure 1 illustrates the overall architecture of DPLM-2, showing its structure tokenization, multimodal training and sampling process, and various applications in protein generation and prediction tasks.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 
 
 
-![](figures/figures_7_1.png)
+![](https://ai-paper-reviewer.com/2410.13782/figures_7_1.png)
 
 > 🔼 Figure 1 illustrates the overall architecture of DPLM-2, including structure tokenization, multimodal training and sampling, and various applications in protein generation and prediction tasks.
 > <details>
@@ -119,7 +121,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 
 
 
-![](figures/figures_7_2.png)
+![](https://ai-paper-reviewer.com/2410.13782/figures_7_2.png)
 
 > 🔼 Figure 3 shows the evaluation results of DPLM-2 on unconditional protein generation, illustrating its capability to generate high-quality, diverse, and novel protein sequences and structures simultaneously.
 > <details>
@@ -138,7 +140,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 </summary>
 
 
-![](charts/charts_7_1.png "🔼 Figure 3: Evaluation of DPLM-2 on unconditional structure-sequence co-generation. Here for designability of co-generated proteins, we use ESMFold to obtain refolded structure of DPLM-2-generated sequence and measure the structural similarity between DPLM-2-generated structure and the refolded structure, which aims to measure the compatibility of the co-generated structure and sequence pairs.")
+![](https://ai-paper-reviewer.com/2410.13782/charts_7_1.png)
 
 > 🔼 Figure 3 displays the evaluation results of DPLM-2 on unconditional structure-sequence co-generation, showing its ability to generate diverse and high-quality protein with simultaneous structure-sequence co-generation across various lengths.
 > <details>
@@ -147,7 +149,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 > </details>
 
 
-![](charts/charts_7_2.png "🔼 Figure 3: Evaluation of DPLM-2 on unconditional structure-sequence co-generation. Here for designability of co-generated proteins, we use ESMFold to obtain refolded structure of DPLM-2-generated sequence and measure the structural similarity between DPLM-2-generated structure and the refolded structure, which aims to measure the compatibility of the co-generated structure and sequence pairs.")
+![](https://ai-paper-reviewer.com/2410.13782/charts_7_2.png)
 
 > 🔼 Figure 3 displays the results of evaluating DPLM-2's performance on unconditional protein structure and sequence co-generation across various protein lengths, assessing aspects such as structure-sequence compatibility, structure diversity, sequence foldability, and structure novelty.
 > <details>
@@ -156,7 +158,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 > </details>
 
 
-![](charts/charts_7_3.png "🔼 Figure 3: Evaluation of DPLM-2 on unconditional structure-sequence co-generation. Here for designability of co-generated proteins, we use ESMFold to obtain refolded structure of DPLM-2-generated sequence and measure the structural similarity between DPLM-2-generated structure and the refolded structure, which aims to measure the compatibility of the co-generated structure and sequence pairs.")
+![](https://ai-paper-reviewer.com/2410.13782/charts_7_3.png)
 
 > 🔼 Figure 3 shows the evaluation of DPLM-2's performance on unconditional protein generation across various metrics, including designability, diversity, novelty, and sequence length.
 > <details>
@@ -165,7 +167,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 > </details>
 
 
-![](charts/charts_7_4.png "🔼 Figure 3: Evaluation of DPLM-2 on unconditional structure-sequence co-generation. Here for designability of co-generated proteins, we use ESMFold to obtain refolded structure of DPLM-2-generated sequence and measure the structural similarity between DPLM-2-generated structure and the refolded structure, which aims to measure the compatibility of the co-generated structure and sequence pairs.")
+![](https://ai-paper-reviewer.com/2410.13782/charts_7_4.png)
 
 > 🔼 Figure 3 shows the evaluation results of DPLM-2 on unconditional protein generation, illustrating the model's ability to generate high-quality, diverse, and novel protein sequences and structures simultaneously.
 > <details>
@@ -174,7 +176,7 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 > </details>
 
 
-![](charts/charts_10_0.png "🔼 Figure 5: Evaluation of motif-scaffolding w.r.t. success rate and num. of solved problems.")
+![](https://ai-paper-reviewer.com/2410.13782/charts_10_0.png)
 
 > 🔼 The chart compares the performance of different models (EvoDiff, DPLM, ESM3, DPLM2, RFDiff) on motif-scaffolding tasks using sequence-based, structure-based, and co-generation approaches, showing the number of solved problems and success rates.
 > <details>
@@ -194,87 +196,59 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 
 {{< table-caption >}}
 <br><table id='5' style='font-size:14px'><tr><td rowspan="2">sequence pre-training</td><td rowspan="2">synthetic structures</td><td colspan="2">length 100</td><td colspan="2">length 200</td><td colspan="2">length 300</td><td colspan="2">length 400</td><td colspan="2">length 500</td></tr><tr><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td></tr><tr><td>X</td><td>X</td><td>0.9241</td><td>20</td><td>0.8674</td><td>34</td><td>0.7667</td><td>33</td><td>0.5016</td><td>25</td><td>0.4511</td><td>25</td></tr><tr><td>V</td><td>X</td><td>0.9610</td><td>26</td><td>0.9349</td><td>47</td><td>0.9169</td><td>38</td><td>0.8643</td><td>35</td><td>0.7673</td><td>52</td></tr><tr><td>X</td><td>V</td><td>0.8988</td><td>27</td><td>0.9182</td><td>15</td><td>0.9343</td><td>13</td><td>0.8518</td><td>21</td><td>0.8288</td><td>31</td></tr><tr><td></td><td>V</td><td>0.9348</td><td>35</td><td>0.9428</td><td>40</td><td>0.9232</td><td>48</td><td>0.9260</td><td>40</td><td>0.9012</td><td>32</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 8 shows the ablation study results on the self-mixup training strategy, demonstrating its effectiveness in improving the diversity of generated protein samples.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 8: Ablation study on the self-mixup training strategy.
 > </details>
-
-
-> Table 8 shows the ablation study results on the self-mixup training strategy, demonstrating its effectiveness in improving the diversity of generated protein samples.
-
 
 {{< table-caption >}}
 <table id='11' style='font-size:14px'><tr><td rowspan="2">Models</td><td colspan="2">CAMEO 2022</td><td colspan="2">PDB date split</td></tr><tr><td>RMSD</td><td>TMscore</td><td>RMSD</td><td>TMscore</td></tr><tr><td>ESMFold</td><td>3.99/2.03</td><td>0.85/0.93</td><td>2.84/1.19</td><td>0.93/0.97</td></tr><tr><td>+PVQD</td><td>4.08/1.95</td><td>0.81/0.88</td><td>-</td><td>-</td></tr><tr><td>MultiFlow</td><td>17.84/17.96</td><td>0.50/0.46</td><td>15.64/16.08</td><td>0.53/0.49</td></tr><tr><td>ESM3</td><td>6.33/2.98</td><td>0.85/0.92</td><td>4.94/2.28</td><td>0.87/0.93</td></tr><tr><td>DPLM-2 (150M)</td><td>9.22/7.64</td><td>0.75/0.81</td><td>8.35/5.60</td><td>0.76/0.82</td></tr><tr><td>w/ folding SFT</td><td>7.66/4.37</td><td>0.80/0.86</td><td>6.00/3.41</td><td>0.83/0.88</td></tr><tr><td>DPLM-2 (650M)</td><td>7.37/4.89</td><td>0.79/0.86</td><td>5.67/3.33</td><td>0.83/0.88</td></tr><tr><td>w/ folding SFT</td><td>6.21/3.78</td><td>0.84/0.89</td><td>3.40/1.78</td><td>0.89/0.94</td></tr><tr><td>DPLM-2 (3B)</td><td>6.34/3.65</td><td>0.83/0.89</td><td>4.54/2.54</td><td>0.86/0.92</td></tr><tr><td>w/ folding SFT</td><td>5.71/3.23</td><td>0.85/0.90</td><td>3.15/1.69</td><td>0.90/0.95</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 4 presents a comparison of the structure prediction performance of DPLM-2 against several other models on the CAMEO 2022 and PDB datasets, using RMSD and TMscore metrics.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 4: Structure prediction performance comparison between DPLM-2 and different baseline approaches on CAMEO 2022 datasets. †: PVQD results are quoted from Liu et al. (2023).
 > </details>
-
-
-> Table 4 presents a comparison of the structure prediction performance of DPLM-2 against several other models on the CAMEO 2022 and PDB datasets, using RMSD and TMscore metrics.
-
 
 {{< table-caption >}}
 <br><table id='6' style='font-size:16px'><tr><td rowspan="2">Models</td><td colspan="2">CAMEO 2022</td><td colspan="2">PDB date split</td></tr><tr><td>AAR</td><td>scTM</td><td>AAR</td><td>scTM</td></tr><tr><td>MultiFlow</td><td>32.28/33.58</td><td>0.87/0.94</td><td>37.74/37.59</td><td>0.94/0.96</td></tr><tr><td>ESM3</td><td>47.06/46.24</td><td>0.90/0.95</td><td>49.50/49.42</td><td>0.94/0.97</td></tr><tr><td>DPLM-2 (150M)</td><td>45.22/46.12</td><td>0.87/0.93</td><td>48.83/47.96</td><td>0.89/0.95</td></tr><tr><td>DPLM-2 (650M)</td><td>49.01/50.10</td><td>0.88/0.93</td><td>54.80/53/07</td><td>0.91/0.96</td></tr><tr><td>DPLM-2 (3B)</td><td>52.36/53.72</td><td>0.89/0.95</td><td>61.67/57.91</td><td>0.92/0.96</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 5 presents the results of inverse folding task using different models, showing the amino acid recovery (AAR) and structure consistency (scTM) for CAMEO 2022 and PDB datasets.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 5: Comparison on inverse folding task.
 > </details>
-
-
-> Table 5 presents the results of inverse folding task using different models, showing the amino acid recovery (AAR) and structure consistency (scTM) for CAMEO 2022 and PDB datasets.
-
 
 {{< table-caption >}}
 <br><table id='14' style='font-size:14px'><tr><td rowspan="3">Models</td><td rowspan="2">Thermostability</td><td rowspan="2">HumanPPI</td><td rowspan="2">Metal Ion Binding</td><td rowspan="2">EC</td><td colspan="3">GO</td><td colspan="2">DeepLoc</td></tr><tr><td>MF</td><td>BP</td><td>CC</td><td>Subcellular</td><td>Binary</td></tr><tr><td>Spearman' S P</td><td>Acc (%)</td><td>Acc (%)</td><td>Fmax</td><td>Fmax</td><td>Fmax</td><td>Fmax</td><td>Acc (%)</td><td>Acc (%)</td></tr><tr><td>†SaProt (650M)</td><td>0.724</td><td>86.41</td><td>75.75</td><td>0.884</td><td>0.678</td><td>0.356</td><td>0.414</td><td>85.57</td><td>93.55</td></tr><tr><td>+MIF-ST (Yang et al., 2022b)</td><td>0.694</td><td>75.54</td><td>75.08</td><td>0.803</td><td>0.627</td><td>0.239</td><td>0.248</td><td>78.96</td><td>91.76</td></tr><tr><td>ESM2 (650M)</td><td>0.691</td><td>84.78</td><td>71.88</td><td>0.866</td><td>0.676</td><td>0.344</td><td>0.402</td><td>83.68</td><td>92.28</td></tr><tr><td>DPLM (650M)</td><td>0.695</td><td>86.41</td><td>75.15</td><td>0.875</td><td>0.680</td><td>0.357</td><td>0.409</td><td>84.56</td><td>93.09</td></tr><tr><td>DPLM-2 (650M)</td><td>0.714</td><td>84.44</td><td>74.28</td><td>0.878</td><td>0.680</td><td>0.359</td><td>0.411</td><td>82.98</td><td>93.64</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 6 presents the performance comparison of different models on various protein predictive downstream tasks, including thermostability, HumanPPI, metal ion binding, EC, GO (MF, BP, CC), DeepLoc (subcellular and binary).
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 6: Performance on various protein predictive downstream tasks. †: benchmarked results are quoted from Su et al. (2023).
 > </details>
-
-
-> Table 6 presents the performance comparison of different models on various protein predictive downstream tasks, including thermostability, HumanPPI, metal ion binding, EC, GO (MF, BP, CC), DeepLoc (subcellular and binary).
-
 
 {{< table-caption >}}
 <br><table id='7' style='font-size:14px'><tr><td rowspan="2">Mixup strategy</td><td colspan="2">length 100</td><td colspan="2">length 200</td><td colspan="2">length 300</td><td colspan="2">length 400</td><td colspan="2">length 500</td></tr><tr><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td><td>scTM</td><td>clusters</td></tr><tr><td>X</td><td>0.9237</td><td>44</td><td>0.9180</td><td>53</td><td>0.9147</td><td>48</td><td>0.9059</td><td>42</td><td>0.8896</td><td>33</td></tr><tr><td>V</td><td>0.8812</td><td>62</td><td>0.8820</td><td>62</td><td>0.9172</td><td>59</td><td>0.9099</td><td>54</td><td>0.8845</td><td>38</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 8 shows the ablation study results on the self-mixup training strategy, demonstrating that the self-mixup training strategy effectively enhances the diversity of samples.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 8: Ablation study on the self-mixup training strategy.
 > </details>
-
-
-> Table 8 shows the ablation study results on the self-mixup training strategy, demonstrating that the self-mixup training strategy effectively enhances the diversity of samples.
-
 
 {{< table-caption >}}
 <br><table id='3' style='font-size:14px'><tr><td>prediction motif-preserving designability</td><td>seqpred: V structpred: x RMSD (ESMFold ( seqpred) [motif] , structnative [motif] )<1.0 pLDDT (ESMFold( seqpred) )>70</td></tr><tr><td>structure-based</td><td>seqpred: x structpred: V</td></tr><tr><td>prediction motif-preserving designability</td><td>RMSD ( ESMFold ( PMPNN ( structpred) ) [motif] , structnative [motif] )<1.0 TMScore (ESMFold (PMPNN ( structpred) ) , structpred)>0.8</td></tr><tr><td>co-generation prediction motif-preserving designability</td><td>seqpred⌀ V structpred: V RMSD (ESMFold ( seqpred) [motif] , structnative [motif] )<1.0 TMScore (ESMFold( seqpred) , structpred)>0.8</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 provides a quantitative comparison of DPLM-2's unconditional protein generation performance against various baselines across different metrics, including quality, novelty, and diversity, for different protein lengths and generation methods.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Benchmarking comparison of unconditional protein generation, in terms of structure-sequence co-generation, backbone-only generation, and sequence-only generation. For each method, we generate 100 samples for lengths in [100, 200, 300, 400, 500]. * denotes Multiflow variants retrained by us using different dataset – native PDB data without ProteinMPNN distillation and the same training data as DPLM-2 (i.e., PDB+SwissProt), respectively.
 > </details>
-
-
-> Table 2 provides a quantitative comparison of DPLM-2's unconditional protein generation performance against various baselines across different metrics, including quality, novelty, and diversity, for different protein lengths and generation methods.
-
 
 {{< table-caption >}}
 <br><table id='2' style='font-size:14px'><tr><td rowspan="2"></td><td colspan="4">sequence-based</td><td colspan="2">structure-based</td><td colspan="3">co-generation</td></tr><tr><td>EvoDiff</td><td>DPLM</td><td>ESM3</td><td>DPLM2</td><td>*RFDiffusion</td><td>*DPLM2</td><td>ESM3</td><td>DPLM2</td><td>*DPLM2</td></tr><tr><td>1BCF</td><td>0.00</td><td>0.00</td><td>0.89</td><td>0.01</td><td>1.00</td><td>0.07</td><td>0.23</td><td>0.01</td><td>0.05</td></tr><tr><td>1PRW</td><td>0.61</td><td>0.83</td><td>0.96</td><td>0.86</td><td>0.08</td><td>0.96</td><td>0.54</td><td>0.84</td><td>0.95</td></tr><tr><td>1QJG</td><td>0.00</td><td>0.00</td><td>0.02</td><td>0.03</td><td>0.00</td><td>0.00</td><td>0.03</td><td>0.02</td><td>0.05</td></tr><tr><td>1YCR</td><td>0.02</td><td>0.38</td><td>0.41</td><td>0.77</td><td>0.74</td><td>0.93</td><td>0.18</td><td>0.53</td><td>0.98</td></tr><tr><td>2KL8</td><td>0.04</td><td>0.08</td><td>0.11</td><td>0.47</td><td>0.88</td><td>0.94</td><td>0.11</td><td>0.57</td><td>1.00</td></tr><tr><td>3IXT</td><td>0.06</td><td>0.17</td><td>0.18</td><td>0.67</td><td>0.25</td><td>0.77</td><td>0.02</td><td>0.41</td><td>0.73</td></tr><tr><td>4JHW</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>4ZYP</td><td>0.00</td><td>0.00</td><td>0.03</td><td>0.16</td><td>0.40</td><td>0.51</td><td>0.08</td><td>0.10</td><td>0.64</td></tr><tr><td>5IUS</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.02</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>5TPN</td><td>0.00</td><td>0.00</td><td>0.03</td><td>0.00</td><td>0.61</td><td>0.06</td><td>0.01</td><td>0.00</td><td>0.00</td></tr><tr><td>5TRV _long</td><td>0.00</td><td>0.00</td><td>0.19</td><td>0.00</td><td>0.37</td><td>0.08</td><td>0.19</td><td>0.00</td><td>0.07</td></tr><tr><td>5TRV _med</td><td>0.00</td><td>0.00</td><td>0.16</td><td>0.03</td><td>0.24</td><td>0.07</td><td>0.16</td><td>0.02</td><td>0.19</td></tr><tr><td>5TRV_short</td><td>0.00</td><td>0.00</td><td>0.01</td><td>0.07</td><td>0.04</td><td>0.10</td><td>0.01</td><td>0.03</td><td>0.11</td></tr><tr><td>5WN9</td><td>0.00</td><td>0.00</td><td>0.02</td><td>0.00</td><td>0.00</td><td>0.20</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>5YUI</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.02</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr><tr><td>6E6R_long</td><td>0.01</td><td>0.65</td><td>0.07</td><td>0.91</td><td>0.86</td><td>0.92</td><td>0.04</td><td>0.78</td><td>1.00</td></tr><tr><td>6E6R_med</td><td>0.03</td><td>0.94</td><td>0.24</td><td>0.93</td><td>0.89</td><td>0.88</td><td>0.14</td><td>0.77</td><td>0.97</td></tr><tr><td>6E6R_short</td><td>0.07</td><td>0.87</td><td>0.09</td><td>0.86</td><td>0.39</td><td>0.78</td><td>0.06</td><td>0.64</td><td>0.99</td></tr><tr><td>6EXZ_long</td><td>0.00</td><td>0.01</td><td>0.32</td><td>0.61</td><td>0.76</td><td>0.63</td><td>0.13</td><td>0.44</td><td>0.95</td></tr><tr><td>6EXZ_med</td><td>0.00</td><td>0.00</td><td>0.31</td><td>0.66</td><td>0.49</td><td>0.63</td><td>0.31</td><td>0.55</td><td>0.96</td></tr><tr><td>6EXZ_short</td><td>0.00</td><td>0.00</td><td>0.31</td><td>0.66</td><td>0.39</td><td>0.41</td><td>0.28</td><td>0.58</td><td>0.87</td></tr><tr><td>7MRX_long</td><td>0.00</td><td>0.02</td><td>0.36</td><td>0.23</td><td>0.09</td><td>0.32</td><td>0.37</td><td>0.20</td><td>0.73</td></tr><tr><td>7MRX_med</td><td>0.00</td><td>0.31</td><td>0.65</td><td>0.28</td><td>0.11</td><td>0.31</td><td>0.59</td><td>0.22</td><td>0.70</td></tr><tr><td>7MRX. _short</td><td>0.00</td><td>0.34</td><td>0.68</td><td>0.26</td><td>0.02</td><td>0.41</td><td>0.74</td><td>0.24</td><td>0.88</td></tr><tr><td>pass rate</td><td>7/24</td><td>11/24</td><td>21/24</td><td>18/24</td><td>20/24</td><td>20/24</td><td>20/24</td><td>18/24</td><td>19/24</td></tr><tr><td>avg. success rate</td><td>0.04</td><td>0.19</td><td>0.25</td><td>0.35</td><td>0.40</td><td>0.42</td><td>0.18</td><td>0.29</td><td>0.53</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 presents a quantitative comparison of unconditional protein generation performance metrics (quality, novelty, and diversity) across different models, including variations of Multiflow and DPLM-2, for various protein lengths.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Benchmarking comparison of unconditional protein generation, in terms of structure-sequence co-generation, backbone-only generation, and sequence-only generation. For each method, we generate 100 samples for lengths in [100, 200, 300, 400, 500]. * denotes Multiflow variants retrained by us using different dataset – native PDB data without ProteinMPNN distillation and the same training data as DPLM-2 (i.e., PDB+SwissProt), respectively.
 > </details>
-
-
-> Table 2 presents a quantitative comparison of unconditional protein generation performance metrics (quality, novelty, and diversity) across different models, including variations of Multiflow and DPLM-2, for various protein lengths.
-
 
 </details>
 
@@ -282,23 +256,23 @@ This paper is crucial for protein research because it introduces DPLM-2, a novel
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13782/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

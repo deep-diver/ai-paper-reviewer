@@ -2,11 +2,13 @@
 title: "Taipan: Efficient and Expressive State Space Language Models with Selective Attention"
 summary: "Taipan, a novel hybrid language model, achieves superior performance and efficiency in handling extremely long text sequences by selectively applying attention, combining the strengths of State Space ..."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-24", "🤗 24-10-25"]
+tags: ["🔖 24-10-24", ]
 showSummary: true
 date: 2024-10-24
 draft: false
 ---
+
+{{< keyword >}} 2410.18572 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers working on long-context language modeling.
 
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.18572/figures_4_0.png)
 
 > 🔼 Figure 2 is an overview of the Taipan architecture which combines Mamba-2 with Selective Attention Layers (SALs).
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers working on long-context language modeling.
 
 
 
-![](charts/charts_2_0.png)
+![](https://ai-paper-reviewer.com/2410.18572/charts_2_0.png)
 
 > 🔼 The chart compares the perplexity and latency of Taipan against Transformer, Jamba, and Mamba models across various context and generation lengths.
 > <details>
@@ -91,7 +93,7 @@ This paper is crucial for researchers working on long-context language modeling.
 </summary>
 
 
-![](charts/charts_2_1.png "🔼 Figure 1: Model Performance Comparison. a) Perplexity across different context lengths. Lower perplexity indicates better performance. b) Latency comparison of models at various generation lengths. Taipan exhibits significantly lower latency and superior scaling compared to other strong baselines for longer sequences.")
+![](https://ai-paper-reviewer.com/2410.18572/charts_2_1.png)
 
 > 🔼 The chart compares the perplexity and latency of Taipan against other models across different context and generation lengths, showing Taipan's superior performance and efficiency for longer sequences.
 > <details>
@@ -100,7 +102,7 @@ This paper is crucial for researchers working on long-context language modeling.
 > </details>
 
 
-![](charts/charts_5_0.png "🔼 Figure 3: Attention mechanisms in Taipan's Selective Attention Layers. White areas indicate no attention. (a) Full Causal Attention (b) Sliding Window Attention (w = 4) (c) Selective Attention (C = 0.3, w = 5)")
+![](https://ai-paper-reviewer.com/2410.18572/charts_5_0.png)
 
 > 🔼 The chart compares three attention mechanisms: full causal attention, sliding window attention, and Taipan's selective attention, visualizing the attention weight distribution for each.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers working on long-context language modeling.
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 5: Effect of Attention Budget Capacity C on Taipan's Performance")
+![](https://ai-paper-reviewer.com/2410.18572/charts_9_0.png)
 
 > 🔼 The chart displays Taipan's performance on SWDE and HellaSwag tasks, varying the attention budget capacity (C) at different training steps.
 > <details>
@@ -118,7 +120,7 @@ This paper is crucial for researchers working on long-context language modeling.
 > </details>
 
 
-![](charts/charts_10_0.png "🔼 Figure 6: Perplexity comparison of Taipan variants with and without Positional Embeddings across different context lengths. Lower perplexity indicates better performance.")
+![](https://ai-paper-reviewer.com/2410.18572/charts_10_0.png)
 
 > 🔼 The chart compares the perplexity of Taipan models with and without positional embeddings across various sequence lengths.
 > <details>
@@ -134,19 +136,19 @@ This paper is crucial for researchers working on long-context language modeling.
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18572/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

@@ -2,11 +2,13 @@
 title: "Data Scaling Laws in Imitation Learning for Robotic Manipulation"
 summary: "Robotic manipulation policies achieve near 90% success in novel environments and with unseen objects using a data-driven approach that leverages power-law scaling relationships."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-24", "🤗 24-10-25"]
+tags: ["🔖 24-10-24", ]
 showSummary: true
 date: 2024-10-24
 draft: false
 ---
+
+{{< keyword >}} 2410.18647 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_2_0.png)
 
 > 🔼 The figure shows four different robotic manipulation tasks: Pour Water, Mouse Arrangement, Fold Towels, and Unplug Charger.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](charts/charts_6_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/charts_6_0.png)
 
 > 🔼 The chart shows how a robot policy's ability to generalize to unseen objects changes as the number of training objects and the fraction of training demonstrations increases.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 </summary>
 
 
-![](figures/figures_16_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_16_0.png)
 
 > 🔼 This figure shows eight unseen testing environments used to evaluate the generalization performance of the robotic manipulation policies across all four tasks.
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_16_1.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_16_1.png)
 
 > 🔼 This figure shows eight unseen testing environments used to evaluate the generalization capability of the robotic policies across all four tasks.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_17_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_17_0.png)
 
 > 🔼 This figure shows eight unseen testing environments used to evaluate the generalization capabilities of the trained robotic manipulation policies across all four tasks.
 > <details>
@@ -119,7 +121,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_17_1.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_17_1.png)
 
 > 🔼 This figure shows eight unseen testing environments used to evaluate the generalization capabilities of the trained robot policies across four manipulation tasks.
 > <details>
@@ -129,7 +131,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_17_2.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_17_2.png)
 
 > 🔼 The figure shows eight unseen testing environments used to evaluate the generalization performance of the robotic policies across four different manipulation tasks.
 > <details>
@@ -139,7 +141,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_18_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_18_0.png)
 
 > 🔼 The figure shows the 64 training and 16 testing objects used in the Pour Water task of the robotic manipulation experiment.
 > <details>
@@ -149,7 +151,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_19_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_19_0.png)
 
 > 🔼 The figure shows the 64 training and 16 testing mouse and mousepad used in the experiments.
 > <details>
@@ -159,7 +161,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_20_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_20_0.png)
 
 > 🔼 This figure shows the 32 training towels and 16 testing towels used in the Fold Towels task of the robotic manipulation experiments.
 > <details>
@@ -169,7 +171,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_21_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_21_0.png)
 
 > 🔼 The figure shows the 32 training and 16 testing objects used in the Unplug Charger task, which includes various chargers and power strips.
 > <details>
@@ -179,7 +181,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_29_0.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_29_0.png)
 
 > 🔼 The figure shows four UMI hand-held grippers used in the study, each equipped with a GoPro camera.
 > <details>
@@ -189,7 +191,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 
 
-![](figures/figures_29_1.png)
+![](https://ai-paper-reviewer.com/2410.18647/figures_29_1.png)
 
 > 🔼 The figure shows the hardware setup used for the robotic manipulation experiments, including a Franka Emika Panda robot, WSG-50 gripper, GoPro Hero 10 camera, workstation, and power supply.
 > <details>
@@ -208,7 +210,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 </summary>
 
 
-![](charts/charts_6_1.png "🔼 Figure 3: Environment generalization. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training environments.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_6_1.png)
 
 > 🔼 The chart displays the relationship between a policy's ability to generalize to new environments and the number of training environments used, considering different fractions of demonstrations.
 > <details>
@@ -217,7 +219,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 4: Generlization across environments and objects. Each curve corresponds to a different fraction of demonstrations used, with normalized scores shown as a function of the number of training environment-object pairs.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_7_0.png)
 
 > 🔼 The chart visualizes how a policy's generalization ability across both environments and objects scales with the number of training environment-object pairs, showing different performance trends based on varying fractions of training demonstrations.
 > <details>
@@ -226,7 +228,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_7_1.png "🔼 Figure 5: Power-law relationship. Dashed lines represent power-law fits, with the equations provided in the legend. All axes are shown on a logarithmic scale. The correlation coefficient r indicates a power-law relationship between the policy generalization ability and the number of objects, environments, and environment-object pairs. See Appendix G.1 for data scaling laws on MSE.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_7_1.png)
 
 > 🔼 The chart displays the power-law relationship between the policy's generalization ability and the number of training objects, environments, and environment-object pairs.
 > <details>
@@ -235,7 +237,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 6: Multiple objects per environment. Brighter colors indicate higher normalized scores.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_8_0.png)
 
 > 🔼 The heatmap visualizes the normalized scores achieved by policies trained with varying numbers of environments and objects per environment, revealing the impact of data diversity on policy generalization performance.
 > <details>
@@ -244,7 +246,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 7: Number of demonstrations. Left: In the setting where we collect the maximum number of demonstrations, we examine whether the policy's performance follows a power-law relationship with the total number of demonstrations. The correlation coefficients for Pour Water and Mouse Arrangement are -0.62 and -0.79, respectively, suggesting only a weak power-law relationship. Right: For varying environment-object pairs, the policy performance increases with the total number of demonstrations at first, and then reaches saturation.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_9_0.png)
 
 > 🔼 The chart displays the relationship between the number of demonstrations and the policy's performance, showing saturation at a certain number of demonstrations for both object and environment generalization.
 > <details>
@@ -253,7 +255,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_27_0.png "🔼 Figure 17: Comparison between normalized score and MSE. Left: In the object generalization experiment, the inverse correlation between MSE and normalized score is weak. Right: In the generalization experiment across both environments and objects, the inverse correlation between MSE and normalized score is very strong. Correlation coefficients (Pearson’s r and Spearman’s ρ) are shown in the bottom right.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_27_0.png)
 
 > 🔼 The chart compares the normalized score and MSE as evaluation metrics for object generalization and generalization across environments and objects, revealing a strong inverse correlation in the latter case.
 > <details>
@@ -262,7 +264,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_30_0.png "🔼 Figure 20: Data scaling laws on MSE. Dashed lines represent power-law fits, with the equations provided in the legend. All axes are shown on a logarithmic scale.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_30_0.png)
 
 > 🔼 The chart shows the relationship between mean squared error (MSE) and the number of training objects, environments, and environment-object pairs.
 > <details>
@@ -271,7 +273,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_31_0.png "🔼 Figure 21: Object generalization. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training objects.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_31_0.png)
 
 > 🔼 The chart displays the relationship between the number of training objects and the normalized score of the policy, while keeping the total number of demonstrations relatively constant across different data usage levels.
 > <details>
@@ -280,7 +282,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_31_1.png "🔼 Figure 21: Object generalization. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training objects.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_31_1.png)
 
 > 🔼 The chart displays the impact of the number of training objects on object generalization performance while keeping the total number of demonstrations relatively constant.
 > <details>
@@ -289,7 +291,7 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 > </details>
 
 
-![](charts/charts_31_2.png "🔼 Figure 23: Generalization across environments and objects. Each curve corresponds to a different total numbers of demonstrations used, with normalized scores shown as a function of the number of training environment-object pairs.")
+![](https://ai-paper-reviewer.com/2410.18647/charts_31_2.png)
 
 > 🔼 The chart shows how a policy's generalization ability to new environments and objects improves with the number of training environment-object pairs, even when the total number of demonstrations is kept relatively constant.
 > <details>
@@ -309,123 +311,83 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>Case</td><td>Score</td><td></td><td></td></tr><tr><td>DINOv2 ViT-L/14</td><td>0.90</td><td>Case</td><td>Score</td></tr><tr><td>LfS ViT-L/14</td><td>0.03</td><td>DINOv2 ViT-S/14</td><td>0.66</td></tr><tr><td>frozen DINOv2</td><td>0.00</td><td>DINOv2 ViT-B/14</td><td>0.81</td></tr><tr><td>LoRA DINOv2</td><td>0.72</td><td>DINOv2 ViT-L/14</td><td>0.90</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 2 shows the results of experiments conducted to investigate the impact of training strategies and model size on the performance of a diffusion policy for the Pour Water task.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Model related experiments on Pour Water. The entries marked in gray are the same, which specify the default settings: the visual encoder is a fully fine-tuned ViT-L/14 model pre-trained with DINOv2, while the action diffusion model employs a base-size 1D CNN U-Net.
 > </details>
-
-
-> Table 2 shows the results of experiments conducted to investigate the impact of training strategies and model size on the performance of a diffusion policy for the Pour Water task.
-
 
 {{< table-caption >}}
 <br><table id='2' style='font-size:14px'><tr><td>Case</td><td>Score</td></tr><tr><td>small U-Net</td><td>0.88</td></tr><tr><td>base U-Net</td><td>0.90</td></tr><tr><td>large U-Net</td><td>0.83</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table shows the results of model-related experiments on Pour Water, comparing different visual encoder sizes and training strategies, and the effect of scaling the action diffusion model.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 2: Model related experiments on Pour Water. The entries marked in gray are the same, which specify the default settings: the visual encoder is a fully fine-tuned ViT-L/14 model pre-trained with DINOv2, while the action diffusion model employs a base-size 1D CNN U-Net.
 > </details>
-
-
-> The table shows the results of model-related experiments on Pour Water, comparing different visual encoder sizes and training strategies, and the effect of scaling the action diffusion model.
-
 
 {{< table-caption >}}
 <table id='5' style='font-size:14px'><tr><td>Config</td><td>Value</td></tr><tr><td>Image observation horizon</td><td>3 (Pour Water, Unplug Charger), 2 (other tasks)</td></tr><tr><td>Proprioception observation horizon</td><td>3 (Pour Water, Unplug Charger), 2 (other tasks)</td></tr><tr><td>Action horizon</td><td>16</td></tr><tr><td>Observation resolution</td><td>224x224</td></tr><tr><td>Environment frequency</td><td>5</td></tr><tr><td>Optimizer</td><td>AdamW</td></tr><tr><td>Optimizer momentum</td><td>B1, B2 = 0.95, 0.999</td></tr><tr><td>Learning rate for action diffusion model</td><td>3e-4</td></tr><tr><td>Learning rate for visual encoder</td><td>3e-5</td></tr><tr><td>Learning rate schedule</td><td>cosine decay</td></tr><tr><td>Batch size</td><td>256</td></tr><tr><td>Inference denoising iterations</td><td>16</td></tr><tr><td>Temporal ensemble steps</td><td>8</td></tr><tr><td>Temporal ensemble adaptation rate</td><td>-0.01</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 3 shows the default set of hyperparameters used in the policy training process, including image observation horizon, action horizon, optimizer, and learning rate.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: A default set of hyper-parameters.
 > </details>
-
-
-> Table 3 shows the default set of hyperparameters used in the policy training process, including image observation horizon, action horizon, optimizer, and learning rate.
-
 
 {{< table-caption >}}
 <table id='5' style='font-size:14px'><tr><td>Usage</td><td rowspan="2">3.125%</td><td rowspan="2">6.25%</td><td rowspan="2">12.5%</td><td rowspan="2">25%</td><td rowspan="2">50%</td><td rowspan="2">100%</td></tr><tr><td>#Envs</td></tr><tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td>1.3</td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td>2.85</td><td>3.325</td></tr><tr><td>4</td><td></td><td></td><td></td><td>2.55</td><td>4.3</td><td>4.475</td></tr><tr><td>8</td><td></td><td></td><td>3.925</td><td>6.1</td><td>6.575</td><td>6.2</td></tr><tr><td>16</td><td></td><td>4.15</td><td>6.2</td><td>6.525</td><td>7.85</td><td>8</td></tr><tr><td>32</td><td>3.475</td><td>6.55</td><td>7.2</td><td>8.65</td><td>8.75</td><td>8.6</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 5 shows the results of an experiment on Pour Water, measuring the effect of increasing the number of training environments on the policy's generalization ability while controlling for the number of training objects and demonstrating the power-law relationship of the data.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 5: Environment generalization on Pour Water. Normalizing these scores by dividing them by 9 yields the results shown in Fig. 3.
 > </details>
-
-
-> Table 5 shows the results of an experiment on Pour Water, measuring the effect of increasing the number of training environments on the policy's generalization ability while controlling for the number of training objects and demonstrating the power-law relationship of the data.
-
 
 {{< table-caption >}}
 <table id='9' style='font-size:14px'><tr><td>#Demos</td><td>64</td><td>100</td><td>200</td><td>400</td><td>800</td><td>1600</td><td>3200</td><td>6400</td></tr><tr><td>Score</td><td>4.35</td><td>6.15</td><td>6.875</td><td>7.025</td><td>6.975</td><td>7.2</td><td>7.125</td><td>6.525</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 7 shows the relationship between the number of demonstrations and the normalized score for the Pour Water task, after normalizing the raw scores by dividing them by 9.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 7: Number of demonstrations on Pour Water. Normalizing these scores by dividing them by 9 yields the results shown in Fig. 7.
 > </details>
-
-
-> Table 7 shows the relationship between the number of demonstrations and the normalized score for the Pour Water task, after normalizing the raw scores by dividing them by 9.
-
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>Usage</td><td>3.125%</td><td>6.25%</td><td>12.5%</td><td>25%</td><td>50%</td><td>100%</td></tr><tr><td>#Objs 1</td><td></td><td></td><td></td><td></td><td></td><td>1.3</td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td>2.475</td><td>3.25</td></tr><tr><td>4</td><td></td><td></td><td></td><td>2.425</td><td>2.975</td><td>3.625</td></tr><tr><td>8</td><td></td><td></td><td>1.75</td><td>3.525</td><td>4.1</td><td>4.8</td></tr><tr><td>16</td><td></td><td>2.525</td><td>3.675</td><td>3.925</td><td>4.425</td><td>5.325</td></tr><tr><td>32</td><td>3.7</td><td>3.675</td><td>4.2</td><td>5.025</td><td>5.175</td><td>5.575</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table shows the raw test scores of object generalization on Mouse Arrangement before normalization, where scores are shown for different fractions of demonstrations used and numbers of training objects.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 8: Object generalization on Mouse Arrangement. Normalizing these scores by dividing them by 6 yields the results shown in Fig. 2.
 > </details>
-
-
-> The table shows the raw test scores of object generalization on Mouse Arrangement before normalization, where scores are shown for different fractions of demonstrations used and numbers of training objects.
-
 
 {{< table-caption >}}
 <table id='3' style='font-size:14px'><tr><td>Usage</td><td>3.125%</td><td>6.25%</td><td>12.5%</td><td>25%</td><td>50%</td><td>100%</td></tr><tr><td>#Envs 1</td><td></td><td></td><td></td><td></td><td></td><td>1.3</td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td>1.975</td><td>2.475</td></tr><tr><td>4</td><td></td><td></td><td></td><td>1.8</td><td>3.3</td><td>3.625</td></tr><tr><td>8</td><td></td><td></td><td>2.075</td><td>2.5</td><td>3.2</td><td>3.6</td></tr><tr><td>16</td><td></td><td>1.525</td><td>3.65</td><td>3.8</td><td>4.375</td><td>4.45</td></tr><tr><td>32</td><td>2.725</td><td>3.325</td><td>3.9</td><td>4.7</td><td>5.125</td><td>5.2</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table shows the raw test scores of environment generalization on Mouse Arrangement before normalization.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 9: Environment generalization on Mouse Arrangement. Normalizing these scores by dividing them by 6 yields the results shown in Fig. 3.
 > </details>
-
-
-> The table shows the raw test scores of environment generalization on Mouse Arrangement before normalization.
-
 
 {{< table-caption >}}
 <table id='5' style='font-size:14px'><tr><td>Usage</td><td>3.125%</td><td>6.25%</td><td>12.5%</td><td>25%</td><td>50%</td><td>100%</td></tr><tr><td>#Pairs 1</td><td></td><td></td><td></td><td></td><td></td><td>0.75</td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td>0.975</td><td>0.875</td></tr><tr><td>4</td><td></td><td></td><td></td><td>1.8</td><td>2.3</td><td>2.325</td></tr><tr><td>8</td><td></td><td></td><td>2.425</td><td>3.725</td><td>3.425</td><td>3.35</td></tr><tr><td>16</td><td></td><td>3.375</td><td>4.925</td><td>4.5</td><td>5.05</td><td>4.75</td></tr><tr><td>32</td><td>4.225</td><td>4.225</td><td>5.075</td><td>5.2</td><td>5.6</td><td>5.525</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table presents the raw success scores for the Mouse Arrangement task before normalization, categorized by the number of training environment-object pairs and the fraction of demonstrations used.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 10: Generlization across environments and objects on Mouse Arrangement. Normalizing these scores by dividing them by 6 yields the results shown in Fig. 4.
 > </details>
-
-
-> The table presents the raw success scores for the Mouse Arrangement task before normalization, categorized by the number of training environment-object pairs and the fraction of demonstrations used.
-
 
 {{< table-caption >}}
 <table id='7' style='font-size:14px'><tr><td>#Demos</td><td>64</td><td>100</td><td>200</td><td>400</td><td>800</td><td>1600</td><td>3200</td><td>6400</td></tr><tr><td>Score</td><td>1.725</td><td>3.025</td><td>3.3</td><td>3.775</td><td>3.975</td><td>3.8</td><td>3.875</td><td>3.8</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 11 presents the normalized scores for the Mouse Arrangement task based on varying numbers of demonstrations, used to generate Figure 7 in the paper.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 11: Number of demonstrations on Mouse Arrangement. Normalizing these scores by dividing them by 6 yields the results shown in Fig. 7.
 > </details>
-
-
-> Table 11 presents the normalized scores for the Mouse Arrangement task based on varying numbers of demonstrations, used to generate Figure 7 in the paper.
-
 
 {{< table-caption >}}
 <table id='3' style='font-size:14px'><tr><td></td><td colspan="8">Environment ID</td><td></td></tr><tr><td>Task</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>Mean</td></tr><tr><td>Pour Water</td><td>80%</td><td>40%</td><td>100%</td><td>80%</td><td>100%</td><td>100%</td><td>80%</td><td>100%</td><td>85%</td></tr><tr><td>Mouse Arrangement</td><td>100%</td><td>80%</td><td>100%</td><td>100%</td><td>80%</td><td>80%</td><td>100%</td><td>100%</td><td>92.5%</td></tr><tr><td>Fold Towels</td><td>100%</td><td>100%</td><td>60%</td><td>100%</td><td>100%</td><td>60%</td><td>100%</td><td>80%</td><td>87.5%</td></tr><tr><td>Unplug Charger</td><td>80%</td><td>60%</td><td>100%</td><td>100%</td><td>100%</td><td>80%</td><td>100%</td><td>100%</td><td>90%</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 This table presents the success rates of the policies trained across 32 environment-object pairs for each task, showing the success rate in each of eight evaluation environments.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 12: Success rate across all tasks. For each task, we report the success rate in each evaluation environment.
 > </details>
-
-
-> This table presents the success rates of the policies trained across 32 environment-object pairs for each task, showing the success rate in each of eight evaluation environments.
-
 
 </details>
 
@@ -433,38 +395,38 @@ This paper is crucial for robotics researchers as it establishes data scaling la
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18647/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

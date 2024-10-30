@@ -2,11 +2,13 @@
 title: "NaturalBench: Evaluating Vision-Language Models on Natural Adversarial Samples"
 summary: "NaturalBench: a new benchmark exposes VLMs' vulnerabilities to natural adversarial samples, highlighting compositionality challenges & bias issues, and promoting dynamic VLM evaluation."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-18", "🤗 24-10-21"]
+tags: ["🔖 24-10-18", ]
 showSummary: true
 date: 2024-10-18
 draft: false
 ---
+
+{{< keyword >}} 2410.14669 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.14669/figures_2_0.png)
 
 > 🔼 Figure 1 shows examples from the NaturalBench dataset, illustrating how even state-of-the-art vision-language models struggle with simple questions about natural images, highlighting the challenge posed by natural adversarial samples.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 
 
 
-![](charts/charts_6_0.png)
+![](https://ai-paper-reviewer.com/2410.14669/charts_6_0.png)
 
 > 🔼 The chart compares the performance of GPT-3.5 and LLaVA-1.5 on several existing VQA benchmarks, highlighting the vulnerability of these benchmarks to 'blind' solutions that exploit language biases.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 </summary>
 
 
-![](figures/figures_3_0.png)
+![](https://ai-paper-reviewer.com/2410.14669/figures_3_0.png)
 
 > 🔼 Figure 2 illustrates a semi-automated pipeline for collecting NaturalBench, using off-the-shelf models to identify confounding image-text pairs and ChatGPT to generate corresponding questions.
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 
 
 
-![](figures/figures_5_0.png)
+![](https://ai-paper-reviewer.com/2410.14669/figures_5_0.png)
 
 > 🔼 The figure displays example questions from the NaturalBench dataset, highlighting how even state-of-the-art vision-language models struggle with questions that humans find easy to answer, demonstrating the challenges posed by natural adversarial examples.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 
 
 
-![](figures/figures_9_0.png)
+![](https://ai-paper-reviewer.com/2410.14669/figures_9_0.png)
 
 > 🔼 Figure 1 shows examples from the NaturalBench dataset, demonstrating how even state-of-the-art vision-language models struggle with simple questions about natural images, highlighting the challenge of 'blind' solutions that don't utilize visual information.
 > <details>
@@ -119,7 +121,7 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 
 
 
-![](figures/figures_17_0.png)
+![](https://ai-paper-reviewer.com/2410.14669/figures_17_0.png)
 
 > 🔼 Figure 1 showcases examples from NaturalBench, a new benchmark, comparing human performance with several state-of-the-art vision-language models' performance on natural adversarial samples.
 > <details>
@@ -129,7 +131,7 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 
 
 
-![](figures/figures_21_0.png)
+![](https://ai-paper-reviewer.com/2410.14669/figures_21_0.png)
 
 > 🔼 Figure 1 shows examples from NaturalBench, a new benchmark for evaluating vision-language models, comparing human answers with the predictions of several state-of-the-art models on pairs of questions and images with alternating answers.
 > <details>
@@ -151,87 +153,59 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 
 {{< table-caption >}}
 <table id='3' style='font-size:14px'><tr><td colspan="4">Benchmark Statistics</td><td colspan="3">Collection Details</td></tr><tr><td>Source</td><td>Question Type</td><td>Language</td><td># VQA Samples</td><td># VLMs Used</td><td># Mismatched Pairs</td><td># Verified Pairs</td></tr><tr><td colspan="7">NaturalBench</td></tr><tr><td>Flickr30K 63</td><td>Yes-or-No</td><td>English</td><td>2,600</td><td>CLIP-L, BLIP-2, GPT-4</td><td>2,000</td><td>1,200</td></tr><tr><td>Flickr30K 63</td><td>Multiple-Choice</td><td>English</td><td>1,000</td><td>CLIP-L, BLIP-2, GPT-4</td><td>2,000</td><td>1,200</td></tr><tr><td>DOCCI [59]</td><td>Yes-or-No</td><td>English</td><td>3,200</td><td>LongCLIP, GPT-4</td><td>3,300</td><td>1,000</td></tr><tr><td>DOCCI 59</td><td>Multiple-Choice</td><td>English</td><td>800</td><td>LongCLIP, GPT-4</td><td>3,300</td><td>1,000</td></tr><tr><td>All</td><td>Yes-or-No, Multiple-Choice</td><td>English</td><td>7,600</td><td>-</td><td>-</td><td>-</td></tr><tr><td colspan="7">NaturalBench (Multi-lingual)</td></tr><tr><td>XM3600 69</td><td>Yes-or-No</td><td>Chinese</td><td>1,200</td><td>NLLB-CLIP, GPT-4</td><td>2,400</td><td>400</td></tr><tr><td>XM3600 69</td><td>Yes-or-No</td><td>Hindi</td><td>1,200</td><td>NLLB-CLIP, GPT-4</td><td>2,400</td><td>400</td></tr><tr><td>All</td><td>Yes-or-No</td><td>Chinese, Hindi</td><td>2,400</td><td>-</td><td>-</td><td>-</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, showing significant performance gaps between the models and human performance.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance on NaturalBench. We report the performance of 53 leading VLMs on NaturalBench. All models significantly lag behind human performance, with the performance gap (in G-Acc) between humans and models highlighted in red. The latest models, such as BLIP-3 (XGen-MM), Cambrian-1, LLaVA-OneVision, Llama3.2-Vision, Molmo, and Qwen2-VL lag significantly behind humans by 55% to 70%. Even the best closed-source GPT-4o is still 52% behind humans.
 > </details>
-
-
-> Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, showing significant performance gaps between the models and human performance.
-
 
 {{< table-caption >}}
 <br><table id='1' style='font-size:14px'><tr><td rowspan="2">Model</td><td colspan="2">NaturalBench-Chinese</td><td colspan="2">NaturalBench-Hindi</td></tr><tr><td>Chinese</td><td>English</td><td>Hindi</td><td>English</td></tr><tr><td>Random Chance</td><td>6.3</td><td>6.3</td><td>6.3</td><td>6.3</td></tr><tr><td colspan="5">Open-source Models</td></tr><tr><td>DeepSeek-VL-7B-Chat</td><td>10.9</td><td>28.4</td><td>0.6</td><td>29.0</td></tr><tr><td>Intern VL-Chat-V1.2-Plus</td><td>34.6</td><td>33.4</td><td>11.5</td><td>36.2</td></tr><tr><td>InternLM-XC2-7B</td><td>32.5</td><td>34.6</td><td>15.9</td><td>35.6</td></tr><tr><td colspan="5">Closed-source Models</td></tr><tr><td>GPT-4o</td><td>41.2</td><td>38.7</td><td>40.3</td><td>40.9</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 5 presents the group accuracy (G-Acc) of various vision-language models on the Chinese and Hindi subsets of NaturalBench, both before and after translation to English, highlighting the challenges posed by multilingual VQA tasks.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 5: Performance on NaturalBench-Chinese and NaturalBench-Hindi. We report G-Acc for each dataset, evaluating only models with claimed multilingual capabilities. For both datasets, we also provide G-Acc after translating the original Chinese or Hindi questions into English. This simple translation often boosts performance, except for top models like InternVL-Chat-V1.2-Plus and GPT-40, which seem extensively trained in Chinese. NaturalBench-Hindi remains particularly challenging for open-source models.
 > </details>
-
-
-> Table 5 presents the group accuracy (G-Acc) of various vision-language models on the Chinese and Hindi subsets of NaturalBench, both before and after translation to English, highlighting the challenges posed by multilingual VQA tasks.
-
 
 {{< table-caption >}}
 <br><table id='3' style='font-size:16px'><tr><td rowspan="2">Model</td><td colspan="2">Model Performance (G-Acc)</td></tr><tr><td>Flickr-Adversarial</td><td>Flickr-Random</td></tr><tr><td>Random Chance</td><td>6.3</td><td>6.3</td></tr><tr><td colspan="3">Open-source Models</td></tr><tr><td>DeepSeek-VL-7B-Chat</td><td>15.2</td><td>80.7</td></tr><tr><td>BLIP-3(XGen-MM)</td><td>15.2</td><td>69.0</td></tr><tr><td>LLaVA-NeXT (Mistral-7B)</td><td>15.9</td><td>86.0</td></tr><tr><td>Phi-3-Vision</td><td>16.0</td><td>75.0</td></tr><tr><td>Intern VL-Chat- V1.2-Plus</td><td>27.8</td><td>83.0</td></tr><tr><td>InternLM-XC2-7B</td><td>29.0</td><td>84.5</td></tr><tr><td colspan="3">Closed-source Models</td></tr><tr><td>GPT-4o</td><td>38.3</td><td>72.5</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 This table shows the performance (G-Acc) of various vision-language models on different subsets of the Flickr30K dataset, comparing the results from adversarially-generated samples versus randomly-matched samples, highlighting the effectiveness of the proposed method.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 6: Ablation on different collection methods. We report G-Acc on datasets generated by different collection methods from Flickr30K. Our adversarial procedure results in a much more challenging dataset. Note that Flickr-Adversarial is the combination of Flickr-YN and Flickr-MCQ.
 > </details>
-
-
-> This table shows the performance (G-Acc) of various vision-language models on different subsets of the Flickr30K dataset, comparing the results from adversarially-generated samples versus randomly-matched samples, highlighting the effectiveness of the proposed method.
-
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td rowspan="2">Method</td><td rowspan="2">Source</td><td rowspan="2">Model</td><td rowspan="2">Data Size</td><td rowspan="2">Model Size (M)</td><td colspan="3">Retrieval Performance</td></tr><tr><td>Group</td><td>Image</td><td>Text</td></tr><tr><td>Random</td><td>-</td><td>-</td><td>-</td><td>-</td><td>16.67</td><td>25.00</td><td>25.00</td></tr><tr><td rowspan="17">CLIP 65</td><td rowspan="7">OpenAI</td><td>RN50</td><td rowspan="7">400M</td><td>102</td><td>12.22</td><td>32.60</td><td>36.76</td></tr><tr><td>RN101</td><td>120</td><td>13.61</td><td>35.04</td><td>33.33</td></tr><tr><td>ViT-B-32</td><td>151</td><td>15.89</td><td>36.43</td><td>36.92</td></tr><tr><td>RN50x4</td><td>178</td><td>14.75</td><td>37.49</td><td>36.27</td></tr><tr><td>RN50x16</td><td>291</td><td>24.61</td><td>44.01</td><td>43.93</td></tr><tr><td>ViT-L-14</td><td>428</td><td>23.15</td><td>44.99</td><td>41.81</td></tr><tr><td>RN50x64</td><td>623</td><td>26.24</td><td>46.21</td><td>47.35</td></tr><tr><td rowspan="6">LAION</td><td>roberta-ViT-B-32</td><td rowspan="4">2B</td><td>212</td><td>16.22</td><td>39.36</td><td>38.79</td></tr><tr><td>ViT-H-14</td><td>986</td><td>24.04</td><td>49.31</td><td>48.82</td></tr><tr><td>ViT-g-14</td><td>1367</td><td>21.35</td><td>46.21</td><td>46.54</td></tr><tr><td>ViT-bigG-14</td><td>2540</td><td>21.04</td><td>44.49</td><td>43.69</td></tr><tr><td>xlm-roberta-base-ViT-B-32</td><td rowspan="2">5B</td><td>366</td><td>16.79</td><td>37.49</td><td>40.91</td></tr><tr><td>xlm-roberta-large-ViT-H-14</td><td>1193</td><td>22.82</td><td>47.35</td><td>47.51</td></tr><tr><td rowspan="4">DataComp</td><td>small: ViT-B-32</td><td>13M</td><td>151</td><td>12.06</td><td>22.90</td><td>21.19</td></tr><tr><td>medium: ViT-B-32</td><td>128M</td><td>151</td><td>16.95</td><td>28.28</td><td>33.01</td></tr><tr><td>large: ViT-B-16</td><td>1B</td><td>150</td><td>16.71</td><td>36.43</td><td>35.86</td></tr><tr><td>xlarge: ViT-L-14</td><td>13B</td><td>428</td><td>21.84</td><td>44.01</td><td>45.72</td></tr><tr><td rowspan="3">SigLIP 85</td><td rowspan="3">WebLI (English portion)</td><td>ViT-B</td><td rowspan="3">13B</td><td>172</td><td>24.29</td><td>48.57</td><td>49.06</td></tr><tr><td>ViT-L</td><td>430</td><td>31.21</td><td>54.93</td><td>54.44</td></tr><tr><td>ViT-SOViT</td><td>800</td><td>42.14</td><td>62.67</td><td>63.90</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the group accuracy (G-Acc) of 53 vision-language models on the NaturalBench benchmark, highlighting the significant performance gap between the models and human performance.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance on NaturalBench. We report the performance of 53 leading VLMs on NaturalBench. All models significantly lag behind human performance, with the performance gap (in G-Acc) between humans and models highlighted in red. The latest models, such as BLIP-3 (XGen-MM), Cambrian-1, LLaVA-OneVision, Llama3.2-Vision, Molmo, and Qwen2-VL lag significantly behind humans by 55% to 70%. Even the best closed-source GPT-40 is still 52% behind humans.
 > </details>
-
-
-> Table 1 presents the group accuracy (G-Acc) of 53 vision-language models on the NaturalBench benchmark, highlighting the significant performance gap between the models and human performance.
-
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td>Skill Type</td><td>Definition</td><td>Examples</td></tr><tr><td>Object</td><td>Basic entities within an image, including animals, humans, food, buildings, natural elements (nature), vehicles, common items, and others.</td><td>Is there a car parked near the path? Is there a person in this image? Is there a referee behind the table? Is the dog fully submerged in the water except for its head? Is the water body filled with visible rocks and emanating ripples?</td></tr><tr><td>Attribute</td><td>Visual properties of entities, including emotion, shape, size, color, state, activity, gender, and abstract attributes (e.g., helpful, lucky).</td><td>Is anyone in the picture sad or scared? Is the woman extremely surprised? Is the woman alone behind a glass partition? Is the man wearing brown? Is the man wearing a red and white striped apron? Is the old man in the image wearing reflective safety jackets?</td></tr><tr><td>Spatial Relation</td><td>Physical arrangements of multiple entities relative to each other 46 including proximity (e.g., near, far), topological (e.g., at, on, in, with, surround, between, inside, outside) , projective (e.g., left of, right of, under, in front of, below), orientation and direction (e.g., facing, towards, across, away from).</td><td>Is there a referee behind the table? Is the dog looking up at the sky? Is there only one person in the canoe? Is there a group of people standing looking outside the gates? Is the man in the image at the object to his left? Is the smiling woman standing next to the bus?</td></tr><tr><td>Action Relation</td><td>Action interactions between entities, e.g., pushing, kissing, hugging, hitting, helping, and so on.</td><td>Is there a person holding a water bottle? Is the black dog biting a stick? Is anyone using an umbrella? Is the man holding a red pen? Is the dog chasing after a toy outdoors? Is the person jumping directly off a building without any equipment?</td></tr><tr><td>Part Relation</td><td>Part-whole relationships between entities - one entity is a component of another, such as body part, clothing, and accessories.</td><td>Is there a person wearing orange and yellow shirt and jacket? Is anyone wearing yellow and orange safety vests? Is the woman in the black dress wearing gloves? Is a player using his back to play the ball? Is the boy's tongue sticking out?</td></tr><tr><td>Counting</td><td>Determining the quantity, size, or volume of entities, e.g., objects, attribute-object pairs, and object-relation-object triplets.</td><td>Are there four people in the image? Does the dog have two visible colors? Are there more than four performers in the image?</td></tr><tr><td>Differentiation</td><td>Differentiating objects within a category by their attributes or relations, such as distinguishing between "old" and "young" people by age, or "the cat on top of the table" versus "the cat under the table" by their spatial relations.</td><td>Does the girl on the left look sad while the girl on the right look happy? Is there a cat sitting on a grey cabinet in front of another cat sitting on the stairs? Is one dog biting the ear of the other dog? Is a man standing behind another man sitting at a desk?</td></tr><tr><td>Comparison</td><td>Comparing characteristics like number, attributes, area, or volume between entities.</td><td>Does the scene involve players from three different team colors? Does the tallest building feature glass windows and side slopes? Is the older person following the younger one? Are there two dogs that are significantly different in size? Is the man wearing the same color as the woman in the image?</td></tr><tr><td>Logic</td><td>Understanding logical operators. We only consider negation (as indicated by "no" , "not", or "without") and , universality (as indicated by "every", "all". "each". "both"). Other logical · , relations such as conjunction (as indicated by "and", "or") are omitted.</td><td>Does the image show all men performing the same action? Are both people looking in the same direction? Is the bicycle rider performing a trick without any audience? Is the main subject not wearing shirt and lying down? Is the main activity potentially related to craft or construction?</td></tr><tr><td>World Knowledge</td><td>Answering based on external commonsense knowledge, including social, symbolic, functional, physical, natural knowledge and so</td><td>Is the event related to the Olympics? Is there a vertical depiction of Ramses III in the image? Does the image suggest a relatively informal social gathering? Is a single individual attempting on. to score regardless of multiple defenders?</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, highlighting a significant performance gap between the models and human performance.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance on NaturalBench. We report the performance of 53 leading VLMs on NaturalBench. All models significantly lag behind human performance, with the performance gap (in G-Acc) between humans and models highlighted in red. The latest models, such as BLIP-3 (XGen-MM), Cambrian-1, LLaVA-OneVision, Llama3.2-Vision, Molmo, and Qwen2-VL lag significantly behind humans by 55% to 70%. Even the best closed-source GPT-40 is still 52% behind humans.
 > </details>
-
-
-> Table 1 presents the performance of 53 vision-language models on the NaturalBench benchmark, highlighting a significant performance gap between the models and human performance.
-
 
 {{< table-caption >}}
 <br><table id='1' style='font-size:14px'><tr><td rowspan="2">Model</td><td colspan="8">Object</td><td colspan="8">Attribute</td></tr><tr><td>Animal</td><td>Human</td><td>Food</td><td>Building</td><td>Nature</td><td>Vehicle</td><td>Items</td><td>Others</td><td>Emotion</td><td>Shape</td><td>Size</td><td>Color</td><td>State</td><td>Abstract</td><td>Activity</td><td>Gender</td></tr><tr><td>BLIP-3(XGen-MM)</td><td>18.6</td><td>16.2</td><td>15.4</td><td>20.8</td><td>21.7</td><td>22.2</td><td>21.2</td><td>17.6</td><td>9.1</td><td>19.3</td><td>24.1</td><td>21.8</td><td>20.2</td><td>20.4</td><td>16.5</td><td>14.0</td></tr><tr><td>Phi-3-Vision</td><td>15.6</td><td>17.1</td><td>15.4</td><td>17.7</td><td>15.6</td><td>19.0</td><td>18.5</td><td>16.7</td><td>18.2</td><td>17.5</td><td>19.0</td><td>18.9</td><td>16.8</td><td>15.6</td><td>15.2</td><td>15.8</td></tr><tr><td>DeepSeek-VL-7B-Chat</td><td>20.9</td><td>16.9</td><td>15.4</td><td>21.9</td><td>22.1</td><td>16.7</td><td>19.3</td><td>19.0</td><td>12.1</td><td>24.6</td><td>21.4</td><td>20.8</td><td>19.5</td><td>16.7</td><td>20.1</td><td>14.6</td></tr><tr><td>LLaVA-NeXT(Mistral-7B)</td><td>14.2</td><td>16.1</td><td>17.3</td><td>14.0</td><td>13.4</td><td>18.1</td><td>16.7</td><td>15.2</td><td>15.2</td><td>19.3</td><td>14.6</td><td>16.3</td><td>15.7</td><td>14.1</td><td>14.4</td><td>17.9</td></tr><tr><td>InternLM-XC-V2-7B</td><td>23.3</td><td>28.6</td><td>19.2</td><td>30.8</td><td>23.6</td><td>30.6</td><td>27.8</td><td>29.0</td><td>33.3</td><td>31.6</td><td>30.2</td><td>27.8</td><td>25.8</td><td>23.3</td><td>27.0</td><td>30.1</td></tr><tr><td>InternVL-Chat-V1.2-Plus</td><td>23.9</td><td>28.0</td><td>23.1</td><td>20.3</td><td>18.5</td><td>22.7</td><td>25.4</td><td>19.7</td><td>21.2</td><td>17.0</td><td>20.0</td><td>24.8</td><td>22.8</td><td>19.3</td><td>26.2</td><td>30.4</td></tr><tr><td>GPT-4o</td><td>35.4</td><td>39.7</td><td>44.2</td><td>40.1</td><td>41.3</td><td>38.4</td><td>42.8</td><td>38.3</td><td>39.4</td><td>42.1</td><td>40.7</td><td>39.0</td><td>41.1</td><td>38.9</td><td>35.5</td><td>43.2</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the group accuracy (G-Acc) of 53 vision-language models on the NaturalBench benchmark, highlighting the significant performance gap between these models and human performance.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance on NaturalBench. We report the performance of 53 leading VLMs on NaturalBench. All models significantly lag behind human performance, with the performance gap (in G-Acc) between humans and models highlighted in red. The latest models, such as BLIP-3 (XGen-MM), Cambrian-1, LLaVA-OneVision, Llama3.2-Vision, Molmo, and Qwen2-VL lag significantly behind humans by 55% to 70%. Even the best closed-source GPT-40 is still 52% behind humans.
 > </details>
-
-
-> Table 1 presents the group accuracy (G-Acc) of 53 vision-language models on the NaturalBench benchmark, highlighting the significant performance gap between these models and human performance.
-
 
 {{< table-caption >}}
 <br><table id='3' style='font-size:16px'><tr><td rowspan="2">Model</td><td colspan="6">Relation</td><td colspan="5">Reasoning</td></tr><tr><td>Action</td><td>Part</td><td>Proximity</td><td>Topological</td><td>Projective</td><td>Orientation</td><td>Count</td><td>Logic</td><td>Differ</td><td>Compar</td><td>World</td></tr><tr><td>BLIP-3(XGen-MM)</td><td>18.3</td><td>17.4</td><td>27.5</td><td>22.8</td><td>19.6</td><td>15.5</td><td>20.6</td><td>15.9</td><td>13.0</td><td>20.9</td><td>5.3</td></tr><tr><td>Phi-3-Vision</td><td>16.0</td><td>19.5</td><td>19.6</td><td>17.9</td><td>13.9</td><td>9.5</td><td>16.1</td><td>18.5</td><td>17.6</td><td>13.0</td><td>8.5</td></tr><tr><td>DeepSeek-VL-7B-Chat</td><td>17.5</td><td>16.2</td><td>29.4</td><td>21.4</td><td>17.9</td><td>14.7</td><td>19.6</td><td>16.4</td><td>11.1</td><td>11.3</td><td>10.6</td></tr><tr><td>LLaVA-NeXT(Mistral-7B)</td><td>15.9</td><td>18.6</td><td>18.6</td><td>17.0</td><td>16.1</td><td>13.8</td><td>17.1</td><td>21.2</td><td>17.6</td><td>12.2</td><td>9.6</td></tr><tr><td>InternLM-XC-V2-7B</td><td>27.3</td><td>29.3</td><td>29.4</td><td>27.9</td><td>24.4</td><td>24.1</td><td>30.7</td><td>25.9</td><td>27.8</td><td>27.8</td><td>17.0</td></tr><tr><td>InternVL-Chat-V1.2-Plus</td><td>23.6</td><td>28.1</td><td>31.4</td><td>24.4</td><td>19.3</td><td>18.1</td><td>23.9</td><td>26.9</td><td>25.0</td><td>15.7</td><td>12.8</td></tr><tr><td>GPT-4o</td><td>39.4</td><td>43.1</td><td>40.2</td><td>41.7</td><td>38.7</td><td>35.3</td><td>39.2</td><td>42.9</td><td>38.9</td><td>37.4</td><td>35.1</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 10 presents the model's question accuracy (Q-Acc) for each relation and reasoning skill tag in the NaturalBench benchmark.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 10: Model performance on Relation and Reasoning. We report Q-Acc on each tag.
 > </details>
-
-
-> Table 10 presents the model's question accuracy (Q-Acc) for each relation and reasoning skill tag in the NaturalBench benchmark.
-
 
 </details>
 
@@ -239,29 +213,29 @@ This paper is crucial for researchers in vision-language models (VLMs). It intro
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14669/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

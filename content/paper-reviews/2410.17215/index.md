@@ -2,11 +2,13 @@
 title: "MiniPLM: Knowledge Distillation for Pre-Training Language Models"
 summary: "MINIPLM: A novel knowledge distillation framework boosts pre-trained language models' performance by efficiently refining the training data distribution using teacher LM knowledge, achieving significa..."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-22", "🤗 24-10-23"]
+tags: ["🔖 24-10-22", ]
 showSummary: true
 date: 2024-10-22
 draft: false
 ---
+
+{{< keyword >}} 2410.17215 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 
 
 
-![](figures/figures_3_0.png)
+![](https://ai-paper-reviewer.com/2410.17215/figures_3_0.png)
 
 > 🔼 The figure illustrates the MINIPLM training framework and the effect of its Difference Sampling method on refining the pre-training corpus.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 
 
 
-![](charts/charts_1_0.png)
+![](https://ai-paper-reviewer.com/2410.17215/charts_1_0.png)
 
 > 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using Vanilla KD and the proposed MINIPLM method, demonstrating MINIPLM's efficiency and effectiveness.
 > <details>
@@ -91,7 +93,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 </summary>
 
 
-![](charts/charts_1_1.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_1_1.png)
 
 > 🔼 The chart displays the scaling curves of student language models pre-trained using two different knowledge distillation methods, Vanilla KD and MINIPLM, showing computation and model size scaling.
 > <details>
@@ -100,7 +102,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 > </details>
 
 
-![](charts/charts_2_0.png "🔼 Figure 2: Results of applying KD methods in fine-tuning to pre-train a 200M student LM, using a 1.8B teacher LM. See Section 3.1 for method and evaluation details. When the training FLOPs are controlled, all KD methods perform similar or worse than Pre-Train w/o KD.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_2_0.png)
 
 > 🔼 The chart compares the performance of various knowledge distillation methods for pre-training a 200M student language model when controlling either the number of training steps or the total training FLOPs.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_7_0.png)
 
 > 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using Vanilla KD and the proposed MINIPLM method, showing MINIPLM's superior performance and efficiency.
 > <details>
@@ -118,7 +120,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_8_0.png)
 
 > 🔼 The chart displays the scaling curves of student language models pre-trained using knowledge distillation, comparing MINIPLM with Vanilla KD across computation and model size, showing improvements in performance with MINIPLM.
 > <details>
@@ -127,7 +129,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 6: Impact of the teacher LM's sizes on Vanilla KD and MINIPLM, with the pre-training FLOPs aligned. The y-axis represents the average zero-shot accuracy on the downstream tasks.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_9_0.png)
 
 > 🔼 The chart displays the impact of different teacher LM sizes on the average zero-shot accuracy of downstream tasks for Vanilla KD and MINIPLM, while maintaining consistent pre-training FLOPs.
 > <details>
@@ -136,7 +138,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 > </details>
 
 
-![](charts/charts_19_0.png "🔼 Figure 1: Computation (a) and model size (b) scaling curves of student LMs pre-trained from scratch with Vanilla KD¹ and MINIPLM. The teacher LM has 1.8B parameters. “1.8B→500M” means we use a 500M student LM. Training-time computation is kept constant for LMs of the same size in model scaling. The y-axis represents the LMs' zero-shot performance on 9 downstream NLP tasks.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_19_0.png)
 
 > 🔼 The chart displays the computation and model size scaling curves for student language models pre-trained using knowledge distillation with Vanilla KD and MINIPLM, showing the impact on downstream task performance.
 > <details>
@@ -145,7 +147,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 > </details>
 
 
-![](charts/charts_21_0.png "🔼 Figure 8: Impact of the reference model size. We use the 1.8B LM as the teacher and the 200M LM as the student. We report the average zero-shot accuracy on the downstream tasks of the LMs trained with MINIPLM and compare it with Vanilla KD.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_21_0.png)
 
 > 🔼 The chart displays the impact of different sizes of reference models on the average zero-shot accuracy of language models trained with MINIPLM and Vanilla KD on downstream tasks.
 > <details>
@@ -154,7 +156,7 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 > </details>
 
 
-![](charts/charts_21_1.png "🔼 Figure 9: Impact of the difference sampling ratio α. We report the average zero-shot accuracy on the downstream tasks of the LMs trained with MINIPLM, using α ∈ [0.3, 0.4, 0.5, 0.6, 0.7, 0.9] and compare it with Vanilla KD.")
+![](https://ai-paper-reviewer.com/2410.17215/charts_21_1.png)
 
 > 🔼 The chart displays the impact of the difference sampling ratio on the average zero-shot accuracy of language models trained with MINIPLM compared to Vanilla KD.
 > <details>
@@ -174,111 +176,75 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 
 {{< table-caption >}}
 <br><table id='4' style='font-size:22px'><tr><td>Nstu</td><td>Method</td><td>L1T</td><td>L10T</td></tr><tr><td rowspan="3">200M</td><td>Pre-Train w/o KD</td><td>3.35</td><td>3.32</td></tr><tr><td>Vanilla KD</td><td>3.39</td><td>3.35</td></tr><tr><td>MINIPLM</td><td>3.28</td><td>3.26</td></tr><tr><td rowspan="3">500M</td><td>Pre-Train w/o KD</td><td>3.12</td><td>3.08</td></tr><tr><td>Vanilla KD</td><td>3.12</td><td>3.07</td></tr><tr><td>MINIPLM</td><td>3.06</td><td>3.04</td></tr><tr><td rowspan="3">1.2B</td><td>Pre-Train w/o KD</td><td>2.98</td><td>2.94</td></tr><tr><td>Vanilla KD</td><td>2.95</td><td>2.91</td></tr><tr><td>MINIPLM</td><td>2.92</td><td>2.88</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the zero-shot accuracy scores of student language models (with varying sizes) pre-trained using different knowledge distillation methods on nine downstream tasks, comparing their performance with a teacher LM of 1.8B parameters.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> Table 1 presents the zero-shot accuracy scores of student language models (with varying sizes) pre-trained using different knowledge distillation methods on nine downstream tasks, comparing their performance with a teacher LM of 1.8B parameters.
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:18px'><tr><td></td><td colspan="2">Llama3.1</td><td colspan="2">Mamba</td></tr><tr><td></td><td>Acc.</td><td>Loss</td><td>Acc.</td><td>Loss</td></tr><tr><td>Pre-Train w/o KD</td><td>41.0</td><td>3.52</td><td>41.6</td><td>3.24</td></tr><tr><td>SeqKD</td><td>40.8</td><td>3.54</td><td>41.0</td><td>3.27</td></tr><tr><td>MINIPLM</td><td>41.8</td><td>3.43</td><td>42.6</td><td>3.15</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 This table presents the zero-shot accuracy scores achieved by different language models (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing models pre-trained without knowledge distillation, with Vanilla KD, MiniLLM, SeqKD, and MINIPLM.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> This table presents the zero-shot accuracy scores achieved by different language models (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing models pre-trained without knowledge distillation, with Vanilla KD, MiniLLM, SeqKD, and MINIPLM.
-
 
 {{< table-caption >}}
 <br><table id='2' style='font-size:20px'><tr><td>Pre-Training Corpus</td><td>Usage</td><td>Diversity</td></tr><tr><td>Original</td><td>Pre-Train w/o KD &Vanilla KD</td><td>32.25</td></tr><tr><td>Teacher-Generated</td><td>SeqKD</td><td>30.16</td></tr><tr><td>Difference-Sampled</td><td>MINIPLM</td><td>36.70</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the zero-shot accuracy scores achieved by different language models (pre-trained with different methods) on nine downstream tasks, comparing models of varying sizes and training methods.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> Table 1 presents the zero-shot accuracy scores achieved by different language models (pre-trained with different methods) on nine downstream tasks, comparing models of varying sizes and training methods.
-
 
 {{< table-caption >}}
 <br><table id='7' style='font-size:16px'><tr><td>Nstu</td><td>Method</td><td>Acc.</td></tr><tr><td rowspan="3">200M</td><td>Vanilla KD</td><td>39.9</td></tr><tr><td>MINIPLM</td><td>41.3</td></tr><tr><td>MINIPLM + Vanilla KD</td><td>40.7</td></tr><tr><td rowspan="3">500M</td><td>Vanilla KD</td><td>43.6</td></tr><tr><td>MINIPLM</td><td>44.8</td></tr><tr><td>MINIPLM + Vanilla KD</td><td>44.9</td></tr><tr><td rowspan="3">1.2B</td><td>Vanilla KD</td><td>45.4</td></tr><tr><td>MINIPLM</td><td>46.6</td></tr><tr><td>MINIPLM + Vanilla KD</td><td>48.1</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 This table presents the zero-shot accuracy scores achieved by various language models (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing models trained with different methods (Pre-Train w/o KD, Vanilla KD, MiniLLM, SeqKD, and MINIPLM).
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> This table presents the zero-shot accuracy scores achieved by various language models (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing models trained with different methods (Pre-Train w/o KD, Vanilla KD, MiniLLM, SeqKD, and MINIPLM).
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:18px'><tr><td>Model Size</td><td>dmodel</td><td>dFFN</td><td>nlayers</td><td>nhead</td><td>dhead</td><td>learning rate</td></tr><tr><td>104M</td><td>512</td><td>1,408</td><td>8</td><td>8</td><td>64</td><td>6 x 10-4</td></tr><tr><td>200M</td><td>768</td><td>2,112</td><td>12</td><td>12</td><td>64</td><td>6 x 10-4</td></tr><tr><td>300M</td><td>768</td><td>2,112</td><td>18</td><td>12</td><td>64</td><td>6 x 10-4</td></tr><tr><td>500M</td><td>1,024</td><td>2,816</td><td>24</td><td>16</td><td>64</td><td>3 x 10-4</td></tr><tr><td>1.2B</td><td>1,536</td><td>4,224</td><td>24</td><td>16</td><td>96</td><td>2.5 x 10-4</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing different knowledge distillation methods against a baseline of no knowledge distillation.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) on nine downstream tasks, comparing different knowledge distillation methods against a baseline of no knowledge distillation.
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td></td><td colspan="3">Vanilla KD</td><td colspan="3">MiniLLM</td></tr><tr><td>Formula</td><td colspan="3">3Nstu T 3Nstu+Ntch</td><td colspan="3">3Nstu T 4Nstu+2Ntch</td></tr><tr><td>Student Model Size Nstu</td><td>200M</td><td>500M</td><td>1.2B I</td><td>200M</td><td>500M</td><td>1.2B</td></tr><tr><td>Training Steps</td><td>25K</td><td>45K</td><td>65K I</td><td>15K</td><td>30K</td><td>40K</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the zero-shot accuracy scores achieved by various language models (pre-trained with different methods) on nine downstream tasks, comparing models of different sizes and pre-training approaches.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> Table 1 presents the zero-shot accuracy scores achieved by various language models (pre-trained with different methods) on nine downstream tasks, comparing models of different sizes and pre-training approaches.
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Nstu</td><td>Method</td><td>Ac</td><td>ac</td><td>Loo</td><td>CIT (FLOPs)</td><td>C10T (FLOPs)</td></tr><tr><td rowspan="3">200M</td><td>Pre-Train w/o KD</td><td>2.19x107</td><td>0.41</td><td>3.30</td><td rowspan="3">1.26x 1021</td><td rowspan="3">1.26x 1022</td></tr><tr><td>Vanilla KD</td><td>9.77x107</td><td>0.44</td><td>3.34</td></tr><tr><td>MINIPLM</td><td>8.56x1010</td><td>0.59</td><td>3.25</td></tr><tr><td rowspan="3">500M</td><td>Pre-Train w/o KD</td><td>2.73x108</td><td>0.45</td><td>3.06</td><td rowspan="3">3.14x 1021</td><td rowspan="3">3.14x 1021</td></tr><tr><td>Vanilla KD</td><td>3.14x108</td><td>0.45</td><td>3.05</td></tr><tr><td>MINIPLM</td><td>6.64x109</td><td>0.52</td><td>3.03</td></tr><tr><td rowspan="3">1.2B</td><td>Pre-Train w/o KD</td><td>1.88x 108</td><td>0.43</td><td>2.91</td><td rowspan="3">7.30x 1021</td><td rowspan="3">7.30x 1021</td></tr><tr><td>Vanilla KD</td><td>1.10x1010</td><td>0.52</td><td>2.90</td></tr><tr><td>MINIPLM</td><td>4.29x108</td><td>0.45</td><td>2.86</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 The table presents the zero-shot accuracy scores achieved by different language models (with varying sizes) on nine downstream tasks, comparing models pre-trained with and without knowledge distillation, using different methods.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> The table presents the zero-shot accuracy scores achieved by different language models (with varying sizes) on nine downstream tasks, comparing models pre-trained with and without knowledge distillation, using different methods.
-
 
 {{< table-caption >}}
 <br><table id='9' style='font-size:14px'><tr><td>Method</td><td>FLOPs</td><td>Acc.</td></tr><tr><td>Vanilla KD</td><td>Online</td><td>39.9</td></tr><tr><td>MINIPLM</td><td>2 x 1020</td><td>41.3</td></tr><tr><td>MINIPLMprx</td><td>9 x 1018</td><td>40.9</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the zero-shot accuracy scores of student language models of varying sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods on nine downstream NLP tasks, comparing their performance against a teacher LM (1.8B parameters).
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> Table 1 presents the zero-shot accuracy scores of student language models of varying sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods on nine downstream NLP tasks, comparing their performance against a teacher LM (1.8B parameters).
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Pref(x): Hard</td><td>p(x) 》 and valuable instances</td></tr><tr><td rowspan="2">Instance #1</td><td>p(x) - logp(x) = 1.26 - log Pref(x) = 4.20 log = 2.94 Selected Pref(�)</td></tr><tr><td>Legal along with Environmental Responsibility! Dumpster rentals in the user side may seem as fundamental as placing a phone, having a dumpster sent and hurling all your disposals inside to be carted away . Nonetheless, there are legal issues attached to appropriate disposal connected with certain products which tie up into environmental issues. The 10 Yard Dumpster For Rent in Pocahontas customer or perhaps demolition purchaser should be informed about these issues by means of careful screening SO as to reduce a firm's liability which inturn keeps a firm's overhead all the way down and makes for prompt fall off , pick up along with disposal of the dumpster and it's articles .</td></tr><tr><td rowspan="2">Instance #2</td><td>p(x) logp(x) = 2.36 - log Pref(x) = 5.59 log = 3.23 Selected Pref ( )</td></tr><tr><td>有利 you3li4 youli advantageous ; beneficial 谨慎 jin3shen4 jinshen cautious ; prudent 甲 jia3 jia one ; armor (1st Heavenly Stem) 犹豫 you2yu4 youyu hesitate; hesitant ; undecided 从此 cong2ci3 congci from now on ; since then 企业 qi3ye4 qiye company ; business; firm 下载 xia4zai3 xi�z�i to download 狮子 shi1zi5 shizi lion 青少年 qing1shao4nian2 qingshaonian teenager</td></tr><tr><td rowspan="2">Instance #3</td><td>p(x) - logp(x) = 0.16 - log Pref(x) = 2.73 log = 2.56 Selected Pref(x)</td></tr><tr><td>function WritableState (options, stream) { var Duplex = require(' / _stream_duplex') ; options = options I - 0 ; // the point at which write() starts returning false // Note : 0 is a valid value, means that we always return false if / / the entire buffer is not flushed immediately on write() var hwm = options · highWaterMark; var defaultHwm = options · objectMode?16: 16*1024; this .highWaterMark = (hwm II hwm === 0) ? hwm : defaultHwm; // object stream flag to indicate whether or not this stream // contains buffers or objects. this . objectMode = ! !options . objectMode; · · · }</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods (including MINIPLM) on nine downstream tasks, showing performance improvements with MINIPLM.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Zero-shot accuracy scores on 9 widely-used downstream tasks and the average scores (Avg.). We use the Qwen-1.5 1.8B LM [3] as the teacher and Qwen LMs with 200M, 500M, and 1.2B parameters as the student. Student LMs with the same sizes consume the same training-time computation. The best scores of each model size are boldfaced.
 > </details>
-
-
-> Table 1 presents the zero-shot accuracy scores achieved by student language models of varying sizes (200M, 500M, and 1.2B parameters) pre-trained using different methods (including MINIPLM) on nine downstream tasks, showing performance improvements with MINIPLM.
-
 
 </details>
 
@@ -286,28 +252,28 @@ This paper is crucial for researchers working on efficient and effective pre-tra
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17215/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

@@ -2,11 +2,13 @@
 title: "Tracking Universal Features Through Fine-Tuning and Model Merging"
 summary: "Researchers tracked feature evolution in small language models through fine-tuning and model merging, discovering surprising feature instability and uncovering interpretable persistent features like v..."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-16", "🤗 24-10-17"]
+tags: ["🔖 24-10-16", ]
 showSummary: true
 date: 2024-10-16
 draft: false
 ---
+
+{{< keyword >}} 2410.12391 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it offers a novel approach to understanding how 
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.12391/figures_2_0.png)
 
 > 🔼 This figure shows the experimental design, starting from a base model trained on BabyLM and Python, then fine-tuned on Lua and TinyStories, and finally merged using SLERP, with sparse autoencoders trained for each model.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it offers a novel approach to understanding how 
 
 
 
-![](charts/charts_3_0.png)
+![](https://ai-paper-reviewer.com/2410.12391/charts_3_0.png)
 
 > 🔼 The chart visualizes the evolution of features (emerging, disappearing, and persisting) in a language model across different fine-tuning and model merging stages.
 > <details>
@@ -78,7 +80,7 @@ This paper is important because it offers a novel approach to understanding how 
 </summary>
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.12391/figures_4_0.png)
 
 > 🔼 Figure 3 visualizes the feature activation patterns of the variable assignment feature across four language models, highlighting the correlation between the models' features.
 > <details>
@@ -88,7 +90,7 @@ This paper is important because it offers a novel approach to understanding how 
 
 
 
-![](figures/figures_4_1.png)
+![](https://ai-paper-reviewer.com/2410.12391/figures_4_1.png)
 
 > 🔼 Figure 4 shows examples of observed activation patterns of the BabyPython Python exception feature and its closest match in the Lua model, highlighting insufficient correlation between them.
 > <details>
@@ -107,7 +109,7 @@ This paper is important because it offers a novel approach to understanding how 
 </summary>
 
 
-![](charts/charts_6_0.png "🔼 Figure 5: Observed accuracy trends of a merged model consisting of weights spherically linear interpolated between the Lua model and the TinyStories model, as measured on the validation datasets of the Lua and TinyStories, respectively, at each interpolation step (slerp t-value). The dashed baselines show the accuracy of the shared base model underlying the Lua and TinyStories model, on the same validation datasets.")
+![](https://ai-paper-reviewer.com/2410.12391/charts_6_0.png)
 
 > 🔼 The chart displays the accuracy of a merged language model at various interpolation stages between two fine-tuned models (Lua and TinyStories), comparing it to the base model's accuracy.
 > <details>
@@ -116,7 +118,7 @@ This paper is important because it offers a novel approach to understanding how 
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 6: Histograms showing the distribution of observed correlations between automatically generated explanations and the true feature activation patterns of features in the Lua and LuaStories model.")
+![](https://ai-paper-reviewer.com/2410.12391/charts_7_0.png)
 
 > 🔼 The chart displays the distribution of Pearson correlation coefficients between automatically generated explanations and true feature activation patterns for Lua features and persisting Lua features in the LuaStories model.
 > <details>
@@ -132,11 +134,11 @@ This paper is important because it offers a novel approach to understanding how 
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12391/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12391/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12391/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12391/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12391/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12391/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.12391/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

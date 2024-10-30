@@ -2,11 +2,13 @@
 title: "LVSM: A Large View Synthesis Model with Minimal 3D Inductive Bias"
 summary: "LVSM, a novel transformer-based model, achieves state-of-the-art novel view synthesis by eliminating 3D inductive biases, enabling superior quality, scalability, and zero-shot generalization."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-22", "🤗 24-10-24"]
+tags: ["🔖 24-10-22", ]
 showSummary: true
 date: 2024-10-22
 draft: false
 ---
+
+{{< keyword >}} 2410.17242 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers in computer vision and graphics, particula
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.17242/figures_2_0.png)
 
 > 🔼 Figure 1 shows examples of scene-level and object-level novel view synthesis results using the proposed Large View Synthesis Model (LVSM), comparing its performance against the state-of-the-art method GS-LRM.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers in computer vision and graphics, particula
 
 
 
-![](charts/charts_10_0.png)
+![](https://ai-paper-reviewer.com/2410.17242/charts_10_0.png)
 
 > 🔼 The chart shows the zero-shot generalization performance of three novel view synthesis models (decoder-only LVSM, encoder-decoder LVSM, and GS-LRM) across varying numbers of input views on the GSO dataset.
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for researchers in computer vision and graphics, particula
 </summary>
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.17242/figures_4_0.png)
 
 > 🔼 The figure illustrates the two transformer-based architectures of the Large View Synthesis Model (LVSM): a decoder-only architecture and an encoder-decoder architecture, showing how input images and target views are processed to generate novel views.
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for researchers in computer vision and graphics, particula
 
 
 
-![](figures/figures_7_0.png)
+![](https://ai-paper-reviewer.com/2410.17242/figures_7_0.png)
 
 > 🔼 Figure 3 shows a comparison of object-level novel view synthesis results of the proposed LVSM model against two baseline methods, highlighting the improved quality and handling of complex geometry by the LVSM.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers in computer vision and graphics, particula
 
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.17242/figures_8_0.png)
 
 > 🔼 Figure 4 shows a qualitative comparison of scene-level view synthesis results between the proposed LVSM and several baseline methods, highlighting improvements in texture, geometry, and specular reflections.
 > <details>
@@ -119,7 +121,7 @@ This paper is crucial for researchers in computer vision and graphics, particula
 
 
 
-![](figures/figures_16_0.png)
+![](https://ai-paper-reviewer.com/2410.17242/figures_16_0.png)
 
 > 🔼 Figure 3 shows a comparison of object-level novel view synthesis results between LVSM and two baseline methods (Triplane-LRM and GS-LRM) across four examples, highlighting LVSM's superior performance in handling complex geometries and high-frequency textures.
 > <details>
@@ -141,27 +143,19 @@ This paper is crucial for researchers in computer vision and graphics, particula
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td></td><td colspan="3">RealEstate10k Zhou et al. 2018)</td></tr><tr><td></td><td>PSNR ↑</td><td>SSIM</td><td>LPIPS ↓</td></tr><tr><td>Ours Encoder-Decoder (6 + 18)</td><td>28.32</td><td>0.888</td><td>0.117</td></tr><tr><td>Ours Encoder-Decoder (12 + 12)</td><td>27.39</td><td>0.869</td><td>0.137</td></tr><tr><td>Ours Encoder-Decoder (18 +6)</td><td>26.80</td><td>0.855</td><td>0.152</td></tr><tr><td>Ours Decoder-Only (24 layers)</td><td>28.89</td><td>0.894</td><td>0.108</td></tr><tr><td>Ours Decoder-Only (18 layers)</td><td>28.77</td><td>0.892</td><td>0.109</td></tr><tr><td>Ours Decoder-Only (12 layers)</td><td>28.61</td><td>0.890</td><td>0.111</td></tr><tr><td>Ours Decoder-Only (6 layers)</td><td>27.62</td><td>0.869</td><td>0.129</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 quantitatively compares the performance of the proposed LVSM model against several baselines on object-level and scene-level novel view synthesis tasks, reporting PSNR, SSIM, and LPIPS metrics.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Quantitative comparisons on object-level (left) and scene-level (right) view synthesis. For the object-level comparison, we matched the baseline settings with GS-LRM (Zhang et al., 2024) in both input and rendering under both resolution of 256 (Res-256) and resolution of 512 (Res-512). For the scene-level comparison, we use the same validation dataset used by pixelSplat (Charatan et al., 2024), which has 256 resolution.
 > </details>
-
-
-> Table 1 quantitatively compares the performance of the proposed LVSM model against several baselines on object-level and scene-level novel view synthesis tasks, reporting PSNR, SSIM, and LPIPS metrics.
-
 
 {{< table-caption >}}
 <table id='1' style='font-size:14px'><tr><td></td><td colspan="3">GSO Downs et al., 2022</td></tr><tr><td></td><td>PSNR ↑</td><td>SSIMT</td><td>LPIPS ↓</td></tr><tr><td>Ours Decoder-Only (24 layers)</td><td>27.04</td><td>0.910</td><td>0.055</td></tr><tr><td>Ours Decoder-Only (18 layers)</td><td>26.81</td><td>0.907</td><td>0.057</td></tr><tr><td>Ours Decoder-Only (12 layers)</td><td>26.11</td><td>0.896</td><td>0.065</td></tr><tr><td>Ours Decoder-Only (6 layers)</td><td>24.15</td><td>0.865</td><td>0.092</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 quantitatively compares the performance of LVSM against state-of-the-art methods on object-level and scene-level novel view synthesis tasks, reporting PSNR, SSIM, and LPIPS metrics.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Quantitative comparisons on object-level (left) and scene-level (right) view synthesis. For the object-level comparison, we matched the baseline settings with GS-LRM (Zhang et al., 2024) in both input and rendering under both resolution of 256 (Res-256) and resolution of 512 (Res-512). For the scene-level comparison, we use the same validation dataset used by pixelSplat (Charatan et al., 2024), which has 256 resolution.
 > </details>
-
-
-> Table 1 quantitatively compares the performance of LVSM against state-of-the-art methods on object-level and scene-level novel view synthesis tasks, reporting PSNR, SSIM, and LPIPS metrics.
-
 
 </details>
 
@@ -169,21 +163,21 @@ This paper is crucial for researchers in computer vision and graphics, particula
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.17242/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

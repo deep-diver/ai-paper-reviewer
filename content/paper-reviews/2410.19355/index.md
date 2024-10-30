@@ -2,11 +2,13 @@
 title: "FasterCache: Training-Free Video Diffusion Model Acceleration with High Quality"
 summary: "FasterCache: a training-free strategy boosts video diffusion model inference speed by 1.67x without sacrificing video quality, using dynamic feature reuse and CFG-Cache."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-25", "🤗 24-10-28"]
+tags: ["🔖 24-10-25", ]
 showSummary: true
 date: 2024-10-25
 draft: false
 ---
+
+{{< keyword >}} 2410.19355 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_0.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other competing methods on three different video generation tasks.
 > <details>
@@ -59,7 +61,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](charts/charts_2_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/charts_2_0.png)
 
 > 🔼 Figure 3 shows that vanilla cache-based methods lead to detail loss in generated videos, while classifier-free guidance (CFG) accounts for a significant portion of the inference time.
 > <details>
@@ -89,7 +91,7 @@ This paper is highly important for researchers working on video generation and d
 </summary>
 
 
-![](figures/figures_1_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_1.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other competing methods on three different video generation models.
 > <details>
@@ -99,7 +101,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_2.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_2.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method with several competing methods on various video diffusion models.
 > <details>
@@ -109,7 +111,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_3.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_3.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed method achieves higher quality and faster speed.
 > <details>
@@ -119,7 +121,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_4.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_4.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method with existing methods on three different video generation models.
 > <details>
@@ -129,7 +131,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_5.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_5.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with competing methods on three video diffusion models.
 > <details>
@@ -139,7 +141,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_6.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_6.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other methods on three different video generation models.
 > <details>
@@ -149,7 +151,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_7.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_7.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method with other competing methods on three different video generation tasks.
 > <details>
@@ -159,7 +161,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_8.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_8.png)
 
 > 🔼 The figure compares the visual quality and inference speed of several video generation methods, showing that the proposed method achieves both high quality and speed.
 > <details>
@@ -169,7 +171,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_9.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_9.png)
 
 > 🔼 The figure shows a comparison of visual quality and inference speed between FasterCache and other methods on three different video generation models.
 > <details>
@@ -179,7 +181,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_10.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_10.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache against other methods on three video diffusion models.
 > <details>
@@ -189,7 +191,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_1_11.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_1_11.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed method achieves better results in terms of both speed and quality.
 > <details>
@@ -199,7 +201,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_2_0.png)
 
 > 🔼 The figure illustrates a vanilla cache-based acceleration method for video diffusion models, showing how features are reused across adjacent timesteps.
 > <details>
@@ -209,7 +211,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_2_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_2_1.png)
 
 > 🔼 The figure shows a comparison of visual quality and inference speed between the proposed FasterCache method and other competing methods on three different video generation models.
 > <details>
@@ -219,7 +221,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_4_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_4_0.png)
 
 > 🔼 The figure compares the visual quality degradation caused by vanilla feature reuse with the feature differences between adjacent timesteps in a video diffusion model.
 > <details>
@@ -229,7 +231,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_5_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_5_0.png)
 
 > 🔼 Figure 7 shows that simply reusing conditional outputs leads to poor image generation, while CFG-Cache, by dynamically adjusting high and low-frequency components, improves quality.
 > <details>
@@ -239,7 +241,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_6_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_6_0.png)
 
 > 🔼 The figure illustrates the CFG-Cache mechanism, showing how conditional and unconditional outputs are reused across different timesteps to accelerate inference.
 > <details>
@@ -249,7 +251,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_8_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_8_0.png)
 
 > 🔼 The figure compares visual quality and inference speed of the proposed FasterCache method against existing methods on various video diffusion models.
 > <details>
@@ -259,7 +261,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_8_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_8_1.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other competing methods on three different video generation models.
 > <details>
@@ -269,7 +271,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_9_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_9_0.png)
 
 > 🔼 The figure shows the impact of dynamic feature reuse and CFG-Cache on feature MSE and visual quality, demonstrating the effectiveness of the proposed method.
 > <details>
@@ -279,7 +281,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_10_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_10_0.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache against other methods on three different video diffusion models.
 > <details>
@@ -289,7 +291,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_10_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_10_1.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method with other competing methods on three different video generation models.
 > <details>
@@ -299,7 +301,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_0.png)
 
 > 🔼 The figure compares visual quality and inference speed of several video diffusion models using different methods, showing FasterCache achieves high quality with faster speed.
 > <details>
@@ -309,7 +311,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_1.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method with other competing methods on three different video generation models.
 > <details>
@@ -319,7 +321,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_2.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_2.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other competing methods on three different video generation models.
 > <details>
@@ -329,7 +331,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_3.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_3.png)
 
 > 🔼 The figure shows a comparison of visual quality and inference speed between FasterCache and other competing methods on three different video generation models.
 > <details>
@@ -339,7 +341,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_4.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_4.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods on three different video models.
 > <details>
@@ -349,7 +351,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_5.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_5.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache against other methods on three video generation tasks, showing that FasterCache achieves the best balance of speed and quality.
 > <details>
@@ -359,7 +361,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_6.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_6.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video diffusion models, showing that FasterCache achieves higher quality and speed than other methods.
 > <details>
@@ -369,7 +371,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_15_7.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_15_7.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache against other methods on three different video generation models.
 > <details>
@@ -379,7 +381,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_16_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_16_0.png)
 
 > 🔼 Figure 9 shows a comparison of visual results obtained using the proposed FasterCache method against those from the original model, PAB, and A-DiT across various video generation tasks.
 > <details>
@@ -389,7 +391,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_16_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_16_1.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video diffusion models, showing that the proposed method achieves high quality with significant speedup.
 > <details>
@@ -399,7 +401,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_16_2.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_16_2.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showcasing the superior performance of the proposed FasterCache method.
 > <details>
@@ -409,7 +411,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_16_3.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_16_3.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache against other methods on three different video diffusion models.
 > <details>
@@ -419,7 +421,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_16_4.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_16_4.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed method achieves higher quality and speed.
 > <details>
@@ -429,7 +431,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_17_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_17_0.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache against other methods on three video generation tasks.
 > <details>
@@ -439,7 +441,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_17_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_17_1.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other competing methods on three different video generation models.
 > <details>
@@ -449,7 +451,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_17_2.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_17_2.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other methods on three video generation models.
 > <details>
@@ -459,7 +461,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_17_3.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_17_3.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method with several existing methods on three different video generation models.
 > <details>
@@ -469,7 +471,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_17_4.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_17_4.png)
 
 > 🔼 Figure 9 shows a visual comparison of videos generated by the FasterCache method against those generated by the original model, PAB, and A-DiT, highlighting that FasterCache effectively preserves the original quality and details.
 > <details>
@@ -479,7 +481,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_0.png)
 
 > 🔼 The figure compares visual quality and inference speed of different video generation methods, showing that the proposed method achieves faster speed with comparable or better quality.
 > <details>
@@ -489,7 +491,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_1.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed FasterCache method achieves both high quality and speed.
 > <details>
@@ -499,7 +501,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_2.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_2.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed FasterCache method achieves both high quality and fast inference speed compared to other methods.
 > <details>
@@ -509,7 +511,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_3.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_3.png)
 
 > 🔼 The figure compares visual quality (using LPIPS) and inference speed (latency in seconds) of different video generation methods on three different video models (Open-Sora, Open-Sora-Plan, and Latte).
 > <details>
@@ -519,7 +521,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_4.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_4.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method against other competing methods on three different video generation tasks.
 > <details>
@@ -529,7 +531,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_5.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_5.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video diffusion models, highlighting the superior performance of the proposed FasterCache method.
 > <details>
@@ -539,7 +541,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_6.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_6.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed method achieves high quality at a faster speed.
 > <details>
@@ -549,7 +551,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_7.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_7.png)
 
 > 🔼 The figure compares the visual quality and inference speed of several video generation methods, including the proposed FasterCache method, showing its superior performance in both aspects.
 > <details>
@@ -559,7 +561,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_8.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_8.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed FasterCache method achieves both high quality and speed.
 > <details>
@@ -569,7 +571,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_9.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_9.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method against several competing methods on three different video generation models.
 > <details>
@@ -579,7 +581,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_10.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_10.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed method (Ours) achieves both high quality and speed.
 > <details>
@@ -589,7 +591,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_11.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_11.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method against other competing methods on three different video generation models.
 > <details>
@@ -599,7 +601,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_12.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_12.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache against several competing methods on three different video generation models.
 > <details>
@@ -609,7 +611,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_13.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_13.png)
 
 > 🔼 The figure compares the visual quality and inference speed of the proposed FasterCache method with other competing methods on three different video generation models.
 > <details>
@@ -619,7 +621,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_14.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_14.png)
 
 > 🔼 Figure 1 compares the visual quality and inference speed of FasterCache with other methods on three different video generation models.
 > <details>
@@ -629,7 +631,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_15.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_15.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other competing methods on three different video generation models.
 > <details>
@@ -639,7 +641,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_16.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_16.png)
 
 > 🔼 The figure shows the visual quality degradation caused by vanilla feature reuse and the differences between adjacent timesteps.
 > <details>
@@ -649,7 +651,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_18_17.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_18_17.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other competing methods on three different video generation models.
 > <details>
@@ -659,7 +661,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_0.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_0.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showing that the proposed method achieves faster inference speed while maintaining high visual quality.
 > <details>
@@ -669,7 +671,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_1.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_1.png)
 
 > 🔼 The figure shows a comparison of visual quality and inference speed of FasterCache with other competing methods on three different video generation models.
 > <details>
@@ -679,7 +681,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_2.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_2.png)
 
 > 🔼 The figure shows a comparison of visual quality (using LPIPS score) and inference speed (latency in seconds) between the proposed FasterCache method and other competing methods on three different video diffusion models.
 > <details>
@@ -689,7 +691,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_3.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_3.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods, showcasing the superior performance of the proposed FasterCache method.
 > <details>
@@ -699,7 +701,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_4.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_4.png)
 
 > 🔼 The figure compares the visual quality and inference speed of several video generation methods, including the proposed FasterCache method, demonstrating its superior performance.
 > <details>
@@ -709,7 +711,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_5.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_5.png)
 
 > 🔼 The figure compares the visual quality and inference speed of FasterCache with other methods on three different video generation models.
 > <details>
@@ -719,7 +721,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_6.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_6.png)
 
 > 🔼 The figure compares the visual quality and inference speed of different video generation methods on three different video diffusion models.
 > <details>
@@ -729,7 +731,7 @@ This paper is highly important for researchers working on video generation and d
 
 
 
-![](figures/figures_19_7.png)
+![](https://ai-paper-reviewer.com/2410.19355/figures_19_7.png)
 
 > 🔼 The figure shows a comparison of visual quality and inference speed between the proposed FasterCache method and other competing methods on three different video diffusion models.
 > <details>
@@ -748,7 +750,7 @@ This paper is highly important for researchers working on video generation and d
 </summary>
 
 
-![](charts/charts_4_0.png "🔼 Figure 4: Comparison of the mean squared error (MSE) of attention features between the current and previous diffusion steps. Smaller values indicate higher similarity.")
+![](https://ai-paper-reviewer.com/2410.19355/charts_4_0.png)
 
 > 🔼 The chart displays the mean squared error (MSE) of different attention features (cross attention, temporal attention, spatial attention, and FFN) across the sampling process, showing the similarity between adjacent timesteps.
 > <details>
@@ -757,7 +759,7 @@ This paper is highly important for researchers working on video generation and d
 > </details>
 
 
-![](charts/charts_5_0.png "🔼 Figure 6: (a) The MSE between conditional and unconditional outputs at the same timestep as well as across adjacent timesteps. (b) Directly reusing unconditional outputs from previous timesteps will lead to a significantly degraded visual quality.")
+![](https://ai-paper-reviewer.com/2410.19355/charts_5_0.png)
 
 > 🔼 The chart displays the mean squared error (MSE) between conditional and unconditional outputs at the same and adjacent timesteps during the sampling process, illustrating the high similarity within the same timestep and the lower similarity between adjacent timesteps.
 > <details>
@@ -766,7 +768,7 @@ This paper is highly important for researchers working on video generation and d
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 11: Acceleration efficiency of our method at different video resolutions and lengths.")
+![](https://ai-paper-reviewer.com/2410.19355/charts_9_0.png)
 
 > 🔼 The chart displays the inference speedups achieved by the FasterCache method across various video resolutions and lengths, showing its scalability and consistent performance improvements.
 > <details>
@@ -775,7 +777,7 @@ This paper is highly important for researchers working on video generation and d
 > </details>
 
 
-![](charts/charts_10_0.png "🔼 Figure 12: Visual results and inference time of our method on I2V and image synthesis models.")
+![](https://ai-paper-reviewer.com/2410.19355/charts_10_0.png)
 
 > 🔼 The chart displays visual results and inference times for image-to-video and image synthesis models using the proposed FasterCache method and compares them to the original methods.
 > <details>
@@ -795,27 +797,19 @@ This paper is highly important for researchers working on video generation and d
 
 {{< table-caption >}}
 <table id='17' style='font-size:14px'><tr><td colspan="5">Table 3: Impact on visual quality.</td><td colspan="5">Table 4: Scaling to multiple GPUs with DSP.</td></tr><tr><td>Variants</td><td>VBench</td><td>LPIPS</td><td>SSIM</td><td>PSNR</td><td>Method</td><td>1x A100</td><td>2x A100</td><td>4x A100</td><td>8x A100</td></tr><tr><td>Original Open-Sora</td><td>78.99%</td><td>-</td><td>-</td><td>-</td><td colspan="5">Open-Sora ( 192 frames, 480P)</td></tr><tr><td>Vanilla FR</td><td>78.34%</td><td>0.0657</td><td>28.20</td><td>0.8785</td><td>Open-Sora</td><td>192.07 (1x)</td><td>72.82 (2.64x)</td><td>39.09 (4.92x)</td><td>21.62(8.89x)</td></tr><tr><td>Full (w/ Dynamic FR)</td><td>78.69%</td><td>0.0590</td><td>28.41</td><td>0.8938</td><td>PAB</td><td>156.73(1.23x)</td><td>58.11(3.31x)</td><td>30.91 (6.21x)</td><td>17.21 (11.16x)</td></tr><tr><td>CFG-Cache w/o Enhancement</td><td>78.42%</td><td>0.0709</td><td>27.97</td><td>0.8727</td><td>Ours</td><td>118.44 (1.62x)</td><td>42.18(4.55x)</td><td>22.55 (8.52x)</td><td>12.57 (15.28x)</td></tr><tr><td>Enhance LF only</td><td>78.58%</td><td>0.0617</td><td>28.29</td><td>0.8894</td><td colspan="5">Open-Sora-Plan(221 frames, 512x512)</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>Open-Sora-Plan</td><td>316.71 (1x)</td><td>169.21 (1.87x)</td><td>89.10 (3.55x)</td><td>49.13(6.44x)</td></tr><tr><td>Enhance HF only</td><td>78.49%</td><td>0.0686</td><td>28.08</td><td>0.8834</td><td>PAB</td><td>243.33 (1.30x)</td><td>127.30 (2.49x)</td><td>71.17 (4.45x)</td><td>37.13(8.53x)</td></tr><tr><td>Full (w/ full CFG-Cache)</td><td>78.69%</td><td>0.0590</td><td>28.41</td><td>0.8938</td><td>Ours</td><td>187.91 (1.69x)</td><td>104.37 (3.03x)</td><td>57.70 (5.49x)</td><td>31.82(9.95x)</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 quantitatively compares the efficiency and visual quality of the proposed FasterCache method against several baselines across multiple video diffusion models, showcasing its performance improvements.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Comparison of efficiency and visual quality on a single GPU.
 > </details>
-
-
-> Table 1 quantitatively compares the efficiency and visual quality of the proposed FasterCache method against several baselines across multiple video diffusion models, showcasing its performance improvements.
-
 
 {{< table-caption >}}
 <table id='12' style='font-size:16px'><tr><td>Method comparison</td><td>Open-Sora 1.2</td><td>Open-Sora-Plan</td><td>Latte</td></tr><tr><td>Ours VS. △-DiT</td><td>80.67%</td><td>78.00%</td><td>77.33%</td></tr><tr><td>Ours VS. PAB</td><td>69.33%</td><td>72.67%</td><td>74.00%</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 quantitatively compares the efficiency and visual quality of the proposed FasterCache method against other state-of-the-art methods across different video diffusion models.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Comparison of efficiency and visual quality on a single GPU.
 > </details>
-
-
-> Table 1 quantitatively compares the efficiency and visual quality of the proposed FasterCache method against other state-of-the-art methods across different video diffusion models.
-
 
 </details>
 
@@ -823,23 +817,23 @@ This paper is highly important for researchers working on video generation and d
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.19355/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

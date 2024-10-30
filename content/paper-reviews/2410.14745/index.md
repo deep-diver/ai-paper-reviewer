@@ -2,11 +2,13 @@
 title: "SemiEvol: Semi-supervised Fine-tuning for LLM Adaptation"
 summary: "SEMIEVOL, a novel semi-supervised framework, significantly improves large language model adaptation by effectively leveraging both limited labeled and abundant unlabeled data, achieving superior perfo..."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-17", "🤗 24-10-22"]
+tags: ["🔖 24-10-17", ]
 showSummary: true
 date: 2024-10-17
 draft: false
 ---
+
+{{< keyword >}} 2410.14745 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is significant because it tackles the challenge of adapting large lan
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.14745/figures_1_0.png)
 
 > 🔼 The figure compares the supervised fine-tuning (SFT) method with the proposed SEMIEVOL framework, highlighting SEMIEVOL's ability to leverage both labeled and unlabeled data for improved LLM adaptation.
 > <details>
@@ -59,7 +61,7 @@ This paper is significant because it tackles the challenge of adapting large lan
 
 
 
-![](charts/charts_6_0.png)
+![](https://ai-paper-reviewer.com/2410.14745/charts_6_0.png)
 
 > 🔼 The chart displays the sensitivity analysis of SEMIEVOL's performance across different numbers of collaborating models (n) and data selection ratios (θ).
 > <details>
@@ -91,7 +93,7 @@ This paper is significant because it tackles the challenge of adapting large lan
 </summary>
 
 
-![](charts/charts_7_0.png "🔼 Figure 4: Entropy distribution indicates SEMIEVOL can enhanced response confidence. Lower entropy values indicate more confident predictions.")
+![](https://ai-paper-reviewer.com/2410.14745/charts_7_0.png)
 
 > 🔼 The chart displays the distribution of prediction entropies for Vanilla, SFT, and SEMIEVOL models on the MMLU and MMLU-Pro datasets, illustrating that SEMIEVOL produces more confident predictions with lower entropy.
 > <details>
@@ -100,7 +102,7 @@ This paper is significant because it tackles the challenge of adapting large lan
 > </details>
 
 
-![](charts/charts_7_1.png "🔼 Figure 6: Category-wise performance of SEMIEVOL.")
+![](https://ai-paper-reviewer.com/2410.14745/charts_7_1.png)
 
 > 🔼 The radar chart compares the performance of Vanilla, SFT, and SEMIEVOL across various categories in the MMLU-Pro dataset, showing SEMIEVOL's superior performance.
 > <details>
@@ -109,7 +111,7 @@ This paper is significant because it tackles the challenge of adapting large lan
 > </details>
 
 
-![](charts/charts_7_2.png "🔼 Figure 3: Sensitivity analysis of SEMIEVOL's performance under different n and θ on variant datasets.")
+![](https://ai-paper-reviewer.com/2410.14745/charts_7_2.png)
 
 > 🔼 The chart displays SEMIEVOL's performance sensitivity analysis across different numbers of collaborative models and data selection ratios on MMLU and MMLU-Pro datasets.
 > <details>
@@ -118,7 +120,7 @@ This paper is significant because it tackles the challenge of adapting large lan
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 7: Iterative evolution performance, each iteration means perform a round of SEMIEVOL.")
+![](https://ai-paper-reviewer.com/2410.14745/charts_8_0.png)
 
 > 🔼 Figure 7 shows the iterative evolution performance of the SEMIEVOL model on MMLU and MMLU-Pro datasets across four iterations.
 > <details>
@@ -138,27 +140,19 @@ This paper is significant because it tackles the challenge of adapting large lan
 
 {{< table-caption >}}
 <br><table id='8' style='font-size:14px'><tr><td>Variant</td><td>MMLU</td><td>MMLU-Pro</td><td>ARC</td></tr><tr><td>Llama3.1-8B SEMIEVOL</td><td>70.3</td><td>54.3</td><td>83.4</td></tr><tr><td>w/o IWP</td><td>68.7</td><td>52.1</td><td>82.4</td></tr><tr><td>w/o ICP</td><td>69.7</td><td>53.2</td><td>83.0</td></tr><tr><td>w/o CL</td><td>69.1</td><td>53.0</td><td>82.4</td></tr><tr><td>w/o AS</td><td>69.9</td><td>53.5</td><td>82.1</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents a performance comparison of various LLMs on seven datasets using different fine-tuning strategies, including vanilla, SFT, and SEMIEVOL, highlighting SEMIEVOL's consistent improvement.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance comparison across different models on various datasets.
 > </details>
-
-
-> Table 1 presents a performance comparison of various LLMs on seven datasets using different fine-tuning strategies, including vanilla, SFT, and SEMIEVOL, highlighting SEMIEVOL's consistent improvement.
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Base Model</td><td colspan="4">MMLU (Dunlabeled / Dlabled)</td><td colspan="4">MMLU-Pro (Dunlabeled / Dlabled)</td></tr><tr><td></td><td>50%</td><td>100%</td><td>200%</td><td>300%</td><td>50%</td><td>100%</td><td>200%</td><td>300%</td></tr><tr><td>GPT-4o mini</td><td>78.2</td><td>78.6</td><td>79.3</td><td>79.9</td><td>58.9</td><td>59.5</td><td>60.1</td><td>60.8</td></tr><tr><td>Llama3.1-8B</td><td>68.3</td><td>69.5</td><td>69.7</td><td>70.3</td><td>50.8</td><td>52.0</td><td>53.5</td><td>54.3</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 compares the performance of SEMIEVOL and various baselines across seven datasets using two different base LLMs, showing SEMIEVOL's consistent improvement across various tasks and models.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Performance comparison across different models on various datasets.
 > </details>
-
-
-> Table 1 compares the performance of SEMIEVOL and various baselines across seven datasets using two different base LLMs, showing SEMIEVOL's consistent improvement across various tasks and models.
-
 
 </details>
 
@@ -166,15 +160,15 @@ This paper is significant because it tackles the challenge of adapting large lan
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.14745/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

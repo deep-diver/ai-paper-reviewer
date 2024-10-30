@@ -2,11 +2,13 @@
 title: "DyVo: Dynamic Vocabularies for Learned Sparse Retrieval with Entities"
 summary: "DyVo boosts learned sparse retrieval by dynamically adding Wikipedia entities to the vocabulary, significantly improving accuracy and relevance in entity-rich datasets."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-10", "🤗 24-10-17"]
+tags: ["🔖 24-10-10", ]
 showSummary: true
 date: 2024-10-10
 draft: false
 ---
+
+{{< keyword >}} 2410.07722 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers in information retrieval, especially those
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.07722/figures_1_0.png)
 
 > 🔼 The figure illustrates how DyVo enhances BERT's word piece vocabulary by incorporating an entity vocabulary to improve query disambiguation in learned sparse retrieval.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers in information retrieval, especially those
 
 
 
-![](charts/charts_15_0.png)
+![](https://ai-paper-reviewer.com/2410.07722/charts_15_0.png)
 
 > 🔼 The chart shows the number of entities and words in the sparse representation decreasing and increasing, respectively, over training steps.
 > <details>
@@ -94,39 +96,27 @@ This paper is crucial for researchers in information retrieval, especially those
 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td rowspan="2">Method</td><td colspan="3">TREC Robust04</td><td colspan="3">TREC Core 2018</td><td colspan="3">CODEC</td></tr><tr><td>nDCG@10</td><td>nDCG @ 20</td><td>R@1k</td><td>nDCG@10</td><td>nDCG @ 20</td><td>R@1k</td><td>nDCG@10</td><td>nDCG@20</td><td>R@1k</td></tr><tr><td>LSR-w</td><td>49.13</td><td>46.34</td><td>66.86</td><td>40.99</td><td>38.73</td><td>63.22</td><td>52.61</td><td>49.22</td><td>69.07</td></tr><tr><td>DyVo (REL)</td><td>51.19</td><td>47.65</td><td>68.56</td><td>43.72</td><td>40.56</td><td>63.56</td><td>53.40</td><td>51.15</td><td>70.60</td></tr><tr><td>DyVo (BM25)</td><td>51.38</td><td>47.72</td><td>67.74</td><td>42.48</td><td>38.89</td><td>64.58</td><td>53.25</td><td>49.80</td><td>69.83</td></tr><tr><td>DyVo (LaQue)</td><td>49.42</td><td>46.31</td><td>68.25</td><td>40.24</td><td>38.39</td><td>64.83</td><td>53.73</td><td>50.34</td><td>70.87</td></tr><tr><td>DyVo (Mixtral)</td><td>52.97</td><td>49.21</td><td>69.28</td><td>43.80</td><td>41.86</td><td>68.27</td><td>54.90</td><td>52.82</td><td>73.20</td></tr><tr><td>DyVo (GPT4)</td><td>54.39</td><td>50.89</td><td>70.86</td><td>43.06</td><td>42.25</td><td>68.57</td><td>56.46</td><td>53.72</td><td>74.47</td></tr><tr><td>DyVo (Human)</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>56.42</td><td>52.96</td><td>75.13</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 shows the performance comparison of different LSR models with and without linked entities, using various evaluation metrics (nDCG@10, nDCG@20, R@1000) across three datasets (TREC Robust04, TREC Core 2018, CODEC).
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Results with linked entities. All LSR models use a DistilBERT backbone. DyVo uses entities found by the REL entity linker and LaQue entity embeddings. All documents are truncated to the first 512 tokens.
 > </details>
-
-
-> Table 1 shows the performance comparison of different LSR models with and without linked entities, using various evaluation metrics (nDCG@10, nDCG@20, R@1000) across three datasets (TREC Robust04, TREC Core 2018, CODEC).
-
 
 {{< table-caption >}}
 <table id='2' style='font-size:14px'><tr><td rowspan="2">Method</td><td rowspan="2">Entity Rep.</td><td colspan="3">TREC Robust04</td><td colspan="3">TREC Core 2018</td><td colspan="3">CODEC</td></tr><tr><td>nDCG@10</td><td>nDCG @ 20</td><td>R@1k</td><td>nDCG @ 10</td><td>nDCG @ 20</td><td>R@1k</td><td>nDCG @ 10</td><td>nDCG @ 20</td><td>R@1k</td></tr><tr><td>LSR-w</td><td>-</td><td>49.13</td><td>46.34</td><td>66.86</td><td>40.99</td><td>38.73</td><td>63.22</td><td>52.61</td><td>49.22</td><td>69.07</td></tr><tr><td>DyVo (GPT4)</td><td>Token Aggr.</td><td>51.35</td><td>48.01</td><td>67.46</td><td>41.63</td><td>39.37</td><td>64.01</td><td>53.44</td><td>50.39</td><td>69.94</td></tr><tr><td>DyVo (GPT4)</td><td>DPR</td><td>48.68</td><td>45.77</td><td>75.21</td><td>40.26</td><td>37.52</td><td>70.81</td><td>53.04</td><td>49.18</td><td>75.19</td></tr><tr><td>DyVo (GPT4)</td><td>JDS</td><td>51.21</td><td>48.38</td><td>73.79</td><td>44.29</td><td>41.86</td><td>70.16</td><td>55.08</td><td>50.93</td><td>73.97</td></tr><tr><td>DyVo (GPT4)</td><td>Wiki2Vec</td><td>54.04</td><td>50.21</td><td>69.85</td><td>44.15</td><td>43.13</td><td>67.77</td><td>56.30</td><td>53.25</td><td>73.03</td></tr><tr><td>DyVo (GPT4)</td><td>LaQue</td><td>54.39</td><td>50.89</td><td>70.86</td><td>43.06</td><td>42.25</td><td>68.57</td><td>56.46</td><td>53.72</td><td>74.47</td></tr><tr><td>DyVo (GPT4)</td><td>BLINK</td><td>55.56</td><td>51.71</td><td>71.81</td><td>44.63</td><td>42.94</td><td>69.11</td><td>58.15</td><td>54.83</td><td>74.72</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 3 presents a comparison of different entity embedding techniques within the DyVo model, showing the impact of various embedding methods on different evaluation metrics across three datasets.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 3: Results with different entity embeddings. All models are trained with a DistilBERT backbone and L1 regularization (weight=1e-5). Entity candidates generated by GPT4 are used on queries for inference.
 > </details>
-
-
-> Table 3 presents a comparison of different entity embedding techniques within the DyVo model, showing the impact of various embedding methods on different evaluation metrics across three datasets.
-
 
 {{< table-caption >}}
 <table id='0' style='font-size:14px'><tr><td>Retriever</td><td>Q: "How vital was French support during the American Revolutionary War?" WP : [how, vital, was, french, support, during, the, american, revolutionary, war, ?]</td></tr><tr><td>REL BM25</td><td>[Vitalism, French people, Military logistics, American Revolutionary War] [Richard Howe, 1st Earl Howe, HMS Childers (1778), Robert Howe (Continental Army officer), James Coutts Crawford, Glorious First of June, George Eyre, Jacques-Antoine de Chambarlhac de Laubespin, Anthony James Pye Molloy, Nantucket during the American Revolutionary War era, Friedrich Joseph, Count of Nauendorf, Jonathan Faulknor the elder, Joseph Spear, HMS Romney (1762), HMS Roebuck (1774), France in the American Revolutionary War, Invasion of Corsica (1794), List of British fencible regiments, Northern theater of the American Revolutionary War after Saratoga, Robert Linzee, Guilin Laurent Bizanet]</td></tr><tr><td>LaQue</td><td>[France in the American Revolutionary War, List of French units in the American Revolutionary War, Support our troops, List of wars involving France, List of American Revolutionary War battles, American Volunteers, Colonial American military history, List of battles involving France in modern history, Military history of France, List of the lengths of United States participation in wars, 1776, France and the American Civil War, USS Confederacy (1778), Financial costs of the American Revolutionary War, List of wars involving the United States, List of American Civil War generals (Union), United States assistance to Vietnam, French Revolutionary Wars, American Revolutionary War, List of battles involving France]</td></tr><tr><td>Mixtral</td><td>[American Revolutionary War, France, United States, Military history, Diplomacy, Military alliance]</td></tr><tr><td>GPT4</td><td>[France in the American Revolutionary War, French Army, American Revolutionary War, Benjamin Franklin, Kingdom of France, Treaty of Alliance (1778), George Washington, John Adams, Treaty of Paris (1783), Continental Congress, Continental Army, Naval battles of the American Revolutionary War, Siege of Savannah, Capture of Fort Ticond]</td></tr><tr><td>Human</td><td>[American Revolution, France in the American Revolutionary War, Kingdom of Great Britain, United States, George Washington, Roderigue Hortalez and Company, British Empire, France, George Washington in the American Revolution, Gilbert du Motier, Marquis de Lafayette, Spain and the American Revolutionary War, American Revolutionary War, Diplomacy in the American Revolutionary War, Treaty of Paris (1783), Franco-American alliance, Naval battles of the American Revolutionary War, Treaty of Alliance (1778), Battles of Saratoga]</td></tr><tr><td></td><td>Q: Why are many commentators arguing NFTs are the next big investment category? WP: [why, are, many, commentators, arguing, n, ##ft, ##s, are, the, next, big, investment, category]</td></tr><tr><td>REL</td><td>[Sports commentator, National Film and Television School, Next plc, Toronto, Investment banking, Catego- rization]</td></tr><tr><td>BM25</td><td>[Kuznets swing, The Green Bubble, Why We Get Fat, Big mama, Types of nationalism, Not for Tourists, Mark Roeder, Ernie Awards, Dramatistic pentad, Pagan Theology, RJ Balaji, Leslie Hardcastle, Why didn't you invest in Eastern Poland?, Big Data Maturity Model, Celebrity Big Brother racism controversy, The Bottom Billion, National Film and Television School, Canopy Group, The Wallypug of Why]</td></tr><tr><td>LaQue</td><td>[List of bond market indices, National Futures Association, NB Global, Companies listed on the New York Stock Exchange (N), Companies listed on the New York Stock Exchange (G), Companies listed on the New York Stock Exchange (F), List of exchange-traded funds, Companies listed on the New York Stock Exchange (T), Emerging and growth-leading economies, List of private equity firms, List of wealthiest organizations, Pension investment in private equity, Group of Ten (economics), Companies listed on the New York Stock Exchange (P), List of stock market indices, Lists of corporate assets, Companies listed on the New York Stock Exchange (U), List of public corporations by market capitalization, Net capital outflow, National best bid and offer]</td></tr><tr><td>Mixtral</td><td>[Non-fungible token, Blockchain, Cryptocurrency, Digital art, Ethereum, Value proposition, Art market, CryptoKitties, Investment strategy]</td></tr><tr><td>GPT4</td><td>[Non-fungible token, Cryptocurrency, Bitcoin, Ethereum, Digital art, Blockchain, CryptoKitties, Digital asset, Cryptocurrency bubble, Cryptocurrency exchange, Initial coin offering, Cryptocurrency wallet, Smart contract, Decentralized application, Digital currency]</td></tr><tr><td>Human</td><td>[Cryptocurrency, Public key certificate, Blockchain, Virtual economy, Bitcoin, Speculation, Non-fungible token, Ethereum]</td></tr></table>{{< /table-caption >}}
-> 🔼 {{ table.description }}
+> 🔼 Table 1 presents the results of experiments comparing different LSR models with and without linked entities, showing the impact on retrieval effectiveness using various metrics.
 > <details>
 > <summary>read the caption</summary>
-> {{ table.caption }}
+> Table 1: Results with linked entities. All LSR models use a DistilBERT backbone. DyVo uses entities found by the REL entity linker and LaQue entity embeddings. All documents are truncated to the first 512 tokens.
 > </details>
-
-
-> Table 1 presents the results of experiments comparing different LSR models with and without linked entities, showing the impact on retrieval effectiveness using various metrics.
-
 
 </details>
 
@@ -134,21 +124,21 @@ This paper is crucial for researchers in information retrieval, especially those
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.07722/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

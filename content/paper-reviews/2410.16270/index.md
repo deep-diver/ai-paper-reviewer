@@ -2,11 +2,13 @@
 title: "Reflection-Bench: probing AI intelligence with reflection"
 summary: "Reflection-Bench, a new benchmark, reveals current LLMs lack true reflection abilities, highlighting a critical gap in achieving human-level AI."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-21", "🤗 24-10-28"]
+tags: ["🔖 24-10-21", ]
 showSummary: true
 date: 2024-10-21
 draft: false
 ---
+
+{{< keyword >}} 2410.16270 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for AI researchers as it introduces a novel benchmark, Ref
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.16270/figures_1_0.png)
 
 > 🔼 The figure illustrates the cyclical process of reflection, showing how an intelligent agent integrates perception, memory, belief updating, decision-making, prediction, and counterfactual thinking to adapt to the environment.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for AI researchers as it introduces a novel benchmark, Ref
 
 
 
-![](charts/charts_6_0.png)
+![](https://ai-paper-reviewer.com/2410.16270/charts_6_0.png)
 
 > 🔼 The chart displays the MMN-like waveforms of thirteen LLMs in response to deviant stimuli in an oddball paradigm, showing variations in their ability to detect unexpected information.
 > <details>
@@ -91,7 +93,7 @@ This paper is crucial for AI researchers as it introduces a novel benchmark, Ref
 </summary>
 
 
-![](charts/charts_6_1.png "🔼 Figure 4: Probabilistic reversal learning task. The black dashed line represents the true reward possibility of the bandit's left arm over trials, and other solid lines represent the average ratio of the left arm chosen.")
+![](https://ai-paper-reviewer.com/2410.16270/charts_6_1.png)
 
 > 🔼 The chart displays the learning curves of various LLMs in a probabilistic reversal learning task, showing how their choices of a specific option change over trials and adapt to a reversed reward probability.
 > <details>
@@ -100,7 +102,7 @@ This paper is crucial for AI researchers as it introduces a novel benchmark, Ref
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 5: Wisconsin card sorting test. Accuracy by 6 rule groups over 108 trials.")
+![](https://ai-paper-reviewer.com/2410.16270/charts_7_0.png)
 
 > 🔼 The chart visualizes the accuracy of 13 different LLMs across six rule groups within the Wisconsin Card Sorting Test, revealing performance variations among the models.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for AI researchers as it introduces a novel benchmark, Ref
 > </details>
 
 
-![](charts/charts_7_1.png "🔼 Figure 6: Weather prediction task. True and models' estimated transition matrices of the highest (o1-preview) and lowest scoring models (Qwen-2.5-32B).")
+![](https://ai-paper-reviewer.com/2410.16270/charts_7_1.png)
 
 > 🔼 The chart compares the true weather transition probabilities with those estimated by the top-performing and worst-performing LLMs in a weather prediction task, showcasing the difference in their ability to learn and predict probabilistic relationships.
 > <details>
@@ -118,7 +120,7 @@ This paper is crucial for AI researchers as it introduces a novel benchmark, Ref
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 7: Rewards of models in the meta-bandit task over 60 trials and 20 reversals.")
+![](https://ai-paper-reviewer.com/2410.16270/charts_8_0.png)
 
 > 🔼 The chart visualizes the performance of 13 different LLMs on a meta-bandit task, showing their choices over 60 trials with 20 reward reversals.
 > <details>
@@ -134,15 +136,15 @@ This paper is crucial for AI researchers as it introduces a novel benchmark, Ref
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16270/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

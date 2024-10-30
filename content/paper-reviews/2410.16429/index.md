@@ -2,11 +2,13 @@
 title: "Pantograph: A Machine-to-Machine Interaction Interface for Advanced Theorem Proving, High Level Reasoning, and Data Extraction in Lean 4"
 summary: "Pantograph: a new Lean 4 interface boosts machine-assisted theorem proving by enabling efficient proof search and high-level reasoning via novel features, including draft-sketch-proof (DSP) support."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-21", "🤗 24-10-25"]
+tags: ["🔖 24-10-21", ]
 showSummary: true
 date: 2024-10-21
 draft: false
 ---
+
+{{< keyword >}} 2410.16429 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is important because it introduces Pantograph, a novel tool that sign
 
 
 
-![](figures/figures_5_0.png)
+![](https://ai-paper-reviewer.com/2410.16429/figures_5_0.png)
 
 > 🔼 The figure shows a proof tree for the commutativity of OR, illustrating the tree structure that results from using tactics to prove theorems in Lean 4.
 > <details>
@@ -59,7 +61,7 @@ This paper is important because it introduces Pantograph, a novel tool that sign
 
 
 
-![](charts/charts_14_0.png)
+![](https://ai-paper-reviewer.com/2410.16429/charts_14_0.png)
 
 > 🔼 Figure 6 shows the distribution of the number of hammer tactic invocations and the distribution of runtimes of DSP on the validation and test sets of MiniF2F using the GPT-40 model.
 > <details>
@@ -89,7 +91,7 @@ This paper is important because it introduces Pantograph, a novel tool that sign
 </summary>
 
 
-![](figures/figures_7_0.png)
+![](https://ai-paper-reviewer.com/2410.16429/figures_7_0.png)
 
 > 🔼 The figure illustrates the system architecture of Pantograph, showing how a user (human or machine learning agent) interacts with the Lean 4 kernel through various interfaces.
 > <details>
@@ -99,7 +101,7 @@ This paper is important because it introduces Pantograph, a novel tool that sign
 
 
 
-![](figures/figures_7_1.png)
+![](https://ai-paper-reviewer.com/2410.16429/figures_7_1.png)
 
 > 🔼 The figure shows the call hierarchy of functions in Pantograph when executing a tactic in Lean 4, illustrating the monad hierarchy involved.
 > <details>
@@ -109,7 +111,7 @@ This paper is important because it introduces Pantograph, a novel tool that sign
 
 
 
-![](figures/figures_10_0.png)
+![](https://ai-paper-reviewer.com/2410.16429/figures_10_0.png)
 
 > 🔼 The figure illustrates how a goal becomes dormant in Pantograph's manual tree search mode and how to bring it back into scope.
 > <details>
@@ -119,7 +121,7 @@ This paper is important because it introduces Pantograph, a novel tool that sign
 
 
 
-![](figures/figures_11_0.png)
+![](https://ai-paper-reviewer.com/2410.16429/figures_11_0.png)
 
 > 🔼 The figure illustrates the workflow of metavariable coupling in Pantograph, showing how goals are coupled and resolved.
 > <details>
@@ -137,22 +139,22 @@ This paper is important because it introduces Pantograph, a novel tool that sign
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16429/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

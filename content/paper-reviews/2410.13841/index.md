@@ -2,11 +2,13 @@
 title: "A Unified View of Delta Parameter Editing in Post-Trained Large-Scale Models"
 summary: "Researchers reveal a unified framework for editing post-trained large language model parameters, improving efficiency and performance by mathematically analyzing the impact of different editing operat..."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-17", "🤗 24-10-18"]
+tags: ["🔖 24-10-17", ]
 showSummary: true
 date: 2024-10-17
 draft: false
 ---
+
+{{< keyword >}} 2410.13841 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 
 
 
-![](figures/figures_15_0.png)
+![](https://ai-paper-reviewer.com/2410.13841/figures_15_0.png)
 
 > 🔼 The figure shows the performance of LLaMA3-8B-Instruct on three datasets (GSM8K, TruthfulQA, and HumanEval) under different drop rates (p) and adjustment factors (k).
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 
 
 
-![](charts/charts_5_0.png)
+![](https://ai-paper-reviewer.com/2410.13841/charts_5_0.png)
 
 > 🔼 The chart displays the performance of LLaMA3-8B-Instruct on three datasets (GSM8K, TruthfulQA, and HumanEval) across different drop rates (p) and adjustment factors (k).
 > <details>
@@ -89,7 +91,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 </summary>
 
 
-![](figures/figures_15_1.png)
+![](https://ai-paper-reviewer.com/2410.13841/figures_15_1.png)
 
 > 🔼 The figure shows the performance of LLaMA3-8B-Instruct on three datasets (GSM8K, TruthfulQA, and HumanEval) under different drop rates (p) and adjustment factors (k).
 > <details>
@@ -99,7 +101,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 
 
 
-![](figures/figures_16_0.png)
+![](https://ai-paper-reviewer.com/2410.13841/figures_16_0.png)
 
 > 🔼 The figure shows the performance of LLaMA3-8B-Instruct model on three benchmark datasets (GSM8K, TruthfulQA, and HumanEval) with varying drop rate (p) and scaling factor (k).
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 
 
 
-![](figures/figures_16_1.png)
+![](https://ai-paper-reviewer.com/2410.13841/figures_16_1.png)
 
 > 🔼 The figure shows the performance of the ViT-B-32 model on three datasets (DTD, EuroSAT, and GTSRB) while varying the drop rate (p) and the rescaling factor (k) in the DARE algorithm.
 > <details>
@@ -119,7 +121,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 
 
 
-![](figures/figures_16_2.png)
+![](https://ai-paper-reviewer.com/2410.13841/figures_16_2.png)
 
 > 🔼 The figure shows the performance of the extended BitDelta model on eight benchmarks across different scaling factors of the average magnitude of delta parameters.
 > <details>
@@ -138,7 +140,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 </summary>
 
 
-![](charts/charts_6_0.png "🔼 Figure 2: The performance of ViT-B-32 on the DTD, EuroSAT, and GTSRB datasets under varying p and k.")
+![](https://ai-paper-reviewer.com/2410.13841/charts_6_0.png)
 
 > 🔼 The chart displays the performance of ViT-B-32 on three datasets (DTD, EuroSAT, and GTSRB) across different drop rates (p) and adjustment factors (k) for delta parameter editing.
 > <details>
@@ -147,7 +149,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 3: Validation of our theoretical derivation of DARE, BitDelta, Twin-Merge(sparsity rate=0.9), and Ties-Merge.")
+![](https://ai-paper-reviewer.com/2410.13841/charts_7_0.png)
 
 > 🔼 The box plot visualizes the performance comparison of DARE, BitDelta, Twin-Merging, and TIES-Merging across different drop rates.
 > <details>
@@ -156,7 +158,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 4: Effectiveness of increasing the number of bits in BitDelta. The left subplot shows the performance of LLaMA3-8B-Instruct and Mistral-7B-Instruct-v0.3 on the GSM8K dataset as the number of bits increases. The right subplot shows the performance on the TruthfulQA dataset. In each subplot, we use the dashed line to represent the performance of the original post-trained model.")
+![](https://ai-paper-reviewer.com/2410.13841/charts_9_0.png)
 
 > 🔼 The chart displays the effectiveness of increasing the number of bits in the BitDelta model on the GSM8K and TruthfulQA datasets, comparing performance against the original post-trained model.
 > <details>
@@ -165,7 +167,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 > </details>
 
 
-![](charts/charts_9_1.png "🔼 Figure 12: Validation of the extension of BitDelta on LLaMA3-8B-Instruct.")
+![](https://ai-paper-reviewer.com/2410.13841/charts_9_1.png)
 
 > 🔼 The chart displays the performance of the extended BitDelta model on three different datasets (GSM8K, TruthfulQA, and HumanEval) as the multiple of the original average magnitude changes.
 > <details>
@@ -174,7 +176,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 > </details>
 
 
-![](charts/charts_10_0.png "🔼 Figure 3: Validation of our theoretical derivation of DARE, BitDelta, Twin-Merge(sparsity rate=0.9), and Ties-Merge.")
+![](https://ai-paper-reviewer.com/2410.13841/charts_10_0.png)
 
 > 🔼 The box plot shows the comparison of the approximation term calculated by DARE, BitDelta, Twin-Merging, and TIES-Merging on the GSM8K dataset.
 > <details>
@@ -183,7 +185,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 > </details>
 
 
-![](charts/charts_10_1.png "🔼 Figure 7: Comparison of Extrapolation and Interpolation Performance.")
+![](https://ai-paper-reviewer.com/2410.13841/charts_10_1.png)
 
 > 🔼 The chart compares the performance difference between interpolation and extrapolation methods on various datasets for LLaMA3-8B-Instruct, showing that interpolation generally outperforms extrapolation except for the IFEval dataset.
 > <details>
@@ -192,7 +194,7 @@ This paper is crucial for researchers working on large language models (LLMs) an
 > </details>
 
 
-![](charts/charts_17_0.png "🔼 Figure 13: Comparison of Extrapolation and Interpolation Performance.")
+![](https://ai-paper-reviewer.com/2410.13841/charts_17_0.png)
 
 > 🔼 The chart compares the performance gap between interpolation and extrapolation methods on various tasks for two different models.
 > <details>
@@ -208,21 +210,21 @@ This paper is crucial for researchers working on large language models (LLMs) an
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.13841/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

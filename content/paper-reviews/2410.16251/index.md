@@ -2,11 +2,13 @@
 title: "Can Knowledge Editing Really Correct Hallucinations?"
 summary: "HalluEditBench: A new benchmark reveals knowledge editing's limitations in truly fixing LLM hallucinations, offering valuable insights for future improvements."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-21", "🤗 24-10-25"]
+tags: ["🔖 24-10-21", ]
 showSummary: true
 date: 2024-10-21
 draft: false
 ---
+
+{{< keyword >}} 2410.16251 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 
 
 
-![](figures/figures_2_0.png)
+![](https://ai-paper-reviewer.com/2410.16251/figures_2_0.png)
 
 > 🔼 The figure illustrates the framework of HalluEditBench, showcasing how it holistically evaluates knowledge editing methods in correcting real-world hallucinations across five dimensions.
 > <details>
@@ -59,7 +61,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 
 
 
-![](charts/charts_5_0.png)
+![](https://ai-paper-reviewer.com/2410.16251/charts_5_0.png)
 
 > 🔼 The chart displays the efficacy scores of different knowledge editing methods across nine domains and three LLMs, showing the effectiveness of each method in correcting real-world hallucinations.
 > <details>
@@ -91,7 +93,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 </summary>
 
 
-![](charts/charts_6_0.png "🔼 Figure 4: Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are measured by accuracy on five types of Generalization Evaluation Questions including Rephrased Questions ('rephrase'), Yes-or-No Questions with Yes or No as answers ('yes' or 'no'), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to averaged scores over five question types. The figure only shows the overall Generalization Scores for each type on the whole HalluEditBench. Generalization Scores for each domain are given in Appendix D.1.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_6_0.png)
 
 > 🔼 The chart displays the generalization scores of various knowledge editing methods across different question types for three LLMs.
 > <details>
@@ -100,7 +102,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_7_0.png "🔼 Figure 13: Portability Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions when with N hops. The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The domains include “business”, “entertainment”, and “event”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_7_0.png)
 
 > 🔼 The chart displays the portability scores of different knowledge editing methods across three LLMs (Llama2-7B, Llama3-8B, Mistral-v0.3-7B) and three domains (business, entertainment, event) for varying hop distances in multi-hop questions.
 > <details>
@@ -109,7 +111,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_8_0.png "🔼 Figure 3: Efficacy Scores of Knowledge Editing Methods. The 'overall' refers to the Efficacy Score (%) on the whole HalluEditBench embracing 9 domains for different methods. The Efficacy Score on each domain is also reported. Efficacy scores (%) are measured by the accuracy on Efficacy Evaluation Question-answer Pairs, where the pre-edit scores of each LLM are ensured 0.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_8_0.png)
 
 > 🔼 The chart displays the efficacy scores of seven knowledge editing methods across nine domains and three large language models (LLMs), showing their effectiveness in correcting hallucinations.
 > <details>
@@ -118,7 +120,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_9_0.png "🔼 Figure 17: Robustness Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The domains include 'geography', 'health', and 'technology'.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_9_0.png)
 
 > 🔼 The chart displays the robustness scores of different knowledge editing methods across three LLMs (Llama2-7B, Llama3-8B, Mistral-v0.3-7B) and three domains (geography, health, technology) over ten turns of Robustness Evaluation Questions.
 > <details>
@@ -127,7 +129,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_22_0.png "🔼 Figure 4: Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are measured by accuracy on five types of Generalization Evaluation Questions including Rephrased Questions ('rephrase'), Yes-or-No Questions with Yes or No as answers ('yes' or 'no'), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to averaged scores over five question types. The figure only shows the overall Generalization Scores for each type on the whole HalluEditBench. Generalization Scores for each domain are given in Appendix D.1.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_22_0.png)
 
 > 🔼 The chart displays the generalization scores of various knowledge editing methods across five question types for three different LLMs.
 > <details>
@@ -136,7 +138,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_23_0.png "🔼 Figure 4: Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are measured by accuracy on five types of Generalization Evaluation Questions including Rephrased Questions ('rephrase'), Yes-or-No Questions with Yes or No as answers ('yes' or 'no'), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to averaged scores over five question types. The figure only shows the overall Generalization Scores for each type on the whole HalluEditBench. Generalization Scores for each domain are given in Appendix D.1.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_23_0.png)
 
 > 🔼 The chart displays the generalization scores of different knowledge editing methods across five question types for Llama2-7B, Llama3-8B, and Mistral-v0.3-7B LLMs.
 > <details>
@@ -145,7 +147,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_23_1.png "🔼 Figure 4: Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are measured by accuracy on five types of Generalization Evaluation Questions including Rephrased Questions ('rephrase'), Yes-or-No Questions with Yes or No as answers ('yes' or 'no'), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to averaged scores over five question types. The figure only shows the overall Generalization Scores for each type on the whole HalluEditBench. Generalization Scores for each domain are given in Appendix D.1.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_23_1.png)
 
 > 🔼 The chart displays the generalization scores of various knowledge editing methods across five question types for three different LLMs.
 > <details>
@@ -154,7 +156,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_23_2.png "🔼 Figure 10: Generalization Scores of Knowledge Editing Methods on 3 LLMs and 2 Domains. Generalization Scores (%) are measured by the accuracy on five types of Generalization Evaluation Question-answer Pairs including Rephrased Questions (“rephrase”), two types of Yes-or-No Questions with Yes or No as answers (“yes” or “no”), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to the averaged scores over five types of questions. The domains include “entertainment” and “event”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_23_2.png)
 
 > 🔼 The chart displays the Generalization scores of different knowledge editing methods across three LLMs (Llama2-7B, Llama3-8B, Mistral-v0.3-7B) for two domains (entertainment and event).
 > <details>
@@ -163,7 +165,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_23_3.png "🔼 Figure 4: Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are measured by accuracy on five types of Generalization Evaluation Questions including Rephrased Questions ('rephrase'), Yes-or-No Questions with Yes or No as answers ('yes' or 'no'), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to averaged scores over five question types. The figure only shows the overall Generalization Scores for each type on the whole HalluEditBench. Generalization Scores for each domain are given in Appendix D.1.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_23_3.png)
 
 > 🔼 The chart displays the generalization scores of various knowledge editing methods across five different question types for three large language models.
 > <details>
@@ -172,7 +174,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_23_4.png "🔼 Figure 17: Robustness Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The domains include “geography”, “health”, and “technology”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_23_4.png)
 
 > 🔼 The chart displays the robustness scores of different knowledge editing methods across three large language models (LLMs) and three domains, showing the consistency of edited factual knowledge against external manipulations.
 > <details>
@@ -181,7 +183,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_24_0.png "🔼 Figure 4: Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are measured by accuracy on five types of Generalization Evaluation Questions including Rephrased Questions ('rephrase'), Yes-or-No Questions with Yes or No as answers ('yes' or 'no'), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to averaged scores over five question types. The figure only shows the overall Generalization Scores for each type on the whole HalluEditBench. Generalization Scores for each domain are given in Appendix D.1.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_24_0.png)
 
 > 🔼 The chart displays the Generalization scores for various knowledge editing methods across three different LLMs, broken down by five question types.
 > <details>
@@ -190,7 +192,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_25_0.png "🔼 Figure 12: Generalization Scores of Knowledge Editing Methods on 3 LLMs and 2 Domains. Generalization Scores (%) are measured by the accuracy on five types of Generalization Evaluation Question-answer Pairs including Rephrased Questions (“rephrase”), two types of Yes-or-No Questions with Yes or No as answers (“yes” or “no”), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to the averaged scores over five types of questions. The domain is “technology”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_25_0.png)
 
 > 🔼 The chart displays the Generalization scores for different knowledge editing methods across three LLMs (Llama2-7B, Llama3-8B, Mistral-v0.3-7B) and two domains (geography and health).
 > <details>
@@ -199,7 +201,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_26_0.png "🔼 Figure 12: Generalization Scores of Knowledge Editing Methods on 3 LLMs and 2 Domains. Generalization Scores (%) are measured by the accuracy on five types of Generalization Evaluation Question-answer Pairs including Rephrased Questions (“rephrase”), two types of Yes-or-No Questions with Yes or No as answers (“yes” or “no”), Multi-Choice Questions (“mc”), Reversed Questions (“reversed”). The “average” refers to the averaged scores over five types of questions. The domain is “technology”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_26_0.png)
 
 > 🔼 The chart displays Generalization Scores of different knowledge editing methods across three LLMs (Llama2-7B, Llama3-8B, Mistral-v0.3-7B) for the 'technology' domain, categorized by five question types.
 > <details>
@@ -208,7 +210,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_27_0.png "🔼 Figure 13: Portability Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions when with N hops. The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The domains include “business”, “entertainment”, and “event”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_27_0.png)
 
 > 🔼 The chart displays the portability scores of different knowledge editing methods across three LLMs (Llama2-7B, Llama3-8B, Mistral-v0.3-7B) and three domains (business, entertainment, event) for varying hop distances in multi-hop question answering.
 > <details>
@@ -217,7 +219,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_28_0.png "🔼 Figure 13: Portability Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions when with N hops. The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The domains include “business”, “entertainment")
+![](https://ai-paper-reviewer.com/2410.16251/charts_28_0.png)
 
 > 🔼 The chart displays the portability scores of different knowledge editing methods across three LLMs (Llama2-7B, Llama3-8B, and Mistral-v0.3-7B) and three domains (business, entertainment, and event), showing the accuracy of answering multi-hop questions after knowledge editing.
 > <details>
@@ -226,7 +228,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_29_0.png "🔼 Figure 5: Portability Scores of Knowledge Editing Methods. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions with N hops (N = 1 ~ 6). The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The results for more domains are given in Appendix D.2. The “overall” refers to the Portability Score (%) on the whole HalluEditBench embracing 9 domains.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_29_0.png)
 
 > 🔼 The chart displays the portability scores of various knowledge editing methods across different hop distances for three LLMs and selected domains, showing their ability to reason using edited knowledge.
 > <details>
@@ -235,7 +237,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_29_1.png "🔼 Figure 5: Portability Scores of Knowledge Editing Methods. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions with N hops (N = 1 ~ 6). The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The results for more domains are given in Appendix D.2. The “overall” refers to the Portability Score (%) on the whole HalluEditBench embracing 9 domains.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_29_1.png)
 
 > 🔼 The chart displays the portability scores of different knowledge editing methods across various hop distances on Llama3-8B in the art domain, showing the ability of LLMs to reason about edited knowledge in downstream tasks.
 > <details>
@@ -244,7 +246,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_29_2.png "🔼 Figure 15: Portability Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions when with N hops. The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The domain is “art”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_29_2.png)
 
 > 🔼 The chart displays the Portability Scores of different knowledge editing methods across various hop distances for the Mistral-v0.3-7B LLM on the ‘art’ domain.
 > <details>
@@ -253,7 +255,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_30_0.png "🔼 Figure 17: Robustness Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The domains include 'geography', 'health', and 'technology'.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_30_0.png)
 
 > 🔼 The chart displays the robustness scores of seven knowledge editing methods across three different LLMs and three domains, showing the consistency of the edited knowledge over multiple turns.
 > <details>
@@ -262,7 +264,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_31_0.png "🔼 Figure 17: Robustness Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The domains include 'geography', 'health', and 'technology'.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_31_0.png)
 
 > 🔼 The chart displays the robustness scores of seven knowledge editing methods across three large language models and three domains, showing how well the methods withstand external manipulations.
 > <details>
@@ -271,7 +273,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_32_0.png "🔼 Figure 17: Robustness Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The domains include 'geography', 'health', and 'technology'.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_32_0.png)
 
 > 🔼 The chart displays the robustness scores of various knowledge editing methods across three large language models (LLMs) and three domains, showing the accuracy of the methods' responses over multiple rounds of robustness evaluation questions.
 > <details>
@@ -280,7 +282,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_32_1.png "🔼 Figure 17: Robustness Scores of Knowledge Editing Methods on 3 LLMs and 3 Domains. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The domains include “geography”, “health”, and “technology”.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_32_1.png)
 
 > 🔼 The chart displays the robustness scores of different knowledge editing methods across three large language models (LLMs) and three domains over ten turns, showing the resistance of edited knowledge to external manipulations.
 > <details>
@@ -289,7 +291,7 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 > </details>
 
 
-![](charts/charts_32_2.png "🔼 Figure 7: Robustness Scores of Knowledge Editing Methods. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The Robustness Scores on two domains “human” and “places” are reported in the figure. The results for more domains are given in Appendix D.3. The “overall” refers to the Robustness Score (%) on the whole HalluEditBench embracing 9 domains.")
+![](https://ai-paper-reviewer.com/2410.16251/charts_32_2.png)
 
 > 🔼 The chart displays the robustness scores of different knowledge editing methods across various turns on two domains and overall, showing the consistency of their performance against external manipulations.
 > <details>
@@ -305,39 +307,39 @@ This paper is crucial for researchers working on LLMs and knowledge editing. It 
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/35.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/21.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/22.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/23.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/24.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/25.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/26.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/27.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/28.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/29.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/30.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/31.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/32.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/33.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/34.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.16251/35.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}

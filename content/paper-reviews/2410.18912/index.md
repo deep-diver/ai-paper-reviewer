@@ -2,11 +2,13 @@
 title: "Dynamic 3D Gaussian Tracking for Graph-Based Neural Dynamics Modeling"
 summary: "This work introduces a new framework that learns object dynamics directly from multi-view videos by explicitly considering robot actions, achieving accurate 3D action-conditioned video prediction and ..."
 categories: ["AI Generated"]
-tags: ["🔖 24-10-24", "🤗 24-10-28"]
+tags: ["🔖 24-10-24", ]
 showSummary: true
 date: 2024-10-24
 draft: false
 ---
+
+{{< keyword >}} 2410.18912 {{< /keyword >}}
 
 ### TL;DR
 
@@ -47,7 +49,7 @@ This paper is highly important for researchers in robotics, computer vision, and
 
 
 
-![](figures/figures_1_0.png)
+![](https://ai-paper-reviewer.com/2410.18912/figures_1_0.png)
 
 > 🔼 The figure illustrates the overall framework of the proposed approach, which involves real-world data collection, dynamic 3D Gaussian tracking, graph-based neural dynamics learning, video prediction, and model-based planning.
 > <details>
@@ -59,7 +61,7 @@ This paper is highly important for researchers in robotics, computer vision, and
 
 
 
-![](charts/charts_8_0.png)
+![](https://ai-paper-reviewer.com/2410.18912/charts_8_0.png)
 
 > 🔼 Figure 5 shows the quantitative results of model-based planning for rope straightening and toy doll relocating tasks, illustrating median error and success rate across various planning steps and error thresholds.
 > <details>
@@ -89,7 +91,7 @@ This paper is highly important for researchers in robotics, computer vision, and
 </summary>
 
 
-![](figures/figures_3_0.png)
+![](https://ai-paper-reviewer.com/2410.18912/figures_3_0.png)
 
 > 🔼 The figure illustrates the proposed framework, starting from multi-view videos to dense 3D tracking with Dyn3DGS optimization, then to learning object dynamics via a graph-based neural network, and finally enabling action-conditioned video prediction and model-based planning.
 > <details>
@@ -99,7 +101,7 @@ This paper is highly important for researchers in robotics, computer vision, and
 
 
 
-![](figures/figures_6_0.png)
+![](https://ai-paper-reviewer.com/2410.18912/figures_6_0.png)
 
 > 🔼 Figure 3 shows qualitative results of 3D Gaussian tracking demonstrating point-level correspondence on cloth, rope, and toy doll objects across various time steps.
 > <details>
@@ -109,7 +111,7 @@ This paper is highly important for researchers in robotics, computer vision, and
 
 
 
-![](figures/figures_7_0.png)
+![](https://ai-paper-reviewer.com/2410.18912/figures_7_0.png)
 
 > 🔼 Figure 4 shows a comparison of action-conditioned 3D video prediction results between the proposed method and the MPM baseline, demonstrating the superior accuracy of the proposed method in aligning with ground truth frames.
 > <details>
@@ -127,16 +129,16 @@ This paper is highly important for researchers in robotics, computer vision, and
 ### Full paper
 
 {{< gallery >}}
-<img src="paper_images/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
-<img src="paper_images/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2410.18912/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
 {{< /gallery >}}
