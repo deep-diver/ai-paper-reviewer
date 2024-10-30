@@ -17,7 +17,7 @@ on:
         type: string
         
 jobs:
-  update-pages:
+  collect-articles:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository A
@@ -59,7 +59,8 @@ jobs:
           R2_DOMAIN_NAME=${{ secrets.R2_DOMAIN_NAME }} \
           ./convert-hf-linux.sh \
             ${{ github.event.inputs.start_date }} \
-            ${{ github.event.inputs.end_date }}
+            ${{ github.event.inputs.end_date }} \
+            true
           
       - name: Move Articles to Repository A
         run: |
