@@ -1,1 +1,0 @@
-[{"figure_path": "2410.10672/figures/figures_3_0.png", "caption": "Figure 1: CEREBRAS-GPT: Time comparison", "description": "The figure compares the computation time of Matrix Entropy and Matrix Nuclear-Norm for various sizes of the CEREBRAS-GPT model, showing that Matrix Nuclear-Norm is significantly faster.", "section": "5.2.1 A Comparative Analysis of Computational Time"}]
