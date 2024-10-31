@@ -1,0 +1,21 @@
+.max-w-7xl {
+    max-width: 100rem;
+}
+
+@media (min-width: 1024px) {
+    .lg\:ml-auto {
+        margin-left: 10em;
+    }
+}
+
+.max-w-\[64rem\] {
+    max-width: 83rem;
+}
+
+.max-w-prose {
+    max-width: 100%;
+}
+
+.utterances {
+    max-width: 83rem;
+}
