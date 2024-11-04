@@ -21,10 +21,13 @@ draft: false
 {{< button href="https://arxiv.org/abs/2410.21157" target="_self" >}}
 ↗ arXiv
 {{< /button >}}
-&nbsp; 
 {{< button href="https://huggingface.co/papers/2410.21157" target="_self" >}}
 ↗ Hugging Face
 {{< /button >}}
+{{< button href="https://paperswithcode.com/paper/m2rc-eval-massively-multilingual-repository" target="_self" >}}
+↗ Papers with Code
+{{< /button >}}
+
 
 ### TL;DR
 

@@ -21,10 +21,10 @@ draft: false
 {{< button href="https://arxiv.org/abs/2411.00369" target="_self" >}}
 ↗ arXiv
 {{< /button >}}
-&nbsp; 
 {{< button href="https://huggingface.co/papers/2411.00369" target="_self" >}}
 ↗ Hugging Face
 {{< /button >}}
+
 
 ### TL;DR
 

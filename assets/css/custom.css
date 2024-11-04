@@ -8,6 +8,19 @@
     }
 }
 
+a.px-4.py-2 {
+    margin-right: 0.5em;
+}
+
+@media (max-width: 600px) {
+    a.px-4.py-2 {
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0.5em;
+    }
+}
+
 .max-w-\[64rem\] {
     max-width: 83rem;
 }

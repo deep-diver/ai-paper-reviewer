@@ -21,10 +21,13 @@ draft: false
 {{< button href="https://arxiv.org/abs/2411.00233" target="_self" >}}
 ↗ arXiv
 {{< /button >}}
-&nbsp; 
 {{< button href="https://huggingface.co/papers/2411.00233" target="_self" >}}
 ↗ Hugging Face
 {{< /button >}}
+{{< button href="https://paperswithcode.com/paper/sambamixer-state-of-health-prediction-of-li" target="_self" >}}
+↗ Papers with Code
+{{< /button >}}
+
 
 ### TL;DR
 
