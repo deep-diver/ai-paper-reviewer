@@ -1,20 +1,20 @@
 name: collect new articles
 
 on: 
-  # schedule:
-  #   - cron: "0 */12 * * *"
-  workflow_dispatch:
-    inputs:
-      start_date:
-        required: true
-        type: string
-      end_date:
-        required: true
-        type: string
-      num_threads:
-        required: true
-        default: "4"
-        type: string
+  schedule:
+    - cron: "0 */12 * * *"
+  # workflow_dispatch:
+  #   inputs:
+  #     start_date:
+  #       required: true
+  #       type: string
+  #     end_date:
+  #       required: true
+  #       type: string
+  #     num_threads:
+  #       required: true
+  #       default: "4"
+  #       type: string
         
 jobs:
   collect-articles:
@@ -38,7 +38,7 @@ jobs:
 
       - name: Setup dependencies and run the script
         run: |
-          # cur_date=$(date '+%Y-%m-%d')
+          cur_date=$(date '+%Y-%m-%d')
           cd paper-reviewer
           
           pip install -r requirements.txt
@@ -50,12 +50,12 @@ jobs:
           GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} \
           UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} \
           ./collect-hf-linux.sh \
-            # $cur_date \
-            # $cur_date \
-            # 8 \
-            ${{ github.event.inputs.start_date }} \
-            ${{ github.event.inputs.end_date }} \
-            ${{ github.event.inputs.num_threads }} \
+            $cur_date \
+            $cur_date \
+            8 \
+            # ${{ github.event.inputs.start_date }} \
+            # ${{ github.event.inputs.end_date }} \
+            # ${{ github.event.inputs.num_threads }} \
             ../content/paper-reviews/
 
           R2_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }} \
@@ -63,10 +63,10 @@ jobs:
           R2_S3_ENDPOINT_URL=${{ secrets.R2_S3_ENDPOINT_URL }} \
           R2_DOMAIN_NAME=${{ secrets.R2_DOMAIN_NAME }} \
           ./convert-hf-linux.sh \
-            # $cur_date \
-            # $cur_date \
-            ${{ github.event.inputs.start_date }} \
-            ${{ github.event.inputs.end_date }} \
+            $cur_date \
+            $cur_date \
+            # ${{ github.event.inputs.start_date }} \
+            # ${{ github.event.inputs.end_date }} \
             true
           
       - name: Move Articles to Repository A
