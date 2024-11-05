@@ -46,6 +46,9 @@ jobs:
           
           sudo chmod 777 ./collect-hf-linux.sh
           sudo chmod 777 ./convert-hf-linux.sh
+
+          echo $cur_date
+          echo "running collect-hf-linux.sh script....."
           
           GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} \
           UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} \
@@ -53,10 +56,9 @@ jobs:
             $cur_date \
             $cur_date \
             8 \
-            # ${{ github.event.inputs.start_date }} \
-            # ${{ github.event.inputs.end_date }} \
-            # ${{ github.event.inputs.num_threads }} \
-            ../content/paper-reviews/
+            ../content/paper-reviews
+
+          echo "running convert-hf-linux.sh script....."
 
           R2_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }} \
           R2_SECRET_ACCESS_KEY=${{ secrets.R2_SECRET_ACCESS_KEY }} \
@@ -65,13 +67,11 @@ jobs:
           ./convert-hf-linux.sh \
             $cur_date \
             $cur_date \
-            # ${{ github.event.inputs.start_date }} \
-            # ${{ github.event.inputs.end_date }} \
             true
           
       - name: Move Articles to Repository A
         run: |
-          mv paper-reviewer/articles/* ./content/paper-reviews/ # Assuming articles are generated in the 'public' directory of repository B and need to be moved to the root of repository A
+          mv paper-reviewer/articles/* ./content/paper-reviews/ 
           rm -rf paper-reviewer
 
       - name: Commit and Push Changes
