@@ -37,3 +37,6 @@ a.px-4.py-2 {
     margin-bottom: 0.5rem;
 }
 
+audio {
+    width: 100%;
+}
