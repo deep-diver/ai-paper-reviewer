@@ -36,6 +36,12 @@ jobs:
         with:
           python-version: '3.11'
 
+      - id: auth
+        name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_API_KEY }}
+
       - name: Setup dependencies and run the script
         run: |
           cur_date=$(date '+%Y-%m-%d')
@@ -52,6 +58,7 @@ jobs:
           
           GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} \
           UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} \
+          GCP_API_KEY=${{ steps.auth.outputs.access_token }} \
           ./collect-hf-linux.sh \
             $cur_date \
             $cur_date \
