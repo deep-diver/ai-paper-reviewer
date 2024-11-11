@@ -17,7 +17,7 @@ enableEmoji = true
 
 timeout = 600000
 
-googleAnalytics = "G-LJZEMZY2MS"
+googleAnalytics = "G-KX0S6Q55Y7"
 
 [taxonomies]
   tag = "tags"
