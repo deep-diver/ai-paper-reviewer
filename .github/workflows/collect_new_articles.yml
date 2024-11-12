@@ -46,6 +46,12 @@ jobs:
         run: |
           gcloud projects describe gcp-ml-172005
 
+      - name: Set up GCP credentials
+        run: echo "${{ secrets.GCP_API_KEY }}" > "$HOME"/gcloud-key.json
+      
+      - name: Authenticate
+        run: gcloud auth activate-service-account --key-file="$HOME/gcloud-key.json"
+
       - name: Setup dependencies and run the script
         run: |
           cur_date=$(date '+%Y-%m-%d')
@@ -60,10 +66,12 @@ jobs:
 
           echo $cur_date
           echo "running collect-hf-linux.sh script....."
+
+          export GCP_API_KEY=$(gcloud auth print-access-token)
+          # GCP_API_KEY=${{ steps.auth.outputs.access_token }} \  
           
           GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} \
           UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} \
-          GCP_API_KEY=${{ steps.auth.outputs.access_token }} \
           ./collect-hf-linux.sh \
             $cur_date \
             $cur_date \
