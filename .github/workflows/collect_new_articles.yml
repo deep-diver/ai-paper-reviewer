@@ -42,16 +42,6 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_API_KEY }}
 
-      - name: Verify GCP Authentication
-        run: |
-          gcloud projects describe gcp-ml-172005
-
-      - name: Set up GCP credentials
-        run: echo "${{ secrets.GCP_API_KEY }}" > "$HOME"/gcloud-key.json
-      
-      - name: Authenticate
-        run: gcloud auth activate-service-account --key-file="$HOME/gcloud-key.json"
-
       - name: Setup dependencies and run the script
         run: |
           cur_date=$(date '+%Y-%m-%d')
