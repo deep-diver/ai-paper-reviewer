@@ -42,6 +42,10 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_API_KEY }}
 
+      - name: Verify GCP Authentication
+        run: |
+          gcloud projects describe gcp-ml-172005
+
       - name: Setup dependencies and run the script
         run: |
           cur_date=$(date '+%Y-%m-%d')
