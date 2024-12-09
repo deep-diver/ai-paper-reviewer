@@ -86,13 +86,13 @@ mainSections = ["paper-reviews"]
   showTermCount = true
 
 [firebase]
-  # apiKey = "XXXXXX"
-  # authDomain = "XXXXXX"
-  # projectId = "XXXXXX"
-  # storageBucket = "XXXXXX"
-  # messagingSenderId = "XXXXXX"
-  # appId = "XXXXXX"
-  # measurementId = "XXXXXX"
+  apiKey = "AIzaSyCv6pUES05bxrampKbfhhmW3y-1pmX3XgE"
+  authDomain = "neurips2024-f3065.firebaseapp.com"
+  projectId = "neurips2024-f3065"
+  storageBucket = "neurips2024-f3065.firebasestorage.app"
+  messagingSenderId = "982475958898"
+  appId = "1:982475958898:web:2147e5d7753d6ac091f0eb"
+  measurementId = "G-YQ46HXQ9JS"
 
 [fathomAnalytics]
   # site = "ABC12345"
