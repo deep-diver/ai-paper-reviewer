@@ -38,8 +38,8 @@ mainSections = ["paper-reviews"]
 
 [article]
   showDate = true
-  #showViews = true
-  #showLikes = true
+  showViews = true
+  showLikes = true
   showDateUpdated = false
   showAuthor = true
   showHero = true
