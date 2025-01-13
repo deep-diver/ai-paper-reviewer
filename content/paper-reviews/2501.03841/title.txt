@@ -1,0 +1,1 @@
+OmniManip: Towards General Robotic Manipulation via Object-Centric Interaction Primitives as Spatial Constraints
