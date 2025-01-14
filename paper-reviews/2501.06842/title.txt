@@ -1,0 +1,1 @@
+SPAM: Spike-Aware Adam with Momentum Reset for Stable LLM Training
