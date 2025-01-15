@@ -1,0 +1,1 @@
+Diffusion Adversarial Post-Training for One-Step Video Generation

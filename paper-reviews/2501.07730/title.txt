@@ -1,0 +1,1 @@
+Democratizing Text-to-Image Masked Generative Models with Compact Text-Aware One-Dimensional Tokens
