@@ -1,0 +1,1 @@
+FramePainter: Endowing Interactive Image Editing with Video Diffusion Priors

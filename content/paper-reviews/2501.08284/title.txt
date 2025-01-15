@@ -1,0 +1,1 @@
+AfriHate: A Multilingual Collection of Hate Speech and Abusive Language Datasets for African Languages

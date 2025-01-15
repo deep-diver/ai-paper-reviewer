@@ -1,0 +1,1 @@
+Tarsier2: Advancing Large Vision-Language Models from Detailed Video Description to Comprehensive Video Understanding
