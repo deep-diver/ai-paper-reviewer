@@ -42,9 +42,13 @@ jobs:
         with:
           credentials_json: ${{ secrets.GCP_API_KEY }}
 
+      - name: Get Current Date
+        id: get-date
+        run: |
+          echo "cur_date=$(date '+%Y-%m-%d')" >> $GITHUB_OUTPUT
+
       - name: Setup dependencies and run the script
         run: |
-          cur_date=$(date '+%Y-%m-%d')
           cd paper-reviewer
           
           pip install -r requirements.txt
@@ -54,7 +58,7 @@ jobs:
           sudo chmod 777 ./collect-hf-linux.sh
           sudo chmod 777 ./convert-hf-linux.sh
 
-          echo $cur_date
+          echo ${{ steps.get-date.outputs.cur_date }}
           echo "running collect-hf-linux.sh script....."
 
           export GCP_API_KEY=$(gcloud auth print-access-token)
@@ -63,8 +67,8 @@ jobs:
           GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }} \
           UPSTAGE_API_KEY=${{ secrets.UPSTAGE_API_KEY }} \
           ./collect-hf-linux.sh \
-            $cur_date \
-            $cur_date \
+            ${{ steps.get-date.outputs.cur_date }} \
+            ${{ steps.get-date.outputs.cur_date }} \
             8 \
             ../content/paper-reviews
 
@@ -75,15 +79,28 @@ jobs:
           R2_S3_ENDPOINT_URL=${{ secrets.R2_S3_ENDPOINT_URL }} \
           R2_DOMAIN_NAME=${{ secrets.R2_DOMAIN_NAME }} \
           ./convert-hf-linux.sh \
-            $cur_date \
-            $cur_date \
+            ${{ steps.get-date.outputs.cur_date }} \
+            ${{ steps.get-date.outputs.cur_date }} \
             true
           
       - name: Move Articles to Repository A
+        id: move-articles  # Add an ID to this step
         run: |
-          mv paper-reviewer/articles/* ./content/paper-reviews/ 
-          rm -rf paper-reviewer
-          rm gha-creds*.json
+          if [ -d "paper-reviewer/articles" ] && [ "$(ls -A paper-reviewer/articles)" ]; then
+            mkdir -p ./content/${{ steps.get-date.outputs.cur_date }}
+            mv paper-reviewer/articles/* ./content/${{ steps.get-date.outputs.cur_date }}/
+            rm -rf paper-reviewer
+            rm gha-creds*.json
+            echo "articles_moved=true" >> $GITHUB_OUTPUT # Set an output variable if successful
+          else
+            echo "articles_moved=false" >> $GITHUB_OUTPUT # Set an output variable if failed
+          fi
+
+      - name: Manage Directories
+        if: steps.move-articles.outputs.articles_moved == 'true'  # Conditional execution
+        run: |
+          ./manage_dir.sh
+          python manage_menus.py --cur-date ${{ steps.get-date.outputs.cur_date }}
 
       - name: Commit and Push Changes
         run: |
