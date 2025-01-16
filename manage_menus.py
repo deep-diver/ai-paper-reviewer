@@ -11,7 +11,7 @@ def main(args):
 
     target_menus = []
 
-    if args.cur_date not in [item['name'] for item in menu['main']]:
+    if args.cur_date not in [item.get('name') for item in menu['main']]:
         menu['main'].append({
             "name": args.cur_date,
             "pageRef": args.cur_date,
