@@ -1,1 +1,0 @@
-MMDocIR: Benchmarking Multi-Modal Retrieval for Long Documents

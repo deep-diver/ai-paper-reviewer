@@ -1,1 +1,0 @@
-Parameter-Inverted Image Pyramid Networks for Visual Perception and Multimodal Understanding

@@ -1,1 +1,0 @@
-Multimodal LLMs Can Reason about Aesthetics in Zero-Shot
