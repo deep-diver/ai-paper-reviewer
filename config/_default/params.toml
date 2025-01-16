@@ -1,105 +1,87 @@
-# -- Theme Options --
-# These options control how the theme functions and allow you to
-# customise the display of your website.
-#
-# Refer to the theme docs for more details about each of these parameters.
-# https://nunocoracao.github.io/blowfish/docs/configuration/#theme-parameters
-
 colorScheme = "Congo"
-defaultAppearance = "light" # valid options: light or dark
+defaultAppearance = "light"
 autoSwitchAppearance = true
-
 enableSearch = true
 enableCodeCopy = true
-
-mainSections = ["paper-reviews"]
-# robots = ""
+mainSections = [ "2025-01-16",]
 
 [header]
-  layout = "fixed" # valid options: basic, fixed
+layout = "fixed"
 
 [footer]
- # showMenu = true
-  showCopyright = true
-  showThemeAttribution = true
-  showAppearanceSwitcher = true
-  showScrollToTop = true
+showCopyright = true
+showThemeAttribution = true
+showAppearanceSwitcher = true
+showScrollToTop = true
 
 [homepage]
-  layout = "background" # valid options: page, profile, hero, card, background, custom
-  homepageImage = "img/cover.png" # used in: hero, and card
-  showRecent = true
-  showRecentItems = 9
-  showMoreLink = true
-  showMoreLinkDest = "/ai-paper-reviewer/paper-reviews/"
-  cardView = true
-  cardViewScreenWidth = false
-  layoutBackgroundBlur = true # only used when layout equals background
+layout = "background"
+homepageImage = "img/cover.png"
+showRecent = true
+showRecentItems = 9
+showMoreLink = true
+showMoreLinkDest = "/ai-paper-reviewer/paper-reviews/"
+cardView = true
+cardViewScreenWidth = false
+layoutBackgroundBlur = true
 
 [article]
-  showDate = true
-  showViews = true
-  showLikes = true
-  showDateUpdated = false
-  showAuthor = true
-  showHero = true
-  heroStyle = "background" # valid options: basic, big, background
-  showBreadcrumbs = true
-  showDraftLabel = true
-  showEdit = false
-  # editURL = "https://github.com/username/repo/"
-  editAppendPath = true
-  seriesOpened = false
-  showHeadingAnchors = true
-  showPagination = true
-  invertPagination = false
-  showReadingTime = true
-  showTableOfContents = true
-  showTaxonomies = true
-  showAuthorsBadges = false 
-  showWordCount = true
-  showSummary = true
-  showComments = true
-  sharingLinks = ["linkedin", "twitter", "email"]
+showDate = true
+showViews = true
+showLikes = true
+showDateUpdated = false
+showAuthor = true
+showHero = true
+heroStyle = "background"
+showBreadcrumbs = true
+showDraftLabel = true
+showEdit = false
+editAppendPath = true
+seriesOpened = false
+showHeadingAnchors = true
+showPagination = true
+invertPagination = false
+showReadingTime = true
+showTableOfContents = true
+showTaxonomies = true
+showAuthorsBadges = false
+showWordCount = true
+showSummary = true
+showComments = true
+sharingLinks = [ "linkedin", "twitter", "email",]
 
 [list]
-  showHero = true
-  heroStyle = "background" # valid options: basic, big, background
-  layoutBackgroundHeaderSpace = false
-  showBreadcrumbs = true
-  showSummary = true
-  showTableOfContents = true
-  showCards = true
-  groupByYear = true
-  cardView = true
-  cardViewScreenWidth = false
-  showTaxonomies = true
+showHero = true
+heroStyle = "background"
+layoutBackgroundHeaderSpace = false
+showBreadcrumbs = true
+showSummary = true
+showTableOfContents = true
+showCards = true
+groupByYear = true
+cardView = true
+cardViewScreenWidth = false
+showTaxonomies = true
 
 [buymeacoffee]
-  identifier = "chansung"
-  globalWidget = true
+identifier = "chansung"
+globalWidget = true
 
 [sitemap]
-  excludedKinds = []
+excludedKinds = []
 
 [taxonomy]
-  showTermCount = true
+showTermCount = true
 
 [firebase]
-  apiKey = "AIzaSyCv6pUES05bxrampKbfhhmW3y-1pmX3XgE"
-  authDomain = "neurips2024-f3065.firebaseapp.com"
-  projectId = "neurips2024-f3065"
-  storageBucket = "neurips2024-f3065.firebasestorage.app"
-  messagingSenderId = "982475958898"
-  appId = "1:982475958898:web:2147e5d7753d6ac091f0eb"
-  measurementId = "G-YQ46HXQ9JS"
+apiKey = "AIzaSyCv6pUES05bxrampKbfhhmW3y-1pmX3XgE"
+authDomain = "neurips2024-f3065.firebaseapp.com"
+projectId = "neurips2024-f3065"
+storageBucket = "neurips2024-f3065.firebasestorage.app"
+messagingSenderId = "982475958898"
+appId = "1:982475958898:web:2147e5d7753d6ac091f0eb"
+measurementId = "G-YQ46HXQ9JS"
 
 [fathomAnalytics]
-  # site = "ABC12345"
-  # domain = "llama.yoursite.com"
 
 [verification]
-  # google = ""
-  # bing = ""
-  # pinterest = ""
-  # yandex = ""
