@@ -25,7 +25,7 @@ def main(args):
 
     target_menus = sorted(target_menus, key=lambda item: item['name'])
 
-    for target_menu in target_menus[:-2]:
+    for target_menu in target_menus[:-args.how_many_dates_to_keep]:
         menu['main'].remove(target_menu)
 
     print(menu['main'])
@@ -43,5 +43,6 @@ if __name__ == "__main__":
     parser.add_argument("--cur-date", type=str, required=True)
     parser.add_argument("--menu-path", type=str, default="./config/_default/menus.en.toml")
     parser.add_argument("--params-path", type=str, default="./config/_default/params.toml")
+    parser.add_argument("--how-many-dates-to-keep", type=int, default=3)
     args = parser.parse_args()
     main(args)
