@@ -30,6 +30,11 @@ name = "2025-01-16"
 pageRef = "2025-01-16"
 weight = 20
 
+[[main]]
+name = "2025-01-17"
+pageRef = "2025-01-17"
+weight = 20
+
 [[footer]]
 name = "Tags"
 pageRef = "tags"
@@ -39,3 +44,4 @@ weight = 10
 name = "NeurIPS2024"
 url = "https://deep-diver.github.io/neurips2024/"
 weight = 20
+
