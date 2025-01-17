@@ -1,0 +1,1 @@
+FAST: Efficient Action Tokenization for Vision-Language-Action Models
