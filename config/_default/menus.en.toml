@@ -4,7 +4,7 @@ pageRef = "about"
 weight = 10
 
 [[main]]
-name = "Paper Reviews"
+name = "Archive"
 pageRef = "paper-reviews"
 weight = 20
 
@@ -35,3 +35,7 @@ name = "Tags"
 pageRef = "tags"
 weight = 10
 
+[[footer]]
+name = "NeurIPS2024"
+url = "https://deep-diver.github.io/neurips2024/"
+weight = 20
