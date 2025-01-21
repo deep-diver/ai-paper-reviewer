@@ -35,6 +35,11 @@ name = "2025-01-20"
 pageRef = "2025-01-20"
 weight = 20
 
+[[main]]
+name = "2025-01-21"
+pageRef = "2025-01-21"
+weight = 20
+
 [[footer]]
 name = "Tags"
 pageRef = "tags"
