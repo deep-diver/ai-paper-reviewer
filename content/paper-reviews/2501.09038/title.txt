@@ -1,0 +1,1 @@
+Do generative video models learn physical principles from watching videos?

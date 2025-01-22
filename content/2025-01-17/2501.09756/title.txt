@@ -1,1 +1,0 @@
-SynthLight: Portrait Relighting with Diffusion Model by Learning to Re-render Synthetic Faces
