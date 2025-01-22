@@ -1,0 +1,1 @@
+InternLM-XComposer2.5-Reward: A Simple Yet Effective Multi-Modal Reward Model
