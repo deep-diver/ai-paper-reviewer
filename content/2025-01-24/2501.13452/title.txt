@@ -1,0 +1,1 @@
+EchoVideo: Identity-Preserving Human Video Generation by Multimodal Feature Fusion

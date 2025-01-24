@@ -1,0 +1,1 @@
+Can We Generate Images with CoT? Let's Verify and Reinforce Image Generation Step by Step

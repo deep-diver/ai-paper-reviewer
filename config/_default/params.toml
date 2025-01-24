@@ -3,7 +3,7 @@ defaultAppearance = "light"
 autoSwitchAppearance = true
 enableSearch = true
 enableCodeCopy = true
-mainSections = [ "2025-01-23",]
+mainSections = [ "2025-01-24",]
 
 [header]
 layout = "fixed"
