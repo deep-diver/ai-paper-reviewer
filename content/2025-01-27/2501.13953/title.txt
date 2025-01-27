@@ -1,0 +1,1 @@
+Redundancy Principles for MLLMs Benchmarks
