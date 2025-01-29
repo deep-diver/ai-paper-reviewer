@@ -1,0 +1,1 @@
+IndicMMLU-Pro: Benchmarking Indic Large Language Models on Multi-Task Language Understanding

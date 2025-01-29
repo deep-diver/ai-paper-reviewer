@@ -1,0 +1,1 @@
+DiffSplat: Repurposing Image Diffusion Models for Scalable Gaussian Splat Generation
