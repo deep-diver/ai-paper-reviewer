@@ -1,0 +1,815 @@
+---
+title: "The Differences Between Direct Alignment Algorithms are a Blur"
+summary: "Direct alignment algorithms are a blur, but this paper shows how a simple SFT phase and a scaling parameter significantly improve alignment quality, regardless of the specific reward function used."
+categories: ["AI Generated", "🤗 Daily Papers"]
+tags: ["Natural Language Processing", "Large Language Models", "🏢 T-Tech",]
+showSummary: true
+date: 2025-02-03
+draft: false
+---
+
+<br>
+
+{{< keywordList >}}
+{{< keyword icon="fingerprint" >}} 2502.01237 {{< /keyword >}}
+{{< keyword icon="writer" >}} Alexey Gorbatovski et el. {{< /keyword >}}
+ 
+{{< keyword >}} 🤗 2025-02-04 {{< /keyword >}}
+ 
+{{< /keywordList >}}
+
+{{< button href="https://arxiv.org/abs/2502.01237" target="_self" >}}
+↗ arXiv
+{{< /button >}}
+{{< button href="https://huggingface.co/papers/2502.01237" target="_self" >}}
+↗ Hugging Face
+{{< /button >}}
+
+
+
+<audio controls>
+    <source src="https://ai-paper-reviewer.com/2502.01237/podcast.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+
+### TL;DR
+
+
+{{< lead >}}
+
+Aligning Large Language Models (LLMs) with human values is challenging.  Traditional methods involve Reinforcement Learning from Human Feedback (RLHF), but this is complex and resource-intensive.  Direct Alignment Algorithms (DAAs) offer a simpler alternative, but their effectiveness varies significantly depending on their design.  Existing DAAs lack a unified framework for comparing and understanding their differences.
+
+This paper addresses these issues.  It introduces a scaling parameter (β) which unifies existing DAAs and allows for direct comparison.  The authors find that two-stage methods (incorporating an explicit supervised fine-tuning (SFT) phase) consistently outperform one-stage methods. Further analysis reveals that the choice between pairwise or pointwise objectives is the key factor influencing alignment quality, more so than the specific reward function. Finally, it's shown that only a small fraction (5-10%) of supervised data is necessary in the SFT phase for excellent performance.
+
+{{< /lead >}}
+
+
+#### Key Takeaways
+
+{{< alert "star" >}}
+{{< typeit speed=10 lifeLike=true >}} Incorporating an explicit SFT phase improves the alignment quality of single-stage DAAs. {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The use of pairwise rather than pointwise objectives is more impactful on alignment quality. {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} A small amount of data in the SFT stage yields substantial improvements in alignment quality. {{< /typeit >}}
+{{< /alert >}}
+
+#### Why does it matter?
+This paper is crucial because **it clarifies the complex landscape of direct alignment algorithms (DAAs)**, a critical area in aligning large language models with human values.  Its findings offer **practical guidance for optimizing LLM training pipelines**, saving researchers time and resources, and **opening new avenues for research** into more efficient and effective alignment techniques.
+
+------
+#### Visual Insights
+
+
+
+![](https://arxiv.org/html/2502.01237/x1.png)
+
+> 🔼 This figure shows the effect of tuning the beta parameter (β) on the performance of two direct alignment algorithms: ASFT and ORPO.  The x-axis likely represents different values of β, while the y-axis shows the performance metric (GPT-4 win rate for Llama 3.2 3B TL;DR, and AlpacaEval 2 LC win rate for Llama 3.1 8B UF).  The graph likely contains bars or lines comparing the performance of ASFT and ORPO at different values of β.  Each algorithm's performance at β=1 is likely used as a baseline for comparison.  The results illustrate how adjusting β impacts the trade-off between alignment quality and potential overfitting.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1:  Impact of the β𝛽\betaitalic_β Parameter on ASFT and ORPO Alignment Quality. The plot shows how tuning β𝛽\betaitalic_β (Section 3.1.2) affects both ASFT and ORPO performance. Results are reported for GPT-4 Win Rate in the Llama 3.2 3B TL;DR setup and for AlpacaEval 2 LC Win Rate in the Llama 3.1 8B UF scenario. All other hyperparameters (e.g., learning rates) are selected via grid search, using each method’s best configuration at β=1𝛽1\beta=1italic_β = 1 as the baseline. See Section 5.2 for more details.
+> </details>
+
+
+
+
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_left ltx_guessed_headers ltx_align_middle" id="S4.F2.3.1">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="S4.F2.3.1.1.1">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column" id="S4.F2.3.1.1.1.1"><span class="ltx_text ltx_font_bold" id="S4.F2.3.1.1.1.1.1" style="font-size:80%;">Win / Tie / Lose Rate %</span></th>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.2.2">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_t" id="S4.F2.3.1.2.2.1">
+<span class="ltx_text" id="S4.F2.3.1.2.2.1.1" style="font-size:80%;">35.6 / 4.8 / </span><span class="ltx_text ltx_font_bold" id="S4.F2.3.1.2.2.1.2" style="font-size:80%;">59.6</span>
+</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S4.F2.3.1.3.1">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.F2.3.1.3.1.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.3.1.1.1" style="font-size:80%;">91.2</span><span class="ltx_text" id="S4.F2.3.1.3.1.1.2" style="font-size:80%;"> / 1.0 / 7.8</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.4.2">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.F2.3.1.4.2.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.4.2.1.1" style="font-size:80%;">91.4</span><span class="ltx_text" id="S4.F2.3.1.4.2.1.2" style="font-size:80%;"> / 0.4 / 8.2</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.5.3">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.F2.3.1.5.3.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.5.3.1.1" style="font-size:80%;">91.6</span><span class="ltx_text" id="S4.F2.3.1.5.3.1.2" style="font-size:80%;"> / 0.2 / 8.2</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.6.4">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.F2.3.1.6.4.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.6.4.1.1" style="font-size:80%;">90.2</span><span class="ltx_text" id="S4.F2.3.1.6.4.1.2" style="font-size:80%;"> / 0.6 / 9.2</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.7.5">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.F2.3.1.7.5.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.7.5.1.1" style="font-size:80%;">92.6</span><span class="ltx_text" id="S4.F2.3.1.7.5.1.2" style="font-size:80%;"> / 0.6 / 6.8</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.8.6">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.F2.3.1.8.6.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.8.6.1.1" style="font-size:80%;">91.8</span><span class="ltx_text" id="S4.F2.3.1.8.6.1.2" style="font-size:80%;"> / 1.0 / 7.2</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.9.7">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.F2.3.1.9.7.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.9.7.1.1" style="font-size:80%;">91.4</span><span class="ltx_text" id="S4.F2.3.1.9.7.1.2" style="font-size:80%;"> / 0.4 / 8.2</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S4.F2.3.1.10.8">
+<td class="ltx_td ltx_align_center ltx_border_b ltx_border_t" id="S4.F2.3.1.10.8.1">
+<span class="ltx_text ltx_font_bold" id="S4.F2.3.1.10.8.1.1" style="font-size:80%;">87.2</span><span class="ltx_text" id="S4.F2.3.1.10.8.1.2" style="font-size:80%;"> / 1.0 / 11.8</span>
+</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+
+> 🔼 This table compares the performance of different language model alignment methods on the Llama 3.1 8B model using the UltraFeedback dataset. It shows the win rates on AlpacaEval 2 Length-Controlled (LC) and ArenaHard (AH) benchmarks for base models and models that underwent supervised fine-tuning (SFT) before the application of the alignment method.  It highlights the performance improvement achieved by incorporating the SFT phase before applying the alignment algorithms. The best hyperparameters used in each case are also detailed.
+> <details>
+> <summary>read the caption</summary>
+> Table 1: Base and SFT-initialized alignment methods on the Llama 3.1 8B model with the UF dataset. SFT-initialized methods demonstrate better performance compared to their traditional formulations without ℒSFTsubscriptℒSFT\mathcal{L}_{\mathrm{SFT}}caligraphic_L start_POSTSUBSCRIPT roman_SFT end_POSTSUBSCRIPT. Results marked with ††{\dagger}† correspond to training with ℒSFTsubscriptℒSFT\mathcal{L}_{\mathrm{SFT}}caligraphic_L start_POSTSUBSCRIPT roman_SFT end_POSTSUBSCRIPT, using the best hyperparameters: lr=1×10−6lr1superscript106\text{lr}=1\times 10^{-6}lr = 1 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT for ORPO and lr=7×10−7lr7superscript107\text{lr}=7\times 10^{-7}lr = 7 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT for ASFT. For other setups, the best hyperparameters are: lr=5×10−7lr5superscript107\text{lr}=5\times 10^{-7}lr = 5 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT for standard SFT ORPO/ASFT, and lr=1×10−5lr1superscript105\text{lr}=1\times 10^{-5}lr = 1 × 10 start_POSTSUPERSCRIPT - 5 end_POSTSUPERSCRIPT/6×10−66superscript1066\times 10^{-6}6 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT for Base ORPO/ASFT.
+> </details>
+
+
+
+
+
+### In-depth insights
+
+
+#### DAA Taxonomy
+A thoughtful exploration of "DAA Taxonomy" in the context of direct alignment algorithms would necessitate a multi-faceted approach.  First, it's crucial to establish a **clear definition of what constitutes a DAA**, differentiating it from traditional RLHF methods.  Then, the taxonomy must consider **key differentiating factors**, such as the type of loss function used (pairwise vs. pointwise), the reward mechanism (odds ratios vs. reference policies), and the training methodology (single-stage vs. two-stage).  A robust taxonomy should go beyond superficial categorizations, exploring the **interdependencies and relationships** between these characteristics.  For example, how does the choice of loss function interact with the reward mechanism?  Does a two-stage approach always yield superior results, or are there situations where a single-stage method suffices? A comprehensive taxonomy should also address the **impact of hyperparameters**, highlighting their influence on algorithm behavior and overall performance.  Ultimately, a well-defined DAA taxonomy would provide a valuable framework for researchers to better understand, compare, and improve direct alignment algorithms.
+
+#### SFT's Impact
+The paper explores the impact of supervised fine-tuning (SFT) on the performance of direct alignment algorithms (DAAs).  **SFT acts as a crucial preparatory step**, enhancing the alignment quality of even single-stage DAAs like ORPO and ASFT, which were initially designed without an explicit SFT phase. The results indicate that incorporating SFT significantly improves the models' ability to align with human preferences, closing the performance gap between single and two-stage DAAs.  **The study reveals that while SFT benefits DAAs, using the full dataset isn't always necessary**.  Even a relatively small fraction of the SFT data (around 5-10%) can yield substantial gains. This highlights a significant efficiency improvement for implementing DAAs, reducing computational costs without sacrificing much alignment quality.  The findings emphasize the importance of a well-defined SFT stage as a critical component, even in approaches aiming to simplify the alignment process by removing the reward modeling and reinforcement learning phases inherent in traditional RLHF.
+
+#### Beta Tuning
+The concept of "Beta Tuning" in the context of direct alignment algorithms (DAAs) for large language models (LLMs) is crucial for balancing alignment quality and KL divergence.  **Beta acts as a scaling parameter** within the loss function of DAAs like ASFT and ORPO. It controls the intensity of preference optimization.  A **small beta leads to aggressive optimization**, prioritizing preference satisfaction, even at the cost of higher KL divergence from a reference policy. Conversely, **a large beta tempers this optimization**, aiming for a better balance between alignment quality and divergence from the baseline model.  The optimal beta value is data-dependent and requires careful tuning.  The research suggests that **beta tuning is essential for achieving effective alignment**, and that it influences alignment performance more significantly in larger LLMs. This tuning process is critical for managing the trade-off between the quality of alignment and the model's deviation from the baseline behavior.
+
+#### Pairwise vs. Pointwise
+The core of the "Pairwise vs. Pointwise" comparison lies in how direct alignment algorithms (DAAs) utilize human preference data for model training.  **Pairwise methods** directly compare two model outputs for a given input, learning from the relative ranking provided by a human evaluator. This approach focuses on the *ordering* of preferences, making it robust to the absolute strengths of individual preferences.  In contrast, **pointwise methods** assess each model output independently, usually using a numerical score reflecting its quality. This approach learns from the *absolute quality* of individual outputs, making it sensitive to the scaling and potential biases present in the individual scores.  The choice between these methodologies significantly influences the training process and resulting model performance.  While **pairwise methods** tend to offer greater robustness and efficiency, especially in scenarios with noisy or limited data, **pointwise methods** are more straightforward to implement.  The paper explores the trade-offs between these approaches, suggesting that **pairwise methods** yield superior results, particularly with larger language models, and highlight that the choice is critical for effective DAA design and optimization.
+
+#### Future Work
+Future research directions stemming from this paper could involve a more in-depth exploration of the interplay between model capacity and the effectiveness of pairwise versus pointwise ranking methods.  **Larger-scale experiments with diverse datasets and more powerful LLMs** are needed to solidify these findings. Investigating the impact of various SFT data sizes across a wider range of DAA algorithms is also crucial, especially given the varying computational costs associated.  **A deeper dive into the hyperparameter sensitivity** across different DAAs should be prioritized, potentially refining the tuning strategies suggested in the paper. The observed improvements in alignment quality through thoughtful hyperparameter selection and the identification of 'best' configuration parameters across various DAAs highlights a critical need for more comprehensive and standardized hyperparameter optimization procedures.  Furthermore, exploring alternative training methodologies that balance efficiency and quality, potentially leveraging techniques beyond standard gradient descent, warrants future investigation. **The development of more robust and sophisticated evaluation metrics** which go beyond win-rates would greatly strengthen future work in this domain. Finally, exploring how the integration of different components within alignment strategies impacts overall performance should be addressed to create a more holistic and effective language model alignment pipeline.
+
+
+### More visual insights
+
+<details>
+<summary>More on figures
+</summary>
+
+
+![](https://arxiv.org/html/2502.01237/x3.png)
+
+> 🔼 This figure displays the results of evaluating various language model alignment methods on a summarization task using the Llama 3.2 3B model and the Reddit TL;DR dataset.  The evaluation is performed using GPT-4 to compare the quality of summaries generated by different methods. The y-axis represents the win rate (percentage of times a method's summary was judged superior by GPT-4), and the x-axis shows different methods.  The results indicate that most alignment methods achieved a high win rate (over 90%), with ASFT showing a slightly lower but still strong performance of 87.2%. This demonstrates the effectiveness of the alignment techniques in generating high-quality summaries.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: GPT-4 Evaluation of Llama 3.2 3B TL;DR setup. The comparison shows multiple alignment methods (rows) using their best hyperparameters, where each approach aims to generate concise and accurate summaries. Most methods exceed 90% Win Rate; ASFT achieves 87.2%, maintaining robust summarization performance. See Section 5.2 for more details.
+> </details>
+
+
+
+![](https://arxiv.org/html/2502.01237/x4.png)
+
+> 🔼 This figure displays Pareto fronts illustrating the trade-off between alignment quality (measured by AlpacaEval 2 Length-Controlled Win Rate) and KL divergence from a reference model for Llama 3.1 8B UF.  The data points are categorized into those using pairwise and pointwise ranking methods.  The results show that pairwise methods generally achieve better alignment quality (higher LC Win Rate) compared to pointwise methods, while maintaining KL divergence within overlapping confidence intervals.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Pareto front for alignment quality and KL divergence. Results for Llama 3.1 8B UF on AlpacaEval 2 LC. Methods are grouped into pairwise and pointwise categories, with pairwise achieving higher LC values while remaining within overlapping confidence intervals. See Section 5.3 for more details.
+> </details>
+
+
+
+</details>
+
+
+
+
+<details>
+<summary>More on tables
+</summary>
+
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="S5.T1.2">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S5.T1.2.3.1">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r ltx_border_tt" id="S5.T1.2.3.1.1" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text ltx_font_bold" id="S5.T1.2.3.1.1.1" style="font-size:80%;">Init</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_tt" id="S5.T1.2.3.1.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text ltx_font_bold" id="S5.T1.2.3.1.2.1" style="font-size:80%;">Method</span></th>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S5.T1.2.3.1.3" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text ltx_font_bold" id="S5.T1.2.3.1.3.1" style="font-size:80%;">LC% <span class="ltx_text" id="S5.T1.2.3.1.3.1.1" style="font-size:113%;">(std)</span></span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="S5.T1.2.3.1.4" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text ltx_font_bold" id="S5.T1.2.3.1.4.1" style="font-size:80%;">WR% <span class="ltx_text" id="S5.T1.2.3.1.4.1.1" style="font-size:113%;">(std)</span></span></td>
+<td class="ltx_td ltx_nopad_r ltx_align_center ltx_border_tt" id="S5.T1.2.3.1.5" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text ltx_font_bold" id="S5.T1.2.3.1.5.1" style="font-size:80%;">AH% <span class="ltx_text" id="S5.T1.2.3.1.5.1.1" style="font-size:113%;">(CI)</span></span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.2.4.2">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.2.4.2.1" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.4.2.1.1" style="font-size:80%;">Base</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.2.4.2.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.4.2.2.1" style="font-size:80%;">SFT</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T1.2.4.2.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.4.2.3.1" style="font-size:80%;">6.7 </span><span class="ltx_text" id="S5.T1.2.4.2.3.2" style="font-size:90%;">(0.43)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T1.2.4.2.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.4.2.4.1" style="font-size:80%;">4.5 </span><span class="ltx_text" id="S5.T1.2.4.2.4.2" style="font-size:90%;">(0.63)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center ltx_border_t" id="S5.T1.2.4.2.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.4.2.5.1" style="font-size:80%;">3.5 </span><span class="ltx_text" id="S5.T1.2.4.2.5.2" style="font-size:90%;">(-0.7, 0.8)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.2.5.3">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.2.5.3.1" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.5.3.1.1" style="font-size:80%;">SFT</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.2.5.3.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.5.3.2.1" style="font-size:80%;">ORPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T1.2.5.3.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text ltx_font_bold" id="S5.T1.2.5.3.3.1" style="font-size:80%;">24.1</span><span class="ltx_text" id="S5.T1.2.5.3.3.2" style="font-size:80%;"> </span><span class="ltx_text" id="S5.T1.2.5.3.3.3" style="font-size:90%;">(0.84)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T1.2.5.3.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T1.2.5.3.4.1" style="font-size:80%;">17.8</span><span class="ltx_text" id="S5.T1.2.5.3.4.2" style="font-size:80%;"> </span><span class="ltx_text" id="S5.T1.2.5.3.4.3" style="font-size:90%;">(1.17)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center ltx_border_t" id="S5.T1.2.5.3.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T1.2.5.3.5.1" style="font-size:80%;">15.3</span><span class="ltx_text" id="S5.T1.2.5.3.5.2" style="font-size:80%;"> </span><span class="ltx_text" id="S5.T1.2.5.3.5.3" style="font-size:90%;">(-1.6, 1.8)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.2.6.4">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r" id="S5.T1.2.6.4.1" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.6.4.1.1" style="font-size:80%;">SFT</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T1.2.6.4.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.6.4.2.1" style="font-size:80%;">ASFT</span></th>
+<td class="ltx_td ltx_align_center" id="S5.T1.2.6.4.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.6.4.3.1" style="font-size:80%;">16.4 </span><span class="ltx_text" id="S5.T1.2.6.4.3.2" style="font-size:90%;">(0.72)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T1.2.6.4.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.6.4.4.1" style="font-size:80%;">11.9 </span><span class="ltx_text" id="S5.T1.2.6.4.4.2" style="font-size:90%;">(0.99)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="S5.T1.2.6.4.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.6.4.5.1" style="font-size:80%;">10.6 </span><span class="ltx_text" id="S5.T1.2.6.4.5.2" style="font-size:90%;">(-1.2, 1.3)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.2.7.5">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.2.7.5.1" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.7.5.1.1" style="font-size:80%;">Base</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.2.7.5.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.7.5.2.1" style="font-size:80%;">ORPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T1.2.7.5.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.7.5.3.1" style="font-size:80%;">14.8 </span><span class="ltx_text" id="S5.T1.2.7.5.3.2" style="font-size:90%;">(0.71)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T1.2.7.5.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.7.5.4.1" style="font-size:80%;">10.3 </span><span class="ltx_text" id="S5.T1.2.7.5.4.2" style="font-size:90%;">(0.95)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center ltx_border_t" id="S5.T1.2.7.5.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.7.5.5.1" style="font-size:80%;">8.4 </span><span class="ltx_text" id="S5.T1.2.7.5.5.2" style="font-size:90%;">(-1.3, 1.3)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.2.8.6">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r" id="S5.T1.2.8.6.1" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.8.6.1.1" style="font-size:80%;">Base</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T1.2.8.6.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.8.6.2.1" style="font-size:80%;">ASFT</span></th>
+<td class="ltx_td ltx_align_center" id="S5.T1.2.8.6.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.8.6.3.1" style="font-size:80%;">14.5 </span><span class="ltx_text" id="S5.T1.2.8.6.3.2" style="font-size:90%;">(0.73)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T1.2.8.6.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.8.6.4.1" style="font-size:80%;">10.2 </span><span class="ltx_text" id="S5.T1.2.8.6.4.2" style="font-size:90%;">(0.94)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="S5.T1.2.8.6.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.8.6.5.1" style="font-size:80%;">7.5 </span><span class="ltx_text" id="S5.T1.2.8.6.5.2" style="font-size:90%;">(-1.1, 1.2)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.1.1">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.1.1.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.1.1.2.1" style="font-size:80%;">SFT</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T1.1.1.1" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.1.1.1.1" style="font-size:80%;">ORPO</span><sup class="ltx_sup" id="S5.T1.1.1.1.2"><span class="ltx_text ltx_font_italic" id="S5.T1.1.1.1.2.1" style="font-size:80%;">†</span></sup>
+</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T1.1.1.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.1.1.3.1" style="font-size:80%;">13.4 </span><span class="ltx_text" id="S5.T1.1.1.3.2" style="font-size:90%;">(0.69)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T1.1.1.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.1.1.4.1" style="font-size:80%;">9.3 </span><span class="ltx_text" id="S5.T1.1.1.4.2" style="font-size:90%;">(0.91)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center ltx_border_t" id="S5.T1.1.1.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.1.1.5.1" style="font-size:80%;">7.7 </span><span class="ltx_text" id="S5.T1.1.1.5.2" style="font-size:90%;">(-0.9, 1.1)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.2.2">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_r" id="S5.T1.2.2.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.2.2.1" style="font-size:80%;">SFT</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T1.2.2.1" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.2.1.1" style="font-size:80%;">ASFT</span><sup class="ltx_sup" id="S5.T1.2.2.1.2"><span class="ltx_text ltx_font_italic" id="S5.T1.2.2.1.2.1" style="font-size:80%;">†</span></sup>
+</th>
+<td class="ltx_td ltx_align_center" id="S5.T1.2.2.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.2.3.1" style="font-size:80%;">11.4 </span><span class="ltx_text" id="S5.T1.2.2.3.2" style="font-size:90%;">(0.63)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T1.2.2.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.2.4.1" style="font-size:80%;">7.5 </span><span class="ltx_text" id="S5.T1.2.2.4.2" style="font-size:90%;">(0.83)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="S5.T1.2.2.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text" id="S5.T1.2.2.5.1" style="font-size:80%;">7.5 </span><span class="ltx_text" id="S5.T1.2.2.5.2" style="font-size:90%;">(-1.1, 1.1)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T1.2.9.7">
+<th class="ltx_td ltx_align_right ltx_th ltx_th_row ltx_border_bb ltx_border_r ltx_border_t" id="S5.T1.2.9.7.1" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.9.7.1.1" style="font-size:80%;">SFT</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_bb ltx_border_r ltx_border_t" id="S5.T1.2.9.7.2" style="padding-top:0.8pt;padding-bottom:0.8pt;"><span class="ltx_text" id="S5.T1.2.9.7.2.1" style="font-size:80%;">DPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" id="S5.T1.2.9.7.3" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T1.2.9.7.3.1" style="font-size:80%;">23.4</span><span class="ltx_text" id="S5.T1.2.9.7.3.2" style="font-size:80%;"> </span><span class="ltx_text" id="S5.T1.2.9.7.3.3" style="font-size:90%;">(0.85)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r ltx_border_t" id="S5.T1.2.9.7.4" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text ltx_font_bold" id="S5.T1.2.9.7.4.1" style="font-size:80%;">20.0</span><span class="ltx_text" id="S5.T1.2.9.7.4.2" style="font-size:80%;"> </span><span class="ltx_text" id="S5.T1.2.9.7.4.3" style="font-size:90%;">(1.18)</span>
+</td>
+<td class="ltx_td ltx_nopad_r ltx_align_center ltx_border_bb ltx_border_t" id="S5.T1.2.9.7.5" style="padding-top:0.8pt;padding-bottom:0.8pt;">
+<span class="ltx_text ltx_font_bold" id="S5.T1.2.9.7.5.1" style="font-size:80%;">17.5</span><span class="ltx_text" id="S5.T1.2.9.7.5.2" style="font-size:80%;"> </span><span class="ltx_text" id="S5.T1.2.9.7.5.3" style="font-size:90%;">(-1.8, 1.8)</span>
+</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the results of AlpacaEval 2 and ArenaHard evaluations on Llama language models (3.2B and 3.1B parameters).  The models were fine-tuned using supervised fine-tuning (SFT) on the UltraChat dataset before applying different direct alignment algorithms.  The table shows the performance of each alignment method in terms of Win Rate (WR) for length-controlled (LC) and ArenaHard (AH) benchmarks.  Optimal hyperparameters for each algorithm (determined in section 4.2) were used.  Bold values highlight the top-performing algorithm for each benchmark, while underlined values represent the second-best performance. The details are further discussed in section 5.3.
+> <details>
+> <summary>read the caption</summary>
+> Table 2: AlpacaEval 2 and ArenaHard Results for Llama 3.2 3B and Llama 3.1 8B UF. The SFT model was trained on the UltraChat dataset. The best hyperparameters for each method were selected according to Section 4.2. Bold values indicate the best performance for each benchmark, while underlined values represent the second-best performance. See Section 5.3 for more details.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="S5.T2.2">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S5.T2.2.1.1">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_tt" id="S5.T2.2.1.1.1" rowspan="3"><span class="ltx_text ltx_font_bold" id="S5.T2.2.1.1.1.1" style="font-size:90%;">Method</span></th>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="3" id="S5.T2.2.1.1.2"><span class="ltx_text ltx_font_bold" id="S5.T2.2.1.1.2.1" style="font-size:90%;">Llama 3.2 3B UF</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="3" id="S5.T2.2.1.1.3"><span class="ltx_text ltx_font_bold" id="S5.T2.2.1.1.3.1" style="font-size:90%;">Llama 3.1 8B UF</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.2.2">
+<td class="ltx_td ltx_align_center ltx_border_t" colspan="2" id="S5.T2.2.2.2.1"><span class="ltx_text ltx_font_bold" id="S5.T2.2.2.2.1.1" style="font-size:90%;">AlpacaEval 2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T2.2.2.2.2"><span class="ltx_text ltx_font_bold" id="S5.T2.2.2.2.2.1" style="font-size:90%;">ArenaHard</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" colspan="2" id="S5.T2.2.2.2.3"><span class="ltx_text ltx_font_bold" id="S5.T2.2.2.2.3.1" style="font-size:90%;">AlpacaEval 2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.2.2.4"><span class="ltx_text ltx_font_bold" id="S5.T2.2.2.2.4.1" style="font-size:90%;">ArenaHard</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.3.3">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.3.3.1"><span class="ltx_text ltx_font_bold" id="S5.T2.2.3.3.1.1" style="font-size:90%;">LC% (std)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.3.3.2"><span class="ltx_text ltx_font_bold" id="S5.T2.2.3.3.2.1" style="font-size:90%;">WR% (std)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T2.2.3.3.3"><span class="ltx_text ltx_font_bold" id="S5.T2.2.3.3.3.1" style="font-size:90%;">WR% (CI)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.3.3.4"><span class="ltx_text ltx_font_bold" id="S5.T2.2.3.3.4.1" style="font-size:90%;">LC% (std)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.3.3.5"><span class="ltx_text ltx_font_bold" id="S5.T2.2.3.3.5.1" style="font-size:90%;">WR% (std)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.3.3.6"><span class="ltx_text ltx_font_bold" id="S5.T2.2.3.3.6.1" style="font-size:90%;">WR% (CI)</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.4.4">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T2.2.4.4.1"><span class="ltx_text" id="S5.T2.2.4.4.1.1" style="font-size:90%;">SFT</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.4.4.2"><span class="ltx_text" id="S5.T2.2.4.4.2.1" style="font-size:90%;">5.02 (0.34)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.4.4.3"><span class="ltx_text" id="S5.T2.2.4.4.3.1" style="font-size:90%;">3.21 (0.55)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T2.2.4.4.4"><span class="ltx_text" id="S5.T2.2.4.4.4.1" style="font-size:90%;">1.4 (-0.4, 0.4)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.4.4.5"><span class="ltx_text" id="S5.T2.2.4.4.5.1" style="font-size:90%;">10.27 (0.54)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.4.4.6"><span class="ltx_text" id="S5.T2.2.4.4.6.1" style="font-size:90%;">5.44 (0.70)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.4.4.7"><span class="ltx_text" id="S5.T2.2.4.4.7.1" style="font-size:90%;">2.6 (-0.5, 0.6)</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.5.5">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T2.2.5.5.1"><span class="ltx_text" id="S5.T2.2.5.5.1.1" style="font-size:90%;">DPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.5.5.2">
+<span class="ltx_text ltx_font_bold" id="S5.T2.2.5.5.2.1" style="font-size:90%;">11.43</span><span class="ltx_text" id="S5.T2.2.5.5.2.2" style="font-size:90%;"> (0.58)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.5.5.3"><span class="ltx_text" id="S5.T2.2.5.5.3.1" style="font-size:90%;">11.79 (0.99)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T2.2.5.5.4">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T2.2.5.5.4.1" style="font-size:90%;">6.8</span><span class="ltx_text" id="S5.T2.2.5.5.4.2" style="font-size:90%;"> (-1.0, 0.9)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.5.5.5"><span class="ltx_text" id="S5.T2.2.5.5.5.1" style="font-size:90%;">26.82 (0.77)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.5.5.6"><span class="ltx_text" id="S5.T2.2.5.5.6.1" style="font-size:90%;">23.69 (1.25)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.5.5.7"><span class="ltx_text" id="S5.T2.2.5.5.7.1" style="font-size:90%;">19.0 (-1.9, 1.8)</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.6.6">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T2.2.6.6.1"><span class="ltx_text" id="S5.T2.2.6.6.1.1" style="font-size:90%;">IPO</span></th>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.6.6.2">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T2.2.6.6.2.1" style="font-size:90%;">11.24</span><span class="ltx_text" id="S5.T2.2.6.6.2.2" style="font-size:90%;"> (0.60)</span>
+</td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.6.6.3"><span class="ltx_text" id="S5.T2.2.6.6.3.1" style="font-size:90%;">11.67 (1.01)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T2.2.6.6.4">
+<span class="ltx_text ltx_font_bold" id="S5.T2.2.6.6.4.1" style="font-size:90%;">6.8</span><span class="ltx_text" id="S5.T2.2.6.6.4.2" style="font-size:90%;"> (-1.0, 1.1)</span>
+</td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.6.6.5">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T2.2.6.6.5.1" style="font-size:90%;">28.18</span><span class="ltx_text" id="S5.T2.2.6.6.5.2" style="font-size:90%;"> (0.83)</span>
+</td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.6.6.6"><span class="ltx_text" id="S5.T2.2.6.6.6.1" style="font-size:90%;">24.43 (1.26)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.6.6.7"><span class="ltx_text" id="S5.T2.2.6.6.7.1" style="font-size:90%;">19.1 (-1.6, 1.5)</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.7.7">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T2.2.7.7.1"><span class="ltx_text" id="S5.T2.2.7.7.1.1" style="font-size:90%;">SimPO</span></th>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.7.7.2"><span class="ltx_text" id="S5.T2.2.7.7.2.1" style="font-size:90%;">10.56 (0.44)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.7.7.3">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T2.2.7.7.3.1" style="font-size:90%;">11.94</span><span class="ltx_text" id="S5.T2.2.7.7.3.2" style="font-size:90%;"> (0.95)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T2.2.7.7.4"><span class="ltx_text" id="S5.T2.2.7.7.4.1" style="font-size:90%;">6.4 (-1.0, 1.1)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.7.7.5"><span class="ltx_text" id="S5.T2.2.7.7.5.1" style="font-size:90%;">27.65 (0.77)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.7.7.6">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T2.2.7.7.6.1" style="font-size:90%;">25.62</span><span class="ltx_text" id="S5.T2.2.7.7.6.2" style="font-size:90%;"> (1.29)</span>
+</td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.7.7.7">
+<span class="ltx_text ltx_font_bold" id="S5.T2.2.7.7.7.1" style="font-size:90%;">21.5</span><span class="ltx_text" id="S5.T2.2.7.7.7.2" style="font-size:90%;"> (-1.9, 1.9)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.8.8">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T2.2.8.8.1"><span class="ltx_text" id="S5.T2.2.8.8.1.1" style="font-size:90%;">ORPO</span></th>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.8.8.2"><span class="ltx_text" id="S5.T2.2.8.8.2.1" style="font-size:90%;">10.67 (0.50)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.8.8.3">
+<span class="ltx_text ltx_font_bold" id="S5.T2.2.8.8.3.1" style="font-size:90%;">12.23</span><span class="ltx_text" id="S5.T2.2.8.8.3.2" style="font-size:90%;"> (0.97)</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T2.2.8.8.4"><span class="ltx_text" id="S5.T2.2.8.8.4.1" style="font-size:90%;">6.6 (-1.0, 1.1)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.8.8.5">
+<span class="ltx_text ltx_font_bold" id="S5.T2.2.8.8.5.1" style="font-size:90%;">28.25</span><span class="ltx_text" id="S5.T2.2.8.8.5.2" style="font-size:90%;"> (0.71)</span>
+</td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.8.8.6">
+<span class="ltx_text ltx_font_bold" id="S5.T2.2.8.8.6.1" style="font-size:90%;">28.59</span><span class="ltx_text" id="S5.T2.2.8.8.6.2" style="font-size:90%;"> (1.33)</span>
+</td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.8.8.7">
+<span class="ltx_text ltx_framed ltx_framed_underline" id="S5.T2.2.8.8.7.1" style="font-size:90%;">20.9</span><span class="ltx_text" id="S5.T2.2.8.8.7.2" style="font-size:90%;"> (-2.0, 2.0)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.9.9">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="S5.T2.2.9.9.1"><span class="ltx_text" id="S5.T2.2.9.9.1.1" style="font-size:90%;">APO Zero</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.9.9.2"><span class="ltx_text" id="S5.T2.2.9.9.2.1" style="font-size:90%;">10.36 (0.53)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.9.9.3"><span class="ltx_text" id="S5.T2.2.9.9.3.1" style="font-size:90%;">11.22 (0.98)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S5.T2.2.9.9.4"><span class="ltx_text" id="S5.T2.2.9.9.4.1" style="font-size:90%;">6.0 (-1.0, 0.9)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.9.9.5"><span class="ltx_text" id="S5.T2.2.9.9.5.1" style="font-size:90%;">23.15 (0.76)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.9.9.6"><span class="ltx_text" id="S5.T2.2.9.9.6.1" style="font-size:90%;">19.03 (1.18)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S5.T2.2.9.9.7"><span class="ltx_text" id="S5.T2.2.9.9.7.1" style="font-size:90%;">17.3 (-1.8, 1.8)</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.10.10">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T2.2.10.10.1"><span class="ltx_text" id="S5.T2.2.10.10.1.1" style="font-size:90%;">NCA</span></th>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.10.10.2"><span class="ltx_text" id="S5.T2.2.10.10.2.1" style="font-size:90%;">10.33 (0.53)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.10.10.3"><span class="ltx_text" id="S5.T2.2.10.10.3.1" style="font-size:90%;">11.02 (0.97)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T2.2.10.10.4"><span class="ltx_text" id="S5.T2.2.10.10.4.1" style="font-size:90%;">5.1 (-0.7, 0.8)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.10.10.5"><span class="ltx_text" id="S5.T2.2.10.10.5.1" style="font-size:90%;">23.21 (0.80)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.10.10.6"><span class="ltx_text" id="S5.T2.2.10.10.6.1" style="font-size:90%;">18.67 (1.17)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.10.10.7"><span class="ltx_text" id="S5.T2.2.10.10.7.1" style="font-size:90%;">15.1 (-1.5, 1.6)</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.11.11">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r" id="S5.T2.2.11.11.1"><span class="ltx_text" id="S5.T2.2.11.11.1.1" style="font-size:90%;">Cal-DPO</span></th>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.11.11.2"><span class="ltx_text" id="S5.T2.2.11.11.2.1" style="font-size:90%;">10.62 (0.57)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.11.11.3"><span class="ltx_text" id="S5.T2.2.11.11.3.1" style="font-size:90%;">10.15 (0.94)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="S5.T2.2.11.11.4"><span class="ltx_text" id="S5.T2.2.11.11.4.1" style="font-size:90%;">4.8 (-0.9, 0.9)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.11.11.5"><span class="ltx_text" id="S5.T2.2.11.11.5.1" style="font-size:90%;">23.19 (0.82)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.11.11.6"><span class="ltx_text" id="S5.T2.2.11.11.6.1" style="font-size:90%;">18.85 (1.18)</span></td>
+<td class="ltx_td ltx_align_center" id="S5.T2.2.11.11.7"><span class="ltx_text" id="S5.T2.2.11.11.7.1" style="font-size:90%;">15.2 (-1.5, 1.6)</span></td>
+</tr>
+<tr class="ltx_tr" id="S5.T2.2.12.12">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_bb ltx_border_r" id="S5.T2.2.12.12.1"><span class="ltx_text" id="S5.T2.2.12.12.1.1" style="font-size:90%;">ASFT</span></th>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S5.T2.2.12.12.2"><span class="ltx_text" id="S5.T2.2.12.12.2.1" style="font-size:90%;">10.63 (0.55)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S5.T2.2.12.12.3"><span class="ltx_text" id="S5.T2.2.12.12.3.1" style="font-size:90%;">9.21 (0.88)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="S5.T2.2.12.12.4"><span class="ltx_text" id="S5.T2.2.12.12.4.1" style="font-size:90%;">5.1 (-0.9, 0.9)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S5.T2.2.12.12.5"><span class="ltx_text" id="S5.T2.2.12.12.5.1" style="font-size:90%;">20.82 (0.79)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S5.T2.2.12.12.6"><span class="ltx_text" id="S5.T2.2.12.12.6.1" style="font-size:90%;">16.34 (1.13)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S5.T2.2.12.12.7"><span class="ltx_text" id="S5.T2.2.12.12.7.1" style="font-size:90%;">13.5 (-1.6, 1.5)</span></td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table shows whether different Direct Alignment Algorithms (DAAs) use length-based probability normalization in their original implementations.  A checkmark (✓) indicates length normalization was used, while an 'X' indicates it was not.  This is important because the choice of normalization can affect the results and comparability of different DAAs.
+> <details>
+> <summary>read the caption</summary>
+> Table 3: Methods that include (✓) or omit (✗) length-based probability normalization in their original formulation.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T3.2">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="A1.T3.2.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_tt" id="A1.T3.2.1.1.1"><span class="ltx_text ltx_font_bold" id="A1.T3.2.1.1.1.1">Method</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_tt" id="A1.T3.2.1.1.2"><span class="ltx_text ltx_font_bold" id="A1.T3.2.1.1.2.1">Use normalization</span></th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T3.2.2.1">
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T3.2.2.1.1">DPO <cite class="ltx_cite ltx_citemacro_citep">(Rafailov et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib23" title="">2023</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T3.2.2.1.2">✗</td>
+</tr>
+<tr class="ltx_tr" id="A1.T3.2.3.2">
+<td class="ltx_td ltx_align_left" id="A1.T3.2.3.2.1">IPO <cite class="ltx_cite ltx_citemacro_citep">(Azar et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib2" title="">2023</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left" id="A1.T3.2.3.2.2">✗</td>
+</tr>
+<tr class="ltx_tr" id="A1.T3.2.4.3">
+<td class="ltx_td ltx_align_left" id="A1.T3.2.4.3.1">SimPO <cite class="ltx_cite ltx_citemacro_citep">(Meng et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib21" title="">2024</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left" id="A1.T3.2.4.3.2">✓</td>
+</tr>
+<tr class="ltx_tr" id="A1.T3.2.5.4">
+<td class="ltx_td ltx_align_left" id="A1.T3.2.5.4.1">NCA <cite class="ltx_cite ltx_citemacro_citep">(Chen et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib6" title="">2024</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left" id="A1.T3.2.5.4.2">✗</td>
+</tr>
+<tr class="ltx_tr" id="A1.T3.2.6.5">
+<td class="ltx_td ltx_align_left" id="A1.T3.2.6.5.1">Cal-DPO <cite class="ltx_cite ltx_citemacro_citep">(Xiao et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib31" title="">2024</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left" id="A1.T3.2.6.5.2">✗</td>
+</tr>
+<tr class="ltx_tr" id="A1.T3.2.7.6">
+<td class="ltx_td ltx_align_left" id="A1.T3.2.7.6.1">APO-Zero <cite class="ltx_cite ltx_citemacro_citep">(D’Oosterlinck et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib10" title="">2024</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left" id="A1.T3.2.7.6.2">✗</td>
+</tr>
+<tr class="ltx_tr" id="A1.T3.2.8.7">
+<td class="ltx_td ltx_align_left" id="A1.T3.2.8.7.1">ORPO <cite class="ltx_cite ltx_citemacro_citep">(Hong et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib13" title="">2024</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left" id="A1.T3.2.8.7.2">✓</td>
+</tr>
+<tr class="ltx_tr" id="A1.T3.2.9.8">
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A1.T3.2.9.8.1">ASFT <cite class="ltx_cite ltx_citemacro_citep">(Wang et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib29" title="">2024</a>)</cite>
+</td>
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A1.T3.2.9.8.2">✓</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table lists the hyperparameters used during the training of two different Llama language models: Llama 3.2 3B and Llama 3.1 8B.  It details settings such as maximum token length, number of epochs, learning rates (for both supervised fine-tuning and alignment), optimizer used (Adam), and its hyperparameters (beta1, beta2), batch size, learning rate schedule, warmup ratio, maximum gradient norm, and memory optimization techniques employed (DeepSpeed and FlashAttention-2).  The values provided represent the settings used for experiments in the paper.
+> <details>
+> <summary>read the caption</summary>
+> Table 4: Representative training hyperparameters for Llama 3.2 3B and Llama 3.1 8B models.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T4.5">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T4.5.6.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="A1.T4.5.6.1.1"><span class="ltx_text ltx_font_bold" id="A1.T4.5.6.1.1.1">Hyperparameter</span></th>
+<td class="ltx_td ltx_align_left ltx_border_tt" id="A1.T4.5.6.1.2"><span class="ltx_text ltx_font_bold" id="A1.T4.5.6.1.2.1">Value</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.7.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.T4.5.7.2.1">Max Tokens Length</th>
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T4.5.7.2.2">1024 (TL;DR setup), 4096 (UF setup)</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.8.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.8.3.1">Epochs</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.8.3.2">1 <span class="ltx_text ltx_font_italic" id="A1.T4.5.8.3.2.1">(or 2 when specified)</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.1.1.2">Learning Rate (SFT)</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.1.1.1"><math alttext="6.0\times 10^{-6}" class="ltx_Math" display="inline" id="A1.T4.1.1.1.m1.1"><semantics id="A1.T4.1.1.1.m1.1a"><mrow id="A1.T4.1.1.1.m1.1.1" xref="A1.T4.1.1.1.m1.1.1.cmml"><mn id="A1.T4.1.1.1.m1.1.1.2" xref="A1.T4.1.1.1.m1.1.1.2.cmml">6.0</mn><mo id="A1.T4.1.1.1.m1.1.1.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.1.1.1.m1.1.1.1.cmml">×</mo><msup id="A1.T4.1.1.1.m1.1.1.3" xref="A1.T4.1.1.1.m1.1.1.3.cmml"><mn id="A1.T4.1.1.1.m1.1.1.3.2" xref="A1.T4.1.1.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T4.1.1.1.m1.1.1.3.3" xref="A1.T4.1.1.1.m1.1.1.3.3.cmml"><mo id="A1.T4.1.1.1.m1.1.1.3.3a" xref="A1.T4.1.1.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T4.1.1.1.m1.1.1.3.3.2" xref="A1.T4.1.1.1.m1.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T4.1.1.1.m1.1b"><apply id="A1.T4.1.1.1.m1.1.1.cmml" xref="A1.T4.1.1.1.m1.1.1"><times id="A1.T4.1.1.1.m1.1.1.1.cmml" xref="A1.T4.1.1.1.m1.1.1.1"></times><cn id="A1.T4.1.1.1.m1.1.1.2.cmml" type="float" xref="A1.T4.1.1.1.m1.1.1.2">6.0</cn><apply id="A1.T4.1.1.1.m1.1.1.3.cmml" xref="A1.T4.1.1.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T4.1.1.1.m1.1.1.3.1.cmml" xref="A1.T4.1.1.1.m1.1.1.3">superscript</csymbol><cn id="A1.T4.1.1.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T4.1.1.1.m1.1.1.3.2">10</cn><apply id="A1.T4.1.1.1.m1.1.1.3.3.cmml" xref="A1.T4.1.1.1.m1.1.1.3.3"><minus id="A1.T4.1.1.1.m1.1.1.3.3.1.cmml" xref="A1.T4.1.1.1.m1.1.1.3.3"></minus><cn id="A1.T4.1.1.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T4.1.1.1.m1.1.1.3.3.2">6</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T4.1.1.1.m1.1c">6.0\times 10^{-6}</annotation><annotation encoding="application/x-llamapun" id="A1.T4.1.1.1.m1.1d">6.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.2.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.2.2.2">Learning Rate (Base Init.)</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.2.2.1"><math alttext="\{6.0\times 10^{-6},\,8.0\times 10^{-6},\,1.0\times 10^{-5}\}" class="ltx_Math" display="inline" id="A1.T4.2.2.1.m1.3"><semantics id="A1.T4.2.2.1.m1.3a"><mrow id="A1.T4.2.2.1.m1.3.3.3" xref="A1.T4.2.2.1.m1.3.3.4.cmml"><mo id="A1.T4.2.2.1.m1.3.3.3.4" stretchy="false" xref="A1.T4.2.2.1.m1.3.3.4.cmml">{</mo><mrow id="A1.T4.2.2.1.m1.1.1.1.1" xref="A1.T4.2.2.1.m1.1.1.1.1.cmml"><mn id="A1.T4.2.2.1.m1.1.1.1.1.2" xref="A1.T4.2.2.1.m1.1.1.1.1.2.cmml">6.0</mn><mo id="A1.T4.2.2.1.m1.1.1.1.1.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.2.2.1.m1.1.1.1.1.1.cmml">×</mo><msup id="A1.T4.2.2.1.m1.1.1.1.1.3" xref="A1.T4.2.2.1.m1.1.1.1.1.3.cmml"><mn id="A1.T4.2.2.1.m1.1.1.1.1.3.2" xref="A1.T4.2.2.1.m1.1.1.1.1.3.2.cmml">10</mn><mrow id="A1.T4.2.2.1.m1.1.1.1.1.3.3" xref="A1.T4.2.2.1.m1.1.1.1.1.3.3.cmml"><mo id="A1.T4.2.2.1.m1.1.1.1.1.3.3a" xref="A1.T4.2.2.1.m1.1.1.1.1.3.3.cmml">−</mo><mn id="A1.T4.2.2.1.m1.1.1.1.1.3.3.2" xref="A1.T4.2.2.1.m1.1.1.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><mo id="A1.T4.2.2.1.m1.3.3.3.5" xref="A1.T4.2.2.1.m1.3.3.4.cmml">,</mo><mrow id="A1.T4.2.2.1.m1.2.2.2.2" xref="A1.T4.2.2.1.m1.2.2.2.2.cmml"><mn id="A1.T4.2.2.1.m1.2.2.2.2.2" xref="A1.T4.2.2.1.m1.2.2.2.2.2.cmml"> 8.0</mn><mo id="A1.T4.2.2.1.m1.2.2.2.2.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.2.2.1.m1.2.2.2.2.1.cmml">×</mo><msup id="A1.T4.2.2.1.m1.2.2.2.2.3" xref="A1.T4.2.2.1.m1.2.2.2.2.3.cmml"><mn id="A1.T4.2.2.1.m1.2.2.2.2.3.2" xref="A1.T4.2.2.1.m1.2.2.2.2.3.2.cmml">10</mn><mrow id="A1.T4.2.2.1.m1.2.2.2.2.3.3" xref="A1.T4.2.2.1.m1.2.2.2.2.3.3.cmml"><mo id="A1.T4.2.2.1.m1.2.2.2.2.3.3a" xref="A1.T4.2.2.1.m1.2.2.2.2.3.3.cmml">−</mo><mn id="A1.T4.2.2.1.m1.2.2.2.2.3.3.2" xref="A1.T4.2.2.1.m1.2.2.2.2.3.3.2.cmml">6</mn></mrow></msup></mrow><mo id="A1.T4.2.2.1.m1.3.3.3.6" xref="A1.T4.2.2.1.m1.3.3.4.cmml">,</mo><mrow id="A1.T4.2.2.1.m1.3.3.3.3" xref="A1.T4.2.2.1.m1.3.3.3.3.cmml"><mn id="A1.T4.2.2.1.m1.3.3.3.3.2" xref="A1.T4.2.2.1.m1.3.3.3.3.2.cmml"> 1.0</mn><mo id="A1.T4.2.2.1.m1.3.3.3.3.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.2.2.1.m1.3.3.3.3.1.cmml">×</mo><msup id="A1.T4.2.2.1.m1.3.3.3.3.3" xref="A1.T4.2.2.1.m1.3.3.3.3.3.cmml"><mn id="A1.T4.2.2.1.m1.3.3.3.3.3.2" xref="A1.T4.2.2.1.m1.3.3.3.3.3.2.cmml">10</mn><mrow id="A1.T4.2.2.1.m1.3.3.3.3.3.3" xref="A1.T4.2.2.1.m1.3.3.3.3.3.3.cmml"><mo id="A1.T4.2.2.1.m1.3.3.3.3.3.3a" xref="A1.T4.2.2.1.m1.3.3.3.3.3.3.cmml">−</mo><mn id="A1.T4.2.2.1.m1.3.3.3.3.3.3.2" xref="A1.T4.2.2.1.m1.3.3.3.3.3.3.2.cmml">5</mn></mrow></msup></mrow><mo id="A1.T4.2.2.1.m1.3.3.3.7" stretchy="false" xref="A1.T4.2.2.1.m1.3.3.4.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T4.2.2.1.m1.3b"><set id="A1.T4.2.2.1.m1.3.3.4.cmml" xref="A1.T4.2.2.1.m1.3.3.3"><apply id="A1.T4.2.2.1.m1.1.1.1.1.cmml" xref="A1.T4.2.2.1.m1.1.1.1.1"><times id="A1.T4.2.2.1.m1.1.1.1.1.1.cmml" xref="A1.T4.2.2.1.m1.1.1.1.1.1"></times><cn id="A1.T4.2.2.1.m1.1.1.1.1.2.cmml" type="float" xref="A1.T4.2.2.1.m1.1.1.1.1.2">6.0</cn><apply id="A1.T4.2.2.1.m1.1.1.1.1.3.cmml" xref="A1.T4.2.2.1.m1.1.1.1.1.3"><csymbol cd="ambiguous" id="A1.T4.2.2.1.m1.1.1.1.1.3.1.cmml" xref="A1.T4.2.2.1.m1.1.1.1.1.3">superscript</csymbol><cn id="A1.T4.2.2.1.m1.1.1.1.1.3.2.cmml" type="integer" xref="A1.T4.2.2.1.m1.1.1.1.1.3.2">10</cn><apply id="A1.T4.2.2.1.m1.1.1.1.1.3.3.cmml" xref="A1.T4.2.2.1.m1.1.1.1.1.3.3"><minus id="A1.T4.2.2.1.m1.1.1.1.1.3.3.1.cmml" xref="A1.T4.2.2.1.m1.1.1.1.1.3.3"></minus><cn id="A1.T4.2.2.1.m1.1.1.1.1.3.3.2.cmml" type="integer" xref="A1.T4.2.2.1.m1.1.1.1.1.3.3.2">6</cn></apply></apply></apply><apply id="A1.T4.2.2.1.m1.2.2.2.2.cmml" xref="A1.T4.2.2.1.m1.2.2.2.2"><times id="A1.T4.2.2.1.m1.2.2.2.2.1.cmml" xref="A1.T4.2.2.1.m1.2.2.2.2.1"></times><cn id="A1.T4.2.2.1.m1.2.2.2.2.2.cmml" type="float" xref="A1.T4.2.2.1.m1.2.2.2.2.2">8.0</cn><apply id="A1.T4.2.2.1.m1.2.2.2.2.3.cmml" xref="A1.T4.2.2.1.m1.2.2.2.2.3"><csymbol cd="ambiguous" id="A1.T4.2.2.1.m1.2.2.2.2.3.1.cmml" xref="A1.T4.2.2.1.m1.2.2.2.2.3">superscript</csymbol><cn id="A1.T4.2.2.1.m1.2.2.2.2.3.2.cmml" type="integer" xref="A1.T4.2.2.1.m1.2.2.2.2.3.2">10</cn><apply id="A1.T4.2.2.1.m1.2.2.2.2.3.3.cmml" xref="A1.T4.2.2.1.m1.2.2.2.2.3.3"><minus id="A1.T4.2.2.1.m1.2.2.2.2.3.3.1.cmml" xref="A1.T4.2.2.1.m1.2.2.2.2.3.3"></minus><cn id="A1.T4.2.2.1.m1.2.2.2.2.3.3.2.cmml" type="integer" xref="A1.T4.2.2.1.m1.2.2.2.2.3.3.2">6</cn></apply></apply></apply><apply id="A1.T4.2.2.1.m1.3.3.3.3.cmml" xref="A1.T4.2.2.1.m1.3.3.3.3"><times id="A1.T4.2.2.1.m1.3.3.3.3.1.cmml" xref="A1.T4.2.2.1.m1.3.3.3.3.1"></times><cn id="A1.T4.2.2.1.m1.3.3.3.3.2.cmml" type="float" xref="A1.T4.2.2.1.m1.3.3.3.3.2">1.0</cn><apply id="A1.T4.2.2.1.m1.3.3.3.3.3.cmml" xref="A1.T4.2.2.1.m1.3.3.3.3.3"><csymbol cd="ambiguous" id="A1.T4.2.2.1.m1.3.3.3.3.3.1.cmml" xref="A1.T4.2.2.1.m1.3.3.3.3.3">superscript</csymbol><cn id="A1.T4.2.2.1.m1.3.3.3.3.3.2.cmml" type="integer" xref="A1.T4.2.2.1.m1.3.3.3.3.3.2">10</cn><apply id="A1.T4.2.2.1.m1.3.3.3.3.3.3.cmml" xref="A1.T4.2.2.1.m1.3.3.3.3.3.3"><minus id="A1.T4.2.2.1.m1.3.3.3.3.3.3.1.cmml" xref="A1.T4.2.2.1.m1.3.3.3.3.3.3"></minus><cn id="A1.T4.2.2.1.m1.3.3.3.3.3.3.2.cmml" type="integer" xref="A1.T4.2.2.1.m1.3.3.3.3.3.3.2">5</cn></apply></apply></apply></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T4.2.2.1.m1.3c">\{6.0\times 10^{-6},\,8.0\times 10^{-6},\,1.0\times 10^{-5}\}</annotation><annotation encoding="application/x-llamapun" id="A1.T4.2.2.1.m1.3d">{ 6.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT , 8.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT , 1.0 × 10 start_POSTSUPERSCRIPT - 5 end_POSTSUPERSCRIPT }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.3.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.3.3.2">Learning Rate (Alignment)</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.3.3.1"><math alttext="\{3.0\times 10^{-7},\,5.0\times 10^{-7},\,7.0\times 10^{-7},\,1.0\times 10^{-6}\}" class="ltx_Math" display="inline" id="A1.T4.3.3.1.m1.4"><semantics id="A1.T4.3.3.1.m1.4a"><mrow id="A1.T4.3.3.1.m1.4.4.4" xref="A1.T4.3.3.1.m1.4.4.5.cmml"><mo id="A1.T4.3.3.1.m1.4.4.4.5" stretchy="false" xref="A1.T4.3.3.1.m1.4.4.5.cmml">{</mo><mrow id="A1.T4.3.3.1.m1.1.1.1.1" xref="A1.T4.3.3.1.m1.1.1.1.1.cmml"><mn id="A1.T4.3.3.1.m1.1.1.1.1.2" xref="A1.T4.3.3.1.m1.1.1.1.1.2.cmml">3.0</mn><mo id="A1.T4.3.3.1.m1.1.1.1.1.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.3.3.1.m1.1.1.1.1.1.cmml">×</mo><msup id="A1.T4.3.3.1.m1.1.1.1.1.3" xref="A1.T4.3.3.1.m1.1.1.1.1.3.cmml"><mn id="A1.T4.3.3.1.m1.1.1.1.1.3.2" xref="A1.T4.3.3.1.m1.1.1.1.1.3.2.cmml">10</mn><mrow id="A1.T4.3.3.1.m1.1.1.1.1.3.3" xref="A1.T4.3.3.1.m1.1.1.1.1.3.3.cmml"><mo id="A1.T4.3.3.1.m1.1.1.1.1.3.3a" xref="A1.T4.3.3.1.m1.1.1.1.1.3.3.cmml">−</mo><mn id="A1.T4.3.3.1.m1.1.1.1.1.3.3.2" xref="A1.T4.3.3.1.m1.1.1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><mo id="A1.T4.3.3.1.m1.4.4.4.6" xref="A1.T4.3.3.1.m1.4.4.5.cmml">,</mo><mrow id="A1.T4.3.3.1.m1.2.2.2.2" xref="A1.T4.3.3.1.m1.2.2.2.2.cmml"><mn id="A1.T4.3.3.1.m1.2.2.2.2.2" xref="A1.T4.3.3.1.m1.2.2.2.2.2.cmml"> 5.0</mn><mo id="A1.T4.3.3.1.m1.2.2.2.2.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.3.3.1.m1.2.2.2.2.1.cmml">×</mo><msup id="A1.T4.3.3.1.m1.2.2.2.2.3" xref="A1.T4.3.3.1.m1.2.2.2.2.3.cmml"><mn id="A1.T4.3.3.1.m1.2.2.2.2.3.2" xref="A1.T4.3.3.1.m1.2.2.2.2.3.2.cmml">10</mn><mrow id="A1.T4.3.3.1.m1.2.2.2.2.3.3" xref="A1.T4.3.3.1.m1.2.2.2.2.3.3.cmml"><mo id="A1.T4.3.3.1.m1.2.2.2.2.3.3a" xref="A1.T4.3.3.1.m1.2.2.2.2.3.3.cmml">−</mo><mn id="A1.T4.3.3.1.m1.2.2.2.2.3.3.2" xref="A1.T4.3.3.1.m1.2.2.2.2.3.3.2.cmml">7</mn></mrow></msup></mrow><mo id="A1.T4.3.3.1.m1.4.4.4.7" xref="A1.T4.3.3.1.m1.4.4.5.cmml">,</mo><mrow id="A1.T4.3.3.1.m1.3.3.3.3" xref="A1.T4.3.3.1.m1.3.3.3.3.cmml"><mn id="A1.T4.3.3.1.m1.3.3.3.3.2" xref="A1.T4.3.3.1.m1.3.3.3.3.2.cmml"> 7.0</mn><mo id="A1.T4.3.3.1.m1.3.3.3.3.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.3.3.1.m1.3.3.3.3.1.cmml">×</mo><msup id="A1.T4.3.3.1.m1.3.3.3.3.3" xref="A1.T4.3.3.1.m1.3.3.3.3.3.cmml"><mn id="A1.T4.3.3.1.m1.3.3.3.3.3.2" xref="A1.T4.3.3.1.m1.3.3.3.3.3.2.cmml">10</mn><mrow id="A1.T4.3.3.1.m1.3.3.3.3.3.3" xref="A1.T4.3.3.1.m1.3.3.3.3.3.3.cmml"><mo id="A1.T4.3.3.1.m1.3.3.3.3.3.3a" xref="A1.T4.3.3.1.m1.3.3.3.3.3.3.cmml">−</mo><mn id="A1.T4.3.3.1.m1.3.3.3.3.3.3.2" xref="A1.T4.3.3.1.m1.3.3.3.3.3.3.2.cmml">7</mn></mrow></msup></mrow><mo id="A1.T4.3.3.1.m1.4.4.4.8" xref="A1.T4.3.3.1.m1.4.4.5.cmml">,</mo><mrow id="A1.T4.3.3.1.m1.4.4.4.4" xref="A1.T4.3.3.1.m1.4.4.4.4.cmml"><mn id="A1.T4.3.3.1.m1.4.4.4.4.2" xref="A1.T4.3.3.1.m1.4.4.4.4.2.cmml"> 1.0</mn><mo id="A1.T4.3.3.1.m1.4.4.4.4.1" lspace="0.222em" rspace="0.222em" xref="A1.T4.3.3.1.m1.4.4.4.4.1.cmml">×</mo><msup id="A1.T4.3.3.1.m1.4.4.4.4.3" xref="A1.T4.3.3.1.m1.4.4.4.4.3.cmml"><mn id="A1.T4.3.3.1.m1.4.4.4.4.3.2" xref="A1.T4.3.3.1.m1.4.4.4.4.3.2.cmml">10</mn><mrow id="A1.T4.3.3.1.m1.4.4.4.4.3.3" xref="A1.T4.3.3.1.m1.4.4.4.4.3.3.cmml"><mo id="A1.T4.3.3.1.m1.4.4.4.4.3.3a" xref="A1.T4.3.3.1.m1.4.4.4.4.3.3.cmml">−</mo><mn id="A1.T4.3.3.1.m1.4.4.4.4.3.3.2" xref="A1.T4.3.3.1.m1.4.4.4.4.3.3.2.cmml">6</mn></mrow></msup></mrow><mo id="A1.T4.3.3.1.m1.4.4.4.9" stretchy="false" xref="A1.T4.3.3.1.m1.4.4.5.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T4.3.3.1.m1.4b"><set id="A1.T4.3.3.1.m1.4.4.5.cmml" xref="A1.T4.3.3.1.m1.4.4.4"><apply id="A1.T4.3.3.1.m1.1.1.1.1.cmml" xref="A1.T4.3.3.1.m1.1.1.1.1"><times id="A1.T4.3.3.1.m1.1.1.1.1.1.cmml" xref="A1.T4.3.3.1.m1.1.1.1.1.1"></times><cn id="A1.T4.3.3.1.m1.1.1.1.1.2.cmml" type="float" xref="A1.T4.3.3.1.m1.1.1.1.1.2">3.0</cn><apply id="A1.T4.3.3.1.m1.1.1.1.1.3.cmml" xref="A1.T4.3.3.1.m1.1.1.1.1.3"><csymbol cd="ambiguous" id="A1.T4.3.3.1.m1.1.1.1.1.3.1.cmml" xref="A1.T4.3.3.1.m1.1.1.1.1.3">superscript</csymbol><cn id="A1.T4.3.3.1.m1.1.1.1.1.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.1.1.1.1.3.2">10</cn><apply id="A1.T4.3.3.1.m1.1.1.1.1.3.3.cmml" xref="A1.T4.3.3.1.m1.1.1.1.1.3.3"><minus id="A1.T4.3.3.1.m1.1.1.1.1.3.3.1.cmml" xref="A1.T4.3.3.1.m1.1.1.1.1.3.3"></minus><cn id="A1.T4.3.3.1.m1.1.1.1.1.3.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.1.1.1.1.3.3.2">7</cn></apply></apply></apply><apply id="A1.T4.3.3.1.m1.2.2.2.2.cmml" xref="A1.T4.3.3.1.m1.2.2.2.2"><times id="A1.T4.3.3.1.m1.2.2.2.2.1.cmml" xref="A1.T4.3.3.1.m1.2.2.2.2.1"></times><cn id="A1.T4.3.3.1.m1.2.2.2.2.2.cmml" type="float" xref="A1.T4.3.3.1.m1.2.2.2.2.2">5.0</cn><apply id="A1.T4.3.3.1.m1.2.2.2.2.3.cmml" xref="A1.T4.3.3.1.m1.2.2.2.2.3"><csymbol cd="ambiguous" id="A1.T4.3.3.1.m1.2.2.2.2.3.1.cmml" xref="A1.T4.3.3.1.m1.2.2.2.2.3">superscript</csymbol><cn id="A1.T4.3.3.1.m1.2.2.2.2.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.2.2.2.2.3.2">10</cn><apply id="A1.T4.3.3.1.m1.2.2.2.2.3.3.cmml" xref="A1.T4.3.3.1.m1.2.2.2.2.3.3"><minus id="A1.T4.3.3.1.m1.2.2.2.2.3.3.1.cmml" xref="A1.T4.3.3.1.m1.2.2.2.2.3.3"></minus><cn id="A1.T4.3.3.1.m1.2.2.2.2.3.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.2.2.2.2.3.3.2">7</cn></apply></apply></apply><apply id="A1.T4.3.3.1.m1.3.3.3.3.cmml" xref="A1.T4.3.3.1.m1.3.3.3.3"><times id="A1.T4.3.3.1.m1.3.3.3.3.1.cmml" xref="A1.T4.3.3.1.m1.3.3.3.3.1"></times><cn id="A1.T4.3.3.1.m1.3.3.3.3.2.cmml" type="float" xref="A1.T4.3.3.1.m1.3.3.3.3.2">7.0</cn><apply id="A1.T4.3.3.1.m1.3.3.3.3.3.cmml" xref="A1.T4.3.3.1.m1.3.3.3.3.3"><csymbol cd="ambiguous" id="A1.T4.3.3.1.m1.3.3.3.3.3.1.cmml" xref="A1.T4.3.3.1.m1.3.3.3.3.3">superscript</csymbol><cn id="A1.T4.3.3.1.m1.3.3.3.3.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.3.3.3.3.3.2">10</cn><apply id="A1.T4.3.3.1.m1.3.3.3.3.3.3.cmml" xref="A1.T4.3.3.1.m1.3.3.3.3.3.3"><minus id="A1.T4.3.3.1.m1.3.3.3.3.3.3.1.cmml" xref="A1.T4.3.3.1.m1.3.3.3.3.3.3"></minus><cn id="A1.T4.3.3.1.m1.3.3.3.3.3.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.3.3.3.3.3.3.2">7</cn></apply></apply></apply><apply id="A1.T4.3.3.1.m1.4.4.4.4.cmml" xref="A1.T4.3.3.1.m1.4.4.4.4"><times id="A1.T4.3.3.1.m1.4.4.4.4.1.cmml" xref="A1.T4.3.3.1.m1.4.4.4.4.1"></times><cn id="A1.T4.3.3.1.m1.4.4.4.4.2.cmml" type="float" xref="A1.T4.3.3.1.m1.4.4.4.4.2">1.0</cn><apply id="A1.T4.3.3.1.m1.4.4.4.4.3.cmml" xref="A1.T4.3.3.1.m1.4.4.4.4.3"><csymbol cd="ambiguous" id="A1.T4.3.3.1.m1.4.4.4.4.3.1.cmml" xref="A1.T4.3.3.1.m1.4.4.4.4.3">superscript</csymbol><cn id="A1.T4.3.3.1.m1.4.4.4.4.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.4.4.4.4.3.2">10</cn><apply id="A1.T4.3.3.1.m1.4.4.4.4.3.3.cmml" xref="A1.T4.3.3.1.m1.4.4.4.4.3.3"><minus id="A1.T4.3.3.1.m1.4.4.4.4.3.3.1.cmml" xref="A1.T4.3.3.1.m1.4.4.4.4.3.3"></minus><cn id="A1.T4.3.3.1.m1.4.4.4.4.3.3.2.cmml" type="integer" xref="A1.T4.3.3.1.m1.4.4.4.4.3.3.2">6</cn></apply></apply></apply></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T4.3.3.1.m1.4c">\{3.0\times 10^{-7},\,5.0\times 10^{-7},\,7.0\times 10^{-7},\,1.0\times 10^{-6}\}</annotation><annotation encoding="application/x-llamapun" id="A1.T4.3.3.1.m1.4d">{ 3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT , 5.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT , 7.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT , 1.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.9.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.9.4.1">Optimizer</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.9.4.2">Adam <cite class="ltx_cite ltx_citemacro_citep">(Kingma &amp; Ba, <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib14" title="">2014</a>)</cite>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.4.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.4.4.1">Adam <math alttext="\beta_{1}" class="ltx_Math" display="inline" id="A1.T4.4.4.1.m1.1"><semantics id="A1.T4.4.4.1.m1.1a"><msub id="A1.T4.4.4.1.m1.1.1" xref="A1.T4.4.4.1.m1.1.1.cmml"><mi id="A1.T4.4.4.1.m1.1.1.2" xref="A1.T4.4.4.1.m1.1.1.2.cmml">β</mi><mn id="A1.T4.4.4.1.m1.1.1.3" xref="A1.T4.4.4.1.m1.1.1.3.cmml">1</mn></msub><annotation-xml encoding="MathML-Content" id="A1.T4.4.4.1.m1.1b"><apply id="A1.T4.4.4.1.m1.1.1.cmml" xref="A1.T4.4.4.1.m1.1.1"><csymbol cd="ambiguous" id="A1.T4.4.4.1.m1.1.1.1.cmml" xref="A1.T4.4.4.1.m1.1.1">subscript</csymbol><ci id="A1.T4.4.4.1.m1.1.1.2.cmml" xref="A1.T4.4.4.1.m1.1.1.2">𝛽</ci><cn id="A1.T4.4.4.1.m1.1.1.3.cmml" type="integer" xref="A1.T4.4.4.1.m1.1.1.3">1</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T4.4.4.1.m1.1c">\beta_{1}</annotation><annotation encoding="application/x-llamapun" id="A1.T4.4.4.1.m1.1d">italic_β start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT</annotation></semantics></math>
+</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.4.4.2">0.9</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.5">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.5.1">Adam <math alttext="\beta_{2}" class="ltx_Math" display="inline" id="A1.T4.5.5.1.m1.1"><semantics id="A1.T4.5.5.1.m1.1a"><msub id="A1.T4.5.5.1.m1.1.1" xref="A1.T4.5.5.1.m1.1.1.cmml"><mi id="A1.T4.5.5.1.m1.1.1.2" xref="A1.T4.5.5.1.m1.1.1.2.cmml">β</mi><mn id="A1.T4.5.5.1.m1.1.1.3" xref="A1.T4.5.5.1.m1.1.1.3.cmml">2</mn></msub><annotation-xml encoding="MathML-Content" id="A1.T4.5.5.1.m1.1b"><apply id="A1.T4.5.5.1.m1.1.1.cmml" xref="A1.T4.5.5.1.m1.1.1"><csymbol cd="ambiguous" id="A1.T4.5.5.1.m1.1.1.1.cmml" xref="A1.T4.5.5.1.m1.1.1">subscript</csymbol><ci id="A1.T4.5.5.1.m1.1.1.2.cmml" xref="A1.T4.5.5.1.m1.1.1.2">𝛽</ci><cn id="A1.T4.5.5.1.m1.1.1.3.cmml" type="integer" xref="A1.T4.5.5.1.m1.1.1.3">2</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T4.5.5.1.m1.1c">\beta_{2}</annotation><annotation encoding="application/x-llamapun" id="A1.T4.5.5.1.m1.1d">italic_β start_POSTSUBSCRIPT 2 end_POSTSUBSCRIPT</annotation></semantics></math>
+</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.5.2">0.95</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.10.5">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.10.5.1">Batch Size</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.10.5.2">128</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.11.6">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.11.6.1">Learning Schedule</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.11.6.2">Linear Decay</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.12.7">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.12.7.1">Warm-up Ratio</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.12.7.2">0.03</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.13.8">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.13.8.1">Max Gradient Norm</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.13.8.2">2</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.14.9">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T4.5.14.9.1">Memory Optimization</th>
+<td class="ltx_td ltx_align_left" id="A1.T4.5.14.9.2">DeepSpeed <cite class="ltx_cite ltx_citemacro_citep">(Rasley et al., <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib25" title="">2020</a>)</cite>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.T4.5.15.10">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb" id="A1.T4.5.15.10.1">Attention Mechanism</th>
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A1.T4.5.15.10.2">Flash Attention 2 <cite class="ltx_cite ltx_citemacro_citep">(Dao, <a class="ltx_ref" href="https://arxiv.org/html/2502.01237v1#bib.bib8" title="">2023</a>)</cite>
+</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a summary of the sizes of the datasets used in the experiments described in the paper.  It shows the number of training and validation examples available for three key datasets: UltraChat, UltraFeedback, and Reddit TL;DR.  The Reddit TL;DR dataset is further broken down into the number of examples used for supervised fine-tuning (SFT) and those used for preference-based optimization.
+> <details>
+> <summary>read the caption</summary>
+> Table 5: Summary of dataset sizes used for training and validation.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T5.2">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="A1.T5.2.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt" id="A1.T5.2.1.1.1"><span class="ltx_text ltx_font_bold" id="A1.T5.2.1.1.1.1">Dataset</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="A1.T5.2.1.1.2"><span class="ltx_text ltx_font_bold" id="A1.T5.2.1.1.2.1">Training Examples</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="A1.T5.2.1.1.3"><span class="ltx_text ltx_font_bold" id="A1.T5.2.1.1.3.1">Validation Examples</span></th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T5.2.2.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.T5.2.2.1.1">UltraChat</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T5.2.2.1.2">207,865</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T5.2.2.1.3">23,110</td>
+</tr>
+<tr class="ltx_tr" id="A1.T5.2.3.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T5.2.3.2.1">UltraFeedback</th>
+<td class="ltx_td ltx_align_center" id="A1.T5.2.3.2.2">61,135</td>
+<td class="ltx_td ltx_align_center" id="A1.T5.2.3.2.3">2,000</td>
+</tr>
+<tr class="ltx_tr" id="A1.T5.2.4.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T5.2.4.3.1">Reddit TL;DR (SFT)</th>
+<td class="ltx_td ltx_align_center" id="A1.T5.2.4.3.2">41,947</td>
+<td class="ltx_td ltx_align_center" id="A1.T5.2.4.3.3">11,941</td>
+</tr>
+<tr class="ltx_tr" id="A1.T5.2.5.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb" id="A1.T5.2.5.4.1">Reddit TL;DR (Preference)</th>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T5.2.5.4.2">73,396</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T5.2.5.4.3">21,198</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the range of beta (β) values used in the experiments for each Direct Alignment Algorithm (DAA).  The beta parameter controls the strength of the preference optimization, and its impact on performance was evaluated across multiple scenarios.  Each DAA's performance was tested using the provided range of β values to identify optimal configurations for each.
+> <details>
+> <summary>read the caption</summary>
+> Table 6: Range of β𝛽\betaitalic_β values tested for each DAA method on all scenarios.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T6.9">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="A1.T6.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt" id="A1.T6.1.1.2"><span class="ltx_text ltx_font_bold" id="A1.T6.1.1.2.1">Method</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_border_tt" id="A1.T6.1.1.1">
+<math alttext="\beta" class="ltx_Math" display="inline" id="A1.T6.1.1.1.m1.1"><semantics id="A1.T6.1.1.1.m1.1a"><mi id="A1.T6.1.1.1.m1.1.1" xref="A1.T6.1.1.1.m1.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="A1.T6.1.1.1.m1.1b"><ci id="A1.T6.1.1.1.m1.1.1.cmml" xref="A1.T6.1.1.1.m1.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.1.1.1.m1.1c">\beta</annotation><annotation encoding="application/x-llamapun" id="A1.T6.1.1.1.m1.1d">italic_β</annotation></semantics></math><span class="ltx_text ltx_font_bold" id="A1.T6.1.1.1.1"> Values Tested</span>
+</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T6.2.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.T6.2.2.2">DPO</th>
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T6.2.2.1"><math alttext="\{0.001,0.003,0.005,0.01,0.05,0.1\}" class="ltx_Math" display="inline" id="A1.T6.2.2.1.m1.6"><semantics id="A1.T6.2.2.1.m1.6a"><mrow id="A1.T6.2.2.1.m1.6.7.2" xref="A1.T6.2.2.1.m1.6.7.1.cmml"><mo id="A1.T6.2.2.1.m1.6.7.2.1" stretchy="false" xref="A1.T6.2.2.1.m1.6.7.1.cmml">{</mo><mn id="A1.T6.2.2.1.m1.1.1" xref="A1.T6.2.2.1.m1.1.1.cmml">0.001</mn><mo id="A1.T6.2.2.1.m1.6.7.2.2" xref="A1.T6.2.2.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.2.2.1.m1.2.2" xref="A1.T6.2.2.1.m1.2.2.cmml">0.003</mn><mo id="A1.T6.2.2.1.m1.6.7.2.3" xref="A1.T6.2.2.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.2.2.1.m1.3.3" xref="A1.T6.2.2.1.m1.3.3.cmml">0.005</mn><mo id="A1.T6.2.2.1.m1.6.7.2.4" xref="A1.T6.2.2.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.2.2.1.m1.4.4" xref="A1.T6.2.2.1.m1.4.4.cmml">0.01</mn><mo id="A1.T6.2.2.1.m1.6.7.2.5" xref="A1.T6.2.2.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.2.2.1.m1.5.5" xref="A1.T6.2.2.1.m1.5.5.cmml">0.05</mn><mo id="A1.T6.2.2.1.m1.6.7.2.6" xref="A1.T6.2.2.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.2.2.1.m1.6.6" xref="A1.T6.2.2.1.m1.6.6.cmml">0.1</mn><mo id="A1.T6.2.2.1.m1.6.7.2.7" stretchy="false" xref="A1.T6.2.2.1.m1.6.7.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.2.2.1.m1.6b"><set id="A1.T6.2.2.1.m1.6.7.1.cmml" xref="A1.T6.2.2.1.m1.6.7.2"><cn id="A1.T6.2.2.1.m1.1.1.cmml" type="float" xref="A1.T6.2.2.1.m1.1.1">0.001</cn><cn id="A1.T6.2.2.1.m1.2.2.cmml" type="float" xref="A1.T6.2.2.1.m1.2.2">0.003</cn><cn id="A1.T6.2.2.1.m1.3.3.cmml" type="float" xref="A1.T6.2.2.1.m1.3.3">0.005</cn><cn id="A1.T6.2.2.1.m1.4.4.cmml" type="float" xref="A1.T6.2.2.1.m1.4.4">0.01</cn><cn id="A1.T6.2.2.1.m1.5.5.cmml" type="float" xref="A1.T6.2.2.1.m1.5.5">0.05</cn><cn id="A1.T6.2.2.1.m1.6.6.cmml" type="float" xref="A1.T6.2.2.1.m1.6.6">0.1</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.2.2.1.m1.6c">\{0.001,0.003,0.005,0.01,0.05,0.1\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.2.2.1.m1.6d">{ 0.001 , 0.003 , 0.005 , 0.01 , 0.05 , 0.1 }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T6.3.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T6.3.3.2">IPO</th>
+<td class="ltx_td ltx_align_left" id="A1.T6.3.3.1"><math alttext="\{0.0007,0.001,0.005,0.01,0.05,0.1\}" class="ltx_Math" display="inline" id="A1.T6.3.3.1.m1.6"><semantics id="A1.T6.3.3.1.m1.6a"><mrow id="A1.T6.3.3.1.m1.6.7.2" xref="A1.T6.3.3.1.m1.6.7.1.cmml"><mo id="A1.T6.3.3.1.m1.6.7.2.1" stretchy="false" xref="A1.T6.3.3.1.m1.6.7.1.cmml">{</mo><mn id="A1.T6.3.3.1.m1.1.1" xref="A1.T6.3.3.1.m1.1.1.cmml">0.0007</mn><mo id="A1.T6.3.3.1.m1.6.7.2.2" xref="A1.T6.3.3.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.3.3.1.m1.2.2" xref="A1.T6.3.3.1.m1.2.2.cmml">0.001</mn><mo id="A1.T6.3.3.1.m1.6.7.2.3" xref="A1.T6.3.3.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.3.3.1.m1.3.3" xref="A1.T6.3.3.1.m1.3.3.cmml">0.005</mn><mo id="A1.T6.3.3.1.m1.6.7.2.4" xref="A1.T6.3.3.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.3.3.1.m1.4.4" xref="A1.T6.3.3.1.m1.4.4.cmml">0.01</mn><mo id="A1.T6.3.3.1.m1.6.7.2.5" xref="A1.T6.3.3.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.3.3.1.m1.5.5" xref="A1.T6.3.3.1.m1.5.5.cmml">0.05</mn><mo id="A1.T6.3.3.1.m1.6.7.2.6" xref="A1.T6.3.3.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.3.3.1.m1.6.6" xref="A1.T6.3.3.1.m1.6.6.cmml">0.1</mn><mo id="A1.T6.3.3.1.m1.6.7.2.7" stretchy="false" xref="A1.T6.3.3.1.m1.6.7.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.3.3.1.m1.6b"><set id="A1.T6.3.3.1.m1.6.7.1.cmml" xref="A1.T6.3.3.1.m1.6.7.2"><cn id="A1.T6.3.3.1.m1.1.1.cmml" type="float" xref="A1.T6.3.3.1.m1.1.1">0.0007</cn><cn id="A1.T6.3.3.1.m1.2.2.cmml" type="float" xref="A1.T6.3.3.1.m1.2.2">0.001</cn><cn id="A1.T6.3.3.1.m1.3.3.cmml" type="float" xref="A1.T6.3.3.1.m1.3.3">0.005</cn><cn id="A1.T6.3.3.1.m1.4.4.cmml" type="float" xref="A1.T6.3.3.1.m1.4.4">0.01</cn><cn id="A1.T6.3.3.1.m1.5.5.cmml" type="float" xref="A1.T6.3.3.1.m1.5.5">0.05</cn><cn id="A1.T6.3.3.1.m1.6.6.cmml" type="float" xref="A1.T6.3.3.1.m1.6.6">0.1</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.3.3.1.m1.6c">\{0.0007,0.001,0.005,0.01,0.05,0.1\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.3.3.1.m1.6d">{ 0.0007 , 0.001 , 0.005 , 0.01 , 0.05 , 0.1 }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T6.4.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T6.4.4.2">SimPO</th>
+<td class="ltx_td ltx_align_left" id="A1.T6.4.4.1"><math alttext="\{0.05,0.1,0.2,0.5,1.0,2.0,5.0\}" class="ltx_Math" display="inline" id="A1.T6.4.4.1.m1.7"><semantics id="A1.T6.4.4.1.m1.7a"><mrow id="A1.T6.4.4.1.m1.7.8.2" xref="A1.T6.4.4.1.m1.7.8.1.cmml"><mo id="A1.T6.4.4.1.m1.7.8.2.1" stretchy="false" xref="A1.T6.4.4.1.m1.7.8.1.cmml">{</mo><mn id="A1.T6.4.4.1.m1.1.1" xref="A1.T6.4.4.1.m1.1.1.cmml">0.05</mn><mo id="A1.T6.4.4.1.m1.7.8.2.2" xref="A1.T6.4.4.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.4.4.1.m1.2.2" xref="A1.T6.4.4.1.m1.2.2.cmml">0.1</mn><mo id="A1.T6.4.4.1.m1.7.8.2.3" xref="A1.T6.4.4.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.4.4.1.m1.3.3" xref="A1.T6.4.4.1.m1.3.3.cmml">0.2</mn><mo id="A1.T6.4.4.1.m1.7.8.2.4" xref="A1.T6.4.4.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.4.4.1.m1.4.4" xref="A1.T6.4.4.1.m1.4.4.cmml">0.5</mn><mo id="A1.T6.4.4.1.m1.7.8.2.5" xref="A1.T6.4.4.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.4.4.1.m1.5.5" xref="A1.T6.4.4.1.m1.5.5.cmml">1.0</mn><mo id="A1.T6.4.4.1.m1.7.8.2.6" xref="A1.T6.4.4.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.4.4.1.m1.6.6" xref="A1.T6.4.4.1.m1.6.6.cmml">2.0</mn><mo id="A1.T6.4.4.1.m1.7.8.2.7" xref="A1.T6.4.4.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.4.4.1.m1.7.7" xref="A1.T6.4.4.1.m1.7.7.cmml">5.0</mn><mo id="A1.T6.4.4.1.m1.7.8.2.8" stretchy="false" xref="A1.T6.4.4.1.m1.7.8.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.4.4.1.m1.7b"><set id="A1.T6.4.4.1.m1.7.8.1.cmml" xref="A1.T6.4.4.1.m1.7.8.2"><cn id="A1.T6.4.4.1.m1.1.1.cmml" type="float" xref="A1.T6.4.4.1.m1.1.1">0.05</cn><cn id="A1.T6.4.4.1.m1.2.2.cmml" type="float" xref="A1.T6.4.4.1.m1.2.2">0.1</cn><cn id="A1.T6.4.4.1.m1.3.3.cmml" type="float" xref="A1.T6.4.4.1.m1.3.3">0.2</cn><cn id="A1.T6.4.4.1.m1.4.4.cmml" type="float" xref="A1.T6.4.4.1.m1.4.4">0.5</cn><cn id="A1.T6.4.4.1.m1.5.5.cmml" type="float" xref="A1.T6.4.4.1.m1.5.5">1.0</cn><cn id="A1.T6.4.4.1.m1.6.6.cmml" type="float" xref="A1.T6.4.4.1.m1.6.6">2.0</cn><cn id="A1.T6.4.4.1.m1.7.7.cmml" type="float" xref="A1.T6.4.4.1.m1.7.7">5.0</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.4.4.1.m1.7c">\{0.05,0.1,0.2,0.5,1.0,2.0,5.0\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.4.4.1.m1.7d">{ 0.05 , 0.1 , 0.2 , 0.5 , 1.0 , 2.0 , 5.0 }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T6.5.5">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T6.5.5.2">ORPO</th>
+<td class="ltx_td ltx_align_left" id="A1.T6.5.5.1"><math alttext="\{0.05,0.1,0.2,0.5,1.0,2.0\}" class="ltx_Math" display="inline" id="A1.T6.5.5.1.m1.6"><semantics id="A1.T6.5.5.1.m1.6a"><mrow id="A1.T6.5.5.1.m1.6.7.2" xref="A1.T6.5.5.1.m1.6.7.1.cmml"><mo id="A1.T6.5.5.1.m1.6.7.2.1" stretchy="false" xref="A1.T6.5.5.1.m1.6.7.1.cmml">{</mo><mn id="A1.T6.5.5.1.m1.1.1" xref="A1.T6.5.5.1.m1.1.1.cmml">0.05</mn><mo id="A1.T6.5.5.1.m1.6.7.2.2" xref="A1.T6.5.5.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.5.5.1.m1.2.2" xref="A1.T6.5.5.1.m1.2.2.cmml">0.1</mn><mo id="A1.T6.5.5.1.m1.6.7.2.3" xref="A1.T6.5.5.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.5.5.1.m1.3.3" xref="A1.T6.5.5.1.m1.3.3.cmml">0.2</mn><mo id="A1.T6.5.5.1.m1.6.7.2.4" xref="A1.T6.5.5.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.5.5.1.m1.4.4" xref="A1.T6.5.5.1.m1.4.4.cmml">0.5</mn><mo id="A1.T6.5.5.1.m1.6.7.2.5" xref="A1.T6.5.5.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.5.5.1.m1.5.5" xref="A1.T6.5.5.1.m1.5.5.cmml">1.0</mn><mo id="A1.T6.5.5.1.m1.6.7.2.6" xref="A1.T6.5.5.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.5.5.1.m1.6.6" xref="A1.T6.5.5.1.m1.6.6.cmml">2.0</mn><mo id="A1.T6.5.5.1.m1.6.7.2.7" stretchy="false" xref="A1.T6.5.5.1.m1.6.7.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.5.5.1.m1.6b"><set id="A1.T6.5.5.1.m1.6.7.1.cmml" xref="A1.T6.5.5.1.m1.6.7.2"><cn id="A1.T6.5.5.1.m1.1.1.cmml" type="float" xref="A1.T6.5.5.1.m1.1.1">0.05</cn><cn id="A1.T6.5.5.1.m1.2.2.cmml" type="float" xref="A1.T6.5.5.1.m1.2.2">0.1</cn><cn id="A1.T6.5.5.1.m1.3.3.cmml" type="float" xref="A1.T6.5.5.1.m1.3.3">0.2</cn><cn id="A1.T6.5.5.1.m1.4.4.cmml" type="float" xref="A1.T6.5.5.1.m1.4.4">0.5</cn><cn id="A1.T6.5.5.1.m1.5.5.cmml" type="float" xref="A1.T6.5.5.1.m1.5.5">1.0</cn><cn id="A1.T6.5.5.1.m1.6.6.cmml" type="float" xref="A1.T6.5.5.1.m1.6.6">2.0</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.5.5.1.m1.6c">\{0.05,0.1,0.2,0.5,1.0,2.0\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.5.5.1.m1.6d">{ 0.05 , 0.1 , 0.2 , 0.5 , 1.0 , 2.0 }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T6.6.6">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T6.6.6.2">ASFT</th>
+<td class="ltx_td ltx_align_left" id="A1.T6.6.6.1"><math alttext="\{0.05,0.1,0.2,0.5,1.0,2.0\}" class="ltx_Math" display="inline" id="A1.T6.6.6.1.m1.6"><semantics id="A1.T6.6.6.1.m1.6a"><mrow id="A1.T6.6.6.1.m1.6.7.2" xref="A1.T6.6.6.1.m1.6.7.1.cmml"><mo id="A1.T6.6.6.1.m1.6.7.2.1" stretchy="false" xref="A1.T6.6.6.1.m1.6.7.1.cmml">{</mo><mn id="A1.T6.6.6.1.m1.1.1" xref="A1.T6.6.6.1.m1.1.1.cmml">0.05</mn><mo id="A1.T6.6.6.1.m1.6.7.2.2" xref="A1.T6.6.6.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.6.6.1.m1.2.2" xref="A1.T6.6.6.1.m1.2.2.cmml">0.1</mn><mo id="A1.T6.6.6.1.m1.6.7.2.3" xref="A1.T6.6.6.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.6.6.1.m1.3.3" xref="A1.T6.6.6.1.m1.3.3.cmml">0.2</mn><mo id="A1.T6.6.6.1.m1.6.7.2.4" xref="A1.T6.6.6.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.6.6.1.m1.4.4" xref="A1.T6.6.6.1.m1.4.4.cmml">0.5</mn><mo id="A1.T6.6.6.1.m1.6.7.2.5" xref="A1.T6.6.6.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.6.6.1.m1.5.5" xref="A1.T6.6.6.1.m1.5.5.cmml">1.0</mn><mo id="A1.T6.6.6.1.m1.6.7.2.6" xref="A1.T6.6.6.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.6.6.1.m1.6.6" xref="A1.T6.6.6.1.m1.6.6.cmml">2.0</mn><mo id="A1.T6.6.6.1.m1.6.7.2.7" stretchy="false" xref="A1.T6.6.6.1.m1.6.7.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.6.6.1.m1.6b"><set id="A1.T6.6.6.1.m1.6.7.1.cmml" xref="A1.T6.6.6.1.m1.6.7.2"><cn id="A1.T6.6.6.1.m1.1.1.cmml" type="float" xref="A1.T6.6.6.1.m1.1.1">0.05</cn><cn id="A1.T6.6.6.1.m1.2.2.cmml" type="float" xref="A1.T6.6.6.1.m1.2.2">0.1</cn><cn id="A1.T6.6.6.1.m1.3.3.cmml" type="float" xref="A1.T6.6.6.1.m1.3.3">0.2</cn><cn id="A1.T6.6.6.1.m1.4.4.cmml" type="float" xref="A1.T6.6.6.1.m1.4.4">0.5</cn><cn id="A1.T6.6.6.1.m1.5.5.cmml" type="float" xref="A1.T6.6.6.1.m1.5.5">1.0</cn><cn id="A1.T6.6.6.1.m1.6.6.cmml" type="float" xref="A1.T6.6.6.1.m1.6.6">2.0</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.6.6.1.m1.6c">\{0.05,0.1,0.2,0.5,1.0,2.0\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.6.6.1.m1.6d">{ 0.05 , 0.1 , 0.2 , 0.5 , 1.0 , 2.0 }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T6.7.7">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T6.7.7.2">APO-Zero</th>
+<td class="ltx_td ltx_align_left" id="A1.T6.7.7.1"><math alttext="\{0.001,0.003,0.005,0.01,0.05,0.1,0.2\}" class="ltx_Math" display="inline" id="A1.T6.7.7.1.m1.7"><semantics id="A1.T6.7.7.1.m1.7a"><mrow id="A1.T6.7.7.1.m1.7.8.2" xref="A1.T6.7.7.1.m1.7.8.1.cmml"><mo id="A1.T6.7.7.1.m1.7.8.2.1" stretchy="false" xref="A1.T6.7.7.1.m1.7.8.1.cmml">{</mo><mn id="A1.T6.7.7.1.m1.1.1" xref="A1.T6.7.7.1.m1.1.1.cmml">0.001</mn><mo id="A1.T6.7.7.1.m1.7.8.2.2" xref="A1.T6.7.7.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.7.7.1.m1.2.2" xref="A1.T6.7.7.1.m1.2.2.cmml">0.003</mn><mo id="A1.T6.7.7.1.m1.7.8.2.3" xref="A1.T6.7.7.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.7.7.1.m1.3.3" xref="A1.T6.7.7.1.m1.3.3.cmml">0.005</mn><mo id="A1.T6.7.7.1.m1.7.8.2.4" xref="A1.T6.7.7.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.7.7.1.m1.4.4" xref="A1.T6.7.7.1.m1.4.4.cmml">0.01</mn><mo id="A1.T6.7.7.1.m1.7.8.2.5" xref="A1.T6.7.7.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.7.7.1.m1.5.5" xref="A1.T6.7.7.1.m1.5.5.cmml">0.05</mn><mo id="A1.T6.7.7.1.m1.7.8.2.6" xref="A1.T6.7.7.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.7.7.1.m1.6.6" xref="A1.T6.7.7.1.m1.6.6.cmml">0.1</mn><mo id="A1.T6.7.7.1.m1.7.8.2.7" xref="A1.T6.7.7.1.m1.7.8.1.cmml">,</mo><mn id="A1.T6.7.7.1.m1.7.7" xref="A1.T6.7.7.1.m1.7.7.cmml">0.2</mn><mo id="A1.T6.7.7.1.m1.7.8.2.8" stretchy="false" xref="A1.T6.7.7.1.m1.7.8.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.7.7.1.m1.7b"><set id="A1.T6.7.7.1.m1.7.8.1.cmml" xref="A1.T6.7.7.1.m1.7.8.2"><cn id="A1.T6.7.7.1.m1.1.1.cmml" type="float" xref="A1.T6.7.7.1.m1.1.1">0.001</cn><cn id="A1.T6.7.7.1.m1.2.2.cmml" type="float" xref="A1.T6.7.7.1.m1.2.2">0.003</cn><cn id="A1.T6.7.7.1.m1.3.3.cmml" type="float" xref="A1.T6.7.7.1.m1.3.3">0.005</cn><cn id="A1.T6.7.7.1.m1.4.4.cmml" type="float" xref="A1.T6.7.7.1.m1.4.4">0.01</cn><cn id="A1.T6.7.7.1.m1.5.5.cmml" type="float" xref="A1.T6.7.7.1.m1.5.5">0.05</cn><cn id="A1.T6.7.7.1.m1.6.6.cmml" type="float" xref="A1.T6.7.7.1.m1.6.6">0.1</cn><cn id="A1.T6.7.7.1.m1.7.7.cmml" type="float" xref="A1.T6.7.7.1.m1.7.7">0.2</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.7.7.1.m1.7c">\{0.001,0.003,0.005,0.01,0.05,0.1,0.2\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.7.7.1.m1.7d">{ 0.001 , 0.003 , 0.005 , 0.01 , 0.05 , 0.1 , 0.2 }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T6.8.8">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T6.8.8.2">Cal-DPO</th>
+<td class="ltx_td ltx_align_left" id="A1.T6.8.8.1"><math alttext="\{0.00005,0.0001,0.0003,0.0005,0.001,0.003\}" class="ltx_Math" display="inline" id="A1.T6.8.8.1.m1.6"><semantics id="A1.T6.8.8.1.m1.6a"><mrow id="A1.T6.8.8.1.m1.6.7.2" xref="A1.T6.8.8.1.m1.6.7.1.cmml"><mo id="A1.T6.8.8.1.m1.6.7.2.1" stretchy="false" xref="A1.T6.8.8.1.m1.6.7.1.cmml">{</mo><mn id="A1.T6.8.8.1.m1.1.1" xref="A1.T6.8.8.1.m1.1.1.cmml">0.00005</mn><mo id="A1.T6.8.8.1.m1.6.7.2.2" xref="A1.T6.8.8.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.8.8.1.m1.2.2" xref="A1.T6.8.8.1.m1.2.2.cmml">0.0001</mn><mo id="A1.T6.8.8.1.m1.6.7.2.3" xref="A1.T6.8.8.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.8.8.1.m1.3.3" xref="A1.T6.8.8.1.m1.3.3.cmml">0.0003</mn><mo id="A1.T6.8.8.1.m1.6.7.2.4" xref="A1.T6.8.8.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.8.8.1.m1.4.4" xref="A1.T6.8.8.1.m1.4.4.cmml">0.0005</mn><mo id="A1.T6.8.8.1.m1.6.7.2.5" xref="A1.T6.8.8.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.8.8.1.m1.5.5" xref="A1.T6.8.8.1.m1.5.5.cmml">0.001</mn><mo id="A1.T6.8.8.1.m1.6.7.2.6" xref="A1.T6.8.8.1.m1.6.7.1.cmml">,</mo><mn id="A1.T6.8.8.1.m1.6.6" xref="A1.T6.8.8.1.m1.6.6.cmml">0.003</mn><mo id="A1.T6.8.8.1.m1.6.7.2.7" stretchy="false" xref="A1.T6.8.8.1.m1.6.7.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.8.8.1.m1.6b"><set id="A1.T6.8.8.1.m1.6.7.1.cmml" xref="A1.T6.8.8.1.m1.6.7.2"><cn id="A1.T6.8.8.1.m1.1.1.cmml" type="float" xref="A1.T6.8.8.1.m1.1.1">0.00005</cn><cn id="A1.T6.8.8.1.m1.2.2.cmml" type="float" xref="A1.T6.8.8.1.m1.2.2">0.0001</cn><cn id="A1.T6.8.8.1.m1.3.3.cmml" type="float" xref="A1.T6.8.8.1.m1.3.3">0.0003</cn><cn id="A1.T6.8.8.1.m1.4.4.cmml" type="float" xref="A1.T6.8.8.1.m1.4.4">0.0005</cn><cn id="A1.T6.8.8.1.m1.5.5.cmml" type="float" xref="A1.T6.8.8.1.m1.5.5">0.001</cn><cn id="A1.T6.8.8.1.m1.6.6.cmml" type="float" xref="A1.T6.8.8.1.m1.6.6">0.003</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.8.8.1.m1.6c">\{0.00005,0.0001,0.0003,0.0005,0.001,0.003\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.8.8.1.m1.6d">{ 0.00005 , 0.0001 , 0.0003 , 0.0005 , 0.001 , 0.003 }</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T6.9.9">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb" id="A1.T6.9.9.2">NCA</th>
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A1.T6.9.9.1"><math alttext="\{0.0001,0.0003,0.0005,0.001,0.005,0.007,0.01,0.03,0.05\}" class="ltx_Math" display="inline" id="A1.T6.9.9.1.m1.9"><semantics id="A1.T6.9.9.1.m1.9a"><mrow id="A1.T6.9.9.1.m1.9.10.2" xref="A1.T6.9.9.1.m1.9.10.1.cmml"><mo id="A1.T6.9.9.1.m1.9.10.2.1" stretchy="false" xref="A1.T6.9.9.1.m1.9.10.1.cmml">{</mo><mn id="A1.T6.9.9.1.m1.1.1" xref="A1.T6.9.9.1.m1.1.1.cmml">0.0001</mn><mo id="A1.T6.9.9.1.m1.9.10.2.2" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.2.2" xref="A1.T6.9.9.1.m1.2.2.cmml">0.0003</mn><mo id="A1.T6.9.9.1.m1.9.10.2.3" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.3.3" xref="A1.T6.9.9.1.m1.3.3.cmml">0.0005</mn><mo id="A1.T6.9.9.1.m1.9.10.2.4" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.4.4" xref="A1.T6.9.9.1.m1.4.4.cmml">0.001</mn><mo id="A1.T6.9.9.1.m1.9.10.2.5" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.5.5" xref="A1.T6.9.9.1.m1.5.5.cmml">0.005</mn><mo id="A1.T6.9.9.1.m1.9.10.2.6" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.6.6" xref="A1.T6.9.9.1.m1.6.6.cmml">0.007</mn><mo id="A1.T6.9.9.1.m1.9.10.2.7" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.7.7" xref="A1.T6.9.9.1.m1.7.7.cmml">0.01</mn><mo id="A1.T6.9.9.1.m1.9.10.2.8" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.8.8" xref="A1.T6.9.9.1.m1.8.8.cmml">0.03</mn><mo id="A1.T6.9.9.1.m1.9.10.2.9" xref="A1.T6.9.9.1.m1.9.10.1.cmml">,</mo><mn id="A1.T6.9.9.1.m1.9.9" xref="A1.T6.9.9.1.m1.9.9.cmml">0.05</mn><mo id="A1.T6.9.9.1.m1.9.10.2.10" stretchy="false" xref="A1.T6.9.9.1.m1.9.10.1.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="A1.T6.9.9.1.m1.9b"><set id="A1.T6.9.9.1.m1.9.10.1.cmml" xref="A1.T6.9.9.1.m1.9.10.2"><cn id="A1.T6.9.9.1.m1.1.1.cmml" type="float" xref="A1.T6.9.9.1.m1.1.1">0.0001</cn><cn id="A1.T6.9.9.1.m1.2.2.cmml" type="float" xref="A1.T6.9.9.1.m1.2.2">0.0003</cn><cn id="A1.T6.9.9.1.m1.3.3.cmml" type="float" xref="A1.T6.9.9.1.m1.3.3">0.0005</cn><cn id="A1.T6.9.9.1.m1.4.4.cmml" type="float" xref="A1.T6.9.9.1.m1.4.4">0.001</cn><cn id="A1.T6.9.9.1.m1.5.5.cmml" type="float" xref="A1.T6.9.9.1.m1.5.5">0.005</cn><cn id="A1.T6.9.9.1.m1.6.6.cmml" type="float" xref="A1.T6.9.9.1.m1.6.6">0.007</cn><cn id="A1.T6.9.9.1.m1.7.7.cmml" type="float" xref="A1.T6.9.9.1.m1.7.7">0.01</cn><cn id="A1.T6.9.9.1.m1.8.8.cmml" type="float" xref="A1.T6.9.9.1.m1.8.8">0.03</cn><cn id="A1.T6.9.9.1.m1.9.9.cmml" type="float" xref="A1.T6.9.9.1.m1.9.9">0.05</cn></set></annotation-xml><annotation encoding="application/x-tex" id="A1.T6.9.9.1.m1.9c">\{0.0001,0.0003,0.0005,0.001,0.005,0.007,0.01,0.03,0.05\}</annotation><annotation encoding="application/x-llamapun" id="A1.T6.9.9.1.m1.9d">{ 0.0001 , 0.0003 , 0.0005 , 0.001 , 0.005 , 0.007 , 0.01 , 0.03 , 0.05 }</annotation></semantics></math></td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the best-performing hyperparameter configurations for each Direct Alignment Algorithm (DAA) across three different experimental setups.  The setups vary in model size and datasets used, allowing for a comparison of the algorithms' sensitivity to hyperparameter settings across diverse conditions.  The hyperparameters shown include learning rate and the β scaling parameter, key factors influencing the performance of the DAAs.
+> <details>
+> <summary>read the caption</summary>
+> Table 7: Best hyperparameters for each DAA method across setups.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T7.27">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="A1.T7.27.28.1">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_th_row ltx_border_r ltx_border_tt" id="A1.T7.27.28.1.1" rowspan="2"><span class="ltx_text ltx_font_bold" id="A1.T7.27.28.1.1.1" style="font-size:90%;">Method</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_tt" colspan="2" id="A1.T7.27.28.1.2"><span class="ltx_text ltx_font_bold" id="A1.T7.27.28.1.2.1" style="font-size:90%;">Llama 3.2 3B TL;DR</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_tt" colspan="2" id="A1.T7.27.28.1.3"><span class="ltx_text ltx_font_bold" id="A1.T7.27.28.1.3.1" style="font-size:90%;">Llama 3.2 3B UF</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" colspan="2" id="A1.T7.27.28.1.4"><span class="ltx_text ltx_font_bold" id="A1.T7.27.28.1.4.1" style="font-size:90%;">Llama 3.1 8B UF</span></th>
+</tr>
+<tr class="ltx_tr" id="A1.T7.3.3">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_t" id="A1.T7.3.3.4"><span class="ltx_text ltx_font_bold" id="A1.T7.3.3.4.1" style="font-size:90%;">Learning Rate</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t" id="A1.T7.1.1.1"><math alttext="\beta" class="ltx_Math" display="inline" id="A1.T7.1.1.1.m1.1"><semantics id="A1.T7.1.1.1.m1.1a"><mi id="A1.T7.1.1.1.m1.1.1" mathsize="90%" xref="A1.T7.1.1.1.m1.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="A1.T7.1.1.1.m1.1b"><ci id="A1.T7.1.1.1.m1.1.1.cmml" xref="A1.T7.1.1.1.m1.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.1.1.1.m1.1c">\beta</annotation><annotation encoding="application/x-llamapun" id="A1.T7.1.1.1.m1.1d">italic_β</annotation></semantics></math></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_t" id="A1.T7.3.3.5"><span class="ltx_text ltx_font_bold" id="A1.T7.3.3.5.1" style="font-size:90%;">Learning Rate</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_r ltx_border_t" id="A1.T7.2.2.2"><math alttext="\beta" class="ltx_Math" display="inline" id="A1.T7.2.2.2.m1.1"><semantics id="A1.T7.2.2.2.m1.1a"><mi id="A1.T7.2.2.2.m1.1.1" mathsize="90%" xref="A1.T7.2.2.2.m1.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="A1.T7.2.2.2.m1.1b"><ci id="A1.T7.2.2.2.m1.1.1.cmml" xref="A1.T7.2.2.2.m1.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.2.2.2.m1.1c">\beta</annotation><annotation encoding="application/x-llamapun" id="A1.T7.2.2.2.m1.1d">italic_β</annotation></semantics></math></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_t" id="A1.T7.3.3.6"><span class="ltx_text ltx_font_bold" id="A1.T7.3.3.6.1" style="font-size:90%;">Learning Rate</span></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_t" id="A1.T7.3.3.3"><math alttext="\beta" class="ltx_Math" display="inline" id="A1.T7.3.3.3.m1.1"><semantics id="A1.T7.3.3.3.m1.1a"><mi id="A1.T7.3.3.3.m1.1.1" mathsize="90%" xref="A1.T7.3.3.3.m1.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="A1.T7.3.3.3.m1.1b"><ci id="A1.T7.3.3.3.m1.1.1.cmml" xref="A1.T7.3.3.3.m1.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.3.3.3.m1.1c">\beta</annotation><annotation encoding="application/x-llamapun" id="A1.T7.3.3.3.m1.1d">italic_β</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T7.6.6">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="A1.T7.6.6.4"><span class="ltx_text" id="A1.T7.6.6.4.1" style="font-size:90%;">DPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.4.4.1"><math alttext="7.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.4.4.1.m1.1"><semantics id="A1.T7.4.4.1.m1.1a"><mrow id="A1.T7.4.4.1.m1.1.1" xref="A1.T7.4.4.1.m1.1.1.cmml"><mn id="A1.T7.4.4.1.m1.1.1.2" mathsize="90%" xref="A1.T7.4.4.1.m1.1.1.2.cmml">7.0</mn><mo id="A1.T7.4.4.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.4.4.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.4.4.1.m1.1.1.3" xref="A1.T7.4.4.1.m1.1.1.3.cmml"><mn id="A1.T7.4.4.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.4.4.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.4.4.1.m1.1.1.3.3" xref="A1.T7.4.4.1.m1.1.1.3.3.cmml"><mo id="A1.T7.4.4.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.4.4.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.4.4.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.4.4.1.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.4.4.1.m1.1b"><apply id="A1.T7.4.4.1.m1.1.1.cmml" xref="A1.T7.4.4.1.m1.1.1"><times id="A1.T7.4.4.1.m1.1.1.1.cmml" xref="A1.T7.4.4.1.m1.1.1.1"></times><cn id="A1.T7.4.4.1.m1.1.1.2.cmml" type="float" xref="A1.T7.4.4.1.m1.1.1.2">7.0</cn><apply id="A1.T7.4.4.1.m1.1.1.3.cmml" xref="A1.T7.4.4.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.4.4.1.m1.1.1.3.1.cmml" xref="A1.T7.4.4.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.4.4.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.4.4.1.m1.1.1.3.2">10</cn><apply id="A1.T7.4.4.1.m1.1.1.3.3.cmml" xref="A1.T7.4.4.1.m1.1.1.3.3"><minus id="A1.T7.4.4.1.m1.1.1.3.3.1.cmml" xref="A1.T7.4.4.1.m1.1.1.3.3"></minus><cn id="A1.T7.4.4.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.4.4.1.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.4.4.1.m1.1c">7.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.4.4.1.m1.1d">7.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.6.6.5"><span class="ltx_text" id="A1.T7.6.6.5.1" style="font-size:90%;">0.05</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.5.5.2"><math alttext="1.0\times 10^{-6}" class="ltx_Math" display="inline" id="A1.T7.5.5.2.m1.1"><semantics id="A1.T7.5.5.2.m1.1a"><mrow id="A1.T7.5.5.2.m1.1.1" xref="A1.T7.5.5.2.m1.1.1.cmml"><mn id="A1.T7.5.5.2.m1.1.1.2" mathsize="90%" xref="A1.T7.5.5.2.m1.1.1.2.cmml">1.0</mn><mo id="A1.T7.5.5.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.5.5.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.5.5.2.m1.1.1.3" xref="A1.T7.5.5.2.m1.1.1.3.cmml"><mn id="A1.T7.5.5.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.5.5.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.5.5.2.m1.1.1.3.3" xref="A1.T7.5.5.2.m1.1.1.3.3.cmml"><mo id="A1.T7.5.5.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.5.5.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.5.5.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.5.5.2.m1.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.5.5.2.m1.1b"><apply id="A1.T7.5.5.2.m1.1.1.cmml" xref="A1.T7.5.5.2.m1.1.1"><times id="A1.T7.5.5.2.m1.1.1.1.cmml" xref="A1.T7.5.5.2.m1.1.1.1"></times><cn id="A1.T7.5.5.2.m1.1.1.2.cmml" type="float" xref="A1.T7.5.5.2.m1.1.1.2">1.0</cn><apply id="A1.T7.5.5.2.m1.1.1.3.cmml" xref="A1.T7.5.5.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.5.5.2.m1.1.1.3.1.cmml" xref="A1.T7.5.5.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.5.5.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.5.5.2.m1.1.1.3.2">10</cn><apply id="A1.T7.5.5.2.m1.1.1.3.3.cmml" xref="A1.T7.5.5.2.m1.1.1.3.3"><minus id="A1.T7.5.5.2.m1.1.1.3.3.1.cmml" xref="A1.T7.5.5.2.m1.1.1.3.3"></minus><cn id="A1.T7.5.5.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.5.5.2.m1.1.1.3.3.2">6</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.5.5.2.m1.1c">1.0\times 10^{-6}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.5.5.2.m1.1d">1.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.6.6.6"><span class="ltx_text" id="A1.T7.6.6.6.1" style="font-size:90%;">0.01</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.6.6.3"><math alttext="1.0\times 10^{-6}" class="ltx_Math" display="inline" id="A1.T7.6.6.3.m1.1"><semantics id="A1.T7.6.6.3.m1.1a"><mrow id="A1.T7.6.6.3.m1.1.1" xref="A1.T7.6.6.3.m1.1.1.cmml"><mn id="A1.T7.6.6.3.m1.1.1.2" mathsize="90%" xref="A1.T7.6.6.3.m1.1.1.2.cmml">1.0</mn><mo id="A1.T7.6.6.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.6.6.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.6.6.3.m1.1.1.3" xref="A1.T7.6.6.3.m1.1.1.3.cmml"><mn id="A1.T7.6.6.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.6.6.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.6.6.3.m1.1.1.3.3" xref="A1.T7.6.6.3.m1.1.1.3.3.cmml"><mo id="A1.T7.6.6.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.6.6.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.6.6.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.6.6.3.m1.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.6.6.3.m1.1b"><apply id="A1.T7.6.6.3.m1.1.1.cmml" xref="A1.T7.6.6.3.m1.1.1"><times id="A1.T7.6.6.3.m1.1.1.1.cmml" xref="A1.T7.6.6.3.m1.1.1.1"></times><cn id="A1.T7.6.6.3.m1.1.1.2.cmml" type="float" xref="A1.T7.6.6.3.m1.1.1.2">1.0</cn><apply id="A1.T7.6.6.3.m1.1.1.3.cmml" xref="A1.T7.6.6.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.6.6.3.m1.1.1.3.1.cmml" xref="A1.T7.6.6.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.6.6.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.6.6.3.m1.1.1.3.2">10</cn><apply id="A1.T7.6.6.3.m1.1.1.3.3.cmml" xref="A1.T7.6.6.3.m1.1.1.3.3"><minus id="A1.T7.6.6.3.m1.1.1.3.3.1.cmml" xref="A1.T7.6.6.3.m1.1.1.3.3"></minus><cn id="A1.T7.6.6.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.6.6.3.m1.1.1.3.3.2">6</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.6.6.3.m1.1c">1.0\times 10^{-6}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.6.6.3.m1.1d">1.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.6.6.7"><span class="ltx_text" id="A1.T7.6.6.7.1" style="font-size:90%;">0.003</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.9.9">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="A1.T7.9.9.4"><span class="ltx_text" id="A1.T7.9.9.4.1" style="font-size:90%;">IPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.7.7.1"><math alttext="1.0\times 10^{-6}" class="ltx_Math" display="inline" id="A1.T7.7.7.1.m1.1"><semantics id="A1.T7.7.7.1.m1.1a"><mrow id="A1.T7.7.7.1.m1.1.1" xref="A1.T7.7.7.1.m1.1.1.cmml"><mn id="A1.T7.7.7.1.m1.1.1.2" mathsize="90%" xref="A1.T7.7.7.1.m1.1.1.2.cmml">1.0</mn><mo id="A1.T7.7.7.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.7.7.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.7.7.1.m1.1.1.3" xref="A1.T7.7.7.1.m1.1.1.3.cmml"><mn id="A1.T7.7.7.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.7.7.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.7.7.1.m1.1.1.3.3" xref="A1.T7.7.7.1.m1.1.1.3.3.cmml"><mo id="A1.T7.7.7.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.7.7.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.7.7.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.7.7.1.m1.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.7.7.1.m1.1b"><apply id="A1.T7.7.7.1.m1.1.1.cmml" xref="A1.T7.7.7.1.m1.1.1"><times id="A1.T7.7.7.1.m1.1.1.1.cmml" xref="A1.T7.7.7.1.m1.1.1.1"></times><cn id="A1.T7.7.7.1.m1.1.1.2.cmml" type="float" xref="A1.T7.7.7.1.m1.1.1.2">1.0</cn><apply id="A1.T7.7.7.1.m1.1.1.3.cmml" xref="A1.T7.7.7.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.7.7.1.m1.1.1.3.1.cmml" xref="A1.T7.7.7.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.7.7.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.7.7.1.m1.1.1.3.2">10</cn><apply id="A1.T7.7.7.1.m1.1.1.3.3.cmml" xref="A1.T7.7.7.1.m1.1.1.3.3"><minus id="A1.T7.7.7.1.m1.1.1.3.3.1.cmml" xref="A1.T7.7.7.1.m1.1.1.3.3"></minus><cn id="A1.T7.7.7.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.7.7.1.m1.1.1.3.3.2">6</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.7.7.1.m1.1c">1.0\times 10^{-6}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.7.7.1.m1.1d">1.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.9.9.5"><span class="ltx_text" id="A1.T7.9.9.5.1" style="font-size:90%;">0.005</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.8.8.2"><math alttext="7.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.8.8.2.m1.1"><semantics id="A1.T7.8.8.2.m1.1a"><mrow id="A1.T7.8.8.2.m1.1.1" xref="A1.T7.8.8.2.m1.1.1.cmml"><mn id="A1.T7.8.8.2.m1.1.1.2" mathsize="90%" xref="A1.T7.8.8.2.m1.1.1.2.cmml">7.0</mn><mo id="A1.T7.8.8.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.8.8.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.8.8.2.m1.1.1.3" xref="A1.T7.8.8.2.m1.1.1.3.cmml"><mn id="A1.T7.8.8.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.8.8.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.8.8.2.m1.1.1.3.3" xref="A1.T7.8.8.2.m1.1.1.3.3.cmml"><mo id="A1.T7.8.8.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.8.8.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.8.8.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.8.8.2.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.8.8.2.m1.1b"><apply id="A1.T7.8.8.2.m1.1.1.cmml" xref="A1.T7.8.8.2.m1.1.1"><times id="A1.T7.8.8.2.m1.1.1.1.cmml" xref="A1.T7.8.8.2.m1.1.1.1"></times><cn id="A1.T7.8.8.2.m1.1.1.2.cmml" type="float" xref="A1.T7.8.8.2.m1.1.1.2">7.0</cn><apply id="A1.T7.8.8.2.m1.1.1.3.cmml" xref="A1.T7.8.8.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.8.8.2.m1.1.1.3.1.cmml" xref="A1.T7.8.8.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.8.8.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.8.8.2.m1.1.1.3.2">10</cn><apply id="A1.T7.8.8.2.m1.1.1.3.3.cmml" xref="A1.T7.8.8.2.m1.1.1.3.3"><minus id="A1.T7.8.8.2.m1.1.1.3.3.1.cmml" xref="A1.T7.8.8.2.m1.1.1.3.3"></minus><cn id="A1.T7.8.8.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.8.8.2.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.8.8.2.m1.1c">7.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.8.8.2.m1.1d">7.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.9.9.6"><span class="ltx_text" id="A1.T7.9.9.6.1" style="font-size:90%;">0.001</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.9.9.3"><math alttext="1.0\times 10^{-6}" class="ltx_Math" display="inline" id="A1.T7.9.9.3.m1.1"><semantics id="A1.T7.9.9.3.m1.1a"><mrow id="A1.T7.9.9.3.m1.1.1" xref="A1.T7.9.9.3.m1.1.1.cmml"><mn id="A1.T7.9.9.3.m1.1.1.2" mathsize="90%" xref="A1.T7.9.9.3.m1.1.1.2.cmml">1.0</mn><mo id="A1.T7.9.9.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.9.9.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.9.9.3.m1.1.1.3" xref="A1.T7.9.9.3.m1.1.1.3.cmml"><mn id="A1.T7.9.9.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.9.9.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.9.9.3.m1.1.1.3.3" xref="A1.T7.9.9.3.m1.1.1.3.3.cmml"><mo id="A1.T7.9.9.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.9.9.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.9.9.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.9.9.3.m1.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.9.9.3.m1.1b"><apply id="A1.T7.9.9.3.m1.1.1.cmml" xref="A1.T7.9.9.3.m1.1.1"><times id="A1.T7.9.9.3.m1.1.1.1.cmml" xref="A1.T7.9.9.3.m1.1.1.1"></times><cn id="A1.T7.9.9.3.m1.1.1.2.cmml" type="float" xref="A1.T7.9.9.3.m1.1.1.2">1.0</cn><apply id="A1.T7.9.9.3.m1.1.1.3.cmml" xref="A1.T7.9.9.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.9.9.3.m1.1.1.3.1.cmml" xref="A1.T7.9.9.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.9.9.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.9.9.3.m1.1.1.3.2">10</cn><apply id="A1.T7.9.9.3.m1.1.1.3.3.cmml" xref="A1.T7.9.9.3.m1.1.1.3.3"><minus id="A1.T7.9.9.3.m1.1.1.3.3.1.cmml" xref="A1.T7.9.9.3.m1.1.1.3.3"></minus><cn id="A1.T7.9.9.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.9.9.3.m1.1.1.3.3.2">6</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.9.9.3.m1.1c">1.0\times 10^{-6}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.9.9.3.m1.1d">1.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.9.9.7"><span class="ltx_text" id="A1.T7.9.9.7.1" style="font-size:90%;">0.001</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.12.12">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="A1.T7.12.12.4"><span class="ltx_text" id="A1.T7.12.12.4.1" style="font-size:90%;">SimPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.10.10.1"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.10.10.1.m1.1"><semantics id="A1.T7.10.10.1.m1.1a"><mrow id="A1.T7.10.10.1.m1.1.1" xref="A1.T7.10.10.1.m1.1.1.cmml"><mn id="A1.T7.10.10.1.m1.1.1.2" mathsize="90%" xref="A1.T7.10.10.1.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.10.10.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.10.10.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.10.10.1.m1.1.1.3" xref="A1.T7.10.10.1.m1.1.1.3.cmml"><mn id="A1.T7.10.10.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.10.10.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.10.10.1.m1.1.1.3.3" xref="A1.T7.10.10.1.m1.1.1.3.3.cmml"><mo id="A1.T7.10.10.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.10.10.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.10.10.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.10.10.1.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.10.10.1.m1.1b"><apply id="A1.T7.10.10.1.m1.1.1.cmml" xref="A1.T7.10.10.1.m1.1.1"><times id="A1.T7.10.10.1.m1.1.1.1.cmml" xref="A1.T7.10.10.1.m1.1.1.1"></times><cn id="A1.T7.10.10.1.m1.1.1.2.cmml" type="float" xref="A1.T7.10.10.1.m1.1.1.2">3.0</cn><apply id="A1.T7.10.10.1.m1.1.1.3.cmml" xref="A1.T7.10.10.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.10.10.1.m1.1.1.3.1.cmml" xref="A1.T7.10.10.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.10.10.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.10.10.1.m1.1.1.3.2">10</cn><apply id="A1.T7.10.10.1.m1.1.1.3.3.cmml" xref="A1.T7.10.10.1.m1.1.1.3.3"><minus id="A1.T7.10.10.1.m1.1.1.3.3.1.cmml" xref="A1.T7.10.10.1.m1.1.1.3.3"></minus><cn id="A1.T7.10.10.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.10.10.1.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.10.10.1.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.10.10.1.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.12.12.5"><span class="ltx_text" id="A1.T7.12.12.5.1" style="font-size:90%;">0.5</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.11.11.2"><math alttext="7.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.11.11.2.m1.1"><semantics id="A1.T7.11.11.2.m1.1a"><mrow id="A1.T7.11.11.2.m1.1.1" xref="A1.T7.11.11.2.m1.1.1.cmml"><mn id="A1.T7.11.11.2.m1.1.1.2" mathsize="90%" xref="A1.T7.11.11.2.m1.1.1.2.cmml">7.0</mn><mo id="A1.T7.11.11.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.11.11.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.11.11.2.m1.1.1.3" xref="A1.T7.11.11.2.m1.1.1.3.cmml"><mn id="A1.T7.11.11.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.11.11.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.11.11.2.m1.1.1.3.3" xref="A1.T7.11.11.2.m1.1.1.3.3.cmml"><mo id="A1.T7.11.11.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.11.11.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.11.11.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.11.11.2.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.11.11.2.m1.1b"><apply id="A1.T7.11.11.2.m1.1.1.cmml" xref="A1.T7.11.11.2.m1.1.1"><times id="A1.T7.11.11.2.m1.1.1.1.cmml" xref="A1.T7.11.11.2.m1.1.1.1"></times><cn id="A1.T7.11.11.2.m1.1.1.2.cmml" type="float" xref="A1.T7.11.11.2.m1.1.1.2">7.0</cn><apply id="A1.T7.11.11.2.m1.1.1.3.cmml" xref="A1.T7.11.11.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.11.11.2.m1.1.1.3.1.cmml" xref="A1.T7.11.11.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.11.11.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.11.11.2.m1.1.1.3.2">10</cn><apply id="A1.T7.11.11.2.m1.1.1.3.3.cmml" xref="A1.T7.11.11.2.m1.1.1.3.3"><minus id="A1.T7.11.11.2.m1.1.1.3.3.1.cmml" xref="A1.T7.11.11.2.m1.1.1.3.3"></minus><cn id="A1.T7.11.11.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.11.11.2.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.11.11.2.m1.1c">7.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.11.11.2.m1.1d">7.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.12.12.6"><span class="ltx_text" id="A1.T7.12.12.6.1" style="font-size:90%;">1.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.12.12.3"><math alttext="6.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.12.12.3.m1.1"><semantics id="A1.T7.12.12.3.m1.1a"><mrow id="A1.T7.12.12.3.m1.1.1" xref="A1.T7.12.12.3.m1.1.1.cmml"><mn id="A1.T7.12.12.3.m1.1.1.2" mathsize="90%" xref="A1.T7.12.12.3.m1.1.1.2.cmml">6.0</mn><mo id="A1.T7.12.12.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.12.12.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.12.12.3.m1.1.1.3" xref="A1.T7.12.12.3.m1.1.1.3.cmml"><mn id="A1.T7.12.12.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.12.12.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.12.12.3.m1.1.1.3.3" xref="A1.T7.12.12.3.m1.1.1.3.3.cmml"><mo id="A1.T7.12.12.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.12.12.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.12.12.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.12.12.3.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.12.12.3.m1.1b"><apply id="A1.T7.12.12.3.m1.1.1.cmml" xref="A1.T7.12.12.3.m1.1.1"><times id="A1.T7.12.12.3.m1.1.1.1.cmml" xref="A1.T7.12.12.3.m1.1.1.1"></times><cn id="A1.T7.12.12.3.m1.1.1.2.cmml" type="float" xref="A1.T7.12.12.3.m1.1.1.2">6.0</cn><apply id="A1.T7.12.12.3.m1.1.1.3.cmml" xref="A1.T7.12.12.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.12.12.3.m1.1.1.3.1.cmml" xref="A1.T7.12.12.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.12.12.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.12.12.3.m1.1.1.3.2">10</cn><apply id="A1.T7.12.12.3.m1.1.1.3.3.cmml" xref="A1.T7.12.12.3.m1.1.1.3.3"><minus id="A1.T7.12.12.3.m1.1.1.3.3.1.cmml" xref="A1.T7.12.12.3.m1.1.1.3.3"></minus><cn id="A1.T7.12.12.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.12.12.3.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.12.12.3.m1.1c">6.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.12.12.3.m1.1d">6.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.12.12.7"><span class="ltx_text" id="A1.T7.12.12.7.1" style="font-size:90%;">1.0</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.15.15">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="A1.T7.15.15.4"><span class="ltx_text" id="A1.T7.15.15.4.1" style="font-size:90%;">ORPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.13.13.1"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.13.13.1.m1.1"><semantics id="A1.T7.13.13.1.m1.1a"><mrow id="A1.T7.13.13.1.m1.1.1" xref="A1.T7.13.13.1.m1.1.1.cmml"><mn id="A1.T7.13.13.1.m1.1.1.2" mathsize="90%" xref="A1.T7.13.13.1.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.13.13.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.13.13.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.13.13.1.m1.1.1.3" xref="A1.T7.13.13.1.m1.1.1.3.cmml"><mn id="A1.T7.13.13.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.13.13.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.13.13.1.m1.1.1.3.3" xref="A1.T7.13.13.1.m1.1.1.3.3.cmml"><mo id="A1.T7.13.13.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.13.13.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.13.13.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.13.13.1.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.13.13.1.m1.1b"><apply id="A1.T7.13.13.1.m1.1.1.cmml" xref="A1.T7.13.13.1.m1.1.1"><times id="A1.T7.13.13.1.m1.1.1.1.cmml" xref="A1.T7.13.13.1.m1.1.1.1"></times><cn id="A1.T7.13.13.1.m1.1.1.2.cmml" type="float" xref="A1.T7.13.13.1.m1.1.1.2">3.0</cn><apply id="A1.T7.13.13.1.m1.1.1.3.cmml" xref="A1.T7.13.13.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.13.13.1.m1.1.1.3.1.cmml" xref="A1.T7.13.13.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.13.13.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.13.13.1.m1.1.1.3.2">10</cn><apply id="A1.T7.13.13.1.m1.1.1.3.3.cmml" xref="A1.T7.13.13.1.m1.1.1.3.3"><minus id="A1.T7.13.13.1.m1.1.1.3.3.1.cmml" xref="A1.T7.13.13.1.m1.1.1.3.3"></minus><cn id="A1.T7.13.13.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.13.13.1.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.13.13.1.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.13.13.1.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.15.15.5"><span class="ltx_text" id="A1.T7.15.15.5.1" style="font-size:90%;">0.5</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.14.14.2"><math alttext="5.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.14.14.2.m1.1"><semantics id="A1.T7.14.14.2.m1.1a"><mrow id="A1.T7.14.14.2.m1.1.1" xref="A1.T7.14.14.2.m1.1.1.cmml"><mn id="A1.T7.14.14.2.m1.1.1.2" mathsize="90%" xref="A1.T7.14.14.2.m1.1.1.2.cmml">5.0</mn><mo id="A1.T7.14.14.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.14.14.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.14.14.2.m1.1.1.3" xref="A1.T7.14.14.2.m1.1.1.3.cmml"><mn id="A1.T7.14.14.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.14.14.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.14.14.2.m1.1.1.3.3" xref="A1.T7.14.14.2.m1.1.1.3.3.cmml"><mo id="A1.T7.14.14.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.14.14.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.14.14.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.14.14.2.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.14.14.2.m1.1b"><apply id="A1.T7.14.14.2.m1.1.1.cmml" xref="A1.T7.14.14.2.m1.1.1"><times id="A1.T7.14.14.2.m1.1.1.1.cmml" xref="A1.T7.14.14.2.m1.1.1.1"></times><cn id="A1.T7.14.14.2.m1.1.1.2.cmml" type="float" xref="A1.T7.14.14.2.m1.1.1.2">5.0</cn><apply id="A1.T7.14.14.2.m1.1.1.3.cmml" xref="A1.T7.14.14.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.14.14.2.m1.1.1.3.1.cmml" xref="A1.T7.14.14.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.14.14.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.14.14.2.m1.1.1.3.2">10</cn><apply id="A1.T7.14.14.2.m1.1.1.3.3.cmml" xref="A1.T7.14.14.2.m1.1.1.3.3"><minus id="A1.T7.14.14.2.m1.1.1.3.3.1.cmml" xref="A1.T7.14.14.2.m1.1.1.3.3"></minus><cn id="A1.T7.14.14.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.14.14.2.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.14.14.2.m1.1c">5.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.14.14.2.m1.1d">5.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.15.15.6"><span class="ltx_text" id="A1.T7.15.15.6.1" style="font-size:90%;">0.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.15.15.3"><math alttext="5.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.15.15.3.m1.1"><semantics id="A1.T7.15.15.3.m1.1a"><mrow id="A1.T7.15.15.3.m1.1.1" xref="A1.T7.15.15.3.m1.1.1.cmml"><mn id="A1.T7.15.15.3.m1.1.1.2" mathsize="90%" xref="A1.T7.15.15.3.m1.1.1.2.cmml">5.0</mn><mo id="A1.T7.15.15.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.15.15.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.15.15.3.m1.1.1.3" xref="A1.T7.15.15.3.m1.1.1.3.cmml"><mn id="A1.T7.15.15.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.15.15.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.15.15.3.m1.1.1.3.3" xref="A1.T7.15.15.3.m1.1.1.3.3.cmml"><mo id="A1.T7.15.15.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.15.15.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.15.15.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.15.15.3.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.15.15.3.m1.1b"><apply id="A1.T7.15.15.3.m1.1.1.cmml" xref="A1.T7.15.15.3.m1.1.1"><times id="A1.T7.15.15.3.m1.1.1.1.cmml" xref="A1.T7.15.15.3.m1.1.1.1"></times><cn id="A1.T7.15.15.3.m1.1.1.2.cmml" type="float" xref="A1.T7.15.15.3.m1.1.1.2">5.0</cn><apply id="A1.T7.15.15.3.m1.1.1.3.cmml" xref="A1.T7.15.15.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.15.15.3.m1.1.1.3.1.cmml" xref="A1.T7.15.15.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.15.15.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.15.15.3.m1.1.1.3.2">10</cn><apply id="A1.T7.15.15.3.m1.1.1.3.3.cmml" xref="A1.T7.15.15.3.m1.1.1.3.3"><minus id="A1.T7.15.15.3.m1.1.1.3.3.1.cmml" xref="A1.T7.15.15.3.m1.1.1.3.3"></minus><cn id="A1.T7.15.15.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.15.15.3.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.15.15.3.m1.1c">5.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.15.15.3.m1.1d">5.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.15.15.7"><span class="ltx_text" id="A1.T7.15.15.7.1" style="font-size:90%;">0.5</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.18.18">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="A1.T7.18.18.4"><span class="ltx_text" id="A1.T7.18.18.4.1" style="font-size:90%;">ASFT</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.16.16.1"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.16.16.1.m1.1"><semantics id="A1.T7.16.16.1.m1.1a"><mrow id="A1.T7.16.16.1.m1.1.1" xref="A1.T7.16.16.1.m1.1.1.cmml"><mn id="A1.T7.16.16.1.m1.1.1.2" mathsize="90%" xref="A1.T7.16.16.1.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.16.16.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.16.16.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.16.16.1.m1.1.1.3" xref="A1.T7.16.16.1.m1.1.1.3.cmml"><mn id="A1.T7.16.16.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.16.16.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.16.16.1.m1.1.1.3.3" xref="A1.T7.16.16.1.m1.1.1.3.3.cmml"><mo id="A1.T7.16.16.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.16.16.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.16.16.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.16.16.1.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.16.16.1.m1.1b"><apply id="A1.T7.16.16.1.m1.1.1.cmml" xref="A1.T7.16.16.1.m1.1.1"><times id="A1.T7.16.16.1.m1.1.1.1.cmml" xref="A1.T7.16.16.1.m1.1.1.1"></times><cn id="A1.T7.16.16.1.m1.1.1.2.cmml" type="float" xref="A1.T7.16.16.1.m1.1.1.2">3.0</cn><apply id="A1.T7.16.16.1.m1.1.1.3.cmml" xref="A1.T7.16.16.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.16.16.1.m1.1.1.3.1.cmml" xref="A1.T7.16.16.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.16.16.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.16.16.1.m1.1.1.3.2">10</cn><apply id="A1.T7.16.16.1.m1.1.1.3.3.cmml" xref="A1.T7.16.16.1.m1.1.1.3.3"><minus id="A1.T7.16.16.1.m1.1.1.3.3.1.cmml" xref="A1.T7.16.16.1.m1.1.1.3.3"></minus><cn id="A1.T7.16.16.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.16.16.1.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.16.16.1.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.16.16.1.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.18.18.5"><span class="ltx_text" id="A1.T7.18.18.5.1" style="font-size:90%;">0.001</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.17.17.2"><math alttext="1.0\times 10^{-6}" class="ltx_Math" display="inline" id="A1.T7.17.17.2.m1.1"><semantics id="A1.T7.17.17.2.m1.1a"><mrow id="A1.T7.17.17.2.m1.1.1" xref="A1.T7.17.17.2.m1.1.1.cmml"><mn id="A1.T7.17.17.2.m1.1.1.2" mathsize="90%" xref="A1.T7.17.17.2.m1.1.1.2.cmml">1.0</mn><mo id="A1.T7.17.17.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.17.17.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.17.17.2.m1.1.1.3" xref="A1.T7.17.17.2.m1.1.1.3.cmml"><mn id="A1.T7.17.17.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.17.17.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.17.17.2.m1.1.1.3.3" xref="A1.T7.17.17.2.m1.1.1.3.3.cmml"><mo id="A1.T7.17.17.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.17.17.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.17.17.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.17.17.2.m1.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.17.17.2.m1.1b"><apply id="A1.T7.17.17.2.m1.1.1.cmml" xref="A1.T7.17.17.2.m1.1.1"><times id="A1.T7.17.17.2.m1.1.1.1.cmml" xref="A1.T7.17.17.2.m1.1.1.1"></times><cn id="A1.T7.17.17.2.m1.1.1.2.cmml" type="float" xref="A1.T7.17.17.2.m1.1.1.2">1.0</cn><apply id="A1.T7.17.17.2.m1.1.1.3.cmml" xref="A1.T7.17.17.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.17.17.2.m1.1.1.3.1.cmml" xref="A1.T7.17.17.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.17.17.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.17.17.2.m1.1.1.3.2">10</cn><apply id="A1.T7.17.17.2.m1.1.1.3.3.cmml" xref="A1.T7.17.17.2.m1.1.1.3.3"><minus id="A1.T7.17.17.2.m1.1.1.3.3.1.cmml" xref="A1.T7.17.17.2.m1.1.1.3.3"></minus><cn id="A1.T7.17.17.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.17.17.2.m1.1.1.3.3.2">6</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.17.17.2.m1.1c">1.0\times 10^{-6}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.17.17.2.m1.1d">1.0 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.18.18.6"><span class="ltx_text" id="A1.T7.18.18.6.1" style="font-size:90%;">0.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.18.18.3"><math alttext="7.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.18.18.3.m1.1"><semantics id="A1.T7.18.18.3.m1.1a"><mrow id="A1.T7.18.18.3.m1.1.1" xref="A1.T7.18.18.3.m1.1.1.cmml"><mn id="A1.T7.18.18.3.m1.1.1.2" mathsize="90%" xref="A1.T7.18.18.3.m1.1.1.2.cmml">7.0</mn><mo id="A1.T7.18.18.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.18.18.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.18.18.3.m1.1.1.3" xref="A1.T7.18.18.3.m1.1.1.3.cmml"><mn id="A1.T7.18.18.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.18.18.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.18.18.3.m1.1.1.3.3" xref="A1.T7.18.18.3.m1.1.1.3.3.cmml"><mo id="A1.T7.18.18.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.18.18.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.18.18.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.18.18.3.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.18.18.3.m1.1b"><apply id="A1.T7.18.18.3.m1.1.1.cmml" xref="A1.T7.18.18.3.m1.1.1"><times id="A1.T7.18.18.3.m1.1.1.1.cmml" xref="A1.T7.18.18.3.m1.1.1.1"></times><cn id="A1.T7.18.18.3.m1.1.1.2.cmml" type="float" xref="A1.T7.18.18.3.m1.1.1.2">7.0</cn><apply id="A1.T7.18.18.3.m1.1.1.3.cmml" xref="A1.T7.18.18.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.18.18.3.m1.1.1.3.1.cmml" xref="A1.T7.18.18.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.18.18.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.18.18.3.m1.1.1.3.2">10</cn><apply id="A1.T7.18.18.3.m1.1.1.3.3.cmml" xref="A1.T7.18.18.3.m1.1.1.3.3"><minus id="A1.T7.18.18.3.m1.1.1.3.3.1.cmml" xref="A1.T7.18.18.3.m1.1.1.3.3"></minus><cn id="A1.T7.18.18.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.18.18.3.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.18.18.3.m1.1c">7.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.18.18.3.m1.1d">7.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.18.18.7"><span class="ltx_text" id="A1.T7.18.18.7.1" style="font-size:90%;">0.1</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.21.21">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="A1.T7.21.21.4"><span class="ltx_text" id="A1.T7.21.21.4.1" style="font-size:90%;">APO Zero</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.19.19.1"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.19.19.1.m1.1"><semantics id="A1.T7.19.19.1.m1.1a"><mrow id="A1.T7.19.19.1.m1.1.1" xref="A1.T7.19.19.1.m1.1.1.cmml"><mn id="A1.T7.19.19.1.m1.1.1.2" mathsize="90%" xref="A1.T7.19.19.1.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.19.19.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.19.19.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.19.19.1.m1.1.1.3" xref="A1.T7.19.19.1.m1.1.1.3.cmml"><mn id="A1.T7.19.19.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.19.19.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.19.19.1.m1.1.1.3.3" xref="A1.T7.19.19.1.m1.1.1.3.3.cmml"><mo id="A1.T7.19.19.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.19.19.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.19.19.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.19.19.1.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.19.19.1.m1.1b"><apply id="A1.T7.19.19.1.m1.1.1.cmml" xref="A1.T7.19.19.1.m1.1.1"><times id="A1.T7.19.19.1.m1.1.1.1.cmml" xref="A1.T7.19.19.1.m1.1.1.1"></times><cn id="A1.T7.19.19.1.m1.1.1.2.cmml" type="float" xref="A1.T7.19.19.1.m1.1.1.2">3.0</cn><apply id="A1.T7.19.19.1.m1.1.1.3.cmml" xref="A1.T7.19.19.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.19.19.1.m1.1.1.3.1.cmml" xref="A1.T7.19.19.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.19.19.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.19.19.1.m1.1.1.3.2">10</cn><apply id="A1.T7.19.19.1.m1.1.1.3.3.cmml" xref="A1.T7.19.19.1.m1.1.1.3.3"><minus id="A1.T7.19.19.1.m1.1.1.3.3.1.cmml" xref="A1.T7.19.19.1.m1.1.1.3.3"></minus><cn id="A1.T7.19.19.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.19.19.1.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.19.19.1.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.19.19.1.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.21.21.5"><span class="ltx_text" id="A1.T7.21.21.5.1" style="font-size:90%;">0.001</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.20.20.2"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.20.20.2.m1.1"><semantics id="A1.T7.20.20.2.m1.1a"><mrow id="A1.T7.20.20.2.m1.1.1" xref="A1.T7.20.20.2.m1.1.1.cmml"><mn id="A1.T7.20.20.2.m1.1.1.2" mathsize="90%" xref="A1.T7.20.20.2.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.20.20.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.20.20.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.20.20.2.m1.1.1.3" xref="A1.T7.20.20.2.m1.1.1.3.cmml"><mn id="A1.T7.20.20.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.20.20.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.20.20.2.m1.1.1.3.3" xref="A1.T7.20.20.2.m1.1.1.3.3.cmml"><mo id="A1.T7.20.20.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.20.20.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.20.20.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.20.20.2.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.20.20.2.m1.1b"><apply id="A1.T7.20.20.2.m1.1.1.cmml" xref="A1.T7.20.20.2.m1.1.1"><times id="A1.T7.20.20.2.m1.1.1.1.cmml" xref="A1.T7.20.20.2.m1.1.1.1"></times><cn id="A1.T7.20.20.2.m1.1.1.2.cmml" type="float" xref="A1.T7.20.20.2.m1.1.1.2">3.0</cn><apply id="A1.T7.20.20.2.m1.1.1.3.cmml" xref="A1.T7.20.20.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.20.20.2.m1.1.1.3.1.cmml" xref="A1.T7.20.20.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.20.20.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.20.20.2.m1.1.1.3.2">10</cn><apply id="A1.T7.20.20.2.m1.1.1.3.3.cmml" xref="A1.T7.20.20.2.m1.1.1.3.3"><minus id="A1.T7.20.20.2.m1.1.1.3.3.1.cmml" xref="A1.T7.20.20.2.m1.1.1.3.3"></minus><cn id="A1.T7.20.20.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.20.20.2.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.20.20.2.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.20.20.2.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.21.21.6"><span class="ltx_text" id="A1.T7.21.21.6.1" style="font-size:90%;">0.005</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.21.21.3"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.21.21.3.m1.1"><semantics id="A1.T7.21.21.3.m1.1a"><mrow id="A1.T7.21.21.3.m1.1.1" xref="A1.T7.21.21.3.m1.1.1.cmml"><mn id="A1.T7.21.21.3.m1.1.1.2" mathsize="90%" xref="A1.T7.21.21.3.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.21.21.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.21.21.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.21.21.3.m1.1.1.3" xref="A1.T7.21.21.3.m1.1.1.3.cmml"><mn id="A1.T7.21.21.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.21.21.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.21.21.3.m1.1.1.3.3" xref="A1.T7.21.21.3.m1.1.1.3.3.cmml"><mo id="A1.T7.21.21.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.21.21.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.21.21.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.21.21.3.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.21.21.3.m1.1b"><apply id="A1.T7.21.21.3.m1.1.1.cmml" xref="A1.T7.21.21.3.m1.1.1"><times id="A1.T7.21.21.3.m1.1.1.1.cmml" xref="A1.T7.21.21.3.m1.1.1.1"></times><cn id="A1.T7.21.21.3.m1.1.1.2.cmml" type="float" xref="A1.T7.21.21.3.m1.1.1.2">3.0</cn><apply id="A1.T7.21.21.3.m1.1.1.3.cmml" xref="A1.T7.21.21.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.21.21.3.m1.1.1.3.1.cmml" xref="A1.T7.21.21.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.21.21.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.21.21.3.m1.1.1.3.2">10</cn><apply id="A1.T7.21.21.3.m1.1.1.3.3.cmml" xref="A1.T7.21.21.3.m1.1.1.3.3"><minus id="A1.T7.21.21.3.m1.1.1.3.3.1.cmml" xref="A1.T7.21.21.3.m1.1.1.3.3"></minus><cn id="A1.T7.21.21.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.21.21.3.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.21.21.3.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.21.21.3.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.21.21.7"><span class="ltx_text" id="A1.T7.21.21.7.1" style="font-size:90%;">0.003</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.24.24">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_r ltx_border_t" id="A1.T7.24.24.4"><span class="ltx_text" id="A1.T7.24.24.4.1" style="font-size:90%;">NCA</span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.22.22.1"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.22.22.1.m1.1"><semantics id="A1.T7.22.22.1.m1.1a"><mrow id="A1.T7.22.22.1.m1.1.1" xref="A1.T7.22.22.1.m1.1.1.cmml"><mn id="A1.T7.22.22.1.m1.1.1.2" mathsize="90%" xref="A1.T7.22.22.1.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.22.22.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.22.22.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.22.22.1.m1.1.1.3" xref="A1.T7.22.22.1.m1.1.1.3.cmml"><mn id="A1.T7.22.22.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.22.22.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.22.22.1.m1.1.1.3.3" xref="A1.T7.22.22.1.m1.1.1.3.3.cmml"><mo id="A1.T7.22.22.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.22.22.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.22.22.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.22.22.1.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.22.22.1.m1.1b"><apply id="A1.T7.22.22.1.m1.1.1.cmml" xref="A1.T7.22.22.1.m1.1.1"><times id="A1.T7.22.22.1.m1.1.1.1.cmml" xref="A1.T7.22.22.1.m1.1.1.1"></times><cn id="A1.T7.22.22.1.m1.1.1.2.cmml" type="float" xref="A1.T7.22.22.1.m1.1.1.2">3.0</cn><apply id="A1.T7.22.22.1.m1.1.1.3.cmml" xref="A1.T7.22.22.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.22.22.1.m1.1.1.3.1.cmml" xref="A1.T7.22.22.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.22.22.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.22.22.1.m1.1.1.3.2">10</cn><apply id="A1.T7.22.22.1.m1.1.1.3.3.cmml" xref="A1.T7.22.22.1.m1.1.1.3.3"><minus id="A1.T7.22.22.1.m1.1.1.3.3.1.cmml" xref="A1.T7.22.22.1.m1.1.1.3.3"></minus><cn id="A1.T7.22.22.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.22.22.1.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.22.22.1.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.22.22.1.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.24.24.5"><span class="ltx_text" id="A1.T7.24.24.5.1" style="font-size:90%;">0.0001</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.23.23.2"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.23.23.2.m1.1"><semantics id="A1.T7.23.23.2.m1.1a"><mrow id="A1.T7.23.23.2.m1.1.1" xref="A1.T7.23.23.2.m1.1.1.cmml"><mn id="A1.T7.23.23.2.m1.1.1.2" mathsize="90%" xref="A1.T7.23.23.2.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.23.23.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.23.23.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.23.23.2.m1.1.1.3" xref="A1.T7.23.23.2.m1.1.1.3.cmml"><mn id="A1.T7.23.23.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.23.23.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.23.23.2.m1.1.1.3.3" xref="A1.T7.23.23.2.m1.1.1.3.3.cmml"><mo id="A1.T7.23.23.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.23.23.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.23.23.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.23.23.2.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.23.23.2.m1.1b"><apply id="A1.T7.23.23.2.m1.1.1.cmml" xref="A1.T7.23.23.2.m1.1.1"><times id="A1.T7.23.23.2.m1.1.1.1.cmml" xref="A1.T7.23.23.2.m1.1.1.1"></times><cn id="A1.T7.23.23.2.m1.1.1.2.cmml" type="float" xref="A1.T7.23.23.2.m1.1.1.2">3.0</cn><apply id="A1.T7.23.23.2.m1.1.1.3.cmml" xref="A1.T7.23.23.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.23.23.2.m1.1.1.3.1.cmml" xref="A1.T7.23.23.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.23.23.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.23.23.2.m1.1.1.3.2">10</cn><apply id="A1.T7.23.23.2.m1.1.1.3.3.cmml" xref="A1.T7.23.23.2.m1.1.1.3.3"><minus id="A1.T7.23.23.2.m1.1.1.3.3.1.cmml" xref="A1.T7.23.23.2.m1.1.1.3.3"></minus><cn id="A1.T7.23.23.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.23.23.2.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.23.23.2.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.23.23.2.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A1.T7.24.24.6"><span class="ltx_text" id="A1.T7.24.24.6.1" style="font-size:90%;">0.0005</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.24.24.3"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.24.24.3.m1.1"><semantics id="A1.T7.24.24.3.m1.1a"><mrow id="A1.T7.24.24.3.m1.1.1" xref="A1.T7.24.24.3.m1.1.1.cmml"><mn id="A1.T7.24.24.3.m1.1.1.2" mathsize="90%" xref="A1.T7.24.24.3.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.24.24.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.24.24.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.24.24.3.m1.1.1.3" xref="A1.T7.24.24.3.m1.1.1.3.cmml"><mn id="A1.T7.24.24.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.24.24.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.24.24.3.m1.1.1.3.3" xref="A1.T7.24.24.3.m1.1.1.3.3.cmml"><mo id="A1.T7.24.24.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.24.24.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.24.24.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.24.24.3.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.24.24.3.m1.1b"><apply id="A1.T7.24.24.3.m1.1.1.cmml" xref="A1.T7.24.24.3.m1.1.1"><times id="A1.T7.24.24.3.m1.1.1.1.cmml" xref="A1.T7.24.24.3.m1.1.1.1"></times><cn id="A1.T7.24.24.3.m1.1.1.2.cmml" type="float" xref="A1.T7.24.24.3.m1.1.1.2">3.0</cn><apply id="A1.T7.24.24.3.m1.1.1.3.cmml" xref="A1.T7.24.24.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.24.24.3.m1.1.1.3.1.cmml" xref="A1.T7.24.24.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.24.24.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.24.24.3.m1.1.1.3.2">10</cn><apply id="A1.T7.24.24.3.m1.1.1.3.3.cmml" xref="A1.T7.24.24.3.m1.1.1.3.3"><minus id="A1.T7.24.24.3.m1.1.1.3.3.1.cmml" xref="A1.T7.24.24.3.m1.1.1.3.3"></minus><cn id="A1.T7.24.24.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.24.24.3.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.24.24.3.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.24.24.3.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.24.24.7"><span class="ltx_text" id="A1.T7.24.24.7.1" style="font-size:90%;">0.0003</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.27.27">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_bb ltx_border_r ltx_border_t" id="A1.T7.27.27.4"><span class="ltx_text" id="A1.T7.27.27.4.1" style="font-size:90%;">Cal-DPO</span></th>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" id="A1.T7.25.25.1"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.25.25.1.m1.1"><semantics id="A1.T7.25.25.1.m1.1a"><mrow id="A1.T7.25.25.1.m1.1.1" xref="A1.T7.25.25.1.m1.1.1.cmml"><mn id="A1.T7.25.25.1.m1.1.1.2" mathsize="90%" xref="A1.T7.25.25.1.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.25.25.1.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.25.25.1.m1.1.1.1.cmml">×</mo><msup id="A1.T7.25.25.1.m1.1.1.3" xref="A1.T7.25.25.1.m1.1.1.3.cmml"><mn id="A1.T7.25.25.1.m1.1.1.3.2" mathsize="90%" xref="A1.T7.25.25.1.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.25.25.1.m1.1.1.3.3" xref="A1.T7.25.25.1.m1.1.1.3.3.cmml"><mo id="A1.T7.25.25.1.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.25.25.1.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.25.25.1.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.25.25.1.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.25.25.1.m1.1b"><apply id="A1.T7.25.25.1.m1.1.1.cmml" xref="A1.T7.25.25.1.m1.1.1"><times id="A1.T7.25.25.1.m1.1.1.1.cmml" xref="A1.T7.25.25.1.m1.1.1.1"></times><cn id="A1.T7.25.25.1.m1.1.1.2.cmml" type="float" xref="A1.T7.25.25.1.m1.1.1.2">3.0</cn><apply id="A1.T7.25.25.1.m1.1.1.3.cmml" xref="A1.T7.25.25.1.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.25.25.1.m1.1.1.3.1.cmml" xref="A1.T7.25.25.1.m1.1.1.3">superscript</csymbol><cn id="A1.T7.25.25.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.25.25.1.m1.1.1.3.2">10</cn><apply id="A1.T7.25.25.1.m1.1.1.3.3.cmml" xref="A1.T7.25.25.1.m1.1.1.3.3"><minus id="A1.T7.25.25.1.m1.1.1.3.3.1.cmml" xref="A1.T7.25.25.1.m1.1.1.3.3"></minus><cn id="A1.T7.25.25.1.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.25.25.1.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.25.25.1.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.25.25.1.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r ltx_border_t" id="A1.T7.27.27.5"><span class="ltx_text" id="A1.T7.27.27.5.1" style="font-size:90%;">0.00003</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" id="A1.T7.26.26.2"><math alttext="5.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.26.26.2.m1.1"><semantics id="A1.T7.26.26.2.m1.1a"><mrow id="A1.T7.26.26.2.m1.1.1" xref="A1.T7.26.26.2.m1.1.1.cmml"><mn id="A1.T7.26.26.2.m1.1.1.2" mathsize="90%" xref="A1.T7.26.26.2.m1.1.1.2.cmml">5.0</mn><mo id="A1.T7.26.26.2.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.26.26.2.m1.1.1.1.cmml">×</mo><msup id="A1.T7.26.26.2.m1.1.1.3" xref="A1.T7.26.26.2.m1.1.1.3.cmml"><mn id="A1.T7.26.26.2.m1.1.1.3.2" mathsize="90%" xref="A1.T7.26.26.2.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.26.26.2.m1.1.1.3.3" xref="A1.T7.26.26.2.m1.1.1.3.3.cmml"><mo id="A1.T7.26.26.2.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.26.26.2.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.26.26.2.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.26.26.2.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.26.26.2.m1.1b"><apply id="A1.T7.26.26.2.m1.1.1.cmml" xref="A1.T7.26.26.2.m1.1.1"><times id="A1.T7.26.26.2.m1.1.1.1.cmml" xref="A1.T7.26.26.2.m1.1.1.1"></times><cn id="A1.T7.26.26.2.m1.1.1.2.cmml" type="float" xref="A1.T7.26.26.2.m1.1.1.2">5.0</cn><apply id="A1.T7.26.26.2.m1.1.1.3.cmml" xref="A1.T7.26.26.2.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.26.26.2.m1.1.1.3.1.cmml" xref="A1.T7.26.26.2.m1.1.1.3">superscript</csymbol><cn id="A1.T7.26.26.2.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.26.26.2.m1.1.1.3.2">10</cn><apply id="A1.T7.26.26.2.m1.1.1.3.3.cmml" xref="A1.T7.26.26.2.m1.1.1.3.3"><minus id="A1.T7.26.26.2.m1.1.1.3.3.1.cmml" xref="A1.T7.26.26.2.m1.1.1.3.3"></minus><cn id="A1.T7.26.26.2.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.26.26.2.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.26.26.2.m1.1c">5.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.26.26.2.m1.1d">5.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r ltx_border_t" id="A1.T7.27.27.6"><span class="ltx_text" id="A1.T7.27.27.6.1" style="font-size:90%;">0.0003</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" id="A1.T7.27.27.3"><math alttext="3.0\times 10^{-7}" class="ltx_Math" display="inline" id="A1.T7.27.27.3.m1.1"><semantics id="A1.T7.27.27.3.m1.1a"><mrow id="A1.T7.27.27.3.m1.1.1" xref="A1.T7.27.27.3.m1.1.1.cmml"><mn id="A1.T7.27.27.3.m1.1.1.2" mathsize="90%" xref="A1.T7.27.27.3.m1.1.1.2.cmml">3.0</mn><mo id="A1.T7.27.27.3.m1.1.1.1" lspace="0.222em" mathsize="90%" rspace="0.222em" xref="A1.T7.27.27.3.m1.1.1.1.cmml">×</mo><msup id="A1.T7.27.27.3.m1.1.1.3" xref="A1.T7.27.27.3.m1.1.1.3.cmml"><mn id="A1.T7.27.27.3.m1.1.1.3.2" mathsize="90%" xref="A1.T7.27.27.3.m1.1.1.3.2.cmml">10</mn><mrow id="A1.T7.27.27.3.m1.1.1.3.3" xref="A1.T7.27.27.3.m1.1.1.3.3.cmml"><mo id="A1.T7.27.27.3.m1.1.1.3.3a" mathsize="90%" xref="A1.T7.27.27.3.m1.1.1.3.3.cmml">−</mo><mn id="A1.T7.27.27.3.m1.1.1.3.3.2" mathsize="90%" xref="A1.T7.27.27.3.m1.1.1.3.3.2.cmml">7</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.27.27.3.m1.1b"><apply id="A1.T7.27.27.3.m1.1.1.cmml" xref="A1.T7.27.27.3.m1.1.1"><times id="A1.T7.27.27.3.m1.1.1.1.cmml" xref="A1.T7.27.27.3.m1.1.1.1"></times><cn id="A1.T7.27.27.3.m1.1.1.2.cmml" type="float" xref="A1.T7.27.27.3.m1.1.1.2">3.0</cn><apply id="A1.T7.27.27.3.m1.1.1.3.cmml" xref="A1.T7.27.27.3.m1.1.1.3"><csymbol cd="ambiguous" id="A1.T7.27.27.3.m1.1.1.3.1.cmml" xref="A1.T7.27.27.3.m1.1.1.3">superscript</csymbol><cn id="A1.T7.27.27.3.m1.1.1.3.2.cmml" type="integer" xref="A1.T7.27.27.3.m1.1.1.3.2">10</cn><apply id="A1.T7.27.27.3.m1.1.1.3.3.cmml" xref="A1.T7.27.27.3.m1.1.1.3.3"><minus id="A1.T7.27.27.3.m1.1.1.3.3.1.cmml" xref="A1.T7.27.27.3.m1.1.1.3.3"></minus><cn id="A1.T7.27.27.3.m1.1.1.3.3.2.cmml" type="integer" xref="A1.T7.27.27.3.m1.1.1.3.3.2">7</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.27.27.3.m1.1c">3.0\times 10^{-7}</annotation><annotation encoding="application/x-llamapun" id="A1.T7.27.27.3.m1.1d">3.0 × 10 start_POSTSUPERSCRIPT - 7 end_POSTSUPERSCRIPT</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" id="A1.T7.27.27.7"><span class="ltx_text" id="A1.T7.27.27.7.1" style="font-size:90%;">0.0003</span></td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table lists the hyperparameters used during the text generation phase for the Llama 3.1 8B and Llama 3.2 3B language models.  Specifically, it shows the values used for temperature, top-k sampling, top-p (nucleus) sampling, and the maximum number of new tokens generated. These settings control the randomness and length of the generated text sequences.
+> <details>
+> <summary>read the caption</summary>
+> Table 8: Generation hyperparameters for Llama 3.1 8B and Llama 3.2 3B models.
+> </details>
+
+</details>
+
+
+
+
+### Full paper
+
+{{< gallery >}}
+<img src="https://ai-paper-reviewer.com/2502.01237/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2502.01237/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+{{< /gallery >}}
