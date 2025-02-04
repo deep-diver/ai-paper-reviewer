@@ -1,0 +1,1 @@
+Improved Training Technique for Latent Consistency Models
