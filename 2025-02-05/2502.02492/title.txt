@@ -1,0 +1,1 @@
+VideoJAM: Joint Appearance-Motion Representations for Enhanced Motion Generation in Video Models
