@@ -1,0 +1,1 @@
+ChartCitor: Multi-Agent Framework for Fine-Grained Chart Visual Attribution
