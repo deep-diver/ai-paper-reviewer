@@ -1,0 +1,1 @@
+Speak Easy: Eliciting Harmful Jailbreaks from LLMs with Simple Interactions

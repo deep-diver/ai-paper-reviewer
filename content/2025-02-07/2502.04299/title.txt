@@ -1,0 +1,1 @@
+MotionCanvas: Cinematic Shot Design with Controllable Image-to-Video Generation

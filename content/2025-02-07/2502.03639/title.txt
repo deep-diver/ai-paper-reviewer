@@ -1,0 +1,1 @@
+Towards Physical Understanding in Video Generation: A 3D Point Regularization Approach
