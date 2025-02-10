@@ -1,0 +1,1 @@
+On-device Sora: Enabling Diffusion-Based Text-to-Video Generation for Mobile Devices
