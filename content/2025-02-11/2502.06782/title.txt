@@ -1,0 +1,1 @@
+Lumina-Video: Efficient and Flexible Video Generation with Multi-scale Next-DiT

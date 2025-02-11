@@ -1,0 +1,1 @@
+DreamDPO: Aligning Text-to-3D Generation with Human Preferences via Direct Preference Optimization

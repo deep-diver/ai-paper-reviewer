@@ -1,0 +1,1 @@
+APE: Faster and Longer Context-Augmented Generation via Adaptive Parallel Encoding

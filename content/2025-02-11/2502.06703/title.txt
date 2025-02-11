@@ -1,0 +1,1 @@
+Can 1B LLM Surpass 405B LLM? Rethinking Compute-Optimal Test-Time Scaling

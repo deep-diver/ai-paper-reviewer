@@ -1,0 +1,1 @@
+Efficient-vDiT: Efficient Video Diffusion Transformers With Attention Tile
