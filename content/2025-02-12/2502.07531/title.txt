@@ -1,0 +1,1 @@
+VidCRAFT3: Camera, Object, and Lighting Control for Image-to-Video Generation

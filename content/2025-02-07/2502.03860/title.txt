@@ -1,1 +1,0 @@
-BOLT: Bootstrap Long Chain-of-Thought in Language Models without Distillation

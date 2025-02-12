@@ -1,1 +1,0 @@
-Llasa: Scaling Train-Time and Inference-Time Compute for Llama-based Speech Synthesis

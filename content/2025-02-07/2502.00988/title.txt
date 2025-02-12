@@ -1,1 +1,0 @@
-PlotGen: Multi-Agent LLM-based Scientific Data Visualization via Multimodal Feedback
