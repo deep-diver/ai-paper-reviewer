@@ -1,0 +1,1 @@
+Next Block Prediction: Video Generation via Semi-Autoregressive Modeling
