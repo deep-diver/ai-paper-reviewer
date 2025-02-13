@@ -1,0 +1,1 @@
+LASP-2: Rethinking Sequence Parallelism for Linear Attention and Its Hybrid
