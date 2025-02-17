@@ -1,0 +1,1 @@
+ZeroBench: An Impossible Visual Benchmark for Contemporary Large Multimodal Models

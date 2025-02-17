@@ -1,0 +1,1 @@
+Cluster and Predict Latents Patches for Improved Masked Image Modeling
