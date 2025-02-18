@@ -1,0 +1,1 @@
+Intuitive physics understanding emerges from self-supervised pretraining on natural videos
