@@ -1,1 +1,0 @@
-An Open Recipe: Adapting Language-Specific LLMs to a Reasoning Model in One Day via Model Merging

@@ -1,1 +1,0 @@
-Exploring the Potential of Encoder-free Architectures in 3D LMMs

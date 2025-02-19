@@ -1,0 +1,1 @@
+Magma: A Foundation Model for Multimodal AI Agents

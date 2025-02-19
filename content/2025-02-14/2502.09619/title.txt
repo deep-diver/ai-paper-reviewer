@@ -1,1 +1,0 @@
-Can this Model Also Recognize Dogs? Zero-Shot Model Search from Weights

@@ -1,1 +1,0 @@
-3CAD: A Large-Scale Real-World 3C Product Dataset for Unsupervised Anomaly

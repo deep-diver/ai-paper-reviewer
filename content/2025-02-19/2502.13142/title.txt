@@ -1,0 +1,1 @@
+Pre-training Auto-regressive Robotic Models with 4D Representations
