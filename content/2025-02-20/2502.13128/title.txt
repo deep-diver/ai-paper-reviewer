@@ -1,0 +1,1 @@
+SongGen: A Single Stage Auto-regressive Transformer for Text-to-Song Generation
