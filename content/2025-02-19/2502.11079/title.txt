@@ -1,1 +1,0 @@
-Phantom: Subject-consistent video generation via cross-modal alignment
