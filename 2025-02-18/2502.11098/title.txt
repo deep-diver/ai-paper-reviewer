@@ -1,0 +1,1 @@
+Talk Structurally, Act Hierarchically: A Collaborative Framework for LLM Multi-Agent Systems

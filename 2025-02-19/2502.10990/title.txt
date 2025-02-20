@@ -1,0 +1,1 @@
+FinMTEB: Finance Massive Text Embedding Benchmark
