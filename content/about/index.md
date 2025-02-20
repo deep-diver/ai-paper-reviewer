@@ -47,9 +47,9 @@ All the pipeline is implemented in [this repo](https://github.com/deep-diver/pap
 
 This project leverages the following tech stack:
 - [Upstage's Document Parse](https://www.upstage.ai/products/document-parse): Extracting visual information from the papers.
-- [Google's Gemini 1.5 Pro](https://deepmind.google/technologies/gemini/pro/): Extracting visual information from the papers if Document Parse is not available.
-- [Google's Gemini 1.5 Flash](https://deepmind.google/technologies/gemini/flash/): Generating summaries and reviews of the papers.
-- [Google's Gemini 1.5 Flash 8B](https://deepmind.google/technologies/gemini/flash/): Double checking if visual information is correctly extracted.
+- [Google's Gemini 2.0 Pro](https://deepmind.google/technologies/gemini/pro/): Extracting visual information from the papers if Document Parse is not available.
+- [Google's Gemini 2.0 Flash](https://deepmind.google/technologies/gemini/flash/): Generating summaries and reviews of the papers.
+- [Google's Gemini 2.0 Flash lITE](https://deepmind.google/technologies/gemini/flash/): Double checking if visual information is correctly extracted.
 - [Hugo](https://gohugo.io/): Static site generator.
 - [Blowfish](https://github.com/nunocoracao/blowfish): Theme for Hugo.
 
