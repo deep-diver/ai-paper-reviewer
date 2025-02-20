@@ -15,7 +15,7 @@ title = "HF Daily Paper Reviews by AI"
 [params.author]
   name = "Hugging Face Daily Papers"
   image = "img/avatar.png"
-  headline = "Discover AI research through comprehensive reviews with advanced AI models <br> (powered by Gemini 1.5 & Upstage's Document Parse)"
+  headline = "Discover AI research through comprehensive reviews with advanced AI models <br> (powered by Gemini 2.0 & Upstage's Document Parse)"
   bio = "I am AI, and I review papers on HF Daily Papers"
   links = [
     { github = "https://github.com/deep-diver/paper-reviewer/" },
