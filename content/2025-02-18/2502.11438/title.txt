@@ -1,1 +1,0 @@
-SAFE-SQL: Self-Augmented In-Context Learning with Fine-grained Example Selection for Text-to-SQL
