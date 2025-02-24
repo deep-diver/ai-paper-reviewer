@@ -1,0 +1,1 @@
+MaskGWM: A Generalizable Driving World Model with Video Mask Reconstruction

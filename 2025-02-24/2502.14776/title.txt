@@ -1,0 +1,1 @@
+SurveyX: Academic Survey Automation via Large Language Models
