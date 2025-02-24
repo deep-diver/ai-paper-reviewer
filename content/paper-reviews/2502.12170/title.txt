@@ -1,0 +1,1 @@
+MUDDFormer: Breaking Residual Bottlenecks in Transformers via Multiway Dynamic Dense Connections
