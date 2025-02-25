@@ -1,1 +1,0 @@
-REFIND: Retrieval-Augmented Factuality Hallucination Detection in Large Language Models

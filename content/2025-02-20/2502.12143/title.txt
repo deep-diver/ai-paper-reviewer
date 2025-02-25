@@ -1,1 +1,0 @@
-Small Models Struggle to Learn from Strong Reasoners
