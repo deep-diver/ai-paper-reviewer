@@ -1,0 +1,1 @@
+HAIC: Improving Human Action Understanding and Generation with Better Captions for Multi-modal Large Language Models
