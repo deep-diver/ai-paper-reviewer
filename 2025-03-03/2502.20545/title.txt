@@ -1,0 +1,1 @@
+SoS1: O1 and R1-Like Reasoning LLMs are Sum-of-Square Solvers
