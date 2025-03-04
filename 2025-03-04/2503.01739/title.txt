@@ -1,0 +1,1 @@
+VideoUFO: A Million-Scale User-Focused Dataset for Text-to-Video Generation

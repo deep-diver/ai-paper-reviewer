@@ -1,0 +1,1 @@
+Kiss3DGen: Repurposing Image Diffusion Models for 3D Asset Generation
