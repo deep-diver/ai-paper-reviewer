@@ -1,1 +1,0 @@
-Multimodal Inconsistency Reasoning (MMIR): A New Benchmark for Multimodal Reasoning Models

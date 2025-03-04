@@ -1,0 +1,1 @@
+Liger: Linearizing Large Language Models to Gated Recurrent Structures

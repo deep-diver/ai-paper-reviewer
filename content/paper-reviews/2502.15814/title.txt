@@ -1,0 +1,1 @@
+Slamming: Training a Speech Language Model on One GPU in a Day

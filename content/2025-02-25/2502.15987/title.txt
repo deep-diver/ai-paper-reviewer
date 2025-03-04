@@ -1,1 +1,0 @@
-Forecasting Open-Weight AI Model Growth on Hugging Face

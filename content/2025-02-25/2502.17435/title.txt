@@ -1,1 +1,0 @@
-GCC: Generative Color Constancy via Diffusing a Color Checker
