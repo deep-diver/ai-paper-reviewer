@@ -1,0 +1,1 @@
+SPIDER: A Comprehensive Multi-Organ Supervised Pathology Dataset and Baseline Models
