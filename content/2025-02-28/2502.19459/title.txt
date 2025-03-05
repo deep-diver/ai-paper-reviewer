@@ -1,1 +1,0 @@
-Building Interactable Replicas of Complex Articulated Objects via Gaussian Splatting

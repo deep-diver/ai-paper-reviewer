@@ -1,0 +1,1 @@
+MultiAgentBench: Evaluating the Collaboration and Competition of LLM agents

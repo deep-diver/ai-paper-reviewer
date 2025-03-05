@@ -1,1 +1,0 @@
-Mobius: Text to Seamless Looping Video Generation via Latent Shift
