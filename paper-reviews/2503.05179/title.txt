@@ -1,0 +1,1 @@
+Sketch-of-Thought: Efficient LLM Reasoning with Adaptive Cognitive-Inspired Sketching

@@ -1,0 +1,1 @@
+Seedream 2.0: A Native Chinese-English Bilingual Image Generation Foundation Model

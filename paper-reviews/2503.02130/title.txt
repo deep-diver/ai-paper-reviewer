@@ -1,0 +1,1 @@
+Forgetting Transformer: Softmax Attention with a Forget Gate

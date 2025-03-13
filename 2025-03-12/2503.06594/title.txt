@@ -1,0 +1,1 @@
+Beyond Decoder-only: Large Language Models Can be Good Encoders for Machine Translation
