@@ -1,1 +1,0 @@
-WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation

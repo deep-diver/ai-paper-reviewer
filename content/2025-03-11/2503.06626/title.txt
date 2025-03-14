@@ -1,1 +1,0 @@
-DiffCLIP: Differential Attention Meets CLIP

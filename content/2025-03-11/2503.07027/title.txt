@@ -1,1 +1,0 @@
-EasyControl: Adding Efficient and Flexible Control for Diffusion Transformer
