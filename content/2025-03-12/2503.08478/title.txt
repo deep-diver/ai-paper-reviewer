@@ -1,1 +1,0 @@
-NullFace: Training-Free Localized Face Anonymization

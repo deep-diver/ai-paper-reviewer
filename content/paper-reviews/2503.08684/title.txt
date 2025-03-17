@@ -1,0 +1,1 @@
+Perplexity Trap: PLM-Based Retrievers Overrate Low Perplexity Documents

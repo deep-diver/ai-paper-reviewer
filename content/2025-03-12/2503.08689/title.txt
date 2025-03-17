@@ -1,1 +1,0 @@
-QuoTA: Query-oriented Token Assignment via CoT Query Decouple for Long Video Comprehension

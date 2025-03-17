@@ -1,1 +1,0 @@
-LightGen: Efficient Image Generation through Knowledge Distillation and Direct Preference Optimization
