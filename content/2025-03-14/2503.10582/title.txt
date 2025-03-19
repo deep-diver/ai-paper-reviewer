@@ -1,1 +1,0 @@
-VisualWebInstruct: Scaling up Multimodal Instruction Data through Web Search

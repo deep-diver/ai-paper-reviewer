@@ -1,1 +1,0 @@
-GoT: Unleashing Reasoning Capability of Multimodal Large Language Model for Visual Generation and Editing

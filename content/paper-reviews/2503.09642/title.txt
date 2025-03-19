@@ -1,0 +1,1 @@
+Open-Sora 2.0: Training a Commercial-Level Video Generation Model in $200k

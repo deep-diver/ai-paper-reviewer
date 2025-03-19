@@ -1,1 +1,0 @@
-UniGoal: Towards Universal Zero-shot Goal-oriented Navigation

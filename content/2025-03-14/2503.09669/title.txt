@@ -1,1 +1,0 @@
-Silent Branding Attack: Trigger-free Data Poisoning Attack on Text-to-Image Diffusion Models
