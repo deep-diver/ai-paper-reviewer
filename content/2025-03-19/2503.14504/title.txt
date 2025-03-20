@@ -1,1 +1,0 @@
-Aligning Multimodal LLM with Human Preference: A Survey
