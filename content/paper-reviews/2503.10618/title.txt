@@ -1,1 +1,0 @@
-DiT-Air: Revisiting the Efficiency of Diffusion Model Architecture Design in Text to Image Generation
