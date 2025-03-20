@@ -1,1 +1,0 @@
-Neighboring Autoregressive Modeling for Efficient Visual Generation

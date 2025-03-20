@@ -1,1 +1,0 @@
-Cockatiel: Ensembling Synthetic and Human Preferenced Training for Detailed Video Caption
