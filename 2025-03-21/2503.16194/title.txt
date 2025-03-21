@@ -1,0 +1,1 @@
+Improving Autoregressive Image Generation through Coarse-to-Fine Token Prediction

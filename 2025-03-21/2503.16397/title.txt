@@ -1,0 +1,1 @@
+Scale-wise Distillation of Diffusion Models
