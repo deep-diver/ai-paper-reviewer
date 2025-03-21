@@ -1,1 +1,0 @@
-MicroVQA: A Multimodal Reasoning Benchmark for Microscopy-Based Scientific Research

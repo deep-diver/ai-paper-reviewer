@@ -1,1 +1,0 @@
-BlobCtrl: A Unified and Flexible Framework for Element-level Image Generation and Editing

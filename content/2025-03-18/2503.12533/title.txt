@@ -1,1 +1,0 @@
-Being-0: A Humanoid Robotic Agent with Vision-Language Models and Modular Skills

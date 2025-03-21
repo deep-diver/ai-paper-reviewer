@@ -1,1 +1,0 @@
-DreamRenderer: Taming Multi-Instance Attribute Control in Large-Scale Text-to-Image Models
