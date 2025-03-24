@@ -1,1 +1,0 @@
-MPBench: A Comprehensive Multimodal Reasoning Benchmark for Process Errors Identification

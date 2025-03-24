@@ -1,1 +1,0 @@
-CapArena: Benchmarking and Analyzing Detailed Image Captioning in the LLM Era
