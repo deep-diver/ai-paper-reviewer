@@ -1,0 +1,1 @@
+Bridging Continuous and Discrete Tokens for Autoregressive Visual Generation

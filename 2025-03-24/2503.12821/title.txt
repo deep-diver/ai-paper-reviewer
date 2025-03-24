@@ -1,0 +1,1 @@
+From Head to Tail: Towards Balanced Representation in Large Vision-Language Models through Adaptive Data Calibration
