@@ -1,0 +1,1 @@
+Video SimpleQA: Towards Factuality Evaluation in Large Video Language Models
