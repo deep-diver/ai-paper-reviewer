@@ -1,1 +1,0 @@
-LEGION: Learning to Ground and Explain for Synthetic Image Detection

@@ -1,1 +1,0 @@
-DeepMesh: Auto-Regressive Artist-mesh Creation with Reinforcement Learning
