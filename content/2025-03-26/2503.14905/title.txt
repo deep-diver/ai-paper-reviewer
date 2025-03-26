@@ -1,0 +1,1 @@
+Spot the Fake: Large Multimodal Model-Based Synthetic Image Detection with Artifact Explanation

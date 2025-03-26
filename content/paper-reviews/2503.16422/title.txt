@@ -1,0 +1,1 @@
+1000+ FPS 4D Gaussian Splatting for Dynamic Scene Rendering

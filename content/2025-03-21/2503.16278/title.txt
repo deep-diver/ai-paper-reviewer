@@ -1,1 +1,0 @@
-Uni-3DAR: Unified 3D Generation and Understanding via Autoregression on Compressed Spatial Tokens

@@ -1,1 +1,0 @@
-MagicMotion: Controllable Video Generation with Dense-to-Sparse Trajectory Guidance
