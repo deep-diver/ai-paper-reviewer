@@ -1,0 +1,1 @@
+FRESA:Feedforward Reconstruction of Personalized Skinned Avatars from Few Images
