@@ -1,0 +1,1 @@
+BizGen: Advancing Article-level Visual Text Rendering for Infographics Generation

@@ -1,0 +1,1 @@
+Dita: Scaling Diffusion Transformer for Generalist Vision-Language-Action Policy
