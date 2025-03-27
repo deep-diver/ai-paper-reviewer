@@ -1,0 +1,1 @@
+AccVideo: Accelerating Video Diffusion Model with Synthetic Dataset

@@ -1,1 +1,0 @@
-Generalized Few-shot 3D Point Cloud Segmentation with Vision-Language Model

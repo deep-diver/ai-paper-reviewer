@@ -1,1 +1,0 @@
-MARS: A Multi-Agent Framework Incorporating Socratic Guidance for Automated Prompt Optimization

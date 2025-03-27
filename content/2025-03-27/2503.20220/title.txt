@@ -1,0 +1,1 @@
+DINeMo: Learning Neural Mesh Models with no 3D Annotations

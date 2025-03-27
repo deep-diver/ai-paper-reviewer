@@ -1,0 +1,1 @@
+ETVA: Evaluation of Text-to-Video Alignment via Fine-grained Question Generation and Answering
