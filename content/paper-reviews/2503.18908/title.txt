@@ -1,0 +1,1 @@
+FFN Fusion: Rethinking Sequential Computation in Large Language Models

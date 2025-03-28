@@ -1,1 +1,0 @@
-Diffusion-4K: Ultra-High-Resolution Image Synthesis with Latent Diffusion Models

@@ -1,0 +1,1 @@
+ResearchBench: Benchmarking LLMs in Scientific Discovery via Inspiration-Based Task Decomposition

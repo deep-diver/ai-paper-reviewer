@@ -1,0 +1,1 @@
+Lumina-Image 2.0: A Unified and Efficient Image Generative Framework

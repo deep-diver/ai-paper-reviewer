@@ -1,0 +1,1 @@
+RDTF: Resource-efficient Dual-mask Training Framework for Multi-frame Animated Sticker Generation

@@ -1,1 +1,0 @@
-MagicComp: Training-free Dual-Phase Refinement for Compositional Video Generation

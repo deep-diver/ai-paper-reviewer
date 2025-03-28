@@ -1,1 +1,0 @@
-Training-free Diffusion Acceleration with Bottleneck Sampling
