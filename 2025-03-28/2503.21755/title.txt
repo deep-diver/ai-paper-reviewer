@@ -1,0 +1,1 @@
+VBench-2.0: Advancing Video Generation Benchmark Suite for Intrinsic Faithfulness

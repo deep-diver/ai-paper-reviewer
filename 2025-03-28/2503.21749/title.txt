@@ -1,0 +1,1 @@
+LeX-Art: Rethinking Text Generation via Scalable High-Quality Data Synthesis
