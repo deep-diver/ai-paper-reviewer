@@ -1,0 +1,1 @@
+TextCrafter: Accurately Rendering Multiple Texts in Complex Visual Scenes
