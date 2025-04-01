@@ -1,0 +1,1 @@
+LEGO-Puzzles: How Good Are MLLMs at Multi-Step Spatial Reasoning?

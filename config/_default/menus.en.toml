@@ -26,11 +26,6 @@ url = "https://twitter.com/algo_diver/"
 weight = 60
 
 [[main]]
-name = "2025-03-27"
-pageRef = "2025-03-27"
-weight = 20
-
-[[main]]
 name = "2025-03-28"
 pageRef = "2025-03-28"
 weight = 20
@@ -38,6 +33,11 @@ weight = 20
 [[main]]
 name = "2025-03-31"
 pageRef = "2025-03-31"
+weight = 20
+
+[[main]]
+name = "2025-04-01"
+pageRef = "2025-04-01"
 weight = 20
 
 [[footer]]

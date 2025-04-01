@@ -1,0 +1,1281 @@
+---
+title: "Expanding RL with Verifiable Rewards Across Diverse Domains"
+summary: "RL with Verifiable Rewards is now expanding to diverse domains like medicine!"
+categories: ["AI Generated", "🤗 Daily Papers"]
+tags: ["Machine Learning", "Reinforcement Learning", "🏢 Tencent AI Lab",]
+showSummary: true
+date: 2025-03-31
+draft: false
+---
+
+<br>
+
+{{< keywordList >}}
+{{< keyword icon="fingerprint" >}} 2503.23829 {{< /keyword >}}
+{{< keyword icon="writer" >}} Yi Su et el. {{< /keyword >}}
+ 
+{{< keyword >}} 🤗 2025-04-01 {{< /keyword >}}
+ 
+{{< /keywordList >}}
+
+{{< button href="https://arxiv.org/abs/2503.23829" target="_self" >}}
+↗ arXiv
+{{< /button >}}
+{{< button href="https://huggingface.co/papers/2503.23829" target="_self" >}}
+↗ Hugging Face
+{{< /button >}}
+
+
+
+<audio controls>
+    <source src="https://ai-paper-reviewer.com/2503.23829/podcast.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+
+### TL;DR
+
+
+{{< lead >}}
+
+Reinforcement Learning with Verifiable Rewards (RLVR) has shown great promise but mainly in structured domains like math and coding. The necessity of large-scale annotation for training domain-specific reward models is challenged by the limitation of binary rewards for unstructured answers. 
+
+
+
+This paper broadens RLVR's use to areas like medicine by using model-based soft scoring and a cross-domain reward model. Using a distilled generative reward model as a verifier, the researchers achieved excellent results without needing domain-specific annotations. This approach surpasses current open-source LLMs in free-form answer tasks.
+
+{{< /lead >}}
+
+
+#### Key Takeaways
+
+{{< alert "star" >}}
+{{< typeit speed=10 lifeLike=true >}} RLVR is effective beyond math and coding, even with unstructured answers. {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} Cross-domain reward models can be trained without task-specific annotations. {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Model-based soft rewards improve RLVR's performance, scalability and robustness. {{< /typeit >}}
+{{< /alert >}}
+
+#### Why does it matter?
+This research advances RLVR by **expanding its applicability to diverse domains** beyond math/coding. The work introduces a cross-domain reward model, which **improves the efficiency, scalability, and robustness** of the RLVR framework. This enables the use of RLVR for complex reasoning tasks with noisy labels.
+
+------
+#### Visual Insights
+
+
+
+![](https://arxiv.org/html/2503.23829/x1.png)
+
+> 🔼 This figure illustrates the process of Reinforcement Learning with Verifiable Rewards (RLVR) using a cross-domain verifier.  It shows three steps. Step 1 involves using a base language model and reasoning data (prompt and expert-written reference answer) to generate exploration data that includes the model's response and a correctness label from a teacher grader. Step 2 uses this exploration data to train a reward model. Step 3 employs the trained reward model within the RLVR framework to fine-tune the base model, resulting in a final policy that can generate more accurate and reliable responses across diverse domains.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1: Overview paradigm of RLVR with our cross-domain verifier.
+> </details>
+
+
+
+
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle" id="S4.T1.1.1">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S4.T1.1.1.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="S4.T1.1.1.1.1.1" rowspan="2"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.1.1.1.1">Method</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="S4.T1.1.1.1.1.2" rowspan="2"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.1.1.2.1">Reward</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="S4.T1.1.1.1.1.3" rowspan="2"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.1.1.3.1">Score Type</span></th>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="4" id="S4.T1.1.1.1.1.4"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.1.1.4.1">Math</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="6" id="S4.T1.1.1.1.1.5"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.1.1.5.1">Multi-Subject</span></td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.2.2">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.1"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.1.1">E</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.2"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.2.1">M</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.3"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.3.1">H</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.4"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.4.1">Avg</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.5"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.5.1">STEM</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.6"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.6.1">Social</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.7"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.7.1">Humanities</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.8"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.8.1">Applied</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.9"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.9.1">Others</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.2.2.10"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.2.2.10.1">Avg</span></td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.3.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.3.3.1">Qwen2.5-72B-Instruct</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.3.3.2">–</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.3.3.3">–</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.4">44.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.5">57.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.6">40.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.7">47.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.8">25.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.9">20.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.10">28.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.11">20.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.12">21.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.3.3.13">22.6</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.4.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.4.4.1">DeepSeek-R1-Distill-Qwen-32B</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.4.4.2">–</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.4.4.3">–</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.4">27.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.5">34.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.6">17.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.7">26.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.8">23.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.9">21.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.10">26.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.11">20.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.12">18.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.4.4.13">21.7</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.5.5">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.5.5.1">Base</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.5.5.2">–</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.5.5.3">–</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.4">43.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.5">53.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.6">33.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.7">43.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.8">16.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.9">14.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.10">15.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.11">13.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.12">14.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.5.5.13">15.0</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.6.6">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.6.6.1">SFT</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.6.6.2">–</th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.6.6.3">–</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.4">53.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.5">50.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.6">32.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.7">45.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.8">24.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.9">22.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.10">25.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.11">20.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.12">22.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.6.6.13">23.1</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.7.7">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.7.7.1" rowspan="6"><span class="ltx_text" id="S4.T1.1.1.7.7.1.1">REINFORCE</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.7.7.2" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.7.7.2.1">rule based</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.7.7.3">binary</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.4">58.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.5">66.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.6">46.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.7">57.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.8">25.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.9">26.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.10">27.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.11">21.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.12">20.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.7.7.13">24.2</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.8.8">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.8.8.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.2">46.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.3">47.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.4">31.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.5">41.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.6">22.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.7">20.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.8">23.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.9">16.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.10">20.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.8.8.11">20.3</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.9.9">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.9.9.1" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.9.9.1.1">Qwen2.5-72B<sub class="ltx_sub" id="S4.T1.1.1.9.9.1.1.1">Instruct</sub></span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.9.9.2">binary</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.3"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.9.9.3.1">64.4</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.4"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.9.9.4.1">72.1</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.5">51.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.6"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.9.9.6.1">62.7</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.7">27.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.8">27.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.9">30.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.10">24.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.11">23.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.9.9.12">26.6</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.10.10">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.10.10.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.2">62.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.3">71.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.4"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.10.10.4.1">53.1</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.5">62.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.6">32.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.7">32.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.8"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.10.10.8.1">36.0</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.9">24.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.10"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.10.10.10.1">27.9</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.10.10.11">30.3</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.11.11">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.11.11.1" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.11.11.1.1">RM-7B (ours)</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.11.11.2">binary</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.3">63.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.4">71.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.5">51.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.6">62.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.7">29.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.8">29.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.9">28.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.10">23.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.11">24.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.11.11.12">27.3</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.12.12">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.12.12.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.2">62.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.3">70.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.4">53.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.5">62.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.6"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.12.12.6.1">32.7</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.7"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.12.12.7.1">32.8</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.8">35.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.9"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.12.12.9.1">28.6</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.10">27.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.12.12.11"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.12.12.11.1">31.2</span></td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.13.13">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.13.13.1" rowspan="6"><span class="ltx_text" id="S4.T1.1.1.13.13.1.1">REINFORCE++</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.13.13.2" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.13.13.2.1">rule based</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.13.13.3">binary</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.4">56.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.5">65.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.6">47.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.7">56.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.8">26.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.9">26.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.10">26.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.11">21.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.12">24.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.13.13.13">25.0</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.14.14">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.14.14.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.2">49.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.3">52.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.4">36.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.5">46.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.6">22.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.7">22.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.8">25.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.9">18.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.10">20.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.14.14.11">21.4</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.15.15">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.15.15.1" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.15.15.1.1">Qwen2.5-72B<sub class="ltx_sub" id="S4.T1.1.1.15.15.1.1.1">Instruct</sub></span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.15.15.2">binary</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.3">63.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.4">71.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.5">50.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.6">61.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.7">30.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.8"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.15.15.8.1">32.8</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.9"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.15.15.9.1">34.3</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.10"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.15.15.10.1">27.5</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.11"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.15.15.11.1">27.8</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.15.15.12"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.15.15.12.1">30.3</span></td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.16.16">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.16.16.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.2">62.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.3">70.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.4">50.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.5">61.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.6"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.16.16.6.1">30.8</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.7">30.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.8">33.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.9">25.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.10">25.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.16.16.11">28.8</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.17.17">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.17.17.1" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.17.17.1.1">RM-7B (ours)</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.17.17.2">binary</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.3"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.17.17.3.1">63.1</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.4"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.17.17.4.1">71.3</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.5"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.17.17.5.1">51.5</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.6"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.17.17.6.1">62.0</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.7">30.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.8">30.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.9">31.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.10">26.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.11">26.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.17.17.12">29.1</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.18.18">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.18.18.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.2">62.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.3">70.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.4">50.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.5">61.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.6">29.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.7">31.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.8">33.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.9">25.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.10">26.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.18.18.11">29.0</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.19.19">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b ltx_border_t" id="S4.T1.1.1.19.19.1" rowspan="6"><span class="ltx_text" id="S4.T1.1.1.19.19.1.1">RLOO</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.19.19.2" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.19.19.2.1">rule based</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T1.1.1.19.19.3">binary</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.4">58.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.5">67.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.6">50.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.7">58.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.8">28.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.9">27.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.10">27.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.11">22.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.12">24.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T1.1.1.19.19.13">26.3</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.20.20">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.20.20.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.2">49.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.3">50.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.4">33.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.5">44.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.6">16.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.7">17.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.8">18.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.9">14.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.10">16.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.20.20.11">16.6</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.21.21">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.21.21.1" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.21.21.1.1">Qwen2.5-72B<sub class="ltx_sub" id="S4.T1.1.1.21.21.1.1.1">Instruct</sub></span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.21.21.2">binary</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.3">63.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.4">70.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.5">51.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.6">61.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.7">29.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.8">30.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.9">33.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.10">24.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.11">26.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.21.21.12">28.4</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.22.22">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.22.22.1">soft</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.2"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.22.22.2.1">63.8</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.3">71.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.4">52.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.5">62.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.6"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.22.22.6.1">32.9</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.7">31.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.8">34.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.9"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.22.22.9.1">27.7</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.10">26.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.22.22.11"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.22.22.11.1">30.6</span></td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.23.23">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b" id="S4.T1.1.1.23.23.1" rowspan="2"><span class="ltx_text" id="S4.T1.1.1.23.23.1.1">RM-7B (ours)</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T1.1.1.23.23.2">binary</th>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.3">63.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.4"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.23.23.4.1">71.8</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.5"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.23.23.5.1">53.8</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.6"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.23.23.6.1">63.0</span></td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.7">29.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.8">29.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.9">33.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.10">25.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.11">25.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T1.1.1.23.23.12">28.1</td>
+</tr>
+<tr class="ltx_tr" id="S4.T1.1.1.24.24">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.1">soft</th>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.2">63.3</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.3">71.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.4">53.6</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.5">62.9</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.6">31.0</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.7"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.24.24.7.1">32.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.8"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.24.24.8.1">35.6</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.9">27.0</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.10"><span class="ltx_text ltx_font_bold" id="S4.T1.1.1.24.24.10.1">27.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T1.1.1.24.24.11">30.0</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+
+> 🔼 This table compares the performance of different methods for solving math and multi-subject problems. The base model used is Qwen-2.5-7B.  Different methods (including fine-tuning (SFT) and reinforcement learning (RL) with rule-based and model-based rewards (both binary and soft)) are compared. The evaluation is done across three difficulty levels (elementary, middle, and high) for math problems and multiple subject categories for the multi-subject problems.  The results are presented in terms of average accuracy across different categories for math and multi-subject tasks.
+> <details>
+> <summary>read the caption</summary>
+> Table 1: Performance Comparison of Different Methods. Base model: Qwen2.5-7B. E: elementary. M: middle. H: high.
+> </details>
+
+
+
+
+
+### In-depth insights
+
+
+#### RLVR Extension
+Extending RLVR to diverse domains is promising given its success in structured tasks. **Cross-domain reward models could be key**, negating the need for domain-specific annotations. Model-based soft scoring enhances flexibility when dealing with unstructured answers. This approach could improve LLMs' reasoning across fields like medicine, economics and law. The potential for better performance over current models also exists. **Scalability and robustness** are increased, which is beneficial in noisy, real-world scenarios.
+
+#### Cross-Domain Verifier
+A cross-domain verifier is a **generalized evaluation mechanism** applicable across diverse tasks. Its value lies in **eliminating the need for task-specific training data**. This is particularly useful when dealing with the problem of domain adaptation where **knowledge is transferred from one domain to another**. The efficacy hinges on its ability to discern correct and incorrect responses without being tailored to the nuances of a specific field. It **streamlines the reward system in reinforcement learning**, where feedback must be provided for a variety of actions. The challenge for cross-domain verifiers is to **maintain accuracy** while operating on different types of data. By using a single model, it greatly **reduces the need to create and maintain individual reward systems**, thereby making it more scalable.
+
+#### Model-Based Rewards
+**Model-based rewards** offer a compelling alternative to rule-based systems in reinforcement learning, particularly when dealing with complex, unstructured data. Instead of relying on predefined rules (e.g., exact match), a trained reward model **learns to assess the quality** of generated responses. This approach offers **greater flexibility and adaptability**, especially in domains where nuanced understanding is required. Also, model-based rewards provide a more **robust and scalable** solution in the long run. Further, **generative verifiers** give stable and informative reward signals, enhancing the robustness of RL training in the presence of noise and ambiguity.
+
+#### Scalable RLVR
+While "Scalable RLVR" isn't explicitly a heading, the paper addresses scalability by demonstrating **RLVR's effectiveness beyond limited domains** like math and coding, extending it to diverse areas such as medicine and economics. The paper underscores that **a reasonably effective verifier can be trained for diverse domains using a relatively small LLM**, achieving downstream performance comparable to much larger generative verifiers **without the need for task-specific annotations**. It is also important to highlight that, **the model reward demonstrates consistent improvement trends throughout the training process**, and this demonstrates the scalability as well.
+
+#### RLVR vs. SFT
+**RLVR significantly outperforms SFT**. SFT's limited gains suggest that direct fine-tuning with labels alone is insufficient for complex reasoning. The key difference likely lies in RLVR's iterative refinement process. **RLVR leverages a reward signal to guide exploration**, allowing the model to discover more effective reasoning strategies compared to SFT. **This shows RLVR's exploration helps improve reasoning**, it allows the model to try many strategies that it doesn't have access to with SFT.
+
+
+### More visual insights
+
+<details>
+<summary>More on figures
+</summary>
+
+
+![](https://arxiv.org/html/2503.23829/x2.png)
+
+> 🔼 This bar chart visualizes the distribution of subjects within the ExamQA test set, excluding unclassified entries.  Each bar represents a subject category, and its height corresponds to the percentage of questions belonging to that subject.  The chart helps illustrate the diversity of subject matter within the dataset, showing which subjects are more prevalent than others in the test set used for evaluating the models.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Distribution of subject occurrences in the test set of ExamQA (excluding unclassified).
+> </details>
+
+
+
+![](https://arxiv.org/html/2503.23829/x3.png)
+
+> 🔼 This figure displays the level of agreement between using GPT-4 as a single evaluator versus using majority voting from multiple (m) Qwen2.5-72B-Instruct evaluators. The agreement is measured using Cohen's Kappa, a statistical measure of inter-rater reliability. The x-axis represents the number of Qwen2.5-72B-Instruct evaluators used in the majority voting (m), and the y-axis shows the corresponding Cohen's Kappa score.  Separate lines are plotted for math problems and multi-subject problems, illustrating how agreement varies depending on the type of problem and the number of evaluators. The chart shows a high level of agreement (approaching perfect agreement at 0.81 or higher) across various values of m, regardless of the problem type. This indicates robustness of the evaluation method.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: Agreement between GPT-4o and Majority Vote with m Graders, measured by Cohen’s Kappa.
+> </details>
+
+
+
+</details>
+
+
+
+
+<details>
+<summary>More on tables
+</summary>
+
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_guessed_headers ltx_align_middle" id="S4.T2.1.1">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S4.T2.1.1.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="S4.T2.1.1.1.1.1" rowspan="2"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.1.1.1.1">Method</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="S4.T2.1.1.1.1.2" rowspan="2"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.1.1.2.1">Scale</span></th>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="4" id="S4.T2.1.1.1.1.3"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.1.1.3.1">Math</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="6" id="S4.T2.1.1.1.1.4"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.1.1.4.1">Multi-Subject</span></td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.2.2">
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.1"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.1.1">E</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.2"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.2.1">M</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.3"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.3.1">H</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.4"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.4.1">Avg</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.5"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.5.1">STEM</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.6"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.6.1">Social</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.7"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.7.1">Humanities</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.8"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.8.1">Applied</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.9"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.9.1">Others</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.2.2.10"><span class="ltx_text ltx_font_bold" id="S4.T2.1.1.2.2.10.1">Avg</span></td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.3.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T2.1.1.3.3.1" rowspan="5"><span class="ltx_text" id="S4.T2.1.1.3.3.1.1">Rule based</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T2.1.1.3.3.2">20k</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.3">58.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.4">68.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.5">47.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.6">58.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.7">27.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.8">28.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.9">31.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.10">23.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.11">23.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.3.3.12">26.2</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.4.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T2.1.1.4.4.1">40k</th>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.2">61.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.3">69.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.4">55.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.5">62.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.6">25.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.7">24.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.8">27.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.9">21.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.10">23.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.4.4.11">24.0</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.5.5">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T2.1.1.5.5.1">60k</th>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.2">62.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.3">69.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.4">56.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.5">63.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.6">20.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.7">21.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.8">26.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.9">16.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.10">19.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.5.5.11">20.1</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.6.6">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T2.1.1.6.6.1">80k</th>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.2">62.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.3">68.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.4">53.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.5">61.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.6">19.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.7">18.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.8">26.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.9">15.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.10">16.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.6.6.11">18.0</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.7.7">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T2.1.1.7.7.1">100k</th>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.2">52.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.3">57.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.4">45.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.5">51.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.6">17.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.7">18.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.8">20.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.9">13.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.10">16.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.7.7.11">16.9</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.8.8">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b ltx_border_t" id="S4.T2.1.1.8.8.1" rowspan="7"><span class="ltx_text" id="S4.T2.1.1.8.8.1.1">RM-7B (ours)</span></th>
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T2.1.1.8.8.2">20k</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.3">64.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.4">71.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.5">53.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.6">63.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.7">30.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.8">34.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.9">31.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.10">28.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.11">27.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T2.1.1.8.8.12">30.8</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.9.9">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T2.1.1.9.9.1">40k</th>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.2">65.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.3">72.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.4">54.4</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.5">64.1</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.6">34.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.7">33.7</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.8">36.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.9">29.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.10">28.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.9.9.11">32.4</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.10.10">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T2.1.1.10.10.1">60k</th>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.2">66.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.3">71.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.4">53.2</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.5">63.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.6">33.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.7">36.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.8">37.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.9">31.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.10">28.9</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.10.10.11">33.3</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.11.11">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S4.T2.1.1.11.11.1">80k</th>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.2">66.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.3">72.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.4">55.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.5">64.8</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.6">34.5</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.7">38.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.8">38.3</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.9">31.6</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.10">31.0</td>
+<td class="ltx_td ltx_align_center" id="S4.T2.1.1.11.11.11">34.6</td>
+</tr>
+<tr class="ltx_tr" id="S4.T2.1.1.12.12">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.1">100k</th>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.2">67.1</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.3">72.3</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.4">55.6</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.5">65.0</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.6">35.1</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.7">38.5</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.8">39.3</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.9">32.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.10">30.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="S4.T2.1.1.12.12.11">35.0</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the results of scaling experiments conducted to assess the impact of increasing dataset size on model performance in reinforcement learning (RL).  The experiments used the RLOO RL algorithm and a binary reward system.  The table shows accuracy results for both math and multi-subject tasks at different training dataset sizes (20k, 40k, 60k, 80k, and 100k samples). Separate results are given for each task and for several subcategories within the multi-subject task, allowing for a detailed analysis of how model performance changes as the amount of training data increases.
+> <details>
+> <summary>read the caption</summary>
+> Table 2: The results of the scaling experiments. We use RLOO as the RL algorithm and binary reward as the score type.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="S4.T3.1">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="S4.T3.1.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt" id="S4.T3.1.1.1.1">Method</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S4.T3.1.1.1.2">Natural Reasoning</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S4.T3.1.1.1.3">WebInstruct</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S4.T3.1.2.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S4.T3.1.2.1.1">Rule based</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T3.1.2.1.2">29.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S4.T3.1.2.1.3">33.9</td>
+</tr>
+<tr class="ltx_tr" id="S4.T3.1.3.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b ltx_border_t" id="S4.T3.1.3.2.1">RM-7B (ours)</th>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b ltx_border_t" id="S4.T3.1.3.2.2">39.8</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b ltx_border_t" id="S4.T3.1.3.2.3">44.0</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the performance of the proposed model and a rule-based reward model on two out-of-distribution datasets: NaturalReasoning and WebInstruct.  The results demonstrate the generalizability of the proposed model, showing that it maintains strong performance on unseen data, unlike the rule-based approach.
+> <details>
+> <summary>read the caption</summary>
+> Table 3: The results of the Out-of-Distribution evaluation
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_figure_panel ltx_align_middle" id="A1.SS1.1.2">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.SS1.1.2.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_justify ltx_align_top ltx_border_bb ltx_border_tt" id="A1.SS1.1.2.1.1.1">
+<span class="ltx_inline-block ltx_align_top" id="A1.SS1.1.2.1.1.1.1">
+<span class="ltx_p" id="A1.SS1.1.2.1.1.1.1.1" style="width:341.4pt;">
+<span class="ltx_listing ltx_lstlisting ltx_listing" id="A1.SS1.1.2.1.1.1.1.1.1"><span class="ltx_listing_data"><a download="" href="data:text/plain;base64,R2l2ZW4gYSBwcm9ibGVtLCBkZXRlcm1pbmUgd2hldGhlciB0aGUgZmluYWwgYW5zd2VyIGluIHRoZSBwcm92aWRlZCAoaW5jb21wbGV0ZSkgc29sdXRpb24gcHJvY2VzcyBtYXRjaGVzIHRoZSByZWZlcmVuY2UgYW5zd2VyLgpUaGUgcmVmZXJlbmNlIGFuc3dlciBtYXkgYmUgb25lIHNpbmdsZSBvcHRpb24gY2hhcmFjdGVyIChlLmcuLCBBLCBCLCBDLCBEKSwgYSBudW1lcmljYWwgdmFsdWUsIGFuIGV4cHJlc3Npb24sIG9yIGEgbGlzdCBvZiBhbnN3ZXJzIGlmIG11bHRpcGxlIHF1ZXN0aW9ucyBhcmUgaW52b2x2ZWQuCioqVGhlIHJlZmVyZW5jZSBhbnN3ZXIgbWF5IGJlIGluIENoaW5lc2Ugb3IgYW5vdGhlciBsYW5ndWFnZSwgYnV0IHlvdXIgZXZhbHVhdGlvbiBzaG91bGQgYmUgbGFuZ3VhZ2UtYWdub3N0aWMuKioKCllvdXIgdGFzazoKLSBDb21wYXJlIHRoZSBmaW5hbCBvdXRwdXQgb2YgdGhlIHNvbHV0aW9uIHByb2Nlc3Mgd2l0aCB0aGUgcmVmZXJlbmNlIGFuc3dlci4KLSBJZiB0aGV5ICoqbWF0Y2ggZXhhY3RseSoqLCBvdXRwdXQgKipZRVMqKi4KLSBJZiB0aGV5ICoqZG8gbm90IG1hdGNoKiosIG91dHB1dCAqKk5PKiouCi0gSWYgdGhlIHNvbHV0aW9uIHByb2Nlc3MgaXMgdW5jbGVhciwgaW5jb21wbGV0ZSwgb3IgYW1iaWd1b3VzLCBhc3N1bWUgaXQgaXMgaW5jb3JyZWN0IGFuZCBvdXRwdXQgKipOTyoqLgoKWW91ciBvdXRwdXQgbXVzdCBiZSBzdHJpY3RseSAqKidZRVMnKiogb3IgKionTk8nKiosIHdpdGggbm8gYWRkaXRpb25hbCB3b3JkcywgcHVuY3R1YXRpb24sIG9yIGV4cGxhbmF0aW9uLgoKLS0tCgoqKlF1ZXN0aW9uOioqCntxdWVzdGlvbn0KCioqU29sdXRpb24gUHJvY2VzcyAoRmluYWwgU3RlcCBPbmx5KToqKgp7cmVzcG9uc2V9CgoqKlJlZmVyZW5jZSBBbnN3ZXI6KioKe3JlZmVyZW5jZX0KCioqT3V0cHV0Oioq">⬇</a></span>
+<span class="ltx_listingline" id="lstnumberx1"><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.1">Given</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.3">a</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.5">problem</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx1.6">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.8">determine</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.10">whether</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.12">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.14">final</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.16">answer</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.18">in</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.20">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.21"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.22">provided</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.23"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx1.24">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.25">incomplete</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx1.26">)</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.27"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.28">solution</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.29"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.30">process</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.31"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.32">matches</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.33"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.34">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.35"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.36">reference</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx1.37"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx1.38">answer</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx1.39">.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx2"><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.1">The</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.3">reference</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.5">answer</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.7">may</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.9">be</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.11">one</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.13">single</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.14"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.15">option</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.16"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.17">character</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.18"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.19">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.20">e</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.21">.</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.22">g</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.23">.,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.24"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.25">A</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.26">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.27"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.28">B</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.29">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.30"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.31">C</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.32">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.33"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.34">D</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.35">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.36"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.37">a</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.38"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.39">numerical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.40"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.41">value</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.42">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.43"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.44">an</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.45"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.46">expression</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.47">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.48"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.49">or</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.50"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.51">a</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.52"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.53">list</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.54"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.55">of</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.56"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.57">answers</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.58"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.59">if</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.60"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.61">multiple</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.62"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.63">questions</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.64"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.65">are</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx2.66"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx2.67">involved</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx2.68">.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx3"><span class="ltx_text ltx_font_typewriter" id="lstnumberx3.1">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.2">The</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.3"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.4">reference</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.6">answer</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.8">may</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.10">be</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.12">in</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.14">Chinese</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.16">or</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.18">another</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.20">language</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx3.21">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.22"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.23">but</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.24"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.25">your</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.26"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.27">evaluation</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.28"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.29">should</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.30"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.31">be</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx3.32"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.33">language</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx3.34">-</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx3.35">agnostic</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx3.36">.**</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx4">
+</span>
+<span class="ltx_listingline" id="lstnumberx5"><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx5.1">Your</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx5.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx5.3">task</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx5.4">:</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx6"><span class="ltx_text ltx_font_typewriter" id="lstnumberx6.1">-</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.3">Compare</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.5">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.7">final</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.9">output</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.11">of</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.13">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.14"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.15">solution</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.16"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.17">process</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.18"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.19">with</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.20"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.21">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.22"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.23">reference</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx6.24"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx6.25">answer</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx6.26">.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx7"><span class="ltx_text ltx_font_typewriter" id="lstnumberx7.1">-</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx7.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx7.3">If</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx7.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx7.5">they</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx7.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx7.7">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx7.8">match</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx7.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx7.10">exactly</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx7.11">**,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx7.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx7.13">output</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx7.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx7.15">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx7.16">YES</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx7.17">**.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx8"><span class="ltx_text ltx_font_typewriter" id="lstnumberx8.1">-</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx8.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx8.3">If</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx8.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx8.5">they</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx8.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx8.7">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx8.8">do</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx8.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx8.10">not</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx8.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx8.12">match</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx8.13">**,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx8.14"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx8.15">output</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx8.16"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx8.17">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx8.18">NO</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx8.19">**.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx9"><span class="ltx_text ltx_font_typewriter" id="lstnumberx9.1">-</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.3">If</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.5">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.7">solution</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.9">process</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.11">is</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.13">unclear</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx9.14">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.16">incomplete</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx9.17">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.18"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.19">or</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.20"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.21">ambiguous</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx9.22">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.23"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.24">assume</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.25"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.26">it</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.27"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.28">is</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.29"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.30">incorrect</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.31"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.32">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.33"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.34">output</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx9.35"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx9.36">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx9.37">NO</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx9.38">**.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx10">
+</span>
+<span class="ltx_listingline" id="lstnumberx11"><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.1">Your</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.3">output</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.5">must</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.7">be</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.9">strictly</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.10"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx11.11">**’</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.12">YES</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx11.13">’**</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.14"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.15">or</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.16"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx11.17">**’</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.18">NO</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx11.19">’**,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.20"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.21">with</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.22"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.23">no</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.24"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.25">additional</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.26"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.27">words</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx11.28">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.29"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.30">punctuation</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx11.31">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.32"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.33">or</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx11.34"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx11.35">explanation</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx11.36">.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx12">
+</span>
+<span class="ltx_listingline" id="lstnumberx13"><span class="ltx_text ltx_font_typewriter" id="lstnumberx13.1">---</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx14">
+</span>
+<span class="ltx_listingline" id="lstnumberx15"><span class="ltx_text ltx_font_typewriter" id="lstnumberx15.1">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx15.2">Question</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx15.3">:**</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx16"><span class="ltx_text ltx_font_typewriter" id="lstnumberx16.1">{</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx16.2">question</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx16.3">}</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx17">
+</span>
+<span class="ltx_listingline" id="lstnumberx18"><span class="ltx_text ltx_font_typewriter" id="lstnumberx18.1">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx18.2">Solution</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx18.3"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx18.4">Process</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx18.5"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx18.6">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx18.7">Final</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx18.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx18.9">Step</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx18.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx18.11">Only</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx18.12">):**</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx19"><span class="ltx_text ltx_font_typewriter" id="lstnumberx19.1">{</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx19.2">response</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx19.3">}</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx20">
+</span>
+<span class="ltx_listingline" id="lstnumberx21"><span class="ltx_text ltx_font_typewriter" id="lstnumberx21.1">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx21.2">Reference</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx21.3"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx21.4">Answer</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx21.5">:**</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx22"><span class="ltx_text ltx_font_typewriter" id="lstnumberx22.1">{</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx22.2">reference</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx22.3">}</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx23">
+</span>
+<span class="ltx_listingline" id="lstnumberx24"><span class="ltx_text ltx_font_typewriter" id="lstnumberx24.1">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx24.2">Output</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx24.3">:**</span>
+</span>
+</span></span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the template used for the grading task in the reinforcement learning process. It details the format and instructions for evaluating whether a model's response correctly matches an expert-provided reference answer.  The template guides the evaluation process by specifying how to compare the model's output to the reference answer and to indicate whether there is an exact match or not. The instructions handle cases where the response might be ambiguous or incomplete.  This ensures consistent evaluation across different reasoning tasks.
+> <details>
+> <summary>read the caption</summary>
+> Table 4: Template for the grading task.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_figure_panel ltx_align_middle" id="A1.SS1.1.1.1">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.SS1.1.1.1.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_justify ltx_align_top ltx_border_bb ltx_border_tt" id="A1.SS1.1.1.1.1.1.1">
+<span class="ltx_inline-block ltx_align_top" id="A1.SS1.1.1.1.1.1.1.1">
+<span class="ltx_p" id="A1.SS1.1.1.1.1.1.1.1.1" style="width:341.4pt;">
+<span class="ltx_listing ltx_lstlisting ltx_listing" id="A1.SS1.1.1.1.1.1.1.1.1.1"><span class="ltx_listing_data"><a download="" href="data:text/plain;base64,QmFzZWQgb24gdGhlIGNvbnRlbnQgb2YgJ1F1ZXN0aW9uJyBhbmQgJ0Fuc3dlcicgY2xhc3NpZnkgdGhlIHN1YmplY3QgaW50byBvbmUgb2YgdGhlIGZvbGxvd2luZyBjYXRlZ29yaWVzLgoKUmV0dXJuIG9ubHkgdGhlIGNvcnJlc3BvbmRpbmcgc3ViamVjdCBJRC4gSWYgY2xhc3NpZmljYXRpb24gaXMgdW5jZXJ0YWluLCByZXR1cm4gOTk5LgoKKipRdWVzdGlvbjoqKgp7cXVlc3Rpb259CgoqKkFuc3dlcjoqKgp7YW5zd2VyfQoKMTEwCU1hdGhlbWF0aWNzCjEyMAlJbmZvcm1hdGlvbiBTY2llbmNlIGFuZCBTeXN0ZW0gU2NpZW5jZQoxMzAJTWVjaGFuaWNzCjE0MAlQaHlzaWNzCjE1MAlDaGVtaXN0cnkKMTcwCUVhcnRoIFNjaWVuY2UKMTgwCUJpb2xvZ3kKMTkwCVBzeWNob2xvZ3kKMjEwCUFncm9ub215CjIzMAlBbmltYWwgSHVzYmFuZHJ5IGFuZCBWZXRlcmluYXJ5IFNjaWVuY2UKMzEwCUJhc2ljIE1lZGljaW5lCjMyMAlDbGluaWNhbCBNZWRpY2luZQozMzAJUHJldmVudGl2ZSBNZWRpY2luZSBhbmQgUHVibGljIEhlYWx0aAozNTAJUGhhcm1hY3kKMzYwCUNoaW5lc2UgTWVkaWNpbmUgYW5kIENoaW5lc2UgTWF0ZXJpYSBNZWRpY2EKNDEzCUluZm9ybWF0aW9uIGFuZCBTeXN0ZW0gU2NpZW5jZSBSZWxhdGVkIEVuZ2luZWVyaW5nIGFuZCBUZWNobm9sb2d5CjQxNglOYXR1cmFsIFNjaWVuY2UgUmVsYXRlZCBFbmdpbmVlcmluZyBhbmQgVGVjaG5vbG9neQo0MjAJU3VydmV5aW5nIGFuZCBNYXBwaW5nIFNjaWVuY2UgYW5kIFRlY2hub2xvZ3kKNDMwCU1hdGVyaWFscyBTY2llbmNlCjQ2MAlNZWNoYW5pY2FsIEVuZ2luZWVyaW5nCjQ3MAlQb3dlciBhbmQgRWxlY3RyaWNhbCBFbmdpbmVlcmluZwo1MTAJRWxlY3Ryb25pY3MgYW5kIENvbW11bmljYXRpb25zIFRlY2hub2xvZ3kKNTIwCUNvbXB1dGVyIFNjaWVuY2UgYW5kIFRlY2hub2xvZ3kKNTMwCUNoZW1pY2FsIEVuZ2luZWVyaW5nCjU1MAlGb29kIFNjaWVuY2UgYW5kIFRlY2hub2xvZ3kKNTYwCUNpdmlsIEVuZ2luZWVyaW5nCjU3MAlXYXRlciBDb25zZXJ2YW5jeSBFbmdpbmVlcmluZwo1ODAJVHJhbnNwb3J0YXRpb24gRW5naW5lZXJpbmcKNjEwCUVudmlyb25tZW50YWwvUmVzb3VyY2UgU2NpZW5jZSBhbmQgVGVjaG5vbG9neQo2MjAJU2FmZXR5IFNjaWVuY2UgYW5kIFRlY2hub2xvZ3kKNjMwCU1hbmFnZW1lbnQKNzEwCU1hcnhpc20KNzIwCVBoaWxvc29waHkKNzMwCVJlbGlnaW91cyBTdHVkaWVzCjc0MAlMaW5ndWlzdGljcwo3NTAJTGl0ZXJhdHVyZQo3NjAJQXJ0Cjc3MAlIaXN0b3J5Cjc5MAlFY29ub21pY3MKODEwCVBvbGl0aWNhbCBTY2llbmNlCjgyMAlMYXcKODQwCVNvY2lvbG9neQo4NTAJRXRobm9sb2d5IGFuZCBDdWx0dXJhbCBTdHVkaWVzCjg2MAlKb3VybmFsaXNtIGFuZCBDb21tdW5pY2F0aW9uCjg3MAlMaWJyYXJ5LCBJbmZvcm1hdGlvbiwgYW5kIERvY3VtZW50YXRpb24KODgwCUVkdWNhdGlvbgo4OTAJU3BvcnRzIFNjaWVuY2UKOTEwCVN0YXRpc3RpY3MKOTk5CVVuY2xhc3NpZmllZAo=">⬇</a></span>
+<span class="ltx_listingline" id="lstnumberx25"><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.1">Based</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.3">on</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.5">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.7">content</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.9">of</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.10"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx25.11">’</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.12">Question</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx25.13">’</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.14"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.15">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.16"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx25.17">’</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.18">Answer</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx25.19">’</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.20"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.21">classify</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.22"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.23">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.24"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.25">subject</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.26"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.27">into</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.28"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.29">one</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.30"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.31">of</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.32"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.33">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.34"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.35">following</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx25.36"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx25.37">categories</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx25.38">.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx26">
+</span>
+<span class="ltx_listingline" id="lstnumberx27"><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.1">Return</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.3">only</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.5">the</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.7">corresponding</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.9">subject</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.11">ID</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx27.12">.</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.14">If</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.16">classification</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.18">is</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.20">uncertain</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx27.21">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.22"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx27.23">return</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx27.24"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx27.25">999.</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx28">
+</span>
+<span class="ltx_listingline" id="lstnumberx29"><span class="ltx_text ltx_font_typewriter" id="lstnumberx29.1">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx29.2">Question</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx29.3">:**</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx30"><span class="ltx_text ltx_font_typewriter" id="lstnumberx30.1">{</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx30.2">question</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx30.3">}</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx31">
+</span>
+<span class="ltx_listingline" id="lstnumberx32"><span class="ltx_text ltx_font_typewriter" id="lstnumberx32.1">**</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx32.2">Answer</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx32.3">:**</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx33"><span class="ltx_text ltx_font_typewriter" id="lstnumberx33.1">{</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx33.2">answer</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx33.3">}</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx34">
+</span>
+<span class="ltx_listingline" id="lstnumberx35"><span class="ltx_text ltx_font_typewriter" id="lstnumberx35.1">110</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx35.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx35.3">Mathematics</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx36"><span class="ltx_text ltx_font_typewriter" id="lstnumberx36.1">120</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx36.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx36.3">Information</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx36.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx36.5">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx36.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx36.7">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx36.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx36.9">System</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx36.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx36.11">Science</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx37"><span class="ltx_text ltx_font_typewriter" id="lstnumberx37.1">130</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx37.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx37.3">Mechanics</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx38"><span class="ltx_text ltx_font_typewriter" id="lstnumberx38.1">140</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx38.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx38.3">Physics</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx39"><span class="ltx_text ltx_font_typewriter" id="lstnumberx39.1">150</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx39.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx39.3">Chemistry</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx40"><span class="ltx_text ltx_font_typewriter" id="lstnumberx40.1">170</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx40.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx40.3">Earth</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx40.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx40.5">Science</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx41"><span class="ltx_text ltx_font_typewriter" id="lstnumberx41.1">180</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx41.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx41.3">Biology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx42"><span class="ltx_text ltx_font_typewriter" id="lstnumberx42.1">190</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx42.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx42.3">Psychology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx43"><span class="ltx_text ltx_font_typewriter" id="lstnumberx43.1">210</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx43.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx43.3">Agronomy</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx44"><span class="ltx_text ltx_font_typewriter" id="lstnumberx44.1">230</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx44.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx44.3">Animal</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx44.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx44.5">Husbandry</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx44.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx44.7">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx44.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx44.9">Veterinary</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx44.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx44.11">Science</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx45"><span class="ltx_text ltx_font_typewriter" id="lstnumberx45.1">310</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx45.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx45.3">Basic</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx45.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx45.5">Medicine</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx46"><span class="ltx_text ltx_font_typewriter" id="lstnumberx46.1">320</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx46.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx46.3">Clinical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx46.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx46.5">Medicine</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx47"><span class="ltx_text ltx_font_typewriter" id="lstnumberx47.1">330</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx47.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx47.3">Preventive</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx47.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx47.5">Medicine</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx47.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx47.7">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx47.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx47.9">Public</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx47.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx47.11">Health</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx48"><span class="ltx_text ltx_font_typewriter" id="lstnumberx48.1">350</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx48.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx48.3">Pharmacy</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx49"><span class="ltx_text ltx_font_typewriter" id="lstnumberx49.1">360</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx49.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx49.3">Chinese</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx49.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx49.5">Medicine</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx49.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx49.7">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx49.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx49.9">Chinese</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx49.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx49.11">Materia</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx49.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx49.13">Medica</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx50"><span class="ltx_text ltx_font_typewriter" id="lstnumberx50.1">413</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.3">Information</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.5">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.7">System</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.9">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.11">Related</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.13">Engineering</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.14"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.15">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx50.16"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx50.17">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx51"><span class="ltx_text ltx_font_typewriter" id="lstnumberx51.1">416</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx51.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx51.3">Natural</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx51.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx51.5">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx51.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx51.7">Related</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx51.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx51.9">Engineering</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx51.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx51.11">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx51.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx51.13">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx52"><span class="ltx_text ltx_font_typewriter" id="lstnumberx52.1">420</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx52.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx52.3">Surveying</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx52.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx52.5">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx52.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx52.7">Mapping</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx52.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx52.9">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx52.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx52.11">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx52.12"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx52.13">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx53"><span class="ltx_text ltx_font_typewriter" id="lstnumberx53.1">430</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx53.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx53.3">Materials</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx53.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx53.5">Science</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx54"><span class="ltx_text ltx_font_typewriter" id="lstnumberx54.1">460</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx54.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx54.3">Mechanical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx54.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx54.5">Engineering</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx55"><span class="ltx_text ltx_font_typewriter" id="lstnumberx55.1">470</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx55.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx55.3">Power</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx55.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx55.5">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx55.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx55.7">Electrical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx55.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx55.9">Engineering</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx56"><span class="ltx_text ltx_font_typewriter" id="lstnumberx56.1">510</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx56.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx56.3">Electronics</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx56.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx56.5">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx56.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx56.7">Communications</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx56.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx56.9">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx57"><span class="ltx_text ltx_font_typewriter" id="lstnumberx57.1">520</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx57.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx57.3">Computer</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx57.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx57.5">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx57.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx57.7">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx57.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx57.9">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx58"><span class="ltx_text ltx_font_typewriter" id="lstnumberx58.1">530</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx58.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx58.3">Chemical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx58.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx58.5">Engineering</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx59"><span class="ltx_text ltx_font_typewriter" id="lstnumberx59.1">550</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx59.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx59.3">Food</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx59.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx59.5">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx59.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx59.7">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx59.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx59.9">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx60"><span class="ltx_text ltx_font_typewriter" id="lstnumberx60.1">560</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx60.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx60.3">Civil</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx60.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx60.5">Engineering</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx61"><span class="ltx_text ltx_font_typewriter" id="lstnumberx61.1">570</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx61.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx61.3">Water</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx61.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx61.5">Conservancy</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx61.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx61.7">Engineering</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx62"><span class="ltx_text ltx_font_typewriter" id="lstnumberx62.1">580</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx62.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx62.3">Transportation</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx62.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx62.5">Engineering</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx63"><span class="ltx_text ltx_font_typewriter" id="lstnumberx63.1">610</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx63.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx63.3">Environmental</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx63.4">/</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx63.5">Resource</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx63.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx63.7">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx63.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx63.9">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx63.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx63.11">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx64"><span class="ltx_text ltx_font_typewriter" id="lstnumberx64.1">620</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx64.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx64.3">Safety</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx64.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx64.5">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx64.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx64.7">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx64.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx64.9">Technology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx65"><span class="ltx_text ltx_font_typewriter" id="lstnumberx65.1">630</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx65.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx65.3">Management</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx66"><span class="ltx_text ltx_font_typewriter" id="lstnumberx66.1">710</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx66.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx66.3">Marxism</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx67"><span class="ltx_text ltx_font_typewriter" id="lstnumberx67.1">720</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx67.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx67.3">Philosophy</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx68"><span class="ltx_text ltx_font_typewriter" id="lstnumberx68.1">730</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx68.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx68.3">Religious</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx68.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx68.5">Studies</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx69"><span class="ltx_text ltx_font_typewriter" id="lstnumberx69.1">740</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx69.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx69.3">Linguistics</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx70"><span class="ltx_text ltx_font_typewriter" id="lstnumberx70.1">750</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx70.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx70.3">Literature</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx71"><span class="ltx_text ltx_font_typewriter" id="lstnumberx71.1">760</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx71.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx71.3">Art</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx72"><span class="ltx_text ltx_font_typewriter" id="lstnumberx72.1">770</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx72.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx72.3">History</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx73"><span class="ltx_text ltx_font_typewriter" id="lstnumberx73.1">790</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx73.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx73.3">Economics</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx74"><span class="ltx_text ltx_font_typewriter" id="lstnumberx74.1">810</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx74.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx74.3">Political</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx74.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx74.5">Science</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx75"><span class="ltx_text ltx_font_typewriter" id="lstnumberx75.1">820</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx75.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx75.3">Law</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx76"><span class="ltx_text ltx_font_typewriter" id="lstnumberx76.1">840</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx76.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx76.3">Sociology</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx77"><span class="ltx_text ltx_font_typewriter" id="lstnumberx77.1">850</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx77.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx77.3">Ethnology</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx77.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx77.5">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx77.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx77.7">Cultural</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx77.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx77.9">Studies</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx78"><span class="ltx_text ltx_font_typewriter" id="lstnumberx78.1">860</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx78.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx78.3">Journalism</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx78.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx78.5">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx78.6"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx78.7">Communication</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx79"><span class="ltx_text ltx_font_typewriter" id="lstnumberx79.1">870</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx79.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx79.3">Library</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx79.4">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx79.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx79.6">Information</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx79.7">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx79.8"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx79.9">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx79.10"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx79.11">Documentation</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx80"><span class="ltx_text ltx_font_typewriter" id="lstnumberx80.1">880</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx80.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx80.3">Education</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx81"><span class="ltx_text ltx_font_typewriter" id="lstnumberx81.1">890</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx81.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx81.3">Sports</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx81.4"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx81.5">Science</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx82"><span class="ltx_text ltx_font_typewriter" id="lstnumberx82.1">910</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx82.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx82.3">Statistics</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx83"><span class="ltx_text ltx_font_typewriter" id="lstnumberx83.1">999</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx83.2"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx83.3">Unclassified</span>
+</span>
+</span></span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 Table 5 presents a template used for a subject classification task.  The template requires classifying a question and its answer into one of several predefined subject categories. Each category is assigned a unique numerical ID.  The table lists these categories and their corresponding IDs, referencing the source (Yu et al., 2021) where these categories and IDs originated.  This classification is crucial for organizing and analyzing the diverse question-answer pairs used in the paper's experiments.
+> <details>
+> <summary>read the caption</summary>
+> Table 5: Template for the classification task, with subject names and IDs referenced from (Yu et al., 2021).
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_figure_panel ltx_guessed_headers ltx_align_middle" id="A1.SS1.1.1.tab1.1">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="A1.SS1.1.1.tab1.1.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt" id="A1.SS1.1.1.tab1.1.1.1.1"><span class="ltx_text ltx_font_bold" id="A1.SS1.1.1.tab1.1.1.1.1.1">Category</span></th>
+<th class="ltx_td ltx_align_justify ltx_align_top ltx_th ltx_th_column ltx_border_tt" id="A1.SS1.1.1.tab1.1.1.1.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.SS1.1.1.tab1.1.1.1.2.1">
+<span class="ltx_p" id="A1.SS1.1.1.tab1.1.1.1.2.1.1" style="width:227.6pt;"><span class="ltx_text ltx_font_bold" id="A1.SS1.1.1.tab1.1.1.1.2.1.1.1">Subject IDs</span></span>
+</span>
+</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.SS1.1.1.tab1.1.2.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.SS1.1.1.tab1.1.2.1.1"><span class="ltx_text ltx_font_bold" id="A1.SS1.1.1.tab1.1.2.1.1.1">STEM</span></th>
+<td class="ltx_td ltx_nopad_r ltx_align_justify ltx_align_top ltx_border_t" id="A1.SS1.1.1.tab1.1.2.1.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.SS1.1.1.tab1.1.2.1.2.1">
+<span class="ltx_p" id="A1.SS1.1.1.tab1.1.2.1.2.1.1" style="width:227.6pt;">
+<span class="ltx_listing ltx_lstlisting ltx_listing" id="A1.SS1.1.1.tab1.1.2.1.2.1.1.1"><span class="ltx_listing_data"><a download="" href="data:text/plain;base64,MTEwIChNYXRoZW1hdGljcyksIDEyMCAoSW5mb3JtYXRpb24gU2NpZW5jZSBhbmQgU3lzdGVtIFNjaWVuY2UpLAoxMzAgKE1lY2hhbmljcyksIDE0MCAoUGh5c2ljcyksIDE1MCAoQ2hlbWlzdHJ5KSwgMTcwIChFYXJ0aCBTY2llbmNlKSwKMTgwIChCaW9sb2d5KSwgNDMwIChNYXRlcmlhbHMgU2NpZW5jZSksIDQ2MCAoTWVjaGFuaWNhbCBFbmdpbmVlcmluZyksCjQ3MCAoUG93ZXIgYW5kIEVsZWN0cmljYWwgRW5naW5lZXJpbmcpLCA1MTAgKEVsZWN0cm9uaWNzIGFuZCBDb21tdW5pY2F0aW9ucyBUZWNobm9sb2d5KSwKNTIwIChDb21wdXRlciBTY2llbmNlIGFuZCBUZWNobm9sb2d5KSwgNTMwIChDaGVtaWNhbCBFbmdpbmVlcmluZyksCjU2MCAoQ2l2aWwgRW5naW5lZXJpbmcpLCA1NzAgKFdhdGVyIENvbnNlcnZhbmN5IEVuZ2luZWVyaW5nKSwKNTgwIChUcmFuc3BvcnRhdGlvbiBFbmdpbmVlcmluZyksIDYxMCAoRW52aXJvbm1lbnRhbC9SZXNvdXJjZSBTY2llbmNlIGFuZCBUZWNobm9sb2d5KSwKNjIwIChTYWZldHkgU2NpZW5jZSBhbmQgVGVjaG5vbG9neSksIDkxMCAoU3RhdGlzdGljcyk=">⬇</a></span>
+<span class="ltx_listingline" id="lstnumberx84"><span class="ltx_text ltx_font_typewriter" id="lstnumberx84.1">110</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx84.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx84.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx84.4">Mathematics</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx84.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx84.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx84.7">120</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx84.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx84.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx84.10">Information</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx84.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx84.12">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx84.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx84.14">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx84.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx84.16">System</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx84.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx84.18">Science</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx84.19">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx85"><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.1">130</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx85.4">Mechanics</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.7">140</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx85.10">Physics</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.13">150</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx85.16">Chemistry</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.17">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.18"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.19">170</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.20"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.21">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx85.22">Earth</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx85.23"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx85.24">Science</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx85.25">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx86"><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.1">180</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx86.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx86.4">Biology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx86.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.7">430</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx86.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx86.10">Materials</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx86.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx86.12">Science</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.13">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx86.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.15">460</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx86.16"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.17">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx86.18">Mechanical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx86.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx86.20">Engineering</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx86.21">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx87"><span class="ltx_text ltx_font_typewriter" id="lstnumberx87.1">470</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx87.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.4">Power</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.6">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.8">Electrical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.10">Engineering</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx87.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx87.13">510</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx87.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.16">Electronics</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.18">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.20">Communications</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx87.21"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx87.22">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx87.23">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx88"><span class="ltx_text ltx_font_typewriter" id="lstnumberx88.1">520</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx88.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx88.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx88.4">Computer</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx88.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx88.6">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx88.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx88.8">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx88.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx88.10">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx88.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx88.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx88.13">530</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx88.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx88.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx88.16">Chemical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx88.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx88.18">Engineering</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx88.19">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx89"><span class="ltx_text ltx_font_typewriter" id="lstnumberx89.1">560</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx89.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx89.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx89.4">Civil</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx89.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx89.6">Engineering</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx89.7">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx89.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx89.9">570</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx89.10"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx89.11">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx89.12">Water</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx89.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx89.14">Conservancy</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx89.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx89.16">Engineering</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx89.17">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx90"><span class="ltx_text ltx_font_typewriter" id="lstnumberx90.1">580</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx90.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx90.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx90.4">Transportation</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx90.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx90.6">Engineering</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx90.7">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx90.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx90.9">610</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx90.10"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx90.11">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx90.12">Environmental</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx90.13">/</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx90.14">Resource</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx90.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx90.16">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx90.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx90.18">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx90.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx90.20">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx90.21">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx91"><span class="ltx_text ltx_font_typewriter" id="lstnumberx91.1">620</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx91.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx91.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx91.4">Safety</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx91.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx91.6">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx91.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx91.8">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx91.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx91.10">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx91.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx91.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx91.13">910</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx91.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx91.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx91.16">Statistics</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx91.17">)</span>
+</span>
+</span></span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.SS1.1.1.tab1.1.3.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.SS1.1.1.tab1.1.3.2.1"><span class="ltx_text ltx_font_bold" id="A1.SS1.1.1.tab1.1.3.2.1.1">Social Sciences</span></th>
+<td class="ltx_td ltx_nopad_r ltx_align_justify ltx_align_top ltx_border_t" id="A1.SS1.1.1.tab1.1.3.2.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.SS1.1.1.tab1.1.3.2.2.1">
+<span class="ltx_p" id="A1.SS1.1.1.tab1.1.3.2.2.1.1" style="width:227.6pt;">
+<span class="ltx_listing ltx_lstlisting ltx_listing" id="A1.SS1.1.1.tab1.1.3.2.2.1.1.1"><span class="ltx_listing_data"><a download="" href="data:text/plain;base64,MTkwIChQc3ljaG9sb2d5KSwgNzkwIChFY29ub21pY3MpLCA4MTAgKFBvbGl0aWNhbCBTY2llbmNlKSwKODIwIChMYXcpLCA4NDAgKFNvY2lvbG9neSksIDg1MCAoRXRobm9sb2d5IGFuZCBDdWx0dXJhbCBTdHVkaWVzKSwKODYwIChKb3VybmFsaXNtIGFuZCBDb21tdW5pY2F0aW9uKSwgODcwIChMaWJyYXJ5LCBJbmZvcm1hdGlvbiwgYW5kIERvY3VtZW50YXRpb24pLAo4ODAgKEVkdWNhdGlvbiksIDg5MCAoU3BvcnRzIFNjaWVuY2UpLCA2MzAgKE1hbmFnZW1lbnQp">⬇</a></span>
+<span class="ltx_listingline" id="lstnumberx92"><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.1">190</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx92.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx92.4">Psychology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx92.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.7">790</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx92.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx92.10">Economics</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx92.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.13">810</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx92.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx92.16">Political</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx92.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx92.18">Science</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx92.19">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx93"><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.1">820</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx93.4">Law</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.7">840</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx93.10">Sociology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.13">850</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx93.16">Ethnology</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx93.18">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx93.20">Cultural</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx93.21"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx93.22">Studies</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx93.23">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx94"><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.1">860</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx94.4">Journalism</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx94.6">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx94.8">Communication</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.9">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.10"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.11">870</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.13">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx94.14">Library</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.15">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.16"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx94.17">Information</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.18">,</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.19"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx94.20">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx94.21"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx94.22">Documentation</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx94.23">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx95"><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.1">880</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx95.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx95.4">Education</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx95.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.7">890</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx95.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx95.10">Sports</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx95.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx95.12">Science</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.13">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx95.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.15">630</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx95.16"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.17">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx95.18">Management</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx95.19">)</span>
+</span>
+</span></span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.SS1.1.1.tab1.1.4.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.SS1.1.1.tab1.1.4.3.1"><span class="ltx_text ltx_font_bold" id="A1.SS1.1.1.tab1.1.4.3.1.1">Humanities</span></th>
+<td class="ltx_td ltx_nopad_r ltx_align_justify ltx_align_top ltx_border_t" id="A1.SS1.1.1.tab1.1.4.3.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.SS1.1.1.tab1.1.4.3.2.1">
+<span class="ltx_p" id="A1.SS1.1.1.tab1.1.4.3.2.1.1" style="width:227.6pt;">
+<span class="ltx_listing ltx_lstlisting ltx_listing" id="A1.SS1.1.1.tab1.1.4.3.2.1.1.1"><span class="ltx_listing_data"><a download="" href="data:text/plain;base64,NzEwIChNYXJ4aXNtKSwgNzIwIChQaGlsb3NvcGh5KSwgNzMwIChSZWxpZ2lvdXMgU3R1ZGllcyksCjc0MCAoTGluZ3Vpc3RpY3MpLCA3NTAgKExpdGVyYXR1cmUpLCA3NjAgKEFydCksIDc3MCAoSGlzdG9yeSk=">⬇</a></span>
+<span class="ltx_listingline" id="lstnumberx96"><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.1">710</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx96.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx96.4">Marxism</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx96.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.7">720</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx96.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx96.10">Philosophy</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx96.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.13">730</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx96.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx96.16">Religious</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx96.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx96.18">Studies</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx96.19">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx97"><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.1">740</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx97.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx97.4">Linguistics</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx97.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.7">750</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx97.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx97.10">Literature</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.11">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx97.12"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.13">760</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx97.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.15">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx97.16">Art</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.17">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx97.18"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.19">770</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx97.20"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.21">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx97.22">History</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx97.23">)</span>
+</span>
+</span></span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.SS1.1.1.tab1.1.5.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_t" id="A1.SS1.1.1.tab1.1.5.4.1"><span class="ltx_text ltx_font_bold" id="A1.SS1.1.1.tab1.1.5.4.1.1">Applied Sciences</span></th>
+<td class="ltx_td ltx_nopad_r ltx_align_justify ltx_align_top ltx_border_bb ltx_border_t" id="A1.SS1.1.1.tab1.1.5.4.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.SS1.1.1.tab1.1.5.4.2.1">
+<span class="ltx_p" id="A1.SS1.1.1.tab1.1.5.4.2.1.1" style="width:227.6pt;">
+<span class="ltx_listing ltx_lstlisting ltx_listing" id="A1.SS1.1.1.tab1.1.5.4.2.1.1.1"><span class="ltx_listing_data"><a download="" href="data:text/plain;base64,MjEwIChBZ3Jvbm9teSksIDIzMCAoQW5pbWFsIEh1c2JhbmRyeSBhbmQgVmV0ZXJpbmFyeSBTY2llbmNlKSwKMzEwIChCYXNpYyBNZWRpY2luZSksIDMyMCAoQ2xpbmljYWwgTWVkaWNpbmUpLAozMzAgKFByZXZlbnRpdmUgTWVkaWNpbmUgYW5kIFB1YmxpYyBIZWFsdGgpLCAzNTAgKFBoYXJtYWN5KSwKMzYwIChDaGluZXNlIE1lZGljaW5lIGFuZCBDaGluZXNlIE1hdGVyaWEgTWVkaWNhKSwKNDEzIChJbmZvcm1hdGlvbiBhbmQgU3lzdGVtIFNjaWVuY2UgUmVsYXRlZCBFbmdpbmVlcmluZyBhbmQgVGVjaG5vbG9neSksCjQxNiAoTmF0dXJhbCBTY2llbmNlIFJlbGF0ZWQgRW5naW5lZXJpbmcgYW5kIFRlY2hub2xvZ3kpLAo0MjAgKFN1cnZleWluZyBhbmQgTWFwcGluZyBTY2llbmNlIGFuZCBUZWNobm9sb2d5KSwgNTUwIChGb29kIFNjaWVuY2UgYW5kIFRlY2hub2xvZ3kp">⬇</a></span>
+<span class="ltx_listingline" id="lstnumberx98"><span class="ltx_text ltx_font_typewriter" id="lstnumberx98.1">210</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx98.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx98.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx98.4">Agronomy</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx98.5">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx98.6"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx98.7">230</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx98.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx98.9">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx98.10">Animal</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx98.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx98.12">Husbandry</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx98.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx98.14">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx98.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx98.16">Veterinary</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx98.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx98.18">Science</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx98.19">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx99"><span class="ltx_text ltx_font_typewriter" id="lstnumberx99.1">310</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx99.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx99.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx99.4">Basic</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx99.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx99.6">Medicine</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx99.7">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx99.8"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx99.9">320</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx99.10"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx99.11">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx99.12">Clinical</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx99.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx99.14">Medicine</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx99.15">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx100"><span class="ltx_text ltx_font_typewriter" id="lstnumberx100.1">330</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx100.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx100.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx100.4">Preventive</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx100.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx100.6">Medicine</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx100.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx100.8">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx100.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx100.10">Public</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx100.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx100.12">Health</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx100.13">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx100.14"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx100.15">350</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx100.16"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx100.17">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx100.18">Pharmacy</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx100.19">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx101"><span class="ltx_text ltx_font_typewriter" id="lstnumberx101.1">360</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx101.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx101.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx101.4">Chinese</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx101.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx101.6">Medicine</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx101.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx101.8">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx101.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx101.10">Chinese</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx101.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx101.12">Materia</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx101.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx101.14">Medica</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx101.15">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx102"><span class="ltx_text ltx_font_typewriter" id="lstnumberx102.1">413</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx102.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.4">Information</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.6">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.8">System</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.10">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.12">Related</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.14">Engineering</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.15"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.16">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx102.17"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx102.18">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx102.19">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx103"><span class="ltx_text ltx_font_typewriter" id="lstnumberx103.1">416</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx103.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx103.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx103.4">Natural</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx103.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx103.6">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx103.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx103.8">Related</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx103.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx103.10">Engineering</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx103.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx103.12">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx103.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx103.14">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx103.15">),</span>
+</span>
+<span class="ltx_listingline" id="lstnumberx104"><span class="ltx_text ltx_font_typewriter" id="lstnumberx104.1">420</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.2"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx104.3">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.4">Surveying</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.5"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.6">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.7"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.8">Mapping</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.9"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.10">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.11"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.12">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.13"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.14">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx104.15">),</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.16"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx104.17">550</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.18"> </span><span class="ltx_text ltx_font_typewriter" id="lstnumberx104.19">(</span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.20">Food</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.21"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.22">Science</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.23"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.24">and</span><span class="ltx_text ltx_lst_space ltx_font_typewriter" id="lstnumberx104.25"> </span><span class="ltx_text ltx_lst_identifier ltx_font_typewriter" id="lstnumberx104.26">Technology</span><span class="ltx_text ltx_font_typewriter" id="lstnumberx104.27">)</span>
+</span>
+</span></span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table categorizes the subjects from the ExamQA dataset into four broader categories: STEM (Science, Technology, Engineering, and Mathematics), Social Sciences, Humanities, and Applied Sciences.  For each category, it lists the specific subject IDs from the ExamQA dataset that fall under that category, providing a more granular understanding of the dataset's composition.
+> <details>
+> <summary>read the caption</summary>
+> Table 6: Classification of subjects into STEM (Science, Technology, Engineering, and Mathematics), Social Sciences, Humanities, and Applied Sciences.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T7.3">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="A1.T7.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt" id="A1.T7.1.1.2">Level</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" colspan="2" id="A1.T7.1.1.1">Agreement (<math alttext="\kappa\uparrow" class="ltx_Math" display="inline" id="A1.T7.1.1.1.m1.1"><semantics id="A1.T7.1.1.1.m1.1a"><mrow id="A1.T7.1.1.1.m1.1.1" xref="A1.T7.1.1.1.m1.1.1.cmml"><mi id="A1.T7.1.1.1.m1.1.1.2" xref="A1.T7.1.1.1.m1.1.1.2.cmml">κ</mi><mo id="A1.T7.1.1.1.m1.1.1.1" stretchy="false" xref="A1.T7.1.1.1.m1.1.1.1.cmml">↑</mo><mi id="A1.T7.1.1.1.m1.1.1.3" xref="A1.T7.1.1.1.m1.1.1.3.cmml"></mi></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.1.1.1.m1.1b"><apply id="A1.T7.1.1.1.m1.1.1.cmml" xref="A1.T7.1.1.1.m1.1.1"><ci id="A1.T7.1.1.1.m1.1.1.1.cmml" xref="A1.T7.1.1.1.m1.1.1.1">↑</ci><ci id="A1.T7.1.1.1.m1.1.1.2.cmml" xref="A1.T7.1.1.1.m1.1.1.2">𝜅</ci><csymbol cd="latexml" id="A1.T7.1.1.1.m1.1.1.3.cmml" xref="A1.T7.1.1.1.m1.1.1.3">absent</csymbol></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.1.1.1.m1.1c">\kappa\uparrow</annotation><annotation encoding="application/x-llamapun" id="A1.T7.1.1.1.m1.1d">italic_κ ↑</annotation></semantics></math>)</th>
+</tr>
+<tr class="ltx_tr" id="A1.T7.3.3">
+<th class="ltx_td ltx_th ltx_th_row" id="A1.T7.3.3.3"></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_t" id="A1.T7.2.2.1"><math alttext="m=1" class="ltx_Math" display="inline" id="A1.T7.2.2.1.m1.1"><semantics id="A1.T7.2.2.1.m1.1a"><mrow id="A1.T7.2.2.1.m1.1.1" xref="A1.T7.2.2.1.m1.1.1.cmml"><mi id="A1.T7.2.2.1.m1.1.1.2" xref="A1.T7.2.2.1.m1.1.1.2.cmml">m</mi><mo id="A1.T7.2.2.1.m1.1.1.1" xref="A1.T7.2.2.1.m1.1.1.1.cmml">=</mo><mn id="A1.T7.2.2.1.m1.1.1.3" xref="A1.T7.2.2.1.m1.1.1.3.cmml">1</mn></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.2.2.1.m1.1b"><apply id="A1.T7.2.2.1.m1.1.1.cmml" xref="A1.T7.2.2.1.m1.1.1"><eq id="A1.T7.2.2.1.m1.1.1.1.cmml" xref="A1.T7.2.2.1.m1.1.1.1"></eq><ci id="A1.T7.2.2.1.m1.1.1.2.cmml" xref="A1.T7.2.2.1.m1.1.1.2">𝑚</ci><cn id="A1.T7.2.2.1.m1.1.1.3.cmml" type="integer" xref="A1.T7.2.2.1.m1.1.1.3">1</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.2.2.1.m1.1c">m=1</annotation><annotation encoding="application/x-llamapun" id="A1.T7.2.2.1.m1.1d">italic_m = 1</annotation></semantics></math></th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_t" id="A1.T7.3.3.2"><math alttext="m=10" class="ltx_Math" display="inline" id="A1.T7.3.3.2.m1.1"><semantics id="A1.T7.3.3.2.m1.1a"><mrow id="A1.T7.3.3.2.m1.1.1" xref="A1.T7.3.3.2.m1.1.1.cmml"><mi id="A1.T7.3.3.2.m1.1.1.2" xref="A1.T7.3.3.2.m1.1.1.2.cmml">m</mi><mo id="A1.T7.3.3.2.m1.1.1.1" xref="A1.T7.3.3.2.m1.1.1.1.cmml">=</mo><mn id="A1.T7.3.3.2.m1.1.1.3" xref="A1.T7.3.3.2.m1.1.1.3.cmml">10</mn></mrow><annotation-xml encoding="MathML-Content" id="A1.T7.3.3.2.m1.1b"><apply id="A1.T7.3.3.2.m1.1.1.cmml" xref="A1.T7.3.3.2.m1.1.1"><eq id="A1.T7.3.3.2.m1.1.1.1.cmml" xref="A1.T7.3.3.2.m1.1.1.1"></eq><ci id="A1.T7.3.3.2.m1.1.1.2.cmml" xref="A1.T7.3.3.2.m1.1.1.2">𝑚</ci><cn id="A1.T7.3.3.2.m1.1.1.3.cmml" type="integer" xref="A1.T7.3.3.2.m1.1.1.3">10</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T7.3.3.2.m1.1c">m=10</annotation><annotation encoding="application/x-llamapun" id="A1.T7.3.3.2.m1.1d">italic_m = 10</annotation></semantics></math></th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T7.3.4.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.T7.3.4.1.1">elementary</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.3.4.1.2">0.844</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T7.3.4.1.3">0.838</td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.3.5.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T7.3.5.2.1">middle</th>
+<td class="ltx_td ltx_align_center" id="A1.T7.3.5.2.2">0.885</td>
+<td class="ltx_td ltx_align_center" id="A1.T7.3.5.2.3">0.883</td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.3.6.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="A1.T7.3.6.3.1">high</th>
+<td class="ltx_td ltx_align_center" id="A1.T7.3.6.3.2">0.849</td>
+<td class="ltx_td ltx_align_center" id="A1.T7.3.6.3.3">0.846</td>
+</tr>
+<tr class="ltx_tr" id="A1.T7.3.7.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b" id="A1.T7.3.7.4.1">average</th>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="A1.T7.3.7.4.2">0.864</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b" id="A1.T7.3.7.4.3">0.861</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table displays the level of agreement between evaluations performed by GPT-40 and majority voting using Qwen2.5-72B-Instruct, assessing the correctness of answers to math problems at various educational levels (elementary, middle, and high school).  The Cohen's Kappa (κ) statistic quantifies the agreement, indicating the consistency between the two evaluation methods.  Different numbers of votes (m) in the majority voting are considered.  Higher Kappa values indicate stronger agreement. This demonstrates how well the majority voting approach using Qwen2.5-72B-Instruct aligns with the judgements made by GPT-40.
+> <details>
+> <summary>read the caption</summary>
+> Table 7: Cohen’s Kappa agreement (κ𝜅\kappaitalic_κ) between GPT-4o and majority voting (m𝑚mitalic_m: the number of votes) using Qwen2.5-72B-Instruct as evaluator across different education levels of math problems.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T8.3">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T8.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="A1.T8.1.1.2">Level</th>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="2" id="A1.T8.1.1.1">Agreement (<math alttext="\kappa\uparrow" class="ltx_Math" display="inline" id="A1.T8.1.1.1.m1.1"><semantics id="A1.T8.1.1.1.m1.1a"><mrow id="A1.T8.1.1.1.m1.1.1" xref="A1.T8.1.1.1.m1.1.1.cmml"><mi id="A1.T8.1.1.1.m1.1.1.2" xref="A1.T8.1.1.1.m1.1.1.2.cmml">κ</mi><mo id="A1.T8.1.1.1.m1.1.1.1" stretchy="false" xref="A1.T8.1.1.1.m1.1.1.1.cmml">↑</mo><mi id="A1.T8.1.1.1.m1.1.1.3" xref="A1.T8.1.1.1.m1.1.1.3.cmml"></mi></mrow><annotation-xml encoding="MathML-Content" id="A1.T8.1.1.1.m1.1b"><apply id="A1.T8.1.1.1.m1.1.1.cmml" xref="A1.T8.1.1.1.m1.1.1"><ci id="A1.T8.1.1.1.m1.1.1.1.cmml" xref="A1.T8.1.1.1.m1.1.1.1">↑</ci><ci id="A1.T8.1.1.1.m1.1.1.2.cmml" xref="A1.T8.1.1.1.m1.1.1.2">𝜅</ci><csymbol cd="latexml" id="A1.T8.1.1.1.m1.1.1.3.cmml" xref="A1.T8.1.1.1.m1.1.1.3">absent</csymbol></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.1.1.1.m1.1c">\kappa\uparrow</annotation><annotation encoding="application/x-llamapun" id="A1.T8.1.1.1.m1.1d">italic_κ ↑</annotation></semantics></math>)</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.3.3">
+<th class="ltx_td ltx_th ltx_th_row" id="A1.T8.3.3.3"></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T8.2.2.1"><math alttext="m=1" class="ltx_Math" display="inline" id="A1.T8.2.2.1.m1.1"><semantics id="A1.T8.2.2.1.m1.1a"><mrow id="A1.T8.2.2.1.m1.1.1" xref="A1.T8.2.2.1.m1.1.1.cmml"><mi id="A1.T8.2.2.1.m1.1.1.2" xref="A1.T8.2.2.1.m1.1.1.2.cmml">m</mi><mo id="A1.T8.2.2.1.m1.1.1.1" xref="A1.T8.2.2.1.m1.1.1.1.cmml">=</mo><mn id="A1.T8.2.2.1.m1.1.1.3" xref="A1.T8.2.2.1.m1.1.1.3.cmml">1</mn></mrow><annotation-xml encoding="MathML-Content" id="A1.T8.2.2.1.m1.1b"><apply id="A1.T8.2.2.1.m1.1.1.cmml" xref="A1.T8.2.2.1.m1.1.1"><eq id="A1.T8.2.2.1.m1.1.1.1.cmml" xref="A1.T8.2.2.1.m1.1.1.1"></eq><ci id="A1.T8.2.2.1.m1.1.1.2.cmml" xref="A1.T8.2.2.1.m1.1.1.2">𝑚</ci><cn id="A1.T8.2.2.1.m1.1.1.3.cmml" type="integer" xref="A1.T8.2.2.1.m1.1.1.3">1</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.2.2.1.m1.1c">m=1</annotation><annotation encoding="application/x-llamapun" id="A1.T8.2.2.1.m1.1d">italic_m = 1</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T8.3.3.2"><math alttext="m=10" class="ltx_Math" display="inline" id="A1.T8.3.3.2.m1.1"><semantics id="A1.T8.3.3.2.m1.1a"><mrow id="A1.T8.3.3.2.m1.1.1" xref="A1.T8.3.3.2.m1.1.1.cmml"><mi id="A1.T8.3.3.2.m1.1.1.2" xref="A1.T8.3.3.2.m1.1.1.2.cmml">m</mi><mo id="A1.T8.3.3.2.m1.1.1.1" xref="A1.T8.3.3.2.m1.1.1.1.cmml">=</mo><mn id="A1.T8.3.3.2.m1.1.1.3" xref="A1.T8.3.3.2.m1.1.1.3.cmml">10</mn></mrow><annotation-xml encoding="MathML-Content" id="A1.T8.3.3.2.m1.1b"><apply id="A1.T8.3.3.2.m1.1.1.cmml" xref="A1.T8.3.3.2.m1.1.1"><eq id="A1.T8.3.3.2.m1.1.1.1.cmml" xref="A1.T8.3.3.2.m1.1.1.1"></eq><ci id="A1.T8.3.3.2.m1.1.1.2.cmml" xref="A1.T8.3.3.2.m1.1.1.2">𝑚</ci><cn id="A1.T8.3.3.2.m1.1.1.3.cmml" type="integer" xref="A1.T8.3.3.2.m1.1.1.3">10</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.3.3.2.m1.1c">m=10</annotation><annotation encoding="application/x-llamapun" id="A1.T8.3.3.2.m1.1d">italic_m = 10</annotation></semantics></math></td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.3.4.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_b ltx_border_t" id="A1.T8.3.4.1.1">college-level</th>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b ltx_border_t" id="A1.T8.3.4.1.2">0.881</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_b ltx_border_t" id="A1.T8.3.4.1.3">0.883</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the level of agreement between evaluations performed by GPT-40 and a majority voting system using Qwen2.5-72B-Instruct on college-level multi-subject problems.  It shows Cohen's Kappa (κ), a statistical measure of inter-rater reliability, for different numbers of votes (m) in the majority voting process.  A higher Kappa value indicates stronger agreement between the two evaluation methods.
+> <details>
+> <summary>read the caption</summary>
+> Table 8: Cohen’s Kappa agreement (κ𝜅\kappaitalic_κ) between GPT-4o and majority voting (m𝑚mitalic_m: the number of votes) using Qwen2.5-72B-Instruct as evaluator across college-level multi-subject problems.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_align_middle" id="A1.T9.1">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T9.1.1.1">
+<td class="ltx_td ltx_align_left ltx_border_tt" id="A1.T9.1.1.1.1" rowspan="2"><span class="ltx_text ltx_font_bold" id="A1.T9.1.1.1.1.1">Hyperparameter</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="2" id="A1.T9.1.1.1.2"><span class="ltx_text ltx_font_bold" id="A1.T9.1.1.1.2.1">Reward Training</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="2" id="A1.T9.1.1.1.3"><span class="ltx_text ltx_font_bold" id="A1.T9.1.1.1.3.1">Main Experiments</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.2.2">
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.2.2.1"><span class="ltx_text ltx_font_bold" id="A1.T9.1.2.2.1.1">RL</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.2.2.2"><span class="ltx_text ltx_font_bold" id="A1.T9.1.2.2.2.1">SFT</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.2.2.3"><span class="ltx_text ltx_font_bold" id="A1.T9.1.2.2.3.1">RL</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.2.2.4"><span class="ltx_text ltx_font_bold" id="A1.T9.1.2.2.4.1">SFT</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.3.3">
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T9.1.3.3.1">micro_train_batch_size</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.3.3.2">8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.3.3.3">4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.3.3.4">8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T9.1.3.3.5">4</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.4.4">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.4.4.1">train_batch_size</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.4.4.2">128</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.4.4.3">128</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.4.4.4">128</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.4.4.5">128</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.5.5">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.5.5.1">micro_rollout_batch_size</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.5.5.2">16</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.5.5.3">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.5.5.4">16</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.5.5.5">–</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.6.6">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.6.6.1">rollout_batch_size</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.6.6.2">128</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.6.6.3">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.6.6.4">128</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.6.6.5">–</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.7.7">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.7.7.1">n_samples_per_prompt</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.7.7.2">4</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.7.7.3">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.7.7.4">4</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.7.7.5">–</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.8.8">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.8.8.1">max_samples</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.8.8.2">40000</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.8.8.3">1600000</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.8.8.4">30000</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.8.8.5">30000</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.9.9">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.9.9.1">max_epochs</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.9.9.2">1</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.9.9.3">1</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.9.9.4">1</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.9.9.5">1</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.10.10">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.10.10.1">prompt_max_len</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.10.10.2">1024</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.10.10.3">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.10.10.4">1024</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.10.10.5">–</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.11.11">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.11.11.1">generate_max_len</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.11.11.2">1024</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.11.11.3">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.11.11.4">1024</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.11.11.5">–</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.12.12">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.12.12.1">max_len</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.12.12.2">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.12.12.3">4096</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.12.12.4">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.12.12.5">4096</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.13.13">
+<td class="ltx_td ltx_align_left" id="A1.T9.1.13.13.1">actor_learning_rate</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.13.13.2">5e-7</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.13.13.3">–</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.13.13.4">5e-7</td>
+<td class="ltx_td ltx_align_center" id="A1.T9.1.13.13.5">–</td>
+</tr>
+<tr class="ltx_tr" id="A1.T9.1.14.14">
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A1.T9.1.14.14.1">init_kl_coef</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T9.1.14.14.2">0.01</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T9.1.14.14.3">–</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T9.1.14.14.4">0.01</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T9.1.14.14.5">–</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 Table 9 presents the hyperparameters used during training of the reward model and the main RL experiments.  It lists values for parameters such as batch size (both micro and macro), number of rollout samples, maximum number of samples, number of epochs, maximum sequence lengths (for prompts and generation), learning rate, and the initial KL coefficient.  The table highlights that some hyperparameters, not explicitly listed, were set to their default values within the OpenRLHF framework.
+> <details>
+> <summary>read the caption</summary>
+> Table 9: Training hyper parameters. Other hyper parameters are the default configuration in OpenRLHF.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="A1.T10.8">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="A1.T10.8.9.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt" id="A1.T10.8.9.1.1">coarse</th>
+<th class="ltx_td ltx_align_justify ltx_align_top ltx_th ltx_th_column ltx_border_tt" id="A1.T10.8.9.1.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.9.1.2.1">
+<span class="ltx_p" id="A1.T10.8.9.1.2.1.1" style="width:56.9pt;">fine</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_justify ltx_align_top ltx_th ltx_th_column ltx_border_tt" id="A1.T10.8.9.1.3">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.9.1.3.1">
+<span class="ltx_p" id="A1.T10.8.9.1.3.1.1" style="width:142.3pt;">question</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_justify ltx_align_top ltx_th ltx_th_column ltx_border_tt" id="A1.T10.8.9.1.4">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.9.1.4.1">
+<span class="ltx_p" id="A1.T10.8.9.1.4.1.1" style="width:113.8pt;">answer</span>
+</span>
+</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="A1.T10.8.10.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.T10.8.10.1.1">Social Sciences</th>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.10.1.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.10.1.2.1">
+<span class="ltx_p" id="A1.T10.8.10.1.2.1.1" style="width:56.9pt;">Psychology</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.10.1.3">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.10.1.3.1">
+<span class="ltx_p" id="A1.T10.8.10.1.3.1.1" style="width:142.3pt;">Setting up an activity for students to ’bomb’ each other with compliments belongs to ( ).</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.10.1.4">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.10.1.4.1">
+<span class="ltx_p" id="A1.T10.8.10.1.4.1.1" style="width:113.8pt;">Self-awareness guidance</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.T10.8.8">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.T10.8.8.9">STEM</th>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.8.10">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.8.10.1">
+<span class="ltx_p" id="A1.T10.8.8.10.1.1" style="width:56.9pt;">Civil Engineering</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.8.8">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.8.8.8">
+<span class="ltx_p" id="A1.T10.8.8.8.8.8" style="width:142.3pt;">A gravity retaining wall meets the Rankine earth pressure conditions, <math alttext="H=3\,\mathrm{m}" class="ltx_Math" display="inline" id="A1.T10.1.1.1.1.1.m1.1"><semantics id="A1.T10.1.1.1.1.1.m1.1a"><mrow id="A1.T10.1.1.1.1.1.m1.1.1" xref="A1.T10.1.1.1.1.1.m1.1.1.cmml"><mi id="A1.T10.1.1.1.1.1.m1.1.1.2" xref="A1.T10.1.1.1.1.1.m1.1.1.2.cmml">H</mi><mo id="A1.T10.1.1.1.1.1.m1.1.1.1" xref="A1.T10.1.1.1.1.1.m1.1.1.1.cmml">=</mo><mrow id="A1.T10.1.1.1.1.1.m1.1.1.3" xref="A1.T10.1.1.1.1.1.m1.1.1.3.cmml"><mn id="A1.T10.1.1.1.1.1.m1.1.1.3.2" xref="A1.T10.1.1.1.1.1.m1.1.1.3.2.cmml">3</mn><mo id="A1.T10.1.1.1.1.1.m1.1.1.3.1" lspace="0.170em" xref="A1.T10.1.1.1.1.1.m1.1.1.3.1.cmml">⁢</mo><mi id="A1.T10.1.1.1.1.1.m1.1.1.3.3" mathvariant="normal" xref="A1.T10.1.1.1.1.1.m1.1.1.3.3.cmml">m</mi></mrow></mrow><annotation-xml encoding="MathML-Content" id="A1.T10.1.1.1.1.1.m1.1b"><apply id="A1.T10.1.1.1.1.1.m1.1.1.cmml" xref="A1.T10.1.1.1.1.1.m1.1.1"><eq id="A1.T10.1.1.1.1.1.m1.1.1.1.cmml" xref="A1.T10.1.1.1.1.1.m1.1.1.1"></eq><ci id="A1.T10.1.1.1.1.1.m1.1.1.2.cmml" xref="A1.T10.1.1.1.1.1.m1.1.1.2">𝐻</ci><apply id="A1.T10.1.1.1.1.1.m1.1.1.3.cmml" xref="A1.T10.1.1.1.1.1.m1.1.1.3"><times id="A1.T10.1.1.1.1.1.m1.1.1.3.1.cmml" xref="A1.T10.1.1.1.1.1.m1.1.1.3.1"></times><cn id="A1.T10.1.1.1.1.1.m1.1.1.3.2.cmml" type="integer" xref="A1.T10.1.1.1.1.1.m1.1.1.3.2">3</cn><ci id="A1.T10.1.1.1.1.1.m1.1.1.3.3.cmml" xref="A1.T10.1.1.1.1.1.m1.1.1.3.3">m</ci></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.1.1.1.1.1.m1.1c">H=3\,\mathrm{m}</annotation><annotation encoding="application/x-llamapun" id="A1.T10.1.1.1.1.1.m1.1d">italic_H = 3 roman_m</annotation></semantics></math>, top width <math alttext="2\,\mathrm{m}" class="ltx_Math" display="inline" id="A1.T10.2.2.2.2.2.m2.1"><semantics id="A1.T10.2.2.2.2.2.m2.1a"><mrow id="A1.T10.2.2.2.2.2.m2.1.1" xref="A1.T10.2.2.2.2.2.m2.1.1.cmml"><mn id="A1.T10.2.2.2.2.2.m2.1.1.2" xref="A1.T10.2.2.2.2.2.m2.1.1.2.cmml">2</mn><mo id="A1.T10.2.2.2.2.2.m2.1.1.1" lspace="0.170em" xref="A1.T10.2.2.2.2.2.m2.1.1.1.cmml">⁢</mo><mi id="A1.T10.2.2.2.2.2.m2.1.1.3" mathvariant="normal" xref="A1.T10.2.2.2.2.2.m2.1.1.3.cmml">m</mi></mrow><annotation-xml encoding="MathML-Content" id="A1.T10.2.2.2.2.2.m2.1b"><apply id="A1.T10.2.2.2.2.2.m2.1.1.cmml" xref="A1.T10.2.2.2.2.2.m2.1.1"><times id="A1.T10.2.2.2.2.2.m2.1.1.1.cmml" xref="A1.T10.2.2.2.2.2.m2.1.1.1"></times><cn id="A1.T10.2.2.2.2.2.m2.1.1.2.cmml" type="integer" xref="A1.T10.2.2.2.2.2.m2.1.1.2">2</cn><ci id="A1.T10.2.2.2.2.2.m2.1.1.3.cmml" xref="A1.T10.2.2.2.2.2.m2.1.1.3">m</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.2.2.2.2.2.m2.1c">2\,\mathrm{m}</annotation><annotation encoding="application/x-llamapun" id="A1.T10.2.2.2.2.2.m2.1d">2 roman_m</annotation></semantics></math>, bottom width <math alttext="3\,\mathrm{m}" class="ltx_Math" display="inline" id="A1.T10.3.3.3.3.3.m3.1"><semantics id="A1.T10.3.3.3.3.3.m3.1a"><mrow id="A1.T10.3.3.3.3.3.m3.1.1" xref="A1.T10.3.3.3.3.3.m3.1.1.cmml"><mn id="A1.T10.3.3.3.3.3.m3.1.1.2" xref="A1.T10.3.3.3.3.3.m3.1.1.2.cmml">3</mn><mo id="A1.T10.3.3.3.3.3.m3.1.1.1" lspace="0.170em" xref="A1.T10.3.3.3.3.3.m3.1.1.1.cmml">⁢</mo><mi id="A1.T10.3.3.3.3.3.m3.1.1.3" mathvariant="normal" xref="A1.T10.3.3.3.3.3.m3.1.1.3.cmml">m</mi></mrow><annotation-xml encoding="MathML-Content" id="A1.T10.3.3.3.3.3.m3.1b"><apply id="A1.T10.3.3.3.3.3.m3.1.1.cmml" xref="A1.T10.3.3.3.3.3.m3.1.1"><times id="A1.T10.3.3.3.3.3.m3.1.1.1.cmml" xref="A1.T10.3.3.3.3.3.m3.1.1.1"></times><cn id="A1.T10.3.3.3.3.3.m3.1.1.2.cmml" type="integer" xref="A1.T10.3.3.3.3.3.m3.1.1.2">3</cn><ci id="A1.T10.3.3.3.3.3.m3.1.1.3.cmml" xref="A1.T10.3.3.3.3.3.m3.1.1.3">m</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.3.3.3.3.3.m3.1c">3\,\mathrm{m}</annotation><annotation encoding="application/x-llamapun" id="A1.T10.3.3.3.3.3.m3.1d">3 roman_m</annotation></semantics></math>, fill <math alttext="c=0" class="ltx_Math" display="inline" id="A1.T10.4.4.4.4.4.m4.1"><semantics id="A1.T10.4.4.4.4.4.m4.1a"><mrow id="A1.T10.4.4.4.4.4.m4.1.1" xref="A1.T10.4.4.4.4.4.m4.1.1.cmml"><mi id="A1.T10.4.4.4.4.4.m4.1.1.2" xref="A1.T10.4.4.4.4.4.m4.1.1.2.cmml">c</mi><mo id="A1.T10.4.4.4.4.4.m4.1.1.1" xref="A1.T10.4.4.4.4.4.m4.1.1.1.cmml">=</mo><mn id="A1.T10.4.4.4.4.4.m4.1.1.3" xref="A1.T10.4.4.4.4.4.m4.1.1.3.cmml">0</mn></mrow><annotation-xml encoding="MathML-Content" id="A1.T10.4.4.4.4.4.m4.1b"><apply id="A1.T10.4.4.4.4.4.m4.1.1.cmml" xref="A1.T10.4.4.4.4.4.m4.1.1"><eq id="A1.T10.4.4.4.4.4.m4.1.1.1.cmml" xref="A1.T10.4.4.4.4.4.m4.1.1.1"></eq><ci id="A1.T10.4.4.4.4.4.m4.1.1.2.cmml" xref="A1.T10.4.4.4.4.4.m4.1.1.2">𝑐</ci><cn id="A1.T10.4.4.4.4.4.m4.1.1.3.cmml" type="integer" xref="A1.T10.4.4.4.4.4.m4.1.1.3">0</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.4.4.4.4.4.m4.1c">c=0</annotation><annotation encoding="application/x-llamapun" id="A1.T10.4.4.4.4.4.m4.1d">italic_c = 0</annotation></semantics></math>, <math alttext="\phi=30^{\circ}" class="ltx_Math" display="inline" id="A1.T10.5.5.5.5.5.m5.1"><semantics id="A1.T10.5.5.5.5.5.m5.1a"><mrow id="A1.T10.5.5.5.5.5.m5.1.1" xref="A1.T10.5.5.5.5.5.m5.1.1.cmml"><mi id="A1.T10.5.5.5.5.5.m5.1.1.2" xref="A1.T10.5.5.5.5.5.m5.1.1.2.cmml">ϕ</mi><mo id="A1.T10.5.5.5.5.5.m5.1.1.1" xref="A1.T10.5.5.5.5.5.m5.1.1.1.cmml">=</mo><msup id="A1.T10.5.5.5.5.5.m5.1.1.3" xref="A1.T10.5.5.5.5.5.m5.1.1.3.cmml"><mn id="A1.T10.5.5.5.5.5.m5.1.1.3.2" xref="A1.T10.5.5.5.5.5.m5.1.1.3.2.cmml">30</mn><mo id="A1.T10.5.5.5.5.5.m5.1.1.3.3" xref="A1.T10.5.5.5.5.5.m5.1.1.3.3.cmml">∘</mo></msup></mrow><annotation-xml encoding="MathML-Content" id="A1.T10.5.5.5.5.5.m5.1b"><apply id="A1.T10.5.5.5.5.5.m5.1.1.cmml" xref="A1.T10.5.5.5.5.5.m5.1.1"><eq id="A1.T10.5.5.5.5.5.m5.1.1.1.cmml" xref="A1.T10.5.5.5.5.5.m5.1.1.1"></eq><ci id="A1.T10.5.5.5.5.5.m5.1.1.2.cmml" xref="A1.T10.5.5.5.5.5.m5.1.1.2">italic-ϕ</ci><apply id="A1.T10.5.5.5.5.5.m5.1.1.3.cmml" xref="A1.T10.5.5.5.5.5.m5.1.1.3"><csymbol cd="ambiguous" id="A1.T10.5.5.5.5.5.m5.1.1.3.1.cmml" xref="A1.T10.5.5.5.5.5.m5.1.1.3">superscript</csymbol><cn id="A1.T10.5.5.5.5.5.m5.1.1.3.2.cmml" type="integer" xref="A1.T10.5.5.5.5.5.m5.1.1.3.2">30</cn><compose id="A1.T10.5.5.5.5.5.m5.1.1.3.3.cmml" xref="A1.T10.5.5.5.5.5.m5.1.1.3.3"></compose></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.5.5.5.5.5.m5.1c">\phi=30^{\circ}</annotation><annotation encoding="application/x-llamapun" id="A1.T10.5.5.5.5.5.m5.1d">italic_ϕ = 30 start_POSTSUPERSCRIPT ∘ end_POSTSUPERSCRIPT</annotation></semantics></math>, <math alttext="\gamma=18.0\,\mathrm{kN/m^{3}}" class="ltx_Math" display="inline" id="A1.T10.6.6.6.6.6.m6.1"><semantics id="A1.T10.6.6.6.6.6.m6.1a"><mrow id="A1.T10.6.6.6.6.6.m6.1.1" xref="A1.T10.6.6.6.6.6.m6.1.1.cmml"><mi id="A1.T10.6.6.6.6.6.m6.1.1.2" xref="A1.T10.6.6.6.6.6.m6.1.1.2.cmml">γ</mi><mo id="A1.T10.6.6.6.6.6.m6.1.1.1" xref="A1.T10.6.6.6.6.6.m6.1.1.1.cmml">=</mo><mrow id="A1.T10.6.6.6.6.6.m6.1.1.3" xref="A1.T10.6.6.6.6.6.m6.1.1.3.cmml"><mrow id="A1.T10.6.6.6.6.6.m6.1.1.3.2" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2.cmml"><mn id="A1.T10.6.6.6.6.6.m6.1.1.3.2.2" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2.2.cmml">18.0</mn><mo id="A1.T10.6.6.6.6.6.m6.1.1.3.2.1" lspace="0.170em" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2.1.cmml">⁢</mo><mi id="A1.T10.6.6.6.6.6.m6.1.1.3.2.3" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2.3.cmml">kN</mi></mrow><mo id="A1.T10.6.6.6.6.6.m6.1.1.3.1" xref="A1.T10.6.6.6.6.6.m6.1.1.3.1.cmml">/</mo><msup id="A1.T10.6.6.6.6.6.m6.1.1.3.3" xref="A1.T10.6.6.6.6.6.m6.1.1.3.3.cmml"><mi id="A1.T10.6.6.6.6.6.m6.1.1.3.3.2" mathvariant="normal" xref="A1.T10.6.6.6.6.6.m6.1.1.3.3.2.cmml">m</mi><mn id="A1.T10.6.6.6.6.6.m6.1.1.3.3.3" xref="A1.T10.6.6.6.6.6.m6.1.1.3.3.3.cmml">3</mn></msup></mrow></mrow><annotation-xml encoding="MathML-Content" id="A1.T10.6.6.6.6.6.m6.1b"><apply id="A1.T10.6.6.6.6.6.m6.1.1.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1"><eq id="A1.T10.6.6.6.6.6.m6.1.1.1.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.1"></eq><ci id="A1.T10.6.6.6.6.6.m6.1.1.2.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.2">𝛾</ci><apply id="A1.T10.6.6.6.6.6.m6.1.1.3.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3"><divide id="A1.T10.6.6.6.6.6.m6.1.1.3.1.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3.1"></divide><apply id="A1.T10.6.6.6.6.6.m6.1.1.3.2.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2"><times id="A1.T10.6.6.6.6.6.m6.1.1.3.2.1.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2.1"></times><cn id="A1.T10.6.6.6.6.6.m6.1.1.3.2.2.cmml" type="float" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2.2">18.0</cn><ci id="A1.T10.6.6.6.6.6.m6.1.1.3.2.3.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3.2.3">kN</ci></apply><apply id="A1.T10.6.6.6.6.6.m6.1.1.3.3.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3.3"><csymbol cd="ambiguous" id="A1.T10.6.6.6.6.6.m6.1.1.3.3.1.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3.3">superscript</csymbol><ci id="A1.T10.6.6.6.6.6.m6.1.1.3.3.2.cmml" xref="A1.T10.6.6.6.6.6.m6.1.1.3.3.2">m</ci><cn id="A1.T10.6.6.6.6.6.m6.1.1.3.3.3.cmml" type="integer" xref="A1.T10.6.6.6.6.6.m6.1.1.3.3.3">3</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.6.6.6.6.6.m6.1c">\gamma=18.0\,\mathrm{kN/m^{3}}</annotation><annotation encoding="application/x-llamapun" id="A1.T10.6.6.6.6.6.m6.1d">italic_γ = 18.0 roman_kN / roman_m start_POSTSUPERSCRIPT 3 end_POSTSUPERSCRIPT</annotation></semantics></math>, the base friction coefficient is 0.4, the anti-sliding stability safety factor <math alttext="K_{s}" class="ltx_Math" display="inline" id="A1.T10.7.7.7.7.7.m7.1"><semantics id="A1.T10.7.7.7.7.7.m7.1a"><msub id="A1.T10.7.7.7.7.7.m7.1.1" xref="A1.T10.7.7.7.7.7.m7.1.1.cmml"><mi id="A1.T10.7.7.7.7.7.m7.1.1.2" xref="A1.T10.7.7.7.7.7.m7.1.1.2.cmml">K</mi><mi id="A1.T10.7.7.7.7.7.m7.1.1.3" xref="A1.T10.7.7.7.7.7.m7.1.1.3.cmml">s</mi></msub><annotation-xml encoding="MathML-Content" id="A1.T10.7.7.7.7.7.m7.1b"><apply id="A1.T10.7.7.7.7.7.m7.1.1.cmml" xref="A1.T10.7.7.7.7.7.m7.1.1"><csymbol cd="ambiguous" id="A1.T10.7.7.7.7.7.m7.1.1.1.cmml" xref="A1.T10.7.7.7.7.7.m7.1.1">subscript</csymbol><ci id="A1.T10.7.7.7.7.7.m7.1.1.2.cmml" xref="A1.T10.7.7.7.7.7.m7.1.1.2">𝐾</ci><ci id="A1.T10.7.7.7.7.7.m7.1.1.3.cmml" xref="A1.T10.7.7.7.7.7.m7.1.1.3">𝑠</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.7.7.7.7.7.m7.1c">K_{s}</annotation><annotation encoding="application/x-llamapun" id="A1.T10.7.7.7.7.7.m7.1d">italic_K start_POSTSUBSCRIPT italic_s end_POSTSUBSCRIPT</annotation></semantics></math> and the anti-tilting stability safety factor <math alttext="K_{t}" class="ltx_Math" display="inline" id="A1.T10.8.8.8.8.8.m8.1"><semantics id="A1.T10.8.8.8.8.8.m8.1a"><msub id="A1.T10.8.8.8.8.8.m8.1.1" xref="A1.T10.8.8.8.8.8.m8.1.1.cmml"><mi id="A1.T10.8.8.8.8.8.m8.1.1.2" xref="A1.T10.8.8.8.8.8.m8.1.1.2.cmml">K</mi><mi id="A1.T10.8.8.8.8.8.m8.1.1.3" xref="A1.T10.8.8.8.8.8.m8.1.1.3.cmml">t</mi></msub><annotation-xml encoding="MathML-Content" id="A1.T10.8.8.8.8.8.m8.1b"><apply id="A1.T10.8.8.8.8.8.m8.1.1.cmml" xref="A1.T10.8.8.8.8.8.m8.1.1"><csymbol cd="ambiguous" id="A1.T10.8.8.8.8.8.m8.1.1.1.cmml" xref="A1.T10.8.8.8.8.8.m8.1.1">subscript</csymbol><ci id="A1.T10.8.8.8.8.8.m8.1.1.2.cmml" xref="A1.T10.8.8.8.8.8.m8.1.1.2">𝐾</ci><ci id="A1.T10.8.8.8.8.8.m8.1.1.3.cmml" xref="A1.T10.8.8.8.8.8.m8.1.1.3">𝑡</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="A1.T10.8.8.8.8.8.m8.1c">K_{t}</annotation><annotation encoding="application/x-llamapun" id="A1.T10.8.8.8.8.8.m8.1d">italic_K start_POSTSUBSCRIPT italic_t end_POSTSUBSCRIPT</annotation></semantics></math> are respectively ()</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.8.11">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.8.11.1">
+<span class="ltx_p" id="A1.T10.8.8.11.1.1" style="width:113.8pt;">2.67; 1.73</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.T10.8.11.2">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="A1.T10.8.11.2.1">Humanities</th>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.11.2.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.11.2.2.1">
+<span class="ltx_p" id="A1.T10.8.11.2.2.1.1" style="width:56.9pt;">Philosophy</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.11.2.3">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.11.2.3.1">
+<span class="ltx_p" id="A1.T10.8.11.2.3.1.1" style="width:142.3pt;">Laozi pointed out in the ’Tao Te Ching’, ’Without leaving the door, one knows the world; without peering through the window, one knows the way of heaven. The farther one goes, the less one knows. Therefore, the sage knows without traveling, sees without looking, and achieves without doing.’ Laozi’s view here</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_t" id="A1.T10.8.11.2.4">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.11.2.4.1">
+<span class="ltx_p" id="A1.T10.8.11.2.4.1.1" style="width:113.8pt;">denies the decisive role of practice in understanding</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="A1.T10.8.12.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_t" id="A1.T10.8.12.3.1">Applied Sciences</th>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_bb ltx_border_t" id="A1.T10.8.12.3.2">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.12.3.2.1">
+<span class="ltx_p" id="A1.T10.8.12.3.2.1.1" style="width:56.9pt;">Agronomy</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_bb ltx_border_t" id="A1.T10.8.12.3.3">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.12.3.3.1">
+<span class="ltx_p" id="A1.T10.8.12.3.3.1.1" style="width:142.3pt;">Under light, the physiological processes that can occur in the mesophyll cells and vascular bundle sheath cells of wheat (C3) are</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_top ltx_border_bb ltx_border_t" id="A1.T10.8.12.3.4">
+<span class="ltx_inline-block ltx_align_top" id="A1.T10.8.12.3.4.1">
+<span class="ltx_p" id="A1.T10.8.12.3.4.1.1" style="width:113.8pt;">Production of ATP and [H]</span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>{{< /table-caption >}}
+> 🔼 This table provides example question and reference answer pairs from the ExamQA dataset used in the paper.  It showcases the diversity of questions and the free-form nature of the answers across multiple domains (Social Sciences, STEM, Humanities, and Applied Sciences). Each row represents a question from a specific domain, its corresponding reference answer and the domain it belongs to.
+> <details>
+> <summary>read the caption</summary>
+> Table 10: Example question and reference answer pairs in ExamQA.
+> </details>
+
+</details>
+
+
+
+
+### Full paper
+
+{{< gallery >}}
+<img src="https://ai-paper-reviewer.com/2503.23829/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2503.23829/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+{{< /gallery >}}

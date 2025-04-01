@@ -1,0 +1,1 @@
+Beyond Words: Advancing Long-Text Image Generation via Multimodal Autoregressive Models
