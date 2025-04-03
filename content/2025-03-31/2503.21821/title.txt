@@ -1,1 +1,0 @@
-PHYSICS: Benchmarking Foundation Models on University-Level Physics Problem Solving

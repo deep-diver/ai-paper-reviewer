@@ -1,0 +1,1 @@
+DreamActor-M1: Holistic, Expressive and Robust Human Image Animation with Hybrid Guidance

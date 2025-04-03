@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<title>Improved Visual-Spatial Reasoning via R1-Zero-Like Training</title>
+<!--Generated on Tue Apr  1 14:55:34 2025 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="/static/browse/0.3.4/css/ar5iv.0.7.9.min.css" rel="stylesheet" type="text/css"/>
+<link href="/static/browse/0.3.4/css/ar5iv-fonts.0.7.9.min.css" rel="stylesheet" type="text/css"/>
+<link href="/static/browse/0.3.4/css/latexml_styles.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.3/html2canvas.min.js"></script>
+<script src="/static/browse/0.3.4/js/addons_new.js"></script>
+<script src="/static/browse/0.3.4/js/feedbackOverlay.js"></script>
+<base href="/html/2504.00883v1/"/></head>
+<body>
+<nav class="ltx_page_navbar">
+<nav class="ltx_TOC">
+<ol class="ltx_toclist">
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S1" title="In Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">1 </span>Introduction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S2" title="In Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">2 </span>Can Visual-spatial Reasoning Capacities Be Activated by Prompting?</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_section">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3" title="In Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3 </span>R1-Zero-like Training for Visual-spatial Reasoning</span></a>
+<ol class="ltx_toclist ltx_toclist_section">
+<li class="ltx_tocentry ltx_tocentry_subsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS1" title="In 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.1 </span>Training Data Construction</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS2" title="In 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.2 </span>GRPO</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsection">
+<a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS3" title="In 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3 </span>Results and Analyses</span></a>
+<ol class="ltx_toclist ltx_toclist_subsection">
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS3.SSS1" title="In 3.3 Results and Analyses ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.1 </span>Main Results</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS3.SSS2" title="In 3.3 Results and Analyses ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.2 </span>Importance of KL Penalty</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS3.SSS3" title="In 3.3 Results and Analyses ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.3 </span>Reward Hacking</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS3.SSS4" title="In 3.3 Results and Analyses ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.4 </span>Dynamics of Various Rewards</span></a></li>
+<li class="ltx_tocentry ltx_tocentry_subsubsection"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.SS3.SSS5" title="In 3.3 Results and Analyses ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">3.3.5 </span>Comparison to Other Training Approaches</span></a></li>
+</ol>
+</li>
+</ol>
+</li>
+<li class="ltx_tocentry ltx_tocentry_section"><a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S4" title="In Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_title"><span class="ltx_tag ltx_tag_ref">4 </span>Conclusion</span></a></li>
+</ol></nav>
+</nav>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">Improved Visual-Spatial Reasoning via R1-Zero-Like Training</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Zhenyi Liao<sup class="ltx_sup" id="id10.10.id1">1</sup>, Qingsong Xie<sup class="ltx_sup" id="id11.11.id2">2</sup>, Yanhao Zhang<sup class="ltx_sup" id="id12.12.id3">2</sup>,  Zijian Kong<sup class="ltx_sup" id="id13.13.id4">1</sup>,Haonan Lu<sup class="ltx_sup" id="id14.14.id5">2</sup>, Zhenyu Yang<sup class="ltx_sup" id="id15.15.id6">2</sup>, Zhijie Deng<sup class="ltx_sup" id="id16.16.id7">1</sup><span class="ltx_note ltx_role_footnotemark" id="footnotex1"><sup class="ltx_note_mark">2</sup><span class="ltx_note_outer"><span class="ltx_note_content"><sup class="ltx_note_mark">2</sup><span class="ltx_note_type">footnotemark: </span><span class="ltx_tag ltx_tag_note">2</span></span></span></span>
+<br class="ltx_break"/><sup class="ltx_sup" id="id17.17.id8">1</sup>Shanghai Jiao Tong University  <sup class="ltx_sup" id="id18.18.id9">2</sup>OPPO AI Center 
+<br class="ltx_break"/><span class="ltx_text ltx_font_typewriter" id="id19.19.id10">{l-justice, kong-zijian, zhijied}@sjtu.edu.cn
+<br class="ltx_break"/>{xieqingsong,zhangyanhao,luhaonan,yangzhenyu}@oppo.com</span>
+</span><span class="ltx_author_notes">Works done during the internship in OPPO AI Center.Corresponding authors.</span></span>
+</div>
+<div class="ltx_abstract">
+<h6 class="ltx_title ltx_title_abstract">Abstract</h6>
+<p class="ltx_p" id="id20.id1">Increasing attention has been placed on improving the reasoning capacities of multi-modal large language models (MLLMs). As the cornerstone for AI agents that function in the physical realm, video-based visual-spatial intelligence (VSI) emerges as one of the most pivotal reasoning capabilities of MLLMs.
+This work conducts a first, in-depth study on improving the visual-spatial reasoning of MLLMs via R1-Zero-like training. Technically, we first
+identify that <em class="ltx_emph ltx_font_italic" id="id20.id1.1">the visual-spatial reasoning capacities of small- to medium-sized Qwen2-VL models cannot be activated via Chain of Thought (CoT) prompts</em>. We then incorporate GRPO training for improved visual-spatial reasoning, using the carefully curated <span class="ltx_text ltx_font_bold" id="id20.id1.2">VSI-100k</span> dataset, following DeepSeek-R1-Zero.
+During the investigation, we identify the necessity to <em class="ltx_emph ltx_font_italic" id="id20.id1.3">keep the KL penalty (even with a small value) in GRPO</em>. With just 120 GPU hours, our <span class="ltx_text ltx_font_bold" id="id20.id1.4">vsGRPO-2B</span> model, fine-tuned from Qwen2-VL-2B, can outperform the base model by 12.1% and surpass GPT-4o. Moreover, our <span class="ltx_text ltx_font_bold" id="id20.id1.5">vsGRPO-7B</span> model, fine-tuned from Qwen2-VL-7B, achieves performance comparable to that of the best open-source model LLaVA-NeXT-Video-72B.
+Additionally, we compare vsGRPO to supervised fine-tuning and direct preference optimization baselines and observe strong performance superiority.
+The code and dataset will be available at <a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/zhijie-group/R1-Zero-VSI" title="">https://github.com/zhijie-group/R1-Zero-VSI</a>.</p>
+</div>
+<section class="ltx_section" id="S1">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Introduction</h2>
+<div class="ltx_para ltx_noindent" id="S1.p1">
+<p class="ltx_p" id="S1.p1.1">Multimodal Large Language Models (MLLMs) have emerged as a significant advancement in AI.
+They typically accept text, images, and videos as inputs and output textual responses, serving as the foundations for various applications, including multi-modal understanding <cite class="ltx_cite ltx_citemacro_citep">(Liu et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib10" title="">2023</a>; Wang et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib17" title="">2024a</a>)</cite>, visual language agents <cite class="ltx_cite ltx_citemacro_citep">(Hong et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib5" title="">2024</a>; Wang et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib18" title="">2024b</a>)</cite>, autonomous driving <cite class="ltx_cite ltx_citemacro_citep">(Pan et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib12" title="">2024</a>; Wang et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib20" title="">2024c</a>)</cite>, etc.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S1.p2">
+<p class="ltx_p" id="S1.p2.1">The exhaustive understanding of multi-modal observations hinges on advanced reasoning capabilities, which has spurred growing interest in investigating reasoning mechanisms within MLLMs <cite class="ltx_cite ltx_citemacro_citep">(Surís et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib15" title="">2023</a>; Xu et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib23" title="">2024</a>; Zhang et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib27" title="">2025</a>)</cite>.
+This trend mirrors concurrent advancements in vanilla LLMs <cite class="ltx_cite ltx_citemacro_citep">(Yao et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib25" title="">2023</a>; Lightman et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib9" title="">2023</a>; Wei et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib21" title="">2022</a>; <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib19" title="">Wang et al., </a>)</cite>.
+As the foundation for AI agents operating in the physical world, the video-based visual-spatial reasoning stands out as one of the most crucial capacities of MLLMs. Yet, existing models often fall short in this (see VSI-bench <cite class="ltx_cite ltx_citemacro_citep">(Yang et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib24" title="">2024</a>)</cite>).</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S1.p3">
+<p class="ltx_p" id="S1.p3.1">This work conducts a systematic study on improving the visual-spatial reasoning capacities of MLLMs based on R1-Zero-like training.
+Focusing on the Qwen2-VL models <cite class="ltx_cite ltx_citemacro_citep">(Wang et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib17" title="">2024a</a>)</cite>, we first perform an initial study on whether simple reasoning-oriented prompts can activate the visual-spatial reasoning capacities.
+We investigate various CoT <cite class="ltx_cite ltx_citemacro_citep">(Wei et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib21" title="">2022</a>)</cite> strategies, but find that <span class="ltx_text ltx_font_bold" id="S1.p3.1.1">vanilla non-CoT prompts perform the best for small- to medium-sized Qwen2-VL on VSI-bench</span>.
+This exposes the issue that such models does not have the ability to trade inference FLOPs for improved visual-spatial reasoning.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S1.p4">
+<p class="ltx_p" id="S1.p4.1">Following the journey of DeepSeek-R1-Zero <cite class="ltx_cite ltx_citemacro_citep">(Guo et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib4" title="">2025</a>)</cite>, we decide to improve the visual-spatial reasoning capacities of Qwen2-VL with GRPO <cite class="ltx_cite ltx_citemacro_citep">(Shao et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib14" title="">2024</a>)</cite>.
+Considering the scarcity of training data for visual-spatial question answering, we construct a video-based question answering dataset of more than 100k samples, <span class="ltx_text ltx_font_bold" id="S1.p4.1.1">VSI-100k</span>, following the protocol of VSI-bench.
+Specifically, we leverage ScanNet <cite class="ltx_cite ltx_citemacro_citep">(Dai et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib3" title="">2017</a>)</cite> to get high-fidelity video scans accompanied by meticulous object-level 3D annotations, based on which (question, answer) pairs regarding spatial information can be easily crafted.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S1.p5">
+<p class="ltx_p" id="S1.p5.1">Following common practice <cite class="ltx_cite ltx_citemacro_citep">(Guo et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib4" title="">2025</a>; Chen et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib1" title="">2025</a>)</cite>, we define the rule-based reward function based on the alignment between the model prediction and the ground-truth answer to perform GRPO.
+We also include a format reward when trying to activate the CoT reasoning behaviour.
+The GRPO on VSI-100k turns the pretrained Qwen2-VL-2B model into the performant <span class="ltx_text ltx_font_bold" id="S1.p5.1.1">vsGRPO-2B</span> within just 120 GPU hours.
+We observe that vsGRPO-2B outperforms the base model by 12.1%.
+The same pipeline also transforms the Qwen2-VL-7B model into <span class="ltx_text ltx_font_bold" id="S1.p5.1.2">vsGRPO-7B</span>, achieving performance similar to that of the best open-source model with 72B parameters.
+During GRPO training, we have identified the necessity to <span class="ltx_text ltx_font_bold" id="S1.p5.1.3">keep the KL penalty (even with a small value) in the training of GRPO</span> and observed phenomena such as reward hacking.
+We also compare GRPO with supervised fine-tuning (SFT) and direct preference optimization (DPO) <cite class="ltx_cite ltx_citemacro_citep">(Rafailov et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib13" title="">2023</a>)</cite>, and confirm the superiority of GRPO in improving the spatial-visual reasoning capacities of Qwen2-VL.</p>
+</div>
+</section>
+<section class="ltx_section" id="S2">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>Can Visual-spatial Reasoning Capacities Be Activated by Prompting?</h2>
+<div class="ltx_para ltx_noindent" id="S2.p1">
+<p class="ltx_p" id="S2.p1.1">We initiate by evaluating Qwen2-VL on the VSI-bench with various prompting strategies.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S2.p2">
+<p class="ltx_p" id="S2.p2.1">Concretely, the VSI-bench includes two types of question-answer problems:</p>
+<ul class="ltx_itemize" id="S2.I1">
+<li class="ltx_item" id="S2.I1.i1" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S2.I1.i1.p1">
+<p class="ltx_p" id="S2.I1.i1.p1.1">Numerical Answer (NA), including tasks such as object counting, absolute distance measurement, object size evaluation, and room size assessment;</p>
+</div>
+</li>
+<li class="ltx_item" id="S2.I1.i2" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para ltx_noindent" id="S2.I1.i2.p1">
+<p class="ltx_p" id="S2.I1.i2.p1.1">Multiple-Choice Answer (MCA), including tasks related to relative distance, relative direction, route planning, and appearance order.</p>
+</div>
+</li>
+</ul>
+</div>
+<figure class="ltx_table" id="S2.T1">
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="S2.T1.1">
+<thead class="ltx_thead">
+<tr class="ltx_tr" id="S2.T1.1.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_column ltx_th_row ltx_border_tt" id="S2.T1.1.1.1.1" style="padding:0.5pt 3.7pt;">Backbone</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.2" style="padding:0.5pt 3.7pt;">Methods</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.3" style="padding:0.5pt 3.7pt;">Avg</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.4" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.4.1">
+<span class="ltx_p" id="S2.T1.1.1.1.4.1.1">Obj.</span>
+<span class="ltx_p" id="S2.T1.1.1.1.4.1.2">Count</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.5" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.5.1">
+<span class="ltx_p" id="S2.T1.1.1.1.5.1.1">Abs.</span>
+<span class="ltx_p" id="S2.T1.1.1.1.5.1.2">Dist.</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.6" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.6.1">
+<span class="ltx_p" id="S2.T1.1.1.1.6.1.1">Obj.</span>
+<span class="ltx_p" id="S2.T1.1.1.1.6.1.2">Size</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.7" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.7.1">
+<span class="ltx_p" id="S2.T1.1.1.1.7.1.1">Room</span>
+<span class="ltx_p" id="S2.T1.1.1.1.7.1.2">Size</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.8" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.8.1">
+<span class="ltx_p" id="S2.T1.1.1.1.8.1.1">Rel.</span>
+<span class="ltx_p" id="S2.T1.1.1.1.8.1.2">Dist.</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.9" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.9.1">
+<span class="ltx_p" id="S2.T1.1.1.1.9.1.1">Rel.</span>
+<span class="ltx_p" id="S2.T1.1.1.1.9.1.2">Dir.</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.10" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.10.1">
+<span class="ltx_p" id="S2.T1.1.1.1.10.1.1">Route</span>
+<span class="ltx_p" id="S2.T1.1.1.1.10.1.2">Plan</span>
+</span>
+</th>
+<th class="ltx_td ltx_align_center ltx_th ltx_th_column ltx_border_tt" id="S2.T1.1.1.1.11" style="padding:0.5pt 3.7pt;">
+<span class="ltx_inline-block" id="S2.T1.1.1.1.11.1">
+<span class="ltx_p" id="S2.T1.1.1.1.11.1.1">Appr.</span>
+<span class="ltx_p" id="S2.T1.1.1.1.11.1.2">Order</span>
+</span>
+</th>
+</tr>
+</thead>
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S2.T1.1.2.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S2.T1.1.2.1.1" rowspan="3" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.2.1.1.1">
+<span class="ltx_inline-block ltx_parbox ltx_align_middle" id="S2.T1.1.2.1.1.1.1" style="width:42.7pt;">
+<span class="ltx_p" id="S2.T1.1.2.1.1.1.1.1">Qwen2-</span>
+<span class="ltx_p" id="S2.T1.1.2.1.1.1.1.2">VL-2B</span>
+</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.2" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.2.1.2.1" style="color:#FF0000;">Think-mode</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.3" style="padding:0.5pt 3.7pt;">22.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.4" style="padding:0.5pt 3.7pt;">18.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.5" style="padding:0.5pt 3.7pt;">4.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.6" style="padding:0.5pt 3.7pt;">31.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.7" style="padding:0.5pt 3.7pt;">17.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.8" style="padding:0.5pt 3.7pt;">28.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.9" style="padding:0.5pt 3.7pt;">22.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.10" style="padding:0.5pt 3.7pt;">26.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.2.1.11" style="padding:0.5pt 3.7pt;">16.8</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.3.2">
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.1" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.3.2.1.1" style="color:#00FF00;">Observe-mode</span></td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.2" style="padding:0.5pt 3.7pt;">21.8</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.3" style="padding:0.5pt 3.7pt;">16.8</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.4" style="padding:0.5pt 3.7pt;">1.7</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.5" style="padding:0.5pt 3.7pt;">32.7</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.6" style="padding:0.5pt 3.7pt;">22.7</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.7" style="padding:0.5pt 3.7pt;">28.8</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.8" style="padding:0.5pt 3.7pt;">27.6</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.9" style="padding:0.5pt 3.7pt;">26.2</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.3.2.10" style="padding:0.5pt 3.7pt;">18.1</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.4.3">
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.1" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.4.3.1.1" style="color:#0000FF;">Vanilla-mode</span></td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.2" style="padding:0.5pt 3.7pt;">23.3</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.3" style="padding:0.5pt 3.7pt;">21.4</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.4" style="padding:0.5pt 3.7pt;">3.4</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.5" style="padding:0.5pt 3.7pt;">32.3</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.6" style="padding:0.5pt 3.7pt;">31.1</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.7" style="padding:0.5pt 3.7pt;">26.7</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.8" style="padding:0.5pt 3.7pt;">27.7</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.9" style="padding:0.5pt 3.7pt;">24.7</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.4.3.10" style="padding:0.5pt 3.7pt;">18.9</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.5.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb ltx_border_t" id="S2.T1.1.5.4.1" rowspan="3" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.5.4.1.1">
+<span class="ltx_inline-block ltx_parbox ltx_align_middle" id="S2.T1.1.5.4.1.1.1" style="width:42.7pt;">
+<span class="ltx_p" id="S2.T1.1.5.4.1.1.1.1">Qwen2-</span>
+<span class="ltx_p" id="S2.T1.1.5.4.1.1.1.2">VL-7B</span>
+</span></span></th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.2" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.5.4.2.1" style="color:#FF0000;">Think-mode</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.3" style="padding:0.5pt 3.7pt;">31.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.4" style="padding:0.5pt 3.7pt;">44.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.5" style="padding:0.5pt 3.7pt;">26.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.6" style="padding:0.5pt 3.7pt;">25.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.7" style="padding:0.5pt 3.7pt;">23.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.8" style="padding:0.5pt 3.7pt;">34.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.9" style="padding:0.5pt 3.7pt;">30.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.10" style="padding:0.5pt 3.7pt;">32.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S2.T1.1.5.4.11" style="padding:0.5pt 3.7pt;">31.5</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.6.5">
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.1" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.6.5.1.1" style="color:#00FF00;">Observe-mode</span></td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.2" style="padding:0.5pt 3.7pt;">32.0</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.3" style="padding:0.5pt 3.7pt;">29.9</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.4" style="padding:0.5pt 3.7pt;">19.0</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.5" style="padding:0.5pt 3.7pt;">39.6</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.6" style="padding:0.5pt 3.7pt;">32.0</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.7" style="padding:0.5pt 3.7pt;">34.6</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.8" style="padding:0.5pt 3.7pt;">40.0</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.9" style="padding:0.5pt 3.7pt;">36.0</td>
+<td class="ltx_td ltx_align_center" id="S2.T1.1.6.5.10" style="padding:0.5pt 3.7pt;">24.4</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.7.6">
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.1" style="padding:0.5pt 3.7pt;"><span class="ltx_text" id="S2.T1.1.7.6.1.1" style="color:#0000FF;">Vanilla-mode</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.2" style="padding:0.5pt 3.7pt;">32.2</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.3" style="padding:0.5pt 3.7pt;">39.4</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.4" style="padding:0.5pt 3.7pt;">25.0</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.5" style="padding:0.5pt 3.7pt;">25.8</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.6" style="padding:0.5pt 3.7pt;">43.2</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.7" style="padding:0.5pt 3.7pt;">32.6</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.8" style="padding:0.5pt 3.7pt;">30.9</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.9" style="padding:0.5pt 3.7pt;">27.8</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S2.T1.1.7.6.10" style="padding:0.5pt 3.7pt;">32.6</td>
+</tr>
+</tbody>
+</table>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 1: </span>Quantitative comparisons of different prompting strategies on Qwen2-VL-2B and Qwen2-VL-7B on VSI-bench. </figcaption>
+</figure>
+<div class="ltx_para ltx_noindent" id="S2.p3">
+<p class="ltx_p" id="S2.p3.1">To evaluate the reasoning capacities of Qwen2-VL on this dataset, we consider two CoT prompting strategies: the widely adopted <span class="ltx_text" id="S2.p3.1.1" style="color:#FF0000;"> think-mode</span>, where the model first thinks and then replies to the question, and the <span class="ltx_text" id="S2.p3.1.2" style="color:#00FF00;"> observe-mode</span>, where the model first observes the input video and then replies.
+The latter follows a human-like pattern and has been explored in related works <cite class="ltx_cite ltx_citemacro_citep">(Wu et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib22" title="">2024</a>)</cite>.
+We also include a non-CoT <span class="ltx_text" id="S2.p3.1.3" style="color:#0000FF;"> vanilla-mode</span> for comparison.
+Here is a summarization of them:</p>
+<ul class="ltx_itemize" id="S2.I2">
+<li class="ltx_item" id="S2.I2.i1" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S2.I2.i1.p1">
+<p class="ltx_p" id="S2.I2.i1.p1.1"><span class="ltx_text" id="S2.I2.i1.p1.1.1" style="color:#FF0000;">Think-mode</span>: <span class="ltx_text ltx_font_typewriter" id="S2.I2.i1.p1.1.2">Let’s think step by step and then answer the question using a single word or phrase.</span></p>
+</div>
+</li>
+<li class="ltx_item" id="S2.I2.i2" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S2.I2.i2.p1">
+<p class="ltx_p" id="S2.I2.i2.p1.1"><span class="ltx_text" id="S2.I2.i2.p1.1.1" style="color:#00FF00;">Observe-mode</span>: <span class="ltx_text ltx_font_typewriter" id="S2.I2.i2.p1.1.2">Please observe the video first and then answer the question using a single word or phrase.</span></p>
+</div>
+</li>
+<li class="ltx_item" id="S2.I2.i3" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para ltx_noindent" id="S2.I2.i3.p1">
+<p class="ltx_p" id="S2.I2.i3.p1.1"><span class="ltx_text" id="S2.I2.i3.p1.1.1" style="color:#0000FF;">Vanilla-mode</span>: <span class="ltx_text ltx_font_typewriter" id="S2.I2.i3.p1.1.2">Please answer the question using a single word or phrase.</span></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ltx_para ltx_noindent" id="S2.p4">
+<p class="ltx_p" id="S2.p4.1"><span class="ltx_text ltx_font_bold" id="S2.p4.1.1">CoT prompting is ineffective for small- to medium-sized Qwen2-VL on VSI-bench.</span>
+As shown in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S2.T1" title="Table 1 ‣ 2 Can Visual-spatial Reasoning Capacities Be Activated by Prompting? ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_tag">1</span></a>, despite longer responses, <span class="ltx_text" id="S2.p4.1.2" style="color:#FF0000;"> think-mode</span> and <span class="ltx_text" id="S2.p4.1.3" style="color:#00FF00;"> observe-mode</span> underperform the simple <span class="ltx_text" id="S2.p4.1.4" style="color:#0000FF;"> vanilla-mode</span>.
+Namely, small- to medium-sized Qwen2-VL cannot trade inference FLOPs for improved visual-spatial reasoning.</p>
+</div>
+<figure class="ltx_figure" id="S2.F1"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_missing ltx_missing_image" id="S2.F1.g1" src=""/>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1: </span>Comparison between the <span class="ltx_text" id="S2.F1.3.1" style="color:#0000FF;"> vanilla-mode</span> and <span class="ltx_text" id="S2.F1.4.2" style="color:#FF0000;"> think-mode</span> predictions.</figcaption>
+</figure>
+<div class="ltx_para ltx_noindent" id="S2.p5">
+<p class="ltx_p" id="S2.p5.1">We visualize some output examples given by Qwen2-VL-2B in Figure <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S2.F1" title="Figure 1 ‣ 2 Can Visual-spatial Reasoning Capacities Be Activated by Prompting? ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_tag">1</span></a>.
+We see that the model can actually understand the instructions for activating thinking, but the final answer is still wrong, the same as that of the vanilla prompting.
+From the exposed chain of thoughts, we realize that the error may arise from the failure to perceive the sofa in the video.</p>
+</div>
+</section>
+<section class="ltx_section" id="S3">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>R1-Zero-like Training for Visual-spatial Reasoning</h2>
+<div class="ltx_para ltx_noindent" id="S3.p1">
+<p class="ltx_p" id="S3.p1.1">Given the above observations, we realize it is necessary to fine-tune the Qwen2-VL models for improved visual-spatial reasoning.
+Typically, we opt to focus on the GRPO approach <cite class="ltx_cite ltx_citemacro_citep">(Shao et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib14" title="">2024</a>)</cite> given its success in building DeepSeek-R1-Zero.</p>
+</div>
+<section class="ltx_subsection" id="S3.SS1">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.1 </span>Training Data Construction</h3>
+<figure class="ltx_figure" id="S3.F2"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_img_landscape" height="461" id="S3.F2.g1" src="x2.png" width="830"/>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 2: </span>Illustrations of the constructed dataset.</figcaption>
+</figure>
+<div class="ltx_para ltx_noindent" id="S3.SS1.p1">
+<p class="ltx_p" id="S3.SS1.p1.1">We first create a video-based question-answering dataset named <span class="ltx_text ltx_font_bold" id="S3.SS1.p1.1.1">VSI-100k</span> for visual-spatial reasoning.
+It consists of more than 100k samples and follows the VSI-bench protocol.
+Specifically, we utilize ScanNet <cite class="ltx_cite ltx_citemacro_citep">(Dai et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib3" title="">2017</a>)</cite> to obtain high-fidelity video scans that come with detailed object-level 3D annotations. With such information, it becomes straightforward to generate (question, answer) pairs related to spatial information.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS1.p2">
+<p class="ltx_p" id="S3.SS1.p2.1">Specifically, we construct questions regarding six topics, including object count, relative direction, relative distance, object size, room size, and absolute distance.
+We leave the other two topics in VSI-bench, route planning and appearance order, held out.
+This corresponds to two reasons: 1) (question, answer) pairs of the latter two topics cannot be simply constructed given rarely the static 3D information, which implies that expensive manual annotation can be required; 2) with this, we can test the task generalization ability of the trained models.
+For the NA type problems, we implement a question template similar to that used in <cite class="ltx_cite ltx_citemacro_citep">(Yang et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib24" title="">2024</a>)</cite>.
+For the MCA one, we simplify the question format by removing the options.
+This adjustment enhances the model’s capacity to recognize entity correspondence instead of simply matching symbols.
+Some examples are provided in Figure <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.F2" title="Figure 2 ‣ 3.1 Training Data Construction ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_tag">2</span></a>.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS1.p3">
+<p class="ltx_p" id="S3.SS1.p3.1">For object count, we construct answers with directly the object labels included in the annotations document, yielding a total of 6.4k samples.
+For absolute distance, we first remove objects that appear multiple times to ensure specification preciseness, and then calculate the distance between geometric centers of various 3D point-cloud objects, obtaining 75k samples.
+For relative distance, we fix one targeted object and compute the absolute distance between it and four other objects to estimate relative distance, yielding 13k samples.
+For relative direction, we select one object as the front and determine the relative direction of two objects based on their geometric centers of point clouds, getting a total of 8k samples.
+For object size, we leverage the 3D bounding box to compute the longest dimension of the object, yielding a total of 13k samples.
+For room size, we apply the alpha shape algorithm to the total 1.5k scenes, resulting in 1.5k samples.</p>
+</div>
+</section>
+<section class="ltx_subsection" id="S3.SS2">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.2 </span>GRPO</h3>
+<div class="ltx_para ltx_noindent" id="S3.SS2.p1">
+<p class="ltx_p" id="S3.SS2.p1.4">Group Relative Policy Optimization, also abbreviated as GRPO <cite class="ltx_cite ltx_citemacro_citep">(Shao et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib14" title="">2024</a>)</cite>, is a type of reinforcement learning (RL) that eliminates the critic model to reduce training costs.
+Specifically, a group of generated output set <math alttext="\{o_{1},o_{2},\cdots,o_{G}\}" class="ltx_Math" display="inline" id="S3.SS2.p1.1.m1.4"><semantics id="S3.SS2.p1.1.m1.4a"><mrow id="S3.SS2.p1.1.m1.4.4.3" xref="S3.SS2.p1.1.m1.4.4.4.cmml"><mo id="S3.SS2.p1.1.m1.4.4.3.4" stretchy="false" xref="S3.SS2.p1.1.m1.4.4.4.cmml">{</mo><msub id="S3.SS2.p1.1.m1.2.2.1.1" xref="S3.SS2.p1.1.m1.2.2.1.1.cmml"><mi id="S3.SS2.p1.1.m1.2.2.1.1.2" xref="S3.SS2.p1.1.m1.2.2.1.1.2.cmml">o</mi><mn id="S3.SS2.p1.1.m1.2.2.1.1.3" xref="S3.SS2.p1.1.m1.2.2.1.1.3.cmml">1</mn></msub><mo id="S3.SS2.p1.1.m1.4.4.3.5" xref="S3.SS2.p1.1.m1.4.4.4.cmml">,</mo><msub id="S3.SS2.p1.1.m1.3.3.2.2" xref="S3.SS2.p1.1.m1.3.3.2.2.cmml"><mi id="S3.SS2.p1.1.m1.3.3.2.2.2" xref="S3.SS2.p1.1.m1.3.3.2.2.2.cmml">o</mi><mn id="S3.SS2.p1.1.m1.3.3.2.2.3" xref="S3.SS2.p1.1.m1.3.3.2.2.3.cmml">2</mn></msub><mo id="S3.SS2.p1.1.m1.4.4.3.6" xref="S3.SS2.p1.1.m1.4.4.4.cmml">,</mo><mi id="S3.SS2.p1.1.m1.1.1" mathvariant="normal" xref="S3.SS2.p1.1.m1.1.1.cmml">⋯</mi><mo id="S3.SS2.p1.1.m1.4.4.3.7" xref="S3.SS2.p1.1.m1.4.4.4.cmml">,</mo><msub id="S3.SS2.p1.1.m1.4.4.3.3" xref="S3.SS2.p1.1.m1.4.4.3.3.cmml"><mi id="S3.SS2.p1.1.m1.4.4.3.3.2" xref="S3.SS2.p1.1.m1.4.4.3.3.2.cmml">o</mi><mi id="S3.SS2.p1.1.m1.4.4.3.3.3" xref="S3.SS2.p1.1.m1.4.4.3.3.3.cmml">G</mi></msub><mo id="S3.SS2.p1.1.m1.4.4.3.8" stretchy="false" xref="S3.SS2.p1.1.m1.4.4.4.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.1.m1.4b"><set id="S3.SS2.p1.1.m1.4.4.4.cmml" xref="S3.SS2.p1.1.m1.4.4.3"><apply id="S3.SS2.p1.1.m1.2.2.1.1.cmml" xref="S3.SS2.p1.1.m1.2.2.1.1"><csymbol cd="ambiguous" id="S3.SS2.p1.1.m1.2.2.1.1.1.cmml" xref="S3.SS2.p1.1.m1.2.2.1.1">subscript</csymbol><ci id="S3.SS2.p1.1.m1.2.2.1.1.2.cmml" xref="S3.SS2.p1.1.m1.2.2.1.1.2">𝑜</ci><cn id="S3.SS2.p1.1.m1.2.2.1.1.3.cmml" type="integer" xref="S3.SS2.p1.1.m1.2.2.1.1.3">1</cn></apply><apply id="S3.SS2.p1.1.m1.3.3.2.2.cmml" xref="S3.SS2.p1.1.m1.3.3.2.2"><csymbol cd="ambiguous" id="S3.SS2.p1.1.m1.3.3.2.2.1.cmml" xref="S3.SS2.p1.1.m1.3.3.2.2">subscript</csymbol><ci id="S3.SS2.p1.1.m1.3.3.2.2.2.cmml" xref="S3.SS2.p1.1.m1.3.3.2.2.2">𝑜</ci><cn id="S3.SS2.p1.1.m1.3.3.2.2.3.cmml" type="integer" xref="S3.SS2.p1.1.m1.3.3.2.2.3">2</cn></apply><ci id="S3.SS2.p1.1.m1.1.1.cmml" xref="S3.SS2.p1.1.m1.1.1">⋯</ci><apply id="S3.SS2.p1.1.m1.4.4.3.3.cmml" xref="S3.SS2.p1.1.m1.4.4.3.3"><csymbol cd="ambiguous" id="S3.SS2.p1.1.m1.4.4.3.3.1.cmml" xref="S3.SS2.p1.1.m1.4.4.3.3">subscript</csymbol><ci id="S3.SS2.p1.1.m1.4.4.3.3.2.cmml" xref="S3.SS2.p1.1.m1.4.4.3.3.2">𝑜</ci><ci id="S3.SS2.p1.1.m1.4.4.3.3.3.cmml" xref="S3.SS2.p1.1.m1.4.4.3.3.3">𝐺</ci></apply></set></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.1.m1.4c">\{o_{1},o_{2},\cdots,o_{G}\}</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.1.m1.4d">{ italic_o start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT , italic_o start_POSTSUBSCRIPT 2 end_POSTSUBSCRIPT , ⋯ , italic_o start_POSTSUBSCRIPT italic_G end_POSTSUBSCRIPT }</annotation></semantics></math> is sampled for each question <math alttext="q" class="ltx_Math" display="inline" id="S3.SS2.p1.2.m2.1"><semantics id="S3.SS2.p1.2.m2.1a"><mi id="S3.SS2.p1.2.m2.1.1" xref="S3.SS2.p1.2.m2.1.1.cmml">q</mi><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.2.m2.1b"><ci id="S3.SS2.p1.2.m2.1.1.cmml" xref="S3.SS2.p1.2.m2.1.1">𝑞</ci></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.2.m2.1c">q</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.2.m2.1d">italic_q</annotation></semantics></math> from policy model <math alttext="\pi_{\theta_{old}}" class="ltx_Math" display="inline" id="S3.SS2.p1.3.m3.1"><semantics id="S3.SS2.p1.3.m3.1a"><msub id="S3.SS2.p1.3.m3.1.1" xref="S3.SS2.p1.3.m3.1.1.cmml"><mi id="S3.SS2.p1.3.m3.1.1.2" xref="S3.SS2.p1.3.m3.1.1.2.cmml">π</mi><msub id="S3.SS2.p1.3.m3.1.1.3" xref="S3.SS2.p1.3.m3.1.1.3.cmml"><mi id="S3.SS2.p1.3.m3.1.1.3.2" xref="S3.SS2.p1.3.m3.1.1.3.2.cmml">θ</mi><mrow id="S3.SS2.p1.3.m3.1.1.3.3" xref="S3.SS2.p1.3.m3.1.1.3.3.cmml"><mi id="S3.SS2.p1.3.m3.1.1.3.3.2" xref="S3.SS2.p1.3.m3.1.1.3.3.2.cmml">o</mi><mo id="S3.SS2.p1.3.m3.1.1.3.3.1" xref="S3.SS2.p1.3.m3.1.1.3.3.1.cmml">⁢</mo><mi id="S3.SS2.p1.3.m3.1.1.3.3.3" xref="S3.SS2.p1.3.m3.1.1.3.3.3.cmml">l</mi><mo id="S3.SS2.p1.3.m3.1.1.3.3.1a" xref="S3.SS2.p1.3.m3.1.1.3.3.1.cmml">⁢</mo><mi id="S3.SS2.p1.3.m3.1.1.3.3.4" xref="S3.SS2.p1.3.m3.1.1.3.3.4.cmml">d</mi></mrow></msub></msub><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.3.m3.1b"><apply id="S3.SS2.p1.3.m3.1.1.cmml" xref="S3.SS2.p1.3.m3.1.1"><csymbol cd="ambiguous" id="S3.SS2.p1.3.m3.1.1.1.cmml" xref="S3.SS2.p1.3.m3.1.1">subscript</csymbol><ci id="S3.SS2.p1.3.m3.1.1.2.cmml" xref="S3.SS2.p1.3.m3.1.1.2">𝜋</ci><apply id="S3.SS2.p1.3.m3.1.1.3.cmml" xref="S3.SS2.p1.3.m3.1.1.3"><csymbol cd="ambiguous" id="S3.SS2.p1.3.m3.1.1.3.1.cmml" xref="S3.SS2.p1.3.m3.1.1.3">subscript</csymbol><ci id="S3.SS2.p1.3.m3.1.1.3.2.cmml" xref="S3.SS2.p1.3.m3.1.1.3.2">𝜃</ci><apply id="S3.SS2.p1.3.m3.1.1.3.3.cmml" xref="S3.SS2.p1.3.m3.1.1.3.3"><times id="S3.SS2.p1.3.m3.1.1.3.3.1.cmml" xref="S3.SS2.p1.3.m3.1.1.3.3.1"></times><ci id="S3.SS2.p1.3.m3.1.1.3.3.2.cmml" xref="S3.SS2.p1.3.m3.1.1.3.3.2">𝑜</ci><ci id="S3.SS2.p1.3.m3.1.1.3.3.3.cmml" xref="S3.SS2.p1.3.m3.1.1.3.3.3">𝑙</ci><ci id="S3.SS2.p1.3.m3.1.1.3.3.4.cmml" xref="S3.SS2.p1.3.m3.1.1.3.3.4">𝑑</ci></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.3.m3.1c">\pi_{\theta_{old}}</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.3.m3.1d">italic_π start_POSTSUBSCRIPT italic_θ start_POSTSUBSCRIPT italic_o italic_l italic_d end_POSTSUBSCRIPT end_POSTSUBSCRIPT</annotation></semantics></math>.
+Then GRPO optimizes the model <math alttext="\pi_{\theta}" class="ltx_Math" display="inline" id="S3.SS2.p1.4.m4.1"><semantics id="S3.SS2.p1.4.m4.1a"><msub id="S3.SS2.p1.4.m4.1.1" xref="S3.SS2.p1.4.m4.1.1.cmml"><mi id="S3.SS2.p1.4.m4.1.1.2" xref="S3.SS2.p1.4.m4.1.1.2.cmml">π</mi><mi id="S3.SS2.p1.4.m4.1.1.3" xref="S3.SS2.p1.4.m4.1.1.3.cmml">θ</mi></msub><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.4.m4.1b"><apply id="S3.SS2.p1.4.m4.1.1.cmml" xref="S3.SS2.p1.4.m4.1.1"><csymbol cd="ambiguous" id="S3.SS2.p1.4.m4.1.1.1.cmml" xref="S3.SS2.p1.4.m4.1.1">subscript</csymbol><ci id="S3.SS2.p1.4.m4.1.1.2.cmml" xref="S3.SS2.p1.4.m4.1.1.2">𝜋</ci><ci id="S3.SS2.p1.4.m4.1.1.3.cmml" xref="S3.SS2.p1.4.m4.1.1.3">𝜃</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.4.m4.1c">\pi_{\theta}</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.4.m4.1d">italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT</annotation></semantics></math> using the following objective:</p>
+<table class="ltx_equationgroup ltx_eqn_table" id="S3.E1">
+<tbody>
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline" id="S3.E1X">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math alttext="\displaystyle J_{\mathrm{GRPO}}(\theta)" class="ltx_Math" display="inline" id="S3.E1X.2.1.1.m1.1"><semantics id="S3.E1X.2.1.1.m1.1a"><mrow id="S3.E1X.2.1.1.m1.1.2" xref="S3.E1X.2.1.1.m1.1.2.cmml"><msub id="S3.E1X.2.1.1.m1.1.2.2" xref="S3.E1X.2.1.1.m1.1.2.2.cmml"><mi id="S3.E1X.2.1.1.m1.1.2.2.2" xref="S3.E1X.2.1.1.m1.1.2.2.2.cmml">J</mi><mi id="S3.E1X.2.1.1.m1.1.2.2.3" xref="S3.E1X.2.1.1.m1.1.2.2.3.cmml">GRPO</mi></msub><mo id="S3.E1X.2.1.1.m1.1.2.1" xref="S3.E1X.2.1.1.m1.1.2.1.cmml">⁢</mo><mrow id="S3.E1X.2.1.1.m1.1.2.3.2" xref="S3.E1X.2.1.1.m1.1.2.cmml"><mo id="S3.E1X.2.1.1.m1.1.2.3.2.1" stretchy="false" xref="S3.E1X.2.1.1.m1.1.2.cmml">(</mo><mi id="S3.E1X.2.1.1.m1.1.1" xref="S3.E1X.2.1.1.m1.1.1.cmml">θ</mi><mo id="S3.E1X.2.1.1.m1.1.2.3.2.2" stretchy="false" xref="S3.E1X.2.1.1.m1.1.2.cmml">)</mo></mrow></mrow><annotation-xml encoding="MathML-Content" id="S3.E1X.2.1.1.m1.1b"><apply id="S3.E1X.2.1.1.m1.1.2.cmml" xref="S3.E1X.2.1.1.m1.1.2"><times id="S3.E1X.2.1.1.m1.1.2.1.cmml" xref="S3.E1X.2.1.1.m1.1.2.1"></times><apply id="S3.E1X.2.1.1.m1.1.2.2.cmml" xref="S3.E1X.2.1.1.m1.1.2.2"><csymbol cd="ambiguous" id="S3.E1X.2.1.1.m1.1.2.2.1.cmml" xref="S3.E1X.2.1.1.m1.1.2.2">subscript</csymbol><ci id="S3.E1X.2.1.1.m1.1.2.2.2.cmml" xref="S3.E1X.2.1.1.m1.1.2.2.2">𝐽</ci><ci id="S3.E1X.2.1.1.m1.1.2.2.3.cmml" xref="S3.E1X.2.1.1.m1.1.2.2.3">GRPO</ci></apply><ci id="S3.E1X.2.1.1.m1.1.1.cmml" xref="S3.E1X.2.1.1.m1.1.1">𝜃</ci></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.E1X.2.1.1.m1.1c">\displaystyle J_{\mathrm{GRPO}}(\theta)</annotation><annotation encoding="application/x-llamapun" id="S3.E1X.2.1.1.m1.1d">italic_J start_POSTSUBSCRIPT roman_GRPO end_POSTSUBSCRIPT ( italic_θ )</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math alttext="\displaystyle=\mathbb{E}_{q\sim P(Q),\,\{o_{i}\}_{i=1}^{G}\sim\pi_{\theta_{%
+\mathrm{old}}}(O\mid q)}" class="ltx_Math" display="inline" id="S3.E1X.3.2.2.m1.3"><semantics id="S3.E1X.3.2.2.m1.3a"><mrow id="S3.E1X.3.2.2.m1.3.4" xref="S3.E1X.3.2.2.m1.3.4.cmml"><mi id="S3.E1X.3.2.2.m1.3.4.2" xref="S3.E1X.3.2.2.m1.3.4.2.cmml"></mi><mo id="S3.E1X.3.2.2.m1.3.4.1" xref="S3.E1X.3.2.2.m1.3.4.1.cmml">=</mo><msub id="S3.E1X.3.2.2.m1.3.4.3" xref="S3.E1X.3.2.2.m1.3.4.3.cmml"><mi id="S3.E1X.3.2.2.m1.3.4.3.2" xref="S3.E1X.3.2.2.m1.3.4.3.2.cmml">𝔼</mi><mrow id="S3.E1X.3.2.2.m1.3.3.3.3" xref="S3.E1X.3.2.2.m1.3.3.3.4.cmml"><mrow id="S3.E1X.3.2.2.m1.2.2.2.2.1" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.cmml"><mi id="S3.E1X.3.2.2.m1.2.2.2.2.1.2" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.2.cmml">q</mi><mo id="S3.E1X.3.2.2.m1.2.2.2.2.1.1" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.1.cmml">∼</mo><mrow id="S3.E1X.3.2.2.m1.2.2.2.2.1.3" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.cmml"><mi id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.2" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.2.cmml">P</mi><mo id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.1" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.1.cmml">⁢</mo><mrow id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.3.2" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.cmml"><mo id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.3.2.1" stretchy="false" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.cmml">(</mo><mi id="S3.E1X.3.2.2.m1.1.1.1.1" xref="S3.E1X.3.2.2.m1.1.1.1.1.cmml">Q</mi><mo id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.3.2.2" stretchy="false" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.cmml">)</mo></mrow></mrow></mrow><mo id="S3.E1X.3.2.2.m1.3.3.3.3.3" rspace="0.337em" xref="S3.E1X.3.2.2.m1.3.3.3.4a.cmml">,</mo><mrow id="S3.E1X.3.2.2.m1.3.3.3.3.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.cmml"><msubsup id="S3.E1X.3.2.2.m1.3.3.3.3.2.1" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.cmml"><mrow id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.2.cmml"><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.2" stretchy="false" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.2.cmml">{</mo><msub id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.cmml"><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.2.cmml">o</mi><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.3.cmml">i</mi></msub><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.3" stretchy="false" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.2.cmml">}</mo></mrow><mrow id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.cmml"><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.2.cmml">i</mi><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.1" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.1.cmml">=</mo><mn id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.3.cmml">1</mn></mrow><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.3.cmml">G</mi></msubsup><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.3.cmml">∼</mo><mrow id="S3.E1X.3.2.2.m1.3.3.3.3.2.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.cmml"><msub id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.cmml"><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.2.cmml">π</mi><msub id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.cmml"><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.2.cmml">θ</mi><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.3.cmml">old</mi></msub></msub><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.2.cmml">⁢</mo><mrow id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.cmml"><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.2" stretchy="false" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.cmml">(</mo><mrow id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.cmml"><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.2" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.2.cmml">O</mi><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.1" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.1.cmml">∣</mo><mi id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.3" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.3.cmml">q</mi></mrow><mo id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.3" stretchy="false" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.cmml">)</mo></mrow></mrow></mrow></mrow></msub></mrow><annotation-xml encoding="MathML-Content" id="S3.E1X.3.2.2.m1.3b"><apply id="S3.E1X.3.2.2.m1.3.4.cmml" xref="S3.E1X.3.2.2.m1.3.4"><eq id="S3.E1X.3.2.2.m1.3.4.1.cmml" xref="S3.E1X.3.2.2.m1.3.4.1"></eq><csymbol cd="latexml" id="S3.E1X.3.2.2.m1.3.4.2.cmml" xref="S3.E1X.3.2.2.m1.3.4.2">absent</csymbol><apply id="S3.E1X.3.2.2.m1.3.4.3.cmml" xref="S3.E1X.3.2.2.m1.3.4.3"><csymbol cd="ambiguous" id="S3.E1X.3.2.2.m1.3.4.3.1.cmml" xref="S3.E1X.3.2.2.m1.3.4.3">subscript</csymbol><ci id="S3.E1X.3.2.2.m1.3.4.3.2.cmml" xref="S3.E1X.3.2.2.m1.3.4.3.2">𝔼</ci><apply id="S3.E1X.3.2.2.m1.3.3.3.4.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3"><csymbol cd="ambiguous" id="S3.E1X.3.2.2.m1.3.3.3.4a.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.3">formulae-sequence</csymbol><apply id="S3.E1X.3.2.2.m1.2.2.2.2.1.cmml" xref="S3.E1X.3.2.2.m1.2.2.2.2.1"><csymbol cd="latexml" id="S3.E1X.3.2.2.m1.2.2.2.2.1.1.cmml" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.1">similar-to</csymbol><ci id="S3.E1X.3.2.2.m1.2.2.2.2.1.2.cmml" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.2">𝑞</ci><apply id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.cmml" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3"><times id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.1.cmml" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.1"></times><ci id="S3.E1X.3.2.2.m1.2.2.2.2.1.3.2.cmml" xref="S3.E1X.3.2.2.m1.2.2.2.2.1.3.2">𝑃</ci><ci id="S3.E1X.3.2.2.m1.1.1.1.1.cmml" xref="S3.E1X.3.2.2.m1.1.1.1.1">𝑄</ci></apply></apply><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2"><csymbol cd="latexml" id="S3.E1X.3.2.2.m1.3.3.3.3.2.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.3">similar-to</csymbol><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1"><csymbol cd="ambiguous" id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1">superscript</csymbol><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1"><csymbol cd="ambiguous" id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1">subscript</csymbol><set id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1"><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1"><csymbol cd="ambiguous" id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1">subscript</csymbol><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.2">𝑜</ci><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.1.1.1.3">𝑖</ci></apply></set><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3"><eq id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.1"></eq><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.2">𝑖</ci><cn id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.3.cmml" type="integer" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.1.3.3">1</cn></apply></apply><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.1.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.1.3">𝐺</ci></apply><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2"><times id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.2"></times><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3"><csymbol cd="ambiguous" id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3">subscript</csymbol><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.2">𝜋</ci><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3"><csymbol cd="ambiguous" id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3">subscript</csymbol><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.2">𝜃</ci><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.3.3.3">old</ci></apply></apply><apply id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1"><csymbol cd="latexml" id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.1.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.1">conditional</csymbol><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.2.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.2">𝑂</ci><ci id="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.3.cmml" xref="S3.E1X.3.2.2.m1.3.3.3.3.2.2.1.1.1.3">𝑞</ci></apply></apply></apply></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.E1X.3.2.2.m1.3c">\displaystyle=\mathbb{E}_{q\sim P(Q),\,\{o_{i}\}_{i=1}^{G}\sim\pi_{\theta_{%
+\mathrm{old}}}(O\mid q)}</annotation><annotation encoding="application/x-llamapun" id="S3.E1X.3.2.2.m1.3d">= blackboard_E start_POSTSUBSCRIPT italic_q ∼ italic_P ( italic_Q ) , { italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT } start_POSTSUBSCRIPT italic_i = 1 end_POSTSUBSCRIPT start_POSTSUPERSCRIPT italic_G end_POSTSUPERSCRIPT ∼ italic_π start_POSTSUBSCRIPT italic_θ start_POSTSUBSCRIPT roman_old end_POSTSUBSCRIPT end_POSTSUBSCRIPT ( italic_O ∣ italic_q ) end_POSTSUBSCRIPT</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right" rowspan="2"><span class="ltx_tag ltx_tag_equationgroup ltx_align_right">(1)</span></td>
+</tr>
+<tr class="ltx_equation ltx_eqn_row ltx_align_baseline" id="S3.E1Xa">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math alttext="\displaystyle\Biggl{[}\frac{1}{G}\sum_{i=1}^{G}\min\!\Bigl{(}\frac{\pi_{\theta%
+}(o_{i}\mid q)}{\pi_{\theta_{\mathrm{old}}}(o_{i}\mid q)}\,A_{i},\,\mathrm{%
+clip}\!\Bigl{(}\frac{\pi_{\theta}(o_{i}\mid q)}{\pi_{\theta_{\mathrm{old}}}(o_%
+{i}\mid q)},1-\varepsilon,\,1+\varepsilon\Bigr{)}A_{i}\Bigr{)}-\,\beta\,D_{%
+\mathrm{KL}}\bigl{(}\pi_{\theta}\,\big{\|}\,\pi_{\mathrm{ref}}\bigr{)}\Biggr{]}," class="ltx_Math" display="inline" id="S3.E1Xa.2.1.1.m1.6"><semantics id="S3.E1Xa.2.1.1.m1.6a"><mrow id="S3.E1Xa.2.1.1.m1.6.6.1"><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.2.cmml"><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.2" maxsize="260%" minsize="260%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.2.1.cmml">[</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.cmml"><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.cmml"><mstyle displaystyle="true" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.cmml"><mfrac id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4a" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.cmml"><mn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.2.cmml">1</mn><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.3.cmml">G</mi></mfrac></mstyle><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.3.cmml">⁢</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.cmml"><mstyle displaystyle="true" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.cmml"><munderover id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3a" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.cmml"><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.2" movablelimits="false" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.2.cmml">∑</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.2.cmml">i</mi><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.1.cmml">=</mo><mn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.3.cmml">1</mn></mrow><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.3.cmml">G</mi></munderover></mstyle><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.3.cmml"><mpadded width="1.653em"><mi id="S3.E1Xa.2.1.1.m1.5.5" xref="S3.E1Xa.2.1.1.m1.5.5.cmml">min</mi></mpadded><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2a" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.3.cmml">⁡</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.3.cmml"><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.3" maxsize="160%" minsize="160%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.3.cmml">(</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.cmml"><mstyle displaystyle="true" id="S3.E1Xa.2.1.1.m1.2.2" xref="S3.E1Xa.2.1.1.m1.2.2.cmml"><mfrac id="S3.E1Xa.2.1.1.m1.2.2a" xref="S3.E1Xa.2.1.1.m1.2.2.cmml"><mrow id="S3.E1Xa.2.1.1.m1.1.1.1" xref="S3.E1Xa.2.1.1.m1.1.1.1.cmml"><msub id="S3.E1Xa.2.1.1.m1.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.1.1.1.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.1.1.1.3.2" xref="S3.E1Xa.2.1.1.m1.1.1.1.3.2.cmml">π</mi><mi id="S3.E1Xa.2.1.1.m1.1.1.1.3.3" xref="S3.E1Xa.2.1.1.m1.1.1.1.3.3.cmml">θ</mi></msub><mo id="S3.E1Xa.2.1.1.m1.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.1.1.1.2.cmml">⁢</mo><mrow id="S3.E1Xa.2.1.1.m1.1.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.cmml"><mo id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.2" stretchy="false" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.cmml">(</mo><mrow id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.cmml"><msub id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.cmml"><mi id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.2" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.2.cmml">o</mi><mi id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.3" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.1.cmml">∣</mo><mi id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.3.cmml">q</mi></mrow><mo id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.3" stretchy="false" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.cmml">)</mo></mrow></mrow><mrow id="S3.E1Xa.2.1.1.m1.2.2.2" xref="S3.E1Xa.2.1.1.m1.2.2.2.cmml"><msub id="S3.E1Xa.2.1.1.m1.2.2.2.3" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.2.2.2.3.2" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.2.cmml">π</mi><msub id="S3.E1Xa.2.1.1.m1.2.2.2.3.3" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.2.2.2.3.3.2" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.3.2.cmml">θ</mi><mi id="S3.E1Xa.2.1.1.m1.2.2.2.3.3.3" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.3.3.cmml">old</mi></msub></msub><mo id="S3.E1Xa.2.1.1.m1.2.2.2.2" xref="S3.E1Xa.2.1.1.m1.2.2.2.2.cmml">⁢</mo><mrow id="S3.E1Xa.2.1.1.m1.2.2.2.1.1" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.cmml"><mo id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.2" stretchy="false" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.cmml">(</mo><mrow id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.cmml"><msub id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.cmml"><mi id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.2" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.2.cmml">o</mi><mi id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.3" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.1.cmml">∣</mo><mi id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.3.cmml">q</mi></mrow><mo id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.3" stretchy="false" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.cmml">)</mo></mrow></mrow></mfrac></mstyle><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.1" lspace="0.170em" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.1.cmml">⁢</mo><msub id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.cmml"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.2.cmml">A</mi><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.3.cmml">i</mi></msub></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.4" rspace="0.337em" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.3.cmml">,</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.cmml"><mpadded width="1.428em"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.4" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.4.cmml">clip</mi></mpadded><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.3.cmml">⁢</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.3.cmml"><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.3" maxsize="160%" minsize="160%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.3.cmml">(</mo><mstyle displaystyle="true" id="S3.E1Xa.2.1.1.m1.4.4" xref="S3.E1Xa.2.1.1.m1.4.4.cmml"><mfrac id="S3.E1Xa.2.1.1.m1.4.4a" xref="S3.E1Xa.2.1.1.m1.4.4.cmml"><mrow id="S3.E1Xa.2.1.1.m1.3.3.1" xref="S3.E1Xa.2.1.1.m1.3.3.1.cmml"><msub id="S3.E1Xa.2.1.1.m1.3.3.1.3" xref="S3.E1Xa.2.1.1.m1.3.3.1.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.3.3.1.3.2" xref="S3.E1Xa.2.1.1.m1.3.3.1.3.2.cmml">π</mi><mi id="S3.E1Xa.2.1.1.m1.3.3.1.3.3" xref="S3.E1Xa.2.1.1.m1.3.3.1.3.3.cmml">θ</mi></msub><mo id="S3.E1Xa.2.1.1.m1.3.3.1.2" xref="S3.E1Xa.2.1.1.m1.3.3.1.2.cmml">⁢</mo><mrow id="S3.E1Xa.2.1.1.m1.3.3.1.1.1" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.cmml"><mo id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.2" stretchy="false" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.cmml">(</mo><mrow id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.cmml"><msub id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.cmml"><mi id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.2" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.2.cmml">o</mi><mi id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.3" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.1.cmml">∣</mo><mi id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.3.cmml">q</mi></mrow><mo id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.3" stretchy="false" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.cmml">)</mo></mrow></mrow><mrow id="S3.E1Xa.2.1.1.m1.4.4.2" xref="S3.E1Xa.2.1.1.m1.4.4.2.cmml"><msub id="S3.E1Xa.2.1.1.m1.4.4.2.3" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.4.4.2.3.2" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.2.cmml">π</mi><msub id="S3.E1Xa.2.1.1.m1.4.4.2.3.3" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.4.4.2.3.3.2" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.3.2.cmml">θ</mi><mi id="S3.E1Xa.2.1.1.m1.4.4.2.3.3.3" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.3.3.cmml">old</mi></msub></msub><mo id="S3.E1Xa.2.1.1.m1.4.4.2.2" xref="S3.E1Xa.2.1.1.m1.4.4.2.2.cmml">⁢</mo><mrow id="S3.E1Xa.2.1.1.m1.4.4.2.1.1" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.cmml"><mo id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.2" stretchy="false" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.cmml">(</mo><mrow id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.cmml"><msub id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.cmml"><mi id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.2" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.2.cmml">o</mi><mi id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.3" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.1.cmml">∣</mo><mi id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.3.cmml">q</mi></mrow><mo id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.3" stretchy="false" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.cmml">)</mo></mrow></mrow></mfrac></mstyle><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.4" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.3.cmml">,</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.cmml"><mn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.2.cmml">1</mn><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.1.cmml">−</mo><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.3.cmml">ε</mi></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.5" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.3.cmml">,</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.cmml"><mn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.2.cmml"> 1</mn><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.1.cmml">+</mo><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.3.cmml">ε</mi></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.6" maxsize="160%" minsize="160%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.3.cmml">)</mo></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.3a" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.3.cmml">⁢</mo><msub id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.cmml"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.2.cmml">A</mi><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.3.cmml">i</mi></msub></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.5" maxsize="160%" minsize="160%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.3.cmml">)</mo></mrow></mrow></mrow></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.4" rspace="0.392em" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.4.cmml">−</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.3.cmml">β</mi><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.2" lspace="0.170em" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.2.cmml">⁢</mo><msub id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.cmml"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.2.cmml">D</mi><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.3.cmml">KL</mi></msub><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.2a" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.2.cmml">⁢</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.cmml"><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.2" maxsize="120%" minsize="120%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.cmml">(</mo><mrow id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.cmml"><msub id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.cmml"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.2.cmml">π</mi><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.3.cmml">θ</mi></msub><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.1" mathsize="120%" rspace="0.448em" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.1.cmml">∥</mo><msub id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.cmml"><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.2" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.2.cmml">π</mi><mi id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.3" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.3.cmml">ref</mi></msub></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.3" maxsize="120%" minsize="120%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.cmml">)</mo></mrow></mrow></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.3" maxsize="260%" minsize="260%" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.2.1.cmml">]</mo></mrow><mo id="S3.E1Xa.2.1.1.m1.6.6.1.2">,</mo></mrow><annotation-xml encoding="MathML-Content" id="S3.E1Xa.2.1.1.m1.6b"><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1"><csymbol cd="latexml" id="S3.E1Xa.2.1.1.m1.6.6.1.1.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.2">delimited-[]</csymbol><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1"><minus id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.4.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.4"></minus><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2"><times id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.3"></times><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4"><divide id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4"></divide><cn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.2.cmml" type="integer" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.2">1</cn><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.4.3">𝐺</ci></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2"><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3">superscript</csymbol><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3">subscript</csymbol><sum id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.2"></sum><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3"><eq id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.1"></eq><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.2">𝑖</ci><cn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.3.cmml" type="integer" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.2.3.3">1</cn></apply></apply><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.3.3">𝐺</ci></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2"><min id="S3.E1Xa.2.1.1.m1.5.5.cmml" xref="S3.E1Xa.2.1.1.m1.5.5"></min><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1"><times id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.1"></times><apply id="S3.E1Xa.2.1.1.m1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.2.2"><divide id="S3.E1Xa.2.1.1.m1.2.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.2.2"></divide><apply id="S3.E1Xa.2.1.1.m1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1"><times id="S3.E1Xa.2.1.1.m1.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.2"></times><apply id="S3.E1Xa.2.1.1.m1.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.1.1.1.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.3">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.1.1.1.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.3.2">𝜋</ci><ci id="S3.E1Xa.2.1.1.m1.1.1.1.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.3.3">𝜃</ci></apply><apply id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1"><csymbol cd="latexml" id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.1">conditional</csymbol><apply id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.2">𝑜</ci><ci id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.2.3">𝑖</ci></apply><ci id="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.1.1.1.1.1.1.3">𝑞</ci></apply></apply><apply id="S3.E1Xa.2.1.1.m1.2.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2"><times id="S3.E1Xa.2.1.1.m1.2.2.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.2"></times><apply id="S3.E1Xa.2.1.1.m1.2.2.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.2.2.2.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.3">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.2.2.2.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.2">𝜋</ci><apply id="S3.E1Xa.2.1.1.m1.2.2.2.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.2.2.2.3.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.3">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.2.2.2.3.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.3.2">𝜃</ci><ci id="S3.E1Xa.2.1.1.m1.2.2.2.3.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.3.3.3">old</ci></apply></apply><apply id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1"><csymbol cd="latexml" id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.1">conditional</csymbol><apply id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.2">𝑜</ci><ci id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.2.3">𝑖</ci></apply><ci id="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.2.2.2.1.1.1.3">𝑞</ci></apply></apply></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.2">𝐴</ci><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.1.1.1.1.1.1.2.3">𝑖</ci></apply></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2"><times id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.3"></times><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.4.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.4">clip</ci><vector id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2"><apply id="S3.E1Xa.2.1.1.m1.4.4.cmml" xref="S3.E1Xa.2.1.1.m1.4.4"><divide id="S3.E1Xa.2.1.1.m1.4.4.3.cmml" xref="S3.E1Xa.2.1.1.m1.4.4"></divide><apply id="S3.E1Xa.2.1.1.m1.3.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1"><times id="S3.E1Xa.2.1.1.m1.3.3.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.2"></times><apply id="S3.E1Xa.2.1.1.m1.3.3.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.3.3.1.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.3">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.3.3.1.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.3.2">𝜋</ci><ci id="S3.E1Xa.2.1.1.m1.3.3.1.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.3.3">𝜃</ci></apply><apply id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1"><csymbol cd="latexml" id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.1">conditional</csymbol><apply id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.2">𝑜</ci><ci id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.2.3">𝑖</ci></apply><ci id="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.3.3.1.1.1.1.3">𝑞</ci></apply></apply><apply id="S3.E1Xa.2.1.1.m1.4.4.2.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2"><times id="S3.E1Xa.2.1.1.m1.4.4.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.2"></times><apply id="S3.E1Xa.2.1.1.m1.4.4.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.4.4.2.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.3">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.4.4.2.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.2">𝜋</ci><apply id="S3.E1Xa.2.1.1.m1.4.4.2.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.4.4.2.3.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.3">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.4.4.2.3.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.3.2">𝜃</ci><ci id="S3.E1Xa.2.1.1.m1.4.4.2.3.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.3.3.3">old</ci></apply></apply><apply id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1"><csymbol cd="latexml" id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.1">conditional</csymbol><apply id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.2">𝑜</ci><ci id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.2.3">𝑖</ci></apply><ci id="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.4.4.2.1.1.1.3">𝑞</ci></apply></apply></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1"><minus id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.1"></minus><cn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.2.cmml" type="integer" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.2">1</cn><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.1.1.1.3">𝜀</ci></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2"><plus id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.1"></plus><cn id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.2.cmml" type="integer" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.2">1</cn><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.2.2.2.3">𝜀</ci></apply></vector><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.2">𝐴</ci><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.2.2.2.2.2.2.5.3">𝑖</ci></apply></apply></apply></apply></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3"><times id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.2"></times><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.3">𝛽</ci><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.2">𝐷</ci><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.4.3">KL</ci></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1"><csymbol cd="latexml" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.1">conditional</csymbol><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.2">𝜋</ci><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.2.3">𝜃</ci></apply><apply id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3"><csymbol cd="ambiguous" id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.1.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3">subscript</csymbol><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.2.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.2">𝜋</ci><ci id="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.3.cmml" xref="S3.E1Xa.2.1.1.m1.6.6.1.1.1.1.3.1.1.1.3.3">ref</ci></apply></apply></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.E1Xa.2.1.1.m1.6c">\displaystyle\Biggl{[}\frac{1}{G}\sum_{i=1}^{G}\min\!\Bigl{(}\frac{\pi_{\theta%
+}(o_{i}\mid q)}{\pi_{\theta_{\mathrm{old}}}(o_{i}\mid q)}\,A_{i},\,\mathrm{%
+clip}\!\Bigl{(}\frac{\pi_{\theta}(o_{i}\mid q)}{\pi_{\theta_{\mathrm{old}}}(o_%
+{i}\mid q)},1-\varepsilon,\,1+\varepsilon\Bigr{)}A_{i}\Bigr{)}-\,\beta\,D_{%
+\mathrm{KL}}\bigl{(}\pi_{\theta}\,\big{\|}\,\pi_{\mathrm{ref}}\bigr{)}\Biggr{]},</annotation><annotation encoding="application/x-llamapun" id="S3.E1Xa.2.1.1.m1.6d">[ divide start_ARG 1 end_ARG start_ARG italic_G end_ARG ∑ start_POSTSUBSCRIPT italic_i = 1 end_POSTSUBSCRIPT start_POSTSUPERSCRIPT italic_G end_POSTSUPERSCRIPT roman_min ( divide start_ARG italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG start_ARG italic_π start_POSTSUBSCRIPT italic_θ start_POSTSUBSCRIPT roman_old end_POSTSUBSCRIPT end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG italic_A start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT , roman_clip ( divide start_ARG italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG start_ARG italic_π start_POSTSUBSCRIPT italic_θ start_POSTSUBSCRIPT roman_old end_POSTSUBSCRIPT end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG , 1 - italic_ε , 1 + italic_ε ) italic_A start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ) - italic_β italic_D start_POSTSUBSCRIPT roman_KL end_POSTSUBSCRIPT ( italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ∥ italic_π start_POSTSUBSCRIPT roman_ref end_POSTSUBSCRIPT ) ] ,</annotation></semantics></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr>
+</tbody>
+</table>
+<p class="ltx_p" id="S3.SS2.p1.9">where <math alttext="\varepsilon" class="ltx_Math" display="inline" id="S3.SS2.p1.5.m1.1"><semantics id="S3.SS2.p1.5.m1.1a"><mi id="S3.SS2.p1.5.m1.1.1" xref="S3.SS2.p1.5.m1.1.1.cmml">ε</mi><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.5.m1.1b"><ci id="S3.SS2.p1.5.m1.1.1.cmml" xref="S3.SS2.p1.5.m1.1.1">𝜀</ci></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.5.m1.1c">\varepsilon</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.5.m1.1d">italic_ε</annotation></semantics></math> and <math alttext="\beta" class="ltx_Math" display="inline" id="S3.SS2.p1.6.m2.1"><semantics id="S3.SS2.p1.6.m2.1a"><mi id="S3.SS2.p1.6.m2.1.1" xref="S3.SS2.p1.6.m2.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.6.m2.1b"><ci id="S3.SS2.p1.6.m2.1.1.cmml" xref="S3.SS2.p1.6.m2.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.6.m2.1c">\beta</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.6.m2.1d">italic_β</annotation></semantics></math> are the clipping hyper-parameter and the coefficient controlling the Kullback–Leibler (KL) penalty, respectively, and <math alttext="A_{i}=\frac{r_{i}-\operatorname{mean}(\{r_{1},r_{2},\dots,r_{G}\})}{%
+\operatorname{std}(\{r_{1},r_{2},\dots,r_{G}\})}" class="ltx_Math" display="inline" id="S3.SS2.p1.7.m3.6"><semantics id="S3.SS2.p1.7.m3.6a"><mrow id="S3.SS2.p1.7.m3.6.7" xref="S3.SS2.p1.7.m3.6.7.cmml"><msub id="S3.SS2.p1.7.m3.6.7.2" xref="S3.SS2.p1.7.m3.6.7.2.cmml"><mi id="S3.SS2.p1.7.m3.6.7.2.2" xref="S3.SS2.p1.7.m3.6.7.2.2.cmml">A</mi><mi id="S3.SS2.p1.7.m3.6.7.2.3" xref="S3.SS2.p1.7.m3.6.7.2.3.cmml">i</mi></msub><mo id="S3.SS2.p1.7.m3.6.7.1" xref="S3.SS2.p1.7.m3.6.7.1.cmml">=</mo><mfrac id="S3.SS2.p1.7.m3.6.6" xref="S3.SS2.p1.7.m3.6.6.cmml"><mrow id="S3.SS2.p1.7.m3.3.3.3" xref="S3.SS2.p1.7.m3.3.3.3.cmml"><msub id="S3.SS2.p1.7.m3.3.3.3.5" xref="S3.SS2.p1.7.m3.3.3.3.5.cmml"><mi id="S3.SS2.p1.7.m3.3.3.3.5.2" xref="S3.SS2.p1.7.m3.3.3.3.5.2.cmml">r</mi><mi id="S3.SS2.p1.7.m3.3.3.3.5.3" xref="S3.SS2.p1.7.m3.3.3.3.5.3.cmml">i</mi></msub><mo id="S3.SS2.p1.7.m3.3.3.3.4" xref="S3.SS2.p1.7.m3.3.3.3.4.cmml">−</mo><mrow id="S3.SS2.p1.7.m3.3.3.3.3.1" xref="S3.SS2.p1.7.m3.3.3.3.3.2.cmml"><mi id="S3.SS2.p1.7.m3.2.2.2.2" xref="S3.SS2.p1.7.m3.2.2.2.2.cmml">mean</mi><mo id="S3.SS2.p1.7.m3.3.3.3.3.1a" xref="S3.SS2.p1.7.m3.3.3.3.3.2.cmml">⁡</mo><mrow id="S3.SS2.p1.7.m3.3.3.3.3.1.1" xref="S3.SS2.p1.7.m3.3.3.3.3.2.cmml"><mo id="S3.SS2.p1.7.m3.3.3.3.3.1.1.2" stretchy="false" xref="S3.SS2.p1.7.m3.3.3.3.3.2.cmml">(</mo><mrow id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.4.cmml"><mo id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.4" stretchy="false" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.4.cmml">{</mo><msub id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.cmml"><mi id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.2" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.2.cmml">r</mi><mn id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.3" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.3.cmml">1</mn></msub><mo id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.5" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.4.cmml">,</mo><msub id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.cmml"><mi id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.2" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.2.cmml">r</mi><mn id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.3" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.3.cmml">2</mn></msub><mo id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.6" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.4.cmml">,</mo><mi id="S3.SS2.p1.7.m3.1.1.1.1" mathvariant="normal" xref="S3.SS2.p1.7.m3.1.1.1.1.cmml">…</mi><mo id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.7" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.4.cmml">,</mo><msub id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.cmml"><mi id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.2" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.2.cmml">r</mi><mi id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.3" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.3.cmml">G</mi></msub><mo id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.8" stretchy="false" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.4.cmml">}</mo></mrow><mo id="S3.SS2.p1.7.m3.3.3.3.3.1.1.3" stretchy="false" xref="S3.SS2.p1.7.m3.3.3.3.3.2.cmml">)</mo></mrow></mrow></mrow><mrow id="S3.SS2.p1.7.m3.6.6.6.3" xref="S3.SS2.p1.7.m3.6.6.6.4.cmml"><mi id="S3.SS2.p1.7.m3.5.5.5.2" xref="S3.SS2.p1.7.m3.5.5.5.2.cmml">std</mi><mo id="S3.SS2.p1.7.m3.6.6.6.3a" xref="S3.SS2.p1.7.m3.6.6.6.4.cmml">⁡</mo><mrow id="S3.SS2.p1.7.m3.6.6.6.3.1" xref="S3.SS2.p1.7.m3.6.6.6.4.cmml"><mo id="S3.SS2.p1.7.m3.6.6.6.3.1.2" stretchy="false" xref="S3.SS2.p1.7.m3.6.6.6.4.cmml">(</mo><mrow id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.4.cmml"><mo id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.4" stretchy="false" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.4.cmml">{</mo><msub id="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.cmml"><mi id="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.2" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.2.cmml">r</mi><mn id="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.3" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.3.cmml">1</mn></msub><mo id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.5" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.4.cmml">,</mo><msub id="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.cmml"><mi id="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.2" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.2.cmml">r</mi><mn id="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.3" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.3.cmml">2</mn></msub><mo id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.6" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.4.cmml">,</mo><mi id="S3.SS2.p1.7.m3.4.4.4.1" mathvariant="normal" xref="S3.SS2.p1.7.m3.4.4.4.1.cmml">…</mi><mo id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.7" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.4.cmml">,</mo><msub id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.cmml"><mi id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.2" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.2.cmml">r</mi><mi id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.3" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.3.cmml">G</mi></msub><mo id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.8" stretchy="false" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.4.cmml">}</mo></mrow><mo id="S3.SS2.p1.7.m3.6.6.6.3.1.3" stretchy="false" xref="S3.SS2.p1.7.m3.6.6.6.4.cmml">)</mo></mrow></mrow></mfrac></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.7.m3.6b"><apply id="S3.SS2.p1.7.m3.6.7.cmml" xref="S3.SS2.p1.7.m3.6.7"><eq id="S3.SS2.p1.7.m3.6.7.1.cmml" xref="S3.SS2.p1.7.m3.6.7.1"></eq><apply id="S3.SS2.p1.7.m3.6.7.2.cmml" xref="S3.SS2.p1.7.m3.6.7.2"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.6.7.2.1.cmml" xref="S3.SS2.p1.7.m3.6.7.2">subscript</csymbol><ci id="S3.SS2.p1.7.m3.6.7.2.2.cmml" xref="S3.SS2.p1.7.m3.6.7.2.2">𝐴</ci><ci id="S3.SS2.p1.7.m3.6.7.2.3.cmml" xref="S3.SS2.p1.7.m3.6.7.2.3">𝑖</ci></apply><apply id="S3.SS2.p1.7.m3.6.6.cmml" xref="S3.SS2.p1.7.m3.6.6"><divide id="S3.SS2.p1.7.m3.6.6.7.cmml" xref="S3.SS2.p1.7.m3.6.6"></divide><apply id="S3.SS2.p1.7.m3.3.3.3.cmml" xref="S3.SS2.p1.7.m3.3.3.3"><minus id="S3.SS2.p1.7.m3.3.3.3.4.cmml" xref="S3.SS2.p1.7.m3.3.3.3.4"></minus><apply id="S3.SS2.p1.7.m3.3.3.3.5.cmml" xref="S3.SS2.p1.7.m3.3.3.3.5"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.3.3.3.5.1.cmml" xref="S3.SS2.p1.7.m3.3.3.3.5">subscript</csymbol><ci id="S3.SS2.p1.7.m3.3.3.3.5.2.cmml" xref="S3.SS2.p1.7.m3.3.3.3.5.2">𝑟</ci><ci id="S3.SS2.p1.7.m3.3.3.3.5.3.cmml" xref="S3.SS2.p1.7.m3.3.3.3.5.3">𝑖</ci></apply><apply id="S3.SS2.p1.7.m3.3.3.3.3.2.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1"><ci id="S3.SS2.p1.7.m3.2.2.2.2.cmml" xref="S3.SS2.p1.7.m3.2.2.2.2">mean</ci><set id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.4.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3"><apply id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.1.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1">subscript</csymbol><ci id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.2.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.2">𝑟</ci><cn id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.3.cmml" type="integer" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.1.1.3">1</cn></apply><apply id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.1.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2">subscript</csymbol><ci id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.2.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.2">𝑟</ci><cn id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.3.cmml" type="integer" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.2.2.3">2</cn></apply><ci id="S3.SS2.p1.7.m3.1.1.1.1.cmml" xref="S3.SS2.p1.7.m3.1.1.1.1">…</ci><apply id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.1.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3">subscript</csymbol><ci id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.2.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.2">𝑟</ci><ci id="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.3.cmml" xref="S3.SS2.p1.7.m3.3.3.3.3.1.1.1.3.3.3">𝐺</ci></apply></set></apply></apply><apply id="S3.SS2.p1.7.m3.6.6.6.4.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3"><ci id="S3.SS2.p1.7.m3.5.5.5.2.cmml" xref="S3.SS2.p1.7.m3.5.5.5.2">std</ci><set id="S3.SS2.p1.7.m3.6.6.6.3.1.1.4.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3"><apply id="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.1.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1">subscript</csymbol><ci id="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.2.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.2">𝑟</ci><cn id="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.3.cmml" type="integer" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.1.1.3">1</cn></apply><apply id="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.1.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2">subscript</csymbol><ci id="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.2.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.2">𝑟</ci><cn id="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.3.cmml" type="integer" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.2.2.3">2</cn></apply><ci id="S3.SS2.p1.7.m3.4.4.4.1.cmml" xref="S3.SS2.p1.7.m3.4.4.4.1">…</ci><apply id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3"><csymbol cd="ambiguous" id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.1.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3">subscript</csymbol><ci id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.2.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.2">𝑟</ci><ci id="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.3.cmml" xref="S3.SS2.p1.7.m3.6.6.6.3.1.1.3.3.3">𝐺</ci></apply></set></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.7.m3.6c">A_{i}=\frac{r_{i}-\operatorname{mean}(\{r_{1},r_{2},\dots,r_{G}\})}{%
+\operatorname{std}(\{r_{1},r_{2},\dots,r_{G}\})}</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.7.m3.6d">italic_A start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT = divide start_ARG italic_r start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT - roman_mean ( { italic_r start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT , italic_r start_POSTSUBSCRIPT 2 end_POSTSUBSCRIPT , … , italic_r start_POSTSUBSCRIPT italic_G end_POSTSUBSCRIPT } ) end_ARG start_ARG roman_std ( { italic_r start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT , italic_r start_POSTSUBSCRIPT 2 end_POSTSUBSCRIPT , … , italic_r start_POSTSUBSCRIPT italic_G end_POSTSUBSCRIPT } ) end_ARG</annotation></semantics></math> is the computed advantage using the group rewards <math alttext="\{r_{1},r_{2},\cdots,r_{G}\}" class="ltx_Math" display="inline" id="S3.SS2.p1.8.m4.4"><semantics id="S3.SS2.p1.8.m4.4a"><mrow id="S3.SS2.p1.8.m4.4.4.3" xref="S3.SS2.p1.8.m4.4.4.4.cmml"><mo id="S3.SS2.p1.8.m4.4.4.3.4" stretchy="false" xref="S3.SS2.p1.8.m4.4.4.4.cmml">{</mo><msub id="S3.SS2.p1.8.m4.2.2.1.1" xref="S3.SS2.p1.8.m4.2.2.1.1.cmml"><mi id="S3.SS2.p1.8.m4.2.2.1.1.2" xref="S3.SS2.p1.8.m4.2.2.1.1.2.cmml">r</mi><mn id="S3.SS2.p1.8.m4.2.2.1.1.3" xref="S3.SS2.p1.8.m4.2.2.1.1.3.cmml">1</mn></msub><mo id="S3.SS2.p1.8.m4.4.4.3.5" xref="S3.SS2.p1.8.m4.4.4.4.cmml">,</mo><msub id="S3.SS2.p1.8.m4.3.3.2.2" xref="S3.SS2.p1.8.m4.3.3.2.2.cmml"><mi id="S3.SS2.p1.8.m4.3.3.2.2.2" xref="S3.SS2.p1.8.m4.3.3.2.2.2.cmml">r</mi><mn id="S3.SS2.p1.8.m4.3.3.2.2.3" xref="S3.SS2.p1.8.m4.3.3.2.2.3.cmml">2</mn></msub><mo id="S3.SS2.p1.8.m4.4.4.3.6" xref="S3.SS2.p1.8.m4.4.4.4.cmml">,</mo><mi id="S3.SS2.p1.8.m4.1.1" mathvariant="normal" xref="S3.SS2.p1.8.m4.1.1.cmml">⋯</mi><mo id="S3.SS2.p1.8.m4.4.4.3.7" xref="S3.SS2.p1.8.m4.4.4.4.cmml">,</mo><msub id="S3.SS2.p1.8.m4.4.4.3.3" xref="S3.SS2.p1.8.m4.4.4.3.3.cmml"><mi id="S3.SS2.p1.8.m4.4.4.3.3.2" xref="S3.SS2.p1.8.m4.4.4.3.3.2.cmml">r</mi><mi id="S3.SS2.p1.8.m4.4.4.3.3.3" xref="S3.SS2.p1.8.m4.4.4.3.3.3.cmml">G</mi></msub><mo id="S3.SS2.p1.8.m4.4.4.3.8" stretchy="false" xref="S3.SS2.p1.8.m4.4.4.4.cmml">}</mo></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.8.m4.4b"><set id="S3.SS2.p1.8.m4.4.4.4.cmml" xref="S3.SS2.p1.8.m4.4.4.3"><apply id="S3.SS2.p1.8.m4.2.2.1.1.cmml" xref="S3.SS2.p1.8.m4.2.2.1.1"><csymbol cd="ambiguous" id="S3.SS2.p1.8.m4.2.2.1.1.1.cmml" xref="S3.SS2.p1.8.m4.2.2.1.1">subscript</csymbol><ci id="S3.SS2.p1.8.m4.2.2.1.1.2.cmml" xref="S3.SS2.p1.8.m4.2.2.1.1.2">𝑟</ci><cn id="S3.SS2.p1.8.m4.2.2.1.1.3.cmml" type="integer" xref="S3.SS2.p1.8.m4.2.2.1.1.3">1</cn></apply><apply id="S3.SS2.p1.8.m4.3.3.2.2.cmml" xref="S3.SS2.p1.8.m4.3.3.2.2"><csymbol cd="ambiguous" id="S3.SS2.p1.8.m4.3.3.2.2.1.cmml" xref="S3.SS2.p1.8.m4.3.3.2.2">subscript</csymbol><ci id="S3.SS2.p1.8.m4.3.3.2.2.2.cmml" xref="S3.SS2.p1.8.m4.3.3.2.2.2">𝑟</ci><cn id="S3.SS2.p1.8.m4.3.3.2.2.3.cmml" type="integer" xref="S3.SS2.p1.8.m4.3.3.2.2.3">2</cn></apply><ci id="S3.SS2.p1.8.m4.1.1.cmml" xref="S3.SS2.p1.8.m4.1.1">⋯</ci><apply id="S3.SS2.p1.8.m4.4.4.3.3.cmml" xref="S3.SS2.p1.8.m4.4.4.3.3"><csymbol cd="ambiguous" id="S3.SS2.p1.8.m4.4.4.3.3.1.cmml" xref="S3.SS2.p1.8.m4.4.4.3.3">subscript</csymbol><ci id="S3.SS2.p1.8.m4.4.4.3.3.2.cmml" xref="S3.SS2.p1.8.m4.4.4.3.3.2">𝑟</ci><ci id="S3.SS2.p1.8.m4.4.4.3.3.3.cmml" xref="S3.SS2.p1.8.m4.4.4.3.3.3">𝐺</ci></apply></set></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.8.m4.4c">\{r_{1},r_{2},\cdots,r_{G}\}</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.8.m4.4d">{ italic_r start_POSTSUBSCRIPT 1 end_POSTSUBSCRIPT , italic_r start_POSTSUBSCRIPT 2 end_POSTSUBSCRIPT , ⋯ , italic_r start_POSTSUBSCRIPT italic_G end_POSTSUBSCRIPT }</annotation></semantics></math>.
+<math alttext="D_{KL}\bigl{(}\pi_{\theta}\,\|\,\pi_{\text{ref}}\bigr{)}=\frac{\pi_{\text{ref}%
+}(o_{i}\mid q)}{\pi_{\theta}(o_{i}\mid q)}-\log\!\Bigl{(}\frac{\pi_{\text{ref}%
+}(o_{i}\mid q)}{\pi_{\theta}(o_{i}\mid q)}\Bigr{)}-1\," class="ltx_Math" display="inline" id="S3.SS2.p1.9.m5.6"><semantics id="S3.SS2.p1.9.m5.6a"><mrow id="S3.SS2.p1.9.m5.6.6" xref="S3.SS2.p1.9.m5.6.6.cmml"><mrow id="S3.SS2.p1.9.m5.6.6.1" xref="S3.SS2.p1.9.m5.6.6.1.cmml"><msub id="S3.SS2.p1.9.m5.6.6.1.3" xref="S3.SS2.p1.9.m5.6.6.1.3.cmml"><mi id="S3.SS2.p1.9.m5.6.6.1.3.2" xref="S3.SS2.p1.9.m5.6.6.1.3.2.cmml">D</mi><mrow id="S3.SS2.p1.9.m5.6.6.1.3.3" xref="S3.SS2.p1.9.m5.6.6.1.3.3.cmml"><mi id="S3.SS2.p1.9.m5.6.6.1.3.3.2" xref="S3.SS2.p1.9.m5.6.6.1.3.3.2.cmml">K</mi><mo id="S3.SS2.p1.9.m5.6.6.1.3.3.1" xref="S3.SS2.p1.9.m5.6.6.1.3.3.1.cmml">⁢</mo><mi id="S3.SS2.p1.9.m5.6.6.1.3.3.3" xref="S3.SS2.p1.9.m5.6.6.1.3.3.3.cmml">L</mi></mrow></msub><mo id="S3.SS2.p1.9.m5.6.6.1.2" xref="S3.SS2.p1.9.m5.6.6.1.2.cmml">⁢</mo><mrow id="S3.SS2.p1.9.m5.6.6.1.1.1" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.cmml"><mo id="S3.SS2.p1.9.m5.6.6.1.1.1.2" maxsize="120%" minsize="120%" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.cmml">(</mo><mrow id="S3.SS2.p1.9.m5.6.6.1.1.1.1" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.cmml"><msub id="S3.SS2.p1.9.m5.6.6.1.1.1.1.2" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.cmml"><mi id="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.2" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.2.cmml">π</mi><mi id="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.3" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.3.cmml">θ</mi></msub><mo id="S3.SS2.p1.9.m5.6.6.1.1.1.1.1" rspace="0.448em" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.1.cmml">∥</mo><msub id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.cmml"><mi id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.2" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.2.cmml">π</mi><mtext id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.3" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.3a.cmml">ref</mtext></msub></mrow><mo id="S3.SS2.p1.9.m5.6.6.1.1.1.3" maxsize="120%" minsize="120%" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.cmml">)</mo></mrow></mrow><mo id="S3.SS2.p1.9.m5.6.6.2" xref="S3.SS2.p1.9.m5.6.6.2.cmml">=</mo><mrow id="S3.SS2.p1.9.m5.6.6.3" xref="S3.SS2.p1.9.m5.6.6.3.cmml"><mfrac id="S3.SS2.p1.9.m5.2.2" xref="S3.SS2.p1.9.m5.2.2.cmml"><mrow id="S3.SS2.p1.9.m5.1.1.1" xref="S3.SS2.p1.9.m5.1.1.1.cmml"><msub id="S3.SS2.p1.9.m5.1.1.1.3" xref="S3.SS2.p1.9.m5.1.1.1.3.cmml"><mi id="S3.SS2.p1.9.m5.1.1.1.3.2" xref="S3.SS2.p1.9.m5.1.1.1.3.2.cmml">π</mi><mtext id="S3.SS2.p1.9.m5.1.1.1.3.3" xref="S3.SS2.p1.9.m5.1.1.1.3.3a.cmml">ref</mtext></msub><mo id="S3.SS2.p1.9.m5.1.1.1.2" xref="S3.SS2.p1.9.m5.1.1.1.2.cmml">⁢</mo><mrow id="S3.SS2.p1.9.m5.1.1.1.1.1" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.cmml"><mo id="S3.SS2.p1.9.m5.1.1.1.1.1.2" stretchy="false" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.cmml">(</mo><mrow id="S3.SS2.p1.9.m5.1.1.1.1.1.1" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.cmml"><msub id="S3.SS2.p1.9.m5.1.1.1.1.1.1.2" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.cmml"><mi id="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.2" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.2.cmml">o</mi><mi id="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.3" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.SS2.p1.9.m5.1.1.1.1.1.1.1" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.1.cmml">∣</mo><mi id="S3.SS2.p1.9.m5.1.1.1.1.1.1.3" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.3.cmml">q</mi></mrow><mo id="S3.SS2.p1.9.m5.1.1.1.1.1.3" stretchy="false" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.cmml">)</mo></mrow></mrow><mrow id="S3.SS2.p1.9.m5.2.2.2" xref="S3.SS2.p1.9.m5.2.2.2.cmml"><msub id="S3.SS2.p1.9.m5.2.2.2.3" xref="S3.SS2.p1.9.m5.2.2.2.3.cmml"><mi id="S3.SS2.p1.9.m5.2.2.2.3.2" xref="S3.SS2.p1.9.m5.2.2.2.3.2.cmml">π</mi><mi id="S3.SS2.p1.9.m5.2.2.2.3.3" xref="S3.SS2.p1.9.m5.2.2.2.3.3.cmml">θ</mi></msub><mo id="S3.SS2.p1.9.m5.2.2.2.2" xref="S3.SS2.p1.9.m5.2.2.2.2.cmml">⁢</mo><mrow id="S3.SS2.p1.9.m5.2.2.2.1.1" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.cmml"><mo id="S3.SS2.p1.9.m5.2.2.2.1.1.2" stretchy="false" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.cmml">(</mo><mrow id="S3.SS2.p1.9.m5.2.2.2.1.1.1" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.cmml"><msub id="S3.SS2.p1.9.m5.2.2.2.1.1.1.2" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.cmml"><mi id="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.2" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.2.cmml">o</mi><mi id="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.3" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.SS2.p1.9.m5.2.2.2.1.1.1.1" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.1.cmml">∣</mo><mi id="S3.SS2.p1.9.m5.2.2.2.1.1.1.3" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.3.cmml">q</mi></mrow><mo id="S3.SS2.p1.9.m5.2.2.2.1.1.3" stretchy="false" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.cmml">)</mo></mrow></mrow></mfrac><mo id="S3.SS2.p1.9.m5.6.6.3.1" xref="S3.SS2.p1.9.m5.6.6.3.1.cmml">−</mo><mrow id="S3.SS2.p1.9.m5.6.6.3.2.2" xref="S3.SS2.p1.9.m5.6.6.3.2.1.cmml"><mpadded width="1.146em"><mi id="S3.SS2.p1.9.m5.5.5" xref="S3.SS2.p1.9.m5.5.5.cmml">log</mi></mpadded><mo id="S3.SS2.p1.9.m5.6.6.3.2.2a" xref="S3.SS2.p1.9.m5.6.6.3.2.1.cmml">⁡</mo><mrow id="S3.SS2.p1.9.m5.6.6.3.2.2.1" xref="S3.SS2.p1.9.m5.6.6.3.2.1.cmml"><mo id="S3.SS2.p1.9.m5.6.6.3.2.2.1.1" maxsize="160%" minsize="160%" xref="S3.SS2.p1.9.m5.6.6.3.2.1.cmml">(</mo><mfrac id="S3.SS2.p1.9.m5.4.4" xref="S3.SS2.p1.9.m5.4.4.cmml"><mrow id="S3.SS2.p1.9.m5.3.3.1" xref="S3.SS2.p1.9.m5.3.3.1.cmml"><msub id="S3.SS2.p1.9.m5.3.3.1.3" xref="S3.SS2.p1.9.m5.3.3.1.3.cmml"><mi id="S3.SS2.p1.9.m5.3.3.1.3.2" xref="S3.SS2.p1.9.m5.3.3.1.3.2.cmml">π</mi><mtext id="S3.SS2.p1.9.m5.3.3.1.3.3" xref="S3.SS2.p1.9.m5.3.3.1.3.3a.cmml">ref</mtext></msub><mo id="S3.SS2.p1.9.m5.3.3.1.2" xref="S3.SS2.p1.9.m5.3.3.1.2.cmml">⁢</mo><mrow id="S3.SS2.p1.9.m5.3.3.1.1.1" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.cmml"><mo id="S3.SS2.p1.9.m5.3.3.1.1.1.2" stretchy="false" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.cmml">(</mo><mrow id="S3.SS2.p1.9.m5.3.3.1.1.1.1" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.cmml"><msub id="S3.SS2.p1.9.m5.3.3.1.1.1.1.2" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.cmml"><mi id="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.2" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.2.cmml">o</mi><mi id="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.3" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.SS2.p1.9.m5.3.3.1.1.1.1.1" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.1.cmml">∣</mo><mi id="S3.SS2.p1.9.m5.3.3.1.1.1.1.3" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.3.cmml">q</mi></mrow><mo id="S3.SS2.p1.9.m5.3.3.1.1.1.3" stretchy="false" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.cmml">)</mo></mrow></mrow><mrow id="S3.SS2.p1.9.m5.4.4.2" xref="S3.SS2.p1.9.m5.4.4.2.cmml"><msub id="S3.SS2.p1.9.m5.4.4.2.3" xref="S3.SS2.p1.9.m5.4.4.2.3.cmml"><mi id="S3.SS2.p1.9.m5.4.4.2.3.2" xref="S3.SS2.p1.9.m5.4.4.2.3.2.cmml">π</mi><mi id="S3.SS2.p1.9.m5.4.4.2.3.3" xref="S3.SS2.p1.9.m5.4.4.2.3.3.cmml">θ</mi></msub><mo id="S3.SS2.p1.9.m5.4.4.2.2" xref="S3.SS2.p1.9.m5.4.4.2.2.cmml">⁢</mo><mrow id="S3.SS2.p1.9.m5.4.4.2.1.1" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.cmml"><mo id="S3.SS2.p1.9.m5.4.4.2.1.1.2" stretchy="false" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.cmml">(</mo><mrow id="S3.SS2.p1.9.m5.4.4.2.1.1.1" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.cmml"><msub id="S3.SS2.p1.9.m5.4.4.2.1.1.1.2" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.cmml"><mi id="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.2" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.2.cmml">o</mi><mi id="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.3" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.3.cmml">i</mi></msub><mo id="S3.SS2.p1.9.m5.4.4.2.1.1.1.1" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.1.cmml">∣</mo><mi id="S3.SS2.p1.9.m5.4.4.2.1.1.1.3" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.3.cmml">q</mi></mrow><mo id="S3.SS2.p1.9.m5.4.4.2.1.1.3" stretchy="false" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.cmml">)</mo></mrow></mrow></mfrac><mo id="S3.SS2.p1.9.m5.6.6.3.2.2.1.2" maxsize="160%" minsize="160%" xref="S3.SS2.p1.9.m5.6.6.3.2.1.cmml">)</mo></mrow></mrow><mo id="S3.SS2.p1.9.m5.6.6.3.1a" xref="S3.SS2.p1.9.m5.6.6.3.1.cmml">−</mo><mn id="S3.SS2.p1.9.m5.6.6.3.3" xref="S3.SS2.p1.9.m5.6.6.3.3.cmml">1</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p1.9.m5.6b"><apply id="S3.SS2.p1.9.m5.6.6.cmml" xref="S3.SS2.p1.9.m5.6.6"><eq id="S3.SS2.p1.9.m5.6.6.2.cmml" xref="S3.SS2.p1.9.m5.6.6.2"></eq><apply id="S3.SS2.p1.9.m5.6.6.1.cmml" xref="S3.SS2.p1.9.m5.6.6.1"><times id="S3.SS2.p1.9.m5.6.6.1.2.cmml" xref="S3.SS2.p1.9.m5.6.6.1.2"></times><apply id="S3.SS2.p1.9.m5.6.6.1.3.cmml" xref="S3.SS2.p1.9.m5.6.6.1.3"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.6.6.1.3.1.cmml" xref="S3.SS2.p1.9.m5.6.6.1.3">subscript</csymbol><ci id="S3.SS2.p1.9.m5.6.6.1.3.2.cmml" xref="S3.SS2.p1.9.m5.6.6.1.3.2">𝐷</ci><apply id="S3.SS2.p1.9.m5.6.6.1.3.3.cmml" xref="S3.SS2.p1.9.m5.6.6.1.3.3"><times id="S3.SS2.p1.9.m5.6.6.1.3.3.1.cmml" xref="S3.SS2.p1.9.m5.6.6.1.3.3.1"></times><ci id="S3.SS2.p1.9.m5.6.6.1.3.3.2.cmml" xref="S3.SS2.p1.9.m5.6.6.1.3.3.2">𝐾</ci><ci id="S3.SS2.p1.9.m5.6.6.1.3.3.3.cmml" xref="S3.SS2.p1.9.m5.6.6.1.3.3.3">𝐿</ci></apply></apply><apply id="S3.SS2.p1.9.m5.6.6.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1"><csymbol cd="latexml" id="S3.SS2.p1.9.m5.6.6.1.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.1">conditional</csymbol><apply id="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.1.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.2">subscript</csymbol><ci id="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.2.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.2">𝜋</ci><ci id="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.3.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.2.3">𝜃</ci></apply><apply id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.1.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3">subscript</csymbol><ci id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.2.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.2">𝜋</ci><ci id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.3a.cmml" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.3"><mtext id="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.3.cmml" mathsize="70%" xref="S3.SS2.p1.9.m5.6.6.1.1.1.1.3.3">ref</mtext></ci></apply></apply></apply><apply id="S3.SS2.p1.9.m5.6.6.3.cmml" xref="S3.SS2.p1.9.m5.6.6.3"><minus id="S3.SS2.p1.9.m5.6.6.3.1.cmml" xref="S3.SS2.p1.9.m5.6.6.3.1"></minus><apply id="S3.SS2.p1.9.m5.2.2.cmml" xref="S3.SS2.p1.9.m5.2.2"><divide id="S3.SS2.p1.9.m5.2.2.3.cmml" xref="S3.SS2.p1.9.m5.2.2"></divide><apply id="S3.SS2.p1.9.m5.1.1.1.cmml" xref="S3.SS2.p1.9.m5.1.1.1"><times id="S3.SS2.p1.9.m5.1.1.1.2.cmml" xref="S3.SS2.p1.9.m5.1.1.1.2"></times><apply id="S3.SS2.p1.9.m5.1.1.1.3.cmml" xref="S3.SS2.p1.9.m5.1.1.1.3"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.1.1.1.3.1.cmml" xref="S3.SS2.p1.9.m5.1.1.1.3">subscript</csymbol><ci id="S3.SS2.p1.9.m5.1.1.1.3.2.cmml" xref="S3.SS2.p1.9.m5.1.1.1.3.2">𝜋</ci><ci id="S3.SS2.p1.9.m5.1.1.1.3.3a.cmml" xref="S3.SS2.p1.9.m5.1.1.1.3.3"><mtext id="S3.SS2.p1.9.m5.1.1.1.3.3.cmml" mathsize="50%" xref="S3.SS2.p1.9.m5.1.1.1.3.3">ref</mtext></ci></apply><apply id="S3.SS2.p1.9.m5.1.1.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.1.1.1.1.1"><csymbol cd="latexml" id="S3.SS2.p1.9.m5.1.1.1.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.1">conditional</csymbol><apply id="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.cmml" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.1.cmml" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.2">subscript</csymbol><ci id="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.2.cmml" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.2">𝑜</ci><ci id="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.3.cmml" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.2.3">𝑖</ci></apply><ci id="S3.SS2.p1.9.m5.1.1.1.1.1.1.3.cmml" xref="S3.SS2.p1.9.m5.1.1.1.1.1.1.3">𝑞</ci></apply></apply><apply id="S3.SS2.p1.9.m5.2.2.2.cmml" xref="S3.SS2.p1.9.m5.2.2.2"><times id="S3.SS2.p1.9.m5.2.2.2.2.cmml" xref="S3.SS2.p1.9.m5.2.2.2.2"></times><apply id="S3.SS2.p1.9.m5.2.2.2.3.cmml" xref="S3.SS2.p1.9.m5.2.2.2.3"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.2.2.2.3.1.cmml" xref="S3.SS2.p1.9.m5.2.2.2.3">subscript</csymbol><ci id="S3.SS2.p1.9.m5.2.2.2.3.2.cmml" xref="S3.SS2.p1.9.m5.2.2.2.3.2">𝜋</ci><ci id="S3.SS2.p1.9.m5.2.2.2.3.3.cmml" xref="S3.SS2.p1.9.m5.2.2.2.3.3">𝜃</ci></apply><apply id="S3.SS2.p1.9.m5.2.2.2.1.1.1.cmml" xref="S3.SS2.p1.9.m5.2.2.2.1.1"><csymbol cd="latexml" id="S3.SS2.p1.9.m5.2.2.2.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.1">conditional</csymbol><apply id="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.cmml" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.2"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.1.cmml" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.2">subscript</csymbol><ci id="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.2.cmml" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.2">𝑜</ci><ci id="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.3.cmml" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.2.3">𝑖</ci></apply><ci id="S3.SS2.p1.9.m5.2.2.2.1.1.1.3.cmml" xref="S3.SS2.p1.9.m5.2.2.2.1.1.1.3">𝑞</ci></apply></apply></apply><apply id="S3.SS2.p1.9.m5.6.6.3.2.1.cmml" xref="S3.SS2.p1.9.m5.6.6.3.2.2"><log id="S3.SS2.p1.9.m5.5.5.cmml" xref="S3.SS2.p1.9.m5.5.5"></log><apply id="S3.SS2.p1.9.m5.4.4.cmml" xref="S3.SS2.p1.9.m5.4.4"><divide id="S3.SS2.p1.9.m5.4.4.3.cmml" xref="S3.SS2.p1.9.m5.4.4"></divide><apply id="S3.SS2.p1.9.m5.3.3.1.cmml" xref="S3.SS2.p1.9.m5.3.3.1"><times id="S3.SS2.p1.9.m5.3.3.1.2.cmml" xref="S3.SS2.p1.9.m5.3.3.1.2"></times><apply id="S3.SS2.p1.9.m5.3.3.1.3.cmml" xref="S3.SS2.p1.9.m5.3.3.1.3"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.3.3.1.3.1.cmml" xref="S3.SS2.p1.9.m5.3.3.1.3">subscript</csymbol><ci id="S3.SS2.p1.9.m5.3.3.1.3.2.cmml" xref="S3.SS2.p1.9.m5.3.3.1.3.2">𝜋</ci><ci id="S3.SS2.p1.9.m5.3.3.1.3.3a.cmml" xref="S3.SS2.p1.9.m5.3.3.1.3.3"><mtext id="S3.SS2.p1.9.m5.3.3.1.3.3.cmml" mathsize="50%" xref="S3.SS2.p1.9.m5.3.3.1.3.3">ref</mtext></ci></apply><apply id="S3.SS2.p1.9.m5.3.3.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.3.3.1.1.1"><csymbol cd="latexml" id="S3.SS2.p1.9.m5.3.3.1.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.1">conditional</csymbol><apply id="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.cmml" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.1.cmml" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.2">subscript</csymbol><ci id="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.2.cmml" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.2">𝑜</ci><ci id="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.3.cmml" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.2.3">𝑖</ci></apply><ci id="S3.SS2.p1.9.m5.3.3.1.1.1.1.3.cmml" xref="S3.SS2.p1.9.m5.3.3.1.1.1.1.3">𝑞</ci></apply></apply><apply id="S3.SS2.p1.9.m5.4.4.2.cmml" xref="S3.SS2.p1.9.m5.4.4.2"><times id="S3.SS2.p1.9.m5.4.4.2.2.cmml" xref="S3.SS2.p1.9.m5.4.4.2.2"></times><apply id="S3.SS2.p1.9.m5.4.4.2.3.cmml" xref="S3.SS2.p1.9.m5.4.4.2.3"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.4.4.2.3.1.cmml" xref="S3.SS2.p1.9.m5.4.4.2.3">subscript</csymbol><ci id="S3.SS2.p1.9.m5.4.4.2.3.2.cmml" xref="S3.SS2.p1.9.m5.4.4.2.3.2">𝜋</ci><ci id="S3.SS2.p1.9.m5.4.4.2.3.3.cmml" xref="S3.SS2.p1.9.m5.4.4.2.3.3">𝜃</ci></apply><apply id="S3.SS2.p1.9.m5.4.4.2.1.1.1.cmml" xref="S3.SS2.p1.9.m5.4.4.2.1.1"><csymbol cd="latexml" id="S3.SS2.p1.9.m5.4.4.2.1.1.1.1.cmml" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.1">conditional</csymbol><apply id="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.cmml" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.2"><csymbol cd="ambiguous" id="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.1.cmml" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.2">subscript</csymbol><ci id="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.2.cmml" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.2">𝑜</ci><ci id="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.3.cmml" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.2.3">𝑖</ci></apply><ci id="S3.SS2.p1.9.m5.4.4.2.1.1.1.3.cmml" xref="S3.SS2.p1.9.m5.4.4.2.1.1.1.3">𝑞</ci></apply></apply></apply></apply><cn id="S3.SS2.p1.9.m5.6.6.3.3.cmml" type="integer" xref="S3.SS2.p1.9.m5.6.6.3.3">1</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p1.9.m5.6c">D_{KL}\bigl{(}\pi_{\theta}\,\|\,\pi_{\text{ref}}\bigr{)}=\frac{\pi_{\text{ref}%
+}(o_{i}\mid q)}{\pi_{\theta}(o_{i}\mid q)}-\log\!\Bigl{(}\frac{\pi_{\text{ref}%
+}(o_{i}\mid q)}{\pi_{\theta}(o_{i}\mid q)}\Bigr{)}-1\,</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p1.9.m5.6d">italic_D start_POSTSUBSCRIPT italic_K italic_L end_POSTSUBSCRIPT ( italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ∥ italic_π start_POSTSUBSCRIPT ref end_POSTSUBSCRIPT ) = divide start_ARG italic_π start_POSTSUBSCRIPT ref end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG start_ARG italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG - roman_log ( divide start_ARG italic_π start_POSTSUBSCRIPT ref end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG start_ARG italic_π start_POSTSUBSCRIPT italic_θ end_POSTSUBSCRIPT ( italic_o start_POSTSUBSCRIPT italic_i end_POSTSUBSCRIPT ∣ italic_q ) end_ARG ) - 1</annotation></semantics></math> is the KL divergence.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS2.p2">
+<p class="ltx_p" id="S3.SS2.p2.1">The reward <math alttext="r" class="ltx_Math" display="inline" id="S3.SS2.p2.1.m1.1"><semantics id="S3.SS2.p2.1.m1.1a"><mi id="S3.SS2.p2.1.m1.1.1" xref="S3.SS2.p2.1.m1.1.1.cmml">r</mi><annotation-xml encoding="MathML-Content" id="S3.SS2.p2.1.m1.1b"><ci id="S3.SS2.p2.1.m1.1.1.cmml" xref="S3.SS2.p2.1.m1.1.1">𝑟</ci></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p2.1.m1.1c">r</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p2.1.m1.1d">italic_r</annotation></semantics></math> guides the direction of the training process and is crucial.
+We adhere to <cite class="ltx_cite ltx_citemacro_citep">(Chen et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib1" title="">2025</a>; Meng et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib11" title="">2025</a>)</cite> of using format rewards and accuracy rewards, but with necessary modifications.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS2.p3">
+<p class="ltx_p" id="S3.SS2.p3.1"><span class="ltx_text ltx_font_bold" id="S3.SS2.p3.1.1">Format Reward.</span>
+Although the CoT prompts are useless for the small-sized Qwen2-VL-2B in inference time, we still wonder if training with them is beneficial for GRPO.
+As a result, following recent progress in the community, we consider three training prompts for GRPO:</p>
+<ul class="ltx_itemize" id="S3.I1">
+<li class="ltx_item" id="S3.I1.i1" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S3.I1.i1.p1">
+<p class="ltx_p" id="S3.I1.i1.p1.1"><span class="ltx_text" id="S3.I1.i1.p1.1.1" style="color:#FF0000;">Think-mode</span>: <span class="ltx_text ltx_font_typewriter" id="S3.I1.i1.p1.1.2">Please think step by step and enclose your thinking process in &lt;think&gt; &lt;/think&gt; tags and then provide the short answer with one or two words or a number in &lt;answer&gt; &lt;/answer&gt;.</span></p>
+</div>
+</li>
+<li class="ltx_item" id="S3.I1.i2" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para" id="S3.I1.i2.p1">
+<p class="ltx_p" id="S3.I1.i2.p1.1"><span class="ltx_text" id="S3.I1.i2.p1.1.1" style="color:#00FF00;">Observe-mode</span>: <span class="ltx_text ltx_font_typewriter" id="S3.I1.i2.p1.1.2">Please observe carefully and analyze what you see that helps you to solve the question in the video and enclose it in &lt;observe&gt; &lt;/observe&gt; tag, and then provide the short answer with one or two words or a number in &lt;answer&gt; &lt;/answer&gt;.</span></p>
+</div>
+</li>
+<li class="ltx_item" id="S3.I1.i3" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span>
+<div class="ltx_para ltx_noindent" id="S3.I1.i3.p1">
+<p class="ltx_p" id="S3.I1.i3.p1.1"><span class="ltx_text" id="S3.I1.i3.p1.1.1" style="color:#0000FF;">Vanilla-mode</span>: <span class="ltx_text ltx_font_typewriter" id="S3.I1.i3.p1.1.2">Please provide the short answer with one or two words or a number.</span></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS2.p4">
+<p class="ltx_p" id="S3.SS2.p4.1">The format reward quantifies how the responses follow the specified format.
+It returns a score of 1 or 0.
+Note that such a reward is omitted for the <span class="ltx_text" id="S3.SS2.p4.1.1" style="color:#0000FF;">vanilla-mode</span>.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS2.p5">
+<p class="ltx_p" id="S3.SS2.p5.1"><span class="ltx_text ltx_font_bold" id="S3.SS2.p5.1.1">Accuracy Reward.</span>
+In the case of non-NA tasks, we employ a character matching method to assess accuracy, awarding a score of 1 for a match and 0 for a mismatch.
+For NA tasks, we develop a function that computes the absolute difference between the true value and the predicted one and divides the result by the minimum of the two values.</p>
+</div>
+<figure class="ltx_table" id="S3.T2">
+<table class="ltx_tabular ltx_centering ltx_guessed_headers ltx_align_middle" id="S3.T2.1">
+<tbody class="ltx_tbody">
+<tr class="ltx_tr" id="S3.T2.1.1.1">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_tt" id="S3.T2.1.1.1.1" style="padding:0.5pt 4.3pt;">Methods</th>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.2" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.2.1">
+<span class="ltx_p" id="S3.T2.1.1.1.2.1.1">Eval.</span>
+<span class="ltx_p" id="S3.T2.1.1.1.2.1.2">Mode</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.3" style="padding:0.5pt 4.3pt;">Avg</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.4" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.4.1">
+<span class="ltx_p" id="S3.T2.1.1.1.4.1.1">Obj.</span>
+<span class="ltx_p" id="S3.T2.1.1.1.4.1.2">Count</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.5" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.5.1">
+<span class="ltx_p" id="S3.T2.1.1.1.5.1.1">Abs.</span>
+<span class="ltx_p" id="S3.T2.1.1.1.5.1.2">Dist.</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.6" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.6.1">
+<span class="ltx_p" id="S3.T2.1.1.1.6.1.1">Obj.</span>
+<span class="ltx_p" id="S3.T2.1.1.1.6.1.2">Size</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.7" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.7.1">
+<span class="ltx_p" id="S3.T2.1.1.1.7.1.1">Room</span>
+<span class="ltx_p" id="S3.T2.1.1.1.7.1.2">Size</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.8" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.8.1">
+<span class="ltx_p" id="S3.T2.1.1.1.8.1.1">Rel.</span>
+<span class="ltx_p" id="S3.T2.1.1.1.8.1.2">Dist.</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.9" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.9.1">
+<span class="ltx_p" id="S3.T2.1.1.1.9.1.1">Rel.</span>
+<span class="ltx_p" id="S3.T2.1.1.1.9.1.2">Dir.</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.10" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.10.1">
+<span class="ltx_p" id="S3.T2.1.1.1.10.1.1">Route</span>
+<span class="ltx_p" id="S3.T2.1.1.1.10.1.2">Plan</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T2.1.1.1.11" style="padding:0.5pt 4.3pt;">
+<span class="ltx_inline-block" id="S3.T2.1.1.1.11.1">
+<span class="ltx_p" id="S3.T2.1.1.1.11.1.1">Appr.</span>
+<span class="ltx_p" id="S3.T2.1.1.1.11.1.2">Order</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.2.2">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_t" colspan="11" id="S3.T2.1.2.2.1" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.2.2.1.1">Open-source</span></th>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.3.3">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S3.T2.1.3.3.1" style="padding:0.5pt 4.3pt;">Qwen2-VL-2B</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.3.3.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.3" style="padding:0.5pt 4.3pt;">23.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.4" style="padding:0.5pt 4.3pt;">21.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.5" style="padding:0.5pt 4.3pt;">3.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.6" style="padding:0.5pt 4.3pt;">32.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.7" style="padding:0.5pt 4.3pt;">31.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.8" style="padding:0.5pt 4.3pt;">26.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.9" style="padding:0.5pt 4.3pt;">27.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.10" style="padding:0.5pt 4.3pt;">24.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.3.3.11" style="padding:0.5pt 4.3pt;">18.9</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.4.4">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.4.4.1" style="padding:0.5pt 4.3pt;">+ SFT</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.4.4.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.3" style="padding:0.5pt 4.3pt;">29.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.4" style="padding:0.5pt 4.3pt;">29.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.5" style="padding:0.5pt 4.3pt;">23.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.6" style="padding:0.5pt 4.3pt;">47.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.7" style="padding:0.5pt 4.3pt;">33.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.8" style="padding:0.5pt 4.3pt;">26.9</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.9" style="padding:0.5pt 4.3pt;">28.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.10" style="padding:0.5pt 4.3pt;">28.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.4.4.11" style="padding:0.5pt 4.3pt;">18.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.5.5">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.5.5.1" style="padding:0.5pt 4.3pt;">+ DPO</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.5.5.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.3" style="padding:0.5pt 4.3pt;">23.9</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.4" style="padding:0.5pt 4.3pt;">21.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.5" style="padding:0.5pt 4.3pt;">3.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.6" style="padding:0.5pt 4.3pt;">34.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.7" style="padding:0.5pt 4.3pt;">32.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.8" style="padding:0.5pt 4.3pt;">27.1</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.9" style="padding:0.5pt 4.3pt;">28.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.10" style="padding:0.5pt 4.3pt;">24.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.5.5.11" style="padding:0.5pt 4.3pt;">18.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.6.6">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.6.6.1" style="padding:0.5pt 4.3pt;">+ vsGRPO-T</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.6.6.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.3" style="padding:0.5pt 4.3pt;">26.1</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.4" style="padding:0.5pt 4.3pt;">24.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.5" style="padding:0.5pt 4.3pt;">10.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.6" style="padding:0.5pt 4.3pt;">37.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.7" style="padding:0.5pt 4.3pt;">36.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.8" style="padding:0.5pt 4.3pt;">27.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.9" style="padding:0.5pt 4.3pt;">29.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.10" style="padding:0.5pt 4.3pt;">25.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.6.6.11" style="padding:0.5pt 4.3pt;">17.9</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.7.7">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.7.7.1" style="padding:0.5pt 4.3pt;">+ vsGRPO-O</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.7.7.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.3" style="padding:0.5pt 4.3pt;">28.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.4" style="padding:0.5pt 4.3pt;">26.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.5" style="padding:0.5pt 4.3pt;">16.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.6" style="padding:0.5pt 4.3pt;">44.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.7" style="padding:0.5pt 4.3pt;">38.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.8" style="padding:0.5pt 4.3pt;">27.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.9" style="padding:0.5pt 4.3pt;">29.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.10" style="padding:0.5pt 4.3pt;">24.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.7.7.11" style="padding:0.5pt 4.3pt;">18.2</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.8.8">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.8.8.1" style="padding:0.5pt 4.3pt;">+ vsGRPO-T</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.8.8.2.1" style="color:#FF0000;">T</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.3" style="padding:0.5pt 4.3pt;">29.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.4" style="padding:0.5pt 4.3pt;">35.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.5" style="padding:0.5pt 4.3pt;">28.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.6" style="padding:0.5pt 4.3pt;">34.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.7" style="padding:0.5pt 4.3pt;">25.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.8" style="padding:0.5pt 4.3pt;">28.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.9" style="padding:0.5pt 4.3pt;">38.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.10" style="padding:0.5pt 4.3pt;">28.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.8.8.11" style="padding:0.5pt 4.3pt;">18.7</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.9.9">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.9.9.1" style="padding:0.5pt 4.3pt;">+ vsGRPO-O</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.9.9.2.1" style="color:#00FF00;">O</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.3" style="padding:0.5pt 4.3pt;">31.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.4" style="padding:0.5pt 4.3pt;">34.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.5" style="padding:0.5pt 4.3pt;">22.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.6" style="padding:0.5pt 4.3pt;">44.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.7" style="padding:0.5pt 4.3pt;">33.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.8" style="padding:0.5pt 4.3pt;">29.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.9" style="padding:0.5pt 4.3pt;">41.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.10" style="padding:0.5pt 4.3pt;">26.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.9.9.11" style="padding:0.5pt 4.3pt;">15.8</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.10.10">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.10.10.1" style="padding:0.5pt 4.3pt;">+ vsGRPO-V</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.10.10.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline" id="S3.T2.1.10.10.3.1">35.4</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.4" style="padding:0.5pt 4.3pt;">53.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.5" style="padding:0.5pt 4.3pt;">29.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.6" style="padding:0.5pt 4.3pt;">52.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.7" style="padding:0.5pt 4.3pt;">43.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.8" style="padding:0.5pt 4.3pt;">28.1</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.9" style="padding:0.5pt 4.3pt;">30.9</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.10" style="padding:0.5pt 4.3pt;">26.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.10.10.11" style="padding:0.5pt 4.3pt;">18.9</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.11.11">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S3.T2.1.11.11.1" style="padding:0.5pt 4.3pt;">Qwen2-VL-7B</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.11.11.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.3" style="padding:0.5pt 4.3pt;">32.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.4" style="padding:0.5pt 4.3pt;">39.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.5" style="padding:0.5pt 4.3pt;">25.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.6" style="padding:0.5pt 4.3pt;">25.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.7" style="padding:0.5pt 4.3pt;">43.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.8" style="padding:0.5pt 4.3pt;">32.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.9" style="padding:0.5pt 4.3pt;">30.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.10" style="padding:0.5pt 4.3pt;">27.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.11.11.11" style="padding:0.5pt 4.3pt;">32.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.12.12">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.12.12.1" style="padding:0.5pt 4.3pt;">+ SFT</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.12.12.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.3" style="padding:0.5pt 4.3pt;">38.1</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.4" style="padding:0.5pt 4.3pt;">44.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.5" style="padding:0.5pt 4.3pt;">27.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.6" style="padding:0.5pt 4.3pt;">46.1</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.7" style="padding:0.5pt 4.3pt;">50.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.8" style="padding:0.5pt 4.3pt;">34.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.9" style="padding:0.5pt 4.3pt;">35.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.10" style="padding:0.5pt 4.3pt;">33.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.12.12.11" style="padding:0.5pt 4.3pt;">33.4</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.13.13">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.13.13.1" style="padding:0.5pt 4.3pt;">+ DPO</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.13.13.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.3" style="padding:0.5pt 4.3pt;">32.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.4" style="padding:0.5pt 4.3pt;">39.1</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.5" style="padding:0.5pt 4.3pt;">25.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.6" style="padding:0.5pt 4.3pt;">26.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.7" style="padding:0.5pt 4.3pt;">44.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.8" style="padding:0.5pt 4.3pt;">32.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.9" style="padding:0.5pt 4.3pt;">30.9</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.10" style="padding:0.5pt 4.3pt;">29.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.13.13.11" style="padding:0.5pt 4.3pt;">33.3</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.14.14">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.14.14.1" style="padding:0.5pt 4.3pt;">+ vsGRPO-V</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.14.14.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_framed ltx_framed_underline" id="S3.T2.1.14.14.3.1">40.7</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.4" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.14.14.4.1">59.9</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.5" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.14.14.5.1">29.6</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.6" style="padding:0.5pt 4.3pt;">50.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.7" style="padding:0.5pt 4.3pt;">48.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.8" style="padding:0.5pt 4.3pt;">35.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.9" style="padding:0.5pt 4.3pt;">35.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.10" style="padding:0.5pt 4.3pt;">34.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.14.14.11" style="padding:0.5pt 4.3pt;">31.5</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.15.15">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S3.T2.1.15.15.1" style="padding:0.5pt 4.3pt;">IVL2-2B</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.15.15.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.3" style="padding:0.5pt 4.3pt;">27.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.4" style="padding:0.5pt 4.3pt;">21.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.5" style="padding:0.5pt 4.3pt;">24.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.6" style="padding:0.5pt 4.3pt;">22.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.7" style="padding:0.5pt 4.3pt;">35.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.8" style="padding:0.5pt 4.3pt;">33.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.9" style="padding:0.5pt 4.3pt;">44.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.10" style="padding:0.5pt 4.3pt;">30.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.15.15.11" style="padding:0.5pt 4.3pt;">7.1</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.16.16">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.16.16.1" style="padding:0.5pt 4.3pt;">LNV-7B</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.16.16.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.3" style="padding:0.5pt 4.3pt;">35.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.4" style="padding:0.5pt 4.3pt;">48.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.5" style="padding:0.5pt 4.3pt;">14.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.6" style="padding:0.5pt 4.3pt;">47.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.7" style="padding:0.5pt 4.3pt;">24.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.8" style="padding:0.5pt 4.3pt;">43.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.9" style="padding:0.5pt 4.3pt;">42.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.10" style="padding:0.5pt 4.3pt;">34.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.16.16.11" style="padding:0.5pt 4.3pt;">30.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.17.17">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.17.17.1" style="padding:0.5pt 4.3pt;">IVL2-40B</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.17.17.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.3" style="padding:0.5pt 4.3pt;">36.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.4" style="padding:0.5pt 4.3pt;">34.9</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.5" style="padding:0.5pt 4.3pt;">26.9</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.6" style="padding:0.5pt 4.3pt;">46.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.7" style="padding:0.5pt 4.3pt;">31.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.8" style="padding:0.5pt 4.3pt;">42.1</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.9" style="padding:0.5pt 4.3pt;">32.2</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.10" style="padding:0.5pt 4.3pt;">34.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.17.17.11" style="padding:0.5pt 4.3pt;">39.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.18.18">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row" id="S3.T2.1.18.18.1" style="padding:0.5pt 4.3pt;">LNV-72B</th>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.18.18.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.18.18.3.1">40.9</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.4" style="padding:0.5pt 4.3pt;">48.9</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.5" style="padding:0.5pt 4.3pt;">22.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.6" style="padding:0.5pt 4.3pt;">57.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.7" style="padding:0.5pt 4.3pt;">35.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.8" style="padding:0.5pt 4.3pt;">42.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.9" style="padding:0.5pt 4.3pt;">36.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.10" style="padding:0.5pt 4.3pt;">35.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T2.1.18.18.11" style="padding:0.5pt 4.3pt;">48.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.19.19">
+<th class="ltx_td ltx_align_center ltx_th ltx_th_row ltx_border_t" colspan="11" id="S3.T2.1.19.19.1" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.19.19.1.1">Close-source</span></th>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.20.20">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_t" id="S3.T2.1.20.20.1" style="padding:0.5pt 4.3pt;">GPT-4o</th>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.20.20.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.3" style="padding:0.5pt 4.3pt;">34.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.4" style="padding:0.5pt 4.3pt;">46.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.5" style="padding:0.5pt 4.3pt;">5.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.6" style="padding:0.5pt 4.3pt;">43.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.7" style="padding:0.5pt 4.3pt;">38.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.8" style="padding:0.5pt 4.3pt;">37.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.9" style="padding:0.5pt 4.3pt;">41.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.10" style="padding:0.5pt 4.3pt;">31.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T2.1.20.20.11" style="padding:0.5pt 4.3pt;">28.5</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.21.21">
+<th class="ltx_td ltx_align_left ltx_th ltx_th_row ltx_border_bb" id="S3.T2.1.21.21.1" style="padding:0.5pt 4.3pt;">Gemini-1.5 Pro</th>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.2" style="padding:0.5pt 4.3pt;"><span class="ltx_text" id="S3.T2.1.21.21.2.1" style="color:#0000FF;">V</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.3" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.21.21.3.1">48.8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.4" style="padding:0.5pt 4.3pt;">49.6</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.5" style="padding:0.5pt 4.3pt;">28.8</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.6" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.21.21.6.1">58.6</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.7" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.21.21.7.1">49.4</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.8" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.21.21.8.1">46.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.9" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.21.21.9.1">48.1</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.10" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.21.21.10.1">42.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T2.1.21.21.11" style="padding:0.5pt 4.3pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.21.21.11.1">68.0</span></td>
+</tr>
+</tbody>
+</table>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_table">Table 2: </span>Quantitative results on VSI-bench. vsGRPO-T, vsGRPO-O, and vsGRPO-V refer to GRPO training on VSI-100k with prompts of <span class="ltx_text" id="S3.T2.11.1" style="color:#FF0000;">think-mode</span>, <span class="ltx_text" id="S3.T2.12.2" style="color:#00FF00;">observe-mode</span>, and <span class="ltx_text" id="S3.T2.13.3" style="color:#0000FF;">vanilla-mode</span> respectively. <span class="ltx_text" id="S3.T2.14.4" style="color:#0000FF;">V</span>, <span class="ltx_text" id="S3.T2.15.5" style="color:#FF0000;">T</span>, and <span class="ltx_text" id="S3.T2.16.6" style="color:#00FF00;">O</span> in the Eval.
+Mode column refer to using <span class="ltx_text" id="S3.T2.17.7" style="color:#0000FF;">vanilla-mode</span>, <span class="ltx_text" id="S3.T2.18.8" style="color:#FF0000;">think-mode</span>, and <span class="ltx_text" id="S3.T2.19.9" style="color:#00FF00;">observe-mode</span> prompts for evaluation, respectively.
+We also present the best performance of open-source models under the specific model size, like LLaVA-NeXT-Video <cite class="ltx_cite ltx_citemacro_citep">(Li et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib8" title="">2024</a>)</cite> (LNV for short) and InternVL2 <cite class="ltx_cite ltx_citemacro_citep">(Chen et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib2" title="">2024</a>)</cite> (IVL2 for short), and close-source ones like GPT-4o <cite class="ltx_cite ltx_citemacro_citep">(Hurst et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib7" title="">2024</a>)</cite> and Gemini-1.5 Pro <cite class="ltx_cite ltx_citemacro_citep">(Team et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib16" title="">2024</a>)</cite>.</figcaption>
+</figure>
+<div class="ltx_para ltx_noindent" id="S3.SS2.p6">
+<p class="ltx_p" id="S3.SS2.p6.3"><span class="ltx_text ltx_font_bold" id="S3.SS2.p6.3.1">Experimental Settings.</span>
+Unless specified otherwise, we use Qwen2-VL-2B/7B as the base models due to resource constraints.
+We employ LoRA <cite class="ltx_cite ltx_citemacro_citep">(Hu et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib6" title="">2022</a>)</cite> training with a learning rate of <math alttext="10^{-5}" class="ltx_Math" display="inline" id="S3.SS2.p6.1.m1.1"><semantics id="S3.SS2.p6.1.m1.1a"><msup id="S3.SS2.p6.1.m1.1.1" xref="S3.SS2.p6.1.m1.1.1.cmml"><mn id="S3.SS2.p6.1.m1.1.1.2" xref="S3.SS2.p6.1.m1.1.1.2.cmml">10</mn><mrow id="S3.SS2.p6.1.m1.1.1.3" xref="S3.SS2.p6.1.m1.1.1.3.cmml"><mo id="S3.SS2.p6.1.m1.1.1.3a" xref="S3.SS2.p6.1.m1.1.1.3.cmml">−</mo><mn id="S3.SS2.p6.1.m1.1.1.3.2" xref="S3.SS2.p6.1.m1.1.1.3.2.cmml">5</mn></mrow></msup><annotation-xml encoding="MathML-Content" id="S3.SS2.p6.1.m1.1b"><apply id="S3.SS2.p6.1.m1.1.1.cmml" xref="S3.SS2.p6.1.m1.1.1"><csymbol cd="ambiguous" id="S3.SS2.p6.1.m1.1.1.1.cmml" xref="S3.SS2.p6.1.m1.1.1">superscript</csymbol><cn id="S3.SS2.p6.1.m1.1.1.2.cmml" type="integer" xref="S3.SS2.p6.1.m1.1.1.2">10</cn><apply id="S3.SS2.p6.1.m1.1.1.3.cmml" xref="S3.SS2.p6.1.m1.1.1.3"><minus id="S3.SS2.p6.1.m1.1.1.3.1.cmml" xref="S3.SS2.p6.1.m1.1.1.3"></minus><cn id="S3.SS2.p6.1.m1.1.1.3.2.cmml" type="integer" xref="S3.SS2.p6.1.m1.1.1.3.2">5</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p6.1.m1.1c">10^{-5}</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p6.1.m1.1d">10 start_POSTSUPERSCRIPT - 5 end_POSTSUPERSCRIPT</annotation></semantics></math> for Qwen2-VL-2B and <math alttext="5\times 10^{-6}" class="ltx_Math" display="inline" id="S3.SS2.p6.2.m2.1"><semantics id="S3.SS2.p6.2.m2.1a"><mrow id="S3.SS2.p6.2.m2.1.1" xref="S3.SS2.p6.2.m2.1.1.cmml"><mn id="S3.SS2.p6.2.m2.1.1.2" xref="S3.SS2.p6.2.m2.1.1.2.cmml">5</mn><mo id="S3.SS2.p6.2.m2.1.1.1" lspace="0.222em" rspace="0.222em" xref="S3.SS2.p6.2.m2.1.1.1.cmml">×</mo><msup id="S3.SS2.p6.2.m2.1.1.3" xref="S3.SS2.p6.2.m2.1.1.3.cmml"><mn id="S3.SS2.p6.2.m2.1.1.3.2" xref="S3.SS2.p6.2.m2.1.1.3.2.cmml">10</mn><mrow id="S3.SS2.p6.2.m2.1.1.3.3" xref="S3.SS2.p6.2.m2.1.1.3.3.cmml"><mo id="S3.SS2.p6.2.m2.1.1.3.3a" xref="S3.SS2.p6.2.m2.1.1.3.3.cmml">−</mo><mn id="S3.SS2.p6.2.m2.1.1.3.3.2" xref="S3.SS2.p6.2.m2.1.1.3.3.2.cmml">6</mn></mrow></msup></mrow><annotation-xml encoding="MathML-Content" id="S3.SS2.p6.2.m2.1b"><apply id="S3.SS2.p6.2.m2.1.1.cmml" xref="S3.SS2.p6.2.m2.1.1"><times id="S3.SS2.p6.2.m2.1.1.1.cmml" xref="S3.SS2.p6.2.m2.1.1.1"></times><cn id="S3.SS2.p6.2.m2.1.1.2.cmml" type="integer" xref="S3.SS2.p6.2.m2.1.1.2">5</cn><apply id="S3.SS2.p6.2.m2.1.1.3.cmml" xref="S3.SS2.p6.2.m2.1.1.3"><csymbol cd="ambiguous" id="S3.SS2.p6.2.m2.1.1.3.1.cmml" xref="S3.SS2.p6.2.m2.1.1.3">superscript</csymbol><cn id="S3.SS2.p6.2.m2.1.1.3.2.cmml" type="integer" xref="S3.SS2.p6.2.m2.1.1.3.2">10</cn><apply id="S3.SS2.p6.2.m2.1.1.3.3.cmml" xref="S3.SS2.p6.2.m2.1.1.3.3"><minus id="S3.SS2.p6.2.m2.1.1.3.3.1.cmml" xref="S3.SS2.p6.2.m2.1.1.3.3"></minus><cn id="S3.SS2.p6.2.m2.1.1.3.3.2.cmml" type="integer" xref="S3.SS2.p6.2.m2.1.1.3.3.2">6</cn></apply></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p6.2.m2.1c">5\times 10^{-6}</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p6.2.m2.1d">5 × 10 start_POSTSUPERSCRIPT - 6 end_POSTSUPERSCRIPT</annotation></semantics></math> for Qwen2-VL-7B.
+We conduct 14 rollouts per question and set the default sampling temperature to 1.
+The KL divergence coefficient <math alttext="\beta" class="ltx_Math" display="inline" id="S3.SS2.p6.3.m3.1"><semantics id="S3.SS2.p6.3.m3.1a"><mi id="S3.SS2.p6.3.m3.1.1" xref="S3.SS2.p6.3.m3.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="S3.SS2.p6.3.m3.1b"><ci id="S3.SS2.p6.3.m3.1.1.cmml" xref="S3.SS2.p6.3.m3.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-tex" id="S3.SS2.p6.3.m3.1c">\beta</annotation><annotation encoding="application/x-llamapun" id="S3.SS2.p6.3.m3.1d">italic_β</annotation></semantics></math> is set to 0.0001.</p>
+</div>
+</section>
+<section class="ltx_subsection" id="S3.SS3">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.3 </span>Results and Analyses</h3>
+<section class="ltx_subsubsection" id="S3.SS3.SSS1">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.3.1 </span>Main Results</h4>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS1.p1">
+<p class="ltx_p" id="S3.SS3.SSS1.p1.1">Let vsGRPO-T, vsGRPO-O, and vsGRPO-V denote the GRPO training on VSI-100k with prompts of <span class="ltx_text" id="S3.SS3.SSS1.p1.1.1" style="color:#FF0000;">think-mode</span>, <span class="ltx_text" id="S3.SS3.SSS1.p1.1.2" style="color:#00FF00;">observe-mode</span>, and <span class="ltx_text" id="S3.SS3.SSS1.p1.1.3" style="color:#0000FF;">vanilla-mode</span> respectively.
+We evaluate them with the corresponding test prompts by default.
+Given the studies in the previous section, we also test the trained models with <span class="ltx_text" id="S3.SS3.SSS1.p1.1.4" style="color:#0000FF;">vanilla-mode</span> prompts.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS1.p2">
+<p class="ltx_p" id="S3.SS3.SSS1.p2.1">As shown in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.T2" title="Table 2 ‣ 3.2 GRPO ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_tag">2</span></a>, for models based on Qwen-VL-2B, all GRPO fine-tuned models improve over the baseline.
+Besides, for the models trained with CoT prompting strategies, their CoT test performance outperforms vanilla one.
+This indicates that GRPO training can effectively enhance the model’s long reasoning capabilities.
+Notably, directly applying the <span class="ltx_text" id="S3.SS3.SSS1.p2.1.1" style="color:#0000FF;"> vanilla-mode</span> prompting strategy yields the best performance improvements, particularly for NA questions, and even outperforms GPT-4o.
+We refer to this model as <span class="ltx_text ltx_font_bold" id="S3.SS3.SSS1.p2.1.2">vsGRPO-2B</span> by default.
+This underscores the conclusion that CoT prompting is ineffective for the small-sized Qwen2-VL-2B on the VSI-bench.</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS1.p3">
+<p class="ltx_p" id="S3.SS3.SSS1.p3.1">In terms of Qwen2-VL-7B, we only tried vsGRPO-V considering the above results.
+We observe that vsGRPO-V performs the best on two subtasks—object counting and absolute distance.
+Moreover, the test performance on the Route Plan is also improved, similar to the 2B case.
+This is possibly because the Route Plan can be divided into sub-tasks that include relative direction, indicating inter-task generalization.
+With only 7B model size, we note that our model shows performance comparable to that of the leading open-source model, LLaVA-NeXT-Video-72B <cite class="ltx_cite ltx_citemacro_citep">(Li et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib8" title="">2024</a>)</cite>.</p>
+</div>
+</section>
+<section class="ltx_subsubsection" id="S3.SS3.SSS2">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.3.2 </span>Importance of KL Penalty</h4>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS2.p1">
+<p class="ltx_p" id="S3.SS3.SSS2.p1.2">The KL penalty term plays a crucial role in regulating the divergence between the online policy and the frozen reference one.
+It avoids the model straying too far from the initial point.
+While some works <cite class="ltx_cite ltx_citemacro_citep">(Yu et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib26" title="">2025</a>; Meng et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib11" title="">2025</a>)</cite> advocate for removing the KL penalty to enhance performance, we have observed that doing so can easily lead to training collapse, as illustrated in Figure <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.F3" title="Figure 3 ‣ 3.3.2 Importance of KL Penalty ‣ 3.3 Results and Analyses ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_tag">3</span></a> (left).
+In contrast, introducing a positive <math alttext="\beta" class="ltx_Math" display="inline" id="S3.SS3.SSS2.p1.1.m1.1"><semantics id="S3.SS3.SSS2.p1.1.m1.1a"><mi id="S3.SS3.SSS2.p1.1.m1.1.1" xref="S3.SS3.SSS2.p1.1.m1.1.1.cmml">β</mi><annotation-xml encoding="MathML-Content" id="S3.SS3.SSS2.p1.1.m1.1b"><ci id="S3.SS3.SSS2.p1.1.m1.1.1.cmml" xref="S3.SS3.SSS2.p1.1.m1.1.1">𝛽</ci></annotation-xml><annotation encoding="application/x-tex" id="S3.SS3.SSS2.p1.1.m1.1c">\beta</annotation><annotation encoding="application/x-llamapun" id="S3.SS3.SSS2.p1.1.m1.1d">italic_β</annotation></semantics></math> (even very small, such as <math alttext="0.0001" class="ltx_Math" display="inline" id="S3.SS3.SSS2.p1.2.m2.1"><semantics id="S3.SS3.SSS2.p1.2.m2.1a"><mn id="S3.SS3.SSS2.p1.2.m2.1.1" xref="S3.SS3.SSS2.p1.2.m2.1.1.cmml">0.0001</mn><annotation-xml encoding="MathML-Content" id="S3.SS3.SSS2.p1.2.m2.1b"><cn id="S3.SS3.SSS2.p1.2.m2.1.1.cmml" type="float" xref="S3.SS3.SSS2.p1.2.m2.1.1">0.0001</cn></annotation-xml><annotation encoding="application/x-tex" id="S3.SS3.SSS2.p1.2.m2.1c">0.0001</annotation><annotation encoding="application/x-llamapun" id="S3.SS3.SSS2.p1.2.m2.1d">0.0001</annotation></semantics></math>) can effectively address this issue.
+This may be attributed to the specific nature of VSI reasoning problems.</p>
+</div>
+<figure class="ltx_figure" id="S3.F3">
+<div class="ltx_flex_figure">
+<div class="ltx_flex_cell ltx_flex_size_2"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_figure_panel ltx_img_landscape" height="142" id="S3.F3.g1" src="extracted/6327885/fig/rewards_format_reward_plot.png" width="269"/></div>
+<div class="ltx_flex_cell ltx_flex_size_2"><img alt="Refer to caption" class="ltx_graphics ltx_centering ltx_figure_panel ltx_img_landscape" height="142" id="S3.F3.g2" src="extracted/6327885/fig/rewards_plus.png" width="269"/></div>
+</div>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 3: </span>Left: the format reward curve of <math alttext="\beta=0" class="ltx_Math" display="inline" id="S3.F3.3.m1.1"><semantics id="S3.F3.3.m1.1b"><mrow id="S3.F3.3.m1.1.1" xref="S3.F3.3.m1.1.1.cmml"><mi id="S3.F3.3.m1.1.1.2" xref="S3.F3.3.m1.1.1.2.cmml">β</mi><mo id="S3.F3.3.m1.1.1.1" xref="S3.F3.3.m1.1.1.1.cmml">=</mo><mn id="S3.F3.3.m1.1.1.3" xref="S3.F3.3.m1.1.1.3.cmml">0</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.F3.3.m1.1c"><apply id="S3.F3.3.m1.1.1.cmml" xref="S3.F3.3.m1.1.1"><eq id="S3.F3.3.m1.1.1.1.cmml" xref="S3.F3.3.m1.1.1.1"></eq><ci id="S3.F3.3.m1.1.1.2.cmml" xref="S3.F3.3.m1.1.1.2">𝛽</ci><cn id="S3.F3.3.m1.1.1.3.cmml" type="integer" xref="S3.F3.3.m1.1.1.3">0</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.F3.3.m1.1d">\beta=0</annotation><annotation encoding="application/x-llamapun" id="S3.F3.3.m1.1e">italic_β = 0</annotation></semantics></math> and <math alttext="\beta=0.0001" class="ltx_Math" display="inline" id="S3.F3.4.m2.1"><semantics id="S3.F3.4.m2.1b"><mrow id="S3.F3.4.m2.1.1" xref="S3.F3.4.m2.1.1.cmml"><mi id="S3.F3.4.m2.1.1.2" xref="S3.F3.4.m2.1.1.2.cmml">β</mi><mo id="S3.F3.4.m2.1.1.1" xref="S3.F3.4.m2.1.1.1.cmml">=</mo><mn id="S3.F3.4.m2.1.1.3" xref="S3.F3.4.m2.1.1.3.cmml">0.0001</mn></mrow><annotation-xml encoding="MathML-Content" id="S3.F3.4.m2.1c"><apply id="S3.F3.4.m2.1.1.cmml" xref="S3.F3.4.m2.1.1"><eq id="S3.F3.4.m2.1.1.1.cmml" xref="S3.F3.4.m2.1.1.1"></eq><ci id="S3.F3.4.m2.1.1.2.cmml" xref="S3.F3.4.m2.1.1.2">𝛽</ci><cn id="S3.F3.4.m2.1.1.3.cmml" type="float" xref="S3.F3.4.m2.1.1.3">0.0001</cn></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.F3.4.m2.1d">\beta=0.0001</annotation><annotation encoding="application/x-llamapun" id="S3.F3.4.m2.1e">italic_β = 0.0001</annotation></semantics></math> during training. Right: the curve of the format reward, the accuracy reward curve of one subtask of VSI-100k, and the total reward curve during GRPO training.</figcaption>
+</figure>
+</section>
+<section class="ltx_subsubsection" id="S3.SS3.SSS3">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.3.3 </span>Reward Hacking</h4>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS3.p1">
+<p class="ltx_p" id="S3.SS3.SSS3.p1.1">During the training, we observed that the model sometimes finds ways to obtain high rewards that do not align with our intentions.
+One example is that when training with observe-mode, there are some extreme samples in the rollouts, e.g., <span class="ltx_text ltx_font_typewriter" id="S3.SS3.SSS3.p1.1.1">&lt;think&gt; &lt;/think&gt; &lt;answer&gt;xx&lt;/answer&gt;</span>.
+While this format is technically correct, it degrades to a missing observation.
+Observing this, we opt to incorporate a length reward function for mitigation.
+However, we note that some new generations just add extra <span class="ltx_text ltx_font_typewriter" id="S3.SS3.SSS3.p1.1.2">&lt;think&gt;&lt;/think&gt;</span> and <span class="ltx_text ltx_font_typewriter" id="S3.SS3.SSS3.p1.1.3">&lt;answer&gt;&lt;/answer&gt;</span> tags to exploit the length reward, which does not contribute to a meaningful thinking process.
+So, more reasonable reward functions should be explored.</p>
+</div>
+</section>
+<section class="ltx_subsubsection" id="S3.SS3.SSS4">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.3.4 </span>Dynamics of Various Rewards</h4>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS4.p1">
+<p class="ltx_p" id="S3.SS3.SSS4.p1.1">As shown in Figure <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.F3" title="Figure 3 ‣ 3.3.2 Importance of KL Penalty ‣ 3.3 Results and Analyses ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_tag">3</span></a> (right), during the GRPO training, the format reward converges to 1 quickly in the early stage, while the accuracy reward increases slowly.
+It seems that there is an upper bound on the accuracy reward.
+How to address this remains an open problem.</p>
+</div>
+</section>
+<section class="ltx_subsubsection" id="S3.SS3.SSS5">
+<h4 class="ltx_title ltx_title_subsubsection">
+<span class="ltx_tag ltx_tag_subsubsection">3.3.5 </span>Comparison to Other Training Approaches</h4>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS5.p1">
+<p class="ltx_p" id="S3.SS3.SSS5.p1.1">We also compare our approach with commonly used fine-tuning algorithms, supervised fine-tuning (SFT) and direct preference optimization (DPO) <cite class="ltx_cite ltx_citemacro_citep">(Rafailov et al., <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#bib.bib13" title="">2023</a>)</cite>, in Table <a class="ltx_ref" href="https://arxiv.org/html/2504.00883v1#S3.T2" title="Table 2 ‣ 3.2 GRPO ‣ 3 R1-Zero-like Training for Visual-spatial Reasoning ‣ Improved Visual-Spatial Reasoning via R1-Zero-Like Training"><span class="ltx_text ltx_ref_tag">2</span></a>.
+For SFT, we directly use the constructed VSI-100k for tuning.
+For DPO,
+the correct answer is modified to a wrong one to serve as the less-preferred answer.
+</p>
+</div>
+<div class="ltx_para ltx_noindent" id="S3.SS3.SSS5.p2">
+<p class="ltx_p" id="S3.SS3.SSS5.p2.1">As shown, the two approaches both improve over the base model on the VSI-bench, but still lag behind GRPO-V.
+Besides, the improvement of DPO is minor, which is perhaps because of the sub-optimal preference pair construction.</p>
+</div>
+</section>
+</section>
+</section>
+<section class="ltx_section" id="S4">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">4 </span>Conclusion</h2>
+<div class="ltx_para ltx_noindent" id="S4.p1">
+<p class="ltx_p" id="S4.p1.1">In this work, we center on the video-based visual-spatial intelligence of MLLMs.
+Using Qwen2-VL as the base models, we identify that visual-spatial reasoning capacities of Qwen2-VL-2B/7B cannot be activated via CoT prompts.
+We construct <span class="ltx_text ltx_font_bold" id="S4.p1.1.1">VSI-100k</span> to combat data scarcity and adapt GRPO training.
+Extensive experiments demonstrate that <span class="ltx_text ltx_font_typewriter" id="S4.p1.1.2">vsGRPO-2B</span> and <span class="ltx_text ltx_font_typewriter" id="S4.p1.1.3">vsGRPO-7B</span> outperform models of the same size, highlighting the superiority of the GRPO approach in comparison to SFT and DPO.
+We also share some findings for future research.</p>
+</div>
+</section>
+<section class="ltx_bibliography" id="bib">
+<h2 class="ltx_title ltx_title_bibliography">References</h2>
+<ul class="ltx_biblist">
+<li class="ltx_bibitem" id="bib.bib1">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Chen et al. (2025)</span>
+<span class="ltx_bibblock">
+Liang Chen, Lei Li, Haozhe Zhao, Yifan Song, and Vinci.
+
+</span>
+<span class="ltx_bibblock">R1-v: Reinforcing super generalization ability in vision-language models with less than $3.
+
+</span>
+<span class="ltx_bibblock"><a class="ltx_ref ltx_url ltx_font_typewriter" href="https://github.com/Deep-Agent/R1-V" title="">https://github.com/Deep-Agent/R1-V</a>, 2025.
+
+</span>
+<span class="ltx_bibblock">Accessed: 2025-02-02.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib2">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Chen et al. (2024)</span>
+<span class="ltx_bibblock">
+Zhe Chen, Jiannan Wu, Wenhai Wang, Weijie Su, Guo Chen, Sen Xing, Muyan Zhong, Qinglong Zhang, Xizhou Zhu, Lewei Lu, et al.
+
+</span>
+<span class="ltx_bibblock">Internvl: Scaling up vision foundation models and aligning for generic visual-linguistic tasks.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib2.1.1">Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</em>, pp.  24185–24198, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib3">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Dai et al. (2017)</span>
+<span class="ltx_bibblock">
+Angela Dai, Angel X Chang, Manolis Savva, Maciej Halber, Thomas Funkhouser, and Matthias Nießner.
+
+</span>
+<span class="ltx_bibblock">Scannet: Richly-annotated 3d reconstructions of indoor scenes.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib3.1.1">Proceedings of the IEEE conference on computer vision and pattern recognition</em>, pp.  5828–5839, 2017.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib4">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Guo et al. (2025)</span>
+<span class="ltx_bibblock">
+Daya Guo, Dejian Yang, Haowei Zhang, Junxiao Song, Ruoyu Zhang, Runxin Xu, Qihao Zhu, Shirong Ma, Peiyi Wang, Xiao Bi, et al.
+
+</span>
+<span class="ltx_bibblock">Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib4.1.1">arXiv preprint arXiv:2501.12948</em>, 2025.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib5">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Hong et al. (2024)</span>
+<span class="ltx_bibblock">
+Wenyi Hong, Weihan Wang, Qingsong Lv, Jiazheng Xu, Wenmeng Yu, Junhui Ji, Yan Wang, Zihan Wang, Yuxiao Dong, Ming Ding, et al.
+
+</span>
+<span class="ltx_bibblock">Cogagent: A visual language model for gui agents.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib5.1.1">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>, pp.  14281–14290, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib6">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Hu et al. (2022)</span>
+<span class="ltx_bibblock">
+Edward J Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, Weizhu Chen, et al.
+
+</span>
+<span class="ltx_bibblock">Lora: Low-rank adaptation of large language models.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib6.1.1">ICLR</em>, 1(2):3, 2022.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib7">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Hurst et al. (2024)</span>
+<span class="ltx_bibblock">
+Aaron Hurst, Adam Lerer, Adam P Goucher, Adam Perelman, Aditya Ramesh, Aidan Clark, AJ Ostrow, Akila Welihinda, Alan Hayes, Alec Radford, et al.
+
+</span>
+<span class="ltx_bibblock">Gpt-4o system card.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib7.1.1">arXiv preprint arXiv:2410.21276</em>, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib8">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Li et al. (2024)</span>
+<span class="ltx_bibblock">
+Feng Li, Renrui Zhang, Hao Zhang, Yuanhan Zhang, Bo Li, Wei Li, Zejun Ma, and Chunyuan Li.
+
+</span>
+<span class="ltx_bibblock">Llava-next-interleave: Tackling multi-image, video, and 3d in large multimodal models.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib8.1.1">arXiv preprint arXiv:2407.07895</em>, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib9">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Lightman et al. (2023)</span>
+<span class="ltx_bibblock">
+Hunter Lightman, Vineet Kosaraju, Yuri Burda, Harrison Edwards, Bowen Baker, Teddy Lee, Jan Leike, John Schulman, Ilya Sutskever, and Karl Cobbe.
+
+</span>
+<span class="ltx_bibblock">Let’s verify step by step.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib9.1.1">The Twelfth International Conference on Learning Representations</em>, 2023.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib10">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Liu et al. (2023)</span>
+<span class="ltx_bibblock">
+Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee.
+
+</span>
+<span class="ltx_bibblock">Visual instruction tuning.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib10.1.1">Advances in neural information processing systems</em>, 36:34892–34916, 2023.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib11">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Meng et al. (2025)</span>
+<span class="ltx_bibblock">
+Fanqing Meng, Lingxiao Du, Zongkai Liu, Zhixiang Zhou, Quanfeng Lu, Daocheng Fu, Botian Shi, Wenhai Wang, Junjun He, Kaipeng Zhang, et al.
+
+</span>
+<span class="ltx_bibblock">Mm-eureka: Exploring visual aha moment with rule-based large-scale reinforcement learning.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib11.1.1">arXiv preprint arXiv:2503.07365</em>, 2025.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib12">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Pan et al. (2024)</span>
+<span class="ltx_bibblock">
+Chenbin Pan, Burhaneddin Yaman, Tommaso Nesti, Abhirup Mallik, Alessandro G Allievi, Senem Velipasalar, and Liu Ren.
+
+</span>
+<span class="ltx_bibblock">Vlp: Vision language planning for autonomous driving.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib12.1.1">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>, pp.  14760–14769, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib13">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Rafailov et al. (2023)</span>
+<span class="ltx_bibblock">
+Rafael Rafailov, Archit Sharma, Eric Mitchell, Christopher D Manning, Stefano Ermon, and Chelsea Finn.
+
+</span>
+<span class="ltx_bibblock">Direct preference optimization: Your language model is secretly a reward model.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib13.1.1">Advances in Neural Information Processing Systems</em>, 36:53728–53741, 2023.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib14">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Shao et al. (2024)</span>
+<span class="ltx_bibblock">
+Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, YK Li, Y Wu, et al.
+
+</span>
+<span class="ltx_bibblock">Deepseekmath: Pushing the limits of mathematical reasoning in open language models.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib14.1.1">arXiv preprint arXiv:2402.03300</em>, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib15">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Surís et al. (2023)</span>
+<span class="ltx_bibblock">
+Dídac Surís, Sachit Menon, and Carl Vondrick.
+
+</span>
+<span class="ltx_bibblock">Vipergpt: Visual inference via python execution for reasoning.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib15.1.1">Proceedings of the IEEE/CVF International Conference on Computer Vision</em>, pp.  11888–11898, 2023.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib16">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Team et al. (2024)</span>
+<span class="ltx_bibblock">
+Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell, Libin Bai, Anmol Gulati, Garrett Tanzer, Damien Vincent, Zhufeng Pan, Shibo Wang, et al.
+
+</span>
+<span class="ltx_bibblock">Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib16.1.1">arXiv preprint arXiv:2403.05530</em>, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib17">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Wang et al. (2024a)</span>
+<span class="ltx_bibblock">
+Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, et al.
+
+</span>
+<span class="ltx_bibblock">Qwen2-vl: Enhancing vision-language model’s perception of the world at any resolution.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib17.1.1">arXiv preprint arXiv:2409.12191</em>, 2024a.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib18">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Wang et al. (2024b)</span>
+<span class="ltx_bibblock">
+Xiaohan Wang, Yuhui Zhang, Orr Zohar, and Serena Yeung-Levy.
+
+</span>
+<span class="ltx_bibblock">Videoagent: Long-form video understanding with large language model as agent.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib18.1.1">European Conference on Computer Vision</em>, pp.  58–76. Springer, 2024b.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib19">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">(19)</span>
+<span class="ltx_bibblock">
+Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc V Le, Ed H Chi, Sharan Narang, Aakanksha Chowdhery, and Denny Zhou.
+
+</span>
+<span class="ltx_bibblock">Self-consistency improves chain of thought reasoning in language models.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib19.1.1">The Eleventh International Conference on Learning Representations</em>.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib20">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Wang et al. (2024c)</span>
+<span class="ltx_bibblock">
+Yuqi Wang, Jiawei He, Lue Fan, Hongxin Li, Yuntao Chen, and Zhaoxiang Zhang.
+
+</span>
+<span class="ltx_bibblock">Driving into the future: Multiview visual forecasting and planning with world model for autonomous driving.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib20.1.1">Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition</em>, pp.  14749–14759, 2024c.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib21">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Wei et al. (2022)</span>
+<span class="ltx_bibblock">
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed Chi, Quoc V Le, Denny Zhou, et al.
+
+</span>
+<span class="ltx_bibblock">Chain-of-thought prompting elicits reasoning in large language models.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib21.1.1">Advances in neural information processing systems</em>, 35:24824–24837, 2022.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib22">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Wu et al. (2024)</span>
+<span class="ltx_bibblock">
+Yixuan Wu, Yizhou Wang, Shixiang Tang, Wenhao Wu, Tong He, Wanli Ouyang, Philip Torr, and Jian Wu.
+
+</span>
+<span class="ltx_bibblock">Dettoolchain: A new prompting paradigm to unleash detection ability of mllm.
+
+</span>
+<span class="ltx_bibblock">In <em class="ltx_emph ltx_font_italic" id="bib.bib22.1.1">European Conference on Computer Vision</em>, pp.  164–182. Springer, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib23">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Xu et al. (2024)</span>
+<span class="ltx_bibblock">
+Guowei Xu, Peng Jin, Li Hao, Yibing Song, Lichao Sun, and Li Yuan.
+
+</span>
+<span class="ltx_bibblock">Llava-o1: Let vision language models reason step-by-step.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib23.1.1">arXiv preprint arXiv:2411.10440</em>, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib24">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Yang et al. (2024)</span>
+<span class="ltx_bibblock">
+Jihan Yang, Shusheng Yang, Anjali W Gupta, Rilyn Han, Li Fei-Fei, and Saining Xie.
+
+</span>
+<span class="ltx_bibblock">Thinking in space: How multimodal large language models see, remember, and recall spaces.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib24.1.1">arXiv preprint arXiv:2412.14171</em>, 2024.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib25">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Yao et al. (2023)</span>
+<span class="ltx_bibblock">
+Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Tom Griffiths, Yuan Cao, and Karthik Narasimhan.
+
+</span>
+<span class="ltx_bibblock">Tree of thoughts: Deliberate problem solving with large language models.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib25.1.1">Advances in neural information processing systems</em>, 36:11809–11822, 2023.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib26">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Yu et al. (2025)</span>
+<span class="ltx_bibblock">
+Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, et al.
+
+</span>
+<span class="ltx_bibblock">Dapo: An open-source llm reinforcement learning system at scale.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib26.1.1">arXiv preprint arXiv:2503.14476</em>, 2025.
+
+</span>
+</li>
+<li class="ltx_bibitem" id="bib.bib27">
+<span class="ltx_tag ltx_role_refnum ltx_tag_bibitem">Zhang et al. (2025)</span>
+<span class="ltx_bibblock">
+Jingyi Zhang, Jiaxing Huang, Huanjin Yao, Shunyu Liu, Xikun Zhang, Shijian Lu, and Dacheng Tao.
+
+</span>
+<span class="ltx_bibblock">R1-vl: Learning to reason with multimodal large language models via step-wise group relative policy optimization.
+
+</span>
+<span class="ltx_bibblock"><em class="ltx_emph ltx_font_italic" id="bib.bib27.1.1">arXiv preprint arXiv:2503.12937</em>, 2025.
+
+</span>
+</li>
+</ul>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Tue Apr  1 14:55:34 2025 by <a class="ltx_LaTeXML_logo" href="http://dlmf.nist.gov/LaTeXML/"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img alt="Mascot Sammy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg=="/></a>
+</div></footer>
+</div>
+</body>
+</html>
