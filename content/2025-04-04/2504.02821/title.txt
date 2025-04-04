@@ -1,0 +1,1 @@
+Sparse Autoencoders Learn Monosemantic Features in Vision-Language Models
