@@ -1,1 +1,0 @@
-GPT-ImgEval: A Comprehensive Benchmark for Diagnosing GPT4o in Image Generation
