@@ -1,1 +1,0 @@
-MedSAM2: Segment Anything in 3D Medical Images and Videos

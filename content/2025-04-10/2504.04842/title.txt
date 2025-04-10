@@ -1,0 +1,1 @@
+FantasyTalking: Realistic Talking Portrait Generation via Coherent Motion Synthesis

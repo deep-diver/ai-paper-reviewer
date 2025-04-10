@@ -1,0 +1,1657 @@
+---
+title: "MegaMath: Pushing the Limits of Open Math Corpora"
+summary: "MegaMath: A new, massive open math corpus that pushes the limits of LLM pre-training!"
+categories: ["AI Generated", "🤗 Daily Papers"]
+tags: ["Natural Language Processing", "Large Language Models", "🏢 MBZUAI",]
+showSummary: true
+date: 2025-04-03
+draft: false
+---
+
+<br>
+
+{{< keywordList >}}
+{{< keyword icon="fingerprint" >}} 2504.02807 {{< /keyword >}}
+{{< keyword icon="writer" >}} Fan Zhou et el. {{< /keyword >}}
+ 
+{{< keyword >}} 🤗 2025-04-07 {{< /keyword >}}
+ 
+{{< /keywordList >}}
+
+{{< button href="https://arxiv.org/abs/2504.02807" target="_self" >}}
+↗ arXiv
+{{< /button >}}
+{{< button href="https://huggingface.co/papers/2504.02807" target="_self" >}}
+↗ Hugging Face
+{{< /button >}}
+
+
+
+<audio controls>
+    <source src="https://ai-paper-reviewer.com/2504.02807/podcast.wav" type="audio/wav">
+    Your browser does not support the audio element.
+</audio>
+
+
+### TL;DR
+
+
+{{< lead >}}
+
+The research community still lacks an open, large-scale, high-quality corpus tailored to the demands of math-centric LLM pre-training. Existing pipelines often suffer from overly aggressive pre-filtering, causing many math-relevant documents to be missed. Moreover, widely used general-purpose text extraction tools are not optimized for mathematical content, leading to a lack of both scale and fidelity. Beyond web data, math-related code corpora and synthetic datasets have shown promising potential, but remain either limited in scale or not fully open-sourced.
+
+
+
+This paper introduces **MegaMath, the largest open-source English math corpus** to date, totaling 371.6B tokens. It comprises 279B tokens of web data, 28.1B of code, and 64.5B of synthetic data. During its construction, the authors conducted extensive ablation studies and optimizations across all domains to ensure both scalability and quality. It also includes an empirical demonstration including head-to-head comparison with existing math datasets, and further training on the latest Llama-3 series of models.
+
+{{< /lead >}}
+
+
+#### Key Takeaways
+
+{{< alert "star" >}}
+{{< typeit speed=10 lifeLike=true >}} MegaMath is a large-scale, open math corpus with 371B tokens, created from diverse sources and optimized for math-centric LLM pre-training. {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=1000 lifeLike=true >}} The paper introduces novel data curation pipelines, including web data re-extraction, math-related code recall, and synthetic data exploration. {{< /typeit >}}
+{{< /alert >}}
+
+{{< alert "star" >}}
+{{< typeit speed=10 startDelay=2000 lifeLike=true >}} Extensive experiments demonstrate MegaMath's effectiveness in improving math reasoning abilities of language models, achieving state-of-the-art results. {{< /typeit >}}
+{{< /alert >}}
+
+#### Why does it matter?
+This paper introduces **MegaMath, a large, open math corpus** with potential to **advance math reasoning in language models**. It offers valuable resources, data curation strategies, and experimental results for researchers in NLP and AI.
+
+------
+#### Visual Insights
+
+
+
+![](https://arxiv.org/html/2504.02807/x3.png)
+
+> 🔼 This figure presents a schematic overview of the MegaMath dataset's structure and creation process.  It illustrates the various data sources used, including Common Crawl web data, GitHub code data, and synthetically generated data (QA pairs, code, and interleaved text-code blocks). The figure also highlights the key steps involved in data curation, such as filtering, deduplication, and quality control, ultimately leading to the final MegaMath dataset.
+> <details>
+> <summary>read the caption</summary>
+> Figure 1:  The overview of MegaMath dataset.
+> </details>
+
+
+
+
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="S2.T1.1.1">
+<tr class="ltx_tr" id="S2.T1.1.1.1">
+<td class="ltx_td ltx_align_left ltx_border_tt" id="S2.T1.1.1.1.1" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.1.1.1">Category</span></td>
+<td class="ltx_td ltx_align_right ltx_border_tt" id="S2.T1.1.1.1.2" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.1.2.1"># Sample(M)</span></td>
+<td class="ltx_td ltx_align_right ltx_border_tt" id="S2.T1.1.1.1.3" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.1.3.1"># Toks(B)</span></td>
+<td class="ltx_td ltx_align_right ltx_border_tt" id="S2.T1.1.1.1.4" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.1.4.1">Avg. (# Toks)</span></td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.2" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_left ltx_border_t" id="S2.T1.1.1.2.1" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.2.1.1" style="background-color:#CBEFFF;">Web Domain</span></td>
+<td class="ltx_td ltx_align_right ltx_border_t" id="S2.T1.1.1.2.2" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.2.2.1" style="background-color:#CBEFFF;">121.5</span></td>
+<td class="ltx_td ltx_align_right ltx_border_t" id="S2.T1.1.1.2.3" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.2.3.1" style="background-color:#CBEFFF;">279.0</span></td>
+<td class="ltx_td ltx_align_right ltx_border_t" id="S2.T1.1.1.2.4" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.2.4.1" style="background-color:#CBEFFF;">2296.9</span></td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.3">
+<td class="ltx_td ltx_align_left" id="S2.T1.1.1.3.1" style="padding-left:12.5pt;padding-right:12.5pt;">     Web</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.3.2" style="padding-left:12.5pt;padding-right:12.5pt;">106.5</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.3.3" style="padding-left:12.5pt;padding-right:12.5pt;">263.9</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.3.4" style="padding-left:12.5pt;padding-right:12.5pt;">2478.7</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.4">
+<td class="ltx_td ltx_align_left" id="S2.T1.1.1.4.1" style="padding-left:12.5pt;padding-right:12.5pt;">     Web-Pro</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.4.2" style="padding-left:12.5pt;padding-right:12.5pt;">15.0</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.4.3" style="padding-left:12.5pt;padding-right:12.5pt;">15.1</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.4.4" style="padding-left:12.5pt;padding-right:12.5pt;">1006.0</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.5" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_left" id="S2.T1.1.1.5.1" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.5.1.1" style="background-color:#CBEFFF;">Code Domain</span></td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.5.2" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.5.2.1" style="background-color:#CBEFFF;">13.4</span></td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.5.3" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.5.3.1" style="background-color:#CBEFFF;">28.1</span></td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.5.4" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.5.4.1" style="background-color:#CBEFFF;">2102.7</span></td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.6" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_left ltx_border_t" id="S2.T1.1.1.6.1" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.6.1.1" style="background-color:#CBEFFF;">Synthetic Data</span></td>
+<td class="ltx_td ltx_align_right ltx_border_t" id="S2.T1.1.1.6.2" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.6.2.1" style="background-color:#CBEFFF;">80.2</span></td>
+<td class="ltx_td ltx_align_right ltx_border_t" id="S2.T1.1.1.6.3" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.6.3.1" style="background-color:#CBEFFF;">64.5</span></td>
+<td class="ltx_td ltx_align_right ltx_border_t" id="S2.T1.1.1.6.4" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.6.4.1" style="background-color:#CBEFFF;">804.5</span></td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.7">
+<td class="ltx_td ltx_align_left" id="S2.T1.1.1.7.1" style="padding-left:12.5pt;padding-right:12.5pt;">     <span class="ltx_text" id="S2.T1.1.1.7.1.1">Translated Code</span>
+</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.7.2" style="padding-left:12.5pt;padding-right:12.5pt;">7.4</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.7.3" style="padding-left:12.5pt;padding-right:12.5pt;">7.2</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.7.4" style="padding-left:12.5pt;padding-right:12.5pt;">979.5</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.8">
+<td class="ltx_td ltx_align_left" id="S2.T1.1.1.8.1" style="padding-left:12.5pt;padding-right:12.5pt;">     <span class="ltx_text" id="S2.T1.1.1.8.1.1">Q&amp;A</span>
+</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.8.2" style="padding-left:12.5pt;padding-right:12.5pt;">22.6</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.8.3" style="padding-left:12.5pt;padding-right:12.5pt;">7.0</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.8.4" style="padding-left:12.5pt;padding-right:12.5pt;">308.3</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.9">
+<td class="ltx_td ltx_align_left" id="S2.T1.1.1.9.1" style="padding-left:12.5pt;padding-right:12.5pt;">     <span class="ltx_text" id="S2.T1.1.1.9.1.1">Text&amp;Code Block</span>
+</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.9.2" style="padding-left:12.5pt;padding-right:12.5pt;">50.2</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.9.3" style="padding-left:12.5pt;padding-right:12.5pt;">50.3</td>
+<td class="ltx_td ltx_align_right" id="S2.T1.1.1.9.4" style="padding-left:12.5pt;padding-right:12.5pt;">1002.1</td>
+</tr>
+<tr class="ltx_tr" id="S2.T1.1.1.10" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_left ltx_border_bb ltx_border_t" id="S2.T1.1.1.10.1" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.10.1.1" style="background-color:#CBEFFF;">Total</span></td>
+<td class="ltx_td ltx_align_right ltx_border_bb ltx_border_t" id="S2.T1.1.1.10.2" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.10.2.1" style="background-color:#CBEFFF;">215.1</span></td>
+<td class="ltx_td ltx_align_right ltx_border_bb ltx_border_t" id="S2.T1.1.1.10.3" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.10.3.1" style="background-color:#CBEFFF;">371.6</span></td>
+<td class="ltx_td ltx_align_right ltx_border_bb ltx_border_t" id="S2.T1.1.1.10.4" style="padding-left:12.5pt;padding-right:12.5pt;"><span class="ltx_text ltx_font_bold" id="S2.T1.1.1.10.4.1" style="background-color:#CBEFFF;">1727.6</span></td>
+</tr>
+</table>{{< /table-caption >}}
+
+> 🔼 This table presents a breakdown of the MegaMath dataset, categorized by data source (web, code, and synthetic) and sub-categories.  It shows the number of samples (in millions), the total number of tokens (in billions), and the average number of tokens per sample for each category. This provides a quantitative overview of the dataset's composition and size, highlighting the relative contributions of different data sources to the overall corpus.
+> <details>
+> <summary>read the caption</summary>
+> Table 1: The category and statistics of MegaMath.
+> </details>
+
+
+
+
+
+### In-depth insights
+
+
+#### Math Corpus++
+While the heading "Math Corpus++" doesn't appear directly in the text, we can infer its meaning. It suggests an improved, expanded, or enhanced version of a mathematical corpus, likely building upon existing resources. The document focuses on MegaMath, a novel dataset aimed at addressing limitations in current open math corpora. Thus, **MegaMath serves as a practical realization of the 'Math Corpus++' concept**, incorporating web data, code, and synthetic data. Key improvements likely involve higher quality data due to optimized extraction techniques, larger scale with a greater number of tokens, and increased diversity by integrating various sources and formats. The emphasis on curated pipelines and ablation studies further implies a dedication to quality and effectiveness beyond merely increasing the size of the corpus. **The goal is to boost model performance**, facilitate continued research in math reasoning, and provide adaptable choices for different tasks and computational constraints.
+
+#### Data Curation++
+While 'Data Curation++' isn't explicitly in the paper, it evokes the idea of enhanced data handling. This suggests a move beyond standard practices, implying innovations like **AI-assisted cleaning**, **intelligent filtering**, or **dynamic dataset creation**. It hints at actively improving data quality and relevance, possibly through iterative refinement or adaptive sampling. '++' also signals a focus on scale and efficiency, suggesting methods for handling massive datasets or automating curation processes. The emphasis might be on **making data more usable for downstream tasks**, such as training large language models, by optimizing its structure, content, or metadata. Furthermore, 'Data Curation++' implies a commitment to **reproducibility and transparency**, with clear documentation of curation steps and data provenance. Techniques like version control, data lineage tracking, and automated reporting could be key components. This heading also emphasizes the **importance of diversity**, using intelligent methods to create balanced datasets. It may point towards a more sophisticated approach to data valuation, prioritizing data points that are informative or representative of the target domain. Ultimately, 'Data Curation++' suggests a **holistic approach to data management**, with the goal of maximizing the value and impact of the curated data.
+
+#### LM Data Ablation
+**LM Data Ablation** analyzes the impact of training data subsets on model performance. By selectively removing or modifying specific data portions, researchers can pinpoint the most influential data sources. This helps understand model biases and vulnerabilities. Ablation studies can reveal if a model heavily relies on specific data, indicating potential overfitting or lack of generalization. Techniques include removing data from certain domains, reducing dataset size, or corrupting data to observe the model's resilience to noise. It also offers insights into the necessity of various components in training, optimizing for data efficiency and reducing computational costs. The goal is to ensure robust, unbiased learning by identifying data that causes issues and prioritizing the most effective training examples.
+
+#### Scaling LMs Well
+**Scaling Language Models (LMs) effectively hinges on a confluence of factors, extending beyond mere parameter increases**. Data quality emerges as paramount; curated datasets with diverse, high-quality content demonstrably outperform larger, noisier datasets. **Architectural innovations**, such as attention mechanisms and efficient transformer variants, play a crucial role in enabling models to process longer sequences and capture intricate dependencies. **Training methodologies**, including optimized optimizers, learning rate schedules, and regularization techniques, are essential for stable and efficient convergence. Furthermore, **distributed training strategies** are indispensable for handling the computational demands of large models, necessitating sophisticated techniques for data parallelism and model parallelism. The pursuit of scaling also compels exploration into **novel model architectures** that can learn more efficiently and generalize better, with mixture of experts being one of them. The scaling pursuit necessitates a **thoughtful and holistic approach**.
+
+#### Math: NL Scaling
+While the exact phrase "Math: NL Scaling" doesn't appear in this document, the core idea of **scaling Natural Language (NL) models** to enhance mathematical reasoning is central. The paper emphasizes the creation of MegaMath, a large-scale dataset for training such models. The success of o1 (OpenAI, 2024) and DeepSeek-R1 (Guo et al., 2025) is attributed to pre-training and reinforcement learning, highlighting the **importance of scale**. Datasets like DeepSeekMath's 120B tokens and Qwen-2.5-Math's 1T tokens are indicative of this trend. MegaMath itself aims to push these limits, delivering 371B tokens. A key aspect is not just scale, but also **data quality**. The paper describes various techniques for curating a high-quality dataset, including revisiting web data, recalling math-related code data, and exploring synthetic data. Techniques like two-stage extraction and filtering pipelines are also mentioned.
+
+
+### More visual insights
+
+<details>
+<summary>More on figures
+</summary>
+
+
+![](https://arxiv.org/html/2504.02807/x6.png)
+
+> 🔼 This figure compares MegaMath-Web with other existing open-source math corpora.  It showcases the relative performance of MegaMath-Web subsets (Full, Top 50%, Top 75%, and Web-Pro) across different sizes in terms of training tokens (in billions) against other datasets such as FineMath-3+, FineMath-4+, InfiMM-WebMath, and OpenWebMath.  The chart illustrates MegaMath-Web-Pro's superior performance, especially considering its relatively smaller size, highlighting the efficacy of the MegaMath data curation and filtering techniques. The chart also visualizes the relationship between data quality and quantity, suggesting that MegaMath achieves a balance of both.
+> <details>
+> <summary>read the caption</summary>
+> Figure 2: Comparison with existing open math corpora and MegaMath-Web subsets.
+> </details>
+
+
+
+![](https://arxiv.org/html/2504.02807/x7.png)
+
+> 🔼 This figure illustrates the multi-stage pipeline used to curate the MegaMath-Web dataset from Common Crawl data.  It begins with URL filtering and language identification to select relevant web pages.  A two-stage text extraction process is then employed, using first a fast and then a more accurate, though slower, method to extract text from HTML, optimizing for mathematical content.  A fastText classifier is used to filter out non-math-related documents. Deduplication is performed to remove redundant entries, followed by further filtering and processing steps to ensure high-quality data.  The pipeline aims to balance the need for efficient processing with the creation of a high-quality dataset.
+> <details>
+> <summary>read the caption</summary>
+> Figure 3: The pipeline for curating MegaMath-Web from Common Crawl data.
+> </details>
+
+
+
+![](https://arxiv.org/html/2504.02807/x8.png)
+
+> 🔼 The figure illustrates the process of creating the MegaMath-Code dataset.  It begins with the Stack-V2 code corpus. A language filter selects code written in specific programming languages relevant to mathematics and scientific computing. Subsequently, a small language model (SLM) further filters the selected code to isolate high-quality snippets relevant to mathematical reasoning and other math-centric applications. The final output is the MegaMath-Code dataset.
+> <details>
+> <summary>read the caption</summary>
+> Figure 4: The pipeline for curating MegaMath-Code.
+> </details>
+
+
+
+![](https://arxiv.org/html/2504.02807/x9.png)
+
+> 🔼 Figure 5 illustrates the process of creating synthetic data for the MegaMath dataset.  The figure is divided into three main parts. The left-hand side shows how question-answer (QA) pairs are generated and refined from existing web data.  The middle section details how Python code is added to and improved through translation from other programming languages. Finally, the right-hand side depicts how text and code blocks are synthesized and integrated.
+> <details>
+> <summary>read the caption</summary>
+> Figure 5: The pipeline for curating synthetic data. Left: QA data generation; Middle: Python code augmentation; Right: text & ode block data curation.
+> </details>
+
+
+
+</details>
+
+
+
+
+<details>
+<summary>More on tables
+</summary>
+
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="S3.T2.1.1">
+<tr class="ltx_tr" id="S3.T2.1.1.1">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_tt" id="S3.T2.1.1.1.1" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.1.1.1">
+<span class="ltx_p" id="S3.T2.1.1.1.1.1.1"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.1.1.1.1.1">Text Extractors</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_tt" id="S3.T2.1.1.1.2" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<table class="ltx_tabular ltx_align_top" id="S3.T2.1.1.1.2.1">
+<tr class="ltx_tr" id="S3.T2.1.1.1.2.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="S3.T2.1.1.1.2.1.1.1" style="padding-top:-1pt;padding-bottom:-1pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.1.2.1.1.1.1">w/ HTML</span></td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.1.1.2.1.2">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="S3.T2.1.1.1.2.1.2.1" style="padding-top:-1pt;padding-bottom:-1pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.1.2.1.2.1.1">Optimization</span></td>
+</tr>
+</table>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_tt" id="S3.T2.1.1.1.3" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.1.3.1">
+<span class="ltx_p" id="S3.T2.1.1.1.3.1.1"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.1.3.1.1.1">Core Avg.</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_tt" id="S3.T2.1.1.1.4" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.1.4.1">
+<span class="ltx_p" id="S3.T2.1.1.1.4.1.1"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.1.4.1.1.1">Ext. Avg.</span></span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.1.2">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_t" id="S3.T2.1.1.2.1" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.2.1.1">
+<span class="ltx_p" id="S3.T2.1.1.2.1.1.1"><span class="ltx_text ltx_font_italic" id="S3.T2.1.1.2.1.1.1.1" style="color:#9B9B9B;">Base Model</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_t" id="S3.T2.1.1.2.2" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.2.2.1">
+<span class="ltx_p" id="S3.T2.1.1.2.2.1.1">-</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_t" id="S3.T2.1.1.2.3" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.2.3.1">
+<span class="ltx_p" id="S3.T2.1.1.2.3.1.1"><span class="ltx_text" id="S3.T2.1.1.2.3.1.1.1" style="color:#9B9B9B;">11.2</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_t" id="S3.T2.1.1.2.4" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.2.4.1">
+<span class="ltx_p" id="S3.T2.1.1.2.4.1.1"><span class="ltx_text" id="S3.T2.1.1.2.4.1.1.1" style="color:#9B9B9B;">14.7</span></span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.1.3">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_t" id="S3.T2.1.1.3.1" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.3.1.1">
+<span class="ltx_p" id="S3.T2.1.1.3.1.1.1"><span class="ltx_text ltx_font_typewriter" id="S3.T2.1.1.3.1.1.1.1">trafilatura</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_t" id="S3.T2.1.1.3.2" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.3.2.1">
+<span class="ltx_p" id="S3.T2.1.1.3.2.1.1">✗</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_t" id="S3.T2.1.1.3.3" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.3.3.1">
+<span class="ltx_p" id="S3.T2.1.1.3.3.1.1">22.0</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_t" id="S3.T2.1.1.3.4" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.3.4.1">
+<span class="ltx_p" id="S3.T2.1.1.3.4.1.1">19.2</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.1.4">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T2.1.1.4.1" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.4.1.1">
+<span class="ltx_p" id="S3.T2.1.1.4.1.1.1"><span class="ltx_text ltx_font_typewriter" id="S3.T2.1.1.4.1.1.1.1">Resiliparse</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T2.1.1.4.2" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.4.2.1">
+<span class="ltx_p" id="S3.T2.1.1.4.2.1.1">✔</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T2.1.1.4.3" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.4.3.1">
+<span class="ltx_p" id="S3.T2.1.1.4.3.1.1">22.5</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T2.1.1.4.4" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.4.4.1">
+<span class="ltx_p" id="S3.T2.1.1.4.4.1.1">18.6</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.1.5" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb ltx_border_r" id="S3.T2.1.1.5.1" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.5.1.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T2.1.1.5.1.1.1"><span class="ltx_text ltx_font_typewriter" id="S3.T2.1.1.5.1.1.1.1" style="background-color:#CBEFFF;">trafilatura</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb ltx_border_r" id="S3.T2.1.1.5.2" style="width:51.2pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.5.2.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T2.1.1.5.2.1.1">✔</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb" id="S3.T2.1.1.5.3" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.5.3.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T2.1.1.5.3.1.1"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.5.3.1.1.1">23.8</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb" id="S3.T2.1.1.5.4" style="width:22.8pt;padding-top:-1pt;padding-bottom:-1pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T2.1.1.5.4.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T2.1.1.5.4.1.1"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.5.4.1.1.1">20.6</span></span>
+</span>
+</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the results of an ablation study on text extraction methods for mathematical content.  It compares different text extraction techniques, including the use of HTML optimization, to assess their impact on downstream task performance. The methods compared are using `trafilatura` with and without HTML optimization and `Resiliparse` with HTML optimization. The performance is measured using average scores across core and extended benchmarks.
+> <details>
+> <summary>read the caption</summary>
+> Table 2: Ablation on Text Extraction for Math
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_top" id="S3.T2.1.1.1.2.1">
+<tr class="ltx_tr" id="S3.T2.1.1.1.2.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="S3.T2.1.1.1.2.1.1.1" style="padding-top:-1pt;padding-bottom:-1pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.1.2.1.1.1.1">w/ HTML</span></td>
+</tr>
+<tr class="ltx_tr" id="S3.T2.1.1.1.2.1.2">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="S3.T2.1.1.1.2.1.2.1" style="padding-top:-1pt;padding-bottom:-1pt;"><span class="ltx_text ltx_font_bold" id="S3.T2.1.1.1.2.1.2.1.1">Optimization</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the results of an ablation study on the MinHash Locality Sensitive Hashing (LSH) deduplication method used in the MegaMath dataset creation.  Different parameters for MinHash LSH (number of permutations *r*, number of buckets *b*, and Jaccard similarity threshold *t*) were tested, and their impact on the number of tokens remaining in the dataset and downstream performance (measured by average CoT scores on Core and Extended benchmark datasets) is shown. The goal was to find the optimal MinHash LSH configuration to balance data size and quality.
+> <details>
+> <summary>read the caption</summary>
+> Table 3: Ablation on MinhashLSH Dedup.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="S3.T3.1.1">
+<tr class="ltx_tr" id="S3.T3.1.1.1">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_tt" id="S3.T3.1.1.1.1" style="width:31.3pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.1.1.1">
+<span class="ltx_p" id="S3.T3.1.1.1.1.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.1.1.1.1.1">(r, b)</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_tt" id="S3.T3.1.1.1.2" style="width:11.4pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.1.2.1">
+<span class="ltx_p" id="S3.T3.1.1.1.2.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.1.2.1.1.1">t</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_tt" id="S3.T3.1.1.1.3" style="width:39.8pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.1.3.1">
+<span class="ltx_p" id="S3.T3.1.1.1.3.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.1.3.1.1.1">Tokens Left (B)</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_tt" id="S3.T3.1.1.1.4" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.1.4.1">
+<span class="ltx_p" id="S3.T3.1.1.1.4.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.1.4.1.1.1">Core Avg.</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_tt" id="S3.T3.1.1.1.5" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.1.5.1">
+<span class="ltx_p" id="S3.T3.1.1.1.5.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.1.5.1.1.1">Ext. Avg.</span></span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T3.1.1.2">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_t" id="S3.T3.1.1.2.1" style="width:31.3pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.2.1.1">
+<span class="ltx_p" id="S3.T3.1.1.2.1.1.1">(14, 9)</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_t" id="S3.T3.1.1.2.2" style="width:11.4pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.2.2.1">
+<span class="ltx_p" id="S3.T3.1.1.2.2.1.1">0.70</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r ltx_border_t" id="S3.T3.1.1.2.3" style="width:39.8pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.2.3.1">
+<span class="ltx_p" id="S3.T3.1.1.2.3.1.1">16.0</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_t" id="S3.T3.1.1.2.4" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.2.4.1">
+<span class="ltx_p" id="S3.T3.1.1.2.4.1.1">17.3</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_t" id="S3.T3.1.1.2.5" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.2.5.1">
+<span class="ltx_p" id="S3.T3.1.1.2.5.1.1">16.6</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T3.1.1.3">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.3.1" style="width:31.3pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.3.1.1">
+<span class="ltx_p" id="S3.T3.1.1.3.1.1.1">(14, 8)</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.3.2" style="width:11.4pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.3.2.1">
+<span class="ltx_p" id="S3.T3.1.1.3.2.1.1">0.75</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.3.3" style="width:39.8pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.3.3.1">
+<span class="ltx_p" id="S3.T3.1.1.3.3.1.1">23.5</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.3.4" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.3.4.1">
+<span class="ltx_p" id="S3.T3.1.1.3.4.1.1">19.1</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.3.5" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.3.5.1">
+<span class="ltx_p" id="S3.T3.1.1.3.5.1.1">17.0</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T3.1.1.4" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.4.1" style="width:31.3pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.4.1.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T3.1.1.4.1.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.4.1.1.1.1">(11, 10)</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.4.2" style="width:11.4pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.4.2.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T3.1.1.4.2.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.4.2.1.1.1">0.75</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.4.3" style="width:39.8pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.4.3.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T3.1.1.4.3.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.4.3.1.1.1">26.0</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.4.4" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.4.4.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T3.1.1.4.4.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.4.4.1.1.1">19.4</span></span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.4.5" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.4.5.1" style="background-color:#CBEFFF;">
+<span class="ltx_p" id="S3.T3.1.1.4.5.1.1"><span class="ltx_text ltx_font_bold" id="S3.T3.1.1.4.5.1.1.1">17.5</span></span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T3.1.1.5">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.5.1" style="width:31.3pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.5.1.1">
+<span class="ltx_p" id="S3.T3.1.1.5.1.1.1">(11, 11)</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.5.2" style="width:11.4pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.5.2.1">
+<span class="ltx_p" id="S3.T3.1.1.5.2.1.1">0.75</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.5.3" style="width:39.8pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.5.3.1">
+<span class="ltx_p" id="S3.T3.1.1.5.3.1.1">25.0</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.5.4" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.5.4.1">
+<span class="ltx_p" id="S3.T3.1.1.5.4.1.1">19.2</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.5.5" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.5.5.1">
+<span class="ltx_p" id="S3.T3.1.1.5.5.1.1">16.0</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T3.1.1.6">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.6.1" style="width:31.3pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.6.1.1">
+<span class="ltx_p" id="S3.T3.1.1.6.1.1.1">(9, 12)</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.6.2" style="width:11.4pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.6.2.1">
+<span class="ltx_p" id="S3.T3.1.1.6.2.1.1">0.80</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_r" id="S3.T3.1.1.6.3" style="width:39.8pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.6.3.1">
+<span class="ltx_p" id="S3.T3.1.1.6.3.1.1">29.0</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.6.4" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.6.4.1">
+<span class="ltx_p" id="S3.T3.1.1.6.4.1.1">18.8</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle" id="S3.T3.1.1.6.5" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.6.5.1">
+<span class="ltx_p" id="S3.T3.1.1.6.5.1.1">16.9</span>
+</span>
+</td>
+</tr>
+<tr class="ltx_tr" id="S3.T3.1.1.7">
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb ltx_border_r" id="S3.T3.1.1.7.1" style="width:31.3pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.7.1.1">
+<span class="ltx_p" id="S3.T3.1.1.7.1.1.1">(9, 13)</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb" id="S3.T3.1.1.7.2" style="width:11.4pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.7.2.1">
+<span class="ltx_p" id="S3.T3.1.1.7.2.1.1">0.80</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb ltx_border_r" id="S3.T3.1.1.7.3" style="width:39.8pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.7.3.1">
+<span class="ltx_p" id="S3.T3.1.1.7.3.1.1">30.0</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb" id="S3.T3.1.1.7.4" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.7.4.1">
+<span class="ltx_p" id="S3.T3.1.1.7.4.1.1">17.6</span>
+</span>
+</td>
+<td class="ltx_td ltx_align_justify ltx_align_middle ltx_border_bb" id="S3.T3.1.1.7.5" style="width:19.9pt;">
+<span class="ltx_inline-block ltx_align_top" id="S3.T3.1.1.7.5.1">
+<span class="ltx_p" id="S3.T3.1.1.7.5.1.1">15.7</span>
+</span>
+</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the results of ablation studies on different prompts used for question answering (QA) data extraction and compares the performance with existing datasets like FineMath-4plus.  It shows the impact of using different prompts (Vanilla, ELI5, ELI5+IC) on the average core and extended scores for various QA datasets.  This demonstrates how prompt engineering can significantly influence the quality of the extracted QA data and highlights the superior performance of the ELI5+IC prompt.
+> <details>
+> <summary>read the caption</summary>
+> Table 6: Ablations on prompt and comparison with other data. FM-4plus: FineMath-4plus.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="S3.T5.4.4.4">
+<tr class="ltx_tr" id="S3.T5.4.4.4.5">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="S3.T5.4.4.4.5.1"><span class="ltx_text ltx_font_bold" id="S3.T5.4.4.4.5.1.1">Filter Criteria</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T5.4.4.4.5.2"><span class="ltx_text ltx_font_bold" id="S3.T5.4.4.4.5.2.1">CoT Avg.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T5.4.4.4.5.3"><span class="ltx_text ltx_font_bold" id="S3.T5.4.4.4.5.3.1">PAL Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.4.4.4.6">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S3.T5.4.4.4.6.1"><span class="ltx_text ltx_font_bold" id="S3.T5.4.4.4.6.1.1">text only</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T5.4.4.4.6.2">19.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T5.4.4.4.6.3">15.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.1.1.1.1">
+<td class="ltx_td ltx_align_center ltx_border_r" id="S3.T5.1.1.1.1.1"><math alttext="S_{\text{edu}}\geq 3,S_{\text{math}}\geq 3" class="ltx_Math" display="inline" id="S3.T5.1.1.1.1.1.m1.2"><semantics id="S3.T5.1.1.1.1.1.m1.2a"><mrow id="S3.T5.1.1.1.1.1.m1.2.2.2" xref="S3.T5.1.1.1.1.1.m1.2.2.3.cmml"><mrow id="S3.T5.1.1.1.1.1.m1.1.1.1.1" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.cmml"><msub id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.cmml"><mi id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.2" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.2.cmml">S</mi><mtext id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.3" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.3a.cmml">edu</mtext></msub><mo id="S3.T5.1.1.1.1.1.m1.1.1.1.1.1" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="S3.T5.1.1.1.1.1.m1.1.1.1.1.3" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.3.cmml">3</mn></mrow><mo id="S3.T5.1.1.1.1.1.m1.2.2.2.3" xref="S3.T5.1.1.1.1.1.m1.2.2.3a.cmml">,</mo><mrow id="S3.T5.1.1.1.1.1.m1.2.2.2.2" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.cmml"><msub id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.cmml"><mi id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.2" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.2.cmml">S</mi><mtext id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.3" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.3a.cmml">math</mtext></msub><mo id="S3.T5.1.1.1.1.1.m1.2.2.2.2.1" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="S3.T5.1.1.1.1.1.m1.2.2.2.2.3" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.3.cmml">3</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="S3.T5.1.1.1.1.1.m1.2b"><apply id="S3.T5.1.1.1.1.1.m1.2.2.3.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2"><csymbol cd="ambiguous" id="S3.T5.1.1.1.1.1.m1.2.2.3a.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="S3.T5.1.1.1.1.1.m1.1.1.1.1.cmml" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1"><geq id="S3.T5.1.1.1.1.1.m1.1.1.1.1.1.cmml" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.1"></geq><apply id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.cmml" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.1.cmml" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2">subscript</csymbol><ci id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.2.cmml" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.3a.cmml" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.3"><mtext id="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.3.cmml" mathsize="70%" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.2.3">edu</mtext></ci></apply><cn id="S3.T5.1.1.1.1.1.m1.1.1.1.1.3.cmml" type="integer" xref="S3.T5.1.1.1.1.1.m1.1.1.1.1.3">3</cn></apply><apply id="S3.T5.1.1.1.1.1.m1.2.2.2.2.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2"><geq id="S3.T5.1.1.1.1.1.m1.2.2.2.2.1.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.1"></geq><apply id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2"><csymbol cd="ambiguous" id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.1.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2">subscript</csymbol><ci id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.2.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.3a.cmml" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.3"><mtext id="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.3.cmml" mathsize="70%" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.2.3">math</mtext></ci></apply><cn id="S3.T5.1.1.1.1.1.m1.2.2.2.2.3.cmml" type="integer" xref="S3.T5.1.1.1.1.1.m1.2.2.2.2.3">3</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.T5.1.1.1.1.1.m1.2c">S_{\text{edu}}\geq 3,S_{\text{math}}\geq 3</annotation><annotation encoding="application/x-llamapun" id="S3.T5.1.1.1.1.1.m1.2d">italic_S start_POSTSUBSCRIPT edu end_POSTSUBSCRIPT ≥ 3 , italic_S start_POSTSUBSCRIPT math end_POSTSUBSCRIPT ≥ 3</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="S3.T5.1.1.1.1.2">19.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T5.1.1.1.1.3">16.1</td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.2.2.2.2">
+<td class="ltx_td ltx_align_center ltx_border_r" id="S3.T5.2.2.2.2.1"><math alttext="S_{\text{edu}}\geq 3,S_{\text{math}}\geq 4" class="ltx_Math" display="inline" id="S3.T5.2.2.2.2.1.m1.2"><semantics id="S3.T5.2.2.2.2.1.m1.2a"><mrow id="S3.T5.2.2.2.2.1.m1.2.2.2" xref="S3.T5.2.2.2.2.1.m1.2.2.3.cmml"><mrow id="S3.T5.2.2.2.2.1.m1.1.1.1.1" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.cmml"><msub id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.cmml"><mi id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.2" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.2.cmml">S</mi><mtext id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.3" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.3a.cmml">edu</mtext></msub><mo id="S3.T5.2.2.2.2.1.m1.1.1.1.1.1" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="S3.T5.2.2.2.2.1.m1.1.1.1.1.3" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.3.cmml">3</mn></mrow><mo id="S3.T5.2.2.2.2.1.m1.2.2.2.3" xref="S3.T5.2.2.2.2.1.m1.2.2.3a.cmml">,</mo><mrow id="S3.T5.2.2.2.2.1.m1.2.2.2.2" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.cmml"><msub id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.cmml"><mi id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.2" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.2.cmml">S</mi><mtext id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.3" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.3a.cmml">math</mtext></msub><mo id="S3.T5.2.2.2.2.1.m1.2.2.2.2.1" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="S3.T5.2.2.2.2.1.m1.2.2.2.2.3" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.3.cmml">4</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="S3.T5.2.2.2.2.1.m1.2b"><apply id="S3.T5.2.2.2.2.1.m1.2.2.3.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2"><csymbol cd="ambiguous" id="S3.T5.2.2.2.2.1.m1.2.2.3a.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="S3.T5.2.2.2.2.1.m1.1.1.1.1.cmml" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1"><geq id="S3.T5.2.2.2.2.1.m1.1.1.1.1.1.cmml" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.1"></geq><apply id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.cmml" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.1.cmml" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2">subscript</csymbol><ci id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.2.cmml" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.3a.cmml" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.3"><mtext id="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.3.cmml" mathsize="70%" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.2.3">edu</mtext></ci></apply><cn id="S3.T5.2.2.2.2.1.m1.1.1.1.1.3.cmml" type="integer" xref="S3.T5.2.2.2.2.1.m1.1.1.1.1.3">3</cn></apply><apply id="S3.T5.2.2.2.2.1.m1.2.2.2.2.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2"><geq id="S3.T5.2.2.2.2.1.m1.2.2.2.2.1.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.1"></geq><apply id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2"><csymbol cd="ambiguous" id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.1.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2">subscript</csymbol><ci id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.2.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.3a.cmml" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.3"><mtext id="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.3.cmml" mathsize="70%" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.2.3">math</mtext></ci></apply><cn id="S3.T5.2.2.2.2.1.m1.2.2.2.2.3.cmml" type="integer" xref="S3.T5.2.2.2.2.1.m1.2.2.2.2.3">4</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.T5.2.2.2.2.1.m1.2c">S_{\text{edu}}\geq 3,S_{\text{math}}\geq 4</annotation><annotation encoding="application/x-llamapun" id="S3.T5.2.2.2.2.1.m1.2d">italic_S start_POSTSUBSCRIPT edu end_POSTSUBSCRIPT ≥ 3 , italic_S start_POSTSUBSCRIPT math end_POSTSUBSCRIPT ≥ 4</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="S3.T5.2.2.2.2.2">19.8</td>
+<td class="ltx_td ltx_align_center" id="S3.T5.2.2.2.2.3">16.8</td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.3.3.3.3">
+<td class="ltx_td ltx_align_center ltx_border_r" id="S3.T5.3.3.3.3.1"><math alttext="S_{\text{edu}}\geq 4,S_{\text{math}}\geq 3" class="ltx_Math" display="inline" id="S3.T5.3.3.3.3.1.m1.2"><semantics id="S3.T5.3.3.3.3.1.m1.2a"><mrow id="S3.T5.3.3.3.3.1.m1.2.2.2" xref="S3.T5.3.3.3.3.1.m1.2.2.3.cmml"><mrow id="S3.T5.3.3.3.3.1.m1.1.1.1.1" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.cmml"><msub id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.cmml"><mi id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.2" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.2.cmml">S</mi><mtext id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.3" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.3a.cmml">edu</mtext></msub><mo id="S3.T5.3.3.3.3.1.m1.1.1.1.1.1" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="S3.T5.3.3.3.3.1.m1.1.1.1.1.3" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.3.cmml">4</mn></mrow><mo id="S3.T5.3.3.3.3.1.m1.2.2.2.3" xref="S3.T5.3.3.3.3.1.m1.2.2.3a.cmml">,</mo><mrow id="S3.T5.3.3.3.3.1.m1.2.2.2.2" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.cmml"><msub id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.cmml"><mi id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.2" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.2.cmml">S</mi><mtext id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.3" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.3a.cmml">math</mtext></msub><mo id="S3.T5.3.3.3.3.1.m1.2.2.2.2.1" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="S3.T5.3.3.3.3.1.m1.2.2.2.2.3" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.3.cmml">3</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="S3.T5.3.3.3.3.1.m1.2b"><apply id="S3.T5.3.3.3.3.1.m1.2.2.3.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2"><csymbol cd="ambiguous" id="S3.T5.3.3.3.3.1.m1.2.2.3a.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="S3.T5.3.3.3.3.1.m1.1.1.1.1.cmml" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1"><geq id="S3.T5.3.3.3.3.1.m1.1.1.1.1.1.cmml" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.1"></geq><apply id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.cmml" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.1.cmml" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2">subscript</csymbol><ci id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.2.cmml" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.3a.cmml" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.3"><mtext id="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.3.cmml" mathsize="70%" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.2.3">edu</mtext></ci></apply><cn id="S3.T5.3.3.3.3.1.m1.1.1.1.1.3.cmml" type="integer" xref="S3.T5.3.3.3.3.1.m1.1.1.1.1.3">4</cn></apply><apply id="S3.T5.3.3.3.3.1.m1.2.2.2.2.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2"><geq id="S3.T5.3.3.3.3.1.m1.2.2.2.2.1.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.1"></geq><apply id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2"><csymbol cd="ambiguous" id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.1.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2">subscript</csymbol><ci id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.2.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.3a.cmml" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.3"><mtext id="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.3.cmml" mathsize="70%" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.2.3">math</mtext></ci></apply><cn id="S3.T5.3.3.3.3.1.m1.2.2.2.2.3.cmml" type="integer" xref="S3.T5.3.3.3.3.1.m1.2.2.2.2.3">3</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.T5.3.3.3.3.1.m1.2c">S_{\text{edu}}\geq 4,S_{\text{math}}\geq 3</annotation><annotation encoding="application/x-llamapun" id="S3.T5.3.3.3.3.1.m1.2d">italic_S start_POSTSUBSCRIPT edu end_POSTSUBSCRIPT ≥ 4 , italic_S start_POSTSUBSCRIPT math end_POSTSUBSCRIPT ≥ 3</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="S3.T5.3.3.3.3.2">19.7</td>
+<td class="ltx_td ltx_align_center" id="S3.T5.3.3.3.3.3">17.5</td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.4.4.4.4" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="S3.T5.4.4.4.4.1"><math alttext="S_{\text{edu}}\geq 4,S_{\text{math}}\geq 4" class="ltx_Math" display="inline" id="S3.T5.4.4.4.4.1.m1.2" style="background-color:#CBEFFF;"><semantics id="S3.T5.4.4.4.4.1.m1.2a"><mrow id="S3.T5.4.4.4.4.1.m1.2.2.2" xref="S3.T5.4.4.4.4.1.m1.2.2.3.cmml"><mrow id="S3.T5.4.4.4.4.1.m1.1.1.1.1" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.cmml"><msub id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.cmml"><mi id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.2" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.2.cmml">S</mi><mtext id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.3" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.3a.cmml">edu</mtext></msub><mo id="S3.T5.4.4.4.4.1.m1.1.1.1.1.1" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="S3.T5.4.4.4.4.1.m1.1.1.1.1.3" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.3.cmml">4</mn></mrow><mo id="S3.T5.4.4.4.4.1.m1.2.2.2.3" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.2.2.3a.cmml">,</mo><mrow id="S3.T5.4.4.4.4.1.m1.2.2.2.2" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.cmml"><msub id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.cmml"><mi id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.2" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.2.cmml">S</mi><mtext id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.3" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.3a.cmml">math</mtext></msub><mo id="S3.T5.4.4.4.4.1.m1.2.2.2.2.1" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="S3.T5.4.4.4.4.1.m1.2.2.2.2.3" mathbackground="#CBEFFF" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.3.cmml">4</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="S3.T5.4.4.4.4.1.m1.2b"><apply id="S3.T5.4.4.4.4.1.m1.2.2.3.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2"><csymbol cd="ambiguous" id="S3.T5.4.4.4.4.1.m1.2.2.3a.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="S3.T5.4.4.4.4.1.m1.1.1.1.1.cmml" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1"><geq id="S3.T5.4.4.4.4.1.m1.1.1.1.1.1.cmml" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.1"></geq><apply id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.cmml" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2"><csymbol cd="ambiguous" id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.1.cmml" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2">subscript</csymbol><ci id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.2.cmml" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.3a.cmml" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.3"><mtext id="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.3.cmml" mathbackground="#CBEFFF" mathsize="70%" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.2.3">edu</mtext></ci></apply><cn id="S3.T5.4.4.4.4.1.m1.1.1.1.1.3.cmml" type="integer" xref="S3.T5.4.4.4.4.1.m1.1.1.1.1.3">4</cn></apply><apply id="S3.T5.4.4.4.4.1.m1.2.2.2.2.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2"><geq id="S3.T5.4.4.4.4.1.m1.2.2.2.2.1.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.1"></geq><apply id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2"><csymbol cd="ambiguous" id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.1.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2">subscript</csymbol><ci id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.2.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.3a.cmml" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.3"><mtext id="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.3.cmml" mathbackground="#CBEFFF" mathsize="70%" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.2.3">math</mtext></ci></apply><cn id="S3.T5.4.4.4.4.1.m1.2.2.2.2.3.cmml" type="integer" xref="S3.T5.4.4.4.4.1.m1.2.2.2.2.3">4</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="S3.T5.4.4.4.4.1.m1.2c">S_{\text{edu}}\geq 4,S_{\text{math}}\geq 4</annotation><annotation encoding="application/x-llamapun" id="S3.T5.4.4.4.4.1.m1.2d">italic_S start_POSTSUBSCRIPT edu end_POSTSUBSCRIPT ≥ 4 , italic_S start_POSTSUBSCRIPT math end_POSTSUBSCRIPT ≥ 4</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T5.4.4.4.4.2"><span class="ltx_text" id="S3.T5.4.4.4.4.2.1" style="background-color:#CBEFFF;">18.8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T5.4.4.4.4.3"><span class="ltx_text" id="S3.T5.4.4.4.4.3.1" style="background-color:#CBEFFF;">19.5</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents ablation study results on code synthesis within a 5B token training budget. It investigates the impact of different code data types (raw code, translated code, and text & code blocks) and data mixing ratios on downstream performance.  The 'full' configuration signifies using only the code data without any text data mixed in. The results reveal that incorporating text and code blocks significantly enhances performance, even without adding any text data. Notably, Lu et al. (2024) is excluded from comparison because only a limited portion (approximately 0.25B tokens) of their dataset was publicly available at the time of this study.
+> <details>
+> <summary>read the caption</summary>
+> Table 7: Ablations on Code Synthesis: The default code-to-text ratio is 1:7; “full”: no text is mixed. We exclude Lu et al. (2024) due to its partial release (≈\approx≈0.25B tokens).
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="S3.T5.fig1.1.1">
+<tr class="ltx_tr" id="S3.T5.fig1.1.1.1">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="S3.T5.fig1.1.1.1.1"><span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.1.1.1">Mix Ratio</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T5.fig1.1.1.1.2"><span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.1.2.1">CoT Avg.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T5.fig1.1.1.1.3"><span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.1.3.1">PAL Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.fig1.1.1.2">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="S3.T5.fig1.1.1.2.1"><span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.2.1.1">text only</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T5.fig1.1.1.2.2">19.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T5.fig1.1.1.2.3">15.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.fig1.1.1.3">
+<td class="ltx_td ltx_align_center ltx_border_r" id="S3.T5.fig1.1.1.3.1">
+<span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.3.1.1">code : text</span> = 12.5%</td>
+<td class="ltx_td ltx_align_center" id="S3.T5.fig1.1.1.3.2">19.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T5.fig1.1.1.3.3">17.4</td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.fig1.1.1.4" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="S3.T5.fig1.1.1.4.1"><span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.4.1.1" style="background-color:#CBEFFF;">code : text<span class="ltx_text ltx_font_medium" id="S3.T5.fig1.1.1.4.1.1.1"> = 20.0%</span></span></td>
+<td class="ltx_td ltx_align_center" id="S3.T5.fig1.1.1.4.2"><span class="ltx_text" id="S3.T5.fig1.1.1.4.2.1" style="background-color:#CBEFFF;">19.5</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T5.fig1.1.1.4.3"><span class="ltx_text" id="S3.T5.fig1.1.1.4.3.1" style="background-color:#CBEFFF;">18.4</span></td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.fig1.1.1.5">
+<td class="ltx_td ltx_align_center ltx_border_r" id="S3.T5.fig1.1.1.5.1">
+<span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.5.1.1">code : text</span> = 33.3%</td>
+<td class="ltx_td ltx_align_center" id="S3.T5.fig1.1.1.5.2">16.4</td>
+<td class="ltx_td ltx_align_center" id="S3.T5.fig1.1.1.5.3">17.5</td>
+</tr>
+<tr class="ltx_tr" id="S3.T5.fig1.1.1.6">
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="S3.T5.fig1.1.1.6.1">
+<span class="ltx_text ltx_font_bold" id="S3.T5.fig1.1.1.6.1.1">code : text</span> = 50.0%</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T5.fig1.1.1.6.2">17.5</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T5.fig1.1.1.6.3">18.8</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table compares MegaMath with other existing large-scale open-source math corpora.  It provides details on whether each corpus is fully publicly available, the number of tokens (in billions), the date of release, and the types of data sources used (e.g., web data, code, textbooks). This allows for a quantitative and qualitative comparison of MegaMath's size and data diversity against other relevant datasets.
+> <details>
+> <summary>read the caption</summary>
+> Table 8: Comparison with existing large-scale math corpora
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="S3.T6.3.1">
+<tr class="ltx_tr" id="S3.T6.3.1.1">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_tt" id="S3.T6.3.1.1.1"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.1.1.1">Data</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T6.3.1.1.2"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.1.2.1">Core Avg.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T6.3.1.1.3"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.1.3.1">Ext. Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="S3.T6.3.1.2">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t" id="S3.T6.3.1.2.1"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.2.1.1">FM-4plus</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T6.3.1.2.2">28.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T6.3.1.2.3">19.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T6.3.1.3">
+<td class="ltx_td ltx_align_left ltx_border_r" id="S3.T6.3.1.3.1"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.3.1.1">WebInstruct</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T6.3.1.3.2">34.6</td>
+<td class="ltx_td ltx_align_center" id="S3.T6.3.1.3.3">17.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T6.3.1.4">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t" id="S3.T6.3.1.4.1"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.4.1.1">Vanilla Prompt</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T6.3.1.4.2">39.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T6.3.1.4.3">19.5</td>
+</tr>
+<tr class="ltx_tr" id="S3.T6.3.1.5">
+<td class="ltx_td ltx_align_left ltx_border_r" id="S3.T6.3.1.5.1">   <span class="ltx_text ltx_font_italic" id="S3.T6.3.1.5.1.1">w.</span> <span class="ltx_text" id="S3.T6.3.1.5.1.2">ELI5</span>
+</td>
+<td class="ltx_td ltx_align_center" id="S3.T6.3.1.5.2">41.3</td>
+<td class="ltx_td ltx_align_center" id="S3.T6.3.1.5.3">19.2</td>
+</tr>
+<tr class="ltx_tr" id="S3.T6.3.1.6" style="background-color:#CBEFFF;">
+<td class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" id="S3.T6.3.1.6.1"><span class="ltx_text" id="S3.T6.3.1.6.1.1" style="background-color:#CBEFFF;">   <span class="ltx_text ltx_font_italic" id="S3.T6.3.1.6.1.1.1">w.</span> <span class="ltx_text" id="S3.T6.3.1.6.1.1.2">ELI5 + IC</span></span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T6.3.1.6.2"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.6.2.1" style="background-color:#CBEFFF;">48.8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T6.3.1.6.3"><span class="ltx_text ltx_font_bold" id="S3.T6.3.1.6.3.1" style="background-color:#CBEFFF;">23.6</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the results of an ablation study evaluating the effectiveness of a scoring strategy (Edu scoring) applied to web data for training language models. The study assesses how the performance of the model varies based on the year of the data used, after applying Edu filtering. The results show a clear trend: models trained on more recent years' data perform much better than models trained on older years' data, after applying the Edu filtering.
+> <details>
+> <summary>read the caption</summary>
+> Table 9: Yearly Ablation of Edu scoring strategy.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="S3.T7.3.1">
+<tr class="ltx_tr" id="S3.T7.3.1.1">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_tt" id="S3.T7.3.1.1.1"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.1.1.1">Data</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T7.3.1.1.2"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.1.2.1">CoT Avg.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="S3.T7.3.1.1.3"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.1.3.1">PAL Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="S3.T7.3.1.2">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t" id="S3.T7.3.1.2.1"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.2.1.1">code</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T7.3.1.2.2">18.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="S3.T7.3.1.2.3">19.5</td>
+</tr>
+<tr class="ltx_tr" id="S3.T7.3.1.3">
+<td class="ltx_td ltx_align_left ltx_border_r" id="S3.T7.3.1.3.1"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.3.1.1">trans. code</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T7.3.1.3.2">19.0</td>
+<td class="ltx_td ltx_align_center" id="S3.T7.3.1.3.3">20.6</td>
+</tr>
+<tr class="ltx_tr" id="S3.T7.3.1.4">
+<td class="ltx_td ltx_align_left ltx_border_r" id="S3.T7.3.1.4.1"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.4.1.1">text &amp; code block</span></td>
+<td class="ltx_td ltx_align_center" id="S3.T7.3.1.4.2">22.5</td>
+<td class="ltx_td ltx_align_center" id="S3.T7.3.1.4.3">28.1</td>
+</tr>
+<tr class="ltx_tr" id="S3.T7.3.1.5">
+<td class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" id="S3.T7.3.1.5.1">
+<span class="ltx_text ltx_font_bold" id="S3.T7.3.1.5.1.1">text &amp; code block</span> (full)</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T7.3.1.5.2"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.5.2.1">30.8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="S3.T7.3.1.5.3"><span class="ltx_text ltx_font_bold" id="S3.T7.3.1.5.3.1">46.5</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table details the hyperparameters used for training the small language model (SLM) employed in curating the MegaMath-Code dataset.  It lists the learning rate, learning rate schedule, batch size, number of epochs trained for, and the context length used during the training process.
+> <details>
+> <summary>read the caption</summary>
+> Table 10: Training parameters for SLM.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A1.T8.14.14">
+<tr class="ltx_tr" id="A1.T8.14.14.15">
+<td class="ltx_td ltx_align_left ltx_border_tt" id="A1.T8.14.14.15.1"><span class="ltx_text ltx_font_bold" id="A1.T8.14.14.15.1.1">Corpus Name</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A1.T8.14.14.15.2"><span class="ltx_text ltx_font_bold" id="A1.T8.14.14.15.2.1">Fully Public</span></td>
+<td class="ltx_td ltx_align_left ltx_border_tt" id="A1.T8.14.14.15.3"><span class="ltx_text ltx_font_bold" id="A1.T8.14.14.15.3.1"># Tokens (B)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A1.T8.14.14.15.4"><span class="ltx_text ltx_font_bold" id="A1.T8.14.14.15.4.1">Date</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A1.T8.14.14.15.5"><span class="ltx_text ltx_font_bold" id="A1.T8.14.14.15.5.1">Type</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.1.1.1">
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T8.1.1.1.2">OpenWebMath</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T8.1.1.1.3">✔</td>
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T8.1.1.1.1"><math alttext="14.5" class="ltx_Math" display="inline" id="A1.T8.1.1.1.1.m1.1"><semantics id="A1.T8.1.1.1.1.m1.1a"><mn id="A1.T8.1.1.1.1.m1.1.1" xref="A1.T8.1.1.1.1.m1.1.1.cmml">14.5</mn><annotation-xml encoding="MathML-Content" id="A1.T8.1.1.1.1.m1.1b"><cn id="A1.T8.1.1.1.1.m1.1.1.cmml" type="float" xref="A1.T8.1.1.1.1.m1.1.1">14.5</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.1.1.1.1.m1.1c">14.5</annotation><annotation encoding="application/x-llamapun" id="A1.T8.1.1.1.1.m1.1d">14.5</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T8.1.1.1.4">2023 Oct.</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T8.1.1.1.5">Web</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.2.2.2">
+<td class="ltx_td ltx_align_left" id="A1.T8.2.2.2.2">AlgebraicStack</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.2.2.2.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.2.2.2.1"><math alttext="11.0" class="ltx_Math" display="inline" id="A1.T8.2.2.2.1.m1.1"><semantics id="A1.T8.2.2.2.1.m1.1a"><mn id="A1.T8.2.2.2.1.m1.1.1" xref="A1.T8.2.2.2.1.m1.1.1.cmml">11.0</mn><annotation-xml encoding="MathML-Content" id="A1.T8.2.2.2.1.m1.1b"><cn id="A1.T8.2.2.2.1.m1.1.1.cmml" type="float" xref="A1.T8.2.2.2.1.m1.1.1">11.0</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.2.2.2.1.m1.1c">11.0</annotation><annotation encoding="application/x-llamapun" id="A1.T8.2.2.2.1.m1.1d">11.0</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.2.2.2.4">2023 Oct.</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.2.2.2.5">Code</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.3.3.3">
+<td class="ltx_td ltx_align_left" id="A1.T8.3.3.3.2">MathPile</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.3.3.3.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.3.3.3.1"><math alttext="9.5" class="ltx_Math" display="inline" id="A1.T8.3.3.3.1.m1.1"><semantics id="A1.T8.3.3.3.1.m1.1a"><mn id="A1.T8.3.3.3.1.m1.1.1" xref="A1.T8.3.3.3.1.m1.1.1.cmml">9.5</mn><annotation-xml encoding="MathML-Content" id="A1.T8.3.3.3.1.m1.1b"><cn id="A1.T8.3.3.3.1.m1.1.1.cmml" type="float" xref="A1.T8.3.3.3.1.m1.1.1">9.5</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.3.3.3.1.m1.1c">9.5</annotation><annotation encoding="application/x-llamapun" id="A1.T8.3.3.3.1.m1.1d">9.5</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.3.3.3.4">2023 Dec.</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.3.3.3.5">
+<span class="ltx_text" id="A1.T8.3.3.3.5.1"></span> <span class="ltx_text" id="A1.T8.3.3.3.5.2">
+<span class="ltx_tabular ltx_align_middle" id="A1.T8.3.3.3.5.2.1">
+<span class="ltx_tr" id="A1.T8.3.3.3.5.2.1.1">
+<span class="ltx_td ltx_nopad_r ltx_align_center" id="A1.T8.3.3.3.5.2.1.1.1">ArXiv, Web, Textbooks,</span></span>
+<span class="ltx_tr" id="A1.T8.3.3.3.5.2.1.2">
+<span class="ltx_td ltx_nopad_r ltx_align_center" id="A1.T8.3.3.3.5.2.1.2.1">StackExchange, Wiki</span></span>
+</span></span><span class="ltx_text" id="A1.T8.3.3.3.5.3"></span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.4.4.4">
+<td class="ltx_td ltx_align_left" id="A1.T8.4.4.4.2">DeepseekMath</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.4.4.4.3">✗</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.4.4.4.1"><math alttext="120" class="ltx_Math" display="inline" id="A1.T8.4.4.4.1.m1.1"><semantics id="A1.T8.4.4.4.1.m1.1a"><mn id="A1.T8.4.4.4.1.m1.1.1" xref="A1.T8.4.4.4.1.m1.1.1.cmml">120</mn><annotation-xml encoding="MathML-Content" id="A1.T8.4.4.4.1.m1.1b"><cn id="A1.T8.4.4.4.1.m1.1.1.cmml" type="integer" xref="A1.T8.4.4.4.1.m1.1.1">120</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.4.4.4.1.m1.1c">120</annotation><annotation encoding="application/x-llamapun" id="A1.T8.4.4.4.1.m1.1d">120</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.4.4.4.4">2024 Feb.</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.4.4.4.5">Web</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.5.5.5">
+<td class="ltx_td ltx_align_left" id="A1.T8.5.5.5.2">InfiMMWebMath</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.5.5.5.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.5.5.5.1"><math alttext="55.0" class="ltx_Math" display="inline" id="A1.T8.5.5.5.1.m1.1"><semantics id="A1.T8.5.5.5.1.m1.1a"><mn id="A1.T8.5.5.5.1.m1.1.1" xref="A1.T8.5.5.5.1.m1.1.1.cmml">55.0</mn><annotation-xml encoding="MathML-Content" id="A1.T8.5.5.5.1.m1.1b"><cn id="A1.T8.5.5.5.1.m1.1.1.cmml" type="float" xref="A1.T8.5.5.5.1.m1.1.1">55.0</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.5.5.5.1.m1.1c">55.0</annotation><annotation encoding="application/x-llamapun" id="A1.T8.5.5.5.1.m1.1d">55.0</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.5.5.5.4">2024 Sep.</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.5.5.5.5">Web</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.6.6.6">
+<td class="ltx_td ltx_align_left" id="A1.T8.6.6.6.2">Qwen Math Corpus v2</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.6.6.6.3">✗</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.6.6.6.1"><math alttext="1000" class="ltx_Math" display="inline" id="A1.T8.6.6.6.1.m1.1"><semantics id="A1.T8.6.6.6.1.m1.1a"><mn id="A1.T8.6.6.6.1.m1.1.1" xref="A1.T8.6.6.6.1.m1.1.1.cmml">1000</mn><annotation-xml encoding="MathML-Content" id="A1.T8.6.6.6.1.m1.1b"><cn id="A1.T8.6.6.6.1.m1.1.1.cmml" type="integer" xref="A1.T8.6.6.6.1.m1.1.1">1000</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.6.6.6.1.m1.1c">1000</annotation><annotation encoding="application/x-llamapun" id="A1.T8.6.6.6.1.m1.1d">1000</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.6.6.6.4">2024 Sep.</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.6.6.6.5">
+<span class="ltx_text" id="A1.T8.6.6.6.5.1"></span> <span class="ltx_text" id="A1.T8.6.6.6.5.2">
+<span class="ltx_tabular ltx_align_middle" id="A1.T8.6.6.6.5.2.1">
+<span class="ltx_tr" id="A1.T8.6.6.6.5.2.1.1">
+<span class="ltx_td ltx_nopad_r ltx_align_center" id="A1.T8.6.6.6.5.2.1.1.1">Web, Code snippets, Encyclopedias,</span></span>
+<span class="ltx_tr" id="A1.T8.6.6.6.5.2.1.2">
+<span class="ltx_td ltx_nopad_r ltx_align_center" id="A1.T8.6.6.6.5.2.1.2.1">Books, Exam questions, Synthetic data</span></span>
+</span></span><span class="ltx_text" id="A1.T8.6.6.6.5.3"></span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.7.7.7">
+<td class="ltx_td ltx_align_left" id="A1.T8.7.7.7.2">MathCode-Pile</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.7.7.7.3">✗</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.7.7.7.1"><math alttext="19.1" class="ltx_Math" display="inline" id="A1.T8.7.7.7.1.m1.1"><semantics id="A1.T8.7.7.7.1.m1.1a"><mn id="A1.T8.7.7.7.1.m1.1.1" xref="A1.T8.7.7.7.1.m1.1.1.cmml">19.1</mn><annotation-xml encoding="MathML-Content" id="A1.T8.7.7.7.1.m1.1b"><cn id="A1.T8.7.7.7.1.m1.1.1.cmml" type="float" xref="A1.T8.7.7.7.1.m1.1.1">19.1</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.7.7.7.1.m1.1c">19.1</annotation><annotation encoding="application/x-llamapun" id="A1.T8.7.7.7.1.m1.1d">19.1</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.7.7.7.4">2024 Oct.</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.7.7.7.5">Web, Code, Textbooks</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.8.8.8">
+<td class="ltx_td ltx_align_left" id="A1.T8.8.8.8.2">FineMath</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.8.8.8.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.8.8.8.1"><math alttext="34" class="ltx_Math" display="inline" id="A1.T8.8.8.8.1.m1.1"><semantics id="A1.T8.8.8.8.1.m1.1a"><mn id="A1.T8.8.8.8.1.m1.1.1" xref="A1.T8.8.8.8.1.m1.1.1.cmml">34</mn><annotation-xml encoding="MathML-Content" id="A1.T8.8.8.8.1.m1.1b"><cn id="A1.T8.8.8.8.1.m1.1.1.cmml" type="integer" xref="A1.T8.8.8.8.1.m1.1.1">34</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.8.8.8.1.m1.1c">34</annotation><annotation encoding="application/x-llamapun" id="A1.T8.8.8.8.1.m1.1d">34</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.8.8.8.4">2024 Dec.</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.8.8.8.5">Web</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.14.14.16">
+<td class="ltx_td ltx_align_center ltx_border_t" colspan="5" id="A1.T8.14.14.16.1"><span class="ltx_text ltx_font_bold" id="A1.T8.14.14.16.1.1">MegaMath Collection (Ours)</span></td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.9.9.9">
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T8.9.9.9.2">MegaMath-Web</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T8.9.9.9.3">✔</td>
+<td class="ltx_td ltx_align_left ltx_border_t" id="A1.T8.9.9.9.1"><math alttext="263.9" class="ltx_Math" display="inline" id="A1.T8.9.9.9.1.m1.1"><semantics id="A1.T8.9.9.9.1.m1.1a"><mn id="A1.T8.9.9.9.1.m1.1.1" xref="A1.T8.9.9.9.1.m1.1.1.cmml">263.9</mn><annotation-xml encoding="MathML-Content" id="A1.T8.9.9.9.1.m1.1b"><cn id="A1.T8.9.9.9.1.m1.1.1.cmml" type="float" xref="A1.T8.9.9.9.1.m1.1.1">263.9</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.9.9.9.1.m1.1c">263.9</annotation><annotation encoding="application/x-llamapun" id="A1.T8.9.9.9.1.m1.1d">263.9</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_t" id="A1.T8.9.9.9.4" rowspan="6"><span class="ltx_text" id="A1.T8.9.9.9.4.1">2025 Apr.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A1.T8.9.9.9.5">Web</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.10.10.10">
+<td class="ltx_td ltx_align_left" id="A1.T8.10.10.10.2">MegaMath-Web-Pro</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.10.10.10.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.10.10.10.1"><math alttext="15.1" class="ltx_Math" display="inline" id="A1.T8.10.10.10.1.m1.1"><semantics id="A1.T8.10.10.10.1.m1.1a"><mn id="A1.T8.10.10.10.1.m1.1.1" xref="A1.T8.10.10.10.1.m1.1.1.cmml">15.1</mn><annotation-xml encoding="MathML-Content" id="A1.T8.10.10.10.1.m1.1b"><cn id="A1.T8.10.10.10.1.m1.1.1.cmml" type="float" xref="A1.T8.10.10.10.1.m1.1.1">15.1</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.10.10.10.1.m1.1c">15.1</annotation><annotation encoding="application/x-llamapun" id="A1.T8.10.10.10.1.m1.1d">15.1</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.10.10.10.4">Web</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.11.11.11">
+<td class="ltx_td ltx_align_left" id="A1.T8.11.11.11.2">MegaMath-Code</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.11.11.11.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.11.11.11.1"><math alttext="28.1" class="ltx_Math" display="inline" id="A1.T8.11.11.11.1.m1.1"><semantics id="A1.T8.11.11.11.1.m1.1a"><mn id="A1.T8.11.11.11.1.m1.1.1" xref="A1.T8.11.11.11.1.m1.1.1.cmml">28.1</mn><annotation-xml encoding="MathML-Content" id="A1.T8.11.11.11.1.m1.1b"><cn id="A1.T8.11.11.11.1.m1.1.1.cmml" type="float" xref="A1.T8.11.11.11.1.m1.1.1">28.1</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.11.11.11.1.m1.1c">28.1</annotation><annotation encoding="application/x-llamapun" id="A1.T8.11.11.11.1.m1.1d">28.1</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.11.11.11.4">Code</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.12.12.12">
+<td class="ltx_td ltx_align_left" id="A1.T8.12.12.12.2">MegaMath-Synth-Code</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.12.12.12.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.12.12.12.1"><math alttext="7.2" class="ltx_Math" display="inline" id="A1.T8.12.12.12.1.m1.1"><semantics id="A1.T8.12.12.12.1.m1.1a"><mn id="A1.T8.12.12.12.1.m1.1.1" xref="A1.T8.12.12.12.1.m1.1.1.cmml">7.2</mn><annotation-xml encoding="MathML-Content" id="A1.T8.12.12.12.1.m1.1b"><cn id="A1.T8.12.12.12.1.m1.1.1.cmml" type="float" xref="A1.T8.12.12.12.1.m1.1.1">7.2</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.12.12.12.1.m1.1c">7.2</annotation><annotation encoding="application/x-llamapun" id="A1.T8.12.12.12.1.m1.1d">7.2</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.12.12.12.4">Code</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.13.13.13">
+<td class="ltx_td ltx_align_left" id="A1.T8.13.13.13.2">MegaMath-Synth-Q&amp;A</td>
+<td class="ltx_td ltx_align_center" id="A1.T8.13.13.13.3">✔</td>
+<td class="ltx_td ltx_align_left" id="A1.T8.13.13.13.1"><math alttext="7.0" class="ltx_Math" display="inline" id="A1.T8.13.13.13.1.m1.1"><semantics id="A1.T8.13.13.13.1.m1.1a"><mn id="A1.T8.13.13.13.1.m1.1.1" xref="A1.T8.13.13.13.1.m1.1.1.cmml">7.0</mn><annotation-xml encoding="MathML-Content" id="A1.T8.13.13.13.1.m1.1b"><cn id="A1.T8.13.13.13.1.m1.1.1.cmml" type="float" xref="A1.T8.13.13.13.1.m1.1.1">7.0</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.13.13.13.1.m1.1c">7.0</annotation><annotation encoding="application/x-llamapun" id="A1.T8.13.13.13.1.m1.1d">7.0</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A1.T8.13.13.13.4">Q&amp;A</td>
+</tr>
+<tr class="ltx_tr" id="A1.T8.14.14.14">
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A1.T8.14.14.14.2">MegaMath-Synth-Text&amp;Code</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T8.14.14.14.3">✔</td>
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A1.T8.14.14.14.1"><math alttext="50.3" class="ltx_Math" display="inline" id="A1.T8.14.14.14.1.m1.1"><semantics id="A1.T8.14.14.14.1.m1.1a"><mn id="A1.T8.14.14.14.1.m1.1.1" xref="A1.T8.14.14.14.1.m1.1.1.cmml">50.3</mn><annotation-xml encoding="MathML-Content" id="A1.T8.14.14.14.1.m1.1b"><cn id="A1.T8.14.14.14.1.m1.1.1.cmml" type="float" xref="A1.T8.14.14.14.1.m1.1.1">50.3</cn></annotation-xml><annotation encoding="application/x-tex" id="A1.T8.14.14.14.1.m1.1c">50.3</annotation><annotation encoding="application/x-llamapun" id="A1.T8.14.14.14.1.m1.1d">50.3</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A1.T8.14.14.14.4">Interleave text&amp;code</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the hyperparameters used during the training phase of the TinyLlama model.  It details the settings for various parameters, including context length (the number of tokens considered in each training step), batch size (number of samples processed simultaneously), maximum training steps, warmup steps (initial training phase with different learning rate), weight decay (regularization parameter to prevent overfitting), optimizer used (the algorithm for updating model weights), learning rate schedule (how the learning rate changes during training), and the actual learning rate range.  These parameters were consistent across different training scales (5B, 15B, and 55B tokens).
+> <details>
+> <summary>read the caption</summary>
+> Table 11: Training hyper-parameters.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A2.T9.1.1">
+<tr class="ltx_tr" id="A2.T9.1.1.1">
+<td class="ltx_td ltx_border_tt" id="A2.T9.1.1.1.1"></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A2.T9.1.1.1.2"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.1.2.1">GSM8K</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A2.T9.1.1.1.3"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.1.3.1">MATH</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A2.T9.1.1.1.4"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.1.4.1">ASDiv</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A2.T9.1.1.1.5"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.1.5.1">SVAMP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A2.T9.1.1.1.6"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.1.6.1">MAWPS</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A2.T9.1.1.1.7"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.1.7.1">AVG</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.2">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A2.T9.1.1.2.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.2.1.1">FM-4plus</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.2.2">10.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.2.3">6.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.2.4">41.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.2.5">25.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.2.6">57.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.2.7">28.3</td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.3" style="background-color:#FFEF9B;">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A2.T9.1.1.3.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.3.1.1" style="background-color:#FFEF9B;">2014</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.3.2" style="background-color:#E0E696;"><span class="ltx_text" id="A2.T9.1.1.3.2.1" style="background-color:#E0E696;">6.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.3.3" style="background-color:#DCE495;"><span class="ltx_text" id="A2.T9.1.1.3.3.1" style="background-color:#DCE495;">3.7</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.3.4" style="background-color:#CBDF91;"><span class="ltx_text" id="A2.T9.1.1.3.4.1" style="background-color:#CBDF91;">30.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.3.5" style="background-color:#DDE595;"><span class="ltx_text" id="A2.T9.1.1.3.5.1" style="background-color:#DDE595;">17.5</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.3.6" style="background-color:#DEE595;"><span class="ltx_text" id="A2.T9.1.1.3.6.1" style="background-color:#DEE595;">35.4</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A2.T9.1.1.3.7" style="background-color:#DAE495;"><span class="ltx_text" id="A2.T9.1.1.3.7.1" style="background-color:#DAE495;">18.6</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.4" style="background-color:#FFEF9B;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.4.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.4.1.1" style="background-color:#FFEF9B;">2015</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.4.2" style="background-color:#EFEA99;"><span class="ltx_text" id="A2.T9.1.1.4.2.1" style="background-color:#EFEA99;">5.0</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.4.3" style="background-color:#FFEF9C;"><span class="ltx_text" id="A2.T9.1.1.4.3.1" style="background-color:#FFEF9C;">3.0</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.4.4" style="background-color:#FFEF9C;"><span class="ltx_text" id="A2.T9.1.1.4.4.1" style="background-color:#FFEF9C;">21.8</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.4.5" style="background-color:#FFEF9C;"><span class="ltx_text" id="A2.T9.1.1.4.5.1" style="background-color:#FFEF9C;">14.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.4.6" style="background-color:#FFEF9C;"><span class="ltx_text" id="A2.T9.1.1.4.6.1" style="background-color:#FFEF9C;">27.7</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.4.7" style="background-color:#FFEF9C;"><span class="ltx_text" id="A2.T9.1.1.4.7.1" style="background-color:#FFEF9C;">14.4</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.5" style="background-color:#FFEF9B;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.5.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.5.1.1" style="background-color:#FFEF9B;">2016</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.5.2" style="background-color:#FFEF9C;"><span class="ltx_text" id="A2.T9.1.1.5.2.1" style="background-color:#FFEF9C;">3.9</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.5.3" style="background-color:#B9D98E;"><span class="ltx_text" id="A2.T9.1.1.5.3.1" style="background-color:#B9D98E;">4.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.5.4" style="background-color:#D6E294;"><span class="ltx_text" id="A2.T9.1.1.5.4.1" style="background-color:#D6E294;">28.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.5.5" style="background-color:#E4E797;"><span class="ltx_text" id="A2.T9.1.1.5.5.1" style="background-color:#E4E797;">16.9</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.5.6" style="background-color:#DDE595;"><span class="ltx_text" id="A2.T9.1.1.5.6.1" style="background-color:#DDE595;">35.8</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.5.7" style="background-color:#E0E696;"><span class="ltx_text" id="A2.T9.1.1.5.7.1" style="background-color:#E0E696;">17.9</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.6" style="background-color:#EFEA9B;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.6.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.6.1.1" style="background-color:#EFEA9B;">2017</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.6.2" style="background-color:#DAE495;"><span class="ltx_text" id="A2.T9.1.1.6.2.1" style="background-color:#DAE495;">6.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.6.3" style="background-color:#9BD087;"><span class="ltx_text" id="A2.T9.1.1.6.3.1" style="background-color:#9BD087;">5.0</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.6.4" style="background-color:#ADD68B;"><span class="ltx_text" id="A2.T9.1.1.6.4.1" style="background-color:#ADD68B;">34.9</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.6.5" style="background-color:#AED68B;"><span class="ltx_text" id="A2.T9.1.1.6.5.1" style="background-color:#AED68B;">21.8</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.6.6" style="background-color:#B7D98D;"><span class="ltx_text" id="A2.T9.1.1.6.6.1" style="background-color:#B7D98D;">44.6</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.6.7" style="background-color:#B7D98D;"><span class="ltx_text" id="A2.T9.1.1.6.7.1" style="background-color:#B7D98D;">22.5</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.7" style="background-color:#EFEA9B;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.7.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.7.1.1" style="background-color:#EFEA9B;">2018</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.7.2" style="background-color:#DDE595;"><span class="ltx_text" id="A2.T9.1.1.7.2.1" style="background-color:#DDE595;">6.2</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.7.3" style="background-color:#6EC27E;"><span class="ltx_text" id="A2.T9.1.1.7.3.1" style="background-color:#6EC27E;">5.9</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.7.4" style="background-color:#AFD68B;"><span class="ltx_text" id="A2.T9.1.1.7.4.1" style="background-color:#AFD68B;">34.6</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.7.5" style="background-color:#A5D389;"><span class="ltx_text" id="A2.T9.1.1.7.5.1" style="background-color:#A5D389;">22.6</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.7.6" style="background-color:#AED68B;"><span class="ltx_text" id="A2.T9.1.1.7.6.1" style="background-color:#AED68B;">46.7</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.7.7" style="background-color:#B1D78C;"><span class="ltx_text" id="A2.T9.1.1.7.7.1" style="background-color:#B1D78C;">23.2</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.8" style="background-color:#EFEA9B;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.8.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.8.1.1" style="background-color:#EFEA9B;">2019</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.8.2" style="background-color:#DAE495;"><span class="ltx_text" id="A2.T9.1.1.8.2.1" style="background-color:#DAE495;">6.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.8.3" style="background-color:#A5D389;"><span class="ltx_text" id="A2.T9.1.1.8.3.1" style="background-color:#A5D389;">4.8</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.8.4" style="background-color:#9BD087;"><span class="ltx_text" id="A2.T9.1.1.8.4.1" style="background-color:#9BD087;">37.7</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.8.5" style="background-color:#AFD68C;"><span class="ltx_text" id="A2.T9.1.1.8.5.1" style="background-color:#AFD68C;">21.7</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.8.6" style="background-color:#A6D38A;"><span class="ltx_text" id="A2.T9.1.1.8.6.1" style="background-color:#A6D38A;">48.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.8.7" style="background-color:#ACD58B;"><span class="ltx_text" id="A2.T9.1.1.8.7.1" style="background-color:#ACD58B;">23.8</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.9" style="background-color:#EFEA9B;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.9.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.9.1.1" style="background-color:#EFEA9B;">2020</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.9.2" style="background-color:#B8D98D;"><span class="ltx_text" id="A2.T9.1.1.9.2.1" style="background-color:#B8D98D;">8.7</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.9.3" style="background-color:#AFD68B;"><span class="ltx_text" id="A2.T9.1.1.9.3.1" style="background-color:#AFD68B;">4.6</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.9.4" style="background-color:#A9D48A;"><span class="ltx_text" id="A2.T9.1.1.9.4.1" style="background-color:#A9D48A;">35.5</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.9.5" style="background-color:#8ECC85;"><span class="ltx_text" id="A2.T9.1.1.9.5.1" style="background-color:#8ECC85;">24.7</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.9.6" style="background-color:#A2D289;"><span class="ltx_text" id="A2.T9.1.1.9.6.1" style="background-color:#A2D289;">49.3</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.9.7" style="background-color:#A5D389;"><span class="ltx_text" id="A2.T9.1.1.9.7.1" style="background-color:#A5D389;">24.6</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.10" style="background-color:#9BD087;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.10.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.10.1.1" style="background-color:#9BD087;">2021</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.10.2" style="background-color:#BEDB8F;"><span class="ltx_text" id="A2.T9.1.1.10.2.1" style="background-color:#BEDB8F;">8.3</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.10.3" style="background-color:#91CD85;"><span class="ltx_text" id="A2.T9.1.1.10.3.1" style="background-color:#91CD85;">5.2</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.10.4" style="background-color:#90CC85;"><span class="ltx_text" id="A2.T9.1.1.10.4.1" style="background-color:#90CC85;">39.6</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.10.5" style="background-color:#8FCC85;"><span class="ltx_text" id="A2.T9.1.1.10.5.1" style="background-color:#8FCC85;">24.6</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.10.6" style="background-color:#92CD85;"><span class="ltx_text" id="A2.T9.1.1.10.6.1" style="background-color:#92CD85;">53.0</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.10.7" style="background-color:#96CE86;"><span class="ltx_text" id="A2.T9.1.1.10.7.1" style="background-color:#96CE86;">26.2</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.11" style="background-color:#9BD087;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.11.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.11.1.1" style="background-color:#9BD087;">2022</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.11.2" style="background-color:#9DD188;"><span class="ltx_text" id="A2.T9.1.1.11.2.1" style="background-color:#9DD188;">10.5</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.11.3" style="background-color:#8CCB84;"><span class="ltx_text" id="A2.T9.1.1.11.3.1" style="background-color:#8CCB84;">5.3</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.11.4" style="background-color:#81C882;"><span class="ltx_text" id="A2.T9.1.1.11.4.1" style="background-color:#81C882;">41.9</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.11.5" style="background-color:#92CD85;"><span class="ltx_text" id="A2.T9.1.1.11.5.1" style="background-color:#92CD85;">24.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.11.6" style="background-color:#84C982;"><span class="ltx_text" id="A2.T9.1.1.11.6.1" style="background-color:#84C982;">56.4</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.11.7" style="background-color:#89CA83;"><span class="ltx_text" id="A2.T9.1.1.11.7.1" style="background-color:#89CA83;">27.7</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.12" style="background-color:#6EC27E;">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A2.T9.1.1.12.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.12.1.1" style="background-color:#6EC27E;">2023</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.12.2" style="background-color:#86C983;"><span class="ltx_text" id="A2.T9.1.1.12.2.1" style="background-color:#86C983;">12.1</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.12.3" style="background-color:#73C37F;"><span class="ltx_text" id="A2.T9.1.1.12.3.1" style="background-color:#73C37F;">5.8</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.12.4" style="background-color:#6CC17D;"><span class="ltx_text" id="A2.T9.1.1.12.4.1" style="background-color:#6CC17D;">45.2</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.12.5" style="background-color:#67C07C;"><span class="ltx_text" id="A2.T9.1.1.12.5.1" style="background-color:#67C07C;">28.3</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.12.6" style="background-color:#67C07C;"><span class="ltx_text" id="A2.T9.1.1.12.6.1" style="background-color:#67C07C;">63.0</span></td>
+<td class="ltx_td ltx_align_center" id="A2.T9.1.1.12.7" style="background-color:#6CC17D;"><span class="ltx_text" id="A2.T9.1.1.12.7.1" style="background-color:#6CC17D;">30.9</span></td>
+</tr>
+<tr class="ltx_tr" id="A2.T9.1.1.13" style="background-color:#6EC27E;">
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A2.T9.1.1.13.1"><span class="ltx_text ltx_font_bold" id="A2.T9.1.1.13.1.1" style="background-color:#6EC27E;">2024</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A2.T9.1.1.13.2" style="background-color:#63BE7B;"><span class="ltx_text" id="A2.T9.1.1.13.2.1" style="background-color:#63BE7B;">14.4</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A2.T9.1.1.13.3" style="background-color:#63BE7B;"><span class="ltx_text" id="A2.T9.1.1.13.3.1" style="background-color:#63BE7B;">6.1</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A2.T9.1.1.13.4" style="background-color:#63BE7B;"><span class="ltx_text" id="A2.T9.1.1.13.4.1" style="background-color:#63BE7B;">46.6</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A2.T9.1.1.13.5" style="background-color:#63BE7B;"><span class="ltx_text" id="A2.T9.1.1.13.5.1" style="background-color:#63BE7B;">28.6</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A2.T9.1.1.13.6" style="background-color:#63BE7B;"><span class="ltx_text" id="A2.T9.1.1.13.6.1" style="background-color:#63BE7B;">63.9</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A2.T9.1.1.13.7" style="background-color:#63BE7B;"><span class="ltx_text" id="A2.T9.1.1.13.7.1" style="background-color:#63BE7B;">31.9</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table shows the percentage breakdown of different data types used for training the Llama-3 language model.  The data types include: DCLM, Web, Web-Pro, Code, QA, Translated Code, and Text & code block. The percentages indicate the proportion of each data type within the total training dataset.  This data mixture is designed for optimal training of the Llama-3 model.
+> <details>
+> <summary>read the caption</summary>
+> Table 12: Training Data Mixture for Llama-3.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_align_middle" id="A3.T10.1">
+<tr class="ltx_tr" id="A3.T10.1.1">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_tt" id="A3.T10.1.1.1"><span class="ltx_text ltx_font_bold" id="A3.T10.1.1.1.1">HyperParams</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A3.T10.1.1.2"><span class="ltx_text ltx_font_bold" id="A3.T10.1.1.2.1">Setting</span></td>
+</tr>
+<tr class="ltx_tr" id="A3.T10.1.2">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t" id="A3.T10.1.2.1">LR</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A3.T10.1.2.2">1e-5</td>
+</tr>
+<tr class="ltx_tr" id="A3.T10.1.3">
+<td class="ltx_td ltx_align_left ltx_border_r" id="A3.T10.1.3.1">LR Schedule</td>
+<td class="ltx_td ltx_align_center" id="A3.T10.1.3.2">cosine</td>
+</tr>
+<tr class="ltx_tr" id="A3.T10.1.4">
+<td class="ltx_td ltx_align_left ltx_border_r" id="A3.T10.1.4.1">Batch Size</td>
+<td class="ltx_td ltx_align_center" id="A3.T10.1.4.2">64</td>
+</tr>
+<tr class="ltx_tr" id="A3.T10.1.5">
+<td class="ltx_td ltx_align_left ltx_border_r" id="A3.T10.1.5.1">Number of Epochs</td>
+<td class="ltx_td ltx_align_center" id="A3.T10.1.5.2">2</td>
+</tr>
+<tr class="ltx_tr" id="A3.T10.1.6">
+<td class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" id="A3.T10.1.6.1">Context Length</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A3.T10.1.6.2">2048</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table details the hyperparameters used during the training of the Llama-3.2-1B and Llama-3.2-3B language models.  It lists key parameters such as context length, batch size, maximum training steps, learning rate schedule, and weight decay, providing a comprehensive overview of the training configuration for these models.
+> <details>
+> <summary>read the caption</summary>
+> Table 13: Training hyper-parameters.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_align_middle" id="A5.T11.1">
+<tr class="ltx_tr" id="A5.T11.1.2">
+<td class="ltx_td ltx_align_left ltx_border_tt" id="A5.T11.1.2.1"><span class="ltx_text ltx_font_bold" id="A5.T11.1.2.1.1">Hyper-parameter</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A5.T11.1.2.2"><span class="ltx_text ltx_font_bold" id="A5.T11.1.2.2.1">5B / 15B / 55B Tokens</span></td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.3">
+<td class="ltx_td ltx_align_left ltx_border_t" id="A5.T11.1.3.1"><span class="ltx_text" id="A5.T11.1.3.1.1">Context Length</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A5.T11.1.3.2">2,048</td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.4">
+<td class="ltx_td ltx_align_left" id="A5.T11.1.4.1"><span class="ltx_text" id="A5.T11.1.4.1.1">Batch Size</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T11.1.4.2">1,024</td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.5">
+<td class="ltx_td ltx_align_left" id="A5.T11.1.5.1">Max Steps</td>
+<td class="ltx_td ltx_align_center" id="A5.T11.1.5.2">2,500 / 7,500 / 27,500</td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.6">
+<td class="ltx_td ltx_align_left" id="A5.T11.1.6.1"><span class="ltx_text" id="A5.T11.1.6.1.1">Warmup Steps</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T11.1.6.2">0</td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.7">
+<td class="ltx_td ltx_align_left" id="A5.T11.1.7.1"><span class="ltx_text" id="A5.T11.1.7.1.1">Weight Decay</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T11.1.7.2">0.1</td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.8">
+<td class="ltx_td ltx_align_left" id="A5.T11.1.8.1"><span class="ltx_text" id="A5.T11.1.8.1.1">Optimizer</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T11.1.8.2">AdamW</td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.9">
+<td class="ltx_td ltx_align_left" id="A5.T11.1.9.1"><span class="ltx_text" id="A5.T11.1.9.1.1">LR Scheduler</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T11.1.9.2">cosine</td>
+</tr>
+<tr class="ltx_tr" id="A5.T11.1.1">
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A5.T11.1.1.2"><span class="ltx_text" id="A5.T11.1.1.2.1">Learning Rate (LR)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A5.T11.1.1.1"><math alttext="8\text{e-}5\rightarrow 8\text{e-}6" class="ltx_Math" display="inline" id="A5.T11.1.1.1.m1.1"><semantics id="A5.T11.1.1.1.m1.1a"><mrow id="A5.T11.1.1.1.m1.1.1" xref="A5.T11.1.1.1.m1.1.1.cmml"><mrow id="A5.T11.1.1.1.m1.1.1.2" xref="A5.T11.1.1.1.m1.1.1.2.cmml"><mn id="A5.T11.1.1.1.m1.1.1.2.2" xref="A5.T11.1.1.1.m1.1.1.2.2.cmml">8</mn><mo id="A5.T11.1.1.1.m1.1.1.2.1" xref="A5.T11.1.1.1.m1.1.1.2.1.cmml">⁢</mo><mtext id="A5.T11.1.1.1.m1.1.1.2.3" xref="A5.T11.1.1.1.m1.1.1.2.3a.cmml">e-</mtext><mo id="A5.T11.1.1.1.m1.1.1.2.1a" xref="A5.T11.1.1.1.m1.1.1.2.1.cmml">⁢</mo><mn id="A5.T11.1.1.1.m1.1.1.2.4" xref="A5.T11.1.1.1.m1.1.1.2.4.cmml">5</mn></mrow><mo id="A5.T11.1.1.1.m1.1.1.1" stretchy="false" xref="A5.T11.1.1.1.m1.1.1.1.cmml">→</mo><mrow id="A5.T11.1.1.1.m1.1.1.3" xref="A5.T11.1.1.1.m1.1.1.3.cmml"><mn id="A5.T11.1.1.1.m1.1.1.3.2" xref="A5.T11.1.1.1.m1.1.1.3.2.cmml">8</mn><mo id="A5.T11.1.1.1.m1.1.1.3.1" xref="A5.T11.1.1.1.m1.1.1.3.1.cmml">⁢</mo><mtext id="A5.T11.1.1.1.m1.1.1.3.3" xref="A5.T11.1.1.1.m1.1.1.3.3a.cmml">e-</mtext><mo id="A5.T11.1.1.1.m1.1.1.3.1a" xref="A5.T11.1.1.1.m1.1.1.3.1.cmml">⁢</mo><mn id="A5.T11.1.1.1.m1.1.1.3.4" xref="A5.T11.1.1.1.m1.1.1.3.4.cmml">6</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A5.T11.1.1.1.m1.1b"><apply id="A5.T11.1.1.1.m1.1.1.cmml" xref="A5.T11.1.1.1.m1.1.1"><ci id="A5.T11.1.1.1.m1.1.1.1.cmml" xref="A5.T11.1.1.1.m1.1.1.1">→</ci><apply id="A5.T11.1.1.1.m1.1.1.2.cmml" xref="A5.T11.1.1.1.m1.1.1.2"><times id="A5.T11.1.1.1.m1.1.1.2.1.cmml" xref="A5.T11.1.1.1.m1.1.1.2.1"></times><cn id="A5.T11.1.1.1.m1.1.1.2.2.cmml" type="integer" xref="A5.T11.1.1.1.m1.1.1.2.2">8</cn><ci id="A5.T11.1.1.1.m1.1.1.2.3a.cmml" xref="A5.T11.1.1.1.m1.1.1.2.3"><mtext id="A5.T11.1.1.1.m1.1.1.2.3.cmml" xref="A5.T11.1.1.1.m1.1.1.2.3">e-</mtext></ci><cn id="A5.T11.1.1.1.m1.1.1.2.4.cmml" type="integer" xref="A5.T11.1.1.1.m1.1.1.2.4">5</cn></apply><apply id="A5.T11.1.1.1.m1.1.1.3.cmml" xref="A5.T11.1.1.1.m1.1.1.3"><times id="A5.T11.1.1.1.m1.1.1.3.1.cmml" xref="A5.T11.1.1.1.m1.1.1.3.1"></times><cn id="A5.T11.1.1.1.m1.1.1.3.2.cmml" type="integer" xref="A5.T11.1.1.1.m1.1.1.3.2">8</cn><ci id="A5.T11.1.1.1.m1.1.1.3.3a.cmml" xref="A5.T11.1.1.1.m1.1.1.3.3"><mtext id="A5.T11.1.1.1.m1.1.1.3.3.cmml" xref="A5.T11.1.1.1.m1.1.1.3.3">e-</mtext></ci><cn id="A5.T11.1.1.1.m1.1.1.3.4.cmml" type="integer" xref="A5.T11.1.1.1.m1.1.1.3.4">6</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A5.T11.1.1.1.m1.1c">8\text{e-}5\rightarrow 8\text{e-}6</annotation><annotation encoding="application/x-llamapun" id="A5.T11.1.1.1.m1.1d">8 e- 5 → 8 e- 6</annotation></semantics></math></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a comprehensive analysis of the impact of various text extraction methods on the performance of a language model trained on a 15 billion token dataset. It compares different text extractors (trafilatura, Resiliparse), explores the effects of optimizing HTML for mathematical content, and assesses the overall performance using core and extended benchmark sets. The results show how optimizing text extraction significantly improves the model's ability to solve mathematical problems.
+> <details>
+> <summary>read the caption</summary>
+> Table 14: Full ablation results on math text extraction within 15B-token training budget
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_align_middle" id="A5.T12.1">
+<tr class="ltx_tr" id="A5.T12.1.1">
+<td class="ltx_td ltx_align_left ltx_border_tt" id="A5.T12.1.1.1"><span class="ltx_text ltx_font_bold" id="A5.T12.1.1.1.1">Data</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A5.T12.1.1.2"><span class="ltx_text ltx_font_bold" id="A5.T12.1.1.2.1">Ratio %</span></td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.2">
+<td class="ltx_td ltx_align_left ltx_border_t" id="A5.T12.1.2.1">DCLM</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A5.T12.1.2.2">10</td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.3">
+<td class="ltx_td ltx_align_left" id="A5.T12.1.3.1">Web</td>
+<td class="ltx_td ltx_align_center" id="A5.T12.1.3.2">15</td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.4">
+<td class="ltx_td ltx_align_left" id="A5.T12.1.4.1">Web-pro</td>
+<td class="ltx_td ltx_align_center" id="A5.T12.1.4.2">35</td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.5">
+<td class="ltx_td ltx_align_left" id="A5.T12.1.5.1">Code</td>
+<td class="ltx_td ltx_align_center" id="A5.T12.1.5.2">2.5</td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.6">
+<td class="ltx_td ltx_align_left" id="A5.T12.1.6.1">QA</td>
+<td class="ltx_td ltx_align_center" id="A5.T12.1.6.2">10</td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.7">
+<td class="ltx_td ltx_align_left" id="A5.T12.1.7.1">Trans. code</td>
+<td class="ltx_td ltx_align_center" id="A5.T12.1.7.2">2.5</td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.8">
+<td class="ltx_td ltx_align_left" id="A5.T12.1.8.1">Text &amp; code block</td>
+<td class="ltx_td ltx_align_center" id="A5.T12.1.8.2">25</td>
+</tr>
+<tr class="ltx_tr" id="A5.T12.1.9">
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A5.T12.1.9.1"><span class="ltx_text ltx_font_bold" id="A5.T12.1.9.1.1">Total</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A5.T12.1.9.2">100</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the ablation study results on the effectiveness of Minhash Locality Sensitive Hashing (LSH) for data deduplication during the pre-training phase.  The experiment used a 55B token training budget and varied parameters of the Minhash LSH algorithm (r, b, and Jaccard similarity threshold t). The impact of these parameter choices on the quantity of data retained (Tokens Left (B)) and the downstream performance (as measured by average CoT (chain-of-thought reasoning) scores across Core and Extended benchmark sets) are shown.
+> <details>
+> <summary>read the caption</summary>
+> Table 15: Full ablation results on Minhash LSH within 55B-token training budget
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_centering ltx_align_middle" id="A5.T13.2">
+<tr class="ltx_tr" id="A5.T13.2.3">
+<td class="ltx_td ltx_align_left ltx_border_tt" id="A5.T13.2.3.1"><span class="ltx_text ltx_font_bold" id="A5.T13.2.3.1.1">Hyper-parameter</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A5.T13.2.3.2"><span class="ltx_text ltx_font_bold" id="A5.T13.2.3.2.1">Llama-3.2-1B / 3B</span></td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.4">
+<td class="ltx_td ltx_align_left ltx_border_t" id="A5.T13.2.4.1"><span class="ltx_text" id="A5.T13.2.4.1.1">Context Length</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A5.T13.2.4.2">8,192</td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.5">
+<td class="ltx_td ltx_align_left" id="A5.T13.2.5.1"><span class="ltx_text" id="A5.T13.2.5.1.1">Batch Size</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T13.2.5.2">512</td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.6">
+<td class="ltx_td ltx_align_left" id="A5.T13.2.6.1">Max Steps</td>
+<td class="ltx_td ltx_align_center" id="A5.T13.2.6.2">25,000 / 25,000 (stop at 12,500)</td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.7">
+<td class="ltx_td ltx_align_left" id="A5.T13.2.7.1"><span class="ltx_text" id="A5.T13.2.7.1.1">Warmup Steps</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T13.2.7.2">0</td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.8">
+<td class="ltx_td ltx_align_left" id="A5.T13.2.8.1"><span class="ltx_text" id="A5.T13.2.8.1.1">Weight Decay</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T13.2.8.2">0.1</td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.9">
+<td class="ltx_td ltx_align_left" id="A5.T13.2.9.1"><span class="ltx_text" id="A5.T13.2.9.1.1">Optimizer</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T13.2.9.2">AdamW</td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.10">
+<td class="ltx_td ltx_align_left" id="A5.T13.2.10.1"><span class="ltx_text" id="A5.T13.2.10.1.1">LR Scheduler</span></td>
+<td class="ltx_td ltx_align_center" id="A5.T13.2.10.2">cosine</td>
+</tr>
+<tr class="ltx_tr" id="A5.T13.2.2">
+<td class="ltx_td ltx_align_left ltx_border_bb" id="A5.T13.2.2.3"><span class="ltx_text" id="A5.T13.2.2.3.1">Learning Rate (LR)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A5.T13.2.2.2">
+<span class="ltx_text" id="A5.T13.2.2.2.3"></span> <span class="ltx_text" id="A5.T13.2.2.2.2">
+<span class="ltx_tabular ltx_align_middle" id="A5.T13.2.2.2.2.2">
+<span class="ltx_tr" id="A5.T13.1.1.1.1.1.1">
+<span class="ltx_td ltx_nopad_r ltx_align_center" id="A5.T13.1.1.1.1.1.1.1"><math alttext="5\text{e-}5\rightarrow 5\text{e-}6" class="ltx_Math" display="inline" id="A5.T13.1.1.1.1.1.1.1.m1.1"><semantics id="A5.T13.1.1.1.1.1.1.1.m1.1a"><mrow id="A5.T13.1.1.1.1.1.1.1.m1.1.1" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.cmml"><mrow id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.cmml"><mn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.2" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.2.cmml">5</mn><mo id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.1" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.1.cmml">⁢</mo><mtext id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.3" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.3a.cmml">e-</mtext><mo id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.1a" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.1.cmml">⁢</mo><mn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.4" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.4.cmml">5</mn></mrow><mo id="A5.T13.1.1.1.1.1.1.1.m1.1.1.1" stretchy="false" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.1.cmml">→</mo><mrow id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.cmml"><mn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.2" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.2.cmml">5</mn><mo id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.1" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.1.cmml">⁢</mo><mtext id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.3" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.3a.cmml">e-</mtext><mo id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.1a" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.1.cmml">⁢</mo><mn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.4" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.4.cmml">6</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A5.T13.1.1.1.1.1.1.1.m1.1b"><apply id="A5.T13.1.1.1.1.1.1.1.m1.1.1.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1"><ci id="A5.T13.1.1.1.1.1.1.1.m1.1.1.1.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.1">→</ci><apply id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2"><times id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.1.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.1"></times><cn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.2.cmml" type="integer" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.2">5</cn><ci id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.3a.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.3"><mtext id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.3.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.3">e-</mtext></ci><cn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.4.cmml" type="integer" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.2.4">5</cn></apply><apply id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3"><times id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.1.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.1"></times><cn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.2.cmml" type="integer" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.2">5</cn><ci id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.3a.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.3"><mtext id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.3.cmml" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.3">e-</mtext></ci><cn id="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.4.cmml" type="integer" xref="A5.T13.1.1.1.1.1.1.1.m1.1.1.3.4">6</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A5.T13.1.1.1.1.1.1.1.m1.1c">5\text{e-}5\rightarrow 5\text{e-}6</annotation><annotation encoding="application/x-llamapun" id="A5.T13.1.1.1.1.1.1.1.m1.1d">5 e- 5 → 5 e- 6</annotation></semantics></math></span></span>
+<span class="ltx_tr" id="A5.T13.2.2.2.2.2.2">
+<span class="ltx_td ltx_nopad_r ltx_align_center" id="A5.T13.2.2.2.2.2.2.1"><math alttext="3\text{e-}5\rightarrow 3\text{e-}6" class="ltx_Math" display="inline" id="A5.T13.2.2.2.2.2.2.1.m1.1"><semantics id="A5.T13.2.2.2.2.2.2.1.m1.1a"><mrow id="A5.T13.2.2.2.2.2.2.1.m1.1.1" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.cmml"><mrow id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.cmml"><mn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.2" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.2.cmml">3</mn><mo id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.1" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.1.cmml">⁢</mo><mtext id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.3" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.3a.cmml">e-</mtext><mo id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.1a" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.1.cmml">⁢</mo><mn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.4" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.4.cmml">5</mn></mrow><mo id="A5.T13.2.2.2.2.2.2.1.m1.1.1.1" stretchy="false" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.1.cmml">→</mo><mrow id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.cmml"><mn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.2" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.2.cmml">3</mn><mo id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.1" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.1.cmml">⁢</mo><mtext id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.3" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.3a.cmml">e-</mtext><mo id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.1a" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.1.cmml">⁢</mo><mn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.4" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.4.cmml">6</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A5.T13.2.2.2.2.2.2.1.m1.1b"><apply id="A5.T13.2.2.2.2.2.2.1.m1.1.1.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1"><ci id="A5.T13.2.2.2.2.2.2.1.m1.1.1.1.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.1">→</ci><apply id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2"><times id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.1.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.1"></times><cn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.2.cmml" type="integer" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.2">3</cn><ci id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.3a.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.3"><mtext id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.3.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.3">e-</mtext></ci><cn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.4.cmml" type="integer" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.2.4">5</cn></apply><apply id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3"><times id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.1.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.1"></times><cn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.2.cmml" type="integer" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.2">3</cn><ci id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.3a.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.3"><mtext id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.3.cmml" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.3">e-</mtext></ci><cn id="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.4.cmml" type="integer" xref="A5.T13.2.2.2.2.2.2.1.m1.1.1.3.4">6</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A5.T13.2.2.2.2.2.2.1.m1.1c">3\text{e-}5\rightarrow 3\text{e-}6</annotation><annotation encoding="application/x-llamapun" id="A5.T13.2.2.2.2.2.2.1.m1.1d">3 e- 5 → 3 e- 6</annotation></semantics></math></span></span>
+</span></span><span class="ltx_text" id="A5.T13.2.2.2.4"></span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a comprehensive analysis of the impact of different fastText configurations on the performance of a language model trained on a 5 billion token dataset.  It compares various versions of the fastText model, focusing on different training strategies and data selection methods.  The results are evaluated across multiple downstream benchmarks (ASDIV, GSM8K, MATH, MATH-SAT, MATHQA, MAWPS, MMLU-STEM, OCW, SWAMP, and TABMWP), providing a holistic assessment of the effectiveness and efficiency of each fastText approach. The table highlights the average performance across both core and extended benchmark sets, revealing the optimal configuration for improved model performance.
+> <details>
+> <summary>read the caption</summary>
+> Table 16: Full ablation results on fastText within 5B-token training budget
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A6.T14.1.1">
+<tr class="ltx_tr" id="A6.T14.1.1.1">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="A6.T14.1.1.1.1"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.1.1">Text Extractors</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="A6.T14.1.1.1.2">
+<table class="ltx_tabular ltx_align_middle" id="A6.T14.1.1.1.2.1">
+<tr class="ltx_tr" id="A6.T14.1.1.1.2.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T14.1.1.1.2.1.1.1"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.2.1.1.1.1">w/ HTML</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T14.1.1.1.2.1.2">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T14.1.1.1.2.1.2.1"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.2.1.2.1.1">Optimization</span></td>
+</tr>
+</table>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.3"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.3.1">ASDiV</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.4"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.4.1">GSM8K</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.5"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.5.1">MATH</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.6"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.6.1">MATH-SAT</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.7"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.7.1">MATHQA</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.8"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.8.1">MAWPS</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.9"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.9.1">MMLU-STEM</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.10"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.10.1">OCW</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.11"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.11.1">SWAMP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="A6.T14.1.1.1.12"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.12.1">TABMWP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.13"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.13.1">Core Avg.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T14.1.1.1.14"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.14.1">Ext. Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T14.1.1.2">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T14.1.1.2.1"><span class="ltx_text" id="A6.T14.1.1.2.1.1" style="color:#C0C0C0;">TinyLlama-1.1B</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T14.1.1.2.2"><span class="ltx_text" id="A6.T14.1.1.2.2.1" style="color:#C0C0C0;">-</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.3"><span class="ltx_text" id="A6.T14.1.1.2.3.1" style="color:#C0C0C0;">18.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.4"><span class="ltx_text" id="A6.T14.1.1.2.4.1" style="color:#C0C0C0;">3.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.5"><span class="ltx_text" id="A6.T14.1.1.2.5.1" style="color:#C0C0C0;">3.1</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.6"><span class="ltx_text" id="A6.T14.1.1.2.6.1" style="color:#C0C0C0;">40.6</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.7"><span class="ltx_text" id="A6.T14.1.1.2.7.1" style="color:#C0C0C0;">13.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.8"><span class="ltx_text" id="A6.T14.1.1.2.8.1" style="color:#C0C0C0;">20.8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.9"><span class="ltx_text" id="A6.T14.1.1.2.9.1" style="color:#C0C0C0;">16.3</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.10"><span class="ltx_text" id="A6.T14.1.1.2.10.1" style="color:#C0C0C0;">2.9</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.11"><span class="ltx_text" id="A6.T14.1.1.2.11.1" style="color:#C0C0C0;">11.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T14.1.1.2.12"><span class="ltx_text" id="A6.T14.1.1.2.12.1" style="color:#C0C0C0;">18.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.13"><span class="ltx_text" id="A6.T14.1.1.2.13.1" style="color:#C0C0C0;">11.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.2.14"><span class="ltx_text" id="A6.T14.1.1.2.14.1" style="color:#C0C0C0;">14.7</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T14.1.1.3">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T14.1.1.3.1"><span class="ltx_text ltx_font_typewriter" id="A6.T14.1.1.3.1.1">trafilatura</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T14.1.1.3.2">✗</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.3">32.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.4">5.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.5"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.3.5.1">4.3</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.6">21.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.7">12.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.8">44.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.9"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.3.9.1">23.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.10">2.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.11"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.3.11.1">22.3</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T14.1.1.3.12">21.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.13">22.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T14.1.1.3.14">19.2</td>
+</tr>
+<tr class="ltx_tr" id="A6.T14.1.1.4">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T14.1.1.4.1"><span class="ltx_text ltx_font_typewriter" id="A6.T14.1.1.4.1.1">Resiliparse</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T14.1.1.4.2">✔</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.3">33.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.4">5.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.5">3.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.6">15.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.7">10.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.8">47.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.9">21.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.10"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.4.10.1">2.6</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.11">22.1</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T14.1.1.4.12">22.7</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.13">22.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T14.1.1.4.14">18.6</td>
+</tr>
+<tr class="ltx_tr" id="A6.T14.1.1.5">
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A6.T14.1.1.5.1"><span class="ltx_text ltx_font_typewriter" id="A6.T14.1.1.5.1.1">trafilatura</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A6.T14.1.1.5.2">✔</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.3"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.3.1">36.3</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.4"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.4.1">7.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.5">3.9</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.6"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.6.1">25.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.7"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.7.1">14.7</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.8"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.8.1">49.5</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.9">22.6</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.10">2.2</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.11">22.1</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A6.T14.1.1.5.12"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.12.1">22.8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.13"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.13.1">23.8</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T14.1.1.5.14"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.5.14.1">20.6</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a comparison of the performance of Chain-of-Thought (CoT) and Program-aided Language (PAL) models under various filtering criteria applied during the training phase of a MegaMath-Code dataset. The filtering criteria are designed to enhance the quality of the recalled code data.  The table shows how the performance of CoT and PAL models varies across different sets of filtering criteria, allowing for an assessment of their relative effectiveness under different data quality conditions.  The metrics used to assess performance are likely related to accuracy or success rate on downstream tasks.
+> <details>
+> <summary>read the caption</summary>
+> Table 17: Performance comparison of CoT and PAL under different filtering criteria
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A6.T14.1.1.1.2.1">
+<tr class="ltx_tr" id="A6.T14.1.1.1.2.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T14.1.1.1.2.1.1.1"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.2.1.1.1.1">w/ HTML</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T14.1.1.1.2.1.2">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T14.1.1.1.2.1.2.1"><span class="ltx_text ltx_font_bold" id="A6.T14.1.1.1.2.1.2.1.1">Optimization</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents the results of an ablation study comparing the performance of Chain-of-Thought (CoT) and Program-Aided Language (PAL) models under varying ratios of text and code data in the training dataset.  It shows how different proportions of text and code influence the performance of both models across several mathematical reasoning benchmarks. The results help determine the optimal balance of text and code data for effective model training.
+> <details>
+> <summary>read the caption</summary>
+> Table 18: Performance comparison of CoT and PAL under different mix ratios.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A6.T15.1.1">
+<tr class="ltx_tr" id="A6.T15.1.1.1">
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.1"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.1.1">(r,b)</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.2"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.2.1">t</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="A6.T15.1.1.1.3">
+<table class="ltx_tabular ltx_align_middle" id="A6.T15.1.1.1.3.1">
+<tr class="ltx_tr" id="A6.T15.1.1.1.3.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T15.1.1.1.3.1.1.1"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.3.1.1.1.1">remaining</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.1.3.1.2">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T15.1.1.1.3.1.2.1"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.3.1.2.1.1">tokens (B)</span></td>
+</tr>
+</table>
+</td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.4"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.4.1">ASDiV</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.5"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.5.1">GSM8K</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.6"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.6.1">MATH</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.7"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.7.1">MATH-SAT</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.8"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.8.1">MATHQA</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.9"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.9.1">MAWPS</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.10"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.10.1">MMLU-STEM</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.11"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.11.1">OCW</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.12"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.12.1">SWAMP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="A6.T15.1.1.1.13"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.13.1">TABMWP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.14"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.14.1">Core. Avg.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T15.1.1.1.15"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.15.1">Ext. Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.2">
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.1">(14,9)</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.2">0.70</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T15.1.1.2.3">16.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.4">26.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.5">4.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.6">3.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.7"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.2.7.1">25.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.8">10.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.9">36.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.10">20.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.11">2.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.12">16.3</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T15.1.1.2.13">21.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.14">17.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T15.1.1.2.15">16.6</td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.3">
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.1">(14,8)</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.2">0.75</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.3.3">23.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.4">29.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.5"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.3.5.1">5.4</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.6">3.7</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.7">17.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.8">9.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.9">38.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.10"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.3.10.1">23.1</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.11">1.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.12"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.3.12.1">18.7</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.3.13"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.3.13.1">23.1</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.14">19.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.3.15">17.0</td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.4">
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.1"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.1.1">(11,10)</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.2"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.2.1">0.75</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.4.3"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.3.1">26.0</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.4">29.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.5">4.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.6"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.6.1">3.9</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.7">23.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.8">10.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.9"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.9.1">41.4</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.10">19.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.11"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.11.1">2.9</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.12">17.6</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.4.13">22.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.14"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.14.1">19.4</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.4.15"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.4.15.1">17.5</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.5">
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.1">(11,11)</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.2">0.75</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.5.3">25.0</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.4"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.5.4.1">30.1</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.5">4.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.6">3.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.7">9.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.8">10.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.9">38.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.10">21.0</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.11">2.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.12"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.5.12.1">18.7</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.5.13">20.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.14">19.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.5.15">16.0</td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.6">
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.1">(9,12)</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.2">0.80</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.6.3">29.0</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.4">28.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.5">4.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.6">3.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.7">18.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.8"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.6.8.1">11.2</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.9">40.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.10">21.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.11">2.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.12">17.5</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T15.1.1.6.13">20.7</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.14">18.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T15.1.1.6.15">16.9</td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.7">
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.1">(9,13)</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.2">0.80</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A6.T15.1.1.7.3">30.0</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.4">27.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.5">3.5</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.6">3.5</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.7">13.8</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.8">10.0</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.9">36.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.10">21.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.11">2.1</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.12">16.6</td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A6.T15.1.1.7.13">21.1</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.14">17.6</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T15.1.1.7.15">15.7</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a comparison of the performance of Chain-of-Thought (CoT) reasoning across different Q&A datasets.  It shows the average CoT performance scores for several benchmarks (GSM8K, MATH, MATH-SAT, MATHQA, MAWPS, MMLU-STEM, OCW, SVAMP, TABMWP) using various Q&A datasets, including FineMath-4plus, WebInstruct, and different prompts within WebInstruct (Vanilla, w. ELI5, w. ELI5 + IC).  This allows for an assessment of how the quality and characteristics of the Q&A data impact CoT reasoning performance.
+> <details>
+> <summary>read the caption</summary>
+> Table 19: Performance comparison of CoT using different Q&A datasets
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A6.T15.1.1.1.3.1">
+<tr class="ltx_tr" id="A6.T15.1.1.1.3.1.1">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T15.1.1.1.3.1.1.1"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.3.1.1.1.1">remaining</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T15.1.1.1.3.1.2">
+<td class="ltx_td ltx_nopad_r ltx_align_center" id="A6.T15.1.1.1.3.1.2.1"><span class="ltx_text ltx_font_bold" id="A6.T15.1.1.1.3.1.2.1.1">tokens (B)</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a comparison of the performance of Chain-of-Thought (CoT) and Program-aided Language models (PAL) under various code-to-text ratio settings in the training data.  The performance is measured across multiple mathematical reasoning benchmarks (GSM8K, MATH, ASDIV, MAWPS, SVAMP).  The table shows how the balance of code and text data impacts the model's ability to solve mathematical problems using either CoT or PAL reasoning.
+> <details>
+> <summary>read the caption</summary>
+> Table 20: Performance comparison of CoT and PAL under different mix ratios.
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A6.T16.3.1">
+<tr class="ltx_tr" id="A6.T16.3.1.1">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_tt" id="A6.T16.3.1.1.1"><span class="ltx_text ltx_font_typewriter ltx_font_bold" id="A6.T16.3.1.1.1.1">fastText<span class="ltx_text ltx_font_serif" id="A6.T16.3.1.1.1.1.1"> version</span></span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.2"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.2.1">ASDiV</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.3"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.3.1">GSM8K</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.4"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.4.1">MATH</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.5"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.5.1">MATH-SAT</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.6"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.6.1">MATHQA</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.7"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.7.1">MAWPS</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.8"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.8.1">MMLU-STEM</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.9"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.9.1">OCW</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.10"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.10.1">SWAMP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="A6.T16.3.1.1.11"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.11.1">TABMWP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.12"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.12.1">Core. Avg.</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" id="A6.T16.3.1.1.13"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.1.13.1">Ext. Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T16.3.1.2">
+<td class="ltx_td ltx_align_left ltx_border_r ltx_border_t" id="A6.T16.3.1.2.1">V1: Open-Web-Math</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.2">34.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.3">5.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.4">3.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.5">34.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.6">12.0</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.7">45.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.8">21.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.9">2.2</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.10">23.0</td>
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T16.3.1.2.11">18.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.12">22.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T16.3.1.2.13">20.0</td>
+</tr>
+<tr class="ltx_tr" id="A6.T16.3.1.3">
+<td class="ltx_td ltx_align_left ltx_border_r" id="A6.T16.3.1.3.1">V2: Random</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.2">41.7</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.3">8.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.4">5.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.5">15.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.6">11.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.7">55.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.8">17.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.9">2.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.10">24.5</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T16.3.1.3.11">25.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.12">27.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.3.13">20.7</td>
+</tr>
+<tr class="ltx_tr" id="A6.T16.3.1.4">
+<td class="ltx_td ltx_align_left ltx_border_r" id="A6.T16.3.1.4.1">V2: Balance</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.2">41.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.3">8.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.4">5.0</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.5"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.4.5.1">28.1</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.6">15.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.7">57.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.8"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.4.8.1">19.2</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.9">2.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.10">26.2</td>
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T16.3.1.4.11"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.4.11.1">26.2</span></td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.12">27.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T16.3.1.4.13"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.4.13.1">23.0</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T16.3.1.5">
+<td class="ltx_td ltx_align_left ltx_border_bb ltx_border_r" id="A6.T16.3.1.5.1">V2: Balance + CoT</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.2"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.2.1">44.2</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.3"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.3.1">9.6</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.4"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.4.1">5.4</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.5">25.0</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.6"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.6.1">15.7</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.7"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.7.1">59.0</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.8">17.1</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.9">2.2</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.10"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.10.1">26.3</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A6.T16.3.1.5.11">25.8</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.12"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.12.1">28.9</span></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T16.3.1.5.13"><span class="ltx_text ltx_font_bold" id="A6.T16.3.1.5.13.1">23.0</span></td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a comprehensive comparison of the performance of various large-scale math corpora, including MegaMath and its subsets, on several downstream mathematical reasoning benchmarks using the Chain-of-Thought (CoT) evaluation method.  The models were all trained with a consistent 55B token budget, ensuring a fair comparison. The table facilitates a quantitative assessment of MegaMath's effectiveness relative to existing publicly available corpora. This allows for a direct understanding of MegaMath's competitive advantage and its potential for advancing mathematical reasoning capabilities in large language models.
+> <details>
+> <summary>read the caption</summary>
+> Table 21: Full comparison CoT results with existing corpora within 55B-token training budget
+> </details>
+
+{{< table-caption >}}
+<table class="ltx_tabular ltx_align_middle" id="A6.T17.8.8">
+<tr class="ltx_tr" id="A6.T17.8.8.9">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_tt" id="A6.T17.8.8.9.1" rowspan="2"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.9.1.1">Filter Criteria</span></td>
+<td class="ltx_td ltx_align_center ltx_border_tt" colspan="6" id="A6.T17.8.8.9.2"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.9.2.1">CoT</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.8.8.10">
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.10.1"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.10.1.1">GSM8K</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.10.2"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.10.2.1">MATH</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.10.3"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.10.3.1">ASDiV</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.10.4"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.10.4.1">MAWPS</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.10.5"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.10.5.1">SVAMP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.10.6"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.10.6.1">Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.8.8.11">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T17.8.8.11.1"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.11.1.1">text only</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.11.2">4.4</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.11.3">4.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.11.4">29.3</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.11.5">39.5</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.11.6">17.7</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.11.7">19.0</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.1.1.1">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T17.1.1.1.1"><math alttext="S\_\text{edu}\geq 3,S\_\text{math}\geq 3" class="ltx_Math" display="inline" id="A6.T17.1.1.1.1.m1.2"><semantics id="A6.T17.1.1.1.1.m1.2a"><mrow id="A6.T17.1.1.1.1.m1.2.2.2" xref="A6.T17.1.1.1.1.m1.2.2.3.cmml"><mrow id="A6.T17.1.1.1.1.m1.1.1.1.1" xref="A6.T17.1.1.1.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.1.1.1.1.m1.1.1.1.1.2" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.1.1.1.1.m1.1.1.1.1.2.2" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.1.1.1.1.m1.1.1.1.1.2.1" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.1.1.1.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.1.1.1.1.m1.1.1.1.1.2.1a" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.1.1.1.1.m1.1.1.1.1.2.4" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.1.1.1.1.m1.1.1.1.1.1" xref="A6.T17.1.1.1.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.1.1.1.1.m1.1.1.1.1.3" xref="A6.T17.1.1.1.1.m1.1.1.1.1.3.cmml">3</mn></mrow><mo id="A6.T17.1.1.1.1.m1.2.2.2.3" xref="A6.T17.1.1.1.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.1.1.1.1.m1.2.2.2.2" xref="A6.T17.1.1.1.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.1.1.1.1.m1.2.2.2.2.2" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.1.1.1.1.m1.2.2.2.2.2.2" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.1.1.1.1.m1.2.2.2.2.2.1" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.1.1.1.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.1.1.1.1.m1.2.2.2.2.2.1a" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.1.1.1.1.m1.2.2.2.2.2.4" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.1.1.1.1.m1.2.2.2.2.1" xref="A6.T17.1.1.1.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.1.1.1.1.m1.2.2.2.2.3" xref="A6.T17.1.1.1.1.m1.2.2.2.2.3.cmml">3</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.1.1.1.1.m1.2b"><apply id="A6.T17.1.1.1.1.m1.2.2.3.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.1.1.1.1.m1.2.2.3a.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.1.1.1.1.m1.1.1.1.1.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1"><geq id="A6.T17.1.1.1.1.m1.1.1.1.1.1.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.1.1.1.1.m1.1.1.1.1.2.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2"><times id="A6.T17.1.1.1.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.1.1.1.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.1.1.1.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.1.1.1.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.1.1.1.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.1.1.1.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.1.1.1.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.1.1.1.1.m1.1.1.1.1.3">3</cn></apply><apply id="A6.T17.1.1.1.1.m1.2.2.2.2.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2"><geq id="A6.T17.1.1.1.1.m1.2.2.2.2.1.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.1.1.1.1.m1.2.2.2.2.2.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2"><times id="A6.T17.1.1.1.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.1.1.1.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.1.1.1.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.1.1.1.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.1.1.1.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.1.1.1.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.1.1.1.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.1.1.1.1.m1.2.2.2.2.3">3</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.1.1.1.1.m1.2c">S\_\text{edu}\geq 3,S\_\text{math}\geq 3</annotation><annotation encoding="application/x-llamapun" id="A6.T17.1.1.1.1.m1.2d">italic_S _ edu ≥ 3 , italic_S _ math ≥ 3</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A6.T17.1.1.1.2">4.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.1.1.1.3">4.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.1.1.1.4">28.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.1.1.1.5">40.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.1.1.1.6">19.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.1.1.1.7">19.4</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.2.2.2">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T17.2.2.2.1"><math alttext="S\_\text{edu}\geq 3,S\_\text{math}\geq 4" class="ltx_Math" display="inline" id="A6.T17.2.2.2.1.m1.2"><semantics id="A6.T17.2.2.2.1.m1.2a"><mrow id="A6.T17.2.2.2.1.m1.2.2.2" xref="A6.T17.2.2.2.1.m1.2.2.3.cmml"><mrow id="A6.T17.2.2.2.1.m1.1.1.1.1" xref="A6.T17.2.2.2.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.2.2.2.1.m1.1.1.1.1.2" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.2.2.2.1.m1.1.1.1.1.2.2" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.2.2.2.1.m1.1.1.1.1.2.1" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.2.2.2.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.2.2.2.1.m1.1.1.1.1.2.1a" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.2.2.2.1.m1.1.1.1.1.2.4" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.2.2.2.1.m1.1.1.1.1.1" xref="A6.T17.2.2.2.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.2.2.2.1.m1.1.1.1.1.3" xref="A6.T17.2.2.2.1.m1.1.1.1.1.3.cmml">3</mn></mrow><mo id="A6.T17.2.2.2.1.m1.2.2.2.3" xref="A6.T17.2.2.2.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.2.2.2.1.m1.2.2.2.2" xref="A6.T17.2.2.2.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.2.2.2.1.m1.2.2.2.2.2" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.2.2.2.1.m1.2.2.2.2.2.2" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.2.2.2.1.m1.2.2.2.2.2.1" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.2.2.2.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.2.2.2.1.m1.2.2.2.2.2.1a" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.2.2.2.1.m1.2.2.2.2.2.4" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.2.2.2.1.m1.2.2.2.2.1" xref="A6.T17.2.2.2.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.2.2.2.1.m1.2.2.2.2.3" xref="A6.T17.2.2.2.1.m1.2.2.2.2.3.cmml">4</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.2.2.2.1.m1.2b"><apply id="A6.T17.2.2.2.1.m1.2.2.3.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.2.2.2.1.m1.2.2.3a.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.2.2.2.1.m1.1.1.1.1.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1"><geq id="A6.T17.2.2.2.1.m1.1.1.1.1.1.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.2.2.2.1.m1.1.1.1.1.2.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2"><times id="A6.T17.2.2.2.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.2.2.2.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.2.2.2.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.2.2.2.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.2.2.2.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.2.2.2.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.2.2.2.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.2.2.2.1.m1.1.1.1.1.3">3</cn></apply><apply id="A6.T17.2.2.2.1.m1.2.2.2.2.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2"><geq id="A6.T17.2.2.2.1.m1.2.2.2.2.1.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.2.2.2.1.m1.2.2.2.2.2.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2"><times id="A6.T17.2.2.2.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.2.2.2.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.2.2.2.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.2.2.2.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.2.2.2.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.2.2.2.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.2.2.2.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.2.2.2.1.m1.2.2.2.2.3">4</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.2.2.2.1.m1.2c">S\_\text{edu}\geq 3,S\_\text{math}\geq 4</annotation><annotation encoding="application/x-llamapun" id="A6.T17.2.2.2.1.m1.2d">italic_S _ edu ≥ 3 , italic_S _ math ≥ 4</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A6.T17.2.2.2.2">4.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.2.2.2.3">4.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.2.2.2.4">29.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.2.2.2.5">41.1</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.2.2.2.6">19.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.2.2.2.7">19.8</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.3.3.3">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T17.3.3.3.1"><math alttext="S\_\text{edu}\geq 4,S\_\text{math}\geq 3" class="ltx_Math" display="inline" id="A6.T17.3.3.3.1.m1.2"><semantics id="A6.T17.3.3.3.1.m1.2a"><mrow id="A6.T17.3.3.3.1.m1.2.2.2" xref="A6.T17.3.3.3.1.m1.2.2.3.cmml"><mrow id="A6.T17.3.3.3.1.m1.1.1.1.1" xref="A6.T17.3.3.3.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.3.3.3.1.m1.1.1.1.1.2" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.3.3.3.1.m1.1.1.1.1.2.2" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.3.3.3.1.m1.1.1.1.1.2.1" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.3.3.3.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.3.3.3.1.m1.1.1.1.1.2.1a" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.3.3.3.1.m1.1.1.1.1.2.4" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.3.3.3.1.m1.1.1.1.1.1" xref="A6.T17.3.3.3.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.3.3.3.1.m1.1.1.1.1.3" xref="A6.T17.3.3.3.1.m1.1.1.1.1.3.cmml">4</mn></mrow><mo id="A6.T17.3.3.3.1.m1.2.2.2.3" xref="A6.T17.3.3.3.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.3.3.3.1.m1.2.2.2.2" xref="A6.T17.3.3.3.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.3.3.3.1.m1.2.2.2.2.2" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.3.3.3.1.m1.2.2.2.2.2.2" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.3.3.3.1.m1.2.2.2.2.2.1" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.3.3.3.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.3.3.3.1.m1.2.2.2.2.2.1a" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.3.3.3.1.m1.2.2.2.2.2.4" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.3.3.3.1.m1.2.2.2.2.1" xref="A6.T17.3.3.3.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.3.3.3.1.m1.2.2.2.2.3" xref="A6.T17.3.3.3.1.m1.2.2.2.2.3.cmml">3</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.3.3.3.1.m1.2b"><apply id="A6.T17.3.3.3.1.m1.2.2.3.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.3.3.3.1.m1.2.2.3a.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.3.3.3.1.m1.1.1.1.1.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1"><geq id="A6.T17.3.3.3.1.m1.1.1.1.1.1.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.3.3.3.1.m1.1.1.1.1.2.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2"><times id="A6.T17.3.3.3.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.3.3.3.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.3.3.3.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.3.3.3.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.3.3.3.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.3.3.3.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.3.3.3.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.3.3.3.1.m1.1.1.1.1.3">4</cn></apply><apply id="A6.T17.3.3.3.1.m1.2.2.2.2.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2"><geq id="A6.T17.3.3.3.1.m1.2.2.2.2.1.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.3.3.3.1.m1.2.2.2.2.2.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2"><times id="A6.T17.3.3.3.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.3.3.3.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.3.3.3.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.3.3.3.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.3.3.3.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.3.3.3.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.3.3.3.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.3.3.3.1.m1.2.2.2.2.3">3</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.3.3.3.1.m1.2c">S\_\text{edu}\geq 4,S\_\text{math}\geq 3</annotation><annotation encoding="application/x-llamapun" id="A6.T17.3.3.3.1.m1.2d">italic_S _ edu ≥ 4 , italic_S _ math ≥ 3</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A6.T17.3.3.3.2">4.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.3.3.3.3">4.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.3.3.3.4">29.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.3.3.3.5">39.9</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.3.3.3.6">19.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.3.3.3.7">19.7</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.4.4.4">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T17.4.4.4.1"><math alttext="S\_\text{edu}\geq 4,S\_\text{math}\geq 4" class="ltx_Math" display="inline" id="A6.T17.4.4.4.1.m1.2"><semantics id="A6.T17.4.4.4.1.m1.2a"><mrow id="A6.T17.4.4.4.1.m1.2.2.2" xref="A6.T17.4.4.4.1.m1.2.2.3.cmml"><mrow id="A6.T17.4.4.4.1.m1.1.1.1.1" xref="A6.T17.4.4.4.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.4.4.4.1.m1.1.1.1.1.2" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.4.4.4.1.m1.1.1.1.1.2.2" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.4.4.4.1.m1.1.1.1.1.2.1" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.4.4.4.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.4.4.4.1.m1.1.1.1.1.2.1a" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.4.4.4.1.m1.1.1.1.1.2.4" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.4.4.4.1.m1.1.1.1.1.1" xref="A6.T17.4.4.4.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.4.4.4.1.m1.1.1.1.1.3" xref="A6.T17.4.4.4.1.m1.1.1.1.1.3.cmml">4</mn></mrow><mo id="A6.T17.4.4.4.1.m1.2.2.2.3" xref="A6.T17.4.4.4.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.4.4.4.1.m1.2.2.2.2" xref="A6.T17.4.4.4.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.4.4.4.1.m1.2.2.2.2.2" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.4.4.4.1.m1.2.2.2.2.2.2" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.4.4.4.1.m1.2.2.2.2.2.1" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.4.4.4.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.4.4.4.1.m1.2.2.2.2.2.1a" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.4.4.4.1.m1.2.2.2.2.2.4" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.4.4.4.1.m1.2.2.2.2.1" xref="A6.T17.4.4.4.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.4.4.4.1.m1.2.2.2.2.3" xref="A6.T17.4.4.4.1.m1.2.2.2.2.3.cmml">4</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.4.4.4.1.m1.2b"><apply id="A6.T17.4.4.4.1.m1.2.2.3.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.4.4.4.1.m1.2.2.3a.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.4.4.4.1.m1.1.1.1.1.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1"><geq id="A6.T17.4.4.4.1.m1.1.1.1.1.1.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.4.4.4.1.m1.1.1.1.1.2.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2"><times id="A6.T17.4.4.4.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.4.4.4.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.4.4.4.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.4.4.4.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.4.4.4.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.4.4.4.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.4.4.4.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.4.4.4.1.m1.1.1.1.1.3">4</cn></apply><apply id="A6.T17.4.4.4.1.m1.2.2.2.2.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2"><geq id="A6.T17.4.4.4.1.m1.2.2.2.2.1.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.4.4.4.1.m1.2.2.2.2.2.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2"><times id="A6.T17.4.4.4.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.4.4.4.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.4.4.4.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.4.4.4.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.4.4.4.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.4.4.4.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.4.4.4.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.4.4.4.1.m1.2.2.2.2.3">4</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.4.4.4.1.m1.2c">S\_\text{edu}\geq 4,S\_\text{math}\geq 4</annotation><annotation encoding="application/x-llamapun" id="A6.T17.4.4.4.1.m1.2d">italic_S _ edu ≥ 4 , italic_S _ math ≥ 4</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A6.T17.4.4.4.2">4.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.4.4.4.3">4.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.4.4.4.4">29.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.4.4.4.5">38.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.4.4.4.6">17.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.4.4.4.7">18.8</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.8.8.12">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T17.8.8.12.1" rowspan="2"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.12.1.1">Filter Criteria</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" colspan="6" id="A6.T17.8.8.12.2"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.12.2.1">PAL</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.8.8.13">
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.13.1"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.13.1.1">GSM8K</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.13.2"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.13.2.1">MATH</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.13.3"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.13.3.1">ASDiV</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.13.4"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.13.4.1">MAWPS</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.13.5"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.13.5.1">SVAMP</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.13.6"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.13.6.1">Avg.</span></td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.8.8.14">
+<td class="ltx_td ltx_align_center ltx_border_r ltx_border_t" id="A6.T17.8.8.14.1"><span class="ltx_text ltx_font_bold" id="A6.T17.8.8.14.1.1">text only</span></td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.14.2">2.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.14.3">2.9</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.14.4">24.8</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.14.5">30.1</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.14.6">17.6</td>
+<td class="ltx_td ltx_align_center ltx_border_t" id="A6.T17.8.8.14.7">15.6</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.5.5.5">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T17.5.5.5.1"><math alttext="S\_\text{edu}\geq 3,S\_\text{math}\geq 3" class="ltx_Math" display="inline" id="A6.T17.5.5.5.1.m1.2"><semantics id="A6.T17.5.5.5.1.m1.2a"><mrow id="A6.T17.5.5.5.1.m1.2.2.2" xref="A6.T17.5.5.5.1.m1.2.2.3.cmml"><mrow id="A6.T17.5.5.5.1.m1.1.1.1.1" xref="A6.T17.5.5.5.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.5.5.5.1.m1.1.1.1.1.2" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.5.5.5.1.m1.1.1.1.1.2.2" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.5.5.5.1.m1.1.1.1.1.2.1" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.5.5.5.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.5.5.5.1.m1.1.1.1.1.2.1a" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.5.5.5.1.m1.1.1.1.1.2.4" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.5.5.5.1.m1.1.1.1.1.1" xref="A6.T17.5.5.5.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.5.5.5.1.m1.1.1.1.1.3" xref="A6.T17.5.5.5.1.m1.1.1.1.1.3.cmml">3</mn></mrow><mo id="A6.T17.5.5.5.1.m1.2.2.2.3" xref="A6.T17.5.5.5.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.5.5.5.1.m1.2.2.2.2" xref="A6.T17.5.5.5.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.5.5.5.1.m1.2.2.2.2.2" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.5.5.5.1.m1.2.2.2.2.2.2" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.5.5.5.1.m1.2.2.2.2.2.1" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.5.5.5.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.5.5.5.1.m1.2.2.2.2.2.1a" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.5.5.5.1.m1.2.2.2.2.2.4" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.5.5.5.1.m1.2.2.2.2.1" xref="A6.T17.5.5.5.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.5.5.5.1.m1.2.2.2.2.3" xref="A6.T17.5.5.5.1.m1.2.2.2.2.3.cmml">3</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.5.5.5.1.m1.2b"><apply id="A6.T17.5.5.5.1.m1.2.2.3.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.5.5.5.1.m1.2.2.3a.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.5.5.5.1.m1.1.1.1.1.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1"><geq id="A6.T17.5.5.5.1.m1.1.1.1.1.1.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.5.5.5.1.m1.1.1.1.1.2.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2"><times id="A6.T17.5.5.5.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.5.5.5.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.5.5.5.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.5.5.5.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.5.5.5.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.5.5.5.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.5.5.5.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.5.5.5.1.m1.1.1.1.1.3">3</cn></apply><apply id="A6.T17.5.5.5.1.m1.2.2.2.2.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2"><geq id="A6.T17.5.5.5.1.m1.2.2.2.2.1.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.5.5.5.1.m1.2.2.2.2.2.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2"><times id="A6.T17.5.5.5.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.5.5.5.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.5.5.5.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.5.5.5.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.5.5.5.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.5.5.5.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.5.5.5.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.5.5.5.1.m1.2.2.2.2.3">3</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.5.5.5.1.m1.2c">S\_\text{edu}\geq 3,S\_\text{math}\geq 3</annotation><annotation encoding="application/x-llamapun" id="A6.T17.5.5.5.1.m1.2d">italic_S _ edu ≥ 3 , italic_S _ math ≥ 3</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A6.T17.5.5.5.2">3.7</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.5.5.5.3">3.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.5.5.5.4">25.8</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.5.5.5.5">31.7</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.5.5.5.6">15.6</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.5.5.5.7">16.1</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.6.6.6">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T17.6.6.6.1"><math alttext="S\_\text{edu}\geq 3,S\_\text{math}\geq 4" class="ltx_Math" display="inline" id="A6.T17.6.6.6.1.m1.2"><semantics id="A6.T17.6.6.6.1.m1.2a"><mrow id="A6.T17.6.6.6.1.m1.2.2.2" xref="A6.T17.6.6.6.1.m1.2.2.3.cmml"><mrow id="A6.T17.6.6.6.1.m1.1.1.1.1" xref="A6.T17.6.6.6.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.6.6.6.1.m1.1.1.1.1.2" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.6.6.6.1.m1.1.1.1.1.2.2" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.6.6.6.1.m1.1.1.1.1.2.1" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.6.6.6.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.6.6.6.1.m1.1.1.1.1.2.1a" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.6.6.6.1.m1.1.1.1.1.2.4" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.6.6.6.1.m1.1.1.1.1.1" xref="A6.T17.6.6.6.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.6.6.6.1.m1.1.1.1.1.3" xref="A6.T17.6.6.6.1.m1.1.1.1.1.3.cmml">3</mn></mrow><mo id="A6.T17.6.6.6.1.m1.2.2.2.3" xref="A6.T17.6.6.6.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.6.6.6.1.m1.2.2.2.2" xref="A6.T17.6.6.6.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.6.6.6.1.m1.2.2.2.2.2" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.6.6.6.1.m1.2.2.2.2.2.2" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.6.6.6.1.m1.2.2.2.2.2.1" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.6.6.6.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.6.6.6.1.m1.2.2.2.2.2.1a" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.6.6.6.1.m1.2.2.2.2.2.4" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.6.6.6.1.m1.2.2.2.2.1" xref="A6.T17.6.6.6.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.6.6.6.1.m1.2.2.2.2.3" xref="A6.T17.6.6.6.1.m1.2.2.2.2.3.cmml">4</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.6.6.6.1.m1.2b"><apply id="A6.T17.6.6.6.1.m1.2.2.3.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.6.6.6.1.m1.2.2.3a.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.6.6.6.1.m1.1.1.1.1.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1"><geq id="A6.T17.6.6.6.1.m1.1.1.1.1.1.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.6.6.6.1.m1.1.1.1.1.2.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2"><times id="A6.T17.6.6.6.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.6.6.6.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.6.6.6.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.6.6.6.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.6.6.6.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.6.6.6.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.6.6.6.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.6.6.6.1.m1.1.1.1.1.3">3</cn></apply><apply id="A6.T17.6.6.6.1.m1.2.2.2.2.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2"><geq id="A6.T17.6.6.6.1.m1.2.2.2.2.1.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.6.6.6.1.m1.2.2.2.2.2.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2"><times id="A6.T17.6.6.6.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.6.6.6.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.6.6.6.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.6.6.6.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.6.6.6.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.6.6.6.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.6.6.6.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.6.6.6.1.m1.2.2.2.2.3">4</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.6.6.6.1.m1.2c">S\_\text{edu}\geq 3,S\_\text{math}\geq 4</annotation><annotation encoding="application/x-llamapun" id="A6.T17.6.6.6.1.m1.2d">italic_S _ edu ≥ 3 , italic_S _ math ≥ 4</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A6.T17.6.6.6.2">4.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.6.6.6.3">4.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.6.6.6.4">27.2</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.6.6.6.5">31.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.6.6.6.6">16.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.6.6.6.7">16.8</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.7.7.7">
+<td class="ltx_td ltx_align_center ltx_border_r" id="A6.T17.7.7.7.1"><math alttext="S\_\text{edu}\geq 4,S\_\text{math}\geq 3" class="ltx_Math" display="inline" id="A6.T17.7.7.7.1.m1.2"><semantics id="A6.T17.7.7.7.1.m1.2a"><mrow id="A6.T17.7.7.7.1.m1.2.2.2" xref="A6.T17.7.7.7.1.m1.2.2.3.cmml"><mrow id="A6.T17.7.7.7.1.m1.1.1.1.1" xref="A6.T17.7.7.7.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.7.7.7.1.m1.1.1.1.1.2" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.7.7.7.1.m1.1.1.1.1.2.2" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.7.7.7.1.m1.1.1.1.1.2.1" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.7.7.7.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.7.7.7.1.m1.1.1.1.1.2.1a" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.7.7.7.1.m1.1.1.1.1.2.4" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.7.7.7.1.m1.1.1.1.1.1" xref="A6.T17.7.7.7.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.7.7.7.1.m1.1.1.1.1.3" xref="A6.T17.7.7.7.1.m1.1.1.1.1.3.cmml">4</mn></mrow><mo id="A6.T17.7.7.7.1.m1.2.2.2.3" xref="A6.T17.7.7.7.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.7.7.7.1.m1.2.2.2.2" xref="A6.T17.7.7.7.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.7.7.7.1.m1.2.2.2.2.2" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.7.7.7.1.m1.2.2.2.2.2.2" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.7.7.7.1.m1.2.2.2.2.2.1" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.7.7.7.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.7.7.7.1.m1.2.2.2.2.2.1a" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.7.7.7.1.m1.2.2.2.2.2.4" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.7.7.7.1.m1.2.2.2.2.1" xref="A6.T17.7.7.7.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.7.7.7.1.m1.2.2.2.2.3" xref="A6.T17.7.7.7.1.m1.2.2.2.2.3.cmml">3</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.7.7.7.1.m1.2b"><apply id="A6.T17.7.7.7.1.m1.2.2.3.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.7.7.7.1.m1.2.2.3a.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.7.7.7.1.m1.1.1.1.1.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1"><geq id="A6.T17.7.7.7.1.m1.1.1.1.1.1.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.7.7.7.1.m1.1.1.1.1.2.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2"><times id="A6.T17.7.7.7.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.7.7.7.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.7.7.7.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.7.7.7.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.7.7.7.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.7.7.7.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.7.7.7.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.7.7.7.1.m1.1.1.1.1.3">4</cn></apply><apply id="A6.T17.7.7.7.1.m1.2.2.2.2.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2"><geq id="A6.T17.7.7.7.1.m1.2.2.2.2.1.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.7.7.7.1.m1.2.2.2.2.2.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2"><times id="A6.T17.7.7.7.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.7.7.7.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.7.7.7.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.7.7.7.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.7.7.7.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.7.7.7.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.7.7.7.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.7.7.7.1.m1.2.2.2.2.3">3</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.7.7.7.1.m1.2c">S\_\text{edu}\geq 4,S\_\text{math}\geq 3</annotation><annotation encoding="application/x-llamapun" id="A6.T17.7.7.7.1.m1.2d">italic_S _ edu ≥ 4 , italic_S _ math ≥ 3</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center" id="A6.T17.7.7.7.2">4.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.7.7.7.3">3.7</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.7.7.7.4">27.4</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.7.7.7.5">32.3</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.7.7.7.6">19.5</td>
+<td class="ltx_td ltx_align_center" id="A6.T17.7.7.7.7">17.5</td>
+</tr>
+<tr class="ltx_tr" id="A6.T17.8.8.8">
+<td class="ltx_td ltx_align_center ltx_border_bb ltx_border_r" id="A6.T17.8.8.8.1"><math alttext="S\_\text{edu}\geq 4,S\_\text{math}\geq 4" class="ltx_Math" display="inline" id="A6.T17.8.8.8.1.m1.2"><semantics id="A6.T17.8.8.8.1.m1.2a"><mrow id="A6.T17.8.8.8.1.m1.2.2.2" xref="A6.T17.8.8.8.1.m1.2.2.3.cmml"><mrow id="A6.T17.8.8.8.1.m1.1.1.1.1" xref="A6.T17.8.8.8.1.m1.1.1.1.1.cmml"><mrow id="A6.T17.8.8.8.1.m1.1.1.1.1.2" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.cmml"><mi id="A6.T17.8.8.8.1.m1.1.1.1.1.2.2" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.2.cmml">S</mi><mo id="A6.T17.8.8.8.1.m1.1.1.1.1.2.1" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mi id="A6.T17.8.8.8.1.m1.1.1.1.1.2.3" mathvariant="normal" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.3.cmml">_</mi><mo id="A6.T17.8.8.8.1.m1.1.1.1.1.2.1a" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.8.8.8.1.m1.1.1.1.1.2.4" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.4a.cmml">edu</mtext></mrow><mo id="A6.T17.8.8.8.1.m1.1.1.1.1.1" xref="A6.T17.8.8.8.1.m1.1.1.1.1.1.cmml">≥</mo><mn id="A6.T17.8.8.8.1.m1.1.1.1.1.3" xref="A6.T17.8.8.8.1.m1.1.1.1.1.3.cmml">4</mn></mrow><mo id="A6.T17.8.8.8.1.m1.2.2.2.3" xref="A6.T17.8.8.8.1.m1.2.2.3a.cmml">,</mo><mrow id="A6.T17.8.8.8.1.m1.2.2.2.2" xref="A6.T17.8.8.8.1.m1.2.2.2.2.cmml"><mrow id="A6.T17.8.8.8.1.m1.2.2.2.2.2" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.cmml"><mi id="A6.T17.8.8.8.1.m1.2.2.2.2.2.2" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.2.cmml">S</mi><mo id="A6.T17.8.8.8.1.m1.2.2.2.2.2.1" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mi id="A6.T17.8.8.8.1.m1.2.2.2.2.2.3" mathvariant="normal" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.3.cmml">_</mi><mo id="A6.T17.8.8.8.1.m1.2.2.2.2.2.1a" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.1.cmml">⁢</mo><mtext class="ltx_mathvariant_bold" id="A6.T17.8.8.8.1.m1.2.2.2.2.2.4" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.4a.cmml">math</mtext></mrow><mo id="A6.T17.8.8.8.1.m1.2.2.2.2.1" xref="A6.T17.8.8.8.1.m1.2.2.2.2.1.cmml">≥</mo><mn id="A6.T17.8.8.8.1.m1.2.2.2.2.3" xref="A6.T17.8.8.8.1.m1.2.2.2.2.3.cmml">4</mn></mrow></mrow><annotation-xml encoding="MathML-Content" id="A6.T17.8.8.8.1.m1.2b"><apply id="A6.T17.8.8.8.1.m1.2.2.3.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2"><csymbol cd="ambiguous" id="A6.T17.8.8.8.1.m1.2.2.3a.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.3">formulae-sequence</csymbol><apply id="A6.T17.8.8.8.1.m1.1.1.1.1.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1"><geq id="A6.T17.8.8.8.1.m1.1.1.1.1.1.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1.1"></geq><apply id="A6.T17.8.8.8.1.m1.1.1.1.1.2.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2"><times id="A6.T17.8.8.8.1.m1.1.1.1.1.2.1.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.1"></times><ci id="A6.T17.8.8.8.1.m1.1.1.1.1.2.2.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.2">𝑆</ci><ci id="A6.T17.8.8.8.1.m1.1.1.1.1.2.3.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.3">_</ci><ci id="A6.T17.8.8.8.1.m1.1.1.1.1.2.4a.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.8.8.8.1.m1.1.1.1.1.2.4.cmml" xref="A6.T17.8.8.8.1.m1.1.1.1.1.2.4">edu</mtext></ci></apply><cn id="A6.T17.8.8.8.1.m1.1.1.1.1.3.cmml" type="integer" xref="A6.T17.8.8.8.1.m1.1.1.1.1.3">4</cn></apply><apply id="A6.T17.8.8.8.1.m1.2.2.2.2.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2"><geq id="A6.T17.8.8.8.1.m1.2.2.2.2.1.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2.1"></geq><apply id="A6.T17.8.8.8.1.m1.2.2.2.2.2.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2"><times id="A6.T17.8.8.8.1.m1.2.2.2.2.2.1.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.1"></times><ci id="A6.T17.8.8.8.1.m1.2.2.2.2.2.2.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.2">𝑆</ci><ci id="A6.T17.8.8.8.1.m1.2.2.2.2.2.3.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.3">_</ci><ci id="A6.T17.8.8.8.1.m1.2.2.2.2.2.4a.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.4"><mtext class="ltx_mathvariant_bold" id="A6.T17.8.8.8.1.m1.2.2.2.2.2.4.cmml" xref="A6.T17.8.8.8.1.m1.2.2.2.2.2.4">math</mtext></ci></apply><cn id="A6.T17.8.8.8.1.m1.2.2.2.2.3.cmml" type="integer" xref="A6.T17.8.8.8.1.m1.2.2.2.2.3">4</cn></apply></apply></annotation-xml><annotation encoding="application/x-tex" id="A6.T17.8.8.8.1.m1.2c">S\_\text{edu}\geq 4,S\_\text{math}\geq 4</annotation><annotation encoding="application/x-llamapun" id="A6.T17.8.8.8.1.m1.2d">italic_S _ edu ≥ 4 , italic_S _ math ≥ 4</annotation></semantics></math></td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T17.8.8.8.2">5.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T17.8.8.8.3">5.5</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T17.8.8.8.4">29.7</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T17.8.8.8.5">36.4</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T17.8.8.8.6">20.2</td>
+<td class="ltx_td ltx_align_center ltx_border_bb" id="A6.T17.8.8.8.7">19.5</td>
+</tr>
+</table>{{< /table-caption >}}
+> 🔼 This table presents a comprehensive evaluation of the performance achieved by training the Llama-3 series of large language models (LLMs) on the MegaMath dataset.  It breaks down the results across multiple key mathematical reasoning benchmarks, showing both the CoT (Chain-of-Thought) and PAL (Program-Aided Language) performance metrics.  The table allows for comparison between the baseline Llama-3 models and those fine-tuned with MegaMath, highlighting the improvements in accuracy across various datasets and tasks.
+> <details>
+> <summary>read the caption</summary>
+> Table 22: Full results of training MegaMath on Llama-3 series of models.
+> </details>
+
+</details>
+
+
+
+
+### Full paper
+
+{{< gallery >}}
+<img src="https://ai-paper-reviewer.com/2504.02807/1.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/2.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/3.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/4.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/5.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/6.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/7.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/8.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/9.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/10.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/11.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/12.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/13.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/14.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/15.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/16.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/17.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/18.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/19.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+<img src="https://ai-paper-reviewer.com/2504.02807/20.png" class="grid-w50 md:grid-w33 xl:grid-w25" />
+{{< /gallery >}}

@@ -1,1 +1,0 @@
-BEATS: Bias Evaluation and Assessment Test Suite for Large Language Models
