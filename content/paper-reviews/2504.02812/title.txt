@@ -1,0 +1,1 @@
+BOP Challenge 2024 on Model-Based and Model-Free 6D Object Pose Estimation
