@@ -1,1 +1,0 @@
-OmniSVG: A Unified Scalable Vector Graphics Generation Model
