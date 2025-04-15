@@ -1,0 +1,1 @@
+Breaking the Data Barrier -- Building GUI Agents Through Task Generalization

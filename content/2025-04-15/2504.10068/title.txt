@@ -1,0 +1,1 @@
+Mavors: Multi-granularity Video Representation for Multimodal Large Language Model

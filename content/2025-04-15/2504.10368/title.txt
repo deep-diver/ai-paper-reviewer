@@ -1,0 +1,1 @@
+S1-Bench: A Simple Benchmark for Evaluating System 1 Thinking Capability of Large Reasoning Models
