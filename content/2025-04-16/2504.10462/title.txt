@@ -1,0 +1,1 @@
+The Scalability of Simplicity: Empirical Analysis of Vision-Language Learning with a Single Transformer
