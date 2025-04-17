@@ -1,1 +1,0 @@
-MineWorld: a Real-Time and Open-Source Interactive World Model on Minecraft

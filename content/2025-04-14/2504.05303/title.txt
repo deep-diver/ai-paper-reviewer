@@ -1,1 +1,0 @@
-InteractVLM: 3D Interaction Reasoning from 2D Foundational Models

@@ -1,1 +1,0 @@
-GigaTok: Scaling Visual Tokenizers to 3 Billion Parameters for Autoregressive Image Generation

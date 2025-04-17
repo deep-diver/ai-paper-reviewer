@@ -1,1 +1,0 @@
-Seaweed-7B: Cost-Effective Training of Video Generation Foundation Model
