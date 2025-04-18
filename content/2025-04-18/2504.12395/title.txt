@@ -1,0 +1,1 @@
+InstantCharacter: Personalize Any Characters with a Scalable Diffusion Transformer Framework

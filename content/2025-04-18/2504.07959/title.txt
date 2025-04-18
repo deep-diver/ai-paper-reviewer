@@ -1,0 +1,1 @@
+CCMNet: Leveraging Calibrated Color Correction Matrices for Cross-Camera Color Constancy

@@ -1,0 +1,1 @@
+ChartQAPro: A More Diverse and Challenging Benchmark for Chart Question Answering

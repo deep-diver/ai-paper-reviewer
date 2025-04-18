@@ -1,0 +1,1 @@
+VistaDPO: Video Hierarchical Spatial-Temporal Direct Preference Optimization for Large Video Models
