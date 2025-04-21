@@ -1,0 +1,1 @@
+MIG: Automatic Data Selection for Instruction Tuning by Maximizing Information Gain in Semantic Space

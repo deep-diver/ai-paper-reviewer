@@ -1,1 +1,0 @@
-AI-University: An LLM-based platform for instructional alignment to scientific classrooms

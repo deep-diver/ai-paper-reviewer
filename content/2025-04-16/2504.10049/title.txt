@@ -1,1 +1,0 @@
-Summarization of Multimodal Presentations with Vision-Language Models: Study of the Effect of Modalities and Structure

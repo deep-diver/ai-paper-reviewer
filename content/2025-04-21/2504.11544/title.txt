@@ -1,0 +1,1 @@
+NodeRAG: Structuring Graph-based RAG with Heterogeneous Nodes

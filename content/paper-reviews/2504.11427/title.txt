@@ -1,0 +1,1 @@
+NormalCrafter: Learning Temporally Consistent Normals from Video Diffusion Priors

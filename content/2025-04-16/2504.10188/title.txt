@@ -1,1 +1,0 @@
-Efficient Generative Model Training via Embedded Representation Warmup
