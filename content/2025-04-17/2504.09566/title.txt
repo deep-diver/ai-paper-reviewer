@@ -1,1 +1,0 @@
-Syzygy of Thoughts: Improving LLM CoT with the Minimal Free Resolution
