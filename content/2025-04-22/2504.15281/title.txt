@@ -1,1 +1,0 @@
-StyleMe3D: Stylization with Disentangled Priors by Multiple Encoders on 3D Gaussians

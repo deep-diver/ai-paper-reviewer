@@ -1,0 +1,1 @@
+Boosting Generative Image Modeling via Joint Image-Feature Synthesis

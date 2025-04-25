@@ -1,0 +1,1 @@
+ViSMaP: Unsupervised Hour-long Video Summarisation by Meta-Prompting

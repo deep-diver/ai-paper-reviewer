@@ -1,0 +1,1 @@
+RefVNLI: Towards Scalable Evaluation of Subject-driven Text-to-image Generation

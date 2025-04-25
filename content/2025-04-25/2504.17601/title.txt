@@ -1,0 +1,1 @@
+Interpretable non-linear dimensionality reduction using gaussian weighted linear transformation

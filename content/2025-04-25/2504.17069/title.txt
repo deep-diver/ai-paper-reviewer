@@ -1,0 +1,1 @@
+Distilling semantically aware orders for autoregressive image generation
